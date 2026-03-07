@@ -1,176 +1,831 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>我的个人作品集</title>
+     <title>观赏鱼 - 前端开发工程师作品集</title>
      <style>
-          /* 页面基础样式 */
-          body {
-               font-family: 'Arial', sans-serif;
+          * {
                margin: 0;
                padding: 0;
-               background-color: #f4f4f4;
-               color: #333;
+               box-sizing: border-box;
+          }
+
+          body {
+               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                line-height: 1.6;
-          }
-
-          header {
-               background-color: #2c3e50;
-               color: white;
-               text-align: center;
-               padding: 3rem 1rem;
-          }
-
-          header h1 {
-               margin: 0;
-               font-size: 2.5rem;
-          }
-
-          header p {
-               font-size: 1.2rem;
-               color: #bdc3c7;
+               color: #333;
+               background-color: #f8fafc;
           }
 
           .container {
-               max-width: 1100px;
-               margin: 2rem auto;
-               padding: 0 2rem;
+               max-width: 1400px;
+               margin: 0 auto;
+               padding: 0;
+               display: flex;
+               flex-direction: column;
+               min-height: 100vh;
+          }
+
+          header {
+               text-align: center;
+               padding: 40px 20px;
+               background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+               color: white;
+               margin-bottom: 0;
+               border-radius: 0;
+               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+               transition: all 0.3s ease;
+          }
+
+          header:hover {
+               box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+          }
+
+          h1 {
+               font-size: 2.5rem;
+               margin-bottom: 5px;
+               transition: all 0.3s ease;
+          }
+
+          .subtitle {
+               font-size: 1rem;
+               opacity: 0.9;
+               transition: all 0.3s ease;
+               margin-bottom: 10px;
+          }
+
+          .header-info {
+               font-size: 0.85rem;
+               opacity: 0.8;
+               max-width: 800px;
+               margin: 0 auto;
+               line-height: 1.4;
+          }
+
+          .main-content {
+               display: flex;
+               flex: 1;
+               padding: 0;
+          }
+
+          .sidebar {
+               width: 280px;
+               background: white;
+               padding: 20px;
+               box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+               position: sticky;
+               top: 0;
+               height: fit-content;
+               max-height: 100vh;
+               overflow-y: auto;
+          }
+
+          .main-area {
+               flex: 1;
+               padding: 20px;
+               margin-left: 20px;
+               max-width: calc(100% - 300px);
           }
 
           section {
-               margin-bottom: 3rem;
+               background: white;
+               margin-bottom: 30px;
+               border-radius: 10px;
+               box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+               overflow: hidden;
+               transition: all 0.3s ease;
           }
 
-          h2 {
-               color: #2c3e50;
-               border-bottom: 3px solid #3498db;
-               padding-bottom: 0.5rem;
-               display: inline-block;
+          section:hover {
+               box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
           }
 
-          .skills-list {
+          .section-title {
+               background: #2d3748;
+               color: white;
+               padding: 15px 20px;
+               font-size: 1.4rem;
+               display: flex;
+               align-items: center;
+               transition: all 0.3s ease;
+          }
+
+          .section-title::before {
+               content: attr(data-icon);
+               margin-right: 10px;
+               font-size: 1.2rem;
+          }
+
+          .content {
+               padding: 25px;
+          }
+
+          .intro-text {
+               font-size: 1rem;
+               line-height: 1.7;
+          }
+
+          .highlight {
+               background-color: #e6fffa;
+               padding: 2px 6px;
+               border-radius: 4px;
+               font-weight: 500;
+          }
+
+          .skill-section {
+               background-color: #f7fafc;
+               padding: 15px;
+               border-radius: 8px;
+               margin: 15px 0;
+               transition: all 0.3s ease;
+          }
+
+          .skill-section:hover {
+               background-color: #edf2f7;
+          }
+
+          .skill-section h3 {
+               color: #2d3748;
+               margin-bottom: 10px;
+               font-size: 1.1rem;
+          }
+
+          .skill-section ul {
+               list-style-type: disc;
+               padding-left: 20px;
+          }
+
+          .skill-section li {
+               margin-bottom: 6px;
+               font-size: 0.95rem;
+               transition: all 0.2s ease;
+          }
+
+          .skill-section li:hover {
+               color: #4299e1;
+               transform: translateX(5px);
+          }
+
+          /* 技术栈筛选区域 */
+          .tech-filter {
+               background-color: #f7fafc;
+               padding: 15px;
+               border-radius: 8px;
+               margin-bottom: 20px;
+               transition: all 0.3s ease;
+          }
+
+          .tech-filter:hover {
+               background-color: #edf2f7;
+          }
+
+          .tech-filter h3 {
+               color: #2d3748;
+               margin-bottom: 12px;
+               font-size: 1.1rem;
+          }
+
+          .tech-tags-container {
                display: flex;
                flex-wrap: wrap;
-               gap: 1rem;
-               margin-top: 1rem;
+               gap: 8px;
+               margin-bottom: 15px;
           }
 
-          .skill-item {
-               background-color: #3498db;
+          .tech-filter-tag {
+               background-color: #e2e8f0;
+               color: #2d3748;
+               padding: 6px 12px;
+               border-radius: 20px;
+               font-size: 0.8rem;
+               font-weight: 500;
+               cursor: pointer;
+               transition: all 0.3s ease;
+               border: 2px solid transparent;
+          }
+
+          .tech-filter-tag:hover {
+               background-color: #cbd5e0;
+               transform: translateY(-2px);
+          }
+
+          .tech-filter-tag.active {
+               background-color: #4299e1;
                color: white;
-               padding: 0.5rem 1.5rem;
-               border-radius: 25px;
-               font-weight: bold;
-               font-size: 0.9rem;
+               border-color: #3182ce;
           }
 
-          /* 项目卡片网格布局 */
-          .projects-grid {
+          .filter-actions {
+               display: flex;
+               gap: 8px;
+               margin-top: 10px;
+          }
+
+          .filter-btn {
+               padding: 6px 12px;
+               background: #4299e1;
+               color: white;
+               border: none;
+               border-radius: 5px;
+               font-size: 0.8rem;
+               cursor: pointer;
+               transition: background 0.3s;
+               flex: 1;
+          }
+
+          .filter-btn:hover {
+               background: #3182ce;
+          }
+
+          .filter-btn.reset {
+               background: #718096;
+          }
+
+          .filter-btn.reset:hover {
+               background: #4a5568;
+          }
+
+          .project-grid {
                display: grid;
-               grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-               gap: 1.5rem;
-               margin-top: 1rem;
+               grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+               gap: 20px;
           }
 
           .project-card {
-               background: white;
+               border: 1px solid #e2e8f0;
                border-radius: 8px;
-               padding: 1.5rem;
-               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-               transition: transform 0.3s ease;
+               overflow: hidden;
+               transition: all 0.3s ease;
+               display: flex;
+               flex-direction: column;
+               height: 100%;
+               opacity: 1;
+               transform: scale(1);
           }
 
           .project-card:hover {
-               transform: translateY(-5px);
-               box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+               transform: translateY(-8px);
+               box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
           }
 
-          .project-card h3 {
-               margin-top: 0;
-               color: #2c3e50;
+          .project-card.filtered-out {
+               opacity: 0.3;
+               transform: scale(0.95);
           }
 
-          .project-card p {
-               color: #666;
+          .project-card.filtered-in {
+               border: 2px solid #4299e1;
+               box-shadow: 0 0 15px rgba(66, 153, 225, 0.3);
+          }
+
+          .card-header {
+               background: #4a5568;
+               color: white;
+               padding: 12px 16px;
+               font-weight: bold;
+               font-size: 1rem;
+               transition: all 0.3s ease;
+          }
+
+          .card-body {
+               padding: 16px;
+               flex-grow: 1;
+               display: flex;
+               flex-direction: column;
+          }
+
+          .card-body p {
+               margin-bottom: 12px;
+               color: #4a5568;
+               flex-grow: 1;
                font-size: 0.95rem;
           }
 
-          .project-link {
-               display: inline-block;
-               margin-top: 1rem;
-               padding: 0.5rem 1rem;
-               background-color: #3498db;
+          .tech-stack {
+               display: flex;
+               flex-wrap: wrap;
+               gap: 6px;
+               margin-top: 8px;
+          }
+
+          .tech-tag {
+               background-color: #e2e8f0;
+               color: #2d3748;
+               padding: 4px 8px;
+               border-radius: 4px;
+               font-size: 0.75rem;
+               font-weight: 500;
+               transition: all 0.2s ease;
+          }
+
+          .tech-tag:hover {
+               background-color: #cbd5e0;
+               transform: translateY(-1px);
+          }
+
+          .btn-group {
+               display: flex;
+               gap: 8px;
+               margin-top: 12px;
+          }
+
+          .btn {
+               display: inline-flex;
+               align-items: center;
+               padding: 6px 12px;
+               background: #4299e1;
                color: white;
                text-decoration: none;
                border-radius: 5px;
-               font-size: 0.9rem;
+               font-size: 0.85rem;
+               transition: all 0.3s;
+               position: relative;
+               overflow: hidden;
           }
 
-          .project-link:hover {
-               background-color: #2980b9;
+          .btn::before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: -100%;
+               width: 100%;
+               height: 100%;
+               background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+               transition: left 0.5s;
+          }
+
+          .btn:hover::before {
+               left: 100%;
+          }
+
+          .btn:hover {
+               background: #3182ce;
+               transform: translateY(-2px);
+               box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+          }
+
+          .btn-secondary {
+               background: #e53e3e;
+          }
+
+          .btn-secondary:hover {
+               background: #c53030;
+               box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+          }
+
+          .portfolio-list {
+               list-style-type: none;
+          }
+
+          .portfolio-item {
+               padding: 12px 0;
+               border-bottom: 1px solid #e2e8f0;
+               transition: all 0.3s ease;
+               opacity: 1;
+               transform: scale(1);
+          }
+
+          .portfolio-item:hover {
+               background-color: #f7fafc;
+               padding-left: 10px;
+          }
+
+          .portfolio-item.filtered-out {
+               opacity: 0.3;
+               transform: scale(0.95);
+          }
+
+          .portfolio-item.filtered-in {
+               border-left: 4px solid #4299e1;
+               background-color: #ebf8ff;
+          }
+
+          .portfolio-item:last-child {
+               border-bottom: none;
+          }
+
+          .portfolio-item strong {
+               color: #2d3748;
+               font-size: 1rem;
+          }
+
+          .portfolio-item p {
+               color: #718096;
+               font-size: 0.9rem;
+               margin-top: 4px;
           }
 
           footer {
                text-align: center;
-               padding: 2rem;
-               background-color: #2c3e50;
+               padding: 25px;
+               background: #2d3748;
                color: white;
-               margin-top: 2rem;
+               margin-top: 30px;
+               border-radius: 0;
+               transition: all 0.3s ease;
+          }
+
+          footer:hover {
+               box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+          }
+
+          .contact-info {
+               margin-top: 8px;
+               font-size: 0.85rem;
+          }
+
+          /* 响应式设计 */
+          @media (max-width: 1024px) {
+               .main-content {
+                    flex-direction: column;
+               }
+
+               .sidebar {
+                    width: 100%;
+                    position: static;
+                    max-height: none;
+                    margin-bottom: 20px;
+               }
+
+               .main-area {
+                    max-width: 100%;
+                    margin-left: 0;
+               }
+          }
+
+          @media (max-width: 768px) {
+               .container {
+                    padding: 0;
+               }
+
+               header {
+                    padding: 30px 15px;
+               }
+
+               h1 {
+                    font-size: 2rem;
+               }
+
+               .section-title {
+                    font-size: 1.2rem;
+                    padding: 12px 16px;
+               }
+
+               .content {
+                    padding: 16px;
+               }
+
+               .project-grid {
+                    grid-template-columns: 1fr;
+               }
+
+               .tech-tags-container {
+                    justify-content: center;
+               }
           }
      </style>
 </head>
 
 <body>
+
      <header>
-          <h1>你好，我是 [你的名字]</h1>
-          <p>全栈开发者 | 开源爱好者 | 技术极客</p>
+          <h1>观赏鱼</h1>
+          <div class="subtitle">前端开发工程师 | 专注 React/Vue 生态与工程化</div>
+          <div class="header-info">
+               华中科技大学 2024级推荐免试硕士生 | 西南大学通信工程专业（前5%） | 国家励志奖学金 | 全国大学生数学竞赛一等奖 | CET6
+          </div>
      </header>
 
      <div class="container">
-          <section>
-               <h2>🛠️ 我的技能</h2>
-               <div class="skills-list">
-                    <span class="skill-item">JavaScript</span>
-                    <span class="skill-item">Python</span>
-                    <span class="skill-item">React</span>
-                    <span class="skill-item">Node.js</span>
-                    <span class="skill-item">HTML5 & CSS3</span>
-                    <span class="skill-item">Git</span>
-                    <!-- 在这里添加或修改你的技能标签 -->
-               </div>
-          </section>
 
-          <section>
-               <h2>📁 我的项目</h2>
-               <div class="projects-grid">
-                    <!-- 项目卡片 1 -->
-                    <div class="project-card">
-                         <h3>项目A：一个超酷的待办应用</h3>
-                         <p>使用React和LocalStorage实现的轻量级待办事项管理工具，具有拖拽排序和主题切换功能。</p>
-                         <a href="https://github.com/[你的用户名]/[项目仓库名]" target="_blank" class="project-link">查看项目 →</a>
+          <div class="main-content">
+               <!-- 左侧边栏 -->
+               <div class="sidebar">
+                    <!-- 技术栈筛选 -->
+                    <div class="tech-filter">
+                         <h3>技术栈筛选</h3>
+                         <p style="font-size: 0.8rem; color: #718096; margin-bottom: 10px;">选择技术栈，相关项目和作品集会自动高亮</p>
+                         <div class="tech-tags-container">
+                              <span class="tech-filter-tag" data-tech="React">React</span>
+                              <span class="tech-filter-tag" data-tech="TypeScript">TypeScript</span>
+                              <span class="tech-filter-tag" data-tech="Umi">Umi</span>
+                              <span class="tech-filter-tag" data-tech="Dva">Dva</span>
+                              <span class="tech-filter-tag" data-tech="Ant Design">Ant Design</span>
+                              <span class="tech-filter-tag" data-tech="ECharts">ECharts</span>
+                              <span class="tech-filter-tag" data-tech="AngularJS">AngularJS</span>
+                              <span class="tech-filter-tag" data-tech="jQuery">jQuery</span>
+                              <span class="tech-filter-tag" data-tech="Bootstrap">Bootstrap</span>
+                              <span class="tech-filter-tag" data-tech="Vue">Vue</span>
+                              <span class="tech-filter-tag" data-tech="Element UI">Element UI</span>
+                              <span class="tech-filter-tag" data-tech="Java">Java</span>
+                              <span class="tech-filter-tag" data-tech="Spring Boot">Spring Boot</span>
+                              <span class="tech-filter-tag" data-tech="MySQL">MySQL</span>
+                         </div>
+                         <div class="filter-actions">
+                              <button class="filter-btn reset" id="reset-filter">重置</button>
+                              <button class="filter-btn" id="apply-filter">应用</button>
+                         </div>
                     </div>
-                    <!-- 项目卡片 2 -->
-                    <div class="project-card">
-                         <h3>项目B：天气查询小程序</h3>
-                         <p>基于Vue.js和OpenWeatherMap API开发的实时天气查询应用，支持城市搜索和未来5天预报。</p>
-                         <a href="https://github.com/[你的用户名]/[项目仓库名]" target="_blank" class="project-link">查看项目 →</a>
+
+                    <!-- 核心能力 -->
+                    <div class="skill-section">
+                         <h3>核心能力</h3>
+                         <ul>
+                              <li>业务落地能力</li>
+                              <li>技术深度</li>
+                              <li>工程思维</li>
+                              <li>沟通与协作</li>
+                         </ul>
                     </div>
-                    <!-- 项目卡片 3 -->
-                    <div class="project-card">
-                         <h3>项目C：个人博客系统</h3>
-                         <p>一个基于Flask和SQLite的极简博客系统，支持Markdown文章发布和评论功能，部署在PythonAnywhere。</p>
-                         <a href="https://github.com/[你的用户名]/[项目仓库名]" target="_blank" class="project-link">查看项目 →</a>
+
+                    <!-- 技术产出 -->
+                    <div class="skill-section">
+                         <h3>技术产出</h3>
+                         <ul>
+                              <li>性能优化</li>
+                              <li>效率工具</li>
+                              <li>架构演进</li>
+                         </ul>
                     </div>
-                    <!-- 你可以根据需要，继续添加更多项目卡片，只需复制上面的<div class="project-card">...</div>结构即可 -->
                </div>
-          </section>
+
+               <!-- 主内容区域 -->
+               <div class="main-area">
+                    <!-- 个人简介 -->
+                    <section id="about">
+                         <h2 class="section-title" data-icon="👤">个人简介</h2>
+                         <div class="content">
+                              <div class="intro-text">
+                                   <p>您好，我是观赏鱼，一名来自华中科技大学（2024级推荐免试硕士生）的前端开发工程师。本科毕业于西南大学通信工程专业（前5%），曾获国家励志奖学金、全国大学生数学竞赛一等奖等多项荣誉。
+                                   </p>
+                                   <br>
+                                   <p>我精通 <span class="highlight">H5/C3/ES6+/TS</span>，熟练掌握 <span
+                                             class="highlight">React</span>
+                                        (Hooks, Next.js) 和 <span class="highlight">Vue</span> (Vue3, Nuxt.js)
+                                        生态，并具备扎实的工程化实践能力，包括
+                                        <span class="highlight">Webpack/Vite构建优化</span>、<span
+                                             class="highlight">微前端架构</span>、<span class="highlight">前端性能优化</span>
+                                        等。我的编码风格规范，注重团队协作与项目交付质量。
+                                   </p>
+                                   <br>
+                                   <p>目前，我正在华中科技大学的实验室担任核心前端开发，负责国家级项目的前端架构建设，并主导技术选型与工程化落地。同时，我也作为项目负责人，开发了用户规模超20万的教育培训管理平台等项目。
+                                   </p>
+                              </div>
+                         </div>
+                    </section>
+
+                    <!-- 项目集 -->
+                    <section id="projects">
+                         <h2 class="section-title" data-icon="🏗️">项目集</h2>
+                         <div class="content">
+                              <div class="project-grid">
+                                   <div class="project-card" data-tech="React,TypeScript,Umi,Ant Design,UniApp">
+                                        <div class="card-header">教育培训管理服务平台 (ETMS)</div>
+                                        <div class="card-body">
+                                             <p>北京师范大学教培中心的大型教培平台，用户规模20万+，日活量1万+。负责核心功能开发与前端架构设计，保障系统高可用性。</p>
+                                             <div class="tech-stack">
+                                                  <span class="tech-tag">React</span>
+                                                  <span class="tech-tag">UmiJS</span>
+                                                  <span class="tech-tag">TypeScript</span>
+                                                  <span class="tech-tag">Ant Design</span>
+                                                  <span class="tech-tag">UniApp</span>
+                                             </div>
+                                             <div class="btn-group">
+                                                  <a href="https://jp.liyunol.com" class="btn" target="_blank">访问项目</a>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="project-card"
+                                        data-tech="React,TypeScript,Umi,Dva,Ant Design,ECharts,BizCharts,Highcharts">
+                                        <div class="card-header">中国高校社会科学管理数据库 (SMDB)</div>
+                                        <div class="card-body">
+                                             <p>教育部国家级社科数据管理平台，负责项目、机构、人员、成果全生命周期管理及数据分析可视化，保障国家级系统稳定运行。</p>
+                                             <div class="tech-stack">
+                                                  <span class="tech-tag">React</span>
+                                                  <span class="tech-tag">TypeScript</span>
+                                                  <span class="tech-tag">Umi</span>
+                                                  <span class="tech-tag">Dva</span>
+                                                  <span class="tech-tag">Ant Design</span>
+                                                  <span class="tech-tag">ECharts</span>
+                                                  <span class="tech-tag">BizCharts</span>
+                                                  <span class="tech-tag">Highcharts</span>
+                                                  <span class="tech-tag">国际化</span>
+                                             </div>
+                                             <div class="btn-group">
+                                                  <a href="https://smdb.csdc.info" class="btn" target="_blank">访问项目</a>
+                                             </div>
+                                        </div>
+                                   </div>
+
+
+                                   <div class="project-card" data-tech="AngularJS,React,jQuery">
+                                        <div class="card-header">中国高校社会科学研究数据库 (SRDB)</div>
+                                        <div class="card-body">
+                                             <p>面向中国高校社会科学研究的数据库管理系统，提供问卷编辑、发放和统计分析等功能。成功上线后系统运行稳定，日均支持500+用户进行问卷填写和数据分析，累计完成3000+份专业量表测评。
+                                             </p>
+                                             <div class="tech-stack">
+                                                  <span class="tech-tag">AngularJS</span>
+                                                  <span class="tech-tag">React</span>
+                                                  <span class="tech-tag">jQuery</span>
+                                                  <span class="tech-tag">UI Router</span>
+                                                  <span class="tech-tag">Thymeleaf</span>
+                                                  <span class="tech-tag">D3.js</span>
+                                                  <span class="tech-tag">FontAwesome</span>
+                                                  <span class="tech-tag">Video.js</span>
+                                             </div>
+                                             <div class="btn-group">
+                                                  <a href="https://srdb.csdc.info" class="btn" target="_blank">访问项目</a>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="project-card" data-tech="Java,jQuery,Bootstrap,MySQL">
+                                        <div class="card-header">湖北省社会科学项目申报系统(HSAS)</div>
+                                        <div class="card-body">
+                                             <p>该项目负责进行湖北省社科课题、项目和奖励的申报、评审、统计分析等工作。这是一个典型的Java
+                                                  Web项目，采用了传统的SSH架构，主要用于评奖系统的管理和操作。前端采用了传统的JSP + jQuery +
+                                                  Bootstrap的组合，后端则使用了Spring生态系统进行业务逻辑处理和安全控制，Hibernate负责数据持久化，MySQL作为底层数据库。
+                                             </p>
+                                             <div class="tech-stack">
+                                                  <span class="tech-tag">SSH</span>
+                                                  <span class="tech-tag">JSP</span>
+                                                  <span class="tech-tag">jQuery</span>
+                                                  <span class="tech-tag">Bootstrap</span>
+                                             </div>
+                                             <div class="btn-group">
+                                                  <a href="https://hsas.csdc.info" class="btn" target="_blank">访问项目</a>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="project-card" data-tech="Vue,Element UI,UniApp">
+                                        <div class="card-header">智慧工地安全管理系统(BigFire)</div>
+                                        <div class="card-body">
+                                             <p>该项目设计并实现基于IoT、AI视频分析的智慧工地系统。核心模块包括人员安全、设备监控（塔吊、升降机）、环境监测、视频AI分析等，旨在提升工地安全管理效率。
+                                             </p>
+                                             <div class="tech-stack">
+                                                  <span class="tech-tag">Vue</span>
+                                                  <span class="tech-tag">Element UI</span>
+                                                  <span class="tech-tag">UniApp</span>
+                                             </div>
+                                             <div class="btn-group">
+                                                  <a href="https://www.bigfire.hk" class="btn" target="_blank">访问项目</a>
+
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+
+
+                         </div>
+                    </section>
+
+                    <!-- 作品集 -->
+                    <section id="portfolio">
+                         <h2 class="section-title" data-icon="📦">作品集</h2>
+                         <div class="content">
+                              <ul class="portfolio-list">
+                                   <li class="portfolio-item" data-tech="Vue">
+                                        <strong>企业级可视化无代码平台架构设计与实践</strong>
+                                        <p>使用Vue3设计并实现一个可通过拖拽组件进行页面搭建的无代码平台，探索低代码领域的前沿技术。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="React">
+                                        <strong>企业级类 Mantine 组件库架构设计与实践</strong>
+                                        <p>使用React18构建一套可复用、高性能、可定制化的UI组件库，提升团队开发效率。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="Vue">
+                                        <strong>企业级类 VueUse Composition 库架构设计与实践</strong>
+                                        <p>使用Vue3开发一套实用的可组合函数库，封装常用逻辑，提高代码复用性。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="Nodejs">
+                                        <strong>企业级团队脚手架命令行工具架构设计与实践</strong>
+                                        <p>使用Nodejs开发CLI工具，实现项目快速初始化、模板选择、依赖安装等功能，统一团队开发规范。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="React,Vue">
+                                        <strong>企业级监控平台全栈架构设计与实践</strong>
+                                        <p>结合Vanilla JS、React18、Vue3等技术，构建一个从前端埋点、数据收集到后端分析、可视化的全链路监控系统。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="React">
+                                        <strong>企业级编辑器类飞书文档架构设计与实践</strong>
+                                        <p>使用React19探索富文本编辑器核心技术，实现协同编辑、版本控制等功能。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="React">
+                                        <strong>企业级通用低代码平台架构设计与实践</strong>
+                                        <p>使用React19设计并实现一个通用的低代码平台，支持多种业务场景的快速搭建。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="Vue">
+                                        <strong>企业级数字孪生低代码平台架构设计与实践</strong>
+                                        <p>结合Cesium、Openlayers、Threejs、Vue3，构建三维地理信息与数据可视化的低代码平台。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="React">
+                                        <strong>企业级类 react-use hooks 库架构设计与实践</strong>
+                                        <p>使用React19开发一套实用的React Hooks库，封装常用逻辑，提高代码复用性。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="React">
+                                        <strong>企业级类扣子、Dify AI应用引擎架构设计与实践</strong>
+                                        <p>使用Nextjs、Postgresql构建一个AI应用的后端引擎，支持Agent、工作流编排等能力。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="Vue">
+                                        <strong>企业级类剪映视频智能剪辑工具架构设计与实践</strong>
+                                        <p>使用FFmpeg、Langchainjs、Electron、Vue3，探索音视频处理、AI智能分析与自动剪辑技术。</p>
+                                   </li>
+                                   <li class="portfolio-item" data-tech="React">
+                                        <strong>企业级类 Figma AI 设计与应用生成引擎架构设计与实践</strong>
+                                        <p>使用React19、Langgraphjs、Nestjs，探索D2C（Design to Code）技术，实现从UI设计稿到前端代码的自动生成。</p>
+                                   </li>
+                              </ul>
+                         </div>
+                    </section>
+               </div>
+          </div>
      </div>
 
      <footer>
-          <p>© 2025 [你的名字]. 由 GitHub Pages 强力驱动。</p>
+          <p>&copy; 2024 观赏鱼 - 前端开发工程师</p>
+          <div class="contact-info">
+               <p>Email: gsyiswatchingu@163.com | Phone: 155 2755 7337</p>
+          </div>
      </footer>
+
+     <script>
+          // 技术栈筛选功能
+          document.addEventListener('DOMContentLoaded', function () {
+               const techFilterTags = document.querySelectorAll('.tech-filter-tag');
+               const resetFilterBtn = document.getElementById('reset-filter');
+               const applyFilterBtn = document.getElementById('apply-filter');
+               const projectCards = document.querySelectorAll('.project-card');
+               const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+               // 切换技术栈标签状态
+               techFilterTags.forEach(tag => {
+                    tag.addEventListener('click', function () {
+                         this.classList.toggle('active');
+                    });
+               });
+
+               // 应用筛选
+               function applyFilter() {
+                    const selectedTechs = Array.from(techFilterTags)
+                         .filter(tag => tag.classList.contains('active'))
+                         .map(tag => tag.dataset.tech);
+
+                    // 筛选项目卡片
+                    projectCards.forEach(card => {
+                         const cardTechs = card.dataset.tech.split(',');
+                         const match = selectedTechs.length === 0 || selectedTechs.some(tech => cardTechs.includes(tech));
+
+                         if (match) {
+                              card.classList.remove('filtered-out');
+                              if (selectedTechs.length > 0) {
+                                   card.classList.add('filtered-in');
+                              } else {
+                                   card.classList.remove('filtered-in');
+                              }
+                         } else {
+                              card.classList.add('filtered-out');
+                              card.classList.remove('filtered-in');
+                         }
+                    });
+
+                    // 筛选作品集项目
+                    portfolioItems.forEach(item => {
+                         const itemTechs = item.dataset.tech.split(',');
+                         const match = selectedTechs.length === 0 || selectedTechs.some(tech => itemTechs.includes(tech));
+
+                         if (match) {
+                              item.classList.remove('filtered-out');
+                              if (selectedTechs.length > 0) {
+                                   item.classList.add('filtered-in');
+                              } else {
+                                   item.classList.remove('filtered-in');
+                              }
+                         } else {
+                              item.classList.add('filtered-out');
+                              item.classList.remove('filtered-in');
+                         }
+                    });
+               }
+
+               // 重置筛选
+               function resetFilter() {
+                    techFilterTags.forEach(tag => tag.classList.remove('active'));
+                    projectCards.forEach(card => {
+                         card.classList.remove('filtered-out', 'filtered-in');
+                    });
+                    portfolioItems.forEach(item => {
+                         item.classList.remove('filtered-out', 'filtered-in');
+                    });
+               }
+
+               // 绑定事件
+               applyFilterBtn.addEventListener('click', applyFilter);
+               resetFilterBtn.addEventListener('click', resetFilter);
+
+               // 初始应用筛选（无筛选状态）
+               applyFilter();
+          });
+     </script>
+
 </body>
 
 </html>
