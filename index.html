@@ -436,6 +436,41 @@
                font-size: 0.85rem;
           }
 
+          /* 语言切换按钮 */
+          .lang-switch {
+               position: fixed;
+               top: 20px;
+               right: 20px;
+               background: white;
+               border-radius: 25px;
+               padding: 5px;
+               box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+               z-index: 1000;
+               display: flex;
+               gap: 5px;
+          }
+
+          .lang-btn {
+               padding: 8px 16px;
+               border: none;
+               background: transparent;
+               color: #718096;
+               font-size: 0.9rem;
+               cursor: pointer;
+               border-radius: 20px;
+               transition: all 0.3s ease;
+               font-weight: 500;
+          }
+
+          .lang-btn:hover {
+               background: #edf2f7;
+          }
+
+          .lang-btn.active {
+               background: #4299e1;
+               color: white;
+          }
+
           /* 响应式设计 */
           @media (max-width: 1024px) {
                .main-content {
