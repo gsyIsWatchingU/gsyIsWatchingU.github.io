@@ -436,40 +436,7 @@
                font-size: 0.85rem;
           }
 
-          /* 语言切换按钮 */
-          .lang-switch {
-               position: fixed;
-               top: 20px;
-               right: 20px;
-               background: white;
-               border-radius: 25px;
-               padding: 5px;
-               box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-               z-index: 1000;
-               display: flex;
-               gap: 5px;
-          }
 
-          .lang-btn {
-               padding: 8px 16px;
-               border: none;
-               background: transparent;
-               color: #718096;
-               font-size: 0.9rem;
-               cursor: pointer;
-               border-radius: 20px;
-               transition: all 0.3s ease;
-               font-weight: 500;
-          }
-
-          .lang-btn:hover {
-               background: #edf2f7;
-          }
-
-          .lang-btn.active {
-               background: #4299e1;
-               color: white;
-          }
 
           /* 响应式设计 */
           @media (max-width: 1024px) {
@@ -544,19 +511,19 @@
                          <p style="font-size: 0.8rem; color: #718096; margin-bottom: 10px;">选择技术栈，相关项目和作品集会自动高亮</p>
                          <div class="tech-tags-container">
                               <span class="tech-filter-tag" data-tech="React">React</span>
+                              <span class="tech-filter-tag" data-tech="Vue">Vue</span>
                               <span class="tech-filter-tag" data-tech="TypeScript">TypeScript</span>
+                              <span class="tech-filter-tag" data-tech="Vite">Vite</span>
+                              <span class="tech-filter-tag" data-tech="UniApp">UniApp</span>
+                              <span class="tech-filter-tag" data-tech="Ant Design">Ant Design</span>
+                              <span class="tech-filter-tag" data-tech="Element UI">Element UI</span>
+                              <span class="tech-filter-tag" data-tech="ECharts">ECharts</span>
+                              <span class="tech-filter-tag" data-tech="Java">Java</span>
                               <span class="tech-filter-tag" data-tech="Umi">Umi</span>
                               <span class="tech-filter-tag" data-tech="Dva">Dva</span>
-                              <span class="tech-filter-tag" data-tech="Ant Design">Ant Design</span>
-                              <span class="tech-filter-tag" data-tech="ECharts">ECharts</span>
-                              <span class="tech-filter-tag" data-tech="AngularJS">AngularJS</span>
-                              <span class="tech-filter-tag" data-tech="jQuery">jQuery</span>
                               <span class="tech-filter-tag" data-tech="Bootstrap">Bootstrap</span>
-                              <span class="tech-filter-tag" data-tech="Vue">Vue</span>
-                              <span class="tech-filter-tag" data-tech="Element UI">Element UI</span>
-                              <span class="tech-filter-tag" data-tech="Java">Java</span>
-                              <span class="tech-filter-tag" data-tech="Spring Boot">Spring Boot</span>
-                              <span class="tech-filter-tag" data-tech="MySQL">MySQL</span>
+                              <span class="tech-filter-tag" data-tech="jQuery">jQuery</span>
+                              <span class="tech-filter-tag" data-tech="AngularJS">AngularJS</span>
                          </div>
                          <div class="filter-actions">
                               <button class="filter-btn reset" id="reset-filter">重置</button>
@@ -720,14 +687,17 @@
                          <h2 class="section-title" data-icon="📦">作品集</h2>
                          <div class="content">
                               <ul class="portfolio-list">
-                                   <li class="portfolio-item" data-tech="Vue">
+                                   <li class="portfolio-item" data-tech="Vue,TypeScript,Vite,Pinia">
                                         <strong>企业级可视化无代码平台架构设计与实践</strong>
-                                        <p>使用Vue3设计并实现一个可通过拖拽组件进行页面搭建的无代码平台，探索低代码领域的前沿技术。</p>
+                                        <p>基于 Vue 3 + TypeScript + Vite 的企业级可视化无代码页面搭建平台，支持拖拽组件快速构建页面，包含40+组件库、实时预览、嵌套布局等特性。</p>
+                                        <div class="tech-stack">
+                                             <span class="tech-tag">Vue 3</span>
+                                             <span class="tech-tag">TypeScript</span>
+                                             <span class="tech-tag">Vite</span>
+                                             <span class="tech-tag">Pinia</span>
+                                        </div>
                                    </li>
-                                   <li class="portfolio-item" data-tech="React">
-                                        <strong>企业级类 Mantine 组件库架构设计与实践</strong>
-                                        <p>使用React18构建一套可复用、高性能、可定制化的UI组件库，提升团队开发效率。</p>
-                                   </li>
+                                
                                    <li class="portfolio-item" data-tech="Vue">
                                         <strong>企业级类 VueUse Composition 库架构设计与实践</strong>
                                         <p>使用Vue3开发一套实用的可组合函数库，封装常用逻辑，提高代码复用性。</p>
@@ -743,15 +713,8 @@
                                    <li class="portfolio-item" data-tech="React">
                                         <strong>企业级编辑器类飞书文档架构设计与实践</strong>
                                         <p>使用React19探索富文本编辑器核心技术，实现协同编辑、版本控制等功能。</p>
-                                   </li>
-                                   <li class="portfolio-item" data-tech="React">
-                                        <strong>企业级通用低代码平台架构设计与实践</strong>
-                                        <p>使用React19设计并实现一个通用的低代码平台，支持多种业务场景的快速搭建。</p>
-                                   </li>
-                                   <li class="portfolio-item" data-tech="Vue">
-                                        <strong>企业级数字孪生低代码平台架构设计与实践</strong>
-                                        <p>结合Cesium、Openlayers、Threejs、Vue3，构建三维地理信息与数据可视化的低代码平台。</p>
-                                   </li>
+                                   </li>                            
+                                
                                    <li class="portfolio-item" data-tech="React">
                                         <strong>企业级类 react-use hooks 库架构设计与实践</strong>
                                         <p>使用React19开发一套实用的React Hooks库，封装常用逻辑，提高代码复用性。</p>
