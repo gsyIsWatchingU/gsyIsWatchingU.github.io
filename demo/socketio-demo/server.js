@@ -26,6 +26,6 @@ io.on('connection', (socket) => {
 });
 
 // 启动服务器
-http.listen(3000, () => {
-  console.log('服务器运行在 http://localhost:3000');
+http.listen(3222, () => {
+  console.log('服务器运行在 http://localhost:3222');
 });
