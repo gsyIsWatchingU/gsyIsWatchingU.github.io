@@ -197,40 +197,29 @@
     <!-- 5. Template 标签与 Shadow DOM（对比演示） -->
     <section class="section-card">
         <h2>5. &lt;template&gt; 标签与 Shadow DOM（对比演示）</h2>
-        <p>全局已设置强制样式：<strong>h3 红色、.card 黄色粗边框、button 绿色背景</strong>，对比以下两个组件的表现：</p>
+        <h3>template</h3>
+         <!-- 定义模板（复用） -->
+        <template id="tpl">
+  <p>hello</p>
+</template>
+<button onclick="add()">点击添加</button>
+<button onclick="add2()">点击添加（可重复使用）</button>
+<div id="container"></div>
 
-        <!-- 定义模板（复用） -->
-        <template id="user-card-template">
-            <style>
-                .card {
-                    border: 1px solid #3498db;
-                    padding: 15px;
-                    border-radius: 8px;
-                    background: #f0f8ff;
-                    font-family: sans-serif;
-                }
-                .card h3 { margin-top: 0; color: #2980b9; }
-                .badge {
-                    background: #e74c3c;
-                    color: white;
-                    padding: 2px 6px;
-                    border-radius: 4px;
-                    font-size: 0.8em;
-                }
-                #internal-btn {
-                    background: #95a5a6;
-                    color: white;
-                    border: none;
-                    padding: 5px 10px;
-                    border-radius: 4px;
-                }
-            </style>
-            <div class="card">
-                <h3><slot name="username">未知用户</slot> <span class="badge">VIP</span></h3>
-                <p>这是一个组件实例。</p>
-                <button id="internal-btn">内部按钮 (仅演示隔离)</button>
-            </div>
-        </template>
+<script>
+function add() {
+  const tpl = document.getElementById('tpl');
+  // 直接移走模板内容，第二次点击会无效果
+  document.getElementById('container').appendChild(tpl.content);
+}
+function add2() {
+  const tpl = document.getElementById('tpl');
+  // 克隆模板内容，模板本身不变，可重复使用
+  const clone = tpl.content.cloneNode(true);
+  document.getElementById('container').appendChild(clone);
+}
+</script>
+        <h3> Shadow DOM</h3>
 
         <!-- Shadow DOM 特性说明卡片 -->
         <div class="card" style="margin-bottom: 20px; background: #f8f9fa;">
