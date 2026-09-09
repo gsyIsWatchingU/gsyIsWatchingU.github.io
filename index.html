@@ -270,111 +270,95 @@
         <section class="skills-showcase" id="skills" aria-labelledby="skills-title">
           <header class="portfolio-section__heading reveal">
             <div>
-              <p class="portfolio-section__eyebrow">02 / TECHNICAL CAPABILITY TREE</p>
-              <h2 id="skills-title">技术能力树</h2>
+              <p class="portfolio-section__eyebrow">02 / PROFESSIONAL SKILL TREE</p>
+              <h2 id="skills-title">专业技能树</h2>
             </div>
-            <p>以 AI 全栈为树根，沿全栈开发与 Agent 工程两条主枝，向下展开到可落地的技术能力。</p>
+            <p>从产品问题出发，把界面、服务、智能能力与工程保障组织成一棵可落地、可验证、可演进的能力树。</p>
           </header>
 
           <div class="capability-tree reveal" data-capability-tree>
             <div class="capability-tree__legend" aria-hidden="true">
-              <span>ROOT → DOMAIN → BRANCH → STACK</span>
-              <span>能力结构 / 工程实践 / 技术栈</span>
+              <span>ROOT / 3 DOMAINS / 9 BRANCHES</span>
+              <span>工程目标 → 系统问题 → 方法与技术</span>
             </div>
 
             <article class="capability-root">
-              <p>ROOT / 求职定位</p>
-              <h3>AI 全栈工程师</h3>
-              <span>贯通产品交互、后端服务与可靠的 Agent Harness</span>
-              <ul class="capability-tags" aria-label="核心技术方向">
-                <li>TypeScript</li>
-                <li>Go / Node.js</li>
-                <li>LLM 应用</li>
-                <li>Agent Runtime</li>
+              <p>ROOT / ENGINEERING OBJECTIVE</p>
+              <h3>AI 全栈系统工程</h3>
+              <span>以真实产品问题为起点，完成架构取舍、端到端实现、质量验证与持续演进。</span>
+              <ul class="capability-tags" aria-label="核心工程能力">
+                <li>产品闭环</li>
+                <li>系统设计</li>
+                <li>智能编排</li>
+                <li>可靠交付</li>
               </ul>
             </article>
 
             <div class="capability-tree__trunk" aria-hidden="true"></div>
 
             <div class="capability-domains">
-              <section class="capability-domain capability-domain--fullstack" aria-labelledby="fullstack-title">
+              <section class="capability-domain capability-domain--product" aria-labelledby="product-domain-title">
                 <header class="capability-domain__head">
-                  <div>
-                    <p>DOMAIN 01 / PRODUCT TO SERVICE</p>
-                    <h3 id="fullstack-title">全栈开发</h3>
-                  </div>
-                  <span>字节跳动全栈研发实践</span>
-                  <a href="#skills" data-skill-document="fullstack" hidden>实践说明 ↗</a>
+                  <p>DOMAIN 01 / BUILD THE PRODUCT</p>
+                  <h3 id="product-domain-title">产品与全栈工程</h3>
+                  <span>把需求转化为边界清晰、体验完整的产品系统</span>
+                  <a href="#skills" data-skill-document="product" hidden>实践说明 ↗</a>
                 </header>
 
                 <div class="capability-domain__branches">
                   <article class="capability-branch">
                     <div class="capability-branch__title">
-                      <span>01</span>
-                      <h4>前端产品工程</h4>
+                      <span>01.1</span>
+                      <h4>前端产品架构</h4>
                     </div>
-                    <p>从交互与组件抽象，到复杂页面状态、数据流和性能体验，构建可维护的产品界面。</p>
+                    <p>先建模页面状态与组件边界，再处理复杂交互、国际化和性能，让界面随业务演进而不过度耦合。</p>
                     <ul class="capability-tags">
-                      <li>TypeScript</li><li>React</li><li>Vue</li><li>Vite</li><li>状态管理</li><li>微前端</li>
+                      <li>TypeScript</li><li>React</li><li>Vue</li><li>状态管理</li><li>微前端</li><li>i18n</li>
                     </ul>
                     <a href="#skills" data-skill-document="frontend" hidden>实践说明 ↗</a>
                   </article>
 
                   <article class="capability-branch">
                     <div class="capability-branch__title">
-                      <span>02</span>
-                      <h4>后端服务设计</h4>
+                      <span>01.2</span>
+                      <h4>服务与数据建模</h4>
                     </div>
-                    <p>围绕 API 契约、服务边界、业务编排与异步任务，完成从接口设计到稳定交付。</p>
+                    <p>围绕 API 契约划分服务职责，以事务、索引和缓存组织数据路径，保证业务状态可追踪且一致。</p>
                     <ul class="capability-tags">
-                      <li>Go</li><li>Node.js</li><li>HTTP / RPC</li><li>IDL</li><li>并发控制</li><li>任务调度</li>
+                      <li>Go</li><li>Node.js</li><li>FastAPI</li><li>PostgreSQL</li><li>MySQL</li><li>Redis</li>
                     </ul>
-                    <a href="#skills" data-skill-document="backend" hidden>实践说明 ↗</a>
+                    <a href="#skills" data-skill-document="service-data" hidden>实践说明 ↗</a>
                   </article>
 
                   <article class="capability-branch">
                     <div class="capability-branch__title">
-                      <span>03</span>
-                      <h4>数据与状态</h4>
+                      <span>01.3</span>
+                      <h4>实时与异步系统</h4>
                     </div>
-                    <p>通过数据建模、事务、索引与缓存组织访问路径，维护跨页面与服务的状态一致性。</p>
+                    <p>按一致性、时延与吞吐需求选择同步链路、消息队列或协同协议，隔离长耗时任务和实时状态。</p>
                     <ul class="capability-tags">
-                      <li>MySQL</li><li>PostgreSQL</li><li>Redis</li><li>SQL</li><li>事务</li><li>缓存</li>
+                      <li>WebSocket</li><li>Yjs</li><li>BullMQ</li><li>任务队列</li><li>事件驱动</li>
                     </ul>
-                    <a href="#skills" data-skill-document="data" hidden>实践说明 ↗</a>
-                  </article>
-
-                  <article class="capability-branch">
-                    <div class="capability-branch__title">
-                      <span>04</span>
-                      <h4>工程交付</h4>
-                    </div>
-                    <p>覆盖开发、测试、部署与问题定位，用可复现的环境和自动化流程保障交付质量。</p>
-                    <ul class="capability-tags">
-                      <li>Docker</li><li>Linux</li><li>Git</li><li>CI / CD</li><li>自动化测试</li><li>可观测性</li>
-                    </ul>
-                    <a href="#skills" data-skill-document="delivery" hidden>实践说明 ↗</a>
+                    <a href="#skills" data-skill-document="realtime-async" hidden>实践说明 ↗</a>
                   </article>
                 </div>
               </section>
 
-              <section class="capability-domain capability-domain--agent" aria-labelledby="agent-title">
+              <section class="capability-domain capability-domain--agent" aria-labelledby="agent-domain-title">
                 <header class="capability-domain__head">
-                  <div>
-                    <p>DOMAIN 02 / MODEL TO ACTION</p>
-                    <h3 id="agent-title">Agent 工程</h3>
-                  </div>
-                  <span>字节跳动 Agent 工程实践</span>
+                  <p>DOMAIN 02 / ORCHESTRATE INTELLIGENCE</p>
+                  <h3 id="agent-domain-title">Agent 应用工程</h3>
+                  <span>把概率性的模型能力约束为可执行、可验证的行动</span>
                   <a href="#skills" data-skill-document="agent" hidden>实践说明 ↗</a>
                 </header>
 
                 <div class="capability-domain__branches">
                   <article class="capability-branch">
                     <div class="capability-branch__title">
-                      <span>01</span>
-                      <h4>模型应用工程</h4>
+                      <span>02.1</span>
+                      <h4>模型应用与知识增强</h4>
                     </div>
-                    <p>组织任务指令、上下文、外部知识和输出约束，让模型结果可用、可解析、可验证。</p>
+                    <p>围绕任务目标组织指令、上下文与外部知识，用结构化输出和评估约束模型结果的可用性。</p>
                     <ul class="capability-tags">
                       <li>Prompt</li><li>Context Engineering</li><li>RAG</li><li>Embedding</li><li>Structured Output</li>
                     </ul>
@@ -383,10 +367,10 @@
 
                   <article class="capability-branch">
                     <div class="capability-branch__title">
-                      <span>02</span>
+                      <span>02.2</span>
                       <h4>Agent Runtime</h4>
                     </div>
-                    <p>把模型决策接入真实工具与业务系统，组织可终止、可校验的任务循环和工作流。</p>
+                    <p>将模型决策接入工具和业务系统，以显式状态机、终止条件和确定性步骤控制任务循环。</p>
                     <ul class="capability-tags">
                       <li>Tool Calling</li><li>MCP</li><li>Agent Loop</li><li>Workflow</li><li>Planning</li><li>State</li>
                     </ul>
@@ -395,47 +379,69 @@
 
                   <article class="capability-branch">
                     <div class="capability-branch__title">
-                      <span>03</span>
+                      <span>02.3</span>
                       <h4>可靠 Agent Harness</h4>
                     </div>
-                    <p>为长任务建立持久化、检查点、幂等与恢复机制，使执行能够暂停、续跑和安全重试。</p>
+                    <p>为长任务建立持久化、检查点、幂等、重试与权限门禁，使执行可暂停、可恢复、可审计。</p>
                     <ul class="capability-tags">
-                      <li>Persistence</li><li>Checkpoint</li><li>Idempotency</li><li>Retry</li><li>Resume</li><li>Recovery</li>
+                      <li>Checkpoint</li><li>Idempotency</li><li>Retry</li><li>Approval</li><li>Trace</li><li>Eval</li>
                     </ul>
                     <a href="#skills" data-skill-document="harness" hidden>实践说明 ↗</a>
+                  </article>
+                </div>
+              </section>
+
+              <section class="capability-domain capability-domain--system" aria-labelledby="system-domain-title">
+                <header class="capability-domain__head">
+                  <p>DOMAIN 03 / KEEP IT RELIABLE</p>
+                  <h3 id="system-domain-title">系统工程与交付</h3>
+                  <span>让系统在真实约束下可验证、可恢复、可持续演进</span>
+                  <a href="#skills" data-skill-document="system" hidden>实践说明 ↗</a>
+                </header>
+
+                <div class="capability-domain__branches">
+                  <article class="capability-branch">
+                    <div class="capability-branch__title">
+                      <span>03.1</span>
+                      <h4>架构与边界设计</h4>
+                    </div>
+                    <p>从规模、依赖和失败模式出发做技术选型，用模块、接口和 Schema 控制变化的影响范围。</p>
+                    <ul class="capability-tags">
+                      <li>API / IDL</li><li>Schema</li><li>Monorepo</li><li>依赖治理</li><li>架构取舍</li>
+                    </ul>
+                    <a href="#skills" data-skill-document="architecture" hidden>实践说明 ↗</a>
                   </article>
 
                   <article class="capability-branch">
                     <div class="capability-branch__title">
-                      <span>04</span>
-                      <h4>治理、观测与评估</h4>
+                      <span>03.2</span>
+                      <h4>质量与可观测性</h4>
                     </div>
-                    <p>通过权限门禁、人工确认、执行追踪和行为评估，约束 Agent 的行动边界与结果质量。</p>
+                    <p>把正确性转化为可执行的测试与评估，并通过日志、指标和追踪缩短发现与定位问题的链路。</p>
                     <ul class="capability-tags">
-                      <li>Permission</li><li>Approval</li><li>Human-in-the-loop</li><li>Trace</li><li>Metrics</li><li>Eval</li>
+                      <li>Unit</li><li>Integration</li><li>E2E</li><li>Logs</li><li>Metrics</li><li>Trace</li>
                     </ul>
-                    <a href="#skills" data-skill-document="governance" hidden>实践说明 ↗</a>
+                    <a href="#skills" data-skill-document="quality" hidden>实践说明 ↗</a>
+                  </article>
+
+                  <article class="capability-branch">
+                    <div class="capability-branch__title">
+                      <span>03.3</span>
+                      <h4>安全与持续交付</h4>
+                    </div>
+                    <p>以最小权限、资源隔离和自动化流水线降低运行风险，确保环境可复现、发布可回滚。</p>
+                    <ul class="capability-tags">
+                      <li>Docker</li><li>Linux</li><li>CI / CD</li><li>Sandbox</li><li>Resource Limit</li><li>Rollback</li>
+                    </ul>
+                    <a href="#skills" data-skill-document="delivery" hidden>实践说明 ↗</a>
                   </article>
                 </div>
               </section>
             </div>
 
-            <section class="capability-foundation" aria-labelledby="foundation-title">
-              <header>
-                <p>FOUNDATION / 两条主枝共用的工程底座</p>
-                <h3 id="foundation-title">把能力组织成可交付系统</h3>
-              </header>
-              <ul>
-                <li><strong>接口与契约</strong><span>API · IDL · Schema · Validation</span></li>
-                <li><strong>状态与一致性</strong><span>Transaction · Checkpoint · Idempotency</span></li>
-                <li><strong>测试与评估</strong><span>Unit · Integration · E2E · Eval</span></li>
-                <li><strong>观测与排障</strong><span>Logs · Metrics · Trace · Recovery</span></li>
-              </ul>
-            </section>
-
-            <div class="capability-tree__footer" aria-hidden="true">
-              <span>AI FULL-STACK ENGINEER / 2026</span>
-              <span>产品交互 → 服务与数据 → Agent 执行与可靠性</span>
+            <div class="capability-tree__footer" aria-label="工程闭环">
+              <span>ENGINEERING LOOP</span>
+              <span>问题定义 → 边界建模 → 实现 → 验证 → 部署 → 演进</span>
             </div>
           </div>
         </section>

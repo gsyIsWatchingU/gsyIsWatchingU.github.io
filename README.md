@@ -5,7 +5,7 @@
 | 板块 | 页面内容 | 样式 | 交互 |
 | --- | --- | --- | --- |
 | 首屏星海与留言弹窗 | `src/sections/hero.html`、`src/sections/guestbook.html` | `styles/hero.css`、`styles/guestbook.css` | `scripts/galaxy.js`、`scripts/guestbook.js` |
-| 专业能力树 | `src/sections/skills.html` | `styles/skills.css` | `scripts/skill-links.js`、`scripts/skills.js` |
+| 专业技能树 | `src/sections/skills.html` | `styles/skills.css` | `scripts/skill-links.js`、`scripts/skills.js` |
 | 实习经历 | `src/sections/experience.html` | `styles/experience.css` | — |
 | 独立产品与工程经历 | `src/sections/projects.html`、`src/data/projects.json` | `styles/projects.css` | — |
 
