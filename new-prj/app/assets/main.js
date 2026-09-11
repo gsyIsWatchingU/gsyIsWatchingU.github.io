@@ -12,7 +12,6 @@
     pauseModal: document.getElementById('pause-modal'),
     resume: document.getElementById('resume-button'),
     restart: document.getElementById('restart-button'),
-    quality: document.getElementById('quality-button'),
     joystick: document.getElementById('joystick'),
     knob: document.getElementById('joystick-knob'),
     sneak: document.getElementById('sneak-button'),
@@ -65,7 +64,8 @@
     dashTime: 0,
     walkPhase: 0,
     motion: 0,
-    qualityMode: 'auto',
+    qualityMode: 'balanced',
+    networkQualityMode: 'balanced',
     elapsed: 0,
     upgrades: loadUpgrades(),
     fragments: [],
@@ -217,17 +217,37 @@
     showToast('钟摆回到最初的位置');
   }
 
+  function getNetworkConnection() {
+    return navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+  }
+
+  function detectNetworkQuality() {
+    var connection = getNetworkConnection();
+    if (navigator.onLine === false) return 'low';
+    if (!connection) return 'balanced';
+    if (connection.saveData) return 'low';
+
+    var type = connection.effectiveType || '';
+    var downlink = typeof connection.downlink === 'number' ? connection.downlink : null;
+    var rtt = typeof connection.rtt === 'number' ? connection.rtt : null;
+    if (type === 'slow-2g' || type === '2g' || (downlink !== null && downlink < 1) || (rtt !== null && rtt > 650)) return 'low';
+    if (type === '3g' || (downlink !== null && downlink < 3) || (rtt !== null && rtt > 300)) return 'balanced';
+    return 'high';
+  }
+
   function setQuality(mode) {
     state.qualityMode = mode;
     if (renderer) renderer.resize();
-    var labels = { auto: '画质：自动', high: '画质：精细', low: '画质：流畅' };
-    dom.quality.textContent = labels[mode];
   }
 
-  function cycleQuality() {
-    if (state.qualityMode === 'auto') setQuality('high');
-    else if (state.qualityMode === 'high') setQuality('low');
-    else setQuality('auto');
+  function syncQualityWithNetwork(notify) {
+    var mode = detectNetworkQuality();
+    var nextMode;
+    state.networkQualityMode = mode;
+    nextMode = performanceWindow.degraded ? 'low' : mode;
+    if (state.qualityMode === nextMode) return;
+    setQuality(nextMode);
+    if (notify && state.started) showToast('网络状态变化 · 已自动匹配当前画质');
   }
 
   function setObjective(kicker, text) {
@@ -447,7 +467,7 @@
     update(deltaMs / 1000);
     if (renderer && renderer.ready) renderer.render(state);
 
-    if (state.qualityMode === 'auto' && !performanceWindow.degraded) {
+    if (state.qualityMode !== 'low' && !performanceWindow.degraded) {
       performanceWindow.total += deltaMs;
       performanceWindow.count += 1;
       if (performanceWindow.count >= 90) {
@@ -478,7 +498,6 @@
     dom.pause.addEventListener('click', function () { togglePause(); });
     dom.resume.addEventListener('click', function () { togglePause(false); });
     dom.restart.addEventListener('click', restart);
-    dom.quality.addEventListener('click', cycleQuality);
     dom.interact.addEventListener('click', interact);
     dom.dash.addEventListener('click', dash);
     dom.sneak.addEventListener('pointerdown', function (event) {
@@ -492,6 +511,11 @@
     dom.sneak.addEventListener('pointercancel', releaseSneak);
     dom.sneak.addEventListener('pointerleave', releaseSneak);
     dom.again.addEventListener('click', restart);
+
+    var connection = getNetworkConnection();
+    if (connection && connection.addEventListener) connection.addEventListener('change', function () { syncQualityWithNetwork(true); });
+    window.addEventListener('online', function () { syncQualityWithNetwork(true); });
+    window.addEventListener('offline', function () { syncQualityWithNetwork(true); });
 
     var choiceButtons = document.querySelectorAll('.choice-card');
     for (var i = 0; i < choiceButtons.length; i += 1) {
@@ -764,8 +788,8 @@
 
     function resize() {
       var rect = canvas.getBoundingClientRect();
-      var dpr = state.qualityMode === 'low' ? 1 : (state.qualityMode === 'high' ? Math.min(window.devicePixelRatio || 1, 1.5) : Math.min(window.devicePixelRatio || 1, 1.35));
-      var maxPixels = state.qualityMode === 'low' ? 1000000 : 1800000;
+      var dpr = state.qualityMode === 'low' ? 1 : (state.qualityMode === 'high' ? Math.min(window.devicePixelRatio || 1, 1.5) : Math.min(window.devicePixelRatio || 1, 1.25));
+      var maxPixels = state.qualityMode === 'low' ? 1000000 : (state.qualityMode === 'high' ? 1800000 : 1350000);
       var width = Math.max(1, Math.round(rect.width * dpr));
       var height = Math.max(1, Math.round(rect.height * dpr));
       var pixels = width * height;
@@ -986,7 +1010,7 @@
     }
 
     function drawMotes(world) {
-      var count = state.qualityMode === 'low' ? 5 : 10;
+      var count = state.qualityMode === 'low' ? 5 : (state.qualityMode === 'high' ? 10 : 7);
       for (var i = 0; i < count; i += 1) {
         var angle = i * 2.41 + world.elapsed * .08;
         var radius = 2.2 + (i % 6) * 1.15;
@@ -1159,6 +1183,7 @@
   function init() {
     setAppHeight();
     if (supportsFlexGap()) document.documentElement.classList.add('supports-flex-gap');
+    syncQualityWithNetwork(false);
     renderer = createRenderer(dom.canvas);
     if (!renderer.ready) {
       dom.landing.hidden = true;
