@@ -585,6 +585,8 @@
       'precision mediump float;',
       'uniform vec3 uColor;',
       'uniform float uEmissive;',
+      'uniform float uAlpha;',
+      'uniform float uLightMask;',
       'uniform float uTime;',
       'uniform vec3 uPlayerLight;',
       'varying vec3 vNormal;',
@@ -599,13 +601,32 @@
       ' float lamp=1.0-smoothstep(0.45,5.4,lampDistance);',
       ' float lampFace=max(dot(normal,normalize(uPlayerLight-vWorld)),0.0);',
       ' float pulse=1.0+sin(uTime*3.0+vWorld.x)*0.08*uEmissive;',
-      ' vec3 lit=uColor*(0.24+diffuse*0.56+backlight*0.18);',
-      ' lit+=vec3(0.48,0.31,0.12)*lamp*(0.1+lampFace*0.42);',
+      ' vec3 startDelta=vWorld-vec3(3.15,2.92,7.72);',
+      ' float startDistance=length(startDelta);',
+      ' float startCone=smoothstep(0.72,0.94,dot(normalize(startDelta),normalize(vec3(-0.37,-0.34,0.86))));',
+      ' float startSpot=startCone*(1.0-smoothstep(3.0,14.0,startDistance));',
+      ' float startFace=max(dot(normal,normalize(vec3(3.15,2.92,7.72)-vWorld)),0.0);',
+      ' vec3 hallDelta=vWorld-vec3(-3.8,5.4,-0.4);',
+      ' float hallDistance=length(hallDelta);',
+      ' float hallCone=smoothstep(0.7,0.92,dot(normalize(hallDelta),normalize(vec3(0.28,-0.78,-0.56))));',
+      ' float hallSpot=hallCone*(1.0-smoothstep(2.0,13.0,hallDistance));',
+      ' float hallFace=max(dot(normal,normalize(vec3(-3.8,5.4,-0.4)-vWorld)),0.0);',
+      ' vec3 clockDelta=vWorld-vec3(0.0,5.5,-18.0);',
+      ' float clockDistance=length(clockDelta);',
+      ' float clockCone=smoothstep(0.72,0.93,dot(normalize(clockDelta),normalize(vec3(0.0,-0.72,-0.69))));',
+      ' float clockSpot=clockCone*(1.0-smoothstep(1.5,11.5,clockDistance));',
+      ' float clockFace=max(dot(normal,normalize(vec3(0.0,5.5,-18.0)-vWorld)),0.0);',
+      ' vec3 lit=uColor*(0.34+diffuse*0.62+backlight*0.22);',
+      ' lit+=vec3(0.48,0.31,0.12)*lamp*(0.14+lampFace*0.52);',
+      ' lit+=vec3(0.48,0.67,0.72)*startSpot*(0.52+startFace*0.92)*uLightMask;',
+      ' lit+=vec3(0.42,0.59,0.64)*hallSpot*(0.42+hallFace*0.86)*uLightMask;',
+      ' lit+=vec3(0.52,0.66,0.68)*clockSpot*(0.44+clockFace*0.9)*uLightMask;',
       ' lit+=uColor*uEmissive*pulse;',
-      ' float fog=smoothstep(8.0,29.0,vDepth);',
+      ' float fog=smoothstep(10.0,31.0,vDepth);',
       ' fog=max(fog,smoothstep(5.5,13.0,vDepth)*clamp((vWorld.y-4.0)*0.04,0.0,0.16));',
-      ' vec3 fogColor=vec3(0.155,0.185,0.19);',
-      ' gl_FragColor=vec4(mix(lit,fogColor,fog),1.0);',
+      ' vec3 fogColor=vec3(0.22,0.265,0.275);',
+      ' vec3 finalColor=pow(clamp(mix(lit,fogColor,fog),0.0,1.0),vec3(0.88));',
+      ' gl_FragColor=vec4(finalColor,uAlpha);',
       '}'
     ].join('\n');
 
@@ -724,6 +745,8 @@
       model: gl.getUniformLocation(program, 'uModel'),
       color: gl.getUniformLocation(program, 'uColor'),
       emissive: gl.getUniformLocation(program, 'uEmissive'),
+      alpha: gl.getUniformLocation(program, 'uAlpha'),
+      lightMask: gl.getUniformLocation(program, 'uLightMask'),
       time: gl.getUniformLocation(program, 'uTime'),
       playerLight: gl.getUniformLocation(program, 'uPlayerLight')
     };
@@ -736,7 +759,7 @@
     gl.enable(gl.DEPTH_TEST);
     gl.enable(gl.CULL_FACE);
     gl.cullFace(gl.BACK);
-    gl.clearColor(.065, .082, .086, 1);
+    gl.clearColor(.09, .115, .12, 1);
 
     function resize() {
       var rect = canvas.getBoundingClientRect();
@@ -755,7 +778,7 @@
       perspective(projection, Math.PI / 3.45, width / height, .1, 64);
     }
 
-    function drawShape(mesh, x, y, z, sx, sy, sz, color, rotationY, rotationX, rotationZ, emissive) {
+    function drawShape(mesh, x, y, z, sx, sy, sz, color, rotationY, rotationX, rotationZ, emissive, alpha, lightMask) {
       identity(model);
       translate(model, model, [x, y, z]);
       rotateY(model, model, rotationY || 0);
@@ -766,6 +789,8 @@
       gl.uniformMatrix4fv(uniforms.model, false, model);
       gl.uniform3fv(uniforms.color, color);
       gl.uniform1f(uniforms.emissive, emissive || 0);
+      gl.uniform1f(uniforms.alpha, alpha === undefined ? 1 : alpha);
+      gl.uniform1f(uniforms.lightMask, lightMask === undefined ? 1 : lightMask);
       gl.drawArrays(gl.TRIANGLES, 0, mesh.count);
     }
 
@@ -796,6 +821,9 @@
         drawShape(meshes[o.mesh || 'cube'], o.x, o.y, o.z, o.sx, o.sy, o.sz, o.color, o.r, o.rx || 0, o.rz || 0, o.e || 0);
       }
 
+      drawLightVolumes(world);
+      drawCharacterShadow(world);
+
       for (i = 0; i < world.fragments.length; i += 1) {
         var fragment = world.fragments[i];
         if (!fragment.found) {
@@ -815,6 +843,64 @@
       for (i = 0; i < world.enemies.length; i += 1) drawEnemy(world.enemies[i], world.elapsed + i);
       drawPlayer(world);
       drawMotes(world);
+    }
+
+    function drawLightVolumes(world) {
+      function drawBeam(source, target, radius, color, alpha) {
+        var dx = source[0] - target[0];
+        var dy = source[1] - target[1];
+        var dz = source[2] - target[2];
+        var length = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        var rotationY = Math.atan2(dx, dz);
+        var rotationX = Math.acos(dy / length);
+        drawShape(
+          meshes.hood,
+          (source[0] + target[0]) * .5,
+          (source[1] + target[1]) * .5,
+          (source[2] + target[2]) * .5,
+          radius,
+          length * .5,
+          radius,
+          color,
+          rotationY,
+          rotationX,
+          0,
+          .28,
+          alpha
+        );
+      }
+
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+      gl.depthMask(false);
+      gl.disable(gl.CULL_FACE);
+
+      drawBeam([3.15, 2.92, 7.72], [-.05, .04, 15.05], 1.55, [.31, .43, .46], .06);
+
+      drawBeam([-3.8, 5.4, -.4], [-1.25, .04, -4.1], 1.8, [.29, .4, .43], .05);
+
+      drawBeam([0, 5.5, -18], [0, .05, -22.05], 1.72, [.34, .44, .46], .052);
+
+      gl.depthMask(true);
+      gl.disable(gl.BLEND);
+      gl.enable(gl.CULL_FACE);
+    }
+
+    function drawCharacterShadow(world) {
+      var sourceX = world.z > 5 ? 3.15 : (world.z > -11 ? -3.8 : 0);
+      var sourceZ = world.z > 5 ? 7.72 : (world.z > -11 ? -.4 : -18);
+      var dx = world.x - sourceX;
+      var dz = world.z - sourceZ;
+      var distance = Math.sqrt(dx * dx + dz * dz) || 1;
+      dx /= distance;
+      dz /= distance;
+      var shadowAngle = Math.atan2(dx, dz);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.depthMask(false);
+      drawShape(meshes.sphere, world.x + dx * 1.18, .026, world.z + dz * 1.18, .38, .018, 1.68, [.006, .009, .009], shadowAngle, 0, 0, 0, .62, 0);
+      gl.depthMask(true);
+      gl.disable(gl.BLEND);
     }
 
     function drawPlayer(world) {
@@ -928,12 +1014,12 @@
     function add(x, y, z, sx, sy, sz, color, r, e, mesh, rx, rz) {
       objects.push({ x: x, y: y, z: z, sx: sx, sy: sy, sz: sz, color: color, r: r || 0, e: e || 0, mesh: mesh || 'cube', rx: rx || 0, rz: rz || 0 });
     }
-    var ground = [.105, .12, .12];
-    var earth = [.075, .087, .086];
-    var bark = [.085, .1, .1];
-    var iron = [.09, .115, .116];
-    var stone = [.125, .145, .145];
-    var glass = [.18, .235, .24];
+    var ground = [.145, .165, .166];
+    var earth = [.095, .112, .112];
+    var bark = [.105, .124, .125];
+    var iron = [.115, .145, .148];
+    var stone = [.155, .18, .183];
+    var glass = [.23, .3, .31];
     var z;
 
     add(0, -.2, -1.6, 9, .2, 23.6, ground, 0, 0);
@@ -966,7 +1052,10 @@
 
     add(3.25, 1.45, 8.0, .1, 1.48, .1, iron, 0, 0);
     add(3.25, 2.92, 8.0, .42, .12, .25, [.13, .16, .16], -.18, 0);
-    add(3.15, 2.92, 7.72, .2, .12, .055, [.52, .65, .64], -.18, .72);
+    add(3.15, 2.92, 7.72, .24, .15, .065, [.72, .86, .86], -.18, 1.35);
+
+    add(-3.8, 5.4, -.4, .48, .11, .24, [.15, .19, .195], .18, 0);
+    add(-3.72, 5.34, -.68, .23, .1, .06, [.68, .8, .81], .18, 1.08);
 
     add(-8.1, 3.15, -3.4, .55, 3.2, 10.2, stone, 0, 0);
     add(8.1, 3.15, -3.4, .55, 3.2, 10.2, stone, 0, 0);
@@ -991,6 +1080,8 @@
     add(6.55, 2.45, -17.4, .12, .12, 3.0, iron, 0, 0, 'cylinder', Math.PI / 2, 0);
     add(0, 4.8, -12.0, 7.2, .13, .18, iron, 0, 0);
     add(0, 4.8, -18.2, 7.2, .13, .18, iron, 0, 0);
+    add(0, 5.5, -18, .58, .14, .32, [.14, .18, .185], 0, 0);
+    add(0, 5.36, -18.34, .26, .11, .07, [.7, .82, .82], 0, 1.12);
     add(0, 3.9, -22.35, 2.45, 3.85, .32, [.075, .095, .096], 0, 0);
     add(0, 3.18, -22.0, 1.3, 3.12, .12, [.18, .17, .105], 0, .035);
     for (var i = 0; i < 8; i += 1) {
