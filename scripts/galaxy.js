@@ -6,17 +6,9 @@
   if (!backgroundCanvas || !focusCanvas || !hero) return;
 
   const backgroundContext = backgroundCanvas.getContext("2d");
-  const focusContext = focusCanvas.getContext("2d");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const tau = Math.PI * 2;
   let resizeFrame;
-  let animationFrame;
-  let focusBase;
-  let focusWidth = 0;
-  let focusHeight = 0;
-  let focusPixelRatio = 1;
-  let motionParticles = [];
-  let heroVisible = true;
 
   const createSeededRandom = (seed) => () => {
     seed |= 0;
@@ -36,10 +28,14 @@
     if (!width || !height) return null;
 
     const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(width * pixelRatio);
-    canvas.height = Math.round(height * pixelRatio);
-    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-    return { width, height, pixelRatio };
+    const renderWidth = Math.round(width * pixelRatio);
+    const renderHeight = Math.round(height * pixelRatio);
+    if (canvas.width !== renderWidth || canvas.height !== renderHeight) {
+      canvas.width = renderWidth;
+      canvas.height = renderHeight;
+    }
+    context?.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    return { width, height, pixelRatio, renderWidth, renderHeight };
   };
 
   const drawBackground = () => {
@@ -48,292 +44,345 @@
 
     const { width, height } = metrics;
     const random = createSeededRandom(width * 107 + height * 211);
-    const starCount = Math.min(2400, Math.max(900, Math.round((width * height) / 640)));
+    const gaussian = createGaussian(random);
+    const starCount = Math.min(2700, Math.max(1100, Math.round((width * height) / 520)));
     backgroundContext.clearRect(0, 0, width, height);
 
     const haze = backgroundContext.createRadialGradient(
-      width * 0.77,
-      height * 0.54,
+      width * 0.78,
+      height * 0.5,
       0,
-      width * 0.77,
-      height * 0.54,
-      Math.max(width, height) * 0.52,
+      width * 0.78,
+      height * 0.5,
+      Math.max(width, height) * 0.6,
     );
-    haze.addColorStop(0, "rgba(48, 103, 151, 0.11)");
-    haze.addColorStop(0.42, "rgba(18, 49, 82, 0.055)");
+    haze.addColorStop(0, "rgba(48, 97, 137, 0.105)");
+    haze.addColorStop(0.46, "rgba(13, 40, 69, 0.045)");
     haze.addColorStop(1, "rgba(2, 3, 9, 0)");
     backgroundContext.fillStyle = haze;
     backgroundContext.fillRect(0, 0, width, height);
 
     backgroundContext.save();
     backgroundContext.globalCompositeOperation = "lighter";
-
     for (let index = 0; index < starCount; index += 1) {
       const x = random() * width;
       const y = random() * height;
-      const depth = Math.pow(random(), 2.1);
-      const copyShield = x < width * 0.48 ? 0.38 : 1;
-      const size = 0.28 + depth * 1.18;
-      const alpha = (0.08 + depth * 0.5) * copyShield;
+      const depth = Math.pow(random(), 2.45);
+      const copyShield = x < width * 0.48 ? 0.28 : 1;
+      const alpha = (0.07 + depth * 0.48) * copyShield;
+      const size = 0.25 + depth * 1.28;
       const color = random();
-
-      if (color > 0.982) {
-        backgroundContext.fillStyle = `rgba(236, 183, 108, ${alpha})`;
-      } else if (color > 0.86) {
-        backgroundContext.fillStyle = `rgba(113, 194, 255, ${alpha})`;
-      } else {
-        backgroundContext.fillStyle = `rgba(229, 239, 249, ${alpha})`;
-      }
-
+      backgroundContext.fillStyle =
+        color > 0.987
+          ? `rgba(235, 181, 107, ${alpha})`
+          : color > 0.89
+            ? `rgba(100, 181, 238, ${alpha})`
+            : `rgba(224, 235, 245, ${alpha})`;
       backgroundContext.fillRect(x, y, size, size);
     }
 
-    const dustCount = Math.min(5200, Math.max(1800, Math.round((width * height) / 230)));
-    const gaussian = createGaussian(random);
-    for (let index = 0; index < dustCount; index += 1) {
+    const veilCount = Math.min(3700, Math.max(1200, Math.round((width * height) / 300)));
+    for (let index = 0; index < veilCount; index += 1) {
       const progress = random();
-      const x = width * (0.38 + progress * 0.78) + gaussian() * width * 0.045;
-      const curve = height * (0.86 - Math.sin(progress * Math.PI) * 0.14);
-      const y = curve + gaussian() * height * (0.025 + progress * 0.028);
+      const x = width * (0.5 + progress * 0.62) + gaussian() * width * 0.035;
+      const y = height * (0.82 - progress * 0.18) + gaussian() * height * 0.055;
       if (x < 0 || x > width || y < 0 || y > height) continue;
-
-      const alpha = 0.035 + random() * 0.22;
+      const alpha = 0.025 + random() * 0.12;
       backgroundContext.fillStyle =
-        random() > 0.88
-          ? `rgba(91, 178, 237, ${alpha})`
-          : `rgba(220, 232, 244, ${alpha})`;
-      const size = 0.25 + random() * 0.72;
+        random() > 0.84
+          ? `rgba(85, 167, 226, ${alpha})`
+          : `rgba(208, 224, 238, ${alpha})`;
+      const size = 0.2 + random() * 0.58;
       backgroundContext.fillRect(x, y, size, size);
     }
     backgroundContext.restore();
   };
 
-  const getRibbonPoint = (progress, lane, width, height) => {
-    const angle = progress * tau;
-    const compact = width < 520;
-    const radiusX = width * (compact ? 0.44 : 0.45);
-    const radiusY = height * (compact ? 0.2 : 0.235);
-    const centerX = width * 0.5;
-    const centerY = height * (compact ? 0.56 : 0.53);
-    const localX = Math.sin(angle) * radiusX;
-    const localY = Math.sin(angle * 2) * radiusY;
-    const derivativeX = Math.cos(angle) * radiusX;
-    const derivativeY = Math.cos(angle * 2) * radiusY * 2;
-    const tangentLength = Math.hypot(derivativeX, derivativeY) || 1;
-    const normalX = -derivativeY / tangentLength;
-    const normalY = derivativeX / tangentLength;
-    const outerStrength = 0.42 + Math.abs(Math.sin(angle)) * 0.78;
-    const spread = height * (compact ? 0.073 : 0.082) * outerStrength;
-    const rotation = -0.055;
-    const offsetX = localX + normalX * lane * spread;
-    const offsetY = localY + normalY * lane * spread;
-    const cos = Math.cos(rotation);
-    const sin = Math.sin(rotation);
-
-    return {
-      x: centerX + offsetX * cos - offsetY * sin,
-      y: centerY + offsetX * sin + offsetY * cos,
-      tangentX: (derivativeX * cos - derivativeY * sin) / tangentLength,
-      tangentY: (derivativeX * sin + derivativeY * cos) / tangentLength,
-      centerX,
-      centerY,
-    };
-  };
-
-  const drawObserver = (context, width, height) => {
-    const point = getRibbonPoint(0, 0, width, height);
-    const unit = Math.max(0.78, Math.min(width, height) / 500);
-    const x = point.x + width * 0.004;
-    const groundY = point.y + 19 * unit;
-
-    context.save();
-    context.lineCap = "round";
-    context.lineJoin = "round";
-    context.shadowColor = "rgba(216, 238, 255, 0.58)";
-    context.shadowBlur = 4 * unit;
-    context.fillStyle = "#02040a";
-    context.strokeStyle = "#02040a";
-    context.lineWidth = 3.1 * unit;
-    context.beginPath();
-    context.arc(x, groundY - 17 * unit, 3.5 * unit, 0, tau);
-    context.fill();
-    context.beginPath();
-    context.moveTo(x, groundY - 13 * unit);
-    context.lineTo(x - 1.3 * unit, groundY - 5.2 * unit);
-    context.lineTo(x - 5.1 * unit, groundY);
-    context.moveTo(x - 1.2 * unit, groundY - 5.4 * unit);
-    context.lineTo(x + 4.5 * unit, groundY);
-    context.moveTo(x - 0.2 * unit, groundY - 10 * unit);
-    context.lineTo(x + 5.2 * unit, groundY - 7 * unit);
-    context.stroke();
-    context.restore();
-  };
-
-  const drawFocusBase = () => {
-    const metrics = prepareCanvas(focusCanvas, focusContext);
+  const drawCanvasFallback = () => {
+    const context = focusCanvas.getContext("2d");
+    const metrics = prepareCanvas(focusCanvas, context);
     if (!metrics) return;
 
-    focusWidth = metrics.width;
-    focusHeight = metrics.height;
-    focusPixelRatio = metrics.pixelRatio;
-    focusBase = document.createElement("canvas");
-    focusBase.width = focusCanvas.width;
-    focusBase.height = focusCanvas.height;
-    const context = focusBase.getContext("2d");
-    context.setTransform(focusPixelRatio, 0, 0, focusPixelRatio, 0, 0);
-
-    const random = createSeededRandom(focusWidth * 313 + focusHeight * 571);
+    const { width, height } = metrics;
+    const random = createSeededRandom(width * 431 + height * 683);
     const gaussian = createGaussian(random);
-    const particleCount = Math.min(
-      focusWidth < 520 ? 17000 : 30000,
-      Math.max(12500, Math.round((focusWidth * focusHeight) / 15)),
-    );
-
-    const center = getRibbonPoint(0, 0, focusWidth, focusHeight);
-    const coreGlow = context.createRadialGradient(
-      center.x,
-      center.y,
-      0,
-      center.x,
-      center.y,
-      focusHeight * 0.2,
-    );
-    coreGlow.addColorStop(0, "rgba(237, 249, 255, 0.33)");
-    coreGlow.addColorStop(0.12, "rgba(133, 206, 255, 0.15)");
-    coreGlow.addColorStop(0.48, "rgba(39, 115, 183, 0.055)");
-    coreGlow.addColorStop(1, "rgba(9, 24, 43, 0)");
-    context.fillStyle = coreGlow;
-    context.fillRect(0, 0, focusWidth, focusHeight);
-
+    const count = width < 520 ? 18000 : 29000;
+    context.clearRect(0, 0, width, height);
     context.save();
     context.globalCompositeOperation = "lighter";
 
-    for (let index = 0; index < particleCount; index += 1) {
-      const progress = random();
-      const mistParticle = random() > 0.79;
-      const lane = gaussian() * (mistParticle ? 1.28 : 0.58);
-      const point = getRibbonPoint(progress, lane, focusWidth, focusHeight);
-      const centerWeight = Math.exp(-Math.abs(lane) * (mistParticle ? 0.58 : 1.18));
-      const crossingWeight = Math.exp(-Math.pow(Math.min(progress, 1 - progress) / 0.085, 2));
-      const depth = Math.pow(random(), 2.2);
-      const alpha = Math.min(
-        0.96,
-        (mistParticle ? 0.035 : 0.11) + centerWeight * (0.2 + depth * 0.43) + crossingWeight * 0.15,
-      );
-      const bright = !mistParticle && random() > 0.982;
-      const size = bright ? 1.45 + random() * 1.7 : 0.28 + depth * 1.12;
+    for (let index = 0; index < count; index += 1) {
+      const radius = 0.05 + Math.pow(random(), 0.7) * 1.04;
+      const halo = random() > 0.78;
+      const arm = halo ? random() * tau : (random() > 0.5 ? Math.PI : 0) + gaussian() * 0.34;
+      const angle = arm + radius * 7.8;
+      const thickness = gaussian() * (0.018 + radius * (halo ? 0.1 : 0.045));
+      const localX = Math.cos(angle) * radius + Math.cos(angle + Math.PI / 2) * thickness;
+      const localY = Math.sin(angle) * radius * 0.58 + Math.sin(angle + Math.PI / 2) * thickness;
+      const x = width * 0.5 + localX * width * 0.43;
+      const y = height * 0.51 + (localY - localX * 0.14) * height * 0.68;
+      const alpha = halo ? 0.08 + random() * 0.19 : 0.15 + random() * 0.46;
+      const size = 0.3 + Math.pow(random(), 2.2) * 1.8;
       const color = random();
-
-      if (color > 0.974) {
-        context.fillStyle = `rgba(231, 173, 104, ${alpha * 0.82})`;
-      } else if (color > 0.805) {
-        context.fillStyle = `rgba(87, 177, 240, ${alpha * 0.88})`;
-      } else if (color > 0.54) {
-        context.fillStyle = `rgba(170, 205, 231, ${alpha})`;
-      } else {
-        context.fillStyle = `rgba(238, 244, 249, ${alpha})`;
-      }
-
-      if (bright) {
-        context.shadowColor = context.fillStyle;
-        context.shadowBlur = 4;
-      } else {
-        context.shadowBlur = 0;
-      }
-      context.fillRect(point.x, point.y, size, size);
-    }
-
-    context.shadowBlur = 0;
-    for (let index = 0; index < 820; index += 1) {
-      const progress = random();
-      const lane = gaussian() * 0.54;
-      const point = getRibbonPoint(progress, lane, focusWidth, focusHeight);
-      const length = 0.7 + random() * 3.2;
-      context.beginPath();
-      context.moveTo(point.x - point.tangentX * length, point.y - point.tangentY * length);
-      context.lineTo(point.x + point.tangentX * length, point.y + point.tangentY * length);
-      context.strokeStyle = `rgba(216, 236, 249, ${0.05 + random() * 0.19})`;
-      context.lineWidth = 0.35 + random() * 0.65;
-      context.stroke();
+      context.fillStyle =
+        color > 0.975
+          ? `rgba(238, 186, 111, ${alpha})`
+          : color > 0.79
+            ? `rgba(105, 188, 244, ${alpha})`
+            : `rgba(229, 239, 247, ${alpha})`;
+      context.fillRect(x, y, size, size);
     }
     context.restore();
-
-    drawObserver(context, focusWidth, focusHeight);
-
-    motionParticles = Array.from({ length: focusWidth < 520 ? 58 : 96 }, () => ({
-      phase: random(),
-      lane: gaussian() * 0.38,
-      speed: 0.008 + random() * 0.024,
-      size: 0.7 + random() * 1.6,
-      alpha: 0.28 + random() * 0.55,
-      warm: random() > 0.92,
-    }));
   };
 
-  const drawFocusFrame = (time = 0) => {
-    if (!focusBase || !focusWidth || !focusHeight) return;
+  const createShader = (gl, type, source) => {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      const message = gl.getShaderInfoLog(shader);
+      gl.deleteShader(shader);
+      throw new Error(message || "Galaxy shader compilation failed");
+    }
+    return shader;
+  };
 
-    focusContext.setTransform(focusPixelRatio, 0, 0, focusPixelRatio, 0, 0);
-    focusContext.clearRect(0, 0, focusWidth, focusHeight);
-    focusContext.drawImage(focusBase, 0, 0, focusWidth, focusHeight);
-    focusContext.save();
-    focusContext.globalCompositeOperation = "lighter";
+  const createGalaxyRenderer = () => {
+    const gl = focusCanvas.getContext("webgl", {
+      alpha: true,
+      antialias: false,
+      depth: false,
+      powerPreference: "high-performance",
+      premultipliedAlpha: true,
+    });
 
-    const seconds = time / 1000;
-    for (const particle of motionParticles) {
-      const progress = (particle.phase + seconds * particle.speed) % 1;
-      const point = getRibbonPoint(progress, particle.lane, focusWidth, focusHeight);
-      const tail = Math.max(1.8, particle.size * 3.2);
-      focusContext.beginPath();
-      focusContext.moveTo(point.x - point.tangentX * tail, point.y - point.tangentY * tail);
-      focusContext.lineTo(point.x, point.y);
-      focusContext.strokeStyle = particle.warm
-        ? `rgba(241, 191, 112, ${particle.alpha})`
-        : `rgba(195, 231, 255, ${particle.alpha})`;
-      focusContext.lineWidth = particle.size;
-      focusContext.shadowColor = focusContext.strokeStyle;
-      focusContext.shadowBlur = 6;
-      focusContext.stroke();
+    if (!gl) {
+      drawCanvasFallback();
+      return { resize: drawCanvasFallback, destroy: () => {} };
     }
 
-    const center = getRibbonPoint(0, 0, focusWidth, focusHeight);
-    const pulse = 8 + (Math.sin(seconds * 1.25) + 1) * 3;
-    const glow = focusContext.createRadialGradient(center.x, center.y, 0, center.x, center.y, pulse * 4.2);
-    glow.addColorStop(0, "rgba(239, 249, 255, 0.34)");
-    glow.addColorStop(0.22, "rgba(116, 196, 247, 0.12)");
-    glow.addColorStop(1, "rgba(70, 154, 218, 0)");
-    focusContext.fillStyle = glow;
-    focusContext.fillRect(center.x - pulse * 4.2, center.y - pulse * 4.2, pulse * 8.4, pulse * 8.4);
-    focusContext.restore();
+    const vertexSource = `
+      precision highp float;
 
-    if (!reducedMotion.matches && heroVisible) {
-      animationFrame = window.requestAnimationFrame(drawFocusFrame);
+      attribute vec4 aParticle;
+      attribute vec4 aStyle;
+
+      uniform float uTime;
+      uniform float uPixelRatio;
+      uniform float uMotion;
+      uniform vec2 uPointer;
+
+      varying float vAlpha;
+      varying float vColor;
+      varying float vSpark;
+
+      void main() {
+        float seed = aParticle.w;
+        float flow = uTime * (0.028 + seed * 0.014) * uMotion;
+        float radialPhase = fract(aParticle.x - flow);
+        float radius = 0.05 + pow(radialPhase, 0.7) * 1.05;
+        float breathing = sin(uTime * 0.32 + seed * 13.0) * 0.018 * uMotion;
+        float angle = aParticle.y + radius * 7.85 + uTime * 0.095 * uMotion + breathing;
+        float thickness = aParticle.z * (0.022 + radius * 0.075);
+
+        float localX = cos(angle) * radius + cos(angle + 1.5707963) * thickness;
+        float localY = sin(angle) * radius * 0.58 + sin(angle + 1.5707963) * thickness * 0.82;
+        localY -= localX * 0.135;
+
+        float parallax = 0.012 + seed * 0.018;
+        vec2 position = vec2(localX * 0.88, localY * 1.04);
+        position += uPointer * parallax;
+
+        float coreLight = exp(-pow((radius - 0.11) / 0.14, 2.0));
+        float innerLight = exp(-pow((radius - 0.28) / 0.24, 2.0));
+        float edgeFade = 1.0 - smoothstep(0.78, 1.1, radius);
+        float twinkle = 0.72 + 0.28 * sin(uTime * (0.72 + seed) + seed * 41.0) * uMotion;
+
+        gl_Position = vec4(position, 0.0, 1.0);
+        gl_PointSize = min(
+          8.0 * uPixelRatio,
+          aStyle.x * uPixelRatio * (0.88 + coreLight * 1.6 + aStyle.w * twinkle * 0.55)
+        );
+
+        vAlpha = aStyle.z * (0.48 + edgeFade * 0.52) * (0.82 + innerLight * 0.35) * (0.82 + twinkle * 0.18);
+        vColor = aStyle.y;
+        vSpark = aStyle.w;
+      }
+    `;
+
+    const fragmentSource = `
+      precision mediump float;
+
+      varying float vAlpha;
+      varying float vColor;
+      varying float vSpark;
+
+      void main() {
+        vec2 point = gl_PointCoord - vec2(0.5);
+        float distanceToCenter = length(point);
+        float softness = smoothstep(0.5, 0.06, distanceToCenter);
+        float sparkCore = smoothstep(0.23, 0.0, distanceToCenter) * vSpark;
+
+        vec3 silver = vec3(0.82, 0.9, 0.97);
+        vec3 ice = vec3(0.24, 0.67, 0.96);
+        vec3 warm = vec3(0.98, 0.63, 0.3);
+        vec3 color = silver;
+        if (vColor < 0.18) {
+          color = warm;
+        } else if (vColor < 0.58) {
+          color = ice;
+        }
+        color = mix(color, vec3(1.0), sparkCore * 0.68);
+
+        gl_FragColor = vec4(color, vAlpha * softness);
+      }
+    `;
+
+    let program;
+    try {
+      const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexSource);
+      const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentSource);
+      program = gl.createProgram();
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+      gl.linkProgram(program);
+      gl.deleteShader(vertexShader);
+      gl.deleteShader(fragmentShader);
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        throw new Error(gl.getProgramInfoLog(program) || "Galaxy shader link failed");
+      }
+    } catch (error) {
+      focusCanvas.classList.add("galaxy-focus-canvas--fallback");
+      drawCanvasFallback();
+      return { resize: drawCanvasFallback, destroy: () => {} };
     }
+
+    const compact = focusCanvas.getBoundingClientRect().width < 520;
+    const particleCount = compact ? 44000 : 76000;
+    const data = new Float32Array(particleCount * 8);
+    const random = createSeededRandom(94731);
+    const gaussian = createGaussian(random);
+
+    for (let index = 0; index < particleCount; index += 1) {
+      const offset = index * 8;
+      const halo = random() > 0.77;
+      const bright = random() > 0.975;
+      const color = random();
+      data[offset] = random();
+      data[offset + 1] = halo
+        ? random() * tau
+        : (random() > 0.5 ? Math.PI : 0) + gaussian() * 0.36;
+      data[offset + 2] = gaussian() * (halo ? 1.7 : 0.68);
+      data[offset + 3] = random();
+      data[offset + 4] = bright ? 3.1 + random() * 3 : 0.72 + Math.pow(random(), 2.1) * 1.82;
+      data[offset + 5] = color > 0.973 ? 0.08 : color > 0.75 ? 0.38 : 0.9;
+      data[offset + 6] = halo ? 0.16 + random() * 0.27 : 0.28 + random() * 0.62;
+      data[offset + 7] = bright ? 1 : Math.pow(random(), 4.2) * 0.65;
+    }
+
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+
+    const particleLocation = gl.getAttribLocation(program, "aParticle");
+    const styleLocation = gl.getAttribLocation(program, "aStyle");
+    const stride = 8 * Float32Array.BYTES_PER_ELEMENT;
+    gl.enableVertexAttribArray(particleLocation);
+    gl.vertexAttribPointer(particleLocation, 4, gl.FLOAT, false, stride, 0);
+    gl.enableVertexAttribArray(styleLocation);
+    gl.vertexAttribPointer(styleLocation, 4, gl.FLOAT, false, stride, 4 * Float32Array.BYTES_PER_ELEMENT);
+
+    const timeLocation = gl.getUniformLocation(program, "uTime");
+    const ratioLocation = gl.getUniformLocation(program, "uPixelRatio");
+    const motionLocation = gl.getUniformLocation(program, "uMotion");
+    const pointerLocation = gl.getUniformLocation(program, "uPointer");
+    let animationFrame;
+    let visible = true;
+    let pixelRatio = 1;
+    let pointerX = 0;
+    let pointerY = 0;
+    let targetPointerX = 0;
+    let targetPointerY = 0;
+
+    gl.useProgram(program);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    gl.disable(gl.DEPTH_TEST);
+    gl.clearColor(0, 0, 0, 0);
+
+    const resize = () => {
+      const metrics = prepareCanvas(focusCanvas);
+      if (!metrics) return;
+      pixelRatio = metrics.pixelRatio;
+      gl.viewport(0, 0, metrics.renderWidth, metrics.renderHeight);
+    };
+
+    const render = (timestamp = 0) => {
+      pointerX += (targetPointerX - pointerX) * 0.055;
+      pointerY += (targetPointerY - pointerY) * 0.055;
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(program);
+      gl.uniform1f(timeLocation, timestamp / 1000);
+      gl.uniform1f(ratioLocation, pixelRatio);
+      gl.uniform1f(motionLocation, reducedMotion.matches ? 0 : 1);
+      gl.uniform2f(pointerLocation, pointerX, pointerY);
+      gl.drawArrays(gl.POINTS, 0, particleCount);
+
+      if (visible && !reducedMotion.matches) {
+        animationFrame = window.requestAnimationFrame(render);
+      }
+    };
+
+    const restart = () => {
+      window.cancelAnimationFrame(animationFrame);
+      render(performance.now());
+    };
+
+    hero.addEventListener("pointermove", (event) => {
+      const bounds = hero.getBoundingClientRect();
+      targetPointerX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+      targetPointerY = -((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+    });
+    hero.addEventListener("pointerleave", () => {
+      targetPointerX = 0;
+      targetPointerY = 0;
+    });
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) restart();
+      else window.cancelAnimationFrame(animationFrame);
+    });
+    observer.observe(hero);
+    reducedMotion.addEventListener?.("change", restart);
+
+    resize();
+    restart();
+
+    return {
+      resize: () => {
+        resize();
+        restart();
+      },
+      destroy: () => {
+        observer.disconnect();
+        window.cancelAnimationFrame(animationFrame);
+        gl.deleteBuffer(buffer);
+        gl.deleteProgram(program);
+      },
+    };
   };
 
-  const restartAnimation = () => {
-    window.cancelAnimationFrame(animationFrame);
-    drawFocusFrame(performance.now());
-  };
+  const galaxyRenderer = createGalaxyRenderer();
 
-  const drawAll = () => {
-    drawBackground();
-    drawFocusBase();
-    restartAnimation();
-  };
-
-  const scheduleDraw = () => {
+  const scheduleResize = () => {
     window.cancelAnimationFrame(resizeFrame);
-    resizeFrame = window.requestAnimationFrame(drawAll);
+    resizeFrame = window.requestAnimationFrame(() => {
+      drawBackground();
+      galaxyRenderer.resize();
+    });
   };
 
-  new ResizeObserver(scheduleDraw).observe(hero);
-  new IntersectionObserver(([entry]) => {
-    heroVisible = entry.isIntersecting;
-    if (heroVisible) restartAnimation();
-    else window.cancelAnimationFrame(animationFrame);
-  }).observe(hero);
-
-  reducedMotion.addEventListener?.("change", restartAnimation);
-  scheduleDraw();
+  new ResizeObserver(scheduleResize).observe(hero);
+  scheduleResize();
 })();
