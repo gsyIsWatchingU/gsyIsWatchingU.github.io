@@ -2,6 +2,8 @@
 
 面向小红书小工具容器的原创 3D 暗黑童话冒险原型。
 
+完整世界观、分场剧本、三结局与 Steam 扩写方案见 [`game-design-script.md`](./game-design-script.md)。
+
 ## 已实现
 
 - 轻量 WebGL 1 第三人称 3D 场景，无网络依赖。
