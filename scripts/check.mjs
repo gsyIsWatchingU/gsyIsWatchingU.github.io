@@ -81,11 +81,14 @@ for (const page of ["index.html", "playground.html"]) {
 
 for (const name of readdirSync(join(projectRoot, "scripts"))) {
   if (extname(name) !== ".js") continue;
-  const source = readFileSync(join(projectRoot, "scripts", name), "utf8");
   try {
-    new Function(source);
+    execFileSync(process.execPath, ["--check", join(projectRoot, "scripts", name)], {
+      cwd: projectRoot,
+      stdio: "pipe",
+    });
   } catch (error) {
-    errors.push(`${name} 语法错误：${error.message}`);
+    const detail = error.stderr?.toString().trim() || error.message;
+    errors.push(`${name} 语法错误：${detail}`);
   }
 }
 

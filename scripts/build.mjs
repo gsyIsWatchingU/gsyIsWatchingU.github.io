@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildSync } from "esbuild";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(projectRoot, "src");
@@ -8,6 +9,23 @@ const includePattern = /^[\t ]*<!-- @include ([^\s]+) -->[\t ]*$/gm;
 const projectsPattern = /^[\t ]*<!-- @projects -->[\t ]*$/gm;
 const entries = ["index.html", "playground.html"];
 const projects = JSON.parse(readFileSync(join(sourceRoot, "data", "projects.json"), "utf8"));
+const galaxyOutput = join(projectRoot, "assets", "galaxy.js");
+
+buildSync({
+  entryPoints: [join(projectRoot, "scripts", "galaxy.js")],
+  outfile: galaxyOutput,
+  bundle: true,
+  minify: true,
+  format: "esm",
+  target: ["es2020"],
+  legalComments: "inline",
+  logLevel: "silent",
+});
+writeFileSync(
+  galaxyOutput,
+  readFileSync(galaxyOutput, "utf8").replace(/[\t ]+$/gm, "").replace(/^ +\t/gm, "\t"),
+  "utf8",
+);
 
 const escapeHtml = (value) =>
   String(value)

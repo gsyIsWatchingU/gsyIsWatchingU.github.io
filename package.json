@@ -1,8 +1,13 @@
 {
   "name": "gsy-portfolio",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "three": "0.186.0"
   }
 }
