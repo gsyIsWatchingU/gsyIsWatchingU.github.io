@@ -13,7 +13,7 @@
 
 能力分支的飞书实践说明链接统一配置在 `scripts/skill-links.js`。填写对应 URL 后，页面会显示实践说明入口。
 
-独立产品的文案、可选在线入口与截图统一配置在 `src/data/projects.json`，字段约束见 `src/data/projects.schema.json`，真实产品截图位于 `assets/projects`；私有产品只展示能力与界面，不提供源码或下载入口。
+独立产品的文案、可选在线入口与截图统一配置在 `src/data/projects.json`，字段约束见 `src/data/projects.schema.json`，真实产品截图位于 `assets/projects`，可通过 `gallery` 配置多图轮播；私有产品只展示能力与界面，不提供源码或下载入口。
 
 在线刷题页源码位于 `src/playground.html`，样式和交互分别位于 `styles/playground.css`、`scripts/playground.js`。该页面提供 JavaScript 编辑、用例运行、隐藏用例提交、超时保护和草稿自动保存。
 

@@ -73,14 +73,32 @@
     "englishName": "Local Command Deck",
     "stage": "DESKTOP · 私有演示",
     "role": "独立产品设计与原生桌面开发",
-    "description": "面向 Windows 开发者的本地命令工作台，把资源管理器上下文、可配置命令、目录浏览、文件预览、搜索标签与使用统计收进一个无需常驻服务的原生桌面产品。",
+    "description": "面向 Windows 开发者的本地效率中枢：从资源管理器当前路径直接进入，把本地终端、远端 GPU、编辑器与研究工具收敛到一个可配置、可搜索、可度量的命令面板，在不引入常驻后台的前提下减少上下文切换和路径误操作。",
     "proofs": [
-      { "label": "系统入口", "text": "注册表 Shell 菜单覆盖桌面、文件、目录与磁盘，并准确传入当前路径" },
-      { "label": "进程编排", "text": "统一调度 EXE、脚本与快捷方式，展开环境变量并隔离工作目录" },
-      { "label": "本地状态", "text": "稳定命令 ID 关联使用统计，临时文件写入后替换正式 JSON，降低状态损坏风险" }
+      { "label": "上下文接管", "text": "注册表 Shell 扩展覆盖桌面、文件、目录与磁盘，将触发位置规范化为可靠工作目录" },
+      { "label": "异构编排", "text": "统一启动 EXE、脚本与快捷方式，支持环境变量、动态参数、独立工作目录及本地/远端工具链" },
+      { "label": "效率闭环", "text": "搜索、标签、频次与最近使用协同排序；稳定 ID 驱动统计，临时文件替换降低本地状态损坏风险" }
     ],
-    "tech": ["C#", "Windows Forms", "PowerShell", "Windows Registry", "ProcessStartInfo"],
+    "tech": ["C#", "Windows Forms", "Shell Integration", "ProcessStartInfo", "JSON Persistence"],
     "image": "./assets/projects/cli-list.png",
-    "imageAlt": "CLI List 命令面板，展示搜索、标签筛选、命令卡片与使用统计"
+    "imageAlt": "CLI List 命令面板，展示搜索、标签筛选、远端 GPU 与开发工具编排",
+    "gallery": [
+      {
+        "src": "./assets/projects/cli-list-shell-menu.png",
+        "alt": "Windows 资源管理器右键菜单中的 CLI List 系统入口",
+        "label": "SYSTEM ENTRY",
+        "caption": "资源管理器原生入口",
+        "width": 319,
+        "height": 445
+      },
+      {
+        "src": "./assets/projects/cli-list.png",
+        "alt": "CLI List 命令面板，统一展示远端 GPU、Skill Atlas 与 Zotero 等工具",
+        "label": "COMMAND DECK",
+        "caption": "本地与远端工具统一编排",
+        "width": 708,
+        "height": 753
+      }
+    ]
   }
 ]

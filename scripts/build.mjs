@@ -47,6 +47,7 @@ const renderProject = (project) => {
     .join("");
   const techItems = project.tech.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
   const hasEntry = typeof project.entryUrl === "string" && project.entryUrl.trim();
+  const gallery = Array.isArray(project.gallery) ? project.gallery : [];
   const secondaryAction = project.secondaryUrl
     ? `
                   <a class="project-action project-action--secondary magnetic" href="${escapeHtml(project.secondaryUrl)}">
@@ -67,7 +68,39 @@ const renderProject = (project) => {
     ? `<a class="product-card__visual" href="${escapeHtml(project.entryUrl)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(project.entryLabel)}（新窗口打开）">
                   ${visualContent}
                 </a>`
-    : `<div class="product-card__visual product-card__visual--static" aria-label="${escapeHtml(project.name)} 私有演示界面">
+    : gallery.length > 1
+      ? `<div class="product-card__visual product-carousel" data-project-carousel role="region" aria-roledescription="轮播图" aria-label="${escapeHtml(project.name)} 功能截图" tabindex="0">
+                  <span class="product-card__browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>WINDOWS PRODUCT</b></span>
+                  <div class="product-carousel__viewport" data-carousel-viewport>
+                    <div class="product-carousel__track" data-carousel-track>${gallery
+                      .map(
+                        (item, index) => `
+                      <figure class="product-carousel__slide" data-carousel-slide aria-hidden="${index === 0 ? "false" : "true"}">
+                        <div class="product-carousel__media">
+                          <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" width="${escapeHtml(item.width)}" height="${escapeHtml(item.height)}" loading="lazy" />
+                        </div>
+                        <figcaption><b>${escapeHtml(item.label)}</b><span>${escapeHtml(item.caption)}</span></figcaption>
+                      </figure>`,
+                      )
+                      .join("")}
+                    </div>
+                  </div>
+                  <div class="product-carousel__footer">
+                    <span>私有演示 · 不开放下载</span>
+                    <div class="product-carousel__controls">
+                      <button type="button" data-carousel-prev aria-label="上一张截图">←</button>
+                      <div class="product-carousel__dots" aria-label="选择截图">${gallery
+                        .map(
+                          (item, index) =>
+                            `<button type="button" data-carousel-dot="${index}" aria-label="查看第 ${index + 1} 张：${escapeHtml(item.caption)}" aria-current="${index === 0 ? "true" : "false"}"><i></i></button>`,
+                        )
+                        .join("")}</div>
+                      <span data-carousel-status aria-live="polite">01 / ${String(gallery.length).padStart(2, "0")}</span>
+                      <button type="button" data-carousel-next aria-label="下一张截图">→</button>
+                    </div>
+                  </div>
+                </div>`
+      : `<div class="product-card__visual product-card__visual--static" aria-label="${escapeHtml(project.name)} 私有演示界面">
                   ${visualContent}
                 </div>`;
 

@@ -33,6 +33,23 @@
       "tech": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
       "image": { "type": "string", "pattern": "^\\./assets/" },
       "imageAlt": { "type": "string", "minLength": 1 },
+      "gallery": {
+        "type": "array",
+        "minItems": 2,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["src", "alt", "label", "caption", "width", "height"],
+          "properties": {
+            "src": { "type": "string", "pattern": "^\\./assets/" },
+            "alt": { "type": "string", "minLength": 1 },
+            "label": { "type": "string", "minLength": 1 },
+            "caption": { "type": "string", "minLength": 1 },
+            "width": { "type": "integer", "minimum": 1 },
+            "height": { "type": "integer", "minimum": 1 }
+          }
+        }
+      },
       "entryUrl": { "type": "string", "pattern": "^https://" },
       "entryLabel": { "type": "string", "minLength": 1 },
       "secondaryUrl": { "type": "string", "pattern": "^\\./" },

@@ -56,6 +56,29 @@ if (!Array.isArray(projects) || projects.length === 0) {
     if (hasEntryUrl && !project.entryUrl.startsWith("https://")) {
       errors.push(`项目 ${project.id || "未知"} 的在线入口必须使用 HTTPS`);
     }
+    if (project.gallery !== undefined) {
+      if (!Array.isArray(project.gallery) || project.gallery.length < 2) {
+        errors.push(`项目 ${project.id || "未知"} 的轮播图至少需要 2 张截图`);
+      } else {
+        for (const [index, item] of project.gallery.entries()) {
+          const missingGalleryFields = ["src", "alt", "label", "caption"].filter(
+            (field) => typeof item?.[field] !== "string" || !item[field].trim(),
+          );
+          if (missingGalleryFields.length) {
+            errors.push(`项目 ${project.id || "未知"} 的第 ${index + 1} 张轮播图缺少字段：${missingGalleryFields.join("、")}`);
+          }
+          if (!Number.isInteger(item?.width) || item.width < 1 || !Number.isInteger(item?.height) || item.height < 1) {
+            errors.push(`项目 ${project.id || "未知"} 的第 ${index + 1} 张轮播图尺寸无效`);
+          }
+          if (typeof item?.src === "string" && item.src.startsWith("./")) {
+            const galleryImagePath = join(projectRoot, item.src.slice(2));
+            if (!existsSync(galleryImagePath)) {
+              errors.push(`项目 ${project.id || "未知"} 的轮播图不存在：${item.src}`);
+            }
+          }
+        }
+      }
+    }
     if (typeof project.image === "string" && project.image.startsWith("./")) {
       const imagePath = join(projectRoot, project.image.slice(2));
       if (!existsSync(imagePath)) errors.push(`项目 ${project.id || "未知"} 截图不存在：${project.image}`);

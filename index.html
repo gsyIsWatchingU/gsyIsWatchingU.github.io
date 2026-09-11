@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="郭书羽的个人技术主页：AI 全栈开发、Agent 应用工程、字节跳动实习经历，以及论迹、Algorithm Lab 与 WriteHere 独立产品。"
+      content="郭书羽的个人技术主页：AI 全栈开发、Agent 应用工程、字节跳动实习经历，以及论迹、Algorithm Lab、WriteHere 与 CLI List 独立产品。"
     />
     <meta name="theme-color" content="#0d0d0c" />
     <meta property="og:type" content="website" />
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="./styles/hero.css?v=20260911-event-horizon" />
     <link rel="stylesheet" href="./styles/skills.css" />
     <link rel="stylesheet" href="./styles/experience.css" />
-    <link rel="stylesheet" href="./styles/projects.css" />
+    <link rel="stylesheet" href="./styles/projects.css?v=20260911-carousel" />
     <link rel="stylesheet" href="./styles/guestbook.css" />
     <script type="application/ld+json">
       {
@@ -620,24 +620,24 @@
                 <div class="product-card__content">
                   <p class="product-card__role">独立产品设计与原生桌面开发</p>
                   <h3>CLI List<small>Local Command Deck</small></h3>
-                  <p class="product-card__description">面向 Windows 开发者的本地命令工作台，把资源管理器上下文、可配置命令、目录浏览、文件预览、搜索标签与使用统计收进一个无需常驻服务的原生桌面产品。</p>
+                  <p class="product-card__description">面向 Windows 开发者的本地效率中枢：从资源管理器当前路径直接进入，把本地终端、远端 GPU、编辑器与研究工具收敛到一个可配置、可搜索、可度量的命令面板，在不引入常驻后台的前提下减少上下文切换和路径误操作。</p>
 
                   <div class="product-card__proofs">
                   <div class="product-proof">
-                    <span>系统入口</span>
-                    <p>注册表 Shell 菜单覆盖桌面、文件、目录与磁盘，并准确传入当前路径</p>
+                    <span>上下文接管</span>
+                    <p>注册表 Shell 扩展覆盖桌面、文件、目录与磁盘，将触发位置规范化为可靠工作目录</p>
                   </div>
                   <div class="product-proof">
-                    <span>进程编排</span>
-                    <p>统一调度 EXE、脚本与快捷方式，展开环境变量并隔离工作目录</p>
+                    <span>异构编排</span>
+                    <p>统一启动 EXE、脚本与快捷方式，支持环境变量、动态参数、独立工作目录及本地/远端工具链</p>
                   </div>
                   <div class="product-proof">
-                    <span>本地状态</span>
-                    <p>稳定命令 ID 关联使用统计，临时文件写入后替换正式 JSON，降低状态损坏风险</p>
+                    <span>效率闭环</span>
+                    <p>搜索、标签、频次与最近使用协同排序；稳定 ID 驱动统计，临时文件替换降低本地状态损坏风险</p>
                   </div>
                   </div>
 
-                  <div class="tag-row"><span>C#</span><span>Windows Forms</span><span>PowerShell</span><span>Windows Registry</span><span>ProcessStartInfo</span></div>
+                  <div class="tag-row"><span>C#</span><span>Windows Forms</span><span>Shell Integration</span><span>ProcessStartInfo</span><span>JSON Persistence</span></div>
 
                   <div class="product-card__actions">
                     <span class="product-card__availability" aria-label="私有演示，不开放下载">
@@ -646,10 +646,33 @@
                   </div>
                 </div>
 
-                <div class="product-card__visual product-card__visual--static" aria-label="CLI List 私有演示界面">
-                  <span class="product-card__browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>WINDOWS DESKTOP</b></span>
-                  <img src="./assets/projects/cli-list.png" alt="CLI List 命令面板，展示搜索、标签筛选、命令卡片与使用统计" width="720" height="760" loading="lazy" />
-                  <span class="product-card__visual-note">私有演示 · 不开放下载</span>
+                <div class="product-card__visual product-carousel" data-project-carousel role="region" aria-roledescription="轮播图" aria-label="CLI List 功能截图" tabindex="0">
+                  <span class="product-card__browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>WINDOWS PRODUCT</b></span>
+                  <div class="product-carousel__viewport" data-carousel-viewport>
+                    <div class="product-carousel__track" data-carousel-track>
+                      <figure class="product-carousel__slide" data-carousel-slide aria-hidden="false">
+                        <div class="product-carousel__media">
+                          <img src="./assets/projects/cli-list-shell-menu.png" alt="Windows 资源管理器右键菜单中的 CLI List 系统入口" width="319" height="445" loading="lazy" />
+                        </div>
+                        <figcaption><b>SYSTEM ENTRY</b><span>资源管理器原生入口</span></figcaption>
+                      </figure>
+                      <figure class="product-carousel__slide" data-carousel-slide aria-hidden="true">
+                        <div class="product-carousel__media">
+                          <img src="./assets/projects/cli-list.png" alt="CLI List 命令面板，统一展示远端 GPU、Skill Atlas 与 Zotero 等工具" width="708" height="753" loading="lazy" />
+                        </div>
+                        <figcaption><b>COMMAND DECK</b><span>本地与远端工具统一编排</span></figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="product-carousel__footer">
+                    <span>私有演示 · 不开放下载</span>
+                    <div class="product-carousel__controls">
+                      <button type="button" data-carousel-prev aria-label="上一张截图">←</button>
+                      <div class="product-carousel__dots" aria-label="选择截图"><button type="button" data-carousel-dot="0" aria-label="查看第 1 张：资源管理器原生入口" aria-current="true"><i></i></button><button type="button" data-carousel-dot="1" aria-label="查看第 2 张：本地与远端工具统一编排" aria-current="false"><i></i></button></div>
+                      <span data-carousel-status aria-live="polite">01 / 02</span>
+                      <button type="button" data-carousel-next aria-label="下一张截图">→</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </article>
@@ -701,6 +724,7 @@
     <script defer src="./scripts/cursor.js"></script>
     <script defer src="./scripts/skill-links.js"></script>
     <script defer src="./scripts/skills.js"></script>
+    <script defer src="./scripts/projects.js?v=20260911-carousel"></script>
     <script defer src="./scripts/guestbook-config.js"></script>
     <script defer src="./scripts/guestbook.js"></script>
   </body>
