@@ -63,5 +63,24 @@
     "imageAlt": "WriteHere 登录页，展示极简像素风格的 Horizon Docs 品牌界面",
     "entryUrl": "https://dollar-wendy-buildings-year.trycloudflare.com",
     "entryLabel": "进入 WriteHere"
+  },
+  {
+    "id": "cli-list",
+    "number": "04",
+    "tone": "green",
+    "kicker": "WINDOWS DEVELOPER TOOL",
+    "name": "CLI List",
+    "englishName": "Local Command Deck",
+    "stage": "DESKTOP · 私有演示",
+    "role": "独立产品设计与原生桌面开发",
+    "description": "面向 Windows 开发者的本地命令工作台，把资源管理器上下文、可配置命令、目录浏览、文件预览、搜索标签与使用统计收进一个无需常驻服务的原生桌面产品。",
+    "proofs": [
+      { "label": "系统入口", "text": "注册表 Shell 菜单覆盖桌面、文件、目录与磁盘，并准确传入当前路径" },
+      { "label": "进程编排", "text": "统一调度 EXE、脚本与快捷方式，展开环境变量并隔离工作目录" },
+      { "label": "本地状态", "text": "稳定命令 ID 关联使用统计，临时文件写入后替换正式 JSON，降低状态损坏风险" }
+    ],
+    "tech": ["C#", "Windows Forms", "PowerShell", "Windows Registry", "ProcessStartInfo"],
+    "image": "./assets/projects/cli-list.png",
+    "imageAlt": "CLI List 命令面板，展示搜索、标签筛选、命令卡片与使用统计"
   }
 ]

@@ -28,6 +28,7 @@
 - 已基于个人简历重写首屏职业定位，明确“AI 全栈工程师 / Agent 应用”求职方向。
 - 已将项目实践扩展为研发 Agent Harness、教育培训管理平台和在线算法实验室三项，补充规模、技术难点与结果数据。
 - 已将项目实践升级为独立产品展示，接入论迹、Algorithm Lab 与 WriteHere 的真实界面截图、工程亮点和在线体验入口，不提供源码入口；研发 Agent Harness 与教育培训管理平台保留为工程经历项目。
+- 已将 CLI List 作为第 4 个独立产品接入主页，使用新生成的真实界面截图展示 Windows 原生命令编排、Shell 上下文接入与本地状态持久化；明确标注私有演示，不提供源码或下载入口。
 - 已增加 `src/data/projects.json` 项目清单与 Schema，构建时统一生成产品卡片，检查脚本验证必填字段、HTTPS 入口和本地截图资源。
 - 已补充职业邮箱入口、页面分享元信息、canonical 与个人结构化数据，未在网页公开手机号。
 - 已修复实习经历与项目实践锚点被固定导航遮挡的问题。
@@ -106,3 +107,4 @@
 - 2026-09-07：在线算法练习场完成浏览器验收；正确解法通过 7 个用例，死循环在 2 秒后终止，浏览器控制台无警告或错误；`npm run build`、`npm run check` 通过。
 - 2026-09-08：完成算法训练平台 MVP（`E:/prj-gsy/algorithm-lab`）并部署到 GPU 服务器内网（`192.168.88.122:3000`）。技术栈 Next.js 16 + Prisma 6 + PostgreSQL 14 + Redis + BullMQ + 原生沙箱；`pnpm typecheck` 全仓通过、23 个单元测试通过、`next build` 成功；端到端判题验证 ACCEPTED / TIME_LIMIT_EXCEEDED / COMPILE_ERROR 三态正确，隐藏用例零泄露。判题后端由 Judge0（Docker）改为原生沙箱——实测目标主机为 K8s Pod 缺 CAP_SYS_ADMIN 无法运行容器（详见 `algorithm-lab/docs/deployment.md`）。
 - 2026-09-11：在保持低饱和和黑色留白的前提下，提高 Three.js 粒子流、人物轮廓及局部光源的可见度；悬浮态扩大粒子偏转范围并增强漩涡、暗部透镜和双层引力弧；桌面端静态与悬浮态、390×844 手机端实景验收通过，控制台无警告或错误；`npm run build`、`npm run check`、`git diff --check` 通过。
+- 2026-09-11：CLI List 产品卡片已通过桌面端与 390×844 移动端实景验收，完整窗口截图、私有状态和响应式布局显示正常，控制台无警告或错误；`npm run build`、`npm run check`、`git diff --check` 通过。

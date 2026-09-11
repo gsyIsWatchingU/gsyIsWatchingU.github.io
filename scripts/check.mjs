@@ -34,8 +34,6 @@ if (!Array.isArray(projects) || projects.length === 0) {
     "description",
     "image",
     "imageAlt",
-    "entryUrl",
-    "entryLabel",
   ];
   const ids = projects.map((project) => project.id);
   const duplicateProjectIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
@@ -50,7 +48,12 @@ if (!Array.isArray(projects) || projects.length === 0) {
     if (!Array.isArray(project.tech) || project.tech.length === 0) {
       errors.push(`项目 ${project.id || "未知"} 至少需要 1 个技术标签`);
     }
-    if (typeof project.entryUrl === "string" && !project.entryUrl.startsWith("https://")) {
+    const hasEntryUrl = typeof project.entryUrl === "string" && project.entryUrl.trim();
+    const hasEntryLabel = typeof project.entryLabel === "string" && project.entryLabel.trim();
+    if (Boolean(hasEntryUrl) !== Boolean(hasEntryLabel)) {
+      errors.push(`项目 ${project.id || "未知"} 的在线入口和入口文案必须同时提供`);
+    }
+    if (hasEntryUrl && !project.entryUrl.startsWith("https://")) {
       errors.push(`项目 ${project.id || "未知"} 的在线入口必须使用 HTTPS`);
     }
     if (typeof project.image === "string" && project.image.startsWith("./")) {

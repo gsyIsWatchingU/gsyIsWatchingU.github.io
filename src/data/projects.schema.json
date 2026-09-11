@@ -6,7 +6,7 @@
   "items": {
     "type": "object",
     "additionalProperties": false,
-    "required": ["id", "number", "tone", "kicker", "name", "englishName", "stage", "role", "description", "proofs", "tech", "image", "imageAlt", "entryUrl", "entryLabel"],
+    "required": ["id", "number", "tone", "kicker", "name", "englishName", "stage", "role", "description", "proofs", "tech", "image", "imageAlt"],
     "properties": {
       "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
       "number": { "type": "string", "pattern": "^[0-9]{2}$" },

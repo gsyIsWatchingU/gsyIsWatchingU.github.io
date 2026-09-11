@@ -46,12 +46,30 @@ const renderProject = (project) => {
     )
     .join("");
   const techItems = project.tech.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
+  const hasEntry = typeof project.entryUrl === "string" && project.entryUrl.trim();
   const secondaryAction = project.secondaryUrl
     ? `
                   <a class="project-action project-action--secondary magnetic" href="${escapeHtml(project.secondaryUrl)}">
                     ${escapeHtml(project.secondaryLabel)} <span aria-hidden="true">→</span>
                   </a>`
     : "";
+  const primaryAction = hasEntry
+    ? `<a class="project-action project-action--primary magnetic" href="${escapeHtml(project.entryUrl)}" target="_blank" rel="noreferrer">
+                      ${escapeHtml(project.entryLabel)} <span aria-hidden="true">↗</span>
+                    </a>`
+    : `<span class="product-card__availability" aria-label="私有演示，不开放下载">
+                      <b>PRIVATE DEMO</b><span>不开放下载</span>
+                    </span>`;
+  const visualContent = `<span class="product-card__browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>${hasEntry ? "LIVE PRODUCT" : "WINDOWS DESKTOP"}</b></span>
+                  <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="${hasEntry ? "1440" : "720"}" height="${hasEntry ? "900" : "760"}" loading="lazy" />
+                  <span class="product-card__visual-note">${hasEntry ? "临时演示地址" : "私有演示 · 不开放下载"}${hasEntry ? ' <b aria-hidden="true">↗</b>' : ""}</span>`;
+  const visual = hasEntry
+    ? `<a class="product-card__visual" href="${escapeHtml(project.entryUrl)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(project.entryLabel)}（新窗口打开）">
+                  ${visualContent}
+                </a>`
+    : `<div class="product-card__visual product-card__visual--static" aria-label="${escapeHtml(project.name)} 私有演示界面">
+                  ${visualContent}
+                </div>`;
 
   return `            <article class="product-card product-card--${escapeHtml(project.tone)} reveal">
               <header class="product-card__head">
@@ -74,17 +92,11 @@ const renderProject = (project) => {
                   <div class="tag-row">${techItems}</div>
 
                   <div class="product-card__actions">
-                    <a class="project-action project-action--primary magnetic" href="${escapeHtml(project.entryUrl)}" target="_blank" rel="noreferrer">
-                      ${escapeHtml(project.entryLabel)} <span aria-hidden="true">↗</span>
-                    </a>${secondaryAction}
+                    ${primaryAction}${secondaryAction}
                   </div>
                 </div>
 
-                <a class="product-card__visual" href="${escapeHtml(project.entryUrl)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(project.entryLabel)}（新窗口打开）">
-                  <span class="product-card__browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>LIVE PRODUCT</b></span>
-                  <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="1440" height="900" loading="lazy" />
-                  <span class="product-card__visual-note">临时演示地址 <b aria-hidden="true">↗</b></span>
-                </a>
+                ${visual}
               </div>
             </article>`;
 };
