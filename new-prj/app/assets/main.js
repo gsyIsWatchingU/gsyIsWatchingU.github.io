@@ -728,7 +728,8 @@
       sphere: createMesh(createSphereData(18, 12)),
       cylinder: createMesh(createFrustumData(12, 1, 1)),
       cloak: createMesh(createFrustumData(14, .5, 1)),
-      hood: createMesh(createFrustumData(14, .04, 1))
+      hood: createMesh(createFrustumData(14, .04, 1)),
+      rainHood: createMesh(createFrustumData(8, .06, 1))
     };
 
     function bindMesh(mesh) {
@@ -906,57 +907,59 @@
     function drawPlayer(world) {
       var step = Math.sin(world.walkPhase) * world.motion;
       var bob = Math.abs(Math.sin(world.walkPhase * 2)) * .025 * world.motion;
-      var legSwing = step * .48;
-      var armSwing = -step * .4;
+      var legSwing = step * .52;
+      var armSwing = -step * .34;
       var alpha = world.hidden ? .23 : 1;
-      var cloth = [.18 * alpha, .235 * alpha, .23 * alpha];
-      var clothDark = [.085 * alpha, .115 * alpha, .115 * alpha];
-      var skin = [.255 * alpha, .225 * alpha, .19 * alpha];
+      var raincoat = [.55 * alpha, .415 * alpha, .028 * alpha];
+      var raincoatLight = [.66 * alpha, .505 * alpha, .052 * alpha];
+      var raincoatDark = [.275 * alpha, .195 * alpha, .015 * alpha];
+      var skin = [.19 * alpha, .14 * alpha, .105 * alpha];
+      var shadowSkin = [.14 * alpha, .105 * alpha, .082 * alpha];
       var rightX = Math.cos(world.facing);
       var rightZ = -Math.sin(world.facing);
       var frontX = Math.sin(world.facing);
       var frontZ = Math.cos(world.facing);
-      var leftLegX = world.x - rightX * .12;
-      var leftLegZ = world.z - rightZ * .12;
-      var rightLegX = world.x + rightX * .12;
-      var rightLegZ = world.z + rightZ * .12;
+      var leftLegX = world.x - rightX * .105;
+      var leftLegZ = world.z - rightZ * .105;
+      var rightLegX = world.x + rightX * .105;
+      var rightLegZ = world.z + rightZ * .105;
 
-      drawShape(meshes.sphere, world.x, .025, world.z, .38, .025, .29, [.012, .016, .016], world.facing, 0, 0, 0);
-      drawShape(meshes.cylinder, leftLegX, .37 + bob, leftLegZ, .075, .34, .075, [.065, .073, .071], world.facing, legSwing, 0, 0);
-      drawShape(meshes.cylinder, rightLegX, .37 + bob, rightLegZ, .075, .34, .075, [.065, .073, .071], world.facing, -legSwing, 0, 0);
-      drawShape(meshes.sphere, leftLegX + frontX * step * .13, .075, leftLegZ + frontZ * step * .13, .115, .075, .19, [.04, .046, .045], world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, rightLegX - frontX * step * .13, .075, rightLegZ - frontZ * step * .13, .115, .075, .19, [.04, .046, .045], world.facing, 0, 0, 0);
+      drawShape(meshes.sphere, world.x, .02, world.z, .3, .018, .22, [.009, .012, .012], world.facing, 0, 0, 0);
+      drawShape(meshes.cylinder, leftLegX, .34 + bob, leftLegZ, .047, .3, .047, shadowSkin, world.facing, legSwing, 0, 0);
+      drawShape(meshes.cylinder, rightLegX, .34 + bob, rightLegZ, .047, .3, .047, shadowSkin, world.facing, -legSwing, 0, 0);
+      drawShape(meshes.sphere, leftLegX + frontX * step * .14, .065, leftLegZ + frontZ * step * .14, .085, .055, .145, [.028, .032, .03], world.facing, 0, 0, 0);
+      drawShape(meshes.sphere, rightLegX - frontX * step * .14, .065, rightLegZ - frontZ * step * .14, .085, .055, .145, [.028, .032, .03], world.facing, 0, 0, 0);
 
-      drawShape(meshes.cloak, world.x - frontX * .015, .93 + bob, world.z - frontZ * .015, .36, .46, .29, cloth, world.facing, -.025 * step, .035 * step, 0);
-      drawShape(meshes.sphere, world.x - frontX * .035, 1.29 + bob, world.z - frontZ * .035, .31, .15, .235, clothDark, world.facing, 0, 0, 0);
-      drawShape(meshes.cube, world.x - frontX * .295, 1.03 + bob, world.z - frontZ * .295, .19, .25, .055, [.065 * alpha, .075 * alpha, .073 * alpha], world.facing, 0, 0, 0);
-      drawShape(meshes.cube, world.x - frontX * .353, 1.12 + bob, world.z - frontZ * .353, .025, .37, .025, [.105 * alpha, .115 * alpha, .105 * alpha], world.facing, 0, .48, 0);
-      drawShape(meshes.sphere, world.x - frontX * .05, 1.61 + bob, world.z - frontZ * .05, .285, .31, .255, clothDark, world.facing, -.035 * step, 0, 0);
-      drawShape(meshes.sphere, world.x - frontX * .145 + rightX * .07, 1.75 + bob, world.z - frontZ * .145 + rightZ * .07, .16, .13, .145, [.075 * alpha, .102 * alpha, .1 * alpha], world.facing, -.16, .18, 0);
-      drawShape(meshes.sphere, world.x + frontX * .11, 1.69 + bob, world.z + frontZ * .11, .245, .075, .22, [.07 * alpha, .095 * alpha, .093 * alpha], world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, world.x + frontX * .205, 1.57 + bob, world.z + frontZ * .205, .145, .195, .05, skin, world.facing, 0, 0, .01);
-      drawShape(meshes.sphere, world.x + frontX * .257 - rightX * .055, 1.61 + bob, world.z + frontZ * .257 - rightZ * .055, .018, .023, .013, [.012, .013, .012], world.facing, 0, 0, .03);
-      drawShape(meshes.sphere, world.x + frontX * .257 + rightX * .055, 1.61 + bob, world.z + frontZ * .257 + rightZ * .055, .018, .023, .013, [.012, .013, .012], world.facing, 0, 0, .03);
-      drawShape(meshes.sphere, world.x + frontX * .12, 1.42 + bob, world.z + frontZ * .12, .29, .075, .19, [.07 * alpha, .095 * alpha, .093 * alpha], world.facing, .04, 0, 0);
+      drawShape(meshes.cloak, world.x - frontX * .015, .96 + bob, world.z - frontZ * .015, .315, .44, .25, raincoat, world.facing, -.03 * step, .025 * step, 0);
+      drawShape(meshes.sphere, world.x - frontX * .02, 1.37 + bob, world.z - frontZ * .02, .235, .105, .19, raincoatLight, world.facing, 0, 0, 0);
+      drawShape(meshes.cylinder, world.x, .56 + bob, world.z, .31, .018, .245, raincoatDark, world.facing, 0, 0, .015);
 
-      var leftHandX = world.x - rightX * .34 + frontX * step * .1;
-      var leftHandZ = world.z - rightZ * .34 + frontZ * step * .1;
-      var rightHandX = world.x + rightX * .34 - frontX * step * .1;
-      var rightHandZ = world.z + rightZ * .34 - frontZ * step * .1;
-      drawShape(meshes.cylinder, world.x - rightX * .3 + frontX * step * .04, 1.11 + bob, world.z - rightZ * .3 + frontZ * step * .04, .068, .22, .068, clothDark, world.facing, armSwing, -.05, 0);
-      drawShape(meshes.cylinder, world.x + rightX * .3 - frontX * step * .04, 1.11 + bob, world.z + rightZ * .3 - frontZ * step * .04, .068, .22, .068, clothDark, world.facing, -armSwing * .55, .04, 0);
-      drawShape(meshes.sphere, world.x - rightX * .34 + frontX * step * .07, .86 + bob, world.z - rightZ * .34 + frontZ * step * .07, .07, .075, .07, clothDark, world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, world.x + rightX * .34 - frontX * step * .07, .86 + bob, world.z + rightZ * .34 - frontZ * step * .07, .07, .075, .07, clothDark, world.facing, 0, 0, 0);
-      drawShape(meshes.cylinder, leftHandX, .7 + bob, leftHandZ, .058, .18, .058, clothDark, world.facing, armSwing * .45, -.05, 0);
-      drawShape(meshes.cylinder, rightHandX, .7 + bob, rightHandZ, .058, .18, .058, clothDark, world.facing, -armSwing * .25, .04, 0);
-      drawShape(meshes.sphere, leftHandX + frontX * step * .1, .56 + bob, leftHandZ + frontZ * step * .1, .075, .09, .075, skin, world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, rightHandX - frontX * step * .07, .54 + bob, rightHandZ - frontZ * step * .07, .075, .09, .075, skin, world.facing, 0, 0, 0);
+      drawShape(meshes.sphere, world.x - frontX * .04, 1.55 + bob, world.z - frontZ * .04, .175, .2, .165, raincoatDark, world.facing, -.025 * step, 0, 0);
+      drawShape(meshes.rainHood, world.x - frontX * .075, 1.6 + bob, world.z - frontZ * .075, .32, .31, .285, raincoatLight, world.facing, -.18 - .025 * step, 0, .055);
+      drawShape(meshes.cylinder, world.x + frontX * .085, 1.42 + bob, world.z + frontZ * .085, .245, .028, .205, raincoatDark, world.facing, 0, 0, .01);
+      drawShape(meshes.sphere, world.x + frontX * .205, 1.55 + bob, world.z + frontZ * .205, .18, .2, .052, [.025 * alpha, .025 * alpha, .019 * alpha], world.facing, 0, 0, 0);
+      drawShape(meshes.sphere, world.x + frontX * .244, 1.53 + bob, world.z + frontZ * .244, .092, .108, .03, skin, world.facing, 0, 0, 0);
+
+      drawShape(meshes.cylinder, world.x - frontX * .263, 1.03 + bob, world.z - frontZ * .263, .011, .29, .011, raincoatDark, world.facing, 0, 0, 0);
+      drawShape(meshes.sphere, world.x - frontX * .275 - rightX * .105, .82 + bob, world.z - frontZ * .275 - rightZ * .105, .035, .028, .018, raincoatDark, world.facing, 0, 0, 0);
+      drawShape(meshes.sphere, world.x - frontX * .275 + rightX * .105, .82 + bob, world.z - frontZ * .275 + rightZ * .105, .035, .028, .018, raincoatDark, world.facing, 0, 0, 0);
+
+      var leftHandX = world.x - rightX * .275 + frontX * step * .08;
+      var leftHandZ = world.z - rightZ * .275 + frontZ * step * .08;
+      var rightHandX = world.x + rightX * .275 - frontX * step * .08;
+      var rightHandZ = world.z + rightZ * .275 - frontZ * step * .08;
+      drawShape(meshes.cylinder, world.x - rightX * .255 + frontX * step * .04, 1.02 + bob, world.z - rightZ * .255 + frontZ * step * .04, .052, .32, .052, raincoat, world.facing, armSwing, -.025, 0);
+      drawShape(meshes.cylinder, world.x + rightX * .255 - frontX * step * .04, 1.02 + bob, world.z + rightZ * .255 - frontZ * step * .04, .052, .32, .052, raincoat, world.facing, -armSwing * .65, .025, 0);
+      drawShape(meshes.cylinder, leftHandX, .705 + bob, leftHandZ, .066, .035, .066, raincoatDark, world.facing, 0, 0, .02);
+      drawShape(meshes.cylinder, rightHandX, .705 + bob, rightHandZ, .066, .035, .066, raincoatDark, world.facing, 0, 0, .02);
+      drawShape(meshes.sphere, leftHandX + frontX * step * .08, .65 + bob, leftHandZ + frontZ * step * .08, .052, .062, .052, skin, world.facing, 0, 0, 0);
+      drawShape(meshes.sphere, rightHandX - frontX * step * .055, .65 + bob, rightHandZ - frontZ * step * .055, .052, .062, .052, skin, world.facing, 0, 0, 0);
 
       var lanternX = rightHandX + frontX * .04;
       var lanternZ = rightHandZ + frontZ * .04;
-      drawShape(meshes.cylinder, lanternX, .4 + bob, lanternZ, .095, .17, .095, [.16, .13, .08], world.facing, 0, 0, .08);
-      drawShape(meshes.sphere, lanternX, .4 + bob, lanternZ, .068, .11, .068, [.83, .62, .26], world.elapsed * .4, 0, 0, 1.38);
-      drawShape(meshes.cylinder, lanternX, .61 + bob, lanternZ, .11, .025, .11, [.14, .13, .1], world.facing, 0, 0, .04);
+      drawShape(meshes.cylinder, lanternX, .49 + bob, lanternZ, .067, .105, .067, [.14, .11, .055], world.facing, 0, 0, .06);
+      drawShape(meshes.sphere, lanternX, .49 + bob, lanternZ, .046, .072, .046, [.84, .63, .24], world.elapsed * .4, 0, 0, 1.28);
+      drawShape(meshes.cylinder, lanternX, .61 + bob, lanternZ, .078, .018, .078, [.12, .105, .07], world.facing, 0, 0, .03);
 
       var orbit = world.elapsed * (1.7 + world.activated * .12);
       var mothX = world.x + Math.sin(orbit) * .72 + frontX * .3;
