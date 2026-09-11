@@ -590,10 +590,12 @@
     var vertexSource = [
       'attribute vec3 aPosition;',
       'attribute vec3 aNormal;',
+      'attribute vec2 aTexCoord;',
       'uniform mat4 uProjection;',
       'uniform mat4 uView;',
       'uniform mat4 uModel;',
       'varying vec3 vNormal;',
+      'varying vec2 vTexCoord;',
       'varying float vDepth;',
       'varying vec3 vWorld;',
       'void main(){',
@@ -601,6 +603,7 @@
       ' vec4 viewPos=uView*world;',
       ' gl_Position=uProjection*viewPos;',
       ' vNormal=mat3(uModel)*aNormal;',
+      ' vTexCoord=aTexCoord;',
       ' vDepth=-viewPos.z;',
       ' vWorld=world.xyz;',
       '}'
@@ -608,12 +611,16 @@
     var fragmentSource = [
       'precision mediump float;',
       'uniform vec3 uColor;',
+      'uniform sampler2D uTexture;',
+      'uniform float uUseTexture;',
+      'uniform float uPlayerBoost;',
       'uniform float uEmissive;',
       'uniform float uAlpha;',
       'uniform float uLightMask;',
       'uniform float uTime;',
       'uniform vec3 uPlayerLight;',
       'varying vec3 vNormal;',
+      'varying vec2 vTexCoord;',
       'varying float vDepth;',
       'varying vec3 vWorld;',
       'void main(){',
@@ -640,12 +647,14 @@
       ' float clockCone=smoothstep(0.72,0.93,dot(normalize(clockDelta),normalize(vec3(0.0,-0.72,-0.69))));',
       ' float clockSpot=clockCone*(1.0-smoothstep(1.5,11.5,clockDistance));',
       ' float clockFace=max(dot(normal,normalize(vec3(0.0,5.5,-18.0)-vWorld)),0.0);',
-      ' vec3 lit=uColor*(0.34+diffuse*0.62+backlight*0.22);',
+      ' vec3 baseColor=mix(uColor,uColor*texture2D(uTexture,vTexCoord).rgb,uUseTexture);',
+      ' vec3 lit=baseColor*(0.4+diffuse*0.68+backlight*0.26);',
       ' lit+=vec3(0.48,0.31,0.12)*lamp*(0.14+lampFace*0.52);',
       ' lit+=vec3(0.48,0.67,0.72)*startSpot*(0.52+startFace*0.92)*uLightMask;',
       ' lit+=vec3(0.42,0.59,0.64)*hallSpot*(0.42+hallFace*0.86)*uLightMask;',
       ' lit+=vec3(0.52,0.66,0.68)*clockSpot*(0.44+clockFace*0.9)*uLightMask;',
-      ' lit+=uColor*uEmissive*pulse;',
+      ' lit+=vec3(0.19,0.28,0.31)*(0.28+backlight)*uPlayerBoost;',
+      ' lit+=baseColor*uEmissive*pulse;',
       ' float fog=smoothstep(10.0,31.0,vDepth);',
       ' fog=max(fog,smoothstep(5.5,13.0,vDepth)*clamp((vWorld.y-4.0)*0.04,0.0,0.16));',
       ' vec3 fogColor=vec3(0.22,0.265,0.275);',
@@ -682,8 +691,11 @@
     gl.useProgram(program);
     var aPosition = gl.getAttribLocation(program, 'aPosition');
     var aNormal = gl.getAttribLocation(program, 'aNormal');
+    var aTexCoord = gl.getAttribLocation(program, 'aTexCoord');
     gl.enableVertexAttribArray(aPosition);
     gl.enableVertexAttribArray(aNormal);
+    gl.disableVertexAttribArray(aTexCoord);
+    gl.vertexAttrib2f(aTexCoord, 0, 0);
 
     function pushVertex(vertices, point, normal) {
       vertices.push(point[0], point[1], point[2], normal[0], normal[1], normal[2]);
@@ -756,7 +768,97 @@
       rainHood: createMesh(createFrustumData(8, .06, 1))
     };
 
+    function loadPlayerModel(url) {
+      if (!window.fetch || !window.TextDecoder) return;
+      window.fetch(url).then(function (response) {
+        if (!response.ok) throw new Error('model request failed');
+        return response.arrayBuffer();
+      }).then(function (arrayBuffer) {
+        var header = new DataView(arrayBuffer);
+        if (header.getUint32(0, true) !== 0x46546c67 || header.getUint32(4, true) !== 2) throw new Error('invalid glb');
+        var jsonLength = header.getUint32(12, true);
+        var jsonText = new TextDecoder('utf-8').decode(new Uint8Array(arrayBuffer, 20, jsonLength)).replace(/\u0000+$/g, '');
+        var json = JSON.parse(jsonText);
+        var binHeaderOffset = 20 + jsonLength;
+        var binStart = binHeaderOffset + 8;
+        var primitive = json.meshes[0].primitives[0];
+        var buffers = {};
+
+        function bufferForView(viewIndex, target) {
+          var key = viewIndex + ':' + target;
+          if (buffers[key]) return buffers[key];
+          var viewInfo = json.bufferViews[viewIndex];
+          var buffer = gl.createBuffer();
+          gl.bindBuffer(target, buffer);
+          gl.bufferData(target, new Uint8Array(arrayBuffer, binStart + (viewInfo.byteOffset || 0), viewInfo.byteLength), gl.STATIC_DRAW);
+          buffers[key] = buffer;
+          return buffer;
+        }
+
+        function attributeInfo(accessorIndex) {
+          var accessor = json.accessors[accessorIndex];
+          var bufferView = json.bufferViews[accessor.bufferView];
+          return {
+            buffer: bufferForView(accessor.bufferView, gl.ARRAY_BUFFER),
+            size: accessor.type === 'VEC2' ? 2 : 3,
+            type: accessor.componentType,
+            normalized: !!accessor.normalized,
+            stride: bufferView.byteStride || 0,
+            offset: accessor.byteOffset || 0,
+            min: accessor.min,
+            max: accessor.max
+          };
+        }
+
+        var position = attributeInfo(primitive.attributes.POSITION);
+        var normal = attributeInfo(primitive.attributes.NORMAL);
+        var texCoord = attributeInfo(primitive.attributes.TEXCOORD_0);
+        var indexAccessor = json.accessors[primitive.indices];
+        var material = json.materials[primitive.material || 0] || {};
+        var pbr = material.pbrMetallicRoughness || {};
+        var textureIndex = pbr.baseColorTexture && pbr.baseColorTexture.index;
+        var textureInfo = textureIndex === undefined ? null : json.textures[textureIndex];
+        var imageInfo = textureInfo ? json.images[textureInfo.source] : null;
+        if (!imageInfo || imageInfo.bufferView === undefined) throw new Error('missing model texture');
+
+        var imageView = json.bufferViews[imageInfo.bufferView];
+        var imageBytes = new Uint8Array(arrayBuffer, binStart + (imageView.byteOffset || 0), imageView.byteLength);
+        var imageUrl = URL.createObjectURL(new Blob([imageBytes], { type: imageInfo.mimeType || 'image/jpeg' }));
+        var image = new Image();
+        image.onload = function () {
+          var texture = gl.createTexture();
+          gl.activeTexture(gl.TEXTURE0);
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+          gl.generateMipmap(gl.TEXTURE_2D);
+          URL.revokeObjectURL(imageUrl);
+          playerModel = {
+            position: position,
+            normal: normal,
+            texCoord: texCoord,
+            indexBuffer: bufferForView(indexAccessor.bufferView, gl.ELEMENT_ARRAY_BUFFER),
+            indexType: indexAccessor.componentType,
+            indexCount: indexAccessor.count,
+            indexOffset: indexAccessor.byteOffset || 0,
+            min: position.min,
+            max: position.max,
+            texture: texture,
+            color: pbr.baseColorFactor || [1, 1, 1, 1]
+          };
+        };
+        image.onerror = function () { URL.revokeObjectURL(imageUrl); };
+        image.src = imageUrl;
+      }).catch(function () { playerModel = null; });
+    }
+
     function bindMesh(mesh) {
+      gl.disableVertexAttribArray(aTexCoord);
+      gl.vertexAttrib2f(aTexCoord, 0, 0);
       gl.bindBuffer(gl.ARRAY_BUFFER, mesh.buffer);
       gl.vertexAttribPointer(aPosition, 3, gl.FLOAT, false, 24, 0);
       gl.vertexAttribPointer(aNormal, 3, gl.FLOAT, false, 24, 12);
@@ -772,19 +874,25 @@
       emissive: gl.getUniformLocation(program, 'uEmissive'),
       alpha: gl.getUniformLocation(program, 'uAlpha'),
       lightMask: gl.getUniformLocation(program, 'uLightMask'),
+      texture: gl.getUniformLocation(program, 'uTexture'),
+      useTexture: gl.getUniformLocation(program, 'uUseTexture'),
+      playerBoost: gl.getUniformLocation(program, 'uPlayerBoost'),
       time: gl.getUniformLocation(program, 'uTime'),
       playerLight: gl.getUniformLocation(program, 'uPlayerLight')
     };
     var projection = mat4();
     var view = mat4();
     var model = mat4();
+    var playerModel = null;
     var ready = true;
 
     var staticObjects = createWorld();
     gl.enable(gl.DEPTH_TEST);
     gl.enable(gl.CULL_FACE);
     gl.cullFace(gl.BACK);
-    gl.clearColor(.09, .115, .12, 1);
+    gl.uniform1i(uniforms.texture, 0);
+    gl.clearColor(.115, .145, .155, 1);
+    loadPlayerModel('./assets/models/raincoat-boy-runtime.glb');
 
     function resize() {
       var rect = canvas.getBoundingClientRect();
@@ -816,11 +924,55 @@
       gl.uniform1f(uniforms.emissive, emissive || 0);
       gl.uniform1f(uniforms.alpha, alpha === undefined ? 1 : alpha);
       gl.uniform1f(uniforms.lightMask, lightMask === undefined ? 1 : lightMask);
+      gl.uniform1f(uniforms.useTexture, 0);
+      gl.uniform1f(uniforms.playerBoost, 0);
       gl.drawArrays(gl.TRIANGLES, 0, mesh.count);
     }
 
     function drawCube(x, y, z, sx, sy, sz, color, rotation, emissive) {
       drawShape(meshes.cube, x, y, z, sx, sy, sz, color, rotation, 0, 0, emissive);
+    }
+
+    function drawPlayerModel(world, bob, step, alpha) {
+      if (!playerModel) return false;
+      var height = playerModel.max[1] - playerModel.min[1];
+      var modelScale = 1.72 / height;
+      var centerX = (playerModel.min[0] + playerModel.max[0]) * .5;
+      var centerZ = (playerModel.min[2] + playerModel.max[2]) * .5;
+
+      identity(model);
+      translate(model, model, [world.x, bob, world.z]);
+      rotateY(model, model, world.facing);
+      rotateX(model, model, -.025 * world.motion);
+      rotateZ(model, model, step * .032);
+      scale(model, model, [modelScale, modelScale, modelScale]);
+      translate(model, model, [-centerX, -playerModel.min[1], -centerZ]);
+
+      gl.enableVertexAttribArray(aTexCoord);
+      gl.bindBuffer(gl.ARRAY_BUFFER, playerModel.position.buffer);
+      gl.vertexAttribPointer(aPosition, playerModel.position.size, playerModel.position.type, playerModel.position.normalized, playerModel.position.stride, playerModel.position.offset);
+      gl.bindBuffer(gl.ARRAY_BUFFER, playerModel.normal.buffer);
+      gl.vertexAttribPointer(aNormal, playerModel.normal.size, playerModel.normal.type, playerModel.normal.normalized, playerModel.normal.stride, playerModel.normal.offset);
+      gl.bindBuffer(gl.ARRAY_BUFFER, playerModel.texCoord.buffer);
+      gl.vertexAttribPointer(aTexCoord, playerModel.texCoord.size, playerModel.texCoord.type, playerModel.texCoord.normalized, playerModel.texCoord.stride, playerModel.texCoord.offset);
+      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, playerModel.indexBuffer);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, playerModel.texture);
+      gl.uniformMatrix4fv(uniforms.model, false, model);
+      gl.uniform3fv(uniforms.color, playerModel.color.slice(0, 3));
+      gl.uniform1f(uniforms.emissive, 0);
+      gl.uniform1f(uniforms.alpha, alpha);
+      gl.uniform1f(uniforms.lightMask, 1);
+      gl.uniform1f(uniforms.useTexture, 1);
+      gl.uniform1f(uniforms.playerBoost, 1);
+      gl.disable(gl.CULL_FACE);
+      gl.drawElements(gl.TRIANGLES, playerModel.indexCount, playerModel.indexType, playerModel.indexOffset);
+      gl.enable(gl.CULL_FACE);
+      gl.disableVertexAttribArray(aTexCoord);
+      gl.vertexAttrib2f(aTexCoord, 0, 0);
+      gl.uniform1f(uniforms.useTexture, 0);
+      gl.uniform1f(uniforms.playerBoost, 0);
+      return true;
     }
 
     function render(world) {
@@ -947,37 +1099,39 @@
       var leftLegZ = world.z - rightZ * .105;
       var rightLegX = world.x + rightX * .105;
       var rightLegZ = world.z + rightZ * .105;
-
-      drawShape(meshes.sphere, world.x, .02, world.z, .3, .018, .22, [.009, .012, .012], world.facing, 0, 0, 0);
-      drawShape(meshes.cylinder, leftLegX, .34 + bob, leftLegZ, .047, .3, .047, shadowSkin, world.facing, legSwing, 0, 0);
-      drawShape(meshes.cylinder, rightLegX, .34 + bob, rightLegZ, .047, .3, .047, shadowSkin, world.facing, -legSwing, 0, 0);
-      drawShape(meshes.sphere, leftLegX + frontX * step * .14, .065, leftLegZ + frontZ * step * .14, .085, .055, .145, [.028, .032, .03], world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, rightLegX - frontX * step * .14, .065, rightLegZ - frontZ * step * .14, .085, .055, .145, [.028, .032, .03], world.facing, 0, 0, 0);
-
-      drawShape(meshes.cloak, world.x - frontX * .015, .96 + bob, world.z - frontZ * .015, .315, .44, .25, raincoat, world.facing, -.03 * step, .025 * step, 0);
-      drawShape(meshes.sphere, world.x - frontX * .02, 1.37 + bob, world.z - frontZ * .02, .235, .105, .19, raincoatLight, world.facing, 0, 0, 0);
-      drawShape(meshes.cylinder, world.x, .56 + bob, world.z, .31, .018, .245, raincoatDark, world.facing, 0, 0, .015);
-
-      drawShape(meshes.sphere, world.x - frontX * .04, 1.55 + bob, world.z - frontZ * .04, .175, .2, .165, raincoatDark, world.facing, -.025 * step, 0, 0);
-      drawShape(meshes.rainHood, world.x - frontX * .075, 1.6 + bob, world.z - frontZ * .075, .32, .31, .285, raincoatLight, world.facing, -.18 - .025 * step, 0, .055);
-      drawShape(meshes.cylinder, world.x + frontX * .085, 1.42 + bob, world.z + frontZ * .085, .245, .028, .205, raincoatDark, world.facing, 0, 0, .01);
-      drawShape(meshes.sphere, world.x + frontX * .205, 1.55 + bob, world.z + frontZ * .205, .18, .2, .052, [.025 * alpha, .025 * alpha, .019 * alpha], world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, world.x + frontX * .244, 1.53 + bob, world.z + frontZ * .244, .092, .108, .03, skin, world.facing, 0, 0, 0);
-
-      drawShape(meshes.cylinder, world.x - frontX * .263, 1.03 + bob, world.z - frontZ * .263, .011, .29, .011, raincoatDark, world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, world.x - frontX * .275 - rightX * .105, .82 + bob, world.z - frontZ * .275 - rightZ * .105, .035, .028, .018, raincoatDark, world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, world.x - frontX * .275 + rightX * .105, .82 + bob, world.z - frontZ * .275 + rightZ * .105, .035, .028, .018, raincoatDark, world.facing, 0, 0, 0);
-
       var leftHandX = world.x - rightX * .275 + frontX * step * .08;
       var leftHandZ = world.z - rightZ * .275 + frontZ * step * .08;
       var rightHandX = world.x + rightX * .275 - frontX * step * .08;
       var rightHandZ = world.z + rightZ * .275 - frontZ * step * .08;
-      drawShape(meshes.cylinder, world.x - rightX * .255 + frontX * step * .04, 1.02 + bob, world.z - rightZ * .255 + frontZ * step * .04, .052, .32, .052, raincoat, world.facing, armSwing, -.025, 0);
-      drawShape(meshes.cylinder, world.x + rightX * .255 - frontX * step * .04, 1.02 + bob, world.z + rightZ * .255 - frontZ * step * .04, .052, .32, .052, raincoat, world.facing, -armSwing * .65, .025, 0);
-      drawShape(meshes.cylinder, leftHandX, .705 + bob, leftHandZ, .066, .035, .066, raincoatDark, world.facing, 0, 0, .02);
-      drawShape(meshes.cylinder, rightHandX, .705 + bob, rightHandZ, .066, .035, .066, raincoatDark, world.facing, 0, 0, .02);
-      drawShape(meshes.sphere, leftHandX + frontX * step * .08, .65 + bob, leftHandZ + frontZ * step * .08, .052, .062, .052, skin, world.facing, 0, 0, 0);
-      drawShape(meshes.sphere, rightHandX - frontX * step * .055, .65 + bob, rightHandZ - frontZ * step * .055, .052, .062, .052, skin, world.facing, 0, 0, 0);
+
+      drawShape(meshes.sphere, world.x, .02, world.z, .3, .018, .22, [.009, .012, .012], world.facing, 0, 0, 0);
+      if (!drawPlayerModel(world, bob, step, alpha)) {
+        drawShape(meshes.cylinder, leftLegX, .34 + bob, leftLegZ, .047, .3, .047, shadowSkin, world.facing, legSwing, 0, 0);
+        drawShape(meshes.cylinder, rightLegX, .34 + bob, rightLegZ, .047, .3, .047, shadowSkin, world.facing, -legSwing, 0, 0);
+        drawShape(meshes.sphere, leftLegX + frontX * step * .14, .065, leftLegZ + frontZ * step * .14, .085, .055, .145, [.028, .032, .03], world.facing, 0, 0, 0);
+        drawShape(meshes.sphere, rightLegX - frontX * step * .14, .065, rightLegZ - frontZ * step * .14, .085, .055, .145, [.028, .032, .03], world.facing, 0, 0, 0);
+
+        drawShape(meshes.cloak, world.x - frontX * .015, .96 + bob, world.z - frontZ * .015, .315, .44, .25, raincoat, world.facing, -.03 * step, .025 * step, 0);
+        drawShape(meshes.sphere, world.x - frontX * .02, 1.37 + bob, world.z - frontZ * .02, .235, .105, .19, raincoatLight, world.facing, 0, 0, 0);
+        drawShape(meshes.cylinder, world.x, .56 + bob, world.z, .31, .018, .245, raincoatDark, world.facing, 0, 0, .015);
+
+        drawShape(meshes.sphere, world.x - frontX * .04, 1.55 + bob, world.z - frontZ * .04, .175, .2, .165, raincoatDark, world.facing, -.025 * step, 0, 0);
+        drawShape(meshes.rainHood, world.x - frontX * .075, 1.6 + bob, world.z - frontZ * .075, .32, .31, .285, raincoatLight, world.facing, -.18 - .025 * step, 0, .055);
+        drawShape(meshes.cylinder, world.x + frontX * .085, 1.42 + bob, world.z + frontZ * .085, .245, .028, .205, raincoatDark, world.facing, 0, 0, .01);
+        drawShape(meshes.sphere, world.x + frontX * .205, 1.55 + bob, world.z + frontZ * .205, .18, .2, .052, [.025 * alpha, .025 * alpha, .019 * alpha], world.facing, 0, 0, 0);
+        drawShape(meshes.sphere, world.x + frontX * .244, 1.53 + bob, world.z + frontZ * .244, .092, .108, .03, skin, world.facing, 0, 0, 0);
+
+        drawShape(meshes.cylinder, world.x - frontX * .263, 1.03 + bob, world.z - frontZ * .263, .011, .29, .011, raincoatDark, world.facing, 0, 0, 0);
+        drawShape(meshes.sphere, world.x - frontX * .275 - rightX * .105, .82 + bob, world.z - frontZ * .275 - rightZ * .105, .035, .028, .018, raincoatDark, world.facing, 0, 0, 0);
+        drawShape(meshes.sphere, world.x - frontX * .275 + rightX * .105, .82 + bob, world.z - frontZ * .275 + rightZ * .105, .035, .028, .018, raincoatDark, world.facing, 0, 0, 0);
+
+        drawShape(meshes.cylinder, world.x - rightX * .255 + frontX * step * .04, 1.02 + bob, world.z - rightZ * .255 + frontZ * step * .04, .052, .32, .052, raincoat, world.facing, armSwing, -.025, 0);
+        drawShape(meshes.cylinder, world.x + rightX * .255 - frontX * step * .04, 1.02 + bob, world.z + rightZ * .255 - frontZ * step * .04, .052, .32, .052, raincoat, world.facing, -armSwing * .65, .025, 0);
+        drawShape(meshes.cylinder, leftHandX, .705 + bob, leftHandZ, .066, .035, .066, raincoatDark, world.facing, 0, 0, .02);
+        drawShape(meshes.cylinder, rightHandX, .705 + bob, rightHandZ, .066, .035, .066, raincoatDark, world.facing, 0, 0, .02);
+        drawShape(meshes.sphere, leftHandX + frontX * step * .08, .65 + bob, leftHandZ + frontZ * step * .08, .052, .062, .052, skin, world.facing, 0, 0, 0);
+        drawShape(meshes.sphere, rightHandX - frontX * step * .055, .65 + bob, rightHandZ - frontZ * step * .055, .052, .062, .052, skin, world.facing, 0, 0, 0);
+      }
 
       var lanternX = rightHandX + frontX * .04;
       var lanternZ = rightHandZ + frontZ * .04;

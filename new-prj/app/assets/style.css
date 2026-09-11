@@ -36,8 +36,8 @@ button:focus { outline: 1px solid rgba(218, 209, 145, .72); outline-offset: 4px;
 .app-shell { position: relative; width: 100%; height: 100vh; height: var(--app-height, 100vh); overflow: hidden; background: var(--night); }
 #game-canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; background: #182124; touch-action: none; }
 .atmosphere, .vignette, .grain { position: absolute; left: 0; right: 0; top: 0; bottom: 0; pointer-events: none; }
-.atmosphere { z-index: 2; background: radial-gradient(ellipse at 67% 35%, rgba(178, 207, 211, .13), transparent 43%), linear-gradient(180deg, rgba(166, 192, 196, .1), transparent 54%, rgba(3, 6, 7, .18)); }
-.vignette { z-index: 3; box-shadow: inset 0 0 104px 14px rgba(0, 0, 0, .48); }
+.atmosphere { z-index: 2; background: radial-gradient(ellipse at 67% 35%, rgba(190, 218, 222, .18), transparent 46%), linear-gradient(180deg, rgba(179, 205, 210, .13), transparent 58%, rgba(3, 6, 7, .12)); }
+.vignette { z-index: 3; box-shadow: inset 0 0 96px 10px rgba(0, 0, 0, .36); }
 .grain { z-index: 4; opacity: .08; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 1px, transparent 4px); animation: grain-drift .34s steps(2) infinite; }
 @keyframes grain-drift { 0% { transform: translateY(-2px); } 100% { transform: translateY(2px); } }
 
