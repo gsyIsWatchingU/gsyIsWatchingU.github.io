@@ -23,6 +23,7 @@
 - 能力树支持通过 `scripts/skill-links.js` 配置各分支的飞书实践说明链接。
 - 已将留言墙简化为星空弹幕、单一留言按钮和原生弹窗，留言提交成功后立即进入弹幕轨道。
 - 已新增 Cloudflare Worker + 远程 D1 留言后端，支持留言直发、防刷限流、每日轮转 IP HMAC 和访客统计；不依赖 Turnstile，本地与正式页面共用线上数据源。
+- 已将首屏霓虹 SVG 星轨升级为分层 Canvas 粒子星海，以银白粒子、冷蓝微光和中心人物剪影呈现空间尺度，并保留响应式与减少动态效果支持。
 - 已基于个人简历重写首屏职业定位，明确“AI 全栈工程师 / Agent 应用”求职方向。
 - 已将项目实践扩展为研发 Agent Harness、教育培训管理平台和在线算法实验室三项，补充规模、技术难点与结果数据。
 - 已将项目实践升级为独立产品展示，接入论迹、Algorithm Lab 与 WriteHere 的真实界面截图、工程亮点和在线体验入口，不提供源码入口；研发 Agent Harness 与教育培训管理平台保留为工程经历项目。
@@ -102,3 +103,4 @@
 - 2026-09-03：`npm run check` 通过，HTML 结构、本地资源和脚本语法检查正常。
 - 2026-09-07：在线算法练习场完成浏览器验收；正确解法通过 7 个用例，死循环在 2 秒后终止，浏览器控制台无警告或错误；`npm run build`、`npm run check` 通过。
 - 2026-09-08：完成算法训练平台 MVP（`E:/prj-gsy/algorithm-lab`）并部署到 GPU 服务器内网（`192.168.88.122:3000`）。技术栈 Next.js 16 + Prisma 6 + PostgreSQL 14 + Redis + BullMQ + 原生沙箱；`pnpm typecheck` 全仓通过、23 个单元测试通过、`next build` 成功；端到端判题验证 ACCEPTED / TIME_LIMIT_EXCEEDED / COMPILE_ERROR 三态正确，隐藏用例零泄露。判题后端由 Judge0（Docker）改为原生沙箱——实测目标主机为 K8s Pod 缺 CAP_SYS_ADMIN 无法运行容器（详见 `algorithm-lab/docs/deployment.md`）。
+- 2026-09-11：首屏星海完成高密度粒子化重构；桌面端与 390×844 手机端实景验收通过，无横向溢出或控制台错误；`npm run build`、`npm run check`、`git diff --check` 通过。
