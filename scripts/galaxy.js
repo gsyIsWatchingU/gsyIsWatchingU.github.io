@@ -155,6 +155,57 @@ const createSoftSprite = ({ texture, color = 0xffffff, opacity = 1, scale, posit
   return sprite;
 };
 
+const createOrbitArc = ({ radiusX, radiusY, start, end, color, opacity }) => {
+  const points = [];
+  const segments = 96;
+  for (let index = 0; index <= segments; index += 1) {
+    const progress = index / segments;
+    const angle = THREE.MathUtils.lerp(start, end, progress);
+    points.push(new THREE.Vector3(Math.cos(angle) * radiusX, Math.sin(angle) * radiusY, 0));
+  }
+
+  const material = new THREE.LineBasicMaterial({
+    color,
+    transparent: true,
+    opacity,
+    depthWrite: false,
+    depthTest: false,
+    blending: THREE.AdditiveBlending,
+  });
+  const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), material);
+  line.renderOrder = 5;
+  line.userData.baseOpacity = opacity;
+  return line;
+};
+
+const createFlowFilament = ({ branch, offset, phase, color, opacity }) => {
+  const points = [];
+  const segments = 132;
+  for (let index = 0; index <= segments; index += 1) {
+    const progress = index / segments;
+    const filament = offset * progress;
+    const upperFlow = Math.pow(progress, 1.12) * 3.35 + Math.sin(progress * 2.75) * 0.42 + filament * 1.5;
+    const lowerFlow = -0.16 - Math.pow(progress, 1.32) * 0.92 + Math.sin(progress * 3.4 + 0.8) * 0.18 + filament * 0.42;
+    const x = -Math.pow(progress, 0.84) * (branch ? 5.55 : 6.55) + 0.28 * progress * progress;
+    const y = (branch ? lowerFlow : upperFlow) + Math.sin(progress * 9 + phase) * progress * 0.035;
+    const z = -0.2 - Math.abs(offset) * 0.18;
+    points.push(new THREE.Vector3(x, y, z));
+  }
+
+  const material = new THREE.LineBasicMaterial({
+    color,
+    transparent: true,
+    opacity,
+    depthWrite: false,
+    depthTest: false,
+    blending: THREE.AdditiveBlending,
+  });
+  const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), material);
+  line.renderOrder = 1;
+  line.userData.baseOpacity = opacity;
+  return line;
+};
+
 const drawFallback = (canvas) => {
   const replacement = canvas.cloneNode();
   canvas.replaceWith(replacement);
@@ -413,7 +464,19 @@ if (renderer) {
 
   const particleField = new THREE.Points(particleGeometry, particleMaterial);
   particleField.renderOrder = 2;
-  nebula.add(particleField);
+
+  const filamentGroup = new THREE.Group();
+  const filaments = [
+    createFlowFilament({ branch: false, offset: -0.42, phase: 0.2, color: 0x66899a, opacity: 0.065 }),
+    createFlowFilament({ branch: false, offset: -0.18, phase: 1.1, color: 0x8ba9b6, opacity: 0.085 }),
+    createFlowFilament({ branch: false, offset: 0.08, phase: 2.3, color: 0x7899a9, opacity: 0.07 }),
+    createFlowFilament({ branch: false, offset: 0.34, phase: 3.2, color: 0x5d7f91, opacity: 0.055 }),
+    createFlowFilament({ branch: true, offset: -0.28, phase: 0.8, color: 0x795f50, opacity: 0.045 }),
+    createFlowFilament({ branch: true, offset: 0.02, phase: 2.1, color: 0x7894a0, opacity: 0.06 }),
+    createFlowFilament({ branch: true, offset: 0.3, phase: 3.7, color: 0x5e7b88, opacity: 0.045 }),
+  ];
+  filamentGroup.add(...filaments);
+  nebula.add(filamentGroup, particleField);
 
   const dustCount = compactViewport.matches ? 1100 : 1900;
   const dustPositions = new Float32Array(dustCount * 3);
@@ -463,6 +526,14 @@ if (renderer) {
     position: [0, 0, 0.2],
     rotation: -0.12,
     order: 6,
+  });
+  const pathGlow = createSoftSprite({
+    texture: coolGlow,
+    opacity: 0.14,
+    scale: [2.35, 0.46],
+    position: [-0.78, -0.72, 0.32],
+    rotation: -0.06,
+    order: 3,
   });
   const shadowPocket = createSoftSprite({
     texture: shadowTexture,
@@ -516,7 +587,23 @@ if (renderer) {
     order: 7,
     blending: THREE.NormalBlending,
   });
-  nebula.add(voidRim, shadowPocket, sourceBloom, sourceCore, sourceFlare, figureHalo, figureShadow, lonelyFigure, lensShadow);
+  const orbitGroup = new THREE.Group();
+  orbitGroup.position.set(-1.18, -0.18, 0.72);
+  orbitGroup.rotation.z = -0.18;
+  const orbitArcs = [
+    createOrbitArc({ radiusX: 1.74, radiusY: 1.02, start: -1.32, end: 0.82, color: 0x86a9b8, opacity: 0.16 }),
+    createOrbitArc({ radiusX: 2.16, radiusY: 1.27, start: 0.48, end: 2.14, color: 0x628696, opacity: 0.12 }),
+    createOrbitArc({ radiusX: 1.94, radiusY: 1.13, start: 2.62, end: 4.04, color: 0x806d61, opacity: 0.085 }),
+  ];
+  orbitGroup.add(...orbitArcs);
+
+  const orbitNodes = [
+    createSoftSprite({ texture: whiteGlow, opacity: 0.34, scale: [0.12, 0.12], position: [1.19, -0.75, 0.03], order: 6 }),
+    createSoftSprite({ texture: warmGlow, opacity: 0.3, scale: [0.1, 0.1], position: [-1.31, 0.92, 0.03], order: 6 }),
+    createSoftSprite({ texture: whiteGlow, opacity: 0.22, scale: [0.08, 0.08], position: [-1.25, -0.84, 0.03], order: 6 }),
+  ];
+  orbitGroup.add(...orbitNodes);
+  nebula.add(voidRim, shadowPocket, orbitGroup, pathGlow, sourceBloom, sourceCore, sourceFlare, figureHalo, figureShadow, lonelyFigure, lensShadow);
 
   const timer = new THREE.Timer();
   timer.connect(document);
@@ -541,13 +628,13 @@ if (renderer) {
 
     if (compactViewport.matches) {
       nebula.position.set(0.2, -0.36, 0);
-      nebula.scale.setScalar(0.78);
+      nebula.scale.setScalar(0.84);
       lonelyFigure.scale.set(0.29, 0.58, 1);
       figureHalo.material.opacity = 0.34;
     } else {
-      nebula.position.set(0.76, -0.02, 0);
-      nebula.scale.setScalar(0.96);
-      lonelyFigure.scale.set(0.24, 0.48, 1);
+      nebula.position.set(0.72, -0.02, 0);
+      nebula.scale.setScalar(1.12);
+      lonelyFigure.scale.set(0.27, 0.54, 1);
       figureHalo.material.opacity = 0.29;
     }
   };
@@ -570,6 +657,15 @@ if (renderer) {
     nebula.rotation.z = -0.08 + pointer.x * 0.038 + Math.sin(elapsed * 0.06) * 0.009;
     nebula.rotation.x = -0.12 - pointer.y * 0.03;
     foregroundDust.rotation.z = elapsed * 0.002;
+    filamentGroup.rotation.z = pointer.x * 0.008;
+    orbitGroup.rotation.z = -0.18 + Math.sin(elapsed * 0.11) * 0.022 + hoverAmount * 0.2;
+    orbitArcs.forEach((arc) => {
+      arc.material.opacity = arc.userData.baseOpacity * (1 + hoverAmount * 0.72);
+    });
+    orbitNodes.forEach((node, index) => {
+      const nodePulse = 1 + Math.sin(elapsed * (0.38 + index * 0.07) + index) * 0.12;
+      node.scale.setScalar((0.08 + (2 - index) * 0.018) * nodePulse * (1 + hoverAmount * 0.12));
+    });
 
     const pulse = 1 + Math.sin(elapsed * 0.42) * 0.025;
     sourceBloom.scale.set(1.8 * pulse, 1.8 * pulse, 1);
