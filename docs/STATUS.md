@@ -24,7 +24,7 @@
 - 能力树支持通过 `scripts/skill-links.js` 配置各分支的飞书实践说明链接。
 - 已将留言墙简化为星空弹幕、单一留言按钮和原生弹窗，留言提交成功后立即进入弹幕轨道。
 - 已新增 Cloudflare Worker + 远程 D1 留言后端，支持留言直发、防刷限流、每日轮转 IP HMAC 和访客统计；不依赖 Turnstile，本地与正式页面共用线上数据源。
-- 已将首屏视觉扩展为 Three.js 非对称“事件视界”：大尺度潮汐星流、流体丝线、三段断裂轨道、引力节点与长衣人物共同建立孤独感；悬浮会驱动局部粒子漩涡和轨道转向，同时保留 Canvas 降级。
+- 已将首屏重构为 Three.js “离开队列的人”叙事场景：暗红低多边形主角停在前景，远处人群沿亮带机械前行，工业建筑、灰蓝雾、探照灯与长影共同建立孤独感；悬浮时光束追随鼠标、队列减速、监控镜头和主角同步响应，并保留 Canvas 降级。
 - 已基于个人简历重写首屏职业定位，明确“AI 全栈工程师 / Agent 应用”求职方向。
 - 已将项目实践扩展为研发 Agent Harness、教育培训管理平台和在线算法实验室三项，补充规模、技术难点与结果数据。
 - 已将项目实践升级为独立产品展示，接入论迹、Algorithm Lab 与 WriteHere 的真实界面截图、工程亮点和在线体验入口，不提供源码入口；研发 Agent Harness 与教育培训管理平台保留为工程经历项目。
@@ -107,6 +107,6 @@
 - 2026-09-03：`npm run check` 通过，HTML 结构、本地资源和脚本语法检查正常。
 - 2026-09-07：在线算法练习场完成浏览器验收；正确解法通过 7 个用例，死循环在 2 秒后终止，浏览器控制台无警告或错误；`npm run build`、`npm run check` 通过。
 - 2026-09-08：完成算法训练平台 MVP（`E:/prj-gsy/algorithm-lab`）并部署到 GPU 服务器内网（`192.168.88.122:3000`）。技术栈 Next.js 16 + Prisma 6 + PostgreSQL 14 + Redis + BullMQ + 原生沙箱；`pnpm typecheck` 全仓通过、23 个单元测试通过、`next build` 成功；端到端判题验证 ACCEPTED / TIME_LIMIT_EXCEEDED / COMPILE_ERROR 三态正确，隐藏用例零泄露。判题后端由 Judge0（Docker）改为原生沙箱——实测目标主机为 K8s Pod 缺 CAP_SYS_ADMIN 无法运行容器（详见 `algorithm-lab/docs/deployment.md`）。
-- 2026-09-11：将 Three.js 首屏升级为大尺度非对称事件视界，新增 7 条流体丝线、3 段断裂轨道、3 个引力节点及人物前方光路；悬浮时轨道转向并与局部粒子漩涡联动；桌面端静态与悬浮态、390×844 手机端实景验收通过，控制台无警告或错误；`npm run build`、`npm run check`、`git diff --check` 通过。
+- 2026-09-11：Three.js 首屏按低多边形工业叙事重构，完成暗红主角、远景队列、压迫性建筑、体积探照灯、真实投影、雾中尘埃与监控镜头；桌面端静态和悬浮态实景验收通过；`npm run build`、`npm run check`、`git diff --check` 通过。
 - 2026-09-11：CLI List 产品卡片已通过桌面端与 390×844 移动端实景验收，完整窗口截图、私有状态和响应式布局显示正常，控制台无警告或错误；`npm run build`、`npm run check`、`git diff --check` 通过。
 - 2026-09-11：CLI List 双图轮播已完成桌面端与 390×844 移动端验收，下一张、循环切换与键盘方向键状态同步，控制台无警告或错误；`npm run build`、`npm run check`、`git diff --check` 通过。
