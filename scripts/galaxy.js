@@ -435,8 +435,37 @@ if (renderer) {
   protagonistAnchor.add(protagonist);
 
   const characterRuntime = {
+    actions: {},
+    currentAction: null,
     loaded: false,
+    mixer: null,
     model: null,
+  };
+
+  const findExactClip = (clips, names) => names
+    .map((name) => clips.find((clip) => clip.name.toLowerCase() === name))
+    .find(Boolean);
+
+  const makeInPlaceClip = (clip) => {
+    const tracks = clip.tracks.filter((track) => !/pelvis\.position$/i.test(track.name));
+    return new THREE.AnimationClip(clip.name, clip.duration, tracks);
+  };
+
+  const playCharacterAction = (name, fade = 0.2) => {
+    const nextAction = characterRuntime.actions[name];
+    if (!nextAction || nextAction === characterRuntime.currentAction) return;
+    nextAction.reset().fadeIn(fade).play();
+    characterRuntime.currentAction?.fadeOut(fade);
+    characterRuntime.currentAction = nextAction;
+    visual.dataset.action = name;
+  };
+
+  const actionForStoryMode = {
+    idle: "idle",
+    alert: "alert",
+    evade: "run",
+    hide: "hide",
+    return: "walk",
   };
 
   const characterLoader = new GLTFLoader();
@@ -446,7 +475,7 @@ if (renderer) {
       const model = gltf.scene;
       const bounds = new THREE.Box3().setFromObject(model);
       const height = Math.max(0.01, bounds.max.y - bounds.min.y);
-      const scale = 1.52 / height;
+      const scale = 1.3 / height;
       model.scale.setScalar(scale);
       model.position.set(0, -bounds.min.y * scale, 0);
       model.rotation.y = Math.PI;
@@ -463,9 +492,24 @@ if (renderer) {
       protagonist.visible = false;
       protagonistAnchor.add(model);
       characterRuntime.model = model;
+      characterRuntime.mixer = new THREE.AnimationMixer(model);
+      const clipMap = {
+        idle: ["idle_loop"],
+        alert: ["interact", "idle_torch_loop"],
+        run: ["run_loop", "sprint_loop"],
+        hide: ["crouch_idle_loop"],
+        walk: ["walk_loop", "walk_formal_loop"],
+      };
+      Object.entries(clipMap).forEach(([name, candidates]) => {
+        const sourceClip = findExactClip(gltf.animations, candidates);
+        if (!sourceClip) return;
+        const clip = makeInPlaceClip(sourceClip);
+        characterRuntime.actions[name] = characterRuntime.mixer.clipAction(clip);
+      });
       characterRuntime.loaded = true;
+      playCharacterAction(actionForStoryMode[characterStory.mode], 0);
       visual.dataset.model = "ready";
-      visual.dataset.motion = "rigged-anchor";
+      visual.dataset.motion = "skeletal-locomotion";
     },
     undefined,
     () => {
@@ -544,7 +588,7 @@ if (renderer) {
   let visitorTraceCount = 0;
   let touchDragging = false;
   let previousElapsed = 0;
-  let characterDisplayScale = compactViewport.matches ? 1.22 : 1;
+  let characterDisplayScale = 1;
   let visible = true;
   let frame = 0;
 
@@ -553,6 +597,7 @@ if (renderer) {
     characterStory.mode = mode;
     characterStory.modeSince = elapsed;
     visual.dataset.story = mode;
+    playCharacterAction(actionForStoryMode[mode]);
   };
 
   const chooseShelter = () => shelterPositions.reduce((best, point) => {
@@ -631,6 +676,8 @@ if (renderer) {
       protagonist.scale.y += ((0.92 - crouch) - protagonist.scale.y) * Math.min(1, delta * 8);
       protagonist.userData.headPivot.rotation.y += ((characterStory.mode === "alert" ? -0.52 : 0) - protagonist.userData.headPivot.rotation.y) * Math.min(1, delta * 7);
     }
+
+    characterRuntime.mixer?.update(delta * (characterStory.mode === "evade" ? 1.14 : 1));
   };
 
   const applyVisitorLight = (detail = {}) => {
@@ -651,7 +698,7 @@ if (renderer) {
 
   const resize = () => {
     drawAtmosphere();
-    characterDisplayScale = compactViewport.matches ? 1.22 : 1;
+    characterDisplayScale = 1;
     const bounds = sceneCanvas.getBoundingClientRect();
     const pixelRatio = Math.min(window.devicePixelRatio || 1, compactViewport.matches ? 1.2 : 1.5);
     renderer.setPixelRatio(pixelRatio);
