@@ -447,7 +447,12 @@ if (renderer) {
     .find(Boolean);
 
   const makeInPlaceClip = (clip) => {
-    const tracks = clip.tracks.filter((track) => !/pelvis\.position$/i.test(track.name));
+    const isLocomotion = /(walk|run|sprint)/i.test(clip.name);
+    const tracks = clip.tracks.filter((track) => {
+      if (/pelvis\.position$/i.test(track.name)) return false;
+      if (isLocomotion && /hand_[lr]\.quaternion$/i.test(track.name)) return false;
+      return true;
+    });
     return new THREE.AnimationClip(clip.name, clip.duration, tracks);
   };
 
@@ -475,7 +480,7 @@ if (renderer) {
       const model = gltf.scene;
       const bounds = new THREE.Box3().setFromObject(model);
       const height = Math.max(0.01, bounds.max.y - bounds.min.y);
-      const scale = 1.3 / height;
+      const scale = 0.325 / height;
       model.scale.setScalar(scale);
       model.position.set(0, -bounds.min.y * scale, 0);
       model.rotation.y = Math.PI;
@@ -496,9 +501,9 @@ if (renderer) {
       const clipMap = {
         idle: ["idle_loop"],
         alert: ["interact", "idle_torch_loop"],
-        run: ["run_loop", "sprint_loop"],
+        run: ["sprint_loop", "run_loop"],
         hide: ["crouch_idle_loop"],
-        walk: ["walk_loop", "walk_formal_loop"],
+        walk: ["walk_formal_loop", "walk_loop"],
       };
       Object.entries(clipMap).forEach(([name, candidates]) => {
         const sourceClip = findExactClip(gltf.animations, candidates);
@@ -622,7 +627,7 @@ if (renderer) {
       }
     }
 
-    if (characterStory.mode === "alert" && elapsed - characterStory.modeSince > 0.46) {
+    if (characterStory.mode === "alert" && elapsed - characterStory.modeSince > 0.3) {
       characterStory.target.copy(chooseShelter());
       setCharacterMode("evade", elapsed);
     }
@@ -630,7 +635,7 @@ if (renderer) {
     if (characterStory.mode === "evade" || characterStory.mode === "return") {
       const toTarget = characterStory.target.clone().sub(protagonistAnchor.position);
       const remaining = Math.hypot(toTarget.x, toTarget.z);
-      const speed = characterStory.mode === "evade" ? 1.08 : 0.46;
+      const speed = characterStory.mode === "evade" ? 2.45 : 0.62;
       if (remaining > 0.035) {
         const step = Math.min(remaining, speed * delta);
         protagonistAnchor.position.x += (toTarget.x / remaining) * step;
@@ -677,7 +682,7 @@ if (renderer) {
       protagonist.userData.headPivot.rotation.y += ((characterStory.mode === "alert" ? -0.52 : 0) - protagonist.userData.headPivot.rotation.y) * Math.min(1, delta * 7);
     }
 
-    characterRuntime.mixer?.update(delta * (characterStory.mode === "evade" ? 1.14 : 1));
+    characterRuntime.mixer?.update(delta * (characterStory.mode === "evade" ? 1.7 : 1));
   };
 
   const applyVisitorLight = (detail = {}) => {
