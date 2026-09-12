@@ -54,6 +54,14 @@
     messageIndex += 1;
   };
 
+  const shareVisitorLight = (items, fresh = false) => {
+    const detail = { items, fresh };
+    globalThis.PORTFOLIO_VISITOR_LIGHT = detail;
+    window.dispatchEvent(new CustomEvent("portfolio:visitor-light", {
+      detail,
+    }));
+  };
+
   const showToast = (message) => {
     window.clearTimeout(toastTimer);
     toast.textContent = message;
@@ -83,6 +91,7 @@
       sky.replaceChildren();
       messageIndex = 0;
       payload.items.forEach((item) => appendDanmaku(item));
+      shareVisitorLight(payload.items);
     } catch {
       // 留言读取失败时保留原有星海，不打断首屏体验。
     }
@@ -145,6 +154,7 @@
         launchAnimation,
       ]);
       appendDanmaku(payload.item, true);
+      shareVisitorLight([payload.item], true);
       form.reset();
       characterCount.textContent = "0";
       dialog.close();

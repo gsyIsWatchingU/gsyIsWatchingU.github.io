@@ -1,9 +1,11 @@
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 const hero = document.querySelector(".hero");
 const visual = document.querySelector(".hero__visual");
 const atmosphereCanvas = document.querySelector(".galaxy-canvas");
 const sceneCanvas = document.querySelector(".galaxy-focus-canvas");
+const visitorLightLabel = document.querySelector("[data-visitor-light]");
 
 if (!hero || !visual || !atmosphereCanvas || !sceneCanvas) {
   throw new Error("首屏叙事场景缺少必要节点");
@@ -352,6 +354,27 @@ if (renderer) {
   frontLedge.position.set(-0.05, -1.08, 2.25);
   world.add(frontLedge);
 
+  const leftShelter = new THREE.Group();
+  const leftCabinet = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.68, 0.58), nearBlack);
+  leftCabinet.position.set(-1.82, -0.7, 0.72);
+  leftCabinet.rotation.y = 0.06;
+  leftCabinet.castShadow = true;
+  leftCabinet.receiveShadow = true;
+  const cabinetSeam = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.48, 0.6), railMaterial);
+  cabinetSeam.position.set(-1.81, -0.7, 0.72);
+  const bentPipe = new THREE.Mesh(new THREE.TorusGeometry(0.24, 0.025, 6, 16, Math.PI * 1.35), railMaterial);
+  bentPipe.position.set(-2.18, -0.38, 0.51);
+  bentPipe.rotation.set(Math.PI / 2, 0.22, -0.18);
+  leftShelter.add(leftCabinet, cabinetSeam, bentPipe);
+  world.add(leftShelter);
+
+  const rightShelter = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.38, 0.92), nearBlack);
+  rightShelter.position.set(1.82, -0.84, 0.78);
+  rightShelter.rotation.y = -0.14;
+  rightShelter.castShadow = true;
+  rightShelter.receiveShadow = true;
+  world.add(rightShelter);
+
   const beamSource = new THREE.Vector3(1.5, 2.16, 1.18);
   const beamTarget = new THREE.Vector3(-0.18, -0.88, 0.35);
   const beamTargetDesired = beamTarget.clone();
@@ -402,10 +425,53 @@ if (renderer) {
   const targetGlow = createSoftSprite({ texture: coolGlow, opacity: 0.18, scale: [0.72, 0.42], position: [beamTarget.x, beamTarget.y + 0.025, beamTarget.z] });
   world.add(targetGlow);
 
+  const protagonistAnchor = new THREE.Group();
+  protagonistAnchor.position.set(-0.46, -1.025, 0.52);
+  protagonistAnchor.rotation.y = -0.28;
+  world.add(protagonistAnchor);
+
   const protagonist = createCharacter({ accent: true });
-  protagonist.position.set(-0.46, -0.83, 0.52);
-  protagonist.rotation.y = -0.28;
-  world.add(protagonist);
+  protagonist.position.y = 0.19;
+  protagonistAnchor.add(protagonist);
+
+  const characterRuntime = {
+    loaded: false,
+    model: null,
+  };
+
+  const characterLoader = new GLTFLoader();
+  characterLoader.load(
+    "./assets/characters/red-sweater-boy-hero-v2.glb",
+    (gltf) => {
+      const model = gltf.scene;
+      const bounds = new THREE.Box3().setFromObject(model);
+      const height = Math.max(0.01, bounds.max.y - bounds.min.y);
+      const scale = 1.52 / height;
+      model.scale.setScalar(scale);
+      model.position.set(0, -bounds.min.y * scale, 0);
+      model.rotation.y = Math.PI;
+      model.traverse((child) => {
+        if (!child.isMesh) return;
+        child.castShadow = true;
+        child.receiveShadow = true;
+        const materials = Array.isArray(child.material) ? child.material : [child.material];
+        materials.filter(Boolean).forEach((material) => {
+          material.roughness = Math.max(0.72, material.roughness ?? 0.72);
+          material.metalness = Math.min(0.04, material.metalness ?? 0);
+        });
+      });
+      protagonist.visible = false;
+      protagonistAnchor.add(model);
+      characterRuntime.model = model;
+      characterRuntime.loaded = true;
+      visual.dataset.model = "ready";
+      visual.dataset.motion = "rigged-anchor";
+    },
+    undefined,
+    () => {
+      visual.dataset.model = "fallback";
+    },
+  );
 
   const queue = [];
   for (let index = 0; index < 6; index += 1) {
@@ -458,13 +524,134 @@ if (renderer) {
   timer.connect(document);
   const pointer = new THREE.Vector2();
   const pointerDesired = new THREE.Vector2();
+  const homePosition = new THREE.Vector3(-0.46, -1.025, 0.52);
+  const shelterPositions = [
+    new THREE.Vector3(-1.48, -1.025, 0.62),
+    new THREE.Vector3(1.5, -1.025, 0.66),
+  ];
+  const characterStory = {
+    mode: "idle",
+    modeSince: 0,
+    lastThreatAt: -10,
+    target: homePosition.clone(),
+    threat: 0,
+  };
+  visual.dataset.story = characterStory.mode;
   let hoverAmount = 0;
   let hoverTarget = 0;
+  let visitorLightOffset = 0;
+  let visitorLightPulse = 0;
+  let visitorTraceCount = 0;
+  let touchDragging = false;
+  let previousElapsed = 0;
+  let characterDisplayScale = compactViewport.matches ? 1.22 : 1;
   let visible = true;
   let frame = 0;
 
+  const setCharacterMode = (mode, elapsed) => {
+    if (characterStory.mode === mode) return;
+    characterStory.mode = mode;
+    characterStory.modeSince = elapsed;
+    visual.dataset.story = mode;
+  };
+
+  const chooseShelter = () => shelterPositions.reduce((best, point) => {
+    const pointDistance = Math.hypot(point.x - beamTarget.x, point.z - beamTarget.z);
+    const bestDistance = Math.hypot(best.x - beamTarget.x, best.z - beamTarget.z);
+    return pointDistance > bestDistance ? point : best;
+  }, shelterPositions[0]).clone();
+
+  const updateCharacterStory = (elapsed, delta, interactionAmount) => {
+    if (delta <= 0) return;
+    const lightDistance = Math.hypot(
+      protagonistAnchor.position.x - beamTarget.x,
+      protagonistAnchor.position.z - beamTarget.z,
+    );
+    const threatened = interactionAmount > 0.18 && lightDistance < 0.94;
+    characterStory.threat += ((threatened ? 1 : 0) - characterStory.threat) * Math.min(1, delta * 7.5);
+
+    if (threatened) {
+      characterStory.lastThreatAt = elapsed;
+      if (characterStory.mode === "idle" || characterStory.mode === "return" || characterStory.mode === "hide") {
+        setCharacterMode("alert", elapsed);
+      }
+    }
+
+    if (characterStory.mode === "alert" && elapsed - characterStory.modeSince > 0.46) {
+      characterStory.target.copy(chooseShelter());
+      setCharacterMode("evade", elapsed);
+    }
+
+    if (characterStory.mode === "evade" || characterStory.mode === "return") {
+      const toTarget = characterStory.target.clone().sub(protagonistAnchor.position);
+      const remaining = Math.hypot(toTarget.x, toTarget.z);
+      const speed = characterStory.mode === "evade" ? 1.08 : 0.46;
+      if (remaining > 0.035) {
+        const step = Math.min(remaining, speed * delta);
+        protagonistAnchor.position.x += (toTarget.x / remaining) * step;
+        protagonistAnchor.position.z += (toTarget.z / remaining) * step;
+        const facing = Math.sign(toTarget.x || 1);
+        protagonistAnchor.rotation.y += ((facing > 0 ? -0.8 : 0.8) - protagonistAnchor.rotation.y) * Math.min(1, delta * 7);
+      } else if (characterStory.mode === "evade") {
+        setCharacterMode("hide", elapsed);
+      } else {
+        protagonistAnchor.rotation.y += (-0.28 - protagonistAnchor.rotation.y) * Math.min(1, delta * 5);
+        setCharacterMode("idle", elapsed);
+      }
+    }
+
+    if (characterStory.mode === "hide" && elapsed - characterStory.lastThreatAt > 2.1) {
+      characterStory.target.copy(homePosition);
+      setCharacterMode("return", elapsed);
+    }
+
+    if (characterStory.mode === "idle") {
+      protagonistAnchor.position.y = homePosition.y + Math.sin(elapsed * 1.2) * 0.005;
+      protagonistAnchor.rotation.y += (-0.28 - protagonistAnchor.rotation.y) * Math.min(1, delta * 3);
+    }
+
+    const poseHeight = characterStory.mode === "hide"
+      ? characterDisplayScale * 0.82
+      : characterStory.mode === "alert"
+        ? characterDisplayScale * 0.92
+        : characterDisplayScale;
+    const travelDirection = Math.sign(characterStory.target.x - protagonistAnchor.position.x || 1);
+    const targetLean = characterStory.mode === "evade"
+      ? travelDirection * -0.14
+      : characterStory.mode === "alert"
+        ? 0.055
+        : 0;
+    protagonistAnchor.scale.y += (poseHeight - protagonistAnchor.scale.y) * Math.min(1, delta * 7);
+    protagonistAnchor.scale.x += (characterDisplayScale - protagonistAnchor.scale.x) * Math.min(1, delta * 7);
+    protagonistAnchor.scale.z += (characterDisplayScale - protagonistAnchor.scale.z) * Math.min(1, delta * 7);
+    protagonistAnchor.rotation.z += (targetLean - protagonistAnchor.rotation.z) * Math.min(1, delta * 6);
+
+    if (!characterRuntime.loaded) {
+      const crouch = characterStory.mode === "alert" || characterStory.mode === "hide" ? 0.16 : 0;
+      protagonist.scale.y += ((0.92 - crouch) - protagonist.scale.y) * Math.min(1, delta * 8);
+      protagonist.userData.headPivot.rotation.y += ((characterStory.mode === "alert" ? -0.52 : 0) - protagonist.userData.headPivot.rotation.y) * Math.min(1, delta * 7);
+    }
+  };
+
+  const applyVisitorLight = (detail = {}) => {
+    const items = Array.isArray(detail.items) ? detail.items : [];
+    const signature = items.map((item) => `${item.nickname || ""}:${item.content || ""}`).join("|");
+    let hash = 2166136261;
+    for (let index = 0; index < signature.length; index += 1) {
+      hash ^= signature.charCodeAt(index);
+      hash = Math.imul(hash, 16777619);
+    }
+    visitorLightOffset = signature ? (((hash >>> 0) % 2001) / 1000 - 1) : 0;
+    visitorLightPulse = detail.fresh ? 1 : Math.min(0.32, items.length * 0.018);
+    visitorTraceCount = detail.fresh ? visitorTraceCount + items.length : items.length;
+    if (visitorLightLabel) visitorLightLabel.textContent = `VISITOR TRACE · ${String(visitorTraceCount).padStart(2, "0")}`;
+  };
+  window.addEventListener("portfolio:visitor-light", (event) => applyVisitorLight(event.detail));
+  if (globalThis.PORTFOLIO_VISITOR_LIGHT) applyVisitorLight(globalThis.PORTFOLIO_VISITOR_LIGHT);
+
   const resize = () => {
     drawAtmosphere();
+    characterDisplayScale = compactViewport.matches ? 1.22 : 1;
     const bounds = sceneCanvas.getBoundingClientRect();
     const pixelRatio = Math.min(window.devicePixelRatio || 1, compactViewport.matches ? 1.2 : 1.5);
     renderer.setPixelRatio(pixelRatio);
@@ -485,17 +672,22 @@ if (renderer) {
   const render = (timestamp) => {
     timer.update(timestamp);
     const elapsed = timer.getElapsed();
+    const delta = Math.min(0.05, Math.max(0.001, elapsed - previousElapsed || 0.016));
+    previousElapsed = elapsed;
     const motion = reducedMotion.matches ? 0 : 1;
     pointer.lerp(pointerDesired, 0.045);
     hoverAmount += (hoverTarget - hoverAmount) * 0.065;
+    visitorLightPulse *= Math.pow(0.985, delta * 60);
+    const interactionAmount = Math.max(hoverAmount, visitorLightPulse);
     camera.position.x = 0.2 + pointer.x * 0.18;
     camera.position.y = 1.05 + pointer.y * 0.12;
     camera.lookAt(0, -0.08, 0);
 
+    const unattendedTargetX = -0.18 + visitorLightOffset * 0.52 + Math.sin(elapsed * 0.12) * 0.08 * motion;
     beamTargetDesired.set(
-      THREE.MathUtils.lerp(-0.18, pointer.x * 1.75, hoverAmount),
-      THREE.MathUtils.lerp(-0.88, -0.78 + pointer.y * 0.42, hoverAmount),
-      THREE.MathUtils.lerp(0.35, 0.48, hoverAmount),
+      THREE.MathUtils.lerp(unattendedTargetX, pointer.x * 3.2, hoverAmount),
+      -0.985,
+      THREE.MathUtils.lerp(0.35, 0.42 + pointer.y * 2.1, hoverAmount),
     );
     beamTarget.lerp(beamTargetDesired, 0.055);
     lightTarget.position.copy(beamTarget);
@@ -503,23 +695,21 @@ if (renderer) {
     targetGlow.position.y += 0.025;
     aimBeam(beam, beamSource, beamTarget);
     aimBeam(beamOuter, beamSource, beamTarget);
-    beamMaterial.opacity = 0.052 + hoverAmount * 0.032;
-    beamOuterMaterial.opacity = 0.022 + hoverAmount * 0.014;
-    searchLight.intensity = 18 + hoverAmount * 5;
-    targetGlow.material.opacity = 0.18 + hoverAmount * 0.16;
-    targetGlow.scale.set(0.72 + hoverAmount * 0.22, 0.42 + hoverAmount * 0.1, 1);
+    beamMaterial.opacity = 0.042 + interactionAmount * 0.026;
+    beamOuterMaterial.opacity = 0.017 + interactionAmount * 0.011;
+    searchLight.intensity = 15 + interactionAmount * 4.5;
+    targetGlow.material.opacity = 0.15 + interactionAmount * 0.14;
+    targetGlow.scale.set(0.68 + interactionAmount * 0.2, 0.38 + interactionAmount * 0.1, 1);
 
-    protagonist.position.y = -0.83 + Math.sin(elapsed * 1.35) * 0.006 * motion;
-    protagonist.userData.headPivot.rotation.y = THREE.MathUtils.lerp(0, -pointer.x * 0.42, hoverAmount);
-    protagonist.userData.headPivot.rotation.z = THREE.MathUtils.lerp(-0.03, pointer.y * 0.12, hoverAmount);
-    protagonist.userData.torso.rotation.z = -0.08 + hoverAmount * 0.035;
-    protagonist.userData.jacket.emissiveIntensity = 0.18 + hoverAmount * 0.22;
-    watcher.rotation.z = 0.34 + pointer.x * hoverAmount * 0.11;
-    watcherLensMaterial.emissiveIntensity = 0.36 + hoverAmount * 0.44;
+    updateCharacterStory(elapsed, delta * motion, interactionAmount);
+    protagonist.userData.torso.rotation.z = -0.08 + characterStory.threat * 0.07;
+    protagonist.userData.jacket.emissiveIntensity = 0.16 + characterStory.threat * 0.18;
+    watcher.rotation.z = 0.34 + pointer.x * interactionAmount * 0.15;
+    watcherLensMaterial.emissiveIntensity = 0.3 + interactionAmount * 0.38;
 
     queue.forEach((figure, index) => {
       if (motion) {
-        figure.position.x += figure.userData.speed * 0.016 * (1 - hoverAmount * 0.72);
+        figure.position.x += figure.userData.speed * 0.016 * (1 - interactionAmount * 0.72);
         if (figure.position.x > 2.2) figure.position.x = 0;
       }
       figure.position.y = -0.19 + Math.abs(Math.sin(elapsed * 1.9 + index * 0.8)) * 0.008 * motion;
@@ -533,7 +723,7 @@ if (renderer) {
       const y = dustBase[offset + 1] + Math.sin(elapsed * (0.12 + seed * 0.18) + seed * 8) * 0.035 * motion;
       const dx = x - beamTarget.x;
       const dy = y - beamTarget.y;
-      const influence = hoverAmount * Math.exp(-(dx * dx + dy * dy) * 1.2);
+      const influence = interactionAmount * Math.exp(-(dx * dx + dy * dy) * 1.2);
       positionAttribute.array[offset] = x - dy * influence * 0.1;
       positionAttribute.array[offset + 1] = y + dx * influence * 0.1;
       positionAttribute.array[offset + 2] = dustBase[offset + 2] + influence * 0.08;
@@ -552,9 +742,10 @@ if (renderer) {
   hero.addEventListener("pointermove", (event) => {
     if (reducedMotion.matches) return;
     const bounds = hero.getBoundingClientRect();
-    pointerDesired.set((event.clientX - bounds.left) / bounds.width - 0.5, 0.5 - (event.clientY - bounds.top) / bounds.height);
-    visual.style.setProperty("--visual-x", `${pointerDesired.x * 10}px`);
-    visual.style.setProperty("--visual-y", `${-pointerDesired.y * 8}px`);
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = 0.5 - (event.clientY - bounds.top) / bounds.height;
+    visual.style.setProperty("--visual-x", `${x * 10}px`);
+    visual.style.setProperty("--visual-y", `${-y * 8}px`);
   }, { passive: true });
   hero.addEventListener("pointerleave", () => {
     pointerDesired.set(0, 0);
@@ -567,14 +758,35 @@ if (renderer) {
     hero.classList.add("is-searching");
   }, { passive: true });
   visual.addEventListener("pointermove", (event) => {
-    if (reducedMotion.matches || event.pointerType === "touch") return;
+    if (reducedMotion.matches || (event.pointerType === "touch" && !touchDragging)) return;
     const bounds = visual.getBoundingClientRect();
+    pointerDesired.set(
+      (event.clientX - bounds.left) / bounds.width - 0.5,
+      0.5 - (event.clientY - bounds.top) / bounds.height,
+    );
+    hoverTarget = 1;
+    hero.classList.add("is-searching");
     visual.style.setProperty("--scan-x", `${event.clientX - bounds.left}px`);
     visual.style.setProperty("--scan-y", `${event.clientY - bounds.top}px`);
   }, { passive: true });
-  visual.addEventListener("pointerleave", () => {
+  visual.addEventListener("pointerdown", (event) => {
+    if (reducedMotion.matches || event.pointerType !== "touch") return;
+    touchDragging = true;
+    visual.setPointerCapture(event.pointerId);
+    hoverTarget = 1;
+    hero.classList.add("is-searching");
+  });
+  const releaseLight = (event) => {
+    if (event?.pointerType === "touch") touchDragging = false;
     hoverTarget = 0;
+    pointerDesired.set(0, 0);
     hero.classList.remove("is-searching");
+  };
+  visual.addEventListener("pointerup", releaseLight);
+  visual.addEventListener("pointercancel", releaseLight);
+  visual.addEventListener("pointerleave", (event) => {
+    if (touchDragging) return;
+    releaseLight(event);
   });
 
   const observer = new IntersectionObserver(([entry]) => {
