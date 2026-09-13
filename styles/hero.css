@@ -187,7 +187,8 @@
 .signal-field__status,
 .signal-field__hint,
 .signal-field__chapter,
-.signal-field__event {
+.signal-field__event,
+.signal-field__pipeline {
   position: absolute;
   z-index: 5;
   pointer-events: none;
@@ -278,6 +279,108 @@
 
 .hero__visual[data-story="hide"] .signal-field__event {
   color: rgba(147, 185, 171, 0.64);
+}
+
+.hero__visual[data-story="return"] .signal-field__event,
+.hero__visual[data-queue="automated"] .signal-field__event {
+  color: rgba(154, 195, 180, 0.72);
+}
+
+.signal-field__pipeline {
+  top: 24%;
+  left: 8%;
+  display: flex;
+  width: min(54%, 330px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(183, 198, 191, 0.28);
+}
+
+.signal-field__pipeline li {
+  position: relative;
+  display: grid;
+  flex: 1 1 0;
+  gap: 4px;
+  min-width: 0;
+  padding: 0 12px 0 14px;
+  transition: color 300ms ease, transform 360ms ease, opacity 300ms ease;
+}
+
+.signal-field__pipeline li::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border: 1px solid rgba(173, 192, 183, 0.34);
+  border-radius: 50%;
+  background: rgba(7, 11, 13, 0.9);
+  transition: background 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.signal-field__pipeline li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: calc(100% - 2px);
+  border-top: 1px solid rgba(171, 190, 181, 0.13);
+  transform-origin: left center;
+  transition: border-color 300ms ease, filter 300ms ease;
+}
+
+.signal-field__pipeline span {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+.signal-field__pipeline b {
+  overflow: hidden;
+  color: rgba(219, 228, 223, 0.34);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 300ms ease;
+}
+
+.hero__visual[data-pipeline="brief"] .signal-field__pipeline li:nth-child(1),
+.hero__visual[data-pipeline="agent"] .signal-field__pipeline li:nth-child(-n + 2),
+.hero__visual[data-pipeline="delivery"] .signal-field__pipeline li,
+.hero__visual[data-pipeline="ready"] .signal-field__pipeline li {
+  color: rgba(174, 204, 191, 0.7);
+  transform: translateY(-2px);
+}
+
+.hero__visual[data-pipeline="brief"] .signal-field__pipeline li:nth-child(1) b,
+.hero__visual[data-pipeline="agent"] .signal-field__pipeline li:nth-child(-n + 2) b,
+.hero__visual[data-pipeline="delivery"] .signal-field__pipeline li b,
+.hero__visual[data-pipeline="ready"] .signal-field__pipeline li b {
+  color: rgba(231, 239, 235, 0.84);
+}
+
+.hero__visual[data-pipeline="brief"] .signal-field__pipeline li:nth-child(1)::before,
+.hero__visual[data-pipeline="agent"] .signal-field__pipeline li:nth-child(-n + 2)::before,
+.hero__visual[data-pipeline="delivery"] .signal-field__pipeline li::before,
+.hero__visual[data-pipeline="ready"] .signal-field__pipeline li::before {
+  border-color: rgba(180, 214, 199, 0.74);
+  background: rgba(162, 202, 184, 0.92);
+  box-shadow: 0 0 11px rgba(127, 183, 161, 0.56);
+}
+
+.hero__visual[data-pipeline="agent"] .signal-field__pipeline li:nth-child(1)::after,
+.hero__visual[data-pipeline="delivery"] .signal-field__pipeline li::after,
+.hero__visual[data-pipeline="ready"] .signal-field__pipeline li::after {
+  border-color: rgba(141, 189, 168, 0.48);
+  filter: drop-shadow(0 0 4px rgba(130, 185, 162, 0.34));
+}
+
+.hero__visual[data-queue="automated"] .signal-field__status i {
+  background: #9fc9b7;
+  box-shadow: 0 0 10px rgba(141, 198, 174, 0.66);
 }
 
 .signal-field__status i {
@@ -500,6 +603,16 @@
   .signal-field__event {
     left: 14%;
     bottom: 8%;
+  }
+
+  .signal-field__pipeline {
+    top: 22%;
+    left: 14%;
+    width: 60%;
+  }
+
+  .signal-field__pipeline li {
+    padding-right: 7px;
   }
 
   .signal-field__status b {

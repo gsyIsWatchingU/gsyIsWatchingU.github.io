@@ -443,6 +443,66 @@ if (renderer) {
   const targetGlow = createSoftSprite({ texture: coolGlow, opacity: 0.18, scale: [0.72, 0.42], position: [beamTarget.x, beamTarget.y + 0.025, beamTarget.z] });
   world.add(targetGlow);
 
+  const agentNodePositions = [
+    new THREE.Vector3(-1.18, -1.005, 0.28),
+    new THREE.Vector3(0.02, -1.005, 0.08),
+    new THREE.Vector3(1.18, -1.005, 0.32),
+  ];
+  const agentNodes = agentNodePositions.map((position, index) => {
+    const group = new THREE.Group();
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x17211f,
+      emissive: index === 1 ? 0x4f7569 : 0x48665e,
+      emissiveIntensity: 0.04,
+      roughness: 0.72,
+      metalness: 0.18,
+    });
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      color: 0x9bc4b2,
+      transparent: true,
+      opacity: 0.05,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.09, 0.035, 16), railMaterial);
+    base.position.y = 0.018;
+    const core = new THREE.Mesh(new THREE.BoxGeometry(0.052, 0.13, 0.052), material);
+    core.position.y = 0.09;
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.1, 0.112, 32), ringMaterial);
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.y = 0.005;
+    group.position.copy(position);
+    group.add(base, core, ring);
+    world.add(group);
+    const glow = createSoftSprite({
+      texture: coolGlow,
+      opacity: 0,
+      scale: [0.26, 0.22],
+      position: [position.x, position.y + 0.15, position.z],
+    });
+    world.add(glow);
+    return { group, core, material, ring, ringMaterial, glow };
+  });
+  const agentRouteSegments = agentNodePositions.slice(1).map((position, index) => {
+    const material = new THREE.LineBasicMaterial({
+      color: 0x86ad9c,
+      transparent: true,
+      opacity: 0.035,
+      blending: THREE.AdditiveBlending,
+    });
+    const line = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints([
+        agentNodePositions[index].clone().setY(-0.99),
+        position.clone().setY(-0.99),
+      ]),
+      material,
+    );
+    line.renderOrder = 3;
+    world.add(line);
+    return { line, material };
+  });
+
   const farBeamMaterial = new THREE.MeshBasicMaterial({
     color: 0x9baea9,
     transparent: true,
@@ -664,22 +724,26 @@ if (renderer) {
     target: homePosition.clone(),
     threat: 0,
   };
+  let journeyCompleted = false;
   const storyStages = {
-    idle: ["PATROL · ACTIVE", "光束正在巡逻"],
-    alert: ["SIGNAL · ACQUIRED", "光照到了他"],
-    evade: ["ESCAPE · RUNNING", "他正在奔向阴影"],
-    hide: ["TARGET · LOST", "监控失去目标"],
-    return: ["PATROL · RESET", "确认安全后，他会回来"],
+    idle: ["CHANGE SIGNAL · SEARCHING", "变化正在寻找响应者"],
+    completed: ["SYSTEM · READY", "让人处理变化，让 Agent 处理重复"],
+    alert: ["PROBLEM · CAPTURED", "他接住了一个复杂问题"],
+    evade: ["AGENT · ORCHESTRATING", "模型、工具与服务开始协同"],
+    hide: ["DELIVERY · ONLINE", "重复流程已经自行运转"],
+    return: ["ENGINEER · ITERATING", "他回到队列之外继续迭代"],
   };
   const updateStoryLabels = (mode) => {
-    const [kicker, copy] = storyStages[mode] || storyStages.idle;
+    const stage = mode === "idle" && journeyCompleted ? storyStages.completed : storyStages[mode];
+    const [kicker, copy] = stage || storyStages.idle;
     if (storyKickerLabel) storyKickerLabel.textContent = kicker;
     if (storyCopyLabel) storyCopyLabel.textContent = copy;
   };
   visual.dataset.story = characterStory.mode;
   visual.dataset.scan = "idle";
-  visual.dataset.scene = "narrative-searchlight";
-  visual.dataset.queue = "moving";
+  visual.dataset.scene = "career-agent-orchestration";
+  visual.dataset.queue = "repetitive";
+  visual.dataset.pipeline = "waiting";
   updateStoryLabels(characterStory.mode);
   let hoverAmount = 0;
   let hoverTarget = 0;
@@ -702,7 +766,9 @@ if (renderer) {
     characterStory.mode = mode;
     characterStory.modeSince = elapsed;
     visual.dataset.story = mode;
-    visual.dataset.queue = mode === "alert" || mode === "evade" ? "watching" : "moving";
+    visual.dataset.queue = mode === "alert" || mode === "evade"
+      ? "watching"
+      : journeyCompleted ? "automated" : "repetitive";
     updateStoryLabels(mode);
     playCharacterAction(actionForStoryMode[mode]);
   };
@@ -768,6 +834,7 @@ if (renderer) {
         const facing = Math.sign(toTarget.x || 1);
         protagonistAnchor.rotation.y += ((facing > 0 ? -0.8 : 0.8) - protagonistAnchor.rotation.y) * Math.min(1, delta * 7);
       } else if (characterStory.mode === "evade") {
+        journeyCompleted = true;
         setCharacterMode("hide", elapsed);
       } else {
         protagonistAnchor.rotation.y += (-0.28 - protagonistAnchor.rotation.y) * Math.min(1, delta * 5);
@@ -882,8 +949,32 @@ if (renderer) {
     targetGlow.scale.set(0.68 + interactionAmount * 0.2, 0.38 + interactionAmount * 0.1, 1);
 
     updateCharacterStory(elapsed, delta * motion, interactionAmount);
+    const pipelineState = characterStory.mode === "alert"
+      ? "brief"
+      : characterStory.mode === "evade"
+        ? elapsed - characterStory.modeSince < 0.22 ? "agent" : "delivery"
+        : journeyCompleted ? "ready" : "waiting";
+    const activePipelineNodes = pipelineState === "brief"
+      ? 1
+      : pipelineState === "agent" ? 2 : pipelineState === "delivery" || pipelineState === "ready" ? 3 : 0;
+    if (visual.dataset.pipeline !== pipelineState) visual.dataset.pipeline = pipelineState;
+    const pipelinePulse = 0.5 + Math.sin(elapsed * 4.8) * 0.5;
+    agentNodes.forEach((node, index) => {
+      const active = index < activePipelineNodes ? 1 : 0;
+      node.material.emissiveIntensity += ((0.04 + active * (0.72 + pipelinePulse * 0.18)) - node.material.emissiveIntensity) * Math.min(1, delta * 8);
+      node.ringMaterial.opacity += ((0.035 + active * 0.36) - node.ringMaterial.opacity) * Math.min(1, delta * 7);
+      node.glow.material.opacity += ((active ? 0.2 + pipelinePulse * 0.07 : 0) - node.glow.material.opacity) * Math.min(1, delta * 7);
+      const nodeScale = 1 + active * pipelinePulse * 0.1;
+      node.ring.scale.setScalar(nodeScale);
+      node.core.scale.y += ((active ? 1.28 : 1) - node.core.scale.y) * Math.min(1, delta * 7);
+    });
+    agentRouteSegments.forEach((segment, index) => {
+      const active = index + 1 < activePipelineNodes ? 1 : 0;
+      segment.material.opacity += ((0.025 + active * 0.34) - segment.material.opacity) * Math.min(1, delta * 7);
+    });
     const dangerAmount = characterStory.mode === "alert" || characterStory.mode === "evade" ? 1 : 0;
     const hiddenAmount = characterStory.mode === "hide" ? 1 : 0;
+    const automationAmount = journeyCompleted && !dangerAmount ? 1 : 0;
     const warningPulse = 0.5 + Math.sin(elapsed * 9.5) * 0.5;
     searchLight.intensity += dangerAmount * 2.4 - hiddenAmount * 2.8;
     targetGlow.material.opacity *= 1 - hiddenAmount * 0.46;
@@ -927,7 +1018,10 @@ if (renderer) {
 
     queue.forEach((figure, index) => {
       if (motion) {
-        figure.position.x += figure.userData.speed * 0.016 * (1 - interactionAmount * 0.72) * (1 - dangerAmount * 0.86);
+        figure.position.x += figure.userData.speed * 0.016
+          * (1 - interactionAmount * 0.72)
+          * (1 - dangerAmount * 0.86)
+          * (1 + automationAmount * 0.72);
         if (figure.position.x > 2.2) figure.position.x = 0;
       }
       figure.position.y = -0.19 + Math.abs(Math.sin(elapsed * 1.9 + index * 0.8)) * 0.008 * motion;
