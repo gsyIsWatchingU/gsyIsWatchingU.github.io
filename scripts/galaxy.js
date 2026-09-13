@@ -6,6 +6,8 @@ const visual = document.querySelector(".hero__visual");
 const atmosphereCanvas = document.querySelector(".galaxy-canvas");
 const sceneCanvas = document.querySelector(".galaxy-focus-canvas");
 const visitorLightLabel = document.querySelector("[data-visitor-light]");
+const storyKickerLabel = document.querySelector("[data-story-kicker]");
+const storyCopyLabel = document.querySelector("[data-story-copy]");
 
 if (!hero || !visual || !atmosphereCanvas || !sceneCanvas) {
   throw new Error("首屏叙事场景缺少必要节点");
@@ -279,7 +281,7 @@ if (renderer) {
   renderer.setClearColor(0x000000, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1;
+  renderer.toneMappingExposure = 1.06;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
 
@@ -295,11 +297,14 @@ if (renderer) {
   const bridgeMaterial = new THREE.MeshStandardMaterial({ color: 0x485250, roughness: 0.92 });
   const railMaterial = new THREE.MeshStandardMaterial({ color: 0x0d1417, roughness: 0.82, metalness: 0.18 });
   const litSurface = new THREE.MeshStandardMaterial({ color: 0x5f6d68, emissive: 0x28312f, emissiveIntensity: 0.26, roughness: 0.94 });
+  const floorMaterial = new THREE.MeshStandardMaterial({ color: 0x222d31, roughness: 0.96, metalness: 0.03 });
 
-  const ambient = new THREE.HemisphereLight(0x83989a, 0x030608, 0.6);
-  const coldFill = new THREE.DirectionalLight(0x879da0, 0.78);
+  const ambient = new THREE.HemisphereLight(0x83989a, 0x030608, 0.68);
+  const coldFill = new THREE.DirectionalLight(0x879da0, 0.88);
   coldFill.position.set(-3.2, 2.4, 3.1);
-  scene.add(ambient, coldFill);
+  const characterRim = new THREE.DirectionalLight(0x91716a, 0.24);
+  characterRim.position.set(2.8, 1.2, 2.6);
+  scene.add(ambient, coldFill, characterRim);
 
   const backWall = new THREE.Mesh(new THREE.BoxGeometry(7.2, 4.2, 0.22), concrete);
   backWall.position.set(0.6, 0.45, -2.65);
@@ -329,6 +334,19 @@ if (renderer) {
   windowFrameBottom.position.y = -0.47;
   world.add(windowFrameVertical, windowFrameMiddle, windowFrameRight, windowFrameTop, windowFrameBottom);
 
+  const warningMaterial = new THREE.MeshStandardMaterial({
+    color: 0x251315,
+    emissive: 0x7a1918,
+    emissiveIntensity: 0.08,
+    roughness: 0.72,
+  });
+  const warningLights = [-1.36, 0.34, 2.04].map((x) => {
+    const lamp = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.018, 0.035), warningMaterial);
+    lamp.position.set(x, 0.9, -2.37);
+    world.add(lamp);
+    return lamp;
+  });
+
   const bridge = new THREE.Mesh(new THREE.BoxGeometry(5.8, 0.12, 0.72), bridgeMaterial);
   bridge.position.set(0.05, -0.36, -1.35);
   bridge.receiveShadow = true;
@@ -345,7 +363,7 @@ if (renderer) {
     world.add(post);
   }
 
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(7.2, 4.8), concrete);
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(7.2, 4.8), floorMaterial);
   floor.rotation.x = -Math.PI / 2;
   floor.position.set(0, -1.04, 0.1);
   floor.receiveShadow = true;
@@ -376,7 +394,7 @@ if (renderer) {
   world.add(rightShelter);
 
   const beamSource = new THREE.Vector3(1.5, 2.16, 1.18);
-  const beamTarget = new THREE.Vector3(-0.18, -0.88, 0.35);
+  const beamTarget = new THREE.Vector3(0.72, -0.88, 0.22);
   const beamTargetDesired = beamTarget.clone();
 
   const watcher = new THREE.Group();
@@ -425,6 +443,48 @@ if (renderer) {
   const targetGlow = createSoftSprite({ texture: coolGlow, opacity: 0.18, scale: [0.72, 0.42], position: [beamTarget.x, beamTarget.y + 0.025, beamTarget.z] });
   world.add(targetGlow);
 
+  const farBeamMaterial = new THREE.MeshBasicMaterial({
+    color: 0x9baea9,
+    transparent: true,
+    opacity: 0.018,
+    side: THREE.DoubleSide,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+  const farBeamA = createBeam(
+    new THREE.Vector3(-1.72, 2.04, -1.82),
+    new THREE.Vector3(-0.88, -0.32, -1.36),
+    0.38,
+    farBeamMaterial,
+  );
+  const farBeamBMaterial = farBeamMaterial.clone();
+  farBeamBMaterial.opacity = 0.012;
+  const farBeamB = createBeam(
+    new THREE.Vector3(0.18, 2.08, -1.92),
+    new THREE.Vector3(0.82, -0.32, -1.34),
+    0.3,
+    farBeamBMaterial,
+  );
+  world.add(farBeamA, farBeamB);
+
+  const scanRings = Array.from({ length: 3 }, (_, index) => {
+    const material = new THREE.MeshBasicMaterial({
+      color: 0xaebfb7,
+      transparent: true,
+      opacity: 0,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.18, 0.19, 56), material);
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.set(beamTarget.x, -1.014 + index * 0.001, beamTarget.z);
+    ring.visible = false;
+    ring.renderOrder = 3;
+    world.add(ring);
+    return ring;
+  });
+
   const protagonistAnchor = new THREE.Group();
   protagonistAnchor.position.set(-0.46, -1.025, 0.52);
   protagonistAnchor.rotation.y = -0.28;
@@ -433,6 +493,25 @@ if (renderer) {
   const protagonist = createCharacter({ accent: true });
   protagonist.position.y = 0.19;
   protagonistAnchor.add(protagonist);
+
+  const footstepTraces = Array.from({ length: 8 }, (_, index) => {
+    const material = new THREE.MeshBasicMaterial({
+      color: index % 2 ? 0x8ca39a : 0xa07a70,
+      transparent: true,
+      opacity: 0,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    const trace = new THREE.Mesh(new THREE.RingGeometry(0.018, 0.028, 20), material);
+    trace.rotation.x = -Math.PI / 2;
+    trace.scale.set(0.62, 1, 1.28);
+    trace.position.y = -1.012 + index * 0.0002;
+    trace.visible = false;
+    trace.userData.bornAt = -10;
+    world.add(trace);
+    return trace;
+  });
 
   const characterRuntime = {
     actions: {},
@@ -585,7 +664,23 @@ if (renderer) {
     target: homePosition.clone(),
     threat: 0,
   };
+  const storyStages = {
+    idle: ["PATROL · ACTIVE", "光束正在巡逻"],
+    alert: ["SIGNAL · ACQUIRED", "光照到了他"],
+    evade: ["ESCAPE · RUNNING", "他正在奔向阴影"],
+    hide: ["TARGET · LOST", "监控失去目标"],
+    return: ["PATROL · RESET", "确认安全后，他会回来"],
+  };
+  const updateStoryLabels = (mode) => {
+    const [kicker, copy] = storyStages[mode] || storyStages.idle;
+    if (storyKickerLabel) storyKickerLabel.textContent = kicker;
+    if (storyCopyLabel) storyCopyLabel.textContent = copy;
+  };
   visual.dataset.story = characterStory.mode;
+  visual.dataset.scan = "idle";
+  visual.dataset.scene = "narrative-searchlight";
+  visual.dataset.queue = "moving";
+  updateStoryLabels(characterStory.mode);
   let hoverAmount = 0;
   let hoverTarget = 0;
   let visitorLightOffset = 0;
@@ -596,13 +691,34 @@ if (renderer) {
   let characterDisplayScale = 1;
   let visible = true;
   let frame = 0;
+  let scanPulseStartedAt = -10;
+  const scanPulseOrigin = beamTarget.clone();
+  let pulseResetTimer = 0;
+  let lastFootstepAt = -10;
+  let footstepCursor = 0;
 
   const setCharacterMode = (mode, elapsed) => {
     if (characterStory.mode === mode) return;
     characterStory.mode = mode;
     characterStory.modeSince = elapsed;
     visual.dataset.story = mode;
+    visual.dataset.queue = mode === "alert" || mode === "evade" ? "watching" : "moving";
+    updateStoryLabels(mode);
     playCharacterAction(actionForStoryMode[mode]);
+  };
+
+  const triggerScanPulse = () => {
+    scanPulseStartedAt = previousElapsed;
+    scanPulseOrigin.copy(beamTarget);
+    visual.dataset.scan = "active";
+    hero.classList.remove("is-pulsing");
+    void visual.offsetWidth;
+    hero.classList.add("is-pulsing");
+    window.clearTimeout(pulseResetTimer);
+    pulseResetTimer = window.setTimeout(() => {
+      hero.classList.remove("is-pulsing");
+      visual.dataset.scan = "idle";
+    }, 860);
   };
 
   const chooseShelter = () => shelterPositions.reduce((best, point) => {
@@ -640,6 +756,15 @@ if (renderer) {
         const step = Math.min(remaining, speed * delta);
         protagonistAnchor.position.x += (toTarget.x / remaining) * step;
         protagonistAnchor.position.z += (toTarget.z / remaining) * step;
+        if (characterStory.mode === "evade" && elapsed - lastFootstepAt > 0.085) {
+          const trace = footstepTraces[footstepCursor % footstepTraces.length];
+          trace.position.x = protagonistAnchor.position.x + (footstepCursor % 2 ? 0.018 : -0.018);
+          trace.position.z = protagonistAnchor.position.z + 0.025;
+          trace.userData.bornAt = elapsed;
+          trace.visible = true;
+          lastFootstepAt = elapsed;
+          footstepCursor += 1;
+        }
         const facing = Math.sign(toTarget.x || 1);
         protagonistAnchor.rotation.y += ((facing > 0 ? -0.8 : 0.8) - protagonistAnchor.rotation.y) * Math.min(1, delta * 7);
       } else if (characterStory.mode === "evade") {
@@ -731,15 +856,18 @@ if (renderer) {
     hoverAmount += (hoverTarget - hoverAmount) * 0.065;
     visitorLightPulse *= Math.pow(0.985, delta * 60);
     const interactionAmount = Math.max(hoverAmount, visitorLightPulse);
-    camera.position.x = 0.2 + pointer.x * 0.18;
-    camera.position.y = 1.05 + pointer.y * 0.12;
-    camera.lookAt(0, -0.08, 0);
+    camera.position.x = 0.2 + pointer.x * 0.22;
+    camera.position.y = 1.05 + pointer.y * 0.14;
+    camera.lookAt(pointer.x * 0.08, -0.08 + pointer.y * 0.025, 0);
 
-    const unattendedTargetX = -0.18 + visitorLightOffset * 0.52 + Math.sin(elapsed * 0.12) * 0.08 * motion;
+    const unattendedTargetX = 0.72
+      + visitorLightOffset * 0.32
+      + Math.sin(elapsed * 0.16) * 0.38 * motion;
+    const unattendedTargetZ = 0.22 + Math.cos(elapsed * 0.13) * 0.12 * motion;
     beamTargetDesired.set(
       THREE.MathUtils.lerp(unattendedTargetX, pointer.x * 3.2, hoverAmount),
       -0.985,
-      THREE.MathUtils.lerp(0.35, 0.42 + pointer.y * 2.1, hoverAmount),
+      THREE.MathUtils.lerp(unattendedTargetZ, 0.42 + pointer.y * 2.1, hoverAmount),
     );
     beamTarget.lerp(beamTargetDesired, 0.055);
     lightTarget.position.copy(beamTarget);
@@ -754,17 +882,58 @@ if (renderer) {
     targetGlow.scale.set(0.68 + interactionAmount * 0.2, 0.38 + interactionAmount * 0.1, 1);
 
     updateCharacterStory(elapsed, delta * motion, interactionAmount);
+    const dangerAmount = characterStory.mode === "alert" || characterStory.mode === "evade" ? 1 : 0;
+    const hiddenAmount = characterStory.mode === "hide" ? 1 : 0;
+    const warningPulse = 0.5 + Math.sin(elapsed * 9.5) * 0.5;
+    searchLight.intensity += dangerAmount * 2.4 - hiddenAmount * 2.8;
+    targetGlow.material.opacity *= 1 - hiddenAmount * 0.46;
+    warningMaterial.emissiveIntensity = 0.05 + dangerAmount * (0.55 + warningPulse * 0.8);
+    warningLights.forEach((lamp, index) => {
+      const pulse = dangerAmount ? 1 + Math.sin(elapsed * 8.5 + index * 1.7) * 0.16 : 1;
+      lamp.scale.x += (pulse - lamp.scale.x) * Math.min(1, delta * 10);
+    });
+    windowPanel.material.emissiveIntensity = 0.24 + dangerAmount * 0.09 - hiddenAmount * 0.07;
+    farBeamMaterial.opacity = 0.016 + Math.sin(elapsed * 0.42) * 0.004;
+    farBeamBMaterial.opacity = 0.01 + Math.sin(elapsed * 0.36 + 1.8) * 0.003;
+    scene.fog.density = 0.09 + hiddenAmount * 0.012 + dangerAmount * 0.004;
+    characterRim.intensity = 0.22 + dangerAmount * 0.22 - hiddenAmount * 0.08;
     protagonist.userData.torso.rotation.z = -0.08 + characterStory.threat * 0.07;
     protagonist.userData.jacket.emissiveIntensity = 0.16 + characterStory.threat * 0.18;
     watcher.rotation.z = 0.34 + pointer.x * interactionAmount * 0.15;
-    watcherLensMaterial.emissiveIntensity = 0.3 + interactionAmount * 0.38;
+    watcherLensMaterial.emissiveIntensity = 0.24 + interactionAmount * 0.34 + dangerAmount * 0.74 - hiddenAmount * 0.14;
+
+    scanRings.forEach((ring, index) => {
+      const age = elapsed - scanPulseStartedAt - index * 0.1;
+      const active = age >= 0 && age < 1.08;
+      ring.visible = active;
+      if (!active) return;
+      const progress = age / 1.08;
+      const size = 0.72 + progress * 5.2;
+      ring.position.x = scanPulseOrigin.x;
+      ring.position.z = scanPulseOrigin.z;
+      ring.scale.setScalar(size);
+      ring.material.opacity = (1 - progress) * (0.2 - index * 0.035);
+    });
+
+    footstepTraces.forEach((trace) => {
+      const age = elapsed - trace.userData.bornAt;
+      const active = age >= 0 && age < 0.9;
+      trace.visible = active;
+      if (!active) return;
+      const progress = age / 0.9;
+      trace.material.opacity = (1 - progress) * 0.28;
+      trace.scale.set(0.62 + progress * 0.2, 1, 1.28 + progress * 0.34);
+    });
 
     queue.forEach((figure, index) => {
       if (motion) {
-        figure.position.x += figure.userData.speed * 0.016 * (1 - interactionAmount * 0.72);
+        figure.position.x += figure.userData.speed * 0.016 * (1 - interactionAmount * 0.72) * (1 - dangerAmount * 0.86);
         if (figure.position.x > 2.2) figure.position.x = 0;
       }
       figure.position.y = -0.19 + Math.abs(Math.sin(elapsed * 1.9 + index * 0.8)) * 0.008 * motion;
+      const glance = dangerAmount * Math.sign(protagonistAnchor.position.x - figure.position.x) * 0.56;
+      figure.userData.headPivot.rotation.y += (glance - figure.userData.headPivot.rotation.y) * Math.min(1, delta * 4.5);
+      figure.userData.torso.rotation.z += ((dangerAmount ? -0.03 : -0.08) - figure.userData.torso.rotation.z) * Math.min(1, delta * 3.8);
     });
 
     const positionAttribute = dustGeometry.getAttribute("position");
@@ -822,11 +991,16 @@ if (renderer) {
     visual.style.setProperty("--scan-y", `${event.clientY - bounds.top}px`);
   }, { passive: true });
   visual.addEventListener("pointerdown", (event) => {
-    if (reducedMotion.matches || event.pointerType !== "touch") return;
+    if (reducedMotion.matches) return;
+    if (event.pointerType !== "touch") return;
     touchDragging = true;
     visual.setPointerCapture(event.pointerId);
     hoverTarget = 1;
     hero.classList.add("is-searching");
+  });
+  visual.addEventListener("click", () => {
+    if (reducedMotion.matches) return;
+    triggerScanPulse();
   });
   const releaseLight = (event) => {
     if (event?.pointerType === "touch") touchDragging = false;
