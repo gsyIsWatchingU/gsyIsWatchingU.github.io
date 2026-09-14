@@ -99,7 +99,7 @@ document.querySelectorAll("[data-project-overview]").forEach((carousel) => {
     autoTimer = window.setTimeout(() => {
       showSlide(activeIndex + 1, true);
       scheduleAutoPlay();
-    }, 3200);
+    }, 2200);
   };
 
   const selectSlide = (nextIndex) => {
