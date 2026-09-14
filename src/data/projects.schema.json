@@ -6,7 +6,7 @@
   "items": {
     "type": "object",
     "additionalProperties": false,
-    "required": ["id", "number", "tone", "kicker", "name", "englishName", "stage", "role", "description", "proofs", "tech", "image", "imageAlt"],
+    "required": ["id", "number", "tone", "kicker", "name", "englishName", "stage", "role", "description", "heroFeature", "proofs", "tech", "image", "imageAlt"],
     "properties": {
       "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
       "number": { "type": "string", "pattern": "^[0-9]{2}$" },
@@ -17,6 +17,15 @@
       "stage": { "type": "string", "minLength": 1 },
       "role": { "type": "string", "minLength": 1 },
       "description": { "type": "string", "minLength": 1 },
+      "heroFeature": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "text"],
+        "properties": {
+          "label": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 }
+        }
+      },
       "proofs": {
         "type": "array",
         "minItems": 3,

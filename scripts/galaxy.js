@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { clone as cloneSkeleton } from "three/addons/utils/SkeletonUtils.js";
 
 const hero = document.querySelector(".hero");
 const visual = document.querySelector(".hero__visual");
@@ -17,8 +18,8 @@ const projectLink = document.querySelector("[data-project-link]");
 const projectNumberLabel = projectLink?.querySelector("[data-project-number]");
 const projectNameLabel = projectLink?.querySelector("[data-project-name]");
 const projectEnglishLabel = projectLink?.querySelector("[data-project-english]");
-const projectDescriptionLabel = projectLink?.querySelector("[data-project-description]");
-const projectTechLabel = projectLink?.querySelector("[data-project-tech]");
+const projectFeatureLabel = projectLink?.querySelector("[data-project-feature]");
+const projectFeatureCopyLabel = projectLink?.querySelector("[data-project-feature-copy]");
 const projectCtaLabel = projectLink?.querySelector("[data-project-cta]");
 
 if (!hero || !visual || !atmosphereCanvas || !sceneCanvas) {
@@ -32,14 +33,13 @@ const worldDefinitions = Object.fromEntries(projectOptions.map((option, index) =
     number: option.dataset.projectNumber,
     name: option.dataset.projectName,
     englishName: option.dataset.projectEnglish,
-    description: option.dataset.projectDescription,
-    tech: option.dataset.projectTech,
-    image: option.dataset.projectImage,
+    feature: option.dataset.projectFeature,
+    featureCopy: option.dataset.projectFeatureCopy,
     url: option.dataset.projectUrl,
     label: option.dataset.projectLabel,
     external: option.dataset.projectExternal === "true",
     kicker: `真实项目 · ${option.dataset.projectName}`,
-    copy: option.dataset.projectDescription,
+    copy: option.dataset.projectFeatureCopy,
     color: projectColors[index % projectColors.length],
   },
 ]));
@@ -490,7 +490,6 @@ if (renderer) {
     return material;
   };
 
-  const textureLoader = new THREE.TextureLoader();
   const createWorldFragment = (mode) => {
     const group = new THREE.Group();
     const definition = worldDefinitions[mode];
@@ -505,50 +504,142 @@ if (renderer) {
       if (!group.userData.materials.includes(material)) group.userData.materials.push(material);
       return mesh;
     };
+    const addLine = (points, opacity = 0.48) => {
+      const material = new THREE.LineBasicMaterial({
+        color: definition.color,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false,
+      });
+      material.userData.baseOpacity = opacity;
+      const line = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(points.map((point) => new THREE.Vector3(...point))),
+        material,
+      );
+      line.renderOrder = 3;
+      group.add(line);
+      group.userData.materials.push(material);
+      return line;
+    };
 
-    const aspect = mode === "cli-list" ? 708 / 753 : 16 / 10;
-    const screenWidth = mode === "cli-list" ? 0.78 : 1.12;
-    const screenHeight = screenWidth / aspect;
     const frameColor = new THREE.Color(definition.color).multiplyScalar(0.72);
     const frame = createFragmentMaterial({ color: frameColor, emissive: definition.color, opacity: 0.84 });
     const base = createFragmentMaterial({ color: 0x273235, emissive: definition.color, opacity: 0.48 });
     const outline = createFragmentMaterial({ color: definition.color, emissive: definition.color, opacity: 0.34, wireframe: true });
-    const texture = textureLoader.load(definition.image, () => {
-      if (reducedMotion.matches) renderer.render(scene, camera);
-    });
-    texture.colorSpace = THREE.SRGBColorSpace;
-    texture.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
-    const screenMaterial = new THREE.MeshBasicMaterial({
-      map: texture,
-      color: 0xd8e1dc,
-      transparent: true,
-      opacity: 0,
-      side: THREE.DoubleSide,
-      depthWrite: false,
-      toneMapped: false,
-    });
-    screenMaterial.userData.baseOpacity = 0.92;
+    const light = createFragmentMaterial({ color: 0xcbd8d1, emissive: definition.color, opacity: 0.92 });
+    const dim = createFragmentMaterial({ color: 0x151d20, emissive: definition.color, opacity: 0.28 });
 
-    addMesh(new THREE.PlaneGeometry(screenWidth, screenHeight), screenMaterial, [0, 0.56, 0.045]);
-    addMesh(new THREE.BoxGeometry(screenWidth + 0.08, 0.035, 0.055), frame, [0, 0.56 + screenHeight / 2 + 0.02, 0]);
-    addMesh(new THREE.BoxGeometry(screenWidth + 0.08, 0.035, 0.055), frame, [0, 0.56 - screenHeight / 2 - 0.02, 0]);
-    addMesh(new THREE.BoxGeometry(0.035, screenHeight, 0.055), frame, [-screenWidth / 2 - 0.035, 0.56, 0]);
-    addMesh(new THREE.BoxGeometry(0.035, screenHeight, 0.055), frame, [screenWidth / 2 + 0.035, 0.56, 0]);
-    addMesh(new THREE.BoxGeometry(screenWidth * 0.72, 0.055, 0.26), base, [0, 0.045, 0.03]);
-    addMesh(new THREE.CylinderGeometry(0.055, 0.09, 0.25, 7), base, [0, 0.18, 0]);
-    addMesh(new THREE.RingGeometry(0.42, 0.435, 52), outline, [0, 0.012, 0.02], [-Math.PI / 2, 0, 0]);
-    addMesh(new THREE.OctahedronGeometry(0.055, 0), frame, [screenWidth * 0.39, 0.56 + screenHeight * 0.38, 0.08]);
-    group.userData.screen = screenMaterial;
+    addMesh(new THREE.CylinderGeometry(0.48, 0.56, 0.055, 8), base, [0, 0.025, 0]);
+    addMesh(new THREE.RingGeometry(0.43, 0.455, 48), outline, [0, 0.057, 0], [-Math.PI / 2, 0, 0]);
+
+    if (mode === "research-workbench") {
+      const documents = [-0.08, 0, 0.08].map((z, index) => addMesh(
+        new THREE.BoxGeometry(0.67, 0.46, 0.022),
+        index === 2 ? frame : dim,
+        [-0.12 + index * 0.055, 0.45 + index * 0.035, z],
+        [0.08 - index * 0.04, -0.24 + index * 0.1, -0.03 + index * 0.025],
+      ));
+      [0.56, 0.47, 0.35].forEach((width, index) => {
+        addMesh(new THREE.BoxGeometry(width, 0.018, 0.012), light, [-0.09, 0.57 - index * 0.085, 0.105]);
+      });
+      const anchors = [
+        addMesh(new THREE.SphereGeometry(0.047, 12, 8), light, [-0.32, 0.57, 0.16]),
+        addMesh(new THREE.SphereGeometry(0.047, 12, 8), light, [0.05, 0.4, 0.16]),
+      ];
+      const verifier = addMesh(new THREE.OctahedronGeometry(0.12, 1), outline, [0.48, 0.58, 0.08], [0.2, 0, 0.2]);
+      anchors.forEach((anchor) => addLine([
+        [anchor.position.x, anchor.position.y, anchor.position.z],
+        [0.26, 0.58, 0.12],
+        [verifier.position.x, verifier.position.y, verifier.position.z],
+      ], 0.5));
+      group.userData.animate = (elapsed, _delta, active) => {
+        verifier.rotation.y = elapsed * 0.55;
+        documents[2].position.y = 0.52 + Math.sin(elapsed * 0.9) * 0.012 * active;
+        anchors.forEach((anchor, index) => anchor.scale.setScalar(1 + Math.sin(elapsed * 2.2 + index * 2.1) * 0.14 * active));
+      };
+    } else if (mode === "algorithm-lab") {
+      addMesh(new THREE.BoxGeometry(0.52, 0.54, 0.42), outline, [0.05, 0.42, 0]);
+      addMesh(new THREE.BoxGeometry(0.39, 0.055, 0.31), dim, [0.05, 0.17, 0]);
+      addLine([[-0.68, 0.42, 0.1], [-0.22, 0.42, 0.1], [0.33, 0.42, 0.1], [0.68, 0.42, 0.1]], 0.56);
+      const packets = Array.from({ length: 3 }, (_, index) => addMesh(
+        new THREE.BoxGeometry(0.09, 0.09, 0.09),
+        index === 2 ? light : frame,
+        [-0.64 + index * 0.18, 0.42, 0.1],
+        [0.2, 0.2, 0],
+      ));
+      const verdict = addMesh(new THREE.TorusGeometry(0.12, 0.026, 8, 24, Math.PI * 1.55), light, [0.62, 0.42, 0.1], [0, 0, -0.72]);
+      const worker = addMesh(new THREE.CylinderGeometry(0.09, 0.12, 0.22, 6), frame, [0.05, 0.42, -0.22]);
+      group.userData.animate = (elapsed, _delta, active) => {
+        packets.forEach((packet, index) => {
+          packet.position.x = -0.64 + ((elapsed * (0.22 + index * 0.018) + index * 0.34) % 1.28);
+          packet.rotation.x = elapsed * 0.9 + index;
+          packet.rotation.y = elapsed * 0.62 + index;
+        });
+        worker.rotation.y = elapsed * 0.4;
+        verdict.scale.setScalar(1 + Math.sin(elapsed * 2.4) * 0.08 * active);
+      };
+    } else if (mode === "write-here") {
+      addMesh(new THREE.BoxGeometry(0.7, 0.54, 0.035), frame, [0, 0.45, 0], [0.05, -0.16, 0]);
+      [0.48, 0.58, 0.38, 0.51].forEach((width, index) => {
+        addMesh(new THREE.BoxGeometry(width, 0.018, 0.018), dim, [-0.055, 0.59 - index * 0.085, 0.04], [0, -0.16, 0]);
+      });
+      const cursors = [-0.2, 0.02, 0.23].map((x, index) => {
+        const cursor = addMesh(new THREE.BoxGeometry(0.018, 0.13, 0.025), index === 1 ? light : outline, [x, 0.51 - index * 0.08, 0.085]);
+        addMesh(new THREE.ConeGeometry(0.038, 0.07, 5), index === 1 ? light : outline, [x + 0.025, 0.59 - index * 0.08, 0.085], [0, 0, -0.7]);
+        return cursor;
+      });
+      const peers = [-0.42, 0, 0.42].map((x, index) => addMesh(
+        new THREE.IcosahedronGeometry(0.065, 1),
+        index === 1 ? light : outline,
+        [x, 0.82 + (index % 2) * 0.05, -0.02],
+      ));
+      peers.forEach((peer, index) => {
+        if (index < peers.length - 1) addLine([[peer.position.x, peer.position.y, -0.02], [peers[index + 1].position.x, peers[index + 1].position.y, -0.02]], 0.44);
+      });
+      group.userData.animate = (elapsed, _delta, active) => {
+        cursors.forEach((cursor, index) => {
+          cursor.position.y = 0.43 + ((Math.sin(elapsed * (0.78 + index * 0.07) + index * 1.6) + 1) * 0.11);
+        });
+        peers.forEach((peer, index) => peer.scale.setScalar(1 + Math.sin(elapsed * 1.8 + index * 1.5) * 0.1 * active));
+      };
+    } else {
+      const hub = addMesh(new THREE.CylinderGeometry(0.14, 0.18, 0.34, 6), frame, [0, 0.39, 0], [0.08, 0, 0.08]);
+      addMesh(new THREE.BoxGeometry(0.24, 0.11, 0.2), light, [0, 0.58, 0]);
+      const nodes = [
+        [-0.5, 0.68, 0.02],
+        [0.46, 0.72, -0.04],
+        [-0.42, 0.27, 0.08],
+        [0.48, 0.29, 0.06],
+      ].map((position, index) => {
+        const node = addMesh(
+          index % 2 ? new THREE.OctahedronGeometry(0.09, 0) : new THREE.BoxGeometry(0.18, 0.12, 0.14),
+          index === 1 ? light : outline,
+          position,
+          [0.12, index * 0.28, 0.08],
+        );
+        node.userData.baseY = position[1];
+        addLine([[0, 0.47, 0], position], 0.46);
+        return node;
+      });
+      group.userData.animate = (elapsed, _delta, active) => {
+        hub.rotation.y = elapsed * 0.46;
+        nodes.forEach((node, index) => {
+          node.rotation.y = elapsed * (index % 2 ? -0.62 : 0.62) + index;
+          node.position.y = node.userData.baseY + Math.sin(elapsed * 1.2 + index) * 0.014 * active;
+        });
+      };
+    }
+
     return group;
   };
 
   const changeWorldAnchor = new THREE.Group();
   changeWorldAnchor.position.set(0, -1.015, 0);
   const projectScenePositions = [
-    [-1.58, 0, 0.16],
-    [-0.52, 0, -0.12],
-    [0.58, 0, -0.04],
-    [1.62, 0, 0.18],
+    [-0.92, 0.08, 0.22],
+    [-0.3, 0.02, -0.06],
+    [0.38, 0.04, -0.02],
+    [1.02, 0.08, 0.2],
   ];
   const worldFragments = Object.fromEntries(Object.keys(worldDefinitions).map((mode, index) => {
     const fragment = createWorldFragment(mode);
@@ -701,6 +792,7 @@ if (renderer) {
     arrived: "idle",
   };
 
+  const npcRuntimes = [];
   const characterLoader = new GLTFLoader();
   characterLoader.load(
     "./assets/characters/red-sweater-boy-hero-v2.glb",
@@ -739,6 +831,46 @@ if (renderer) {
         const clip = makeInPlaceClip(sourceClip);
         characterRuntime.actions[name] = characterRuntime.mixer.clipAction(clip);
       });
+      const npcWalkSource = findExactClip(gltf.animations, ["walk_formal_loop", "walk_loop"]);
+      if (npcWalkSource) {
+        const npcWalkClip = makeInPlaceClip(npcWalkSource);
+        const npcTones = [0x293336, 0x20292c, 0x343c3d, 0x252e31, 0x30383a, 0x1d2629];
+        queue.forEach((figure, index) => {
+          const clone = cloneSkeleton(model);
+          clone.scale.multiplyScalar(0.92 / figure.scale.x);
+          clone.position.y -= 0.21;
+          clone.traverse((child) => {
+            if (!child.isMesh) return;
+            const sourceMaterials = Array.isArray(child.material) ? child.material : [child.material];
+            const clonedMaterials = sourceMaterials.map((sourceMaterial) => {
+              const material = sourceMaterial.clone();
+              material.color?.lerp(new THREE.Color(npcTones[index % npcTones.length]), 0.76);
+              if (material.emissive) material.emissive.set(0x050809);
+              material.emissiveIntensity = 0.08;
+              material.roughness = Math.max(0.88, material.roughness ?? 0.88);
+              material.metalness = 0;
+              return material;
+            });
+            child.material = Array.isArray(child.material) ? clonedMaterials : clonedMaterials[0];
+            child.castShadow = true;
+            child.receiveShadow = true;
+          });
+          figure.children.forEach((child) => { child.visible = false; });
+          figure.rotation.y = -Math.PI / 2;
+          figure.add(clone);
+          const mixer = new THREE.AnimationMixer(clone);
+          const action = mixer.clipAction(npcWalkClip);
+          const baseTimeScale = 0.78 + (index % 4) * 0.08;
+          action.play();
+          action.time = npcWalkClip.duration * ((index * 0.173) % 1);
+          action.timeScale = baseTimeScale;
+          const runtime = { action, baseTimeScale, mixer };
+          figure.userData.npcRuntime = runtime;
+          npcRuntimes.push(runtime);
+        });
+        visual.dataset.npcs = "skeletal-walk";
+        visual.dataset.npcCount = String(npcRuntimes.length);
+      }
       characterRuntime.loaded = true;
       playCharacterAction(actionForStoryMode[characterStory.mode], 0);
       visual.dataset.model = "ready";
@@ -747,18 +879,20 @@ if (renderer) {
     undefined,
     () => {
       visual.dataset.model = "fallback";
+      visual.dataset.npcs = "procedural-fallback";
     },
   );
 
   const queue = [];
   for (let index = 0; index < 6; index += 1) {
     const figure = createCharacter({ distant: true });
-    figure.position.set(0.05 + index * 0.38, -0.19, -0.96 - (index % 2) * 0.05);
+    figure.position.set(-2.25 + index * 0.82, -0.19, -0.96 - (index % 2) * 0.05);
     figure.rotation.y = -0.22;
-    figure.userData.speed = 0.036 + (index % 3) * 0.004;
+    figure.userData.speed = 0.22 + (index % 3) * 0.035;
     queue.push(figure);
     world.add(figure);
   }
+  visual.dataset.npcs = "procedural-loading";
 
   const cable = new THREE.Line(
     new THREE.BufferGeometry().setFromPoints([
@@ -830,7 +964,7 @@ if (renderer) {
     let stage = storyStages[mode];
     if (!stage) {
       const worldStage = worldDefinitions[activeWorldMode];
-      stage = [worldStage.kicker, `光束正在显现 ${worldStage.name} 的真实界面`];
+      stage = [worldStage.kicker, `光束正在演示：${worldStage.feature}`];
     }
     const [kicker, copy] = stage;
     if (storyKickerLabel) storyKickerLabel.textContent = kicker;
@@ -842,8 +976,8 @@ if (renderer) {
     if (projectNumberLabel) projectNumberLabel.textContent = project.number;
     if (projectNameLabel) projectNameLabel.textContent = project.name;
     if (projectEnglishLabel) projectEnglishLabel.textContent = project.englishName;
-    if (projectDescriptionLabel) projectDescriptionLabel.textContent = project.description;
-    if (projectTechLabel) projectTechLabel.textContent = project.tech;
+    if (projectFeatureLabel) projectFeatureLabel.textContent = project.feature;
+    if (projectFeatureCopyLabel) projectFeatureCopyLabel.textContent = project.featureCopy;
     if (projectCtaLabel) {
       projectCtaLabel.textContent = project.external ? "点击访问线上项目 ↗" : "查看页面内项目详情 ↓";
     }
@@ -894,7 +1028,7 @@ if (renderer) {
   };
   visual.dataset.story = characterStory.mode;
   visual.dataset.scan = "idle";
-  visual.dataset.scene = "project-spotlight";
+  visual.dataset.scene = "project-diorama";
   visual.dataset.project = activeWorldMode;
   visual.dataset.queue = "repetitive";
   visual.dataset.paths = "single";
@@ -955,7 +1089,7 @@ if (renderer) {
     visual.dataset.queue = "dispersing";
     queue.forEach((figure, index) => {
       const branch = pathTargets[index % pathTargets.length];
-      figure.userData.branchTarget = branch.clone();
+      figure.userData.branchTarget = branch.clone().setY(-0.19);
       figure.userData.branchTarget.x += (index > 2 ? 0.13 : -0.08) * (index % 2 ? 1 : -1);
       figure.userData.branchTarget.z += index > 2 ? 0.12 : -0.03;
     });
@@ -1166,14 +1300,15 @@ if (renderer) {
     beamOuterMaterial.color.lerp(activeWorldColor, Math.min(1, delta * 2.2));
     Object.entries(worldFragments).forEach(([mode, fragment], index) => {
       const active = mode === activeWorldMode ? 1 : 0;
-      const presence = active ? 0.72 + interactionAmount * 0.28 : 0.045;
+      const presence = active ? 0.88 + interactionAmount * 0.12 : 0.035;
       fragment.userData.materials.forEach((material) => {
         const opacity = material.userData.baseOpacity * presence;
         material.opacity += (opacity - material.opacity) * Math.min(1, delta * 7);
       });
-      const fragmentScale = active ? 0.96 + interactionAmount * 0.08 : 0.86;
+      const fragmentScale = active ? 1.16 + interactionAmount * 0.1 : 0.78;
       fragment.scale.lerp(new THREE.Vector3(fragmentScale, fragmentScale, fragmentScale), Math.min(1, delta * 5));
       fragment.position.y = fragment.userData.baseY + Math.sin(elapsed * 0.72 + index * 0.85) * 0.012 * motion * active;
+      fragment.userData.animate?.(elapsed, delta * motion, active, interactionAmount);
     });
 
     retainedFragments.forEach((fragment, index) => {
@@ -1186,6 +1321,7 @@ if (renderer) {
         material.opacity += (opacity - material.opacity) * Math.min(1, delta * 7);
       });
       fragment.rotation.y += (index % 2 ? -0.045 : 0.045) * delta * motion;
+      fragment.userData.animate?.(elapsed, delta * motion, 1, interactionAmount);
     });
 
     pathBranches.forEach((branch, index) => {
@@ -1241,29 +1377,39 @@ if (renderer) {
     });
 
     queue.forEach((figure, index) => {
+      let walkingPace = 0;
       if (storyResolved && figure.userData.branchTarget) {
         const target = figure.userData.branchTarget;
         const toTarget = target.clone().sub(figure.position);
         const remaining = Math.hypot(toTarget.x, toTarget.z);
         if (remaining > 0.04) {
-          const step = Math.min(remaining, delta * (0.2 + (index % 3) * 0.035));
+          walkingPace = 0.2 + (index % 3) * 0.035;
+          const step = Math.min(remaining, delta * walkingPace);
           figure.position.x += (toTarget.x / remaining) * step;
           figure.position.z += (toTarget.z / remaining) * step;
-          figure.rotation.y += ((toTarget.x > 0 ? -0.74 : 0.74) - figure.rotation.y) * Math.min(1, delta * 4);
+          figure.rotation.y += ((toTarget.x > 0 ? -Math.PI / 2 : Math.PI / 2) - figure.rotation.y) * Math.min(1, delta * 4);
         }
-        figure.position.y += (-1.015 - figure.position.y) * Math.min(1, delta * 0.72);
+        figure.position.y += (-0.19 - figure.position.y) * Math.min(1, delta * 0.72);
       } else if (motion) {
-        figure.position.x += figure.userData.speed * 0.016
+        walkingPace = figure.userData.speed
           * (1 - interactionAmount * 0.72)
           * (1 - dangerAmount * 0.86);
-        if (figure.position.x > 2.2) figure.position.x = 0;
+        figure.position.x += walkingPace * delta;
+        if (figure.position.x > 2.35) figure.position.x = -2.35;
       }
-      if (!storyResolved) {
+      const npcRuntime = figure.userData.npcRuntime;
+      if (npcRuntime) {
+        const relativePace = walkingPace / Math.max(0.001, figure.userData.speed);
+        npcRuntime.action.timeScale = npcRuntime.baseTimeScale * Math.max(0.08, relativePace);
+        npcRuntime.mixer.update(delta * motion);
+      } else if (!storyResolved) {
         figure.position.y = -0.19 + Math.abs(Math.sin(elapsed * 1.9 + index * 0.8)) * 0.008 * motion;
       }
-      const glance = (dangerAmount + divergenceAmount * 0.42) * Math.sign(protagonistAnchor.position.x - figure.position.x) * 0.56;
-      figure.userData.headPivot.rotation.y += (glance - figure.userData.headPivot.rotation.y) * Math.min(1, delta * 4.5);
-      figure.userData.torso.rotation.z += ((dangerAmount || divergenceAmount ? -0.03 : -0.08) - figure.userData.torso.rotation.z) * Math.min(1, delta * 3.8);
+      if (!npcRuntime) {
+        const glance = (dangerAmount + divergenceAmount * 0.42) * Math.sign(protagonistAnchor.position.x - figure.position.x) * 0.56;
+        figure.userData.headPivot.rotation.y += (glance - figure.userData.headPivot.rotation.y) * Math.min(1, delta * 4.5);
+        figure.userData.torso.rotation.z += ((dangerAmount || divergenceAmount ? -0.03 : -0.08) - figure.userData.torso.rotation.z) * Math.min(1, delta * 3.8);
+      }
     });
 
     const positionAttribute = dustGeometry.getAttribute("position");

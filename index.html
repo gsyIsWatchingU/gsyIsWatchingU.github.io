@@ -29,7 +29,7 @@
     />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/header.css?v=20260906-nav50" />
-    <link rel="stylesheet" href="./styles/hero.css?v=20260914-project-spotlight" />
+    <link rel="stylesheet" href="./styles/hero.css?v=20260914-project-diorama" />
     <link rel="stylesheet" href="./styles/skills.css" />
     <link rel="stylesheet" href="./styles/experience.css" />
     <link rel="stylesheet" href="./styles/projects.css?v=20260911-carousel" />
@@ -131,9 +131,8 @@
                 data-project-number="01"
                 data-project-name="论迹"
                 data-project-english="Research Workbench"
-                data-project-description="面向科研阅读的私有知识工作台，把 PDF 上传、连续阅读、全文检索、划词翻译、高亮批注与 Markdown 笔记收进一个完整闭环。"
-                data-project-tech="React 19 · TypeScript · FastAPI"
-                data-project-image="./assets/projects/research-workbench.png"
+                data-project-feature="证据双锚点"
+                data-project-feature-copy="把高亮同时绑定文本上下文与页面坐标，让 AI 草案能够回到原文验证。"
                 data-project-url="https://elementary-von-appreciation-stretch.trycloudflare.com"
                 data-project-label="进入论迹"
                 data-project-external="true"
@@ -143,9 +142,8 @@
                 data-project-number="02"
                 data-project-name="Algorithm Lab"
                 data-project-english="全栈算法训练平台"
-                data-project-description="覆盖题库组织、在线编程、异步判题、学习进度与间隔复习，并通过公共/私人题库边界和整套审核流程处理内容治理。"
-                data-project-tech="Next.js 16 · Prisma · PostgreSQL"
-                data-project-image="./assets/projects/algorithm-lab.png"
+                data-project-feature="隔离判题流水线"
+                data-project-feature-copy="代码进入异步队列，在受限沙箱中运行并返回可追踪的判题结果。"
                 data-project-url="https://forget-charges-glass-accordance.trycloudflare.com"
                 data-project-label="进入平台"
                 data-project-external="true"
@@ -155,9 +153,8 @@
                 data-project-number="03"
                 data-project-name="WriteHere"
                 data-project-english="Horizon Docs"
-                data-project-description="轻量级在线文档协作平台，覆盖个人文档、公开社区、分享链接、协作申请审批、多人实时编辑与消息通知。"
-                data-project-tech="Vue 3 · TipTap · Yjs"
-                data-project-image="./assets/projects/write-here.png"
+                data-project-feature="实时协同编辑"
+                data-project-feature-copy="内容、光标与在线成员通过 Yjs 同步，权限变化实时收敛。"
                 data-project-url="https://dollar-wendy-buildings-year.trycloudflare.com"
                 data-project-label="进入 WriteHere"
                 data-project-external="true"
@@ -167,9 +164,8 @@
                 data-project-number="04"
                 data-project-name="CLI List"
                 data-project-english="Local Command Deck"
-                data-project-description="面向 Windows 开发者的本地效率中枢：从资源管理器当前路径直接进入，把本地终端、远端 GPU、编辑器与研究工具收敛到一个可配置、可搜索、可度量的命令面板，在不引入常驻后台的前提下减少上下文切换和路径误操作。"
-                data-project-tech="C# · Windows Forms · Shell Integration"
-                data-project-image="./assets/projects/cli-list.png"
+                data-project-feature="上下文命令编排"
+                data-project-feature-copy="从当前路径统一唤起终端、GPU、编辑器与研究工具。"
                 data-project-url="#projects"
                 data-project-label="查看页面内项目详情"
                 data-project-external="false"
@@ -179,8 +175,11 @@
               <span class="signal-field__project-index"><i data-project-number>01</i> / REAL PROJECT</span>
               <strong data-project-name>论迹</strong>
               <small data-project-english>Research Workbench</small>
-              <p data-project-description>面向科研阅读的私有知识工作台。</p>
-              <span class="signal-field__project-tech" data-project-tech>React 19 · FastAPI · PDF.js</span>
+              <span class="signal-field__project-feature">
+                <i>最强核心功能</i>
+                <b data-project-feature>证据双锚点</b>
+                <p data-project-feature-copy>把高亮同时绑定文本上下文与页面坐标，让 AI 草案能够回到原文验证。</p>
+              </span>
               <b data-project-cta>点击访问线上项目 <i aria-hidden="true">↗</i></b>
             </a>
             <p class="signal-field__hint">
@@ -796,7 +795,7 @@
       <a href="mailto:gsyiswatchingu@163.com">联系我 · gsyiswatchingu@163.com</a>
     </footer>
 
-    <script type="module" src="./assets/galaxy.js?v=20260914-project-spotlight"></script>
+    <script type="module" src="./assets/galaxy.js?v=20260914-project-diorama"></script>
     <script defer src="./scripts/header.js"></script>
     <script defer src="./scripts/reveal.js"></script>
     <script defer src="./scripts/cursor.js"></script>

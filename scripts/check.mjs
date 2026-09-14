@@ -42,6 +42,12 @@ if (!Array.isArray(projects) || projects.length === 0) {
   for (const project of projects) {
     const missingFields = requiredFields.filter((field) => typeof project[field] !== "string" || !project[field].trim());
     if (missingFields.length) errors.push(`项目 ${project.id || "未知"} 缺少字段：${missingFields.join("、")}`);
+    const missingHeroFeatureFields = ["label", "text"].filter(
+      (field) => typeof project.heroFeature?.[field] !== "string" || !project.heroFeature[field].trim(),
+    );
+    if (missingHeroFeatureFields.length) {
+      errors.push(`项目 ${project.id || "未知"} 缺少首屏核心功能字段：${missingHeroFeatureFields.join("、")}`);
+    }
     if (!Array.isArray(project.proofs) || project.proofs.length < 3) {
       errors.push(`项目 ${project.id || "未知"} 至少需要 3 条工程亮点`);
     }

@@ -403,7 +403,7 @@
 
 .signal-field__project-index,
 .signal-field__project-card small,
-.signal-field__project-tech {
+.signal-field__project-feature > i {
   display: block;
   color: rgba(184, 200, 193, 0.46);
   font-family: var(--font-body);
@@ -437,24 +437,34 @@
   text-transform: none;
 }
 
-.signal-field__project-card p {
-  display: -webkit-box;
-  margin: 13px 0 11px;
-  overflow: hidden;
+.signal-field__project-feature {
+  display: grid;
+  gap: 5px;
+  margin-top: 14px;
+  padding: 12px 0 11px;
+  border-top: 1px solid rgba(189, 205, 198, 0.11);
+  border-bottom: 1px solid rgba(189, 205, 198, 0.11);
+}
+
+.signal-field__project-feature > i {
+  color: rgba(166, 196, 182, 0.58);
+  font-style: normal;
+  letter-spacing: 0.08em;
+}
+
+.signal-field__project-feature > b {
+  color: rgba(237, 243, 240, 0.9);
+  font-size: 13px;
+  font-weight: 560;
+  letter-spacing: 0.06em;
+}
+
+.signal-field__project-feature p {
+  margin: 0;
   color: rgba(218, 226, 222, 0.68);
   font-size: 11px;
   line-height: 1.65;
   letter-spacing: 0.025em;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
-.signal-field__project-tech {
-  padding-top: 10px;
-  border-top: 1px solid rgba(189, 205, 198, 0.11);
-  color: rgba(166, 196, 182, 0.58);
-  letter-spacing: 0.06em;
-  text-transform: none;
 }
 
 .signal-field__project-card > b {
@@ -749,11 +759,19 @@
     font-size: 16px;
   }
 
-  .signal-field__project-card p {
-    margin: 8px 0 7px;
+  .signal-field__project-feature {
+    gap: 3px;
+    margin-top: 8px;
+    padding: 7px 0;
+  }
+
+  .signal-field__project-feature > b {
+    font-size: 10px;
+  }
+
+  .signal-field__project-feature p {
     font-size: 9px;
     line-height: 1.5;
-    -webkit-line-clamp: 2;
   }
 
   .signal-field__project-card > b {
