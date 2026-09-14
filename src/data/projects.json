@@ -4,8 +4,8 @@
     "number": "01",
     "tone": "forest",
     "kicker": "AI KNOWLEDGE WORKFLOW",
-    "name": "论迹",
-    "englishName": "Research Workbench",
+    "name": "Coffee Research",
+    "englishName": "AI Paper Validation Workspace",
     "stage": "V0.1 · GPU 演示环境",
     "role": "独立产品设计与全栈实现",
     "description": "面向科研阅读的私有知识工作台，把 PDF 上传、连续阅读、全文检索、划词翻译、高亮批注与 Markdown 笔记收进一个完整闭环。",
@@ -20,9 +20,9 @@
     ],
     "tech": ["React 19", "TypeScript", "FastAPI", "PDF.js", "SQLite"],
     "image": "./assets/projects/research-workbench.png",
-    "imageAlt": "论迹登录页，展示科研阅读工作台的品牌主视觉",
+    "imageAlt": "Coffee Research 登录页，展示 AI 论文验证工作台的品牌主视觉",
     "entryUrl": "https://elementary-von-appreciation-stretch.trycloudflare.com",
-    "entryLabel": "进入论迹"
+    "entryLabel": "进入 Coffee Research"
   },
   {
     "id": "algorithm-lab",
@@ -30,7 +30,7 @@
     "tone": "blue",
     "kicker": "PLATFORM ENGINEERING",
     "name": "Algorithm Lab",
-    "englishName": "全栈算法训练平台",
+    "englishName": "Coding Practice & Judge Platform",
     "stage": "MVP · GPU 演示环境",
     "role": "产品架构、全栈开发与部署",
     "description": "覆盖题库组织、在线编程、异步判题、学习进度与间隔复习，并通过公共/私人题库边界和整套审核流程处理内容治理。",
@@ -56,8 +56,8 @@
     "number": "03",
     "tone": "green",
     "kicker": "REAL-TIME COLLABORATION",
-    "name": "WriteHere",
-    "englishName": "Horizon Docs",
+    "name": "Horizon Docs",
+    "englishName": "Real-time Collaborative Editor",
     "stage": "DEMO · GPU 演示环境",
     "role": "全栈开发与实时协作设计",
     "description": "轻量级在线文档协作平台，覆盖个人文档、公开社区、分享链接、协作申请审批、多人实时编辑与消息通知。",
@@ -72,9 +72,9 @@
     ],
     "tech": ["Vue 3", "TipTap", "Yjs", "Express", "WebSocket"],
     "image": "./assets/projects/write-here.png",
-    "imageAlt": "WriteHere 登录页，展示极简像素风格的 Horizon Docs 品牌界面",
+    "imageAlt": "Horizon Docs 登录页，展示轻量实时协作文档品牌界面",
     "entryUrl": "https://dollar-wendy-buildings-year.trycloudflare.com",
-    "entryLabel": "进入 WriteHere"
+    "entryLabel": "进入 Horizon Docs"
   },
   {
     "id": "cli-list",
@@ -116,5 +116,30 @@
         "height": 753
       }
     ]
+  },
+  {
+    "id": "skill-dock",
+    "number": "05",
+    "tone": "forest",
+    "kicker": "AGENT SKILL INFRASTRUCTURE",
+    "name": "Skill Dock",
+    "englishName": "Cross-device Skill Workspace",
+    "stage": "LIVE · GPU 演示环境",
+    "role": "独立产品设计、全栈开发与部署",
+    "description": "面向 Agent 开发者的 Skill 管理工作台：扫描本机 Codex、Agents 与插件目录，识别缺失和版本差异，并完成私有同步、跨设备安装与社区共享。",
+    "heroFeature": {
+      "label": "跨设备 Skill 同步",
+      "text": "把分散在本机目录中的 Skill 汇入版本仓，比较差异后安全同步到其他设备。"
+    },
+    "proofs": [
+      { "label": "自动盘点", "text": "本地只读助手扫描 Codex、Agents 与插件 Skill 目录" },
+      { "label": "版本识别", "text": "通过 SHA-256 判断本机缺失、已同步与版本不同" },
+      { "label": "安全同步", "text": "私有 Skill 按账号隔离，并过滤密钥与系统内置内容" }
+    ],
+    "tech": ["Node.js", "PostgreSQL", "File System Access API", "SHA-256", "Local Helper"],
+    "image": "./assets/projects/skill-dock.svg",
+    "imageAlt": "Skill Dock 跨设备 Skill 扫描、版本比较与同步示意图",
+    "entryUrl": "https://gsy-gpu.tail660bdf.ts.net:8443",
+    "entryLabel": "进入 Skill Dock"
   }
 ]

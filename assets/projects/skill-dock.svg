@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Skill Dock 跨设备 Skill 工作台</title>
+  <desc id="desc">本机多个 Skill 目录汇入版本比较中心，并同步到云端和其他设备。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8f4e9"/>
+      <stop offset="1" stop-color="#dce8dc"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#1f2b25" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" rx="36" fill="url(#bg)"/>
+  <g fill="none" stroke="#203128" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M70 144H1370" opacity=".16"/>
+    <path d="M70 758H1370" opacity=".16"/>
+  </g>
+  <text x="82" y="100" fill="#203128" font-family="Arial, sans-serif" font-size="42" font-weight="700">Skill Dock</text>
+  <text x="1358" y="100" fill="#52665a" text-anchor="end" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">SCAN · DIFF · SYNC</text>
+  <g filter="url(#shadow)">
+    <rect x="488" y="246" width="464" height="392" rx="28" fill="#fffffc" stroke="#203128" stroke-width="6"/>
+    <rect x="530" y="294" width="380" height="72" rx="14" fill="#97b39b" stroke="#203128" stroke-width="4"/>
+    <circle cx="568" cy="330" r="10" fill="#203128"/>
+    <text x="598" y="340" fill="#203128" font-family="Arial, sans-serif" font-size="28" font-weight="700">VERSION DOCK</text>
+    <g font-family="Arial, sans-serif" font-size="22" font-weight="700">
+      <rect x="538" y="410" width="150" height="88" rx="14" fill="#eef3ec" stroke="#203128" stroke-width="4"/>
+      <text x="613" y="463" fill="#203128" text-anchor="middle">LOCAL</text>
+      <rect x="752" y="410" width="150" height="88" rx="14" fill="#f5e8df" stroke="#203128" stroke-width="4"/>
+      <text x="827" y="463" fill="#203128" text-anchor="middle">CLOUD</text>
+    </g>
+    <path d="M690 454H746" fill="none" stroke="#203128" stroke-width="5"/>
+    <path d="m730 440 16 14-16 14" fill="none" stroke="#203128" stroke-width="5"/>
+    <rect x="538" y="542" width="364" height="50" rx="12" fill="#203128"/>
+    <text x="720" y="575" fill="#fffffc" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700">3 SKILLS READY TO SYNC</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle">
+    <g transform="translate(132 302)">
+      <rect width="236" height="104" rx="18" fill="#fffffc" stroke="#203128" stroke-width="5"/>
+      <path d="M0 34H236" stroke="#203128" stroke-width="4"/>
+      <circle cx="22" cy="17" r="5" fill="#f68d83"/>
+      <text x="118" y="74" fill="#203128">.codex / skills</text>
+    </g>
+    <g transform="translate(132 466)">
+      <rect width="236" height="104" rx="18" fill="#fffffc" stroke="#203128" stroke-width="5"/>
+      <path d="M0 34H236" stroke="#203128" stroke-width="4"/>
+      <circle cx="22" cy="17" r="5" fill="#97b39b"/>
+      <text x="118" y="74" fill="#203128">.agents / skills</text>
+    </g>
+    <g transform="translate(1072 384)">
+      <rect width="236" height="104" rx="18" fill="#fffffc" stroke="#203128" stroke-width="5"/>
+      <path d="M0 34H236" stroke="#203128" stroke-width="4"/>
+      <circle cx="22" cy="17" r="5" fill="#afe3f6"/>
+      <text x="118" y="74" fill="#203128">OTHER DEVICE</text>
+    </g>
+  </g>
+  <g fill="none" stroke="#52665a" stroke-width="5" stroke-dasharray="10 14">
+    <path d="M368 354C430 354 438 410 488 430"/>
+    <path d="M368 518C430 518 438 478 488 464"/>
+    <path d="M952 450C1004 450 1022 436 1072 436"/>
+  </g>
+  <g transform="translate(650 690)">
+    <path d="M0 28h140l-18 28H22z" fill="#c39279" stroke="#203128" stroke-width="4"/>
+    <path d="M70-40v68M70-34l48 52H70zM66-26 28 18h38z" fill="#fffffc" stroke="#203128" stroke-width="4"/>
+  </g>
+</svg>

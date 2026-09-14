@@ -26,7 +26,7 @@ if (!hero || !visual || !atmosphereCanvas || !sceneCanvas) {
   throw new Error("首屏叙事场景缺少必要节点");
 }
 
-const projectColors = [0x8fae99, 0x7e9fb3, 0x83aa94, 0xb39a79];
+const projectColors = [0x8fae99, 0x7e9fb3, 0x83aa94, 0xb39a79, 0x9dbb9f];
 const worldDefinitions = Object.fromEntries(projectOptions.map((option, index) => [
   option.dataset.projectOption,
   {
@@ -602,7 +602,7 @@ if (renderer) {
         });
         peers.forEach((peer, index) => peer.scale.setScalar(1 + Math.sin(elapsed * 1.8 + index * 1.5) * 0.1 * active));
       };
-    } else {
+    } else if (mode === "cli-list") {
       const hub = addMesh(new THREE.CylinderGeometry(0.14, 0.18, 0.34, 6), frame, [0, 0.39, 0], [0.08, 0, 0.08]);
       addMesh(new THREE.BoxGeometry(0.24, 0.11, 0.2), light, [0, 0.58, 0]);
       const nodes = [
@@ -628,6 +628,39 @@ if (renderer) {
           node.position.y = node.userData.baseY + Math.sin(elapsed * 1.2 + index) * 0.014 * active;
         });
       };
+    } else {
+      const dock = addMesh(new THREE.BoxGeometry(0.5, 0.12, 0.34), frame, [0, 0.22, 0]);
+      addMesh(new THREE.BoxGeometry(0.13, 0.38, 0.12), outline, [0, 0.46, -0.08]);
+      addMesh(new THREE.TorusGeometry(0.18, 0.018, 8, 32), dim, [0, 0.55, -0.04], [Math.PI / 2, 0, 0]);
+      const skillCrates = [-0.48, 0, 0.48].map((x, index) => {
+        const crate = addMesh(
+          new THREE.BoxGeometry(0.2, 0.16, 0.2),
+          index === 1 ? light : frame,
+          [x, 0.43, 0.12],
+          [0.08, index * 0.14, 0.04],
+        );
+        addLine([[x, 0.43, 0.12], [0, 0.55, -0.02]], 0.5);
+        return crate;
+      });
+      const versions = [-0.28, 0, 0.28].map((x, index) => addMesh(
+        new THREE.TorusGeometry(0.055, 0.012, 6, 20),
+        index === 1 ? light : outline,
+        [x, 0.74, -0.01],
+        [Math.PI / 2, 0, 0],
+      ));
+      group.userData.animate = (elapsed, _delta, active) => {
+        dock.rotation.y = Math.sin(elapsed * 0.45) * 0.06 * active;
+        skillCrates.forEach((crate, index) => {
+          const phase = (elapsed * 0.2 + index * 0.34) % 1;
+          crate.position.x = THREE.MathUtils.lerp([-0.48, 0, 0.48][index], 0, phase * active);
+          crate.position.y = 0.43 + Math.sin(phase * Math.PI) * 0.08 * active;
+          crate.rotation.y = elapsed * (index % 2 ? -0.5 : 0.5);
+        });
+        versions.forEach((version, index) => {
+          version.rotation.z = elapsed * (index % 2 ? -0.7 : 0.7);
+          version.scale.setScalar(1 + Math.sin(elapsed * 1.8 + index) * 0.08 * active);
+        });
+      };
     }
 
     return group;
@@ -636,17 +669,18 @@ if (renderer) {
   const changeWorldAnchor = new THREE.Group();
   changeWorldAnchor.position.set(0, -1.015, 0);
   const projectScenePositions = [
-    [-0.92, 0.08, 0.22],
-    [-0.3, 0.02, -0.06],
-    [0.38, 0.04, -0.02],
-    [1.02, 0.08, 0.2],
+    [-1.08, 0.08, 0.22],
+    [-0.54, 0.02, -0.06],
+    [0, 0.04, -0.02],
+    [0.54, 0.04, 0.02],
+    [1.08, 0.08, 0.2],
   ];
   const worldFragments = Object.fromEntries(Object.keys(worldDefinitions).map((mode, index) => {
     const fragment = createWorldFragment(mode);
     const [x, y, z] = projectScenePositions[index] || [0, 0, 0];
     fragment.position.set(x, y, z);
     fragment.userData.baseY = y;
-    fragment.rotation.y = (index - 1.5) * -0.08;
+    fragment.rotation.y = (index - (projectScenePositions.length - 1) / 2) * -0.08;
     fragment.scale.setScalar(0.9);
     changeWorldAnchor.add(fragment);
     return [mode, fragment];
