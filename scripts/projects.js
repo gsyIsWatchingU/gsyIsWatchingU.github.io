@@ -80,7 +80,6 @@ document.querySelectorAll("[data-project-overview]").forEach((carousel) => {
 
   const showSlide = (nextIndex, automated = false) => {
     activeIndex = (nextIndex + slides.length) % slides.length;
-    track.style.transform = `translateX(-${activeIndex * 100}%)`;
     slides.forEach((slide, index) => {
       const hidden = index !== activeIndex;
       slide.setAttribute("aria-hidden", String(hidden));
@@ -100,7 +99,7 @@ document.querySelectorAll("[data-project-overview]").forEach((carousel) => {
     autoTimer = window.setTimeout(() => {
       showSlide(activeIndex + 1, true);
       scheduleAutoPlay();
-    }, 5200);
+    }, 3200);
   };
 
   const selectSlide = (nextIndex) => {

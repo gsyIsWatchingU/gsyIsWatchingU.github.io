@@ -30,14 +30,14 @@
 }
 
 .project-overview__track {
-  display: flex;
-  transition: transform 560ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  display: grid;
 }
 
 .project-overview__slide {
   --overview-accent: var(--orange);
   position: relative;
-  min-width: 100%;
+  grid-area: 1 / 1;
+  min-width: 0;
   min-height: 430px;
   padding: clamp(34px, 5vw, 68px);
   display: grid;
@@ -50,9 +50,25 @@
   align-content: center;
   column-gap: clamp(32px, 5vw, 76px);
   row-gap: 20px;
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 460ms cubic-bezier(0.22, 0.8, 0.2, 1),
+    visibility 0s linear 460ms;
+  will-change: opacity;
   background:
     radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--overview-accent) 24%, transparent), transparent 31%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(235, 233, 226, 0.74));
+}
+
+.project-overview__slide[aria-hidden="false"] {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
 .project-overview__slide--forest {
@@ -1113,7 +1129,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .product-carousel__track,
-  .project-overview__track {
+  .project-overview__slide {
     transition: none;
   }
 }
