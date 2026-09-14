@@ -7,6 +7,7 @@ const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(projectRoot, "src");
 const includePattern = /^[\t ]*<!-- @include ([^\s]+) -->[\t ]*$/gm;
 const projectsPattern = /^[\t ]*<!-- @projects -->[\t ]*$/gm;
+const projectOverviewPattern = /^[\t ]*<!-- @project-overview -->[\t ]*$/gm;
 const heroProjectsPattern = /^[\t ]*<!-- @hero-projects -->[\t ]*$/gm;
 const entries = ["index.html", "playground.html"];
 const projects = JSON.parse(readFileSync(join(sourceRoot, "data", "projects.json"), "utf8"));
@@ -105,7 +106,7 @@ const renderProject = (project) => {
                   ${visualContent}
                 </div>`;
 
-  return `            <article class="product-card product-card--${escapeHtml(project.tone)} reveal">
+  return `            <article class="product-card product-card--${escapeHtml(project.tone)} reveal" id="project-${escapeHtml(project.id)}">
               <header class="product-card__head">
                 <span class="product-card__number">${escapeHtml(project.number)}</span>
                 <div>
@@ -136,6 +137,64 @@ const renderProject = (project) => {
 };
 
 const renderProjects = () => projects.map(renderProject).join("\n");
+
+const renderProjectOverview = () => {
+  const slides = projects
+    .map((project, index) => {
+      const hasEntry = typeof project.entryUrl === "string" && project.entryUrl.trim();
+      const projectUrl = hasEntry ? project.entryUrl : `#project-${project.id}`;
+      const projectLabel = hasEntry ? project.entryLabel : `查看 ${project.name} 项目详情`;
+      const externalAttributes = hasEntry ? ' target="_blank" rel="noreferrer"' : "";
+      const techItems = project.tech.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
+      return `              <article class="project-overview__slide project-overview__slide--${escapeHtml(project.tone)}" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="${index + 1} / ${projects.length} · ${escapeHtml(project.name)}" aria-hidden="${index === 0 ? "false" : "true"}">
+                <span class="project-overview__icon" aria-hidden="true">
+                  <img src="${escapeHtml(project.icon)}" alt="" width="1024" height="1024" loading="${index === 0 ? "eager" : "lazy"}" />
+                </span>
+                <header class="project-overview__title">
+                  <p><span>${escapeHtml(project.number)}</span>${escapeHtml(project.kicker)}</p>
+                  <h3>${escapeHtml(project.name)}</h3>
+                  <small>${escapeHtml(project.englishName)}</small>
+                </header>
+                <p class="project-overview__description">${escapeHtml(project.description)}</p>
+                <div class="project-overview__details">
+                  <section class="project-overview__feature" aria-label="核心功能">
+                    <span>核心功能</span>
+                    <strong>${escapeHtml(project.heroFeature.label)}</strong>
+                    <p>${escapeHtml(project.heroFeature.text)}</p>
+                  </section>
+                  <section class="project-overview__stack" aria-label="技术栈">
+                    <span>技术栈</span>
+                    <div>${techItems}</div>
+                  </section>
+                </div>
+                <a class="project-overview__link magnetic" href="${escapeHtml(projectUrl)}"${externalAttributes} tabindex="${index === 0 ? "0" : "-1"}">
+                  ${escapeHtml(projectLabel)} <span aria-hidden="true">${hasEntry ? "↗" : "↓"}</span>
+                </a>
+              </article>`;
+    })
+    .join("\n");
+  const dots = projects
+    .map(
+      (project, index) =>
+        `<button type="button" data-overview-dot="${index}" aria-label="查看 ${escapeHtml(project.name)}" aria-current="${index === 0 ? "true" : "false"}"><i></i></button>`,
+    )
+    .join("");
+
+  return `          <div class="project-overview reveal" data-project-overview role="region" aria-roledescription="轮播" aria-label="项目名称、功能与技术栈概览" tabindex="0">
+            <div class="project-overview__viewport" data-overview-viewport>
+              <div class="project-overview__track" data-overview-track>
+${slides}
+              </div>
+            </div>
+            <footer class="project-overview__controls">
+              <button type="button" data-overview-prev aria-label="上一个项目">←</button>
+              <div class="project-overview__dots" aria-label="选择项目">${dots}</div>
+              <span data-overview-status aria-live="polite">01 / ${String(projects.length).padStart(2, "0")}</span>
+              <button type="button" data-overview-next aria-label="下一个项目">→</button>
+              <button type="button" data-overview-toggle aria-label="暂停自动轮播" title="暂停自动轮播">Ⅱ</button>
+            </footer>
+          </div>`;
+};
 
 const renderHeroProjects = () => projects
   .map((project, index) => {
@@ -171,6 +230,7 @@ const render = (content, parents = []) => {
   });
   return withIncludes
     .replace(heroProjectsPattern, renderHeroProjects)
+    .replace(projectOverviewPattern, renderProjectOverview)
     .replace(projectsPattern, renderProjects);
 };
 

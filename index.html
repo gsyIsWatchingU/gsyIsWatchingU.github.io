@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="./styles/hero.css?v=20260914-project-diorama" />
     <link rel="stylesheet" href="./styles/skills.css" />
     <link rel="stylesheet" href="./styles/experience.css" />
-    <link rel="stylesheet" href="./styles/projects.css?v=20260911-carousel" />
+    <link rel="stylesheet" href="./styles/projects.css?v=20260914-overview-carousel" />
     <link rel="stylesheet" href="./styles/guestbook.css" />
     <script type="application/ld+json">
       {
@@ -553,8 +553,147 @@
             </p>
           </header>
 
+          <div class="project-overview reveal" data-project-overview role="region" aria-roledescription="轮播" aria-label="项目名称、功能与技术栈概览" tabindex="0">
+            <div class="project-overview__viewport" data-overview-viewport>
+              <div class="project-overview__track" data-overview-track>
+              <article class="project-overview__slide project-overview__slide--forest" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="1 / 5 · Coffee Research" aria-hidden="false">
+                <span class="project-overview__icon" aria-hidden="true">
+                  <img src="./assets/projects/icons/coffee-research.svg" alt="" width="1024" height="1024" loading="eager" />
+                </span>
+                <header class="project-overview__title">
+                  <p><span>01</span>AI KNOWLEDGE WORKFLOW</p>
+                  <h3>Coffee Research</h3>
+                  <small>AI Paper Validation Workspace</small>
+                </header>
+                <p class="project-overview__description">面向科研阅读的私有知识工作台，把 PDF 上传、连续阅读、全文检索、划词翻译、高亮批注与 Markdown 笔记收进一个完整闭环。</p>
+                <div class="project-overview__details">
+                  <section class="project-overview__feature" aria-label="核心功能">
+                    <span>核心功能</span>
+                    <strong>证据双锚点</strong>
+                    <p>把高亮同时绑定文本上下文与页面坐标，让 AI 草案能够回到原文验证。</p>
+                  </section>
+                  <section class="project-overview__stack" aria-label="技术栈">
+                    <span>技术栈</span>
+                    <div><span>React 19</span><span>TypeScript</span><span>FastAPI</span><span>PDF.js</span><span>SQLite</span></div>
+                  </section>
+                </div>
+                <a class="project-overview__link magnetic" href="https://elementary-von-appreciation-stretch.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="0">
+                  进入 Coffee Research <span aria-hidden="true">↗</span>
+                </a>
+              </article>
+              <article class="project-overview__slide project-overview__slide--blue" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="2 / 5 · Algorithm Lab" aria-hidden="true">
+                <span class="project-overview__icon" aria-hidden="true">
+                  <img src="./assets/projects/icons/algorithm-lab.svg" alt="" width="1024" height="1024" loading="lazy" />
+                </span>
+                <header class="project-overview__title">
+                  <p><span>02</span>PLATFORM ENGINEERING</p>
+                  <h3>Algorithm Lab</h3>
+                  <small>Coding Practice &amp; Judge Platform</small>
+                </header>
+                <p class="project-overview__description">覆盖题库组织、在线编程、异步判题、学习进度与间隔复习，并通过公共/私人题库边界和整套审核流程处理内容治理。</p>
+                <div class="project-overview__details">
+                  <section class="project-overview__feature" aria-label="核心功能">
+                    <span>核心功能</span>
+                    <strong>隔离判题流水线</strong>
+                    <p>代码进入异步队列，在受限沙箱中运行并返回可追踪的判题结果。</p>
+                  </section>
+                  <section class="project-overview__stack" aria-label="技术栈">
+                    <span>技术栈</span>
+                    <div><span>Next.js 16</span><span>Prisma</span><span>PostgreSQL</span><span>Redis</span><span>BullMQ</span></div>
+                  </section>
+                </div>
+                <a class="project-overview__link magnetic" href="https://forget-charges-glass-accordance.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="-1">
+                  进入平台 <span aria-hidden="true">↗</span>
+                </a>
+              </article>
+              <article class="project-overview__slide project-overview__slide--green" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="3 / 5 · Horizon Docs" aria-hidden="true">
+                <span class="project-overview__icon" aria-hidden="true">
+                  <img src="./assets/projects/icons/horizon-docs.svg" alt="" width="1024" height="1024" loading="lazy" />
+                </span>
+                <header class="project-overview__title">
+                  <p><span>03</span>REAL-TIME COLLABORATION</p>
+                  <h3>Horizon Docs</h3>
+                  <small>Real-time Collaborative Editor</small>
+                </header>
+                <p class="project-overview__description">轻量级在线文档协作平台，覆盖个人文档、公开社区、分享链接、协作申请审批、多人实时编辑与消息通知。</p>
+                <div class="project-overview__details">
+                  <section class="project-overview__feature" aria-label="核心功能">
+                    <span>核心功能</span>
+                    <strong>实时协同编辑</strong>
+                    <p>内容、光标与在线成员通过 Yjs 同步，权限变化实时收敛。</p>
+                  </section>
+                  <section class="project-overview__stack" aria-label="技术栈">
+                    <span>技术栈</span>
+                    <div><span>Vue 3</span><span>TipTap</span><span>Yjs</span><span>Express</span><span>WebSocket</span></div>
+                  </section>
+                </div>
+                <a class="project-overview__link magnetic" href="https://dollar-wendy-buildings-year.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="-1">
+                  进入 Horizon Docs <span aria-hidden="true">↗</span>
+                </a>
+              </article>
+              <article class="project-overview__slide project-overview__slide--green" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="4 / 5 · CLI List" aria-hidden="true">
+                <span class="project-overview__icon" aria-hidden="true">
+                  <img src="./assets/projects/icons/cli-list.svg" alt="" width="1024" height="1024" loading="lazy" />
+                </span>
+                <header class="project-overview__title">
+                  <p><span>04</span>WINDOWS DEVELOPER TOOL</p>
+                  <h3>CLI List</h3>
+                  <small>Local Command Deck</small>
+                </header>
+                <p class="project-overview__description">面向 Windows 开发者的本地效率中枢：从资源管理器当前路径直接进入，把本地终端、远端 GPU、编辑器与研究工具收敛到一个可配置、可搜索、可度量的命令面板，在不引入常驻后台的前提下减少上下文切换和路径误操作。</p>
+                <div class="project-overview__details">
+                  <section class="project-overview__feature" aria-label="核心功能">
+                    <span>核心功能</span>
+                    <strong>上下文命令编排</strong>
+                    <p>从当前路径统一唤起终端、GPU、编辑器与研究工具。</p>
+                  </section>
+                  <section class="project-overview__stack" aria-label="技术栈">
+                    <span>技术栈</span>
+                    <div><span>C#</span><span>Windows Forms</span><span>Shell Integration</span><span>ProcessStartInfo</span><span>JSON Persistence</span></div>
+                  </section>
+                </div>
+                <a class="project-overview__link magnetic" href="#project-cli-list" tabindex="-1">
+                  查看 CLI List 项目详情 <span aria-hidden="true">↓</span>
+                </a>
+              </article>
+              <article class="project-overview__slide project-overview__slide--forest" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="5 / 5 · Skill Dock" aria-hidden="true">
+                <span class="project-overview__icon" aria-hidden="true">
+                  <img src="./assets/projects/icons/skill-dock.svg" alt="" width="1024" height="1024" loading="lazy" />
+                </span>
+                <header class="project-overview__title">
+                  <p><span>05</span>AGENT SKILL INFRASTRUCTURE</p>
+                  <h3>Skill Dock</h3>
+                  <small>Cross-device Skill Workspace</small>
+                </header>
+                <p class="project-overview__description">面向 Agent 开发者的 Skill 管理工作台：扫描本机 Codex、Agents 与插件目录，识别缺失和版本差异，并完成私有同步、跨设备安装与社区共享。</p>
+                <div class="project-overview__details">
+                  <section class="project-overview__feature" aria-label="核心功能">
+                    <span>核心功能</span>
+                    <strong>跨设备 Skill 同步</strong>
+                    <p>把分散在本机目录中的 Skill 汇入版本仓，比较差异后安全同步到其他设备。</p>
+                  </section>
+                  <section class="project-overview__stack" aria-label="技术栈">
+                    <span>技术栈</span>
+                    <div><span>Node.js</span><span>PostgreSQL</span><span>File System Access API</span><span>SHA-256</span><span>Local Helper</span></div>
+                  </section>
+                </div>
+                <a class="project-overview__link magnetic" href="https://gsy-gpu.tail660bdf.ts.net:8443" target="_blank" rel="noreferrer" tabindex="-1">
+                  进入 Skill Dock <span aria-hidden="true">↗</span>
+                </a>
+              </article>
+              </div>
+            </div>
+            <footer class="project-overview__controls">
+              <button type="button" data-overview-prev aria-label="上一个项目">←</button>
+              <div class="project-overview__dots" aria-label="选择项目"><button type="button" data-overview-dot="0" aria-label="查看 Coffee Research" aria-current="true"><i></i></button><button type="button" data-overview-dot="1" aria-label="查看 Algorithm Lab" aria-current="false"><i></i></button><button type="button" data-overview-dot="2" aria-label="查看 Horizon Docs" aria-current="false"><i></i></button><button type="button" data-overview-dot="3" aria-label="查看 CLI List" aria-current="false"><i></i></button><button type="button" data-overview-dot="4" aria-label="查看 Skill Dock" aria-current="false"><i></i></button></div>
+              <span data-overview-status aria-live="polite">01 / 05</span>
+              <button type="button" data-overview-next aria-label="下一个项目">→</button>
+              <button type="button" data-overview-toggle aria-label="暂停自动轮播" title="暂停自动轮播">Ⅱ</button>
+            </footer>
+          </div>
+
           <div class="project-gallery">
-            <article class="product-card product-card--forest reveal">
+            <article class="product-card product-card--forest reveal" id="project-research-workbench">
               <header class="product-card__head">
                 <span class="product-card__number">01</span>
                 <div>
@@ -600,7 +739,7 @@
                 </a>
               </div>
             </article>
-            <article class="product-card product-card--blue reveal">
+            <article class="product-card product-card--blue reveal" id="project-algorithm-lab">
               <header class="product-card__head">
                 <span class="product-card__number">02</span>
                 <div>
@@ -649,7 +788,7 @@
                 </a>
               </div>
             </article>
-            <article class="product-card product-card--green reveal">
+            <article class="product-card product-card--green reveal" id="project-write-here">
               <header class="product-card__head">
                 <span class="product-card__number">03</span>
                 <div>
@@ -695,7 +834,7 @@
                 </a>
               </div>
             </article>
-            <article class="product-card product-card--green reveal">
+            <article class="product-card product-card--green reveal" id="project-cli-list">
               <header class="product-card__head">
                 <span class="product-card__number">04</span>
                 <div>
@@ -764,7 +903,7 @@
                 </div>
               </div>
             </article>
-            <article class="product-card product-card--forest reveal">
+            <article class="product-card product-card--forest reveal" id="project-skill-dock">
               <header class="product-card__head">
                 <span class="product-card__number">05</span>
                 <div>
@@ -858,7 +997,7 @@
     <script defer src="./scripts/cursor.js"></script>
     <script defer src="./scripts/skill-links.js"></script>
     <script defer src="./scripts/skills.js"></script>
-    <script defer src="./scripts/projects.js?v=20260911-carousel"></script>
+    <script defer src="./scripts/projects.js?v=20260914-overview-carousel"></script>
     <script defer src="./scripts/guestbook-config.js"></script>
     <script defer src="./scripts/guestbook.js"></script>
   </body>

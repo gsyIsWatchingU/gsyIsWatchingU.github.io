@@ -19,6 +19,7 @@
       { "label": "可靠保存", "text": "笔记延迟保存与版本冲突保护" }
     ],
     "tech": ["React 19", "TypeScript", "FastAPI", "PDF.js", "SQLite"],
+    "icon": "./assets/projects/icons/coffee-research.svg",
     "image": "./assets/projects/research-workbench.png",
     "imageAlt": "Coffee Research 登录页，展示 AI 论文验证工作台的品牌主视觉",
     "entryUrl": "https://elementary-von-appreciation-stretch.trycloudflare.com",
@@ -44,6 +45,7 @@
       { "label": "权限治理", "text": "私人题库隔离与公共题库整套审核" }
     ],
     "tech": ["Next.js 16", "Prisma", "PostgreSQL", "Redis", "BullMQ"],
+    "icon": "./assets/projects/icons/algorithm-lab.svg",
     "image": "./assets/projects/algorithm-lab.png",
     "imageAlt": "Algorithm Lab 全部题目页面，展示题目筛选与题库信息",
     "entryUrl": "https://forget-charges-glass-accordance.trycloudflare.com",
@@ -71,6 +73,7 @@
       { "label": "权限闭环", "text": "作者、协作者和访客的读写能力一致" }
     ],
     "tech": ["Vue 3", "TipTap", "Yjs", "Express", "WebSocket"],
+    "icon": "./assets/projects/icons/horizon-docs.svg",
     "image": "./assets/projects/write-here.png",
     "imageAlt": "Horizon Docs 登录页，展示轻量实时协作文档品牌界面",
     "entryUrl": "https://dollar-wendy-buildings-year.trycloudflare.com",
@@ -96,6 +99,7 @@
       { "label": "效率闭环", "text": "搜索、标签、频次与最近使用协同排序；稳定 ID 驱动统计，临时文件替换降低本地状态损坏风险" }
     ],
     "tech": ["C#", "Windows Forms", "Shell Integration", "ProcessStartInfo", "JSON Persistence"],
+    "icon": "./assets/projects/icons/cli-list.svg",
     "image": "./assets/projects/cli-list.png",
     "imageAlt": "CLI List 命令面板，展示搜索、标签筛选、远端 GPU 与开发工具编排",
     "gallery": [
@@ -137,6 +141,7 @@
       { "label": "安全同步", "text": "私有 Skill 按账号隔离，并过滤密钥与系统内置内容" }
     ],
     "tech": ["Node.js", "PostgreSQL", "File System Access API", "SHA-256", "Local Helper"],
+    "icon": "./assets/projects/icons/skill-dock.svg",
     "image": "./assets/projects/skill-dock.svg",
     "imageAlt": "Skill Dock 跨设备 Skill 扫描、版本比较与同步示意图",
     "entryUrl": "https://gsy-gpu.tail660bdf.ts.net:8443",

@@ -32,6 +32,7 @@ if (!Array.isArray(projects) || projects.length === 0) {
     "stage",
     "role",
     "description",
+    "icon",
     "image",
     "imageAlt",
   ];
@@ -88,6 +89,10 @@ if (!Array.isArray(projects) || projects.length === 0) {
     if (typeof project.image === "string" && project.image.startsWith("./")) {
       const imagePath = join(projectRoot, project.image.slice(2));
       if (!existsSync(imagePath)) errors.push(`项目 ${project.id || "未知"} 截图不存在：${project.image}`);
+    }
+    if (typeof project.icon === "string" && project.icon.startsWith("./")) {
+      const iconPath = join(projectRoot, project.icon.slice(2));
+      if (!existsSync(iconPath)) errors.push(`项目 ${project.id || "未知"} 图标不存在：${project.icon}`);
     }
   }
 }
