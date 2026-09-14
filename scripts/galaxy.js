@@ -12,10 +12,37 @@ const worldStateLabel = document.querySelector("[data-world-name]");
 const choiceCountLabel = document.querySelector("[data-choice-count]");
 const storyInstructionLabel = document.querySelector("[data-story-instruction]");
 const storyActionLabel = document.querySelector("[data-story-action]");
+const projectOptions = [...document.querySelectorAll("[data-project-option]")];
+const projectLink = document.querySelector("[data-project-link]");
+const projectNumberLabel = projectLink?.querySelector("[data-project-number]");
+const projectNameLabel = projectLink?.querySelector("[data-project-name]");
+const projectEnglishLabel = projectLink?.querySelector("[data-project-english]");
+const projectDescriptionLabel = projectLink?.querySelector("[data-project-description]");
+const projectTechLabel = projectLink?.querySelector("[data-project-tech]");
+const projectCtaLabel = projectLink?.querySelector("[data-project-cta]");
 
 if (!hero || !visual || !atmosphereCanvas || !sceneCanvas) {
   throw new Error("首屏叙事场景缺少必要节点");
 }
+
+const projectColors = [0x8fae99, 0x7e9fb3, 0x83aa94, 0xb39a79];
+const worldDefinitions = Object.fromEntries(projectOptions.map((option, index) => [
+  option.dataset.projectOption,
+  {
+    number: option.dataset.projectNumber,
+    name: option.dataset.projectName,
+    englishName: option.dataset.projectEnglish,
+    description: option.dataset.projectDescription,
+    tech: option.dataset.projectTech,
+    image: option.dataset.projectImage,
+    url: option.dataset.projectUrl,
+    label: option.dataset.projectLabel,
+    external: option.dataset.projectExternal === "true",
+    kicker: `真实项目 · ${option.dataset.projectName}`,
+    copy: option.dataset.projectDescription,
+    color: projectColors[index % projectColors.length],
+  },
+]));
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const compactViewport = window.matchMedia("(max-width: 980px)");
@@ -447,33 +474,6 @@ if (renderer) {
   const targetGlow = createSoftSprite({ texture: coolGlow, opacity: 0.18, scale: [0.72, 0.42], position: [beamTarget.x, beamTarget.y + 0.025, beamTarget.z] });
   world.add(targetGlow);
 
-  const worldDefinitions = {
-    industrial: {
-      name: "工业 · 已知",
-      kicker: "当前世界 · 工业",
-      copy: "钢架与旧秩序仍在重复运转",
-      color: 0xaeb8b3,
-    },
-    nature: {
-      name: "自然 · 生长",
-      kicker: "当前世界 · 自然",
-      copy: "树木与岩石在光里重新生长",
-      color: 0x94ad8c,
-    },
-    data: {
-      name: "数据 · 流动",
-      kicker: "当前世界 · 数据",
-      copy: "网格与节点正在变成可重组的流",
-      color: 0x7fa9b5,
-    },
-    future: {
-      name: "未来 · 未知",
-      kicker: "当前世界 · 未来",
-      copy: "一扇门和悬阶通向未知的方向",
-      color: 0xc1a17c,
-    },
-  };
-
   const createFragmentMaterial = ({ color, emissive = color, opacity = 0.72, wireframe = false }) => {
     const material = new THREE.MeshStandardMaterial({
       color,
@@ -490,8 +490,10 @@ if (renderer) {
     return material;
   };
 
+  const textureLoader = new THREE.TextureLoader();
   const createWorldFragment = (mode) => {
     const group = new THREE.Group();
+    const definition = worldDefinitions[mode];
     group.userData.mode = mode;
     group.userData.materials = [];
     const addMesh = (geometry, material, position, rotation = [0, 0, 0]) => {
@@ -504,45 +506,56 @@ if (renderer) {
       return mesh;
     };
 
-    if (mode === "industrial") {
-      const steel = createFragmentMaterial({ color: 0x657075, emissive: 0x313d40, opacity: 0.66 });
-      const seam = createFragmentMaterial({ color: 0xaab3b0, emissive: 0x66736f, opacity: 0.48 });
-      addMesh(new THREE.BoxGeometry(0.13, 0.72, 0.13), steel, [-0.25, 0.36, 0]);
-      addMesh(new THREE.BoxGeometry(0.13, 0.48, 0.13), steel, [0.25, 0.24, 0.04]);
-      addMesh(new THREE.BoxGeometry(0.64, 0.08, 0.1), steel, [0, 0.68, 0]);
-      addMesh(new THREE.TorusGeometry(0.22, 0.018, 6, 22, Math.PI * 1.45), seam, [0.03, 0.28, 0.02], [Math.PI / 2, 0, -0.18]);
-    } else if (mode === "nature") {
-      const bark = createFragmentMaterial({ color: 0x4b493d, emissive: 0x2e352b, opacity: 0.78 });
-      const leaf = createFragmentMaterial({ color: 0x758d70, emissive: 0x435b43, opacity: 0.78 });
-      const stone = createFragmentMaterial({ color: 0x67716c, emissive: 0x38443e, opacity: 0.56 });
-      addMesh(new THREE.CylinderGeometry(0.045, 0.075, 0.54, 7), bark, [0, 0.27, 0]);
-      addMesh(new THREE.ConeGeometry(0.28, 0.48, 7), leaf, [0, 0.62, 0]);
-      addMesh(new THREE.IcosahedronGeometry(0.12, 0), stone, [-0.25, 0.09, 0.08]);
-      addMesh(new THREE.IcosahedronGeometry(0.08, 0), stone, [0.22, 0.055, -0.02]);
-    } else if (mode === "data") {
-      const grid = createFragmentMaterial({ color: 0x719eaa, emissive: 0x477f8d, opacity: 0.62, wireframe: true });
-      const node = createFragmentMaterial({ color: 0xb5d0d3, emissive: 0x77aab2, opacity: 0.74 });
-      addMesh(new THREE.BoxGeometry(0.34, 0.34, 0.34), grid, [-0.18, 0.26, 0], [0.12, 0.38, 0.08]);
-      addMesh(new THREE.OctahedronGeometry(0.11, 0), node, [0.24, 0.48, 0.02]);
-      addMesh(new THREE.TorusGeometry(0.32, 0.012, 6, 32), grid, [0.02, 0.08, 0], [Math.PI / 2, 0, 0]);
-      addMesh(new THREE.TorusGeometry(0.22, 0.009, 6, 28), grid, [0.02, 0.08, 0], [Math.PI / 2, 0, 0]);
-    } else {
-      const frame = createFragmentMaterial({ color: 0x8b8174, emissive: 0xb28c60, opacity: 0.72 });
-      const step = createFragmentMaterial({ color: 0x6f7f82, emissive: 0x657f83, opacity: 0.52 });
-      addMesh(new THREE.BoxGeometry(0.055, 0.72, 0.055), frame, [-0.22, 0.36, 0]);
-      addMesh(new THREE.BoxGeometry(0.055, 0.72, 0.055), frame, [0.22, 0.36, 0]);
-      addMesh(new THREE.BoxGeometry(0.49, 0.055, 0.055), frame, [0, 0.7, 0]);
-      for (let index = 0; index < 3; index += 1) {
-        addMesh(new THREE.BoxGeometry(0.28, 0.035, 0.12), step, [0.06 + index * 0.12, 0.06 + index * 0.09, 0.04 - index * 0.12]);
-      }
-    }
+    const aspect = mode === "cli-list" ? 708 / 753 : 16 / 10;
+    const screenWidth = mode === "cli-list" ? 0.78 : 1.12;
+    const screenHeight = screenWidth / aspect;
+    const frameColor = new THREE.Color(definition.color).multiplyScalar(0.72);
+    const frame = createFragmentMaterial({ color: frameColor, emissive: definition.color, opacity: 0.84 });
+    const base = createFragmentMaterial({ color: 0x273235, emissive: definition.color, opacity: 0.48 });
+    const outline = createFragmentMaterial({ color: definition.color, emissive: definition.color, opacity: 0.34, wireframe: true });
+    const texture = textureLoader.load(definition.image, () => {
+      if (reducedMotion.matches) renderer.render(scene, camera);
+    });
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
+    const screenMaterial = new THREE.MeshBasicMaterial({
+      map: texture,
+      color: 0xd8e1dc,
+      transparent: true,
+      opacity: 0,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      toneMapped: false,
+    });
+    screenMaterial.userData.baseOpacity = 0.92;
+
+    addMesh(new THREE.PlaneGeometry(screenWidth, screenHeight), screenMaterial, [0, 0.56, 0.045]);
+    addMesh(new THREE.BoxGeometry(screenWidth + 0.08, 0.035, 0.055), frame, [0, 0.56 + screenHeight / 2 + 0.02, 0]);
+    addMesh(new THREE.BoxGeometry(screenWidth + 0.08, 0.035, 0.055), frame, [0, 0.56 - screenHeight / 2 - 0.02, 0]);
+    addMesh(new THREE.BoxGeometry(0.035, screenHeight, 0.055), frame, [-screenWidth / 2 - 0.035, 0.56, 0]);
+    addMesh(new THREE.BoxGeometry(0.035, screenHeight, 0.055), frame, [screenWidth / 2 + 0.035, 0.56, 0]);
+    addMesh(new THREE.BoxGeometry(screenWidth * 0.72, 0.055, 0.26), base, [0, 0.045, 0.03]);
+    addMesh(new THREE.CylinderGeometry(0.055, 0.09, 0.25, 7), base, [0, 0.18, 0]);
+    addMesh(new THREE.RingGeometry(0.42, 0.435, 52), outline, [0, 0.012, 0.02], [-Math.PI / 2, 0, 0]);
+    addMesh(new THREE.OctahedronGeometry(0.055, 0), frame, [screenWidth * 0.39, 0.56 + screenHeight * 0.38, 0.08]);
+    group.userData.screen = screenMaterial;
     return group;
   };
 
   const changeWorldAnchor = new THREE.Group();
-  changeWorldAnchor.position.copy(beamTarget).setY(-1.015);
-  const worldFragments = Object.fromEntries(Object.keys(worldDefinitions).map((mode) => {
+  changeWorldAnchor.position.set(0, -1.015, 0);
+  const projectScenePositions = [
+    [-1.58, 0, 0.16],
+    [-0.52, 0, -0.12],
+    [0.58, 0, -0.04],
+    [1.62, 0, 0.18],
+  ];
+  const worldFragments = Object.fromEntries(Object.keys(worldDefinitions).map((mode, index) => {
     const fragment = createWorldFragment(mode);
+    const [x, y, z] = projectScenePositions[index] || [0, 0, 0];
+    fragment.position.set(x, y, z);
+    fragment.userData.baseY = y;
+    fragment.rotation.y = (index - 1.5) * -0.08;
     fragment.scale.setScalar(0.9);
     changeWorldAnchor.add(fragment);
     return [mode, fragment];
@@ -801,68 +814,88 @@ if (renderer) {
     threat: 0,
   };
   const retainedFragments = [];
-  let activeWorldMode = "industrial";
+  let activeWorldMode = Object.keys(worldDefinitions)[0];
   let storyResolved = false;
   let chosenPathIndex = 1;
   const storyStages = {
-    alert: ["光照到了他", "面对陌生变化，他本能地后退"],
-    evade: ["他在逃", "熟悉的阴影，看起来更安全"],
-    hide: ["他躲进阴影", "躲开光，也会错过新的可能"],
-    return: ["他又回到原点", "旧地图没有消失，但已经不够用了"],
+    alert: ["光照靠近了他", "小人物会本能后退，作品却开始显现"],
+    evade: ["他跑向阴影", "变化让人不安，也让新的可能被看见"],
+    hide: ["他暂时躲开", "光束仍在等待你发现下一个真实项目"],
+    return: ["他重新走回来", "每次适应变化，都会留下真实的作品"],
     resolve: ["三种变化已被留下", "旧道路分开，人群开始走向不同方向"],
     depart: ["他做出了选择", "这一次，他主动走进光里"],
     arrived: ["拥抱变化", "没有现成地图，也可以亲手走出一条路"],
   };
   const updateStoryLabels = (mode) => {
     let stage = storyStages[mode];
-    if (mode === "observe") {
-      stage = retainedFragments.length === 1
-        ? ["第一次留下变化", "他没有继续逃，而是停下来观察"]
-        : ["第二次留下变化", "陌生世界，开始变成可以理解的选择"];
-    }
-    if (!stage && retainedFragments.length === 0) {
-      stage = ["故事开始 · 旧地图", "人群走同一条路，少年躲在队伍外"];
-    }
     if (!stage) {
       const worldStage = worldDefinitions[activeWorldMode];
-      stage = [worldStage.kicker, worldStage.copy];
+      stage = [worldStage.kicker, `光束正在显现 ${worldStage.name} 的真实界面`];
     }
     const [kicker, copy] = stage;
     if (storyKickerLabel) storyKickerLabel.textContent = kicker;
     if (storyCopyLabel) storyCopyLabel.textContent = copy;
   };
-  const updateChoiceLabels = () => {
-    const count = retainedFragments.length;
-    if (choiceCountLabel) {
-      choiceCountLabel.textContent = count < 3 ? `互动进度 ${count} / 3` : "结局已触发 · 道路分岔";
+  const updateActiveProjectCard = () => {
+    const project = worldDefinitions[activeWorldMode];
+    if (!project) return;
+    if (projectNumberLabel) projectNumberLabel.textContent = project.number;
+    if (projectNameLabel) projectNameLabel.textContent = project.name;
+    if (projectEnglishLabel) projectEnglishLabel.textContent = project.englishName;
+    if (projectDescriptionLabel) projectDescriptionLabel.textContent = project.description;
+    if (projectTechLabel) projectTechLabel.textContent = project.tech;
+    if (projectCtaLabel) {
+      projectCtaLabel.textContent = project.external ? "点击访问线上项目 ↗" : "查看页面内项目详情 ↓";
     }
-    if (worldStateLabel) worldStateLabel.textContent = worldDefinitions[activeWorldMode].name;
+    if (projectLink) {
+      projectLink.href = project.url;
+      projectLink.setAttribute("aria-label", project.external ? `${project.label}（新窗口打开）` : project.label);
+      if (project.external) {
+        projectLink.target = "_blank";
+        projectLink.rel = "noreferrer";
+      } else {
+        projectLink.removeAttribute("target");
+        projectLink.removeAttribute("rel");
+      }
+    }
+    projectOptions.forEach((option) => {
+      option.setAttribute("aria-pressed", String(option.dataset.projectOption === activeWorldMode));
+    });
+  };
+  const updateChoiceLabels = () => {
+    const projectIndex = Object.keys(worldDefinitions).indexOf(activeWorldMode);
+    const project = worldDefinitions[activeWorldMode];
+    if (choiceCountLabel) {
+      choiceCountLabel.textContent = `真实项目 ${String(projectIndex + 1).padStart(2, "0")} / ${String(projectOptions.length).padStart(2, "0")}`;
+    }
+    if (worldStateLabel) worldStateLabel.textContent = `${project.name} · ${project.englishName}`;
     if (storyInstructionLabel) {
-      storyInstructionLabel.textContent = storyResolved ? "故事结束 · 他不再等待地图" : "① 移动光束，预览世界";
+      storyInstructionLabel.textContent = "① 移动光束，切换真实项目";
     }
     if (storyActionLabel) {
-      storyActionLabel.textContent = storyResolved ? "而是选择一条尚未完成的路" : "② 点击光斑，留下 3 个变化";
+      storyActionLabel.textContent = project.external ? "② 点击项目卡片，进入作品" : "② 私有项目可查看页面内详情";
     }
-    visual.dataset.choices = String(count);
+    visual.dataset.project = activeWorldMode;
+    updateActiveProjectCard();
   };
   const setWorldMode = (mode) => {
     if (!worldDefinitions[mode] || activeWorldMode === mode) return;
     activeWorldMode = mode;
-    visual.dataset.world = mode;
-    if (worldStateLabel) worldStateLabel.textContent = worldDefinitions[mode].name;
+    visual.dataset.project = mode;
+    updateChoiceLabels();
     if (!storyResolved && !["alert", "evade", "hide", "return"].includes(characterStory.mode)) {
       updateStoryLabels(characterStory.mode);
     }
   };
-  const getWorldModeFromPointerX = (x) => x < -0.23
-    ? "nature"
-    : x < 0.02
-      ? "industrial"
-      : x < 0.27 ? "data" : "future";
+  const getWorldModeFromPointerX = (x) => {
+    const modes = Object.keys(worldDefinitions);
+    const index = Math.min(modes.length - 1, Math.max(0, Math.floor((THREE.MathUtils.clamp(x, -0.5, 0.499) + 0.5) * modes.length)));
+    return modes[index];
+  };
   visual.dataset.story = characterStory.mode;
   visual.dataset.scan = "idle";
-  visual.dataset.scene = "shifting-world";
-  visual.dataset.world = activeWorldMode;
+  visual.dataset.scene = "project-spotlight";
+  visual.dataset.project = activeWorldMode;
   visual.dataset.queue = "repetitive";
   visual.dataset.paths = "single";
   updateStoryLabels(characterStory.mode);
@@ -1104,10 +1137,12 @@ if (renderer) {
       setWorldMode(getWorldModeFromPointerX(pointer.x));
     }
 
-    const unattendedTargetX = 0.72
-      + visitorLightOffset * 0.32
-      + Math.sin(elapsed * 0.16) * 0.38 * motion;
-    const unattendedTargetZ = 0.22 + Math.cos(elapsed * 0.13) * 0.12 * motion;
+    const activeProjectIndex = Object.keys(worldDefinitions).indexOf(activeWorldMode);
+    const activeProjectPosition = projectScenePositions[activeProjectIndex] || projectScenePositions[0];
+    const unattendedTargetX = activeProjectPosition[0]
+      + visitorLightOffset * 0.12
+      + Math.sin(elapsed * 0.16) * 0.08 * motion;
+    const unattendedTargetZ = activeProjectPosition[2] + Math.cos(elapsed * 0.13) * 0.06 * motion;
     beamTargetDesired.set(
       THREE.MathUtils.lerp(unattendedTargetX, pointer.x * 3.2, hoverAmount),
       -0.985,
@@ -1125,22 +1160,20 @@ if (renderer) {
     targetGlow.material.opacity = 0.15 + interactionAmount * 0.14;
     targetGlow.scale.set(0.68 + interactionAmount * 0.2, 0.38 + interactionAmount * 0.1, 1);
 
-    changeWorldAnchor.position.x += (beamTarget.x - changeWorldAnchor.position.x) * Math.min(1, delta * 8);
-    changeWorldAnchor.position.z += (beamTarget.z - changeWorldAnchor.position.z) * Math.min(1, delta * 8);
     const activeWorldColor = new THREE.Color(worldDefinitions[activeWorldMode].color);
     searchLight.color.lerp(activeWorldColor, Math.min(1, delta * 2.6));
     beamMaterial.color.lerp(activeWorldColor, Math.min(1, delta * 2.2));
     beamOuterMaterial.color.lerp(activeWorldColor, Math.min(1, delta * 2.2));
     Object.entries(worldFragments).forEach(([mode, fragment], index) => {
       const active = mode === activeWorldMode ? 1 : 0;
-      const presence = active * (0.22 + interactionAmount * 0.78) * (storyResolved ? 0.24 : 1);
+      const presence = active ? 0.72 + interactionAmount * 0.28 : 0.045;
       fragment.userData.materials.forEach((material) => {
         const opacity = material.userData.baseOpacity * presence;
         material.opacity += (opacity - material.opacity) * Math.min(1, delta * 7);
       });
-      const fragmentScale = 0.82 + active * interactionAmount * 0.18;
+      const fragmentScale = active ? 0.96 + interactionAmount * 0.08 : 0.86;
       fragment.scale.lerp(new THREE.Vector3(fragmentScale, fragmentScale, fragmentScale), Math.min(1, delta * 5));
-      fragment.rotation.y += (active ? 0.07 : 0.015) * delta * motion * (index % 2 ? 1 : -1);
+      fragment.position.y = fragment.userData.baseY + Math.sin(elapsed * 0.72 + index * 0.85) * 0.012 * motion * active;
     });
 
     retainedFragments.forEach((fragment, index) => {
@@ -1257,6 +1290,20 @@ if (renderer) {
     render();
   };
 
+  projectOptions.forEach((option, index) => {
+    option.addEventListener("click", (event) => {
+      event.stopPropagation();
+      setWorldMode(option.dataset.projectOption);
+      pointerDesired.set(-0.375 + index * 0.25, 0.06);
+      hoverTarget = 1;
+      hero.classList.add("is-searching");
+      triggerScanPulse();
+      renderOnce();
+    });
+  });
+  projectLink?.addEventListener("pointermove", (event) => event.stopPropagation());
+  projectLink?.addEventListener("click", (event) => event.stopPropagation());
+
   hero.addEventListener("pointermove", (event) => {
     if (reducedMotion.matches) return;
     const bounds = hero.getBoundingClientRect();
@@ -1276,13 +1323,14 @@ if (renderer) {
     hero.classList.add("is-searching");
   }, { passive: true });
   visual.addEventListener("pointermove", (event) => {
+    if (event.target.closest(".signal-field__projects, .signal-field__project-card")) return;
     if (reducedMotion.matches || (event.pointerType === "touch" && !touchDragging)) return;
     const bounds = visual.getBoundingClientRect();
     pointerDesired.set(
       (event.clientX - bounds.left) / bounds.width - 0.5,
       0.5 - (event.clientY - bounds.top) / bounds.height,
     );
-    if (!storyResolved) setWorldMode(getWorldModeFromPointerX(pointerDesired.x));
+    setWorldMode(getWorldModeFromPointerX(pointerDesired.x));
     hoverTarget = 1;
     hero.classList.add("is-searching");
     visual.style.setProperty("--scan-x", `${event.clientX - bounds.left}px`);
@@ -1297,13 +1345,11 @@ if (renderer) {
     hero.classList.add("is-searching");
   });
   visual.addEventListener("click", (event) => {
+    if (event.target.closest(".signal-field__projects, .signal-field__project-card")) return;
     if (reducedMotion.matches) return;
     const bounds = visual.getBoundingClientRect();
-    if (!storyResolved) {
-      setWorldMode(getWorldModeFromPointerX((event.clientX - bounds.left) / bounds.width - 0.5));
-    }
+    setWorldMode(getWorldModeFromPointerX((event.clientX - bounds.left) / bounds.width - 0.5));
     triggerScanPulse();
-    retainWorldFragment();
   });
   const releaseLight = (event) => {
     if (event?.pointerType === "touch") touchDragging = false;

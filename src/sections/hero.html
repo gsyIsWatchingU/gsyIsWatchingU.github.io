@@ -27,34 +27,39 @@
           </div>
         </div>
 
-        <div class="hero__visual reveal" aria-hidden="true">
+        <div class="hero__visual reveal" data-project="research-workbench">
           <div class="signal-field">
-            <canvas class="galaxy-focus-canvas"></canvas>
+            <canvas class="galaxy-focus-canvas" aria-hidden="true"></canvas>
             <p class="signal-field__chapter">
-              <span>拥抱变化 · 互动短片</span>
-              <b>用光改变他看见的世界</b>
+              <span>真实项目 · 互动探索</span>
+              <b>移动光束，照亮我做过的产品</b>
             </p>
             <div class="signal-field__status">
-              <span><i></i> WORLD / SHIFTING</span>
+              <span><i></i> PROJECTS / LIVE</span>
               <b data-visitor-light>VISITOR TRACE · 00</b>
             </div>
             <p class="signal-field__event">
-              <span data-story-kicker>故事开始 · 旧地图</span>
-              <b data-story-copy>人群走同一条路，少年躲在队伍外</b>
+              <span data-story-kicker>场景提示 · 光照实验</span>
+              <b data-story-copy>他会躲开光，但项目会在光里出现</b>
             </p>
             <p class="signal-field__choices">
-              <span data-choice-count>互动进度 0 / 3</span>
-              <b data-world-name>工业 · 已知</b>
+              <span data-choice-count>真实项目 01 / 04</span>
+              <b data-world-name>论迹 · Research Workbench</b>
             </p>
-            <div class="signal-field__worlds">
-              <span data-world-option="nature">自然</span>
-              <span data-world-option="industrial">工业</span>
-              <span data-world-option="data">数据</span>
-              <span data-world-option="future">未来</span>
+            <div class="signal-field__projects" role="group" aria-label="选择要照亮的真实项目">
+              <!-- @hero-projects -->
             </div>
+            <a class="signal-field__project-card" data-project-link href="#projects">
+              <span class="signal-field__project-index"><i data-project-number>01</i> / REAL PROJECT</span>
+              <strong data-project-name>论迹</strong>
+              <small data-project-english>Research Workbench</small>
+              <p data-project-description>面向科研阅读的私有知识工作台。</p>
+              <span class="signal-field__project-tech" data-project-tech>React 19 · FastAPI · PDF.js</span>
+              <b data-project-cta>点击访问线上项目 <i aria-hidden="true">↗</i></b>
+            </a>
             <p class="signal-field__hint">
-              <span data-story-instruction>① 移动光束，预览世界</span>
-              <b data-story-action>② 点击光斑，留下 3 个变化</b>
+              <span data-story-instruction>① 移动光束，切换真实项目</span>
+              <b data-story-action>② 点击项目卡片，进入作品</b>
             </p>
           </div>
         </div>

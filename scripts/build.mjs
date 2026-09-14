@@ -7,6 +7,7 @@ const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(projectRoot, "src");
 const includePattern = /^[\t ]*<!-- @include ([^\s]+) -->[\t ]*$/gm;
 const projectsPattern = /^[\t ]*<!-- @projects -->[\t ]*$/gm;
+const heroProjectsPattern = /^[\t ]*<!-- @hero-projects -->[\t ]*$/gm;
 const entries = ["index.html", "playground.html"];
 const projects = JSON.parse(readFileSync(join(sourceRoot, "data", "projects.json"), "utf8"));
 const galaxyOutput = join(projectRoot, "assets", "galaxy.js");
@@ -136,6 +137,26 @@ const renderProject = (project) => {
 
 const renderProjects = () => projects.map(renderProject).join("\n");
 
+const renderHeroProjects = () => projects
+  .map((project, index) => {
+    const hasEntry = typeof project.entryUrl === "string" && project.entryUrl.trim();
+    const projectUrl = hasEntry ? project.entryUrl : "#projects";
+    const projectLabel = hasEntry ? project.entryLabel : "查看页面内项目详情";
+    return `<button type="button"
+                data-project-option="${escapeHtml(project.id)}"
+                data-project-number="${escapeHtml(project.number)}"
+                data-project-name="${escapeHtml(project.name)}"
+                data-project-english="${escapeHtml(project.englishName)}"
+                data-project-description="${escapeHtml(project.description)}"
+                data-project-tech="${escapeHtml(project.tech.slice(0, 3).join(" · "))}"
+                data-project-image="${escapeHtml(project.image)}"
+                data-project-url="${escapeHtml(projectUrl)}"
+                data-project-label="${escapeHtml(projectLabel)}"
+                data-project-external="${hasEntry ? "true" : "false"}"
+                aria-pressed="${index === 0 ? "true" : "false"}"><span>${escapeHtml(project.number)}</span>${escapeHtml(project.name)}</button>`;
+  })
+  .join("\n");
+
 const render = (content, parents = []) => {
   const withIncludes = content.replace(includePattern, (_, relativePath) => {
     const includePath = resolve(sourceRoot, relativePath);
@@ -149,7 +170,9 @@ const render = (content, parents = []) => {
     const fragment = readFileSync(includePath, "utf8").trimEnd();
     return render(fragment, [...parents, includePath]);
   });
-  return withIncludes.replace(projectsPattern, renderProjects);
+  return withIncludes
+    .replace(heroProjectsPattern, renderHeroProjects)
+    .replace(projectsPattern, renderProjects);
 };
 
 const generatedNotice = "<!-- 此文件由 npm run build 生成，请修改 src 下的源码。 -->";

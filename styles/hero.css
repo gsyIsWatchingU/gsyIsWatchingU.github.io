@@ -80,6 +80,7 @@
 
 .hero__copy {
   max-width: 690px;
+  z-index: 4;
 }
 
 .hero .eyebrow {
@@ -167,8 +168,8 @@
 }
 
 .hero__visual {
-  width: min(148%, 1080px);
-  margin-right: min(-9vw, -72px);
+  width: min(172%, 1360px);
+  margin-right: min(-3vw, -34px);
   justify-self: end;
   cursor: crosshair;
   transform: translate3d(var(--visual-x, 0), var(--visual-y, 0), 0);
@@ -178,7 +179,7 @@
 .signal-field {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.42 / 1;
+  aspect-ratio: 1.68 / 1;
   overflow: visible;
   isolation: isolate;
   touch-action: pan-y;
@@ -189,7 +190,7 @@
 .signal-field__chapter,
 .signal-field__event,
 .signal-field__choices,
-.signal-field__worlds {
+.signal-field__projects {
   position: absolute;
   z-index: 5;
   pointer-events: none;
@@ -313,34 +314,164 @@
   transition: color 300ms ease, text-shadow 300ms ease;
 }
 
-.signal-field__worlds {
+.signal-field__projects {
   top: 35%;
   left: 8%;
   display: flex;
-  gap: 5px;
+  gap: 6px;
   margin: 0;
   color: rgba(190, 203, 197, 0.25);
   font-size: 8px;
   letter-spacing: 0.08em;
+  pointer-events: auto;
 }
 
-.signal-field__worlds span {
+.signal-field__projects button {
   position: relative;
-  padding: 4px 7px;
+  min-height: 28px;
+  padding: 5px 9px;
   border: 1px solid rgba(175, 194, 185, 0.1);
   border-radius: 999px;
+  color: rgba(190, 203, 197, 0.44);
   background: rgba(7, 12, 14, 0.18);
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
   transition: color 260ms ease, border-color 260ms ease, background 260ms ease, box-shadow 260ms ease;
 }
 
-.hero__visual[data-world="nature"] [data-world-option="nature"],
-.hero__visual[data-world="industrial"] [data-world-option="industrial"],
-.hero__visual[data-world="data"] [data-world-option="data"],
-.hero__visual[data-world="future"] [data-world-option="future"] {
+.signal-field__projects button span {
+  margin-right: 5px;
+  color: rgba(174, 192, 184, 0.28);
+  font-size: 7px;
+}
+
+.signal-field__projects button:hover,
+.signal-field__projects button:focus-visible,
+.signal-field__projects button[aria-pressed="true"] {
   color: rgba(232, 239, 235, 0.86);
   border-color: rgba(172, 202, 188, 0.42);
   background: rgba(112, 145, 132, 0.12);
   box-shadow: 0 0 14px rgba(126, 176, 154, 0.12);
+  outline: none;
+}
+
+.signal-field__projects button[aria-pressed="true"] span {
+  color: rgba(190, 212, 202, 0.72);
+}
+
+.signal-field__project-card {
+  position: absolute;
+  top: 27%;
+  right: 7%;
+  z-index: 7;
+  width: clamp(250px, 23vw, 330px);
+  padding: 18px 19px 17px;
+  border: 1px solid rgba(190, 207, 198, 0.17);
+  color: rgba(234, 240, 237, 0.86);
+  background:
+    linear-gradient(135deg, rgba(18, 27, 29, 0.88), rgba(5, 9, 11, 0.68)),
+    rgba(5, 9, 11, 0.74);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.36), inset 0 1px rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px);
+  text-decoration: none;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: border-color 260ms ease, background 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+}
+
+.signal-field__project-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 18px;
+  width: 54px;
+  border-top: 1px solid rgba(188, 219, 205, 0.78);
+  box-shadow: 0 0 15px rgba(148, 195, 175, 0.3);
+}
+
+.signal-field__project-card:hover,
+.signal-field__project-card:focus-visible {
+  border-color: rgba(177, 210, 195, 0.4);
+  background:
+    linear-gradient(135deg, rgba(25, 38, 39, 0.94), rgba(7, 12, 14, 0.82)),
+    rgba(5, 9, 11, 0.82);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.46), 0 0 26px rgba(118, 165, 145, 0.09);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.signal-field__project-index,
+.signal-field__project-card small,
+.signal-field__project-tech {
+  display: block;
+  color: rgba(184, 200, 193, 0.46);
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.signal-field__project-index i {
+  color: rgba(195, 219, 208, 0.8);
+  font-style: normal;
+}
+
+.signal-field__project-card > strong {
+  display: block;
+  margin-top: 10px;
+  color: rgba(245, 248, 246, 0.94);
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 560;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.signal-field__project-card small {
+  margin-top: 4px;
+  color: rgba(191, 207, 200, 0.52);
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
+.signal-field__project-card p {
+  display: -webkit-box;
+  margin: 13px 0 11px;
+  overflow: hidden;
+  color: rgba(218, 226, 222, 0.68);
+  font-size: 11px;
+  line-height: 1.65;
+  letter-spacing: 0.025em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.signal-field__project-tech {
+  padding-top: 10px;
+  border-top: 1px solid rgba(189, 205, 198, 0.11);
+  color: rgba(166, 196, 182, 0.58);
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+.signal-field__project-card > b {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  color: rgba(232, 240, 236, 0.86);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.signal-field__project-card > b i {
+  color: rgba(167, 206, 188, 0.88);
+  font-size: 14px;
+  font-style: normal;
 }
 
 .hero__visual[data-choices="1"] .signal-field__choices,
@@ -594,14 +725,40 @@
     left: 14%;
   }
 
-  .signal-field__worlds {
+  .signal-field__projects {
     top: 34%;
     left: 14%;
     gap: 3px;
   }
 
-  .signal-field__worlds span {
-    padding: 3px 5px;
+  .signal-field__projects button {
+    min-height: 24px;
+    padding: 3px 6px;
+  }
+
+  .signal-field__project-card {
+    top: auto;
+    right: 14%;
+    bottom: 18%;
+    width: 44%;
+    padding: 13px 14px 12px;
+  }
+
+  .signal-field__project-card > strong {
+    margin-top: 7px;
+    font-size: 16px;
+  }
+
+  .signal-field__project-card p {
+    margin: 8px 0 7px;
+    font-size: 9px;
+    line-height: 1.5;
+    -webkit-line-clamp: 2;
+  }
+
+  .signal-field__project-card > b {
+    margin-top: 9px;
+    font-size: 9px;
   }
 
   .signal-field__status b {
