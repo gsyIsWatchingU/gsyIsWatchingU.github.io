@@ -30,28 +30,74 @@
     return payload;
   };
 
+  const laneTop = (lane) => `${10 + lane * 12}%`;
+  const laneCount = () => (window.matchMedia("(max-width: 680px)").matches ? 5 : 7);
+  const MAX_DANMAKU = 42;
+
   const createDanmaku = (item, index, immediate = false) => {
     const message = document.createElement("div");
     const author = document.createElement("strong");
     const body = document.createElement("span");
-    const mobile = window.matchMedia("(max-width: 680px)").matches;
-    const laneCount = mobile ? 5 : 7;
     const text = String(item.content || "").replace(/\s*\n+\s*/g, " ");
     const duration = 20 + Math.min(text.length, 60) * 0.12 + (index % 4) * 1.7;
 
     message.className = "guestbook-danmaku";
-    message.style.setProperty("--lane-top", `${10 + (index % laneCount) * 12}%`);
+    message.style.setProperty("--lane-top", laneTop(index % laneCount()));
     message.style.setProperty("--duration", `${duration}s`);
-    message.style.setProperty("--delay", immediate ? "0s" : `${-((index * 4.1) % duration)}s`);
+    // 偏移 7s 起步，避免首屏第一条还停在视口外
+    message.style.setProperty("--delay", immediate ? "0s" : `${-(((index * 4.1) + 7) % duration)}s`);
     author.textContent = String(item.nickname || "访客");
     body.textContent = text;
     message.append(author, body);
     return message;
   };
 
+  // 挑一条入口处没有其它弹幕的车道，避免刚发出的留言被压在同一条水平线上
+  const resolveFreeLane = (width, viewport) => {
+    const count = laneCount();
+    const skyLeft = sky.getBoundingClientRect().left;
+    const entryLeft = viewport * 0.92 - width;
+    const busy = new Set();
+    sky.querySelectorAll(".guestbook-danmaku").forEach((node) => {
+      const rect = node.getBoundingClientRect();
+      const left = rect.left - skyLeft;
+      if (rect.width > 0 && left < viewport && left + rect.width > entryLeft - 48) {
+        busy.add(node.style.getPropertyValue("--lane-top"));
+      }
+    });
+    for (let offset = 0; offset < count; offset += 1) {
+      const lane = (messageIndex + offset) % count;
+      if (!busy.has(laneTop(lane))) return lane;
+    }
+    return messageIndex % count;
+  };
+
+  // 把刚发出的留言直接放到屏幕右侧可见位置（用负 delay 快进动画），而不是从视口外慢慢飘进来
+  const launchFresh = (node) => {
+    const viewport = sky.clientWidth || window.innerWidth;
+    const width = node.offsetWidth || 220;
+    const duration = Number.parseFloat(node.style.getPropertyValue("--duration")) || 24;
+    const start = viewport + 60;
+    const end = -(width + viewport);
+    const entryLeft = Math.min(viewport * 0.92 - width, viewport * 0.6);
+    const elapsed = Math.max(0, ((start - entryLeft) / (start - end)) * duration);
+
+    node.style.setProperty("--lane-top", laneTop(resolveFreeLane(width, viewport)));
+    node.style.setProperty("--delay", `-${Math.min(elapsed, duration * 0.9).toFixed(2)}s`);
+    node.classList.add("is-fresh");
+    window.setTimeout(() => node.classList.remove("is-fresh"), 3600);
+  };
+
   const appendDanmaku = (item, immediate = false) => {
-    sky.append(createDanmaku(item, messageIndex, immediate));
+    const node = createDanmaku(item, messageIndex, immediate);
+    sky.append(node);
+    if (immediate) launchFresh(node);
     messageIndex += 1;
+
+    const overflow = sky.children.length - MAX_DANMAKU;
+    for (let index = 0; index < overflow; index += 1) {
+      sky.firstElementChild?.remove();
+    }
   };
 
   const shareVisitorLight = (items, fresh = false) => {
