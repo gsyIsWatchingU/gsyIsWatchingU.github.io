@@ -9,40 +9,28 @@ const sceneCanvas = document.querySelector(".galaxy-focus-canvas");
 const visitorLightLabel = document.querySelector("[data-visitor-light]");
 const storyKickerLabel = document.querySelector("[data-story-kicker]");
 const storyCopyLabel = document.querySelector("[data-story-copy]");
-const worldStateLabel = document.querySelector("[data-world-name]");
+const storyStageLabel = document.querySelector("[data-story-stage]");
 const choiceCountLabel = document.querySelector("[data-choice-count]");
 const storyInstructionLabel = document.querySelector("[data-story-instruction]");
 const storyActionLabel = document.querySelector("[data-story-action]");
-const projectOptions = [...document.querySelectorAll("[data-project-option]")];
-const projectLink = document.querySelector("[data-project-link]");
-const projectNumberLabel = projectLink?.querySelector("[data-project-number]");
-const projectNameLabel = projectLink?.querySelector("[data-project-name]");
-const projectEnglishLabel = projectLink?.querySelector("[data-project-english]");
-const projectFeatureLabel = projectLink?.querySelector("[data-project-feature]");
-const projectFeatureCopyLabel = projectLink?.querySelector("[data-project-feature-copy]");
-const projectCtaLabel = projectLink?.querySelector("[data-project-cta]");
 
 if (!hero || !visual || !atmosphereCanvas || !sceneCanvas) {
   throw new Error("首屏叙事场景缺少必要节点");
 }
 
-const projectColors = [0x8fae99, 0x7e9fb3, 0x83aa94, 0xb39a79, 0x9dbb9f];
-const worldDefinitions = Object.fromEntries(projectOptions.map((option, index) => [
-  option.dataset.projectOption,
-  {
-    number: option.dataset.projectNumber,
-    name: option.dataset.projectName,
-    englishName: option.dataset.projectEnglish,
-    feature: option.dataset.projectFeature,
-    featureCopy: option.dataset.projectFeatureCopy,
-    url: option.dataset.projectUrl,
-    label: option.dataset.projectLabel,
-    external: option.dataset.projectExternal === "true",
-    kicker: `真实项目 · ${option.dataset.projectName}`,
-    copy: option.dataset.projectFeatureCopy,
-    color: projectColors[index % projectColors.length],
-  },
-]));
+const beamColor = new THREE.Color(0xb7c5bd);
+const changeGoal = 3;
+const stageNames = {
+  idle: "寂静 · 他还没注意到你",
+  alert: "警觉 · 光落在他身上",
+  evade: "躲避 · 他跑向阴影",
+  hide: "隐匿 · 他在暗处观察",
+  return: "回返 · 他确认没有危险",
+  observe: "观察 · 他记得光的位置",
+  resolve: "分岔 · 三条路出现",
+  depart: "出发 · 他走进光里",
+  arrived: "抵达 · 他走出了自己的路",
+};
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const compactViewport = window.matchMedia("(max-width: 980px)");
@@ -427,6 +415,7 @@ if (renderer) {
   const beamSource = new THREE.Vector3(1.5, 2.16, 1.18);
   const beamTarget = new THREE.Vector3(0.72, -0.88, 0.22);
   const beamTargetDesired = beamTarget.clone();
+  const idleBeamAnchor = new THREE.Vector3(0.42, 0, 0.32);
 
   const watcher = new THREE.Group();
   watcher.position.set(1.5, 2.17, 1.08);
@@ -474,218 +463,6 @@ if (renderer) {
   const targetGlow = createSoftSprite({ texture: coolGlow, opacity: 0.18, scale: [0.72, 0.42], position: [beamTarget.x, beamTarget.y + 0.025, beamTarget.z] });
   world.add(targetGlow);
 
-  const createFragmentMaterial = ({ color, emissive = color, opacity = 0.72, wireframe = false }) => {
-    const material = new THREE.MeshStandardMaterial({
-      color,
-      emissive,
-      emissiveIntensity: 0.28,
-      roughness: 0.78,
-      metalness: 0.08,
-      transparent: true,
-      opacity: 0,
-      depthWrite: false,
-      wireframe,
-    });
-    material.userData.baseOpacity = opacity;
-    return material;
-  };
-
-  const createWorldFragment = (mode) => {
-    const group = new THREE.Group();
-    const definition = worldDefinitions[mode];
-    group.userData.mode = mode;
-    group.userData.materials = [];
-    const addMesh = (geometry, material, position, rotation = [0, 0, 0]) => {
-      const mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(...position);
-      mesh.rotation.set(...rotation);
-      mesh.castShadow = false;
-      group.add(mesh);
-      if (!group.userData.materials.includes(material)) group.userData.materials.push(material);
-      return mesh;
-    };
-    const addLine = (points, opacity = 0.48) => {
-      const material = new THREE.LineBasicMaterial({
-        color: definition.color,
-        transparent: true,
-        opacity: 0,
-        depthWrite: false,
-      });
-      material.userData.baseOpacity = opacity;
-      const line = new THREE.Line(
-        new THREE.BufferGeometry().setFromPoints(points.map((point) => new THREE.Vector3(...point))),
-        material,
-      );
-      line.renderOrder = 3;
-      group.add(line);
-      group.userData.materials.push(material);
-      return line;
-    };
-
-    const frameColor = new THREE.Color(definition.color).multiplyScalar(0.72);
-    const frame = createFragmentMaterial({ color: frameColor, emissive: definition.color, opacity: 0.84 });
-    const base = createFragmentMaterial({ color: 0x273235, emissive: definition.color, opacity: 0.48 });
-    const outline = createFragmentMaterial({ color: definition.color, emissive: definition.color, opacity: 0.34, wireframe: true });
-    const light = createFragmentMaterial({ color: 0xcbd8d1, emissive: definition.color, opacity: 0.92 });
-    const dim = createFragmentMaterial({ color: 0x151d20, emissive: definition.color, opacity: 0.28 });
-
-    addMesh(new THREE.CylinderGeometry(0.48, 0.56, 0.055, 8), base, [0, 0.025, 0]);
-    addMesh(new THREE.RingGeometry(0.43, 0.455, 48), outline, [0, 0.057, 0], [-Math.PI / 2, 0, 0]);
-
-    if (mode === "research-workbench") {
-      const documents = [-0.08, 0, 0.08].map((z, index) => addMesh(
-        new THREE.BoxGeometry(0.67, 0.46, 0.022),
-        index === 2 ? frame : dim,
-        [-0.12 + index * 0.055, 0.45 + index * 0.035, z],
-        [0.08 - index * 0.04, -0.24 + index * 0.1, -0.03 + index * 0.025],
-      ));
-      [0.56, 0.47, 0.35].forEach((width, index) => {
-        addMesh(new THREE.BoxGeometry(width, 0.018, 0.012), light, [-0.09, 0.57 - index * 0.085, 0.105]);
-      });
-      const anchors = [
-        addMesh(new THREE.SphereGeometry(0.047, 12, 8), light, [-0.32, 0.57, 0.16]),
-        addMesh(new THREE.SphereGeometry(0.047, 12, 8), light, [0.05, 0.4, 0.16]),
-      ];
-      const verifier = addMesh(new THREE.OctahedronGeometry(0.12, 1), outline, [0.48, 0.58, 0.08], [0.2, 0, 0.2]);
-      anchors.forEach((anchor) => addLine([
-        [anchor.position.x, anchor.position.y, anchor.position.z],
-        [0.26, 0.58, 0.12],
-        [verifier.position.x, verifier.position.y, verifier.position.z],
-      ], 0.5));
-      group.userData.animate = (elapsed, _delta, active) => {
-        verifier.rotation.y = elapsed * 0.55;
-        documents[2].position.y = 0.52 + Math.sin(elapsed * 0.9) * 0.012 * active;
-        anchors.forEach((anchor, index) => anchor.scale.setScalar(1 + Math.sin(elapsed * 2.2 + index * 2.1) * 0.14 * active));
-      };
-    } else if (mode === "algorithm-lab") {
-      addMesh(new THREE.BoxGeometry(0.52, 0.54, 0.42), outline, [0.05, 0.42, 0]);
-      addMesh(new THREE.BoxGeometry(0.39, 0.055, 0.31), dim, [0.05, 0.17, 0]);
-      addLine([[-0.68, 0.42, 0.1], [-0.22, 0.42, 0.1], [0.33, 0.42, 0.1], [0.68, 0.42, 0.1]], 0.56);
-      const packets = Array.from({ length: 3 }, (_, index) => addMesh(
-        new THREE.BoxGeometry(0.09, 0.09, 0.09),
-        index === 2 ? light : frame,
-        [-0.64 + index * 0.18, 0.42, 0.1],
-        [0.2, 0.2, 0],
-      ));
-      const verdict = addMesh(new THREE.TorusGeometry(0.12, 0.026, 8, 24, Math.PI * 1.55), light, [0.62, 0.42, 0.1], [0, 0, -0.72]);
-      const worker = addMesh(new THREE.CylinderGeometry(0.09, 0.12, 0.22, 6), frame, [0.05, 0.42, -0.22]);
-      group.userData.animate = (elapsed, _delta, active) => {
-        packets.forEach((packet, index) => {
-          packet.position.x = -0.64 + ((elapsed * (0.22 + index * 0.018) + index * 0.34) % 1.28);
-          packet.rotation.x = elapsed * 0.9 + index;
-          packet.rotation.y = elapsed * 0.62 + index;
-        });
-        worker.rotation.y = elapsed * 0.4;
-        verdict.scale.setScalar(1 + Math.sin(elapsed * 2.4) * 0.08 * active);
-      };
-    } else if (mode === "write-here") {
-      addMesh(new THREE.BoxGeometry(0.7, 0.54, 0.035), frame, [0, 0.45, 0], [0.05, -0.16, 0]);
-      [0.48, 0.58, 0.38, 0.51].forEach((width, index) => {
-        addMesh(new THREE.BoxGeometry(width, 0.018, 0.018), dim, [-0.055, 0.59 - index * 0.085, 0.04], [0, -0.16, 0]);
-      });
-      const cursors = [-0.2, 0.02, 0.23].map((x, index) => {
-        const cursor = addMesh(new THREE.BoxGeometry(0.018, 0.13, 0.025), index === 1 ? light : outline, [x, 0.51 - index * 0.08, 0.085]);
-        addMesh(new THREE.ConeGeometry(0.038, 0.07, 5), index === 1 ? light : outline, [x + 0.025, 0.59 - index * 0.08, 0.085], [0, 0, -0.7]);
-        return cursor;
-      });
-      const peers = [-0.42, 0, 0.42].map((x, index) => addMesh(
-        new THREE.IcosahedronGeometry(0.065, 1),
-        index === 1 ? light : outline,
-        [x, 0.82 + (index % 2) * 0.05, -0.02],
-      ));
-      peers.forEach((peer, index) => {
-        if (index < peers.length - 1) addLine([[peer.position.x, peer.position.y, -0.02], [peers[index + 1].position.x, peers[index + 1].position.y, -0.02]], 0.44);
-      });
-      group.userData.animate = (elapsed, _delta, active) => {
-        cursors.forEach((cursor, index) => {
-          cursor.position.y = 0.43 + ((Math.sin(elapsed * (0.78 + index * 0.07) + index * 1.6) + 1) * 0.11);
-        });
-        peers.forEach((peer, index) => peer.scale.setScalar(1 + Math.sin(elapsed * 1.8 + index * 1.5) * 0.1 * active));
-      };
-    } else if (mode === "cli-list") {
-      const hub = addMesh(new THREE.CylinderGeometry(0.14, 0.18, 0.34, 6), frame, [0, 0.39, 0], [0.08, 0, 0.08]);
-      addMesh(new THREE.BoxGeometry(0.24, 0.11, 0.2), light, [0, 0.58, 0]);
-      const nodes = [
-        [-0.5, 0.68, 0.02],
-        [0.46, 0.72, -0.04],
-        [-0.42, 0.27, 0.08],
-        [0.48, 0.29, 0.06],
-      ].map((position, index) => {
-        const node = addMesh(
-          index % 2 ? new THREE.OctahedronGeometry(0.09, 0) : new THREE.BoxGeometry(0.18, 0.12, 0.14),
-          index === 1 ? light : outline,
-          position,
-          [0.12, index * 0.28, 0.08],
-        );
-        node.userData.baseY = position[1];
-        addLine([[0, 0.47, 0], position], 0.46);
-        return node;
-      });
-      group.userData.animate = (elapsed, _delta, active) => {
-        hub.rotation.y = elapsed * 0.46;
-        nodes.forEach((node, index) => {
-          node.rotation.y = elapsed * (index % 2 ? -0.62 : 0.62) + index;
-          node.position.y = node.userData.baseY + Math.sin(elapsed * 1.2 + index) * 0.014 * active;
-        });
-      };
-    } else {
-      const dock = addMesh(new THREE.BoxGeometry(0.5, 0.12, 0.34), frame, [0, 0.22, 0]);
-      addMesh(new THREE.BoxGeometry(0.13, 0.38, 0.12), outline, [0, 0.46, -0.08]);
-      addMesh(new THREE.TorusGeometry(0.18, 0.018, 8, 32), dim, [0, 0.55, -0.04], [Math.PI / 2, 0, 0]);
-      const skillCrates = [-0.48, 0, 0.48].map((x, index) => {
-        const crate = addMesh(
-          new THREE.BoxGeometry(0.2, 0.16, 0.2),
-          index === 1 ? light : frame,
-          [x, 0.43, 0.12],
-          [0.08, index * 0.14, 0.04],
-        );
-        addLine([[x, 0.43, 0.12], [0, 0.55, -0.02]], 0.5);
-        return crate;
-      });
-      const versions = [-0.28, 0, 0.28].map((x, index) => addMesh(
-        new THREE.TorusGeometry(0.055, 0.012, 6, 20),
-        index === 1 ? light : outline,
-        [x, 0.74, -0.01],
-        [Math.PI / 2, 0, 0],
-      ));
-      group.userData.animate = (elapsed, _delta, active) => {
-        dock.rotation.y = Math.sin(elapsed * 0.45) * 0.06 * active;
-        skillCrates.forEach((crate, index) => {
-          const phase = (elapsed * 0.2 + index * 0.34) % 1;
-          crate.position.x = THREE.MathUtils.lerp([-0.48, 0, 0.48][index], 0, phase * active);
-          crate.position.y = 0.43 + Math.sin(phase * Math.PI) * 0.08 * active;
-          crate.rotation.y = elapsed * (index % 2 ? -0.5 : 0.5);
-        });
-        versions.forEach((version, index) => {
-          version.rotation.z = elapsed * (index % 2 ? -0.7 : 0.7);
-          version.scale.setScalar(1 + Math.sin(elapsed * 1.8 + index) * 0.08 * active);
-        });
-      };
-    }
-
-    return group;
-  };
-
-  const changeWorldAnchor = new THREE.Group();
-  changeWorldAnchor.position.set(0, -1.015, 0);
-  const projectScenePositions = [
-    [-1.08, 0.08, 0.22],
-    [-0.54, 0.02, -0.06],
-    [0, 0.04, -0.02],
-    [0.54, 0.04, 0.02],
-    [1.08, 0.08, 0.2],
-  ];
-  const worldFragments = Object.fromEntries(Object.keys(worldDefinitions).map((mode, index) => {
-    const fragment = createWorldFragment(mode);
-    const [x, y, z] = projectScenePositions[index] || [0, 0, 0];
-    fragment.position.set(x, y, z);
-    fragment.userData.baseY = y;
-    fragment.rotation.y = (index - (projectScenePositions.length - 1) / 2) * -0.08;
-    fragment.scale.setScalar(0.9);
-    changeWorldAnchor.add(fragment);
-    return [mode, fragment];
-  }));
-  world.add(changeWorldAnchor);
 
   const pathOrigin = new THREE.Vector3(0.12, -1.012, 0.42);
   const pathTargets = [
@@ -981,93 +758,51 @@ if (renderer) {
     target: homePosition.clone(),
     threat: 0,
   };
-  const retainedFragments = [];
-  let activeWorldMode = Object.keys(worldDefinitions)[0];
+  let changeCount = 0;
   let storyResolved = false;
   let chosenPathIndex = 1;
   const storyStages = {
-    alert: ["光照靠近了他", "小人物会本能后退，作品却开始显现"],
-    evade: ["他跑向阴影", "变化让人不安，也让新的可能被看见"],
-    hide: ["他暂时躲开", "光束仍在等待你发现下一个真实项目"],
-    return: ["他重新走回来", "每次适应变化，都会留下真实的作品"],
-    resolve: ["三种变化已被留下", "旧道路分开，人群开始走向不同方向"],
+    idle: ["神秘的人 · 待机", "把光移到他附近，看看他的反应"],
+    alert: ["光照靠近了他", "他会本能后退，先确认那是什么"],
+    evade: ["他跑向阴影", "变化让人不安，熟悉的位置也会被放弃"],
+    hide: ["他暂时躲开", "光束留在原地，等他重新走出来"],
+    return: ["他重新走回来", "确认没有危险后，他回到原来的位置"],
+    observe: ["他停下来观察", "光的位置被记住，队列还在重复"],
+    resolve: ["三次变化已被留下", "旧道路分开，人群开始走向不同方向"],
     depart: ["他做出了选择", "这一次，他主动走进光里"],
     arrived: ["拥抱变化", "没有现成地图，也可以亲手走出一条路"],
   };
   const updateStoryLabels = (mode) => {
-    let stage = storyStages[mode];
-    if (!stage) {
-      const worldStage = worldDefinitions[activeWorldMode];
-      stage = [worldStage.kicker, `光束正在演示：${worldStage.feature}`];
-    }
+    const stage = storyStages[mode] || storyStages.idle;
     const [kicker, copy] = stage;
     if (storyKickerLabel) storyKickerLabel.textContent = kicker;
     if (storyCopyLabel) storyCopyLabel.textContent = copy;
   };
-  const updateActiveProjectCard = () => {
-    const project = worldDefinitions[activeWorldMode];
-    if (!project) return;
-    if (projectNumberLabel) projectNumberLabel.textContent = project.number;
-    if (projectNameLabel) projectNameLabel.textContent = project.name;
-    if (projectEnglishLabel) projectEnglishLabel.textContent = project.englishName;
-    if (projectFeatureLabel) projectFeatureLabel.textContent = project.feature;
-    if (projectFeatureCopyLabel) projectFeatureCopyLabel.textContent = project.featureCopy;
-    if (projectCtaLabel) {
-      projectCtaLabel.textContent = project.external ? "点击访问线上项目 ↗" : "查看页面内项目详情 ↓";
-    }
-    if (projectLink) {
-      projectLink.href = project.url;
-      projectLink.setAttribute("aria-label", project.external ? `${project.label}（新窗口打开）` : project.label);
-      if (project.external) {
-        projectLink.target = "_blank";
-        projectLink.rel = "noreferrer";
-      } else {
-        projectLink.removeAttribute("target");
-        projectLink.removeAttribute("rel");
-      }
-    }
-    projectOptions.forEach((option) => {
-      option.setAttribute("aria-pressed", String(option.dataset.projectOption === activeWorldMode));
-    });
-  };
-  const updateChoiceLabels = () => {
-    const projectIndex = Object.keys(worldDefinitions).indexOf(activeWorldMode);
-    const project = worldDefinitions[activeWorldMode];
+  const updateProgressLabels = () => {
     if (choiceCountLabel) {
-      choiceCountLabel.textContent = `真实项目 ${String(projectIndex + 1).padStart(2, "0")} / ${String(projectOptions.length).padStart(2, "0")}`;
+      choiceCountLabel.textContent = `变化 ${String(changeCount).padStart(2, "0")} / ${String(changeGoal).padStart(2, "0")}`;
     }
-    if (worldStateLabel) worldStateLabel.textContent = `${project.name} · ${project.englishName}`;
+    if (storyStageLabel) storyStageLabel.textContent = stageNames[characterStory.mode] || stageNames.idle;
     if (storyInstructionLabel) {
-      storyInstructionLabel.textContent = "① 移动光束，切换真实项目";
+      storyInstructionLabel.textContent = "① 移动光束，靠近他";
     }
     if (storyActionLabel) {
-      storyActionLabel.textContent = project.external ? "② 点击项目卡片，进入作品" : "② 私有项目可查看页面内详情";
+      storyActionLabel.textContent = storyResolved
+        ? "② 他已经走进光里"
+        : changeCount >= changeGoal - 1
+          ? "② 再点击一次，路会分开"
+          : "② 点击三次，留下变化";
     }
-    visual.dataset.project = activeWorldMode;
-    updateActiveProjectCard();
-  };
-  const setWorldMode = (mode) => {
-    if (!worldDefinitions[mode] || activeWorldMode === mode) return;
-    activeWorldMode = mode;
-    visual.dataset.project = mode;
-    updateChoiceLabels();
-    if (!storyResolved && !["alert", "evade", "hide", "return"].includes(characterStory.mode)) {
-      updateStoryLabels(characterStory.mode);
-    }
-  };
-  const getWorldModeFromPointerX = (x) => {
-    const modes = Object.keys(worldDefinitions);
-    const index = Math.min(modes.length - 1, Math.max(0, Math.floor((THREE.MathUtils.clamp(x, -0.5, 0.499) + 0.5) * modes.length)));
-    return modes[index];
+    visual.dataset.choices = String(changeCount);
   };
   visual.dataset.story = characterStory.mode;
   visual.dataset.scan = "idle";
-  visual.dataset.scene = "project-diorama";
-  visual.dataset.project = activeWorldMode;
+  visual.dataset.scene = "mystery-figure";
   visual.dataset.queue = "repetitive";
   visual.dataset.paths = "single";
+  visual.dataset.choices = "0";
   updateStoryLabels(characterStory.mode);
-  updateChoiceLabels();
+  updateProgressLabels();
   let hoverAmount = 0;
   let hoverTarget = 0;
   let visitorLightOffset = 0;
@@ -1093,6 +828,7 @@ if (renderer) {
       ? "watching"
       : storyResolved ? "dispersing" : "repetitive";
     updateStoryLabels(mode);
+    updateProgressLabels();
     playCharacterAction(actionForStoryMode[mode]);
   };
 
@@ -1118,7 +854,7 @@ if (renderer) {
 
   const beginDivergence = () => {
     storyResolved = true;
-    chosenPathIndex = activeWorldMode === "nature" ? 0 : activeWorldMode === "future" ? 2 : 1;
+    chosenPathIndex = beamTarget.x < -0.45 ? 0 : beamTarget.x > 0.45 ? 2 : 1;
     visual.dataset.paths = "diverging";
     visual.dataset.queue = "dispersing";
     queue.forEach((figure, index) => {
@@ -1129,25 +865,14 @@ if (renderer) {
     });
     characterStory.target.copy(pathOrigin).setY(homePosition.y);
     setCharacterMode("resolve", previousElapsed);
-    updateChoiceLabels();
+    updateProgressLabels();
   };
 
-  const retainWorldFragment = () => {
-    if (storyResolved || retainedFragments.length >= 3) return;
-    const fragment = createWorldFragment(activeWorldMode);
-    fragment.position.set(
-      THREE.MathUtils.clamp(beamTarget.x, -1.82, 1.82),
-      -1.014,
-      THREE.MathUtils.clamp(beamTarget.z, -0.48, 0.92),
-    );
-    fragment.rotation.y = (retainedFragments.length - 1) * 0.22;
-    fragment.scale.setScalar(0.02);
-    fragment.userData.retainedAt = previousElapsed;
-    fragment.userData.targetScale = 0.56 + retainedFragments.length * 0.035;
-    retainedFragments.push(fragment);
-    world.add(fragment);
-    updateChoiceLabels();
-    if (retainedFragments.length === 3) {
+  const registerChange = () => {
+    if (storyResolved || changeCount >= changeGoal) return;
+    changeCount += 1;
+    updateProgressLabels();
+    if (changeCount === changeGoal) {
       beginDivergence();
     } else {
       characterStory.target.copy(protagonistAnchor.position);
@@ -1162,7 +887,6 @@ if (renderer) {
       protagonistAnchor.position.z - beamTarget.z,
     );
     const threatened = !storyResolved
-      && retainedFragments.length === 0
       && interactionAmount > 0.18
       && lightDistance < 0.94;
     characterStory.threat += ((threatened ? 1 : 0) - characterStory.threat) * Math.min(1, delta * 7.5);
@@ -1301,16 +1025,10 @@ if (renderer) {
     camera.position.y = 1.05 + pointer.y * 0.14;
     camera.lookAt(pointer.x * 0.08, -0.08 + pointer.y * 0.025, 0);
 
-    if (hoverAmount > 0.14 && !storyResolved) {
-      setWorldMode(getWorldModeFromPointerX(pointer.x));
-    }
-
-    const activeProjectIndex = Object.keys(worldDefinitions).indexOf(activeWorldMode);
-    const activeProjectPosition = projectScenePositions[activeProjectIndex] || projectScenePositions[0];
-    const unattendedTargetX = activeProjectPosition[0]
+    const unattendedTargetX = idleBeamAnchor.x
       + visitorLightOffset * 0.12
-      + Math.sin(elapsed * 0.16) * 0.08 * motion;
-    const unattendedTargetZ = activeProjectPosition[2] + Math.cos(elapsed * 0.13) * 0.06 * motion;
+      + Math.sin(elapsed * 0.16) * 0.42 * motion;
+    const unattendedTargetZ = idleBeamAnchor.z + Math.cos(elapsed * 0.13) * 0.18 * motion;
     beamTargetDesired.set(
       THREE.MathUtils.lerp(unattendedTargetX, pointer.x * 3.2, hoverAmount),
       -0.985,
@@ -1328,35 +1046,9 @@ if (renderer) {
     targetGlow.material.opacity = 0.15 + interactionAmount * 0.14;
     targetGlow.scale.set(0.68 + interactionAmount * 0.2, 0.38 + interactionAmount * 0.1, 1);
 
-    const activeWorldColor = new THREE.Color(worldDefinitions[activeWorldMode].color);
-    searchLight.color.lerp(activeWorldColor, Math.min(1, delta * 2.6));
-    beamMaterial.color.lerp(activeWorldColor, Math.min(1, delta * 2.2));
-    beamOuterMaterial.color.lerp(activeWorldColor, Math.min(1, delta * 2.2));
-    Object.entries(worldFragments).forEach(([mode, fragment], index) => {
-      const active = mode === activeWorldMode ? 1 : 0;
-      const presence = active ? 0.88 + interactionAmount * 0.12 : 0.035;
-      fragment.userData.materials.forEach((material) => {
-        const opacity = material.userData.baseOpacity * presence;
-        material.opacity += (opacity - material.opacity) * Math.min(1, delta * 7);
-      });
-      const fragmentScale = active ? 1.16 + interactionAmount * 0.1 : 0.78;
-      fragment.scale.lerp(new THREE.Vector3(fragmentScale, fragmentScale, fragmentScale), Math.min(1, delta * 5));
-      fragment.position.y = fragment.userData.baseY + Math.sin(elapsed * 0.72 + index * 0.85) * 0.012 * motion * active;
-      fragment.userData.animate?.(elapsed, delta * motion, active, interactionAmount);
-    });
-
-    retainedFragments.forEach((fragment, index) => {
-      const age = Math.max(0, elapsed - fragment.userData.retainedAt);
-      const reveal = Math.min(1, age * 3.6);
-      const scale = fragment.userData.targetScale * (0.86 + reveal * 0.14);
-      fragment.scale.lerp(new THREE.Vector3(scale, scale, scale), Math.min(1, delta * 9));
-      fragment.userData.materials.forEach((material) => {
-        const opacity = material.userData.baseOpacity * (0.48 + reveal * 0.34);
-        material.opacity += (opacity - material.opacity) * Math.min(1, delta * 7);
-      });
-      fragment.rotation.y += (index % 2 ? -0.045 : 0.045) * delta * motion;
-      fragment.userData.animate?.(elapsed, delta * motion, 1, interactionAmount);
-    });
+    searchLight.color.lerp(beamColor, Math.min(1, delta * 2.6));
+    beamMaterial.color.lerp(beamColor, Math.min(1, delta * 2.2));
+    beamOuterMaterial.color.lerp(beamColor, Math.min(1, delta * 2.2));
 
     pathBranches.forEach((branch, index) => {
       const pulse = 0.86 + Math.sin(elapsed * 1.4 + index * 1.7) * 0.14;
@@ -1470,20 +1162,6 @@ if (renderer) {
     render();
   };
 
-  projectOptions.forEach((option, index) => {
-    option.addEventListener("click", (event) => {
-      event.stopPropagation();
-      setWorldMode(option.dataset.projectOption);
-      pointerDesired.set(-0.375 + index * 0.25, 0.06);
-      hoverTarget = 1;
-      hero.classList.add("is-searching");
-      triggerScanPulse();
-      renderOnce();
-    });
-  });
-  projectLink?.addEventListener("pointermove", (event) => event.stopPropagation());
-  projectLink?.addEventListener("click", (event) => event.stopPropagation());
-
   hero.addEventListener("pointermove", (event) => {
     if (reducedMotion.matches) return;
     const bounds = hero.getBoundingClientRect();
@@ -1503,14 +1181,12 @@ if (renderer) {
     hero.classList.add("is-searching");
   }, { passive: true });
   visual.addEventListener("pointermove", (event) => {
-    if (event.target.closest(".signal-field__projects, .signal-field__project-card")) return;
     if (reducedMotion.matches || (event.pointerType === "touch" && !touchDragging)) return;
     const bounds = visual.getBoundingClientRect();
     pointerDesired.set(
       (event.clientX - bounds.left) / bounds.width - 0.5,
       0.5 - (event.clientY - bounds.top) / bounds.height,
     );
-    setWorldMode(getWorldModeFromPointerX(pointerDesired.x));
     hoverTarget = 1;
     hero.classList.add("is-searching");
     visual.style.setProperty("--scan-x", `${event.clientX - bounds.left}px`);
@@ -1525,11 +1201,14 @@ if (renderer) {
     hero.classList.add("is-searching");
   });
   visual.addEventListener("click", (event) => {
-    if (event.target.closest(".signal-field__projects, .signal-field__project-card")) return;
     if (reducedMotion.matches) return;
     const bounds = visual.getBoundingClientRect();
-    setWorldMode(getWorldModeFromPointerX((event.clientX - bounds.left) / bounds.width - 0.5));
+    pointerDesired.set(
+      (event.clientX - bounds.left) / bounds.width - 0.5,
+      0.5 - (event.clientY - bounds.top) / bounds.height,
+    );
     triggerScanPulse();
+    registerChange();
   });
   const releaseLight = (event) => {
     if (event?.pointerType === "touch") touchDragging = false;
