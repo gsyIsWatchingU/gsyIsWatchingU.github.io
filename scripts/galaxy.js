@@ -21,12 +21,9 @@ if (!hero || !visual || !atmosphereCanvas || !sceneCanvas) {
 const beamColor = new THREE.Color(0xb7c5bd);
 const changeGoal = 3;
 const stageNames = {
-  idle: "寂静 · 他还没注意到你",
-  alert: "警觉 · 光落在他身上",
-  evade: "躲避 · 他跑向阴影",
-  hide: "隐匿 · 他在暗处观察",
-  return: "回返 · 他确认没有危险",
-  observe: "观察 · 他记得光的位置",
+  idle: "寂静 · 他还在暗处",
+  follow: "跟随 · 他走向光",
+  lit: "驻足 · 他站在光里",
   resolve: "分岔 · 三条路出现",
   depart: "出发 · 他走进光里",
   arrived: "抵达 · 他走出了自己的路",
@@ -593,11 +590,8 @@ if (renderer) {
 
   const actionForStoryMode = {
     idle: "idle",
-    alert: "alert",
-    evade: "run",
-    hide: "hide",
-    return: "walk",
-    observe: "alert",
+    follow: "walk",
+    lit: "idle",
     resolve: "walk",
     depart: "walk",
     arrived: "idle",
@@ -747,27 +741,21 @@ if (renderer) {
   const pointer = new THREE.Vector2();
   const pointerDesired = new THREE.Vector2();
   const homePosition = new THREE.Vector3(-0.46, -1.025, 0.52);
-  const shelterPositions = [
-    new THREE.Vector3(-1.48, -1.025, 0.62),
-    new THREE.Vector3(1.5, -1.025, 0.66),
-  ];
+  const beamAnchor = new THREE.Vector3(idleBeamAnchor.x, -0.985, idleBeamAnchor.z);
+  let beamHold = 0;
   const characterStory = {
     mode: "idle",
     modeSince: 0,
-    lastThreatAt: -10,
     target: homePosition.clone(),
-    threat: 0,
+    exposure: 0,
   };
   let changeCount = 0;
   let storyResolved = false;
   let chosenPathIndex = 1;
   const storyStages = {
-    idle: ["神秘的人 · 待机", "把光移到他附近，看看他的反应"],
-    alert: ["光照靠近了他", "他会本能后退，先确认那是什么"],
-    evade: ["他跑向阴影", "变化让人不安，熟悉的位置也会被放弃"],
-    hide: ["他暂时躲开", "光束留在原地，等他重新走出来"],
-    return: ["他重新走回来", "确认没有危险后，他回到原来的位置"],
-    observe: ["他停下来观察", "光的位置被记住，队列还在重复"],
+    idle: ["神秘的人 · 待机", "点击画面任意位置，把光束移过去"],
+    follow: ["光换了位置", "他转过身，朝光走过去"],
+    lit: ["他站在光里", "光停在哪，他就停在哪"],
     resolve: ["三次变化已被留下", "旧道路分开，人群开始走向不同方向"],
     depart: ["他做出了选择", "这一次，他主动走进光里"],
     arrived: ["拥抱变化", "没有现成地图，也可以亲手走出一条路"],
@@ -784,7 +772,7 @@ if (renderer) {
     }
     if (storyStageLabel) storyStageLabel.textContent = stageNames[characterStory.mode] || stageNames.idle;
     if (storyInstructionLabel) {
-      storyInstructionLabel.textContent = "① 移动光束，靠近他";
+      storyInstructionLabel.textContent = "① 点击画面，移动光束";
     }
     if (storyActionLabel) {
       storyActionLabel.textContent = storyResolved
@@ -824,9 +812,11 @@ if (renderer) {
     characterStory.mode = mode;
     characterStory.modeSince = elapsed;
     visual.dataset.story = mode;
-    visual.dataset.queue = mode === "alert" || mode === "evade"
-      ? "watching"
-      : storyResolved ? "dispersing" : "repetitive";
+    visual.dataset.queue = storyResolved
+      ? "dispersing"
+      : mode === "follow" || mode === "lit"
+        ? "watching"
+        : "repetitive";
     updateStoryLabels(mode);
     updateProgressLabels();
     playCharacterAction(actionForStoryMode[mode]);
@@ -845,12 +835,6 @@ if (renderer) {
       visual.dataset.scan = "idle";
     }, 860);
   };
-
-  const chooseShelter = () => shelterPositions.reduce((best, point) => {
-    const pointDistance = Math.hypot(point.x - beamTarget.x, point.z - beamTarget.z);
-    const bestDistance = Math.hypot(best.x - beamTarget.x, best.z - beamTarget.z);
-    return pointDistance > bestDistance ? point : best;
-  }, shelterPositions[0]).clone();
 
   const beginDivergence = () => {
     storyResolved = true;
@@ -875,43 +859,25 @@ if (renderer) {
     if (changeCount === changeGoal) {
       beginDivergence();
     } else {
-      characterStory.target.copy(protagonistAnchor.position);
-      setCharacterMode("observe", previousElapsed);
+      setCharacterMode("follow", previousElapsed);
     }
   };
 
-  const updateCharacterStory = (elapsed, delta, interactionAmount) => {
+  const updateCharacterStory = (elapsed, delta) => {
     if (delta <= 0) return;
-    const lightDistance = Math.hypot(
-      protagonistAnchor.position.x - beamTarget.x,
-      protagonistAnchor.position.z - beamTarget.z,
-    );
-    const threatened = !storyResolved
-      && interactionAmount > 0.18
-      && lightDistance < 0.94;
-    characterStory.threat += ((threatened ? 1 : 0) - characterStory.threat) * Math.min(1, delta * 7.5);
+    const mode = characterStory.mode;
+    const goal = mode === "follow" ? beamTarget : characterStory.target;
 
-    if (threatened) {
-      characterStory.lastThreatAt = elapsed;
-      if (characterStory.mode === "idle" || characterStory.mode === "return" || characterStory.mode === "hide") {
-        setCharacterMode("alert", elapsed);
-      }
-    }
-
-    if (characterStory.mode === "alert" && elapsed - characterStory.modeSince > 0.3) {
-      characterStory.target.copy(chooseShelter());
-      setCharacterMode("evade", elapsed);
-    }
-
-    if (["evade", "return", "resolve", "depart"].includes(characterStory.mode)) {
-      const toTarget = characterStory.target.clone().sub(protagonistAnchor.position);
+    if (mode === "follow" || mode === "resolve" || mode === "depart") {
+      const toTarget = goal.clone().sub(protagonistAnchor.position);
       const remaining = Math.hypot(toTarget.x, toTarget.z);
-      const speed = characterStory.mode === "evade" ? 2.45 : characterStory.mode === "depart" ? 0.82 : 0.62;
-      if (remaining > 0.035) {
+      const arriveRadius = mode === "follow" ? 0.07 : 0.035;
+      const speed = mode === "follow" ? 0.86 : mode === "depart" ? 0.82 : 0.62;
+      if (remaining > arriveRadius) {
         const step = Math.min(remaining, speed * delta);
         protagonistAnchor.position.x += (toTarget.x / remaining) * step;
         protagonistAnchor.position.z += (toTarget.z / remaining) * step;
-        if (characterStory.mode === "evade" && elapsed - lastFootstepAt > 0.085) {
+        if (mode === "follow" && elapsed - lastFootstepAt > 0.14) {
           const trace = footstepTraces[footstepCursor % footstepTraces.length];
           trace.position.x = protagonistAnchor.position.x + (footstepCursor % 2 ? 0.018 : -0.018);
           trace.position.z = protagonistAnchor.position.z + 0.025;
@@ -922,57 +888,38 @@ if (renderer) {
         }
         const facing = Math.sign(toTarget.x || 1);
         protagonistAnchor.rotation.y += ((facing > 0 ? -0.8 : 0.8) - protagonistAnchor.rotation.y) * Math.min(1, delta * 7);
-      } else if (characterStory.mode === "evade") {
-        setCharacterMode("hide", elapsed);
-      } else if (characterStory.mode === "resolve") {
+      } else if (mode === "follow") {
+        setCharacterMode("lit", elapsed);
+      } else if (mode === "resolve") {
         characterStory.target.copy(pathTargets[chosenPathIndex]).setY(homePosition.y);
         setCharacterMode("depart", elapsed);
-      } else if (characterStory.mode === "depart") {
+      } else if (mode === "depart") {
         setCharacterMode("arrived", elapsed);
-      } else {
-        protagonistAnchor.rotation.y += (-0.28 - protagonistAnchor.rotation.y) * Math.min(1, delta * 5);
-        setCharacterMode("idle", elapsed);
       }
     }
 
-    if (characterStory.mode === "hide" && elapsed - characterStory.lastThreatAt > 2.1) {
-      characterStory.target.copy(homePosition);
-      setCharacterMode("return", elapsed);
-    }
-
-    if (characterStory.mode === "observe" && elapsed - characterStory.modeSince > 1.45) {
-      setCharacterMode("idle", elapsed);
-    }
-
-    if (characterStory.mode === "idle" || characterStory.mode === "observe" || characterStory.mode === "arrived") {
+    if (mode === "idle" || mode === "lit" || mode === "arrived") {
       protagonistAnchor.position.y = homePosition.y + Math.sin(elapsed * 1.2) * 0.005;
-      const restingDirection = characterStory.mode === "arrived" ? -0.72 : characterStory.mode === "observe" ? -0.5 : -0.28;
+      const restingDirection = mode === "arrived" ? -0.72 : mode === "lit" ? -0.06 : -0.28;
       protagonistAnchor.rotation.y += (restingDirection - protagonistAnchor.rotation.y) * Math.min(1, delta * 3);
     }
 
-    const poseHeight = characterStory.mode === "hide"
-      ? characterDisplayScale * 0.82
-      : characterStory.mode === "alert" || characterStory.mode === "observe"
-        ? characterDisplayScale * 0.92
-        : characterDisplayScale;
-    const travelDirection = Math.sign(characterStory.target.x - protagonistAnchor.position.x || 1);
-    const targetLean = characterStory.mode === "evade"
-      ? travelDirection * -0.14
-      : characterStory.mode === "alert"
-        ? 0.055
-        : 0;
-    protagonistAnchor.scale.y += (poseHeight - protagonistAnchor.scale.y) * Math.min(1, delta * 7);
+    const exposureTarget = mode === "lit" ? 1 : mode === "follow" ? 0.42 : 0;
+    characterStory.exposure += (exposureTarget - characterStory.exposure) * Math.min(1, delta * 4.2);
+
+    const travelDirection = Math.sign(goal.x - protagonistAnchor.position.x || 1);
+    const targetLean = mode === "follow" ? travelDirection * -0.09 : 0;
+    protagonistAnchor.scale.y += (characterDisplayScale - protagonistAnchor.scale.y) * Math.min(1, delta * 7);
     protagonistAnchor.scale.x += (characterDisplayScale - protagonistAnchor.scale.x) * Math.min(1, delta * 7);
     protagonistAnchor.scale.z += (characterDisplayScale - protagonistAnchor.scale.z) * Math.min(1, delta * 7);
     protagonistAnchor.rotation.z += (targetLean - protagonistAnchor.rotation.z) * Math.min(1, delta * 6);
 
     if (!characterRuntime.loaded) {
-      const crouch = characterStory.mode === "alert" || characterStory.mode === "hide" || characterStory.mode === "observe" ? 0.16 : 0;
-      protagonist.scale.y += ((0.92 - crouch) - protagonist.scale.y) * Math.min(1, delta * 8);
-      protagonist.userData.headPivot.rotation.y += ((characterStory.mode === "alert" || characterStory.mode === "observe" ? -0.52 : 0) - protagonist.userData.headPivot.rotation.y) * Math.min(1, delta * 7);
+      protagonist.scale.y += (0.92 - protagonist.scale.y) * Math.min(1, delta * 8);
+      protagonist.userData.headPivot.rotation.y += (0 - protagonist.userData.headPivot.rotation.y) * Math.min(1, delta * 7);
     }
 
-    characterRuntime.mixer?.update(delta * (characterStory.mode === "evade" ? 1.7 : 1));
+    characterRuntime.mixer?.update(delta);
   };
 
   const applyVisitorLight = (detail = {}) => {
@@ -1020,7 +967,7 @@ if (renderer) {
     pointer.lerp(pointerDesired, 0.045);
     hoverAmount += (hoverTarget - hoverAmount) * 0.065;
     visitorLightPulse *= Math.pow(0.985, delta * 60);
-    const interactionAmount = Math.max(hoverAmount, visitorLightPulse);
+    const interactionAmount = Math.max(hoverAmount * 0.55, visitorLightPulse, beamHold * 0.62);
     camera.position.x = 0.2 + pointer.x * 0.22;
     camera.position.y = 1.05 + pointer.y * 0.14;
     camera.lookAt(pointer.x * 0.08, -0.08 + pointer.y * 0.025, 0);
@@ -1029,12 +976,14 @@ if (renderer) {
       + visitorLightOffset * 0.12
       + Math.sin(elapsed * 0.16) * 0.42 * motion;
     const unattendedTargetZ = idleBeamAnchor.z + Math.cos(elapsed * 0.13) * 0.18 * motion;
+    const heldTargetX = beamAnchor.x + Math.sin(elapsed * 0.9) * 0.015 * motion;
+    const heldTargetZ = beamAnchor.z + Math.cos(elapsed * 0.72) * 0.012 * motion;
     beamTargetDesired.set(
-      THREE.MathUtils.lerp(unattendedTargetX, pointer.x * 3.2, hoverAmount),
+      THREE.MathUtils.lerp(unattendedTargetX, heldTargetX, beamHold),
       -0.985,
-      THREE.MathUtils.lerp(unattendedTargetZ, 0.42 + pointer.y * 2.1, hoverAmount),
+      THREE.MathUtils.lerp(unattendedTargetZ, heldTargetZ, beamHold),
     );
-    beamTarget.lerp(beamTargetDesired, 0.055);
+    beamTarget.lerp(beamTargetDesired, 0.055 + beamHold * 0.05);
     lightTarget.position.copy(beamTarget);
     targetGlow.position.copy(beamTarget);
     targetGlow.position.y += 0.025;
@@ -1057,27 +1006,27 @@ if (renderer) {
     });
     bridgeLight.scale.x += ((storyResolved ? 0.24 : 1) - bridgeLight.scale.x) * Math.min(1, delta * 1.8);
 
-    updateCharacterStory(elapsed, delta * motion, interactionAmount);
-    const dangerAmount = characterStory.mode === "alert" || characterStory.mode === "evade" ? 1 : 0;
-    const hiddenAmount = characterStory.mode === "hide" ? 1 : 0;
-    const divergenceAmount = storyResolved && !dangerAmount ? 1 : 0;
+    updateCharacterStory(elapsed, delta * motion);
+    const exposure = characterStory.exposure;
+    const traveling = characterStory.mode === "follow" ? 1 : 0;
+    const divergenceAmount = storyResolved ? 1 : 0;
     const warningPulse = 0.5 + Math.sin(elapsed * 9.5) * 0.5;
-    searchLight.intensity += dangerAmount * 2.4 - hiddenAmount * 2.8;
-    targetGlow.material.opacity *= 1 - hiddenAmount * 0.46;
-    warningMaterial.emissiveIntensity = 0.05 + dangerAmount * (0.55 + warningPulse * 0.8);
+    searchLight.intensity += exposure * 3.6;
+    targetGlow.material.opacity *= 1 + exposure * 0.42;
+    warningMaterial.emissiveIntensity = 0.05 + traveling * (0.18 + warningPulse * 0.12);
     warningLights.forEach((lamp, index) => {
-      const pulse = dangerAmount ? 1 + Math.sin(elapsed * 8.5 + index * 1.7) * 0.16 : 1;
+      const pulse = traveling ? 1 + Math.sin(elapsed * 8.5 + index * 1.7) * 0.12 : 1;
       lamp.scale.x += (pulse - lamp.scale.x) * Math.min(1, delta * 10);
     });
-    windowPanel.material.emissiveIntensity = 0.24 + dangerAmount * 0.09 - hiddenAmount * 0.07;
+    windowPanel.material.emissiveIntensity = 0.24 + exposure * 0.06;
     farBeamMaterial.opacity = 0.016 + Math.sin(elapsed * 0.42) * 0.004;
     farBeamBMaterial.opacity = 0.01 + Math.sin(elapsed * 0.36 + 1.8) * 0.003;
-    scene.fog.density = 0.09 + hiddenAmount * 0.012 + dangerAmount * 0.004;
-    characterRim.intensity = 0.22 + dangerAmount * 0.22 - hiddenAmount * 0.08;
-    protagonist.userData.torso.rotation.z = -0.08 + characterStory.threat * 0.07;
-    protagonist.userData.jacket.emissiveIntensity = 0.16 + characterStory.threat * 0.18;
+    scene.fog.density = 0.09 - exposure * 0.009;
+    characterRim.intensity = 0.22 + exposure * 0.3;
+    protagonist.userData.torso.rotation.z = -0.08 + exposure * 0.05;
+    protagonist.userData.jacket.emissiveIntensity = 0.16 + exposure * 0.22;
     watcher.rotation.z = 0.34 + pointer.x * interactionAmount * 0.15;
-    watcherLensMaterial.emissiveIntensity = 0.24 + interactionAmount * 0.34 + dangerAmount * 0.74 - hiddenAmount * 0.14;
+    watcherLensMaterial.emissiveIntensity = 0.24 + interactionAmount * 0.34 + (1 - exposure) * 0.26;
 
     scanRings.forEach((ring, index) => {
       const age = elapsed - scanPulseStartedAt - index * 0.1;
@@ -1117,9 +1066,7 @@ if (renderer) {
         }
         figure.position.y += (-0.19 - figure.position.y) * Math.min(1, delta * 0.72);
       } else if (motion) {
-        walkingPace = figure.userData.speed
-          * (1 - interactionAmount * 0.72)
-          * (1 - dangerAmount * 0.86);
+        walkingPace = figure.userData.speed * (1 - interactionAmount * 0.6);
         figure.position.x += walkingPace * delta;
         if (figure.position.x > 2.35) figure.position.x = -2.35;
       }
@@ -1132,9 +1079,10 @@ if (renderer) {
         figure.position.y = -0.19 + Math.abs(Math.sin(elapsed * 1.9 + index * 0.8)) * 0.008 * motion;
       }
       if (!npcRuntime) {
-        const glance = (dangerAmount + divergenceAmount * 0.42) * Math.sign(protagonistAnchor.position.x - figure.position.x) * 0.56;
+        const glance = ((traveling + exposure) * 0.5 + divergenceAmount * 0.42)
+          * Math.sign(protagonistAnchor.position.x - figure.position.x) * 0.56;
         figure.userData.headPivot.rotation.y += (glance - figure.userData.headPivot.rotation.y) * Math.min(1, delta * 4.5);
-        figure.userData.torso.rotation.z += ((dangerAmount || divergenceAmount ? -0.03 : -0.08) - figure.userData.torso.rotation.z) * Math.min(1, delta * 3.8);
+        figure.userData.torso.rotation.z += (((traveling || exposure || divergenceAmount) ? -0.03 : -0.08) - figure.userData.torso.rotation.z) * Math.min(1, delta * 3.8);
       }
     });
 
@@ -1200,15 +1148,45 @@ if (renderer) {
     hoverTarget = 1;
     hero.classList.add("is-searching");
   });
+  const beamRaycaster = new THREE.Raycaster();
+  const beamNdc = new THREE.Vector2();
+
+  const placeBeamAt = (clientX, clientY) => {
+    const bounds = visual.getBoundingClientRect();
+    const nx = (clientX - bounds.left) / bounds.width - 0.5;
+    const ny = 0.5 - (clientY - bounds.top) / bounds.height;
+    pointerDesired.set(nx, ny);
+    beamNdc.set(nx * 2, ny * 2);
+    beamRaycaster.setFromCamera(beamNdc, camera);
+    const [hit] = beamRaycaster.intersectObject(floor, false);
+    if (hit) {
+      const local = world.worldToLocal(hit.point.clone());
+      beamAnchor.set(
+        THREE.MathUtils.clamp(local.x, -2.3, 2.3),
+        -0.985,
+        THREE.MathUtils.clamp(local.z, -1.2, 1.5),
+      );
+    } else {
+      beamAnchor.set(nx * 3.2, -0.985, 0.42 + ny * 2.1);
+    }
+    beamHold = 1;
+    hero.classList.add("is-searching");
+    visual.dataset.beam = "locked";
+    visual.style.setProperty("--scan-x", `${clientX - bounds.left}px`);
+    visual.style.setProperty("--scan-y", `${clientY - bounds.top}px`);
+  };
+
   visual.addEventListener("click", (event) => {
     if (reducedMotion.matches) return;
-    const bounds = visual.getBoundingClientRect();
-    pointerDesired.set(
-      (event.clientX - bounds.left) / bounds.width - 0.5,
-      0.5 - (event.clientY - bounds.top) / bounds.height,
-    );
+    placeBeamAt(event.clientX, event.clientY);
     triggerScanPulse();
-    registerChange();
+    if (storyResolved) {
+      if (characterStory.mode === "arrived" || characterStory.mode === "lit") {
+        setCharacterMode("follow", previousElapsed);
+      }
+    } else {
+      registerChange();
+    }
   });
   const releaseLight = (event) => {
     if (event?.pointerType === "touch") touchDragging = false;

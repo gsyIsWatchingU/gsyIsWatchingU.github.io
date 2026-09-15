@@ -267,19 +267,19 @@
   text-transform: none;
 }
 
-.hero__visual[data-story="alert"] .signal-field__event,
-.hero__visual[data-story="evade"] .signal-field__event {
-  color: rgba(184, 101, 91, 0.72);
+.hero__visual[data-story="follow"] .signal-field__event {
+  color: rgba(147, 185, 171, 0.64);
   transform: translateX(4px);
 }
 
-.hero__visual[data-story="alert"] .signal-field__event b,
-.hero__visual[data-story="evade"] .signal-field__event b {
-  color: rgba(224, 188, 177, 0.9);
+.hero__visual[data-story="lit"] .signal-field__event {
+  color: rgba(186, 216, 198, 0.82);
+  transform: translateX(4px);
 }
 
-.hero__visual[data-story="observe"] .signal-field__event {
-  color: rgba(147, 185, 171, 0.64);
+.hero__visual[data-story="lit"] .signal-field__event b {
+  color: rgba(232, 243, 238, 0.94);
+  text-shadow: 0 0 14px rgba(151, 203, 181, 0.24);
 }
 
 .hero__visual[data-story="resolve"] .signal-field__event,
@@ -430,6 +430,10 @@
 .hero.is-searching .signal-field__hint {
   opacity: 0.92;
   transform: translateX(-4px);
+}
+
+.hero__visual[data-beam="locked"] .signal-field__hint {
+  opacity: 0.84;
 }
 
 @keyframes industrialBreath {
