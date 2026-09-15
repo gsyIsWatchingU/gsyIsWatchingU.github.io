@@ -24,6 +24,12 @@ const stageNames = {
   idle: "寂静 · 他还在暗处",
   follow: "跟随 · 他走向光",
   lit: "驻足 · 他站在光里",
+  approach: "靠近 · 他发现了那件东西",
+  climb: "攀爬 · 他顺着梯子往上",
+  perch: "高处 · 他换了一个视角",
+  descend: "下行 · 他回到地面",
+  pull: "发力 · 他拉住了绳子",
+  glow: "照亮 · 墙里的光漏了出来",
   resolve: "分岔 · 三条路出现",
   depart: "出发 · 他走进光里",
   arrived: "抵达 · 他走出了自己的路",
@@ -305,6 +311,9 @@ if (renderer) {
   scene.fog = new THREE.FogExp2(0x111a1f, 0.09);
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 40);
   camera.position.set(0.2, 1.05, 6.7);
+  // 拾取专用相机：不带鼠标视差，保证「点哪儿光就去哪儿」的映射稳定
+  const pickCamera = new THREE.PerspectiveCamera(38, 1, 0.1, 40);
+  pickCamera.position.copy(camera.position);
   const world = new THREE.Group();
   scene.add(world);
 
@@ -592,6 +601,12 @@ if (renderer) {
     idle: "idle",
     follow: "walk",
     lit: "idle",
+    approach: "walk",
+    climb: "alert",
+    perch: "idle",
+    descend: "alert",
+    pull: "alert",
+    glow: "idle",
     resolve: "walk",
     depart: "walk",
     arrived: "idle",
@@ -747,8 +762,113 @@ if (renderer) {
     mode: "idle",
     modeSince: 0,
     target: homePosition.clone(),
+    nextMode: null,
     exposure: 0,
   };
+  // ── 可交互装置：左侧梯子与猫道、右侧绳索与卷帘
+  const rigMaterial = new THREE.MeshStandardMaterial({ color: 0x0f1719, roughness: 0.86, metalness: 0.26 });
+  const ladderStand = new THREE.Vector3(-1.5, homePosition.y, -1.48);
+  const perchSpot = new THREE.Vector3(-1.5, 0.462, -1.98);
+  const ropeStand = new THREE.Vector3(0.9, homePosition.y, -1.95);
+
+  const platformDeck = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.06, 0.86), bridgeMaterial);
+  platformDeck.position.set(-1.5, 0.42, -2.03);
+  platformDeck.castShadow = true;
+  platformDeck.receiveShadow = true;
+  const platformEdge = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.04, 0.04), railMaterial);
+  platformEdge.position.set(-1.5, 0.465, -1.61);
+  const platformRail = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.03, 0.03), railMaterial);
+  platformRail.position.set(-1.5, 0.62, -2.44);
+  const platformGlow = new THREE.Mesh(new THREE.BoxGeometry(1.44, 0.018, 0.05), litSurface);
+  platformGlow.position.set(-1.5, 0.452, -1.62);
+  world.add(platformDeck, platformEdge, platformRail, platformGlow);
+  [-2.16, -0.84].forEach((postX) => {
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.055, 1.44, 0.055), rigMaterial);
+    post.position.set(postX, -0.325, -2.3);
+    post.castShadow = true;
+    const brace = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.04, 0.28), rigMaterial);
+    brace.position.set(postX, 0.24, -2.42);
+    world.add(post, brace);
+  });
+
+  const ladder = new THREE.Group();
+  [-1.62, -1.38].forEach((railX) => {
+    const railMesh = new THREE.Mesh(new THREE.BoxGeometry(0.034, 1.56, 0.034), rigMaterial);
+    railMesh.position.set(railX, -0.26, -1.55);
+    railMesh.castShadow = true;
+    ladder.add(railMesh);
+  });
+  for (let index = 0; index < 10; index += 1) {
+    const rung = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.022, 0.03), rigMaterial);
+    rung.position.set(-1.5, -1.0 + index * 0.152, -1.55);
+    ladder.add(rung);
+  }
+  world.add(ladder);
+
+  const ropeAnchor = new THREE.Vector3(0.9, 1.92, -1.98);
+  const ropeRestLength = 2.46;
+  const ropeMaterial = new THREE.MeshStandardMaterial({ color: 0x3d352c, roughness: 0.94 });
+  const rope = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, ropeRestLength, 6), ropeMaterial);
+  rope.position.set(ropeAnchor.x, ropeAnchor.y - ropeRestLength / 2, ropeAnchor.z);
+  world.add(rope);
+  const ropeHandle = new THREE.Mesh(new THREE.TorusGeometry(0.055, 0.012, 6, 16), rigMaterial);
+  ropeHandle.rotation.x = Math.PI / 2;
+  ropeHandle.position.set(ropeAnchor.x, ropeAnchor.y - ropeRestLength, ropeAnchor.z);
+  world.add(ropeHandle);
+
+  const revealMaterial = new THREE.MeshStandardMaterial({
+    color: 0x241c15,
+    emissive: 0xffb066,
+    emissiveIntensity: 0,
+    roughness: 0.9,
+  });
+  const revealPanel = new THREE.Mesh(new THREE.PlaneGeometry(0.92, 1.0), revealMaterial);
+  revealPanel.position.set(1.85, 0.25, -2.5);
+  world.add(revealPanel);
+  const revealLight = new THREE.PointLight(0xffc58c, 0, 5.2, 2);
+  revealLight.position.set(1.85, 0.22, -2.2);
+  world.add(revealLight);
+  const shutterSlats = Array.from({ length: 9 }, (_, index) => {
+    const slat = new THREE.Mesh(new THREE.BoxGeometry(0.94, 0.1, 0.035), rigMaterial);
+    slat.position.set(1.85, -0.2 + index * 0.112, -2.46);
+    slat.userData.closedY = slat.position.y;
+    slat.userData.openY = 0.72 - index * 0.038;
+    slat.castShadow = true;
+    world.add(slat);
+    return slat;
+  });
+  const frameTop = new THREE.Mesh(new THREE.BoxGeometry(1.02, 0.05, 0.06), railMaterial);
+  frameTop.position.set(1.85, 0.79, -2.44);
+  const frameBottom = frameTop.clone();
+  frameBottom.position.y = -0.29;
+  world.add(frameTop, frameBottom);
+  [1.36, 2.34].forEach((frameX) => {
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.05, 1.14, 0.06), railMaterial);
+    post.position.set(frameX, 0.25, -2.44);
+    world.add(post);
+  });
+
+  const createHotspot = (x, z, color) => {
+    const material = new THREE.MeshBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0.07,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.2, 0.222, 44), material);
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.set(x, -1.012, z);
+    ring.renderOrder = 3;
+    world.add(ring);
+    return ring;
+  };
+  const ladderHotspot = createHotspot(ladderStand.x, ladderStand.z + 0.16, 0x9cc0b1);
+  const ropeHotspot = createHotspot(ropeStand.x, -2.18, 0xd3a672);
+  let shutterProgress = 0;
+  let shutterTarget = 0;
+
   let changeCount = 0;
   let storyResolved = false;
   let chosenPathIndex = 1;
@@ -756,6 +876,12 @@ if (renderer) {
     idle: ["神秘的人 · 待机", "点击画面任意位置，把光束移过去"],
     follow: ["光换了位置", "他转过身，朝光走过去"],
     lit: ["他站在光里", "光停在哪，他就停在哪"],
+    approach: ["他选中了一件东西", "先走过去，再决定怎么用"],
+    climb: ["他抓住了梯子", "一级一级往上，离队列越来越远"],
+    perch: ["他站在猫道上", "换个高度，看得见队列之外的方向"],
+    descend: ["他从高处下来", "落地之后，继续跟着光走"],
+    pull: ["他握住绳子", "一下、两下，卷帘开始上升"],
+    glow: ["卷帘升起了", "他自己把这块地方点亮了"],
     resolve: ["三次变化已被留下", "旧道路分开，人群开始走向不同方向"],
     depart: ["他做出了选择", "这一次，他主动走进光里"],
     arrived: ["拥抱变化", "没有现成地图，也可以亲手走出一条路"],
@@ -856,59 +982,127 @@ if (renderer) {
     if (storyResolved || changeCount >= changeGoal) return;
     changeCount += 1;
     updateProgressLabels();
-    if (changeCount === changeGoal) {
-      beginDivergence();
-    } else {
-      setCharacterMode("follow", previousElapsed);
-    }
+    if (changeCount === changeGoal) beginDivergence();
+  };
+
+  const climbDuration = 3.2;
+  const pullDuration = 3.1;
+
+  const dropFootstep = (elapsed) => {
+    const trace = footstepTraces[footstepCursor % footstepTraces.length];
+    trace.position.x = protagonistAnchor.position.x + (footstepCursor % 2 ? 0.018 : -0.018);
+    trace.position.z = protagonistAnchor.position.z + 0.025;
+    trace.userData.bornAt = elapsed;
+    trace.visible = true;
+    lastFootstepAt = elapsed;
+    footstepCursor += 1;
+  };
+
+  const releaseFootsteps = (elapsed) => {
+    lastFootstepAt = elapsed;
+    footstepTraces.forEach((trace) => { trace.visible = false; });
   };
 
   const updateCharacterStory = (elapsed, delta) => {
     if (delta <= 0) return;
     const mode = characterStory.mode;
     const goal = mode === "follow" ? beamTarget : characterStory.target;
+    const walkingMode = mode === "follow" || mode === "approach" || mode === "resolve" || mode === "depart";
 
-    if (mode === "follow" || mode === "resolve" || mode === "depart") {
+    if (walkingMode) {
       const toTarget = goal.clone().sub(protagonistAnchor.position);
       const remaining = Math.hypot(toTarget.x, toTarget.z);
-      const arriveRadius = mode === "follow" ? 0.07 : 0.035;
-      const speed = mode === "follow" ? 0.86 : mode === "depart" ? 0.82 : 0.62;
+      const arriveRadius = mode === "follow" ? 0.07 : 0.045;
+      const restY = Math.min(goal.y, homePosition.y);
+      const speed = mode === "approach" ? 0.8 : mode === "depart" ? 0.82 : 0.86;
       if (remaining > arriveRadius) {
         const step = Math.min(remaining, speed * delta);
         protagonistAnchor.position.x += (toTarget.x / remaining) * step;
         protagonistAnchor.position.z += (toTarget.z / remaining) * step;
-        if (mode === "follow" && elapsed - lastFootstepAt > 0.14) {
-          const trace = footstepTraces[footstepCursor % footstepTraces.length];
-          trace.position.x = protagonistAnchor.position.x + (footstepCursor % 2 ? 0.018 : -0.018);
-          trace.position.z = protagonistAnchor.position.z + 0.025;
-          trace.userData.bornAt = elapsed;
-          trace.visible = true;
-          lastFootstepAt = elapsed;
-          footstepCursor += 1;
-        }
+        protagonistAnchor.position.y += (restY - protagonistAnchor.position.y) * Math.min(1, delta * 2.6);
+        if (elapsed - lastFootstepAt > 0.14) dropFootstep(elapsed);
         const facing = Math.sign(toTarget.x || 1);
         protagonistAnchor.rotation.y += ((facing > 0 ? -0.8 : 0.8) - protagonistAnchor.rotation.y) * Math.min(1, delta * 7);
       } else if (mode === "follow") {
         setCharacterMode("lit", elapsed);
+      } else if (mode === "approach") {
+        setCharacterMode(characterStory.nextMode || "follow", elapsed);
       } else if (mode === "resolve") {
         characterStory.target.copy(pathTargets[chosenPathIndex]).setY(homePosition.y);
         setCharacterMode("depart", elapsed);
-      } else if (mode === "depart") {
+      } else {
         setCharacterMode("arrived", elapsed);
       }
     }
 
-    if (mode === "idle" || mode === "lit" || mode === "arrived") {
-      protagonistAnchor.position.y = homePosition.y + Math.sin(elapsed * 1.2) * 0.005;
-      const restingDirection = mode === "arrived" ? -0.72 : mode === "lit" ? -0.06 : -0.28;
+    if (mode === "climb" || mode === "descend") {
+      const progress = Math.min(1, (elapsed - characterStory.modeSince) / climbDuration);
+      const goingUp = mode === "climb";
+      const level = goingUp ? progress : 1 - progress;
+      const settle = Math.max(0, (level - 0.78) / 0.22);
+      const bob = Math.sin(progress * Math.PI * 11) * 0.022;
+      protagonistAnchor.position.set(
+        THREE.MathUtils.lerp(ladderStand.x, perchSpot.x, Math.max(0, (level - 0.9) / 0.1)),
+        THREE.MathUtils.lerp(ladderStand.y, perchSpot.y, level) + bob * (1 - settle),
+        THREE.MathUtils.lerp(ladderStand.z, perchSpot.z, settle),
+      );
+      protagonistAnchor.rotation.y += (-0.06 - protagonistAnchor.rotation.y) * Math.min(1, delta * 4);
+      beamAnchor.set(
+        protagonistAnchor.position.x,
+        Math.min(0.92, protagonistAnchor.position.y + 0.34),
+        protagonistAnchor.position.z,
+      );
+      beamHold = 1;
+      if (progress >= 1) {
+        releaseFootsteps(elapsed);
+        if (goingUp) {
+          setCharacterMode("perch", elapsed);
+        } else {
+          const next = characterStory.nextMode || "follow";
+          characterStory.nextMode = null;
+          setCharacterMode(next, elapsed);
+        }
+      }
+    }
+
+    if (mode === "pull") {
+      const progress = Math.min(1, (elapsed - characterStory.modeSince) / pullDuration);
+      const strain = Math.sin(progress * Math.PI * 6);
+      protagonistAnchor.position.set(ropeStand.x, ropeStand.y - Math.max(0, strain) * 0.028, ropeStand.z);
+      protagonistAnchor.rotation.y += (-0.35 - protagonistAnchor.rotation.y) * Math.min(1, delta * 4);
+      beamAnchor.set(ropeStand.x + 0.55, -0.58, ropeStand.z - 0.2);
+      beamHold = 1;
+      shutterTarget = Math.min(1, Math.max(0, (progress - 0.1) / 0.72));
+      if (progress >= 1) {
+        releaseFootsteps(elapsed);
+        setCharacterMode("glow", elapsed);
+      }
+    }
+
+    if (mode === "idle" || mode === "lit" || mode === "arrived" || mode === "perch" || mode === "glow") {
+      const restY = mode === "perch" ? perchSpot.y : homePosition.y;
+      protagonistAnchor.position.y += (restY + Math.sin(elapsed * 1.2) * 0.005 - protagonistAnchor.position.y) * Math.min(1, delta * 3);
+      const restingDirection = mode === "arrived"
+        ? -0.72
+        : mode === "perch"
+          ? -0.14
+          : mode === "glow"
+            ? -0.85
+            : mode === "lit"
+              ? -0.06
+              : -0.28;
       protagonistAnchor.rotation.y += (restingDirection - protagonistAnchor.rotation.y) * Math.min(1, delta * 3);
     }
 
-    const exposureTarget = mode === "lit" ? 1 : mode === "follow" ? 0.42 : 0;
+    const exposureTarget = mode === "lit" || mode === "perch" || mode === "glow"
+      ? 1
+      : mode === "follow" || mode === "approach" || mode === "climb" || mode === "pull"
+        ? 0.42
+        : 0;
     characterStory.exposure += (exposureTarget - characterStory.exposure) * Math.min(1, delta * 4.2);
 
     const travelDirection = Math.sign(goal.x - protagonistAnchor.position.x || 1);
-    const targetLean = mode === "follow" ? travelDirection * -0.09 : 0;
+    const targetLean = walkingMode ? travelDirection * -0.09 : mode === "pull" ? 0.12 : 0;
     protagonistAnchor.scale.y += (characterDisplayScale - protagonistAnchor.scale.y) * Math.min(1, delta * 7);
     protagonistAnchor.scale.x += (characterDisplayScale - protagonistAnchor.scale.x) * Math.min(1, delta * 7);
     protagonistAnchor.scale.z += (characterDisplayScale - protagonistAnchor.scale.z) * Math.min(1, delta * 7);
@@ -916,7 +1110,8 @@ if (renderer) {
 
     if (!characterRuntime.loaded) {
       protagonist.scale.y += (0.92 - protagonist.scale.y) * Math.min(1, delta * 8);
-      protagonist.userData.headPivot.rotation.y += (0 - protagonist.userData.headPivot.rotation.y) * Math.min(1, delta * 7);
+      const lookUp = mode === "climb" || mode === "descend" || mode === "pull" || mode === "glow" ? -0.5 : 0;
+      protagonist.userData.headPivot.rotation.y += (lookUp - protagonist.userData.headPivot.rotation.y) * Math.min(1, delta * 7);
     }
 
     characterRuntime.mixer?.update(delta);
@@ -949,6 +1144,12 @@ if (renderer) {
     camera.fov = compactViewport.matches ? 45 : 38;
     camera.position.z = compactViewport.matches ? 7.15 : 6.7;
     camera.updateProjectionMatrix();
+    pickCamera.aspect = camera.aspect;
+    pickCamera.fov = camera.fov;
+    pickCamera.position.set(0.2, 1.05, camera.position.z);
+    pickCamera.lookAt(0, -0.08, 0);
+    pickCamera.updateProjectionMatrix();
+    pickCamera.updateMatrixWorld();
     if (compactViewport.matches) {
       world.position.set(0.2, -0.03, 0);
       world.scale.setScalar(0.92);
@@ -1007,6 +1208,28 @@ if (renderer) {
     bridgeLight.scale.x += ((storyResolved ? 0.24 : 1) - bridgeLight.scale.x) * Math.min(1, delta * 1.8);
 
     updateCharacterStory(elapsed, delta * motion);
+
+    shutterProgress += (shutterTarget - shutterProgress) * Math.min(1, delta * 2.4);
+    shutterSlats.forEach((slat) => {
+      slat.position.y = THREE.MathUtils.lerp(slat.userData.closedY, slat.userData.openY, shutterProgress);
+    });
+    revealMaterial.emissiveIntensity = shutterProgress * 1.05;
+    revealLight.intensity = shutterProgress * 4.4;
+    const ropeSway = Math.sin(elapsed * 0.9) * 0.012 * motion;
+    const ropeExtension = characterStory.mode === "pull"
+      ? Math.max(0, Math.sin((elapsed - characterStory.modeSince) * Math.PI * 6)) * 0.12
+      : 0;
+    const ropeLength = ropeRestLength + ropeExtension;
+    rope.scale.y = ropeLength / ropeRestLength;
+    rope.position.y = ropeAnchor.y - ropeLength / 2;
+    rope.rotation.z = ropeSway * 0.8;
+    ropeHandle.position.set(ropeAnchor.x + ropeSway, ropeAnchor.y - ropeLength, ropeAnchor.z);
+    const hotspotPulse = 0.5 + Math.sin(elapsed * 1.8) * 0.5;
+    const ladderBusy = characterStory.mode === "climb" || characterStory.mode === "perch";
+    const ropeBusy = characterStory.mode === "pull" || shutterProgress > 0.9;
+    ladderHotspot.material.opacity = 0.06 + hotspotPulse * 0.07 * (ladderBusy ? 0.22 : 1);
+    ropeHotspot.material.opacity = 0.06 + hotspotPulse * 0.07 * (ropeBusy ? 0.22 : 1);
+
     const exposure = characterStory.exposure;
     const traveling = characterStory.mode === "follow" ? 1 : 0;
     const divergenceAmount = storyResolved ? 1 : 0;
@@ -1150,6 +1373,47 @@ if (renderer) {
   });
   const beamRaycaster = new THREE.Raycaster();
   const beamNdc = new THREE.Vector2();
+  const interactiveModes = ["idle", "lit", "glow", "perch", "arrived"];
+
+  const pickInteraction = (point, hitObject) => {
+    if (hitObject === platformDeck || hitObject === platformEdge || ladder.children.includes(hitObject)) return "ladder";
+    if (hitObject === revealPanel || hitObject === rope || hitObject === ropeHandle || shutterSlats.includes(hitObject)) return "rope";
+    const ladderDistance = Math.hypot(point.x - ladderStand.x, point.z - ladderStand.z);
+    const ropeDistance = Math.hypot(point.x - ropeStand.x, point.z - ropeStand.z);
+    if (ladderDistance < 0.68 && ladderDistance <= ropeDistance) return "ladder";
+    if (ropeDistance < 0.68) return "rope";
+    return "beam";
+  };
+
+  const engageInvention = (kind, point, elapsed) => {
+    if (kind === "ladder") {
+      if (characterStory.mode === "perch") {
+        beamAnchor.set(perchSpot.x, perchSpot.y + 0.42, perchSpot.z);
+        return false;
+      }
+      characterStory.target.copy(ladderStand);
+      characterStory.nextMode = "climb";
+      setCharacterMode("approach", elapsed);
+      return true;
+    }
+    if (kind === "rope") {
+      if (shutterProgress > 0.9 && characterStory.mode === "glow") {
+        beamAnchor.set(1.85, -0.1, -2.2);
+        return false;
+      }
+      characterStory.target.copy(ropeStand);
+      characterStory.nextMode = "pull";
+      setCharacterMode("approach", elapsed);
+      return true;
+    }
+    if (characterStory.mode === "perch") {
+      characterStory.nextMode = "follow";
+      setCharacterMode("descend", elapsed);
+    } else {
+      setCharacterMode("follow", elapsed);
+    }
+    return true;
+  };
 
   const placeBeamAt = (clientX, clientY) => {
     const bounds = visual.getBoundingClientRect();
@@ -1157,36 +1421,42 @@ if (renderer) {
     const ny = 0.5 - (clientY - bounds.top) / bounds.height;
     pointerDesired.set(nx, ny);
     beamNdc.set(nx * 2, ny * 2);
-    beamRaycaster.setFromCamera(beamNdc, camera);
-    const [hit] = beamRaycaster.intersectObject(floor, false);
-    if (hit) {
-      const local = world.worldToLocal(hit.point.clone());
-      beamAnchor.set(
+    beamRaycaster.setFromCamera(beamNdc, pickCamera);
+    const [hit] = beamRaycaster.intersectObjects(
+      [floor, platformDeck, platformEdge, revealPanel, rope, ropeHandle, ...shutterSlats, ...ladder.children],
+      false,
+    );
+    const local = hit ? world.worldToLocal(hit.point.clone()) : null;
+    const kind = local
+      ? pickInteraction(local, hit?.object)
+      : pickInteraction(new THREE.Vector3(nx * 3.2, -0.985, 0.42 + ny * 2.1), null);
+    const point = local
+      ? new THREE.Vector3(
         THREE.MathUtils.clamp(local.x, -2.3, 2.3),
         -0.985,
-        THREE.MathUtils.clamp(local.z, -1.2, 1.5),
-      );
-    } else {
-      beamAnchor.set(nx * 3.2, -0.985, 0.42 + ny * 2.1);
-    }
+        THREE.MathUtils.clamp(local.z, -2.3, 1.55),
+      )
+      : new THREE.Vector3(nx * 3.2, -0.985, 0.42 + ny * 2.1);
     beamHold = 1;
     hero.classList.add("is-searching");
     visual.dataset.beam = "locked";
+    visual.dataset.prop = kind;
     visual.style.setProperty("--scan-x", `${clientX - bounds.left}px`);
     visual.style.setProperty("--scan-y", `${clientY - bounds.top}px`);
+
+    if (!interactiveModes.includes(characterStory.mode)) {
+      if (kind === "beam") beamAnchor.copy(point);
+      return kind;
+    }
+    beamAnchor.copy(point);
+    if (engageInvention(kind, point, previousElapsed)) registerChange();
+    return kind;
   };
 
   visual.addEventListener("click", (event) => {
     if (reducedMotion.matches) return;
     placeBeamAt(event.clientX, event.clientY);
     triggerScanPulse();
-    if (storyResolved) {
-      if (characterStory.mode === "arrived" || characterStory.mode === "lit") {
-        setCharacterMode("follow", previousElapsed);
-      }
-    } else {
-      registerChange();
-    }
   });
   const releaseLight = (event) => {
     if (event?.pointerType === "touch") touchDragging = false;
