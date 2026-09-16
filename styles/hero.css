@@ -176,6 +176,12 @@
   transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* 划过可交互装置时光标变手型：不看文字也知道这里能点 */
+.hero__visual[data-hover="ladder"],
+.hero__visual[data-hover="rope"] {
+  cursor: pointer;
+}
+
 .signal-field {
   position: relative;
   width: 100%;

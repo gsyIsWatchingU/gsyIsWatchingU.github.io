@@ -574,6 +574,229 @@ if (renderer) {
     model: null,
   };
 
+  // ── 骨骼 IK：攀爬（手脚抓踩横杆）与拉绳（双手抓把手）共用
+  // 模型是 Mixamo 骨架：upperarm→lowerarm→hand，thigh→calf→foot，pelvis 为根
+  const ikBones = {};
+  const ikRest = new Map();
+  let climbRig = null;
+  const ikV1 = new THREE.Vector3();
+  const ikV2 = new THREE.Vector3();
+  const ikV3 = new THREE.Vector3();
+  const ikV4 = new THREE.Vector3();
+  const ikQ1 = new THREE.Quaternion();
+  const ikQ2 = new THREE.Quaternion();
+  const ikQ3 = new THREE.Quaternion();
+
+  const aimBoneAt = (bone, childBone, targetWorld) => {
+    bone.updateWorldMatrix(true, false);
+    childBone.updateWorldMatrix(true, false);
+    const bonePos = ikV1.setFromMatrixPosition(bone.matrixWorld);
+    const childPos = ikV2.setFromMatrixPosition(childBone.matrixWorld);
+    const u = childPos.sub(bonePos).normalize();
+    const v = ikV3.copy(targetWorld).sub(bonePos).normalize();
+    if (u.lengthSq() < 1e-9 || v.lengthSq() < 1e-9) return;
+    const delta = ikQ1.setFromUnitVectors(u, v);
+    const parentQ = bone.parent.getWorldQuaternion(ikQ2);
+    const localDelta = ikQ3.copy(parentQ).invert().multiply(delta).multiply(parentQ);
+    bone.quaternion.premultiply(localDelta);
+    bone.updateWorldMatrix(true, false);
+  };
+
+  // 两骨解析 IK：先按余弦定理定出中间关节位置（pole 决定弯曲朝向），再逐节对准
+  const solveTwoBone = (root, mid, tip, targetWorld, poleWorld) => {
+    root.updateWorldMatrix(true, false);
+    mid.updateWorldMatrix(true, false);
+    tip.updateWorldMatrix(true, false);
+    const rootPos = ikV1.setFromMatrixPosition(root.matrixWorld).clone();
+    const midPos = ikV2.setFromMatrixPosition(mid.matrixWorld).clone();
+    const tipPos = ikV3.setFromMatrixPosition(tip.matrixWorld).clone();
+    const upper = midPos.distanceTo(rootPos);
+    const lower = tipPos.distanceTo(midPos);
+    const toTarget = targetWorld.clone().sub(rootPos);
+    const distance = THREE.MathUtils.clamp(
+      toTarget.length(),
+      Math.abs(upper - lower) + 1e-4,
+      (upper + lower) * 0.985,
+    );
+    const direction = toTarget.normalize();
+    const pole = poleWorld.clone().sub(rootPos);
+    pole.sub(direction.clone().multiplyScalar(pole.dot(direction)));
+    if (pole.lengthSq() < 1e-8) pole.set(0, -1, 0);
+    pole.normalize();
+    const cosAngle = THREE.MathUtils.clamp(
+      (upper * upper + distance * distance - lower * lower) / (2 * upper * distance),
+      -1,
+      1,
+    );
+    const angle = Math.acos(cosAngle);
+    const midTarget = rootPos.clone()
+      .add(direction.multiplyScalar(Math.cos(angle) * upper))
+      .add(pole.multiplyScalar(Math.sin(angle) * upper));
+    aimBoneAt(root, mid, midTarget);
+    aimBoneAt(mid, tip, targetWorld);
+  };
+
+  const buildClimbRig = () => {
+    Object.keys(ikBones).forEach((key) => delete ikBones[key]);
+    ikRest.clear();
+    climbRig = null;
+    const model = characterRuntime.model;
+    if (!model) return;
+    model.traverse((child) => {
+      if (child.isBone) ikBones[child.name] = child;
+    });
+    [
+      "upperarm_l", "lowerarm_l", "hand_l", "upperarm_r", "lowerarm_r", "hand_r",
+      "thigh_l", "calf_l", "foot_l", "thigh_r", "calf_r", "foot_r",
+      "pelvis", "spine_01", "spine_02", "neck_01",
+    ].forEach((name) => {
+      const bone = ikBones[name];
+      if (bone) ikRest.set(bone, bone.quaternion.clone());
+    });
+    const required = ["upperarm_l", "lowerarm_l", "hand_l", "thigh_l", "calf_l", "foot_l", "pelvis"];
+    if (required.some((name) => !ikBones[name])) return;
+
+    protagonistAnchor.updateMatrixWorld(true);
+    const worldPos = (bone) => bone.getWorldPosition(new THREE.Vector3());
+    const anchorY = protagonistAnchor.getWorldPosition(new THREE.Vector3()).y;
+    const heightOf = (bone) => worldPos(bone).y - anchorY;
+    const span = (from, to) => worldPos(from).distanceTo(worldPos(to));
+    const armLength = span(ikBones.upperarm_l, ikBones.lowerarm_l) + span(ikBones.lowerarm_l, ikBones.hand_l);
+    const legLength = span(ikBones.thigh_l, ikBones.calf_l) + span(ikBones.calf_l, ikBones.foot_l);
+    const shoulderHeight = heightOf(ikBones.upperarm_l);
+    const hipHeight = heightOf(ikBones.pelvis);
+    const ankleHeight = heightOf(ikBones.foot_l);
+    const reachForward = 0.05;
+    // 先算蹲多少：让"髋 → 横杆"的直线距离落在腿长之内，否则膝盖伸直了也够不到
+    const legReach = legLength * 0.95;
+    const standDrop = Math.sqrt(Math.max(0.0001, legReach * legReach - reachForward ** 2));
+    const crouchWorld = THREE.MathUtils.clamp(hipHeight - standDrop, 0, hipHeight * 0.55);
+    // 再算手抓多高。关键：下蹲会把肩膀一起带低 crouchWorld，
+    // 不减掉这一截的话手的目标点会超出臂长，IK 只能截在半路上（实测需求距离曾达臂长 1.56 倍）
+    const reachUp = Math.sqrt(Math.max(0.0004, (armLength * 0.88) ** 2 - reachForward ** 2));
+    const gripHeight = shoulderHeight - crouchWorld + reachUp;
+    // 向下取整：宁可让手低一级（约胸口高，正是正常爬梯的握法），
+    // 也不要高一级 —— 高一级就会超出臂长，IK 只能把手截在半路
+    const handLead = THREE.MathUtils.clamp(Math.floor((gripHeight - ankleHeight) / rungGap), 2, 6);
+    // 左右必须按骨骼实际朝向取，不能写死 ±：写反的话手要横跨整个身体去够横杆，
+    // 需求距离会直接超出臂长，IK 只能把手截在半路
+    const sideOf = (bone) => Math.sign(worldPos(bone).x - worldPos(ikBones.pelvis).x) || 1;
+    const limbSide = { hand_l: sideOf(ikBones.hand_l), foot_l: sideOf(ikBones.foot_l) };
+    climbRig = {
+      bones: ikBones,
+      pelvisRestY: ikBones.pelvis.position.y,
+      crouchWorld,
+      leftSign: limbSide.hand_l,
+      limbSide,
+      handLead,
+      armLength,
+      legLength,
+    };
+    visual.dataset.rig = "two-bone-ik";
+    visual.dataset.rigInfo = `lead${handLead}/crouch${crouchWorld.toFixed(3)}`;
+  };
+
+  const resetClimbPose = () => {
+    if (!climbRig) return;
+    ikRest.forEach((quaternion, bone) => { bone.quaternion.copy(quaternion); });
+    if (ikBones.pelvis) ikBones.pelvis.position.y = climbRig.pelvisRestY;
+  };
+
+  const twistBone = (bone, axis, angle) => {
+    if (!bone) return;
+    const rest = ikRest.get(bone);
+    if (!rest) return;
+    ikQ1.setFromAxisAngle(axis, angle);
+    bone.quaternion.copy(rest).premultiply(ikQ1);
+  };
+
+  const ikAxisX = new THREE.Vector3(1, 0, 0);
+  const ikAxisZ = new THREE.Vector3(0, 0, 1);
+
+  // 通用姿态：先摆躯干和盆骨，再把四肢用两骨 IK 钉到目标点上
+  // pole 是"中间关节往哪边弯"的提示点：手肘朝外下方，膝盖朝身前（-z）
+  const poseRig = (targets, options) => {
+    if (!climbRig || !targets) return;
+    const {
+      crouch = 1,
+      lean = -0.12,
+      leanUpper = -0.06,
+      neck = 0.24,
+      sway = 0,
+      armOut = 0.16,
+      armDrop = -0.2,
+      armFwd = -0.05,
+      legOut = 0.05,
+      legDrop = -0.04,
+      legFwd = -0.2,
+      blend = 1,
+    } = options || {};
+    const bones = climbRig.bones;
+    if (bones.pelvis) {
+      const scaleY = bones.pelvis.getWorldScale(ikV4).y || 1;
+      const drop = (climbRig.crouchWorld * crouch) / scaleY;
+      bones.pelvis.position.y = climbRig.pelvisRestY - drop * blend;
+    }
+    twistBone(bones.spine_01, ikAxisX, lean);
+    twistBone(bones.spine_02, ikAxisX, leanUpper);
+    twistBone(bones.neck_01, ikAxisX, neck);
+    const side = climbRig.leftSign;
+    const pole = new THREE.Vector3();
+    const solve = (rootName, midName, tipName, target, ox, oy, oz) => {
+      const root = bones[rootName];
+      const mid = bones[midName];
+      const tip = bones[tipName];
+      if (!root || !mid || !tip || !target) return;
+      const rootPos = root.getWorldPosition(ikV4);
+      pole.set(rootPos.x + ox, rootPos.y + oy, rootPos.z + oz);
+      solveTwoBone(root, mid, tip, target, pole);
+    };
+    solve("upperarm_l", "lowerarm_l", "hand_l", targets.hand_l, -armOut * side, armDrop, armFwd);
+    solve("upperarm_r", "lowerarm_r", "hand_r", targets.hand_r, armOut * side, armDrop, armFwd);
+    solve("thigh_l", "calf_l", "foot_l", targets.foot_l, -legOut * side, legDrop, legFwd);
+    solve("thigh_r", "calf_r", "foot_r", targets.foot_r, legOut * side, legDrop, legFwd);
+    twistBone(bones.pelvis, ikAxisZ, sway * 0.1);
+    // blend < 1 时把姿态平滑退回骨骼静置位：翻上猫道 / 从猫道下梯那一段用得上，
+    // 否则手还挂在横杆上、人已经站到平台上了，IK 会被拉成超长手臂
+    if (blend < 1) {
+      Object.values(bones).forEach((bone) => {
+        const rest = ikRest.get(bone);
+        if (rest) bone.quaternion.slerp(rest, 1 - blend);
+      });
+    }
+  };
+
+  // 攀爬：躯干贴梯前倾、抬头看上方、手脚交替抓踩横杆
+  const applyClimbPose = (targets, sway, blend = 1) => poseRig(targets, {
+    blend,
+    crouch: 1,
+    lean: -0.14,
+    leanUpper: -0.07,
+    neck: 0.28,
+    sway,
+    armOut: 0.16,
+    armDrop: -0.2,
+    armFwd: -0.06,
+    legOut: 0.05,
+    legDrop: -0.04,
+    legFwd: -0.2,
+  });
+
+  // 拉绳：站定后身体后仰，双手抓着绳把往下带，拉的那一下蹲得更低
+  const applyPullPose = (targets, strain) => poseRig(targets, {
+    crouch: 0.5 + strain * 0.95,
+    lean: 0.05 + strain * 0.22,
+    leanUpper: 0.03 + strain * 0.1,
+    neck: 0.16,
+    sway: 0,
+    armOut: 0.1,
+    armDrop: -0.16,
+    armFwd: -0.18,
+    legOut: 0.05,
+    legDrop: -0.04,
+    legFwd: -0.14,
+  });
+
   const findExactClip = (clips, names) => names
     .map((name) => clips.find((clip) => clip.name.toLowerCase() === name))
     .find(Boolean);
@@ -691,6 +914,7 @@ if (renderer) {
         visual.dataset.npcs = "skeletal-walk";
         visual.dataset.npcCount = String(npcRuntimes.length);
       }
+      buildClimbRig();
       characterRuntime.loaded = true;
       playCharacterAction(actionForStoryMode[characterStory.mode], 0);
       visual.dataset.model = "ready";
@@ -767,51 +991,131 @@ if (renderer) {
   };
   // ── 可交互装置：左侧梯子与猫道、右侧绳索与卷帘
   const rigMaterial = new THREE.MeshStandardMaterial({ color: 0x0f1719, roughness: 0.86, metalness: 0.26 });
-  const ladderStand = new THREE.Vector3(-1.5, homePosition.y, -1.48);
-  const perchSpot = new THREE.Vector3(-1.5, 0.462, -1.98);
-  const ropeStand = new THREE.Vector3(0.9, homePosition.y, -1.95);
+  // 可交互装置自带一层微光，颜色和它脚下的提示环一致 —— 这是"不看文字也认得出"的主线索
+  const ladderGlowMaterial = new THREE.MeshStandardMaterial({
+    color: 0x1a2427,
+    roughness: 0.78,
+    metalness: 0.34,
+    emissive: 0x2f4f45,
+    emissiveIntensity: 0.5,
+  });
+  const ropeGlowMaterial = new THREE.MeshStandardMaterial({
+    color: 0x241d16,
+    roughness: 0.8,
+    metalness: 0.3,
+    emissive: 0x503a22,
+    emissiveIntensity: 0.5,
+  });
+  // 站位贴着梯子（z 差 0.03）：再远手臂就够不到横杆，IK 会被截断成"伸不直的手"
+  const ladderStand = new THREE.Vector3(-1.5, homePosition.y, -1.52);
+  const perchSpot = new THREE.Vector3(-1.5, -0.295, -1.98);
+  const ropeStand = new THREE.Vector3(0.9, homePosition.y, -1.93);
+
+  // 梯子按真实比例重做：人物高 0.325，单级 0.062（约 0.19 倍身高），
+  // 攀爬高度 0.73（约 2.2 倍身高），手脚交替才有可信的步频
+  const rungGap = 0.062;
+  const rungCount = 12;
+  const rungBaseY = -0.98;
+  const ladderRungs = Array.from({ length: rungCount }, (_, index) => rungBaseY + index * rungGap);
+  const ladderTopY = rungBaseY + (rungCount - 1) * rungGap;
+  const deckTopY = -0.3;
 
   const platformDeck = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.06, 0.86), bridgeMaterial);
-  platformDeck.position.set(-1.5, 0.42, -2.03);
+  platformDeck.position.set(-1.5, deckTopY - 0.03, -2.03);
   platformDeck.castShadow = true;
   platformDeck.receiveShadow = true;
   const platformEdge = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.04, 0.04), railMaterial);
-  platformEdge.position.set(-1.5, 0.465, -1.61);
+  platformEdge.position.set(-1.5, deckTopY + 0.015, -1.61);
   const platformRail = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.03, 0.03), railMaterial);
-  platformRail.position.set(-1.5, 0.62, -2.44);
+  platformRail.position.set(-1.5, deckTopY + 0.32, -2.44);
   const platformGlow = new THREE.Mesh(new THREE.BoxGeometry(1.44, 0.018, 0.05), litSurface);
-  platformGlow.position.set(-1.5, 0.452, -1.62);
+  platformGlow.position.set(-1.5, deckTopY + 0.002, -1.62);
   world.add(platformDeck, platformEdge, platformRail, platformGlow);
   [-2.16, -0.84].forEach((postX) => {
-    const post = new THREE.Mesh(new THREE.BoxGeometry(0.055, 1.44, 0.055), rigMaterial);
-    post.position.set(postX, -0.325, -2.3);
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.74, 0.055), rigMaterial);
+    post.position.set(postX, -0.67, -2.3);
     post.castShadow = true;
     const brace = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.04, 0.28), rigMaterial);
-    brace.position.set(postX, 0.24, -2.42);
+    brace.position.set(postX, -0.42, -2.42);
     world.add(post, brace);
   });
 
+  // 梯宽按真实比例：真人梯子约一个肩宽（≈0.25 倍身高），这里取 0.14（0.43 倍身高，
+  // 已经比现实略宽一点，是为了让玩家一眼看出是梯子），否则人物站在上面像个小矮人
   const ladder = new THREE.Group();
-  [-1.62, -1.38].forEach((railX) => {
-    const railMesh = new THREE.Mesh(new THREE.BoxGeometry(0.034, 1.56, 0.034), rigMaterial);
-    railMesh.position.set(railX, -0.26, -1.55);
+  [-1.57, -1.43].forEach((railX) => {
+    const railMesh = new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.82, 0.026), ladderGlowMaterial);
+    railMesh.position.set(railX, -0.63, -1.55);
     railMesh.castShadow = true;
     ladder.add(railMesh);
   });
-  for (let index = 0; index < 10; index += 1) {
-    const rung = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.022, 0.03), rigMaterial);
-    rung.position.set(-1.5, -1.0 + index * 0.152, -1.55);
+  ladderRungs.forEach((rungY) => {
+    const rung = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.011, 0.024), ladderGlowMaterial);
+    rung.position.set(-1.5, rungY, -1.55);
     ladder.add(rung);
-  }
+  });
   world.add(ladder);
 
+  // ── 攀爬目标点：把"第几级横杆"换算成骨骼 IK 要用的世界坐标
+  const rungLocalX = -1.5;
+  const rungLocalZ = -1.55;
+  const groundRung = -1;                        // 地面算作第 -1 级
+  const topRung = rungCount - 1;
+  const climbSteps = topRung - groundRung;      // 一共 12 步，对应 12 级横杆
+  const rungYAt = (index) => rungBaseY
+    + THREE.MathUtils.clamp(index, groundRung, topRung) * rungGap;
+  const worldPoint = (x, y, z, out) => world.localToWorld(out.set(x, y, z));
+  const rungPoint = (index, offsetX, out) => worldPoint(
+    rungLocalX + offsetX,
+    rungYAt(index),
+    rungLocalZ,
+    out,
+  );
+  const rungForStep = (step, dir) => (dir > 0 ? groundRung + step : topRung - step);
+  const climbBodyLiftBottom = homePosition.y - rungYAt(groundRung);
+  const climbBodyLiftTop = perchSpot.y - rungYAt(topRung);
+  const climbBodyY = (travelled) => {
+    const ratio = THREE.MathUtils.clamp(travelled, 0, climbSteps) / climbSteps;
+    return rungYAt(groundRung + travelled)
+      + THREE.MathUtils.lerp(climbBodyLiftBottom, climbBodyLiftTop, ratio);
+  };
+  // 一开始就落在最低一级上，避免进入攀爬的第一帧读到还没写过的 (0,0,0)
+  const climbTargets = {
+    hand_l: rungPoint(2, -0.045, new THREE.Vector3()),
+    hand_r: rungPoint(2, 0.045, new THREE.Vector3()),
+    foot_l: rungPoint(0, -0.032, new THREE.Vector3()),
+    foot_r: rungPoint(0, 0.032, new THREE.Vector3()),
+  };
+  const limbPointA = new THREE.Vector3();
+  const limbPointB = new THREE.Vector3();
+  // 一级动作拆成"支撑 55% + 摆动 45%"：支撑段锁死在横杆上，摆动段沿弧线换到下一级
+  const limbToRung = (out, step, dir, offsetX, clearance) => {
+    const base = Math.floor(step);
+    const swing = THREE.MathUtils.clamp((step - base - 0.55) / 0.45, 0, 1);
+    const ease = swing * swing * (3 - 2 * swing);
+    rungPoint(rungForStep(base, dir), offsetX, limbPointA);
+    rungPoint(rungForStep(base + 1, dir), offsetX, limbPointB);
+    out.lerpVectors(limbPointA, limbPointB, ease);
+    // 摆动中稍微离开梯子，避免手脚直接从横杆里穿过去
+    const arc = Math.sin(ease * Math.PI);
+    out.z += arc * clearance;
+    out.y += arc * clearance * 0.3;
+    return out;
+  };
+
   const ropeAnchor = new THREE.Vector3(0.9, 1.92, -1.98);
-  const ropeRestLength = 2.46;
-  const ropeMaterial = new THREE.MeshStandardMaterial({ color: 0x3d352c, roughness: 0.94 });
+  // 绳长定成"手刚好抓得到"：人物头顶约 -0.70，绳把落在胸口高度
+  const ropeRestLength = 2.72;
+  const ropeMaterial = new THREE.MeshStandardMaterial({
+    color: 0x3d352c,
+    roughness: 0.94,
+    emissive: 0x2b1e11,
+    emissiveIntensity: 0.55,
+  });
   const rope = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, ropeRestLength, 6), ropeMaterial);
   rope.position.set(ropeAnchor.x, ropeAnchor.y - ropeRestLength / 2, ropeAnchor.z);
   world.add(rope);
-  const ropeHandle = new THREE.Mesh(new THREE.TorusGeometry(0.055, 0.012, 6, 16), rigMaterial);
+  const ropeHandle = new THREE.Mesh(new THREE.TorusGeometry(0.055, 0.012, 6, 16), ropeGlowMaterial);
   ropeHandle.rotation.x = Math.PI / 2;
   ropeHandle.position.set(ropeAnchor.x, ropeAnchor.y - ropeRestLength, ropeAnchor.z);
   world.add(ropeHandle);
@@ -852,22 +1156,80 @@ if (renderer) {
     const material = new THREE.MeshBasicMaterial({
       color,
       transparent: true,
-      opacity: 0.07,
+      opacity: 0.1,
       side: THREE.DoubleSide,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
     });
-    const ring = new THREE.Mesh(new THREE.RingGeometry(0.2, 0.222, 44), material);
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.17, 0.21, 48), material);
     ring.rotation.x = -Math.PI / 2;
     ring.position.set(x, -1.012, z);
     ring.renderOrder = 3;
     world.add(ring);
     return ring;
   };
-  const ladderHotspot = createHotspot(ladderStand.x, ladderStand.z + 0.16, 0x9cc0b1);
-  const ropeHotspot = createHotspot(ropeStand.x, -2.18, 0xd3a672);
+
+  // 不需要文字的可点提示：地面呼吸环 + 一圈圈向外扩散的涟漪 + 一道竖直光柱。
+  // 三样都是"会动的光"，在人眼余光里就能被注意到，比一行说明文字更早被看到。
+  const createBeacon = (x, z, color, height) => {
+    const columnMaterial = new THREE.MeshBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0.04,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    const column = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.055, height, 14, 1, true), columnMaterial);
+    column.position.set(x, -1.01 + height / 2, z);
+    column.renderOrder = 2;
+    world.add(column);
+    const ripples = [0, 0.5].map((offset) => {
+      const material = new THREE.MeshBasicMaterial({
+        color,
+        transparent: true,
+        opacity: 0,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      });
+      const ring = new THREE.Mesh(new THREE.RingGeometry(0.15, 0.2, 48), material);
+      ring.rotation.x = -Math.PI / 2;
+      ring.position.set(x, -1.008, z);
+      ring.renderOrder = 3;
+      ring.userData.offset = offset;
+      world.add(ring);
+      return ring;
+    });
+    return { column, ripples, hover: 0, kind: "beam" };
+  };
+
+  // 点击判定体：梯子和绳子本身只有几厘米粗，直接拿它们做射线检测几乎点不中。
+  // 罩一层看不见的盒子（真的写得进射线、但一点都不画出来），整片区域都能点。
+  const pickMaterial = new THREE.MeshBasicMaterial({
+    colorWrite: false,
+    depthWrite: false,
+    transparent: true,
+    opacity: 0,
+  });
+  const createPickVolume = (x, y, z, w, h, d) => {
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), pickMaterial);
+    mesh.position.set(x, y, z);
+    mesh.renderOrder = -1;
+    world.add(mesh);
+    return mesh;
+  };
+  const ladderVolume = createPickVolume(-1.5, -0.64, -1.5, 0.72, 1.06, 0.62);
+  const ropeVolume = createPickVolume(0.9, -0.52, -2.0, 0.76, 1.24, 0.64);
+
+  const ladderHotspot = createHotspot(ladderStand.x, -1.4, 0x9cc0b1);
+  const ropeHotspot = createHotspot(ropeStand.x, -2.02, 0xd3a672);
+  const ladderBeacon = { ...createBeacon(ladderStand.x, -1.4, 0x9cc0b1, 1.08), kind: "ladder" };
+  const ropeBeacon = { ...createBeacon(ropeStand.x, -2.02, 0xd3a672, 1.4), kind: "rope" };
+  const beacons = [ladderBeacon, ropeBeacon];
   let shutterProgress = 0;
   let shutterTarget = 0;
+  let climbPoseActive = false;
 
   let changeCount = 0;
   let storyResolved = false;
@@ -919,6 +1281,8 @@ if (renderer) {
   updateProgressLabels();
   let hoverAmount = 0;
   let hoverTarget = 0;
+  let hoverKind = null;
+  let lastInteractionAt = 0;
   let visitorLightOffset = 0;
   let visitorLightPulse = 0;
   let visitorTraceCount = 0;
@@ -985,7 +1349,7 @@ if (renderer) {
     if (changeCount === changeGoal) beginDivergence();
   };
 
-  const climbDuration = 3.2;
+  let climbDuration = 4.4;   // 12 级横杆，约 0.37 秒一级
   const pullDuration = 3.1;
 
   const dropFootstep = (elapsed) => {
@@ -1008,6 +1372,13 @@ if (renderer) {
     const mode = characterStory.mode;
     const goal = mode === "follow" ? beamTarget : characterStory.target;
     const walkingMode = mode === "follow" || mode === "approach" || mode === "resolve" || mode === "depart";
+    const posing = mode === "climb" || mode === "descend" || mode === "pull";
+    // IK 必须写在动画混合器之后，否则这一帧的姿态会被 clip 覆盖回去
+    characterRuntime.mixer?.update(delta);
+    if (!posing && climbPoseActive) {
+      resetClimbPose();
+      climbPoseActive = false;
+    }
 
     if (walkingMode) {
       const toTarget = goal.clone().sub(protagonistAnchor.position);
@@ -1038,15 +1409,34 @@ if (renderer) {
     if (mode === "climb" || mode === "descend") {
       const progress = Math.min(1, (elapsed - characterStory.modeSince) / climbDuration);
       const goingUp = mode === "climb";
-      const level = goingUp ? progress : 1 - progress;
-      const settle = Math.max(0, (level - 0.78) / 0.22);
-      const bob = Math.sin(progress * Math.PI * 11) * 0.022;
+      const dir = goingUp ? 1 : -1;
+      const step = progress * climbSteps;
+      const travelled = goingUp ? step : climbSteps - step;
+      // 到顶/离顶的最后 1.2 步：从梯子挪到猫道上（或反向）
+      const topOut = THREE.MathUtils.clamp((step - (climbSteps - 1.2)) / 1.2, 0, 1);
+      const topEase = topOut * topOut * (3 - 2 * topOut);
+      const zMix = goingUp ? topEase : 1 - topEase;
+      // 身体高度跟着脚下的横杆走，再叠一层踩踏的起伏
       protagonistAnchor.position.set(
-        THREE.MathUtils.lerp(ladderStand.x, perchSpot.x, Math.max(0, (level - 0.9) / 0.1)),
-        THREE.MathUtils.lerp(ladderStand.y, perchSpot.y, level) + bob * (1 - settle),
-        THREE.MathUtils.lerp(ladderStand.z, perchSpot.z, settle),
+        ladderStand.x,
+        climbBodyY(travelled) + Math.sin(step * Math.PI * 4) * 0.005,
+        THREE.MathUtils.lerp(ladderStand.z, perchSpot.z, zMix),
       );
-      protagonistAnchor.rotation.y += (-0.06 - protagonistAnchor.rotation.y) * Math.min(1, delta * 4);
+      protagonistAnchor.rotation.y += (
+        THREE.MathUtils.lerp(-0.06, -0.14, zMix) - protagonistAnchor.rotation.y
+      ) * Math.min(1, delta * 4);
+      // 手比脚领先几级，并且早半个周期出手；左右各差半级，形成交替
+      const lead = climbRig ? climbRig.handLead : 5;
+      const handStep = step + 0.5 + lead * dir;
+      const side = climbRig ? climbRig.limbSide : { hand_l: -1, foot_l: -1 };
+      const handX = side.hand_l * 0.045;
+      const footX = side.foot_l * 0.032;
+      limbToRung(climbTargets.hand_l, handStep, dir, handX, 0.038);
+      limbToRung(climbTargets.hand_r, handStep + 0.5, dir, -handX, 0.038);
+      limbToRung(climbTargets.foot_l, step, dir, footX, 0.028);
+      limbToRung(climbTargets.foot_r, step + 0.5, dir, -footX, 0.028);
+      applyClimbPose(climbTargets, Math.sin(step * Math.PI * 2), 1 - topEase);
+      climbPoseActive = true;
       beamAnchor.set(
         protagonistAnchor.position.x,
         Math.min(0.92, protagonistAnchor.position.y + 0.34),
@@ -1067,9 +1457,25 @@ if (renderer) {
 
     if (mode === "pull") {
       const progress = Math.min(1, (elapsed - characterStory.modeSince) / pullDuration);
-      const strain = Math.sin(progress * Math.PI * 6);
-      protagonistAnchor.position.set(ropeStand.x, ropeStand.y - Math.max(0, strain) * 0.028, ropeStand.z);
-      protagonistAnchor.rotation.y += (-0.35 - protagonistAnchor.rotation.y) * Math.min(1, delta * 4);
+      const stroke = Math.sin(progress * Math.PI * 6);
+      const strain = Math.max(0, stroke);
+      // 绳子下拉的行程不能超过臂长能覆盖的范围，否则手会被 IK 扯在绳把外面
+      const ropeExtension = strain * 0.05;
+      const handleY = ropeAnchor.y - (ropeRestLength + ropeExtension);
+      protagonistAnchor.position.set(
+        ropeStand.x,
+        ropeStand.y - strain * 0.026,
+        ropeStand.z,
+      );
+      protagonistAnchor.rotation.y += (0.04 - protagonistAnchor.rotation.y) * Math.min(1, delta * 4);
+      // 双手握住绳把，双脚钉在地面上，靠躯干后仰把绳子往下带
+      const side = climbRig ? climbRig.limbSide : { hand_l: -1, foot_l: -1 };
+      worldPoint(ropeAnchor.x + side.hand_l * 0.045, handleY, ropeAnchor.z + 0.028, climbTargets.hand_l);
+      worldPoint(ropeAnchor.x - side.hand_l * 0.045, handleY, ropeAnchor.z + 0.028, climbTargets.hand_r);
+      worldPoint(ropeStand.x + side.foot_l * 0.072, homePosition.y, ropeStand.z + 0.02, climbTargets.foot_l);
+      worldPoint(ropeStand.x - side.foot_l * 0.072, homePosition.y, ropeStand.z + 0.02, climbTargets.foot_r);
+      applyPullPose(climbTargets, strain);
+      climbPoseActive = true;
       beamAnchor.set(ropeStand.x + 0.55, -0.58, ropeStand.z - 0.2);
       beamHold = 1;
       shutterTarget = Math.min(1, Math.max(0, (progress - 0.1) / 0.72));
@@ -1113,8 +1519,6 @@ if (renderer) {
       const lookUp = mode === "climb" || mode === "descend" || mode === "pull" || mode === "glow" ? -0.5 : 0;
       protagonist.userData.headPivot.rotation.y += (lookUp - protagonist.userData.headPivot.rotation.y) * Math.min(1, delta * 7);
     }
-
-    characterRuntime.mixer?.update(delta);
   };
 
   const applyVisitorLight = (detail = {}) => {
@@ -1217,7 +1621,7 @@ if (renderer) {
     revealLight.intensity = shutterProgress * 4.4;
     const ropeSway = Math.sin(elapsed * 0.9) * 0.012 * motion;
     const ropeExtension = characterStory.mode === "pull"
-      ? Math.max(0, Math.sin((elapsed - characterStory.modeSince) * Math.PI * 6)) * 0.12
+      ? Math.max(0, Math.sin((elapsed - characterStory.modeSince) * Math.PI * 6)) * 0.05
       : 0;
     const ropeLength = ropeRestLength + ropeExtension;
     rope.scale.y = ropeLength / ropeRestLength;
@@ -1225,10 +1629,36 @@ if (renderer) {
     rope.rotation.z = ropeSway * 0.8;
     ropeHandle.position.set(ropeAnchor.x + ropeSway, ropeAnchor.y - ropeLength, ropeAnchor.z);
     const hotspotPulse = 0.5 + Math.sin(elapsed * 1.8) * 0.5;
-    const ladderBusy = characterStory.mode === "climb" || characterStory.mode === "perch";
+    const ladderBusy = characterStory.mode === "climb"
+      || characterStory.mode === "descend"
+      || characterStory.mode === "perch";
     const ropeBusy = characterStory.mode === "pull" || shutterProgress > 0.9;
-    ladderHotspot.material.opacity = 0.06 + hotspotPulse * 0.07 * (ladderBusy ? 0.22 : 1);
-    ropeHotspot.material.opacity = 0.06 + hotspotPulse * 0.07 * (ropeBusy ? 0.22 : 1);
+    // 一直没动手时把提示加强，让人注意到这两个点是能点的
+    const idleFor = elapsed - lastInteractionAt;
+    const nudge = THREE.MathUtils.clamp((idleFor - 3.5) / 2.5, 0, 1) * (changeCount === 0 ? 1 : 0.3);
+    const beaconWave = (elapsed * 0.5) % 1;
+    beacons.forEach((beacon) => {
+      const wanted = hoverKind === beacon.kind ? 1 : 0;
+      beacon.hover += (wanted - beacon.hover) * Math.min(1, delta * 8);
+      const busy = beacon.kind === "ladder" ? ladderBusy : ropeBusy;
+      const dim = busy ? 0.26 : 1;
+      beacon.column.material.opacity = (0.028 + Math.sin(elapsed * 1.5) * 0.014
+        + beacon.hover * 0.06 + nudge * 0.014) * dim;
+      beacon.ripples.forEach((ring) => {
+        const wave = (beaconWave + ring.userData.offset) % 1;
+        ring.scale.setScalar(0.85 + wave * 1.7);
+        ring.material.opacity = (1 - wave) * (0.085 + nudge * 0.09 + beacon.hover * 0.18) * dim;
+      });
+    });
+    ladderHotspot.material.opacity = (0.085 + hotspotPulse * 0.08 + ladderBeacon.hover * 0.16)
+      * (ladderBusy ? 0.3 : 1);
+    ropeHotspot.material.opacity = (0.085 + hotspotPulse * 0.08 + ropeBeacon.hover * 0.16)
+      * (ropeBusy ? 0.3 : 1);
+    ladderGlowMaterial.emissiveIntensity = (0.36 + Math.sin(elapsed * 1.5) * 0.08
+      + ladderBeacon.hover * 0.85 + nudge * 0.22) * (ladderBusy ? 0.55 : 1);
+    ropeGlowMaterial.emissiveIntensity = (0.36 + Math.sin(elapsed * 1.7 + 1) * 0.08
+      + ropeBeacon.hover * 0.85 + nudge * 0.22) * (ropeBusy ? 0.55 : 1);
+    ropeMaterial.emissiveIntensity = 0.5 + ropeBeacon.hover * 0.5 + nudge * 0.18;
 
     const exposure = characterStory.exposure;
     const traveling = characterStory.mode === "follow" ? 1 : 0;
@@ -1343,6 +1773,7 @@ if (renderer) {
   }, { passive: true });
   hero.addEventListener("pointerleave", () => {
     pointerDesired.set(0, 0);
+    setHover(null);
     visual.style.setProperty("--visual-x", "0px");
     visual.style.setProperty("--visual-y", "0px");
   });
@@ -1354,10 +1785,10 @@ if (renderer) {
   visual.addEventListener("pointermove", (event) => {
     if (reducedMotion.matches || (event.pointerType === "touch" && !touchDragging)) return;
     const bounds = visual.getBoundingClientRect();
-    pointerDesired.set(
-      (event.clientX - bounds.left) / bounds.width - 0.5,
-      0.5 - (event.clientY - bounds.top) / bounds.height,
-    );
+    const nx = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const ny = 0.5 - (event.clientY - bounds.top) / bounds.height;
+    pointerDesired.set(nx, ny);
+    updateHover(nx, ny);
     hoverTarget = 1;
     hero.classList.add("is-searching");
     visual.style.setProperty("--scan-x", `${event.clientX - bounds.left}px`);
@@ -1376,13 +1807,43 @@ if (renderer) {
   const interactiveModes = ["idle", "lit", "glow", "perch", "arrived"];
 
   const pickInteraction = (point, hitObject) => {
+    if (hitObject === ladderVolume) return "ladder";
+    if (hitObject === ropeVolume) return "rope";
     if (hitObject === platformDeck || hitObject === platformEdge || ladder.children.includes(hitObject)) return "ladder";
     if (hitObject === revealPanel || hitObject === rope || hitObject === ropeHandle || shutterSlats.includes(hitObject)) return "rope";
     const ladderDistance = Math.hypot(point.x - ladderStand.x, point.z - ladderStand.z);
     const ropeDistance = Math.hypot(point.x - ropeStand.x, point.z - ropeStand.z);
-    if (ladderDistance < 0.68 && ladderDistance <= ropeDistance) return "ladder";
-    if (ropeDistance < 0.68) return "rope";
+    if (ladderDistance < 0.85 && ladderDistance <= ropeDistance) return "ladder";
+    if (ropeDistance < 0.85) return "rope";
     return "beam";
+  };
+
+  // 鼠标划过可交互装置时给出的即时反馈：光标变手型 + 光柱和地面环加亮。
+  // 这是"不用文字也能看出哪里能点"的关键一环。
+  const setHover = (kind) => {
+    if (hoverKind === kind) return;
+    hoverKind = kind;
+    visual.dataset.hover = kind || "";
+  };
+
+  const hoverRaycaster = new THREE.Raycaster();
+  const hoverNdc = new THREE.Vector2();
+  const updateHover = (nx, ny) => {
+    if (reducedMotion.matches || !interactiveModes.includes(characterStory.mode)) {
+      setHover(null);
+      return;
+    }
+    hoverNdc.set(nx * 2, ny * 2);
+    hoverRaycaster.setFromCamera(hoverNdc, pickCamera);
+    const [hit] = hoverRaycaster.intersectObjects(
+      [ladderVolume, ropeVolume, ...ladder.children, platformDeck, platformEdge, rope, ropeHandle, revealPanel, ...shutterSlats],
+      false,
+    );
+    if (!hit) {
+      setHover(null);
+      return;
+    }
+    setHover(pickInteraction(world.worldToLocal(hit.point.clone()), hit.object));
   };
 
   const engageInvention = (kind, point, elapsed) => {
@@ -1415,6 +1876,33 @@ if (renderer) {
     return true;
   };
 
+  // 只有带 ?debug 时才挂载：给无头浏览器验收用的读数口，不影响正式页面
+  if (new URLSearchParams(window.location.search).has("debug")) {
+    const limbNames = [
+      "hand_l", "hand_r", "foot_l", "foot_r",
+      "upperarm_l", "upperarm_r", "thigh_l", "thigh_r", "pelvis",
+    ];
+    visual.__scene = {
+      climbDuration: (value) => { climbDuration = value; },
+      rungs: () => Array.from({ length: rungCount + 1 }, (_, i) => rungPoint(i - 1, 0, new THREE.Vector3()).toArray()),
+      snapshot: () => ({
+        mode: characterStory.mode,
+        rig: climbRig ? {
+          lead: climbRig.handLead,
+          arm: +climbRig.armLength.toFixed(4),
+          leg: +climbRig.legLength.toFixed(4),
+          crouch: +climbRig.crouchWorld.toFixed(4),
+        } : null,
+        anchor: protagonistAnchor.position.toArray(),
+        bones: Object.fromEntries(limbNames.map((name) => [
+          name,
+          ikBones[name] ? ikBones[name].getWorldPosition(new THREE.Vector3()).toArray() : null,
+        ])),
+        targets: Object.fromEntries(Object.entries(climbTargets).map(([k, v]) => [k, v.toArray()])),
+      }),
+    };
+  }
+
   const placeBeamAt = (clientX, clientY) => {
     const bounds = visual.getBoundingClientRect();
     const nx = (clientX - bounds.left) / bounds.width - 0.5;
@@ -1423,7 +1911,8 @@ if (renderer) {
     beamNdc.set(nx * 2, ny * 2);
     beamRaycaster.setFromCamera(beamNdc, pickCamera);
     const [hit] = beamRaycaster.intersectObjects(
-      [floor, platformDeck, platformEdge, revealPanel, rope, ropeHandle, ...shutterSlats, ...ladder.children],
+      [ladderVolume, ropeVolume, floor, platformDeck, platformEdge, revealPanel, rope, ropeHandle,
+        ...shutterSlats, ...ladder.children],
       false,
     );
     const local = hit ? world.worldToLocal(hit.point.clone()) : null;
@@ -1438,6 +1927,7 @@ if (renderer) {
       )
       : new THREE.Vector3(nx * 3.2, -0.985, 0.42 + ny * 2.1);
     beamHold = 1;
+    lastInteractionAt = previousElapsed;
     hero.classList.add("is-searching");
     visual.dataset.beam = "locked";
     visual.dataset.prop = kind;
