@@ -192,9 +192,10 @@
 }
 
 .signal-field__status,
+.signal-field__hint,
 .signal-field__chapter,
 .signal-field__event,
-.signal-field__discovery,
+.signal-field__legend,
 .signal-field__choices {
   position: absolute;
   z-index: 5;
@@ -351,33 +352,47 @@
   color: rgba(220, 228, 224, 0.34);
 }
 
-.signal-field__discovery {
+.signal-field__legend {
   right: 13%;
   bottom: 22%;
+  display: grid;
+  justify-items: end;
+  gap: 4px;
   margin: 0;
-  font-size: 12px;
-  color: rgba(216, 226, 221, 0.62);
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 360ms ease, transform 360ms ease;
+  font-size: 9px;
+  line-height: 1.3;
+  color: rgba(183, 198, 191, 0.36);
+  transition: opacity 260ms ease;
 }
 
-.signal-field__discovery b {
+.signal-field__legend b {
+  color: rgba(216, 226, 221, 0.62);
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: none;
 }
 
-.hero__visual[data-discovery="ladder"] .signal-field__discovery,
-.hero__visual[data-discovery="rope"] .signal-field__discovery {
-  opacity: 1;
-  transform: translateY(0);
+.signal-field__hint {
+  right: 13%;
+  bottom: 9%;
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+  margin: 0;
+  padding-right: 13px;
+  border-right: 1px solid rgba(203, 214, 209, 0.28);
+  font-size: 10px;
+  line-height: 1.4;
+  opacity: 0.58;
+  transition: opacity 260ms ease, transform 320ms ease;
 }
 
-.hero__visual[data-discovery="ladder"] .signal-field__discovery b,
-.hero__visual[data-discovery="rope"] .signal-field__discovery b {
-  color: rgba(238, 244, 240, 0.9);
-  text-shadow: 0 0 12px rgba(151, 203, 181, 0.3);
+.signal-field__hint b {
+  color: rgba(242, 245, 243, 0.8);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
 }
 
 .signal-field::before {
@@ -440,9 +455,13 @@
   animation: scanEcho 840ms cubic-bezier(0.2, 0.78, 0.2, 1);
 }
 
-.hero.is-searching .signal-field__discovery,
-.hero__visual[data-beam="locked"] .signal-field__discovery {
-  color: rgba(224, 233, 228, 0.8);
+.hero.is-searching .signal-field__hint {
+  opacity: 0.92;
+  transform: translateX(-4px);
+}
+
+.hero__visual[data-beam="locked"] .signal-field__hint {
+  opacity: 0.84;
 }
 
 @keyframes industrialBreath {
@@ -581,12 +600,31 @@
     display: none;
   }
 
-  .signal-field__discovery {
+  .signal-field__legend {
     right: 16%;
     bottom: 21%;
     width: 42%;
+    justify-items: end;
     text-align: right;
+    font-size: 8px;
+  }
+
+  .signal-field__legend b {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .signal-field__hint {
+    right: 16%;
+    bottom: 7%;
+    width: 39%;
+    font-size: 8px;
+    text-align: right;
+  }
+
+  .signal-field__hint b {
     font-size: 10px;
+    line-height: 1.45;
   }
 
   .signal-field {
