@@ -10,15 +10,64 @@
   const content = document.querySelector("#guestbook-content");
   const characterCount = document.querySelector("#guestbook-character-count");
   const toast = document.querySelector("#guestbook-toast");
-  if (!sky || !openButton || !dialog || !closeButton || !form || !submitButton || !status || !nickname || !content || !characterCount || !toast) return;
+  const moodInputs = Array.from(document.querySelectorAll('input[name="mood"]'));
+  const compose = document.querySelector("#guestbook-compose");
+  const composeHint = document.querySelector("#guestbook-compose-hint");
+  const submitLabel = document.querySelector("#guestbook-submit-label");
+  if (!sky || !openButton || !dialog || !closeButton || !form || !submitButton || !status || !nickname || !content || !characterCount || !toast || !compose || !composeHint || !submitLabel || !moodInputs.length) return;
 
   const config = globalThis.GUESTBOOK_CONFIG || {};
   const apiBaseUrl = String(config.apiBaseUrl || "").replace(/\/$/, "");
   const apiConfigured = /^https?:\/\//.test(apiBaseUrl);
   let messageIndex = 0;
   let toastTimer;
-  const launchLabel = submitButton.querySelector(".guestbook-launch__label");
   const launchDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1120;
+
+  const MOODS = {
+    checkin: {
+      submit: "打个卡就溜",
+      launching: "正在盖脚印…",
+      status: "打卡中，盖完脚印就溜…",
+      toast: "打卡成功，溜了～",
+      placeholder: "",
+      hint: "什么都不用写，这里会替你留一句打卡语。",
+    },
+    chat: {
+      submit: "说给他听",
+      launching: "正在传话",
+      status: "正在把你的话传过去…",
+      toast: "你的留言说给他听了",
+      placeholder: "建议、问题，或者一句路过的招呼。",
+      hint: "",
+    },
+    cold: {
+      submit: "冷漠路过",
+      launching: "正在冷漠",
+      status: "正在面无表情地路过…",
+      toast: "好的，已阅。",
+      placeholder: "算了，一个字都不想打（留空也行）",
+      hint: "什么都不想写的话，系统会替你冷冷地路过。",
+    },
+  };
+  const MOOD_TAGS = { checkin: "打卡", chat: "聊聊", cold: "冷漠" };
+
+  const getMood = () => {
+    const checked = moodInputs.find((input) => input.checked);
+    return checked && MOODS[checked.value] ? checked.value : "chat";
+  };
+
+  const applyMood = () => {
+    const mood = getMood();
+    const config = MOODS[mood] || MOODS.chat;
+    submitButton.dataset.mood = mood;
+    if (submitLabel) submitLabel.textContent = config.submit;
+    content.placeholder = config.placeholder;
+    content.required = mood === "chat";
+    compose.classList.toggle("is-checkin", mood === "checkin");
+    composeHint.hidden = mood === "chat";
+    if (mood !== "chat") composeHint.textContent = config.hint;
+    setStatus("");
+  };
 
   const request = async (path, options = {}) => {
     const response = await fetch(`${apiBaseUrl}${path}`, {
@@ -40,8 +89,9 @@
     const body = document.createElement("span");
     const text = String(item.content || "").replace(/\s*\n+\s*/g, " ");
     const duration = 20 + Math.min(text.length, 60) * 0.12 + (index % 4) * 1.7;
+    const mood = ["checkin", "chat", "cold"].includes(item.mood) ? item.mood : "chat";
 
-    message.className = "guestbook-danmaku";
+    message.className = `guestbook-danmaku guestbook-danmaku--${mood}`;
     message.style.setProperty("--lane-top", laneTop(index % laneCount()));
     message.style.setProperty("--duration", `${duration}s`);
     // 偏移 7s 起步，避免首屏第一条还停在视口外
@@ -49,6 +99,15 @@
     author.textContent = String(item.nickname || "访客");
     body.textContent = text;
     message.append(author, body);
+    const meta = document.createElement("small");
+    meta.className = "guestbook-danmaku__meta";
+    const metaParts = [];
+    if (MOOD_TAGS[mood]) metaParts.push(MOOD_TAGS[mood]);
+    if (item.ipDisplay) metaParts.push(item.ipDisplay);
+    if (metaParts.length) {
+      meta.textContent = metaParts.join(" · ");
+      message.append(meta);
+    }
     return message;
   };
 
@@ -124,11 +183,12 @@
     document.documentElement.classList.toggle("guestbook-dialog-open", isOpen);
   };
 
-  const setLaunchState = (isLaunching) => {
+  const setLaunchState = (isLaunching, mood = getMood()) => {
+    const config = MOODS[mood] || MOODS.chat;
     submitButton.classList.toggle("is-launching", isLaunching);
     submitButton.toggleAttribute("aria-busy", isLaunching);
     submitButton.disabled = isLaunching;
-    if (launchLabel) launchLabel.textContent = isLaunching ? "正在升空" : "发射到星海";
+    if (submitLabel) submitLabel.textContent = isLaunching ? config.launching : config.submit;
   };
 
   const loadMessages = async () => {
@@ -139,7 +199,7 @@
       payload.items.forEach((item) => appendDanmaku(item));
       shareVisitorLight(payload.items);
     } catch {
-      // 留言读取失败时保留原有星海，不打断首屏体验。
+      // 留言读取失败时保留原有弹幕，不打断首屏体验。
     }
   };
 
@@ -157,6 +217,7 @@
       return;
     }
     setStatus("");
+    applyMood();
     setDialogCursor(true);
     dialog.showModal();
     window.setTimeout(() => nickname.focus(), 0);
@@ -179,11 +240,16 @@
     characterCount.textContent = String(content.value.length);
   });
 
+  moodInputs.forEach((input) => {
+    input.addEventListener("change", applyMood);
+  });
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (submitButton.disabled) return;
-    setLaunchState(true);
-    setStatus("正在点火，校准发射轨道…", "launching");
+    const mood = getMood();
+    setLaunchState(true, mood);
+    setStatus((MOODS[mood] || MOODS.chat).status, "launching");
     const data = new FormData(form);
     const launchAnimation = new Promise((resolve) => window.setTimeout(resolve, launchDuration));
 
@@ -194,6 +260,7 @@
           body: JSON.stringify({
             nickname: data.get("nickname"),
             content: data.get("content"),
+            mood,
             website: data.get("website"),
           }),
         }),
@@ -203,12 +270,13 @@
       shareVisitorLight([payload.item], true);
       form.reset();
       characterCount.textContent = "0";
+      applyMood();
       dialog.close();
-      showToast("你的留言正在穿过星海");
+      showToast((MOODS[mood] || MOODS.chat).toast);
     } catch (error) {
       setStatus(error.message, "error");
     } finally {
-      setLaunchState(false);
+      setLaunchState(false, mood);
     }
   });
 

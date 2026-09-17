@@ -1,6 +1,6 @@
 # 留言服务
 
-Cloudflare Worker + 远程 D1 留言服务。开发与正式页面共用线上数据库，留言提交后直接公开为星空弹幕；服务保留 IP HMAC 限流和蜜罐字段，不保存原始 IP。
+Cloudflare Worker + 远程 D1 留言服务。开发与正式页面共用线上数据库，留言提交后直接公开为留言弹幕；留言支持三种心情（`checkin` 打个卡就溜 / `chat` 简单说两句 / `cold` 狠心冷漠），打卡与冷漠可留空、由服务端生成默认文案；弹幕展示掩码 IP（仅存前两段，如 `223.104.***.***`），不保存原始 IP。服务保留 IP HMAC 限流和蜜罐字段。
 
 当前线上资源：
 
@@ -23,7 +23,7 @@ npm run deploy
 查看线上留言：
 
 ```powershell
-npx wrangler d1 execute gsy-guestbook --remote --command "SELECT id, nickname, content, created_at FROM messages ORDER BY created_at DESC;"
+npx wrangler d1 execute gsy-guestbook --remote --command "SELECT id, nickname, content, mood, ip_display, created_at FROM messages ORDER BY created_at DESC;"
 ```
 
 删除不合适的留言：

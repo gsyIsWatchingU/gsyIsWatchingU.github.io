@@ -2,6 +2,9 @@ const JSON_HEADERS = { "Content-Type": "application/json; charset=utf-8" };
 const MAX_BODY_BYTES = 4096;
 const MESSAGE_LIMIT_PER_TEN_MINUTES = 3;
 const MESSAGE_LIMIT_PER_DAY = 10;
+const MOODS = ["checkin", "chat", "cold"];
+const CHECKIN_LINES = ["到此一游，溜了", "来都来了，留个脚印", "打卡成功，今天也来过", "踩个脚印，不算白来"];
+const COLD_LINES = ["已阅，走了。", "不想说，路过。", "冷漠路过。"];
 
 export default {
   async fetch(request, env) {
@@ -101,8 +104,13 @@ async function createMessage(request, env, origin) {
       return json({ status: "pending" }, 202, origin, env);
     }
 
+    const mood = normalizeMood(body.mood);
     const nickname = normalizeText(body.nickname, 20);
-    const content = normalizeText(body.content, 300, true);
+    let content = normalizeText(body.content, 300, true);
+    const id = crypto.randomUUID();
+    if (mood !== "chat" && !content) {
+      content = mood === "checkin" ? pickByHash(id, CHECKIN_LINES) : pickByHash(id, COLD_LINES);
+    }
     if (nickname.length < 2) throw new HttpError(400, "昵称至少需要 2 个字符");
     if (content.length < 2) throw new HttpError(400, "留言至少需要 2 个字符");
     if ((content.match(/https?:\/\//gi) || []).length > 2) {
@@ -114,19 +122,19 @@ async function createMessage(request, env, origin) {
     const day = isoDay(now);
     const ipHash = await hmacHex(env.IP_HASH_SECRET, `${day}|${clientIp}`);
     await enforceMessageRateLimit(env, ipHash, now);
+    const ipDisplay = maskIp(clientIp);
 
-    const id = crypto.randomUUID();
     await env.DB.prepare(
-      `INSERT INTO messages (id, nickname, content, status, ip_hash, created_at, approved_at)
-       VALUES (?, ?, ?, 'approved', ?, ?, ?)`
+      `INSERT INTO messages (id, nickname, content, status, mood, ip_display, ip_hash, created_at, approved_at)
+       VALUES (?, ?, ?, 'approved', ?, ?, ?, ?, ?)`
     )
-      .bind(id, nickname, content, ipHash, now, now)
+      .bind(id, nickname, content, mood, ipDisplay, ipHash, now, now)
       .run();
 
     return json(
       {
         status: "approved",
-        item: { id, nickname, content, createdAt: now },
+        item: { id, nickname, content, mood, ipDisplay, createdAt: now },
       },
       201,
       origin,
@@ -144,7 +152,7 @@ async function listMessages(url, env, origin) {
     const cursor = decodeCursor(url.searchParams.get("cursor"));
     const query = cursor
       ? env.DB.prepare(
-          `SELECT id, nickname, content, created_at
+          `SELECT id, nickname, content, mood, ip_display, created_at
            FROM messages
            WHERE status = 'approved'
              AND (created_at < ? OR (created_at = ? AND id < ?))
@@ -152,7 +160,7 @@ async function listMessages(url, env, origin) {
            LIMIT ?`
         ).bind(cursor.createdAt, cursor.createdAt, cursor.id, limit + 1)
       : env.DB.prepare(
-          `SELECT id, nickname, content, created_at
+          `SELECT id, nickname, content, mood, ip_display, created_at
            FROM messages
            WHERE status = 'approved'
            ORDER BY created_at DESC, id DESC
@@ -171,6 +179,8 @@ async function listMessages(url, env, origin) {
           id: row.id,
           nickname: row.nickname,
           content: row.content,
+          mood: row.mood,
+          ipDisplay: row.ip_display,
           createdAt: row.created_at,
         })),
         nextCursor: hasMore && last ? encodeCursor(last.created_at, last.id) : null,
@@ -270,6 +280,27 @@ function normalizeText(value, maxLength, preserveLines = false) {
     : text.replace(/\s+/g, " ").trim();
   if (normalized.length > maxLength) throw new HttpError(400, `内容不能超过 ${maxLength} 个字符`);
   return normalized;
+}
+
+function normalizeMood(value) {
+  return MOODS.includes(value) ? value : "chat";
+}
+
+function maskIp(ip) {
+  if (!ip || ip === "unknown") return null;
+  if (ip.includes(":")) {
+    const parts = ip.split(":");
+    return `${parts.slice(0, 2).join(":")}:***`;
+  }
+  const octets = ip.split(".");
+  if (octets.length !== 4 || octets.some((octet) => !/^\d{1,3}$/.test(octet))) return null;
+  return `${octets[0]}.${octets[1]}.***.***`;
+}
+
+function pickByHash(seed, lines) {
+  let hash = 0;
+  for (let index = 0; index < seed.length; index += 1) hash = (hash * 31 + seed.charCodeAt(index)) >>> 0;
+  return lines[hash % lines.length];
 }
 
 function assertDatabase(env) {

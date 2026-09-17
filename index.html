@@ -111,7 +111,7 @@
             <canvas class="galaxy-focus-canvas" aria-hidden="true"></canvas>
             <p class="signal-field__chapter">
               <span>神秘的人 · 互动场景</span>
-              <b>点击画面移动光束，他会走过来</b>
+              <b>他在暗处，等一束光</b>
             </p>
             <div class="signal-field__status">
               <span><i></i> MYSTERY / LIVE</span>
@@ -125,15 +125,8 @@
               <span data-choice-count>变化 00 / 03</span>
               <b data-story-stage>寂静 · 他还在暗处</b>
             </p>
-            <p class="signal-field__legend">
-              <span>可以点的三个地方</span>
-              <b>梯子口 · 他会爬上猫道</b>
-              <b>绳子下 · 他会拉起卷帘</b>
-              <b>其它位置 · 他只是走过去</b>
-            </p>
-            <p class="signal-field__hint">
-              <span data-story-instruction>① 点击画面，移动光束</span>
-              <b data-story-action>② 点击三次，留下变化</b>
+            <p class="signal-field__discovery">
+              <b data-discovery-hint></b>
             </p>
           </div>
         </div>
@@ -162,19 +155,43 @@
             required
           />
 
-          <div class="guestbook-dialog__label-row">
-            <label for="guestbook-content">留言</label>
-            <span><span id="guestbook-character-count">0</span>/300</span>
+          <fieldset class="guestbook-dialog__moods" id="guestbook-moods">
+            <legend>现在的心情</legend>
+            <label class="guestbook-mood is-selected">
+              <input type="radio" name="mood" value="checkin" checked />
+              <span class="guestbook-mood__name">打个卡就溜</span>
+              <span class="guestbook-mood__hint">来都来了，留个脚印就走</span>
+            </label>
+            <label class="guestbook-mood">
+              <input type="radio" name="mood" value="chat" />
+              <span class="guestbook-mood__name">简单说两句</span>
+              <span class="guestbook-mood__hint">想说的话，说给他听</span>
+            </label>
+            <label class="guestbook-mood">
+              <input type="radio" name="mood" value="cold" />
+              <span class="guestbook-mood__name">狠心冷漠</span>
+              <span class="guestbook-mood__hint">一个字都不想打，走了</span>
+            </label>
+          </fieldset>
+
+          <div class="guestbook-dialog__compose" id="guestbook-compose">
+            <div class="guestbook-dialog__label-row">
+              <label for="guestbook-content">留言</label>
+              <span><span id="guestbook-character-count">0</span>/300</span>
+            </div>
+            <textarea
+              id="guestbook-content"
+              name="content"
+              minlength="2"
+              maxlength="300"
+              rows="5"
+              placeholder="建议、问题，或者一句路过的招呼。"
+              required
+            ></textarea>
+            <p class="guestbook-dialog__compose-hint" id="guestbook-compose-hint" hidden>
+              什么都不用写，这里会替你留一句打卡语。
+            </p>
           </div>
-          <textarea
-            id="guestbook-content"
-            name="content"
-            minlength="2"
-            maxlength="300"
-            rows="5"
-            placeholder="建议、问题，或者一句路过的招呼。"
-            required
-          ></textarea>
 
           <div class="guestbook__honeypot" aria-hidden="true">
             <label for="guestbook-website">网站</label>
@@ -182,24 +199,17 @@
           </div>
 
           <p class="guestbook-dialog__status" id="guestbook-status" role="status" aria-live="polite"></p>
-          <button class="guestbook-dialog__submit" id="guestbook-submit" type="submit">
+          <button class="guestbook-dialog__submit" id="guestbook-submit" type="submit" data-mood="checkin">
             <span class="guestbook-launch__copy">
-              <span class="guestbook-launch__overline">SEND TO ORBIT</span>
-              <span class="guestbook-launch__label">发射到星海</span>
+              <span class="guestbook-launch__overline">LEAVE A SIGNAL</span>
+              <span class="guestbook-launch__label" id="guestbook-submit-label">打个卡就溜</span>
             </span>
             <span class="guestbook-launch__scene" aria-hidden="true">
-              <span class="guestbook-launch__orbit"></span>
-              <span class="guestbook-launch__star guestbook-launch__star--one"></span>
-              <span class="guestbook-launch__star guestbook-launch__star--two"></span>
-              <span class="guestbook-launch__star guestbook-launch__star--three"></span>
-              <span class="guestbook-launch__craft">
-                <svg viewBox="0 0 28 34" focusable="false">
-                  <path class="guestbook-launch__craft-body" d="M14 2.2c4.2 3.9 6.3 8.3 6.3 13.1v7.3L16.8 26H11l-3.4-3.4v-7.3C7.6 10.5 9.7 6.1 14 2.2Z" />
-                  <path class="guestbook-launch__craft-window" d="M14 9.2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" />
-                  <path class="guestbook-launch__craft-fin" d="m7.6 18.2-4 5.8v4.1l7.3-3.5M20.3 18.2l4.1 5.8v4.1L17 24.6" />
-                </svg>
-                <span class="guestbook-launch__flame"></span>
-              </span>
+              <svg class="guestbook-launch__signal" viewBox="0 0 40 40" focusable="false">
+                <circle class="guestbook-launch__signal-dot" cx="20" cy="20" r="4" />
+                <path class="guestbook-launch__signal-arc" d="M12.5 13.8a11.5 11.5 0 0 1 0 12.4" />
+                <path class="guestbook-launch__signal-arc" d="M8.8 10.2a17 17 0 0 1 0 19.6" />
+              </svg>
             </span>
           </button>
         </form>

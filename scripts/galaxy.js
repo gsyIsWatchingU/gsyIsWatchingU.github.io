@@ -11,8 +11,7 @@ const storyKickerLabel = document.querySelector("[data-story-kicker]");
 const storyCopyLabel = document.querySelector("[data-story-copy]");
 const storyStageLabel = document.querySelector("[data-story-stage]");
 const choiceCountLabel = document.querySelector("[data-choice-count]");
-const storyInstructionLabel = document.querySelector("[data-story-instruction]");
-const storyActionLabel = document.querySelector("[data-story-action]");
+const discoveryHintLabel = document.querySelector("[data-discovery-hint]");
 
 if (!hero || !visual || !atmosphereCanvas || !sceneCanvas) {
   throw new Error("首屏叙事场景缺少必要节点");
@@ -1235,7 +1234,7 @@ if (renderer) {
   let storyResolved = false;
   let chosenPathIndex = 1;
   const storyStages = {
-    idle: ["神秘的人 · 待机", "点击画面任意位置，把光束移过去"],
+    idle: ["神秘的人 · 待机", "他站在暗处，等一束光找到他"],
     follow: ["光换了位置", "他转过身，朝光走过去"],
     lit: ["他站在光里", "光停在哪，他就停在哪"],
     approach: ["他选中了一件东西", "先走过去，再决定怎么用"],
@@ -1259,17 +1258,35 @@ if (renderer) {
       choiceCountLabel.textContent = `变化 ${String(changeCount).padStart(2, "0")} / ${String(changeGoal).padStart(2, "0")}`;
     }
     if (storyStageLabel) storyStageLabel.textContent = stageNames[characterStory.mode] || stageNames.idle;
-    if (storyInstructionLabel) {
-      storyInstructionLabel.textContent = "① 点击画面，移动光束";
-    }
-    if (storyActionLabel) {
-      storyActionLabel.textContent = storyResolved
-        ? "② 他已经走进光里"
-        : changeCount >= changeGoal - 1
-          ? "② 再点击一次，路会分开"
-          : "② 点击三次，留下变化";
-    }
     visual.dataset.choices = String(changeCount);
+  };
+  // 发现提示：不提前剧透。光束扫到梯子/绳子附近时，才浮现一句自然的话
+  const discoveryHints = {
+    ladder: "这里好像有梯子……",
+    rope: "绳子下面好像藏着什么……",
+  };
+  let lastDiscoveryKind = null;
+  const updateDiscoveryHint = () => {
+    if (!discoveryHintLabel) return;
+    const mode = characterStory.mode;
+    let kind = null;
+    // 爬梯/下梯/拉绳期间不重复提示，其余时候光束扫到就自然浮现
+    const busy = mode === "climb" || mode === "descend" || mode === "pull";
+    if (!busy) {
+      const beamX = beamTarget.x;
+      const beamZ = beamTarget.z;
+      const ladderDist = Math.hypot(beamX - ladderStand.x, beamZ - ladderStand.z);
+      const ropeDist = Math.hypot(beamX - ropeStand.x, beamZ - ropeStand.z);
+      const reach = 1.05;
+      const onPerch = mode === "perch";
+      const shutterDone = mode === "glow" && shutterProgress > 0.9;
+      if (!onPerch && ladderDist < reach && ladderDist <= ropeDist) kind = "ladder";
+      else if (!shutterDone && ropeDist < reach) kind = "rope";
+    }
+    if (kind === lastDiscoveryKind) return;
+    lastDiscoveryKind = kind;
+    discoveryHintLabel.textContent = kind ? discoveryHints[kind] : "";
+    visual.dataset.discovery = kind || "";
   };
   visual.dataset.story = characterStory.mode;
   visual.dataset.scan = "idle";
@@ -1612,6 +1629,7 @@ if (renderer) {
     bridgeLight.scale.x += ((storyResolved ? 0.24 : 1) - bridgeLight.scale.x) * Math.min(1, delta * 1.8);
 
     updateCharacterStory(elapsed, delta * motion);
+    updateDiscoveryHint();
 
     shutterProgress += (shutterTarget - shutterProgress) * Math.min(1, delta * 2.4);
     shutterSlats.forEach((slat) => {
