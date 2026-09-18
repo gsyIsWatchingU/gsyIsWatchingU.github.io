@@ -196,12 +196,42 @@ const createCharacter = ({ distant = false, accent = false } = {}) => {
   return group;
 };
 
+// 光锥截面：`ConeGeometry` 是直筒型，从灯口到底口半径几乎不变（外锥底口直径 2.44）。
+// 而底口只离地 0.126，13° 俯角下这个宽大的平底圆盘会被压成一个 325×208px 的椭圆，
+// 近端与远端边缘读起来就是"角色脚边两条长长的斜线"——也就是用户截图里圈出来的东西。
+// 真手电的光是收敛的：口径最亮，落到地面收成一个点。
+// 所以这里改成分段轮廓，让半径沿高度按 |t|^falloff 收缩，底口收到 apexRadius。
+const makeBeamProfile = (radius, apexRadius = 0.05, falloff = 1.5, segments = 24) => {
+  const geometry = new THREE.CylinderGeometry(radius, apexRadius, 1, segments, 1, true);
+  const position = geometry.attributes.position;
+  const half = 0.5;
+  for (let i = 0; i < position.count; i += 1) {
+    const y = position.getY(i);
+    // y=+0.5 是灯口(顶端)，y=-0.5 是落点(底端)
+    const t = (half - y) / (half * 2);            // 0=灯口, 1=落点
+    const shrink = Math.pow(t, falloff);
+    const r = THREE.MathUtils.lerp(radius, apexRadius, shrink);
+    const x = position.getX(i);
+    const z = position.getZ(i);
+    const len = Math.hypot(x, z) || 1;
+    position.setX(i, (x / len) * r);
+    position.setZ(i, (z / len) * r);
+  }
+  position.needsUpdate = true;
+  geometry.computeVertexNormals();
+  return geometry;
+};
+
 const createBeam = (source, target, radius, material) => {
   const direction = source.clone().sub(target);
-  const beam = new THREE.Mesh(new THREE.ConeGeometry(radius, direction.length(), 24, 1, true), material);
+  const beam = new THREE.Mesh(makeBeamProfile(radius), material);
   beam.position.copy(source).add(target).multiplyScalar(0.5);
   beam.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
   beam.renderOrder = 2;
+  // 记录标称半径与原始高度，供 aimBeam 换算缩放
+  beam.userData.baseRadius = radius;
+  beam.userData.baseHeight = 1;
+  beam.geometry.parameters = { height: 1, radius };
   return beam;
 };
 
@@ -544,6 +574,11 @@ if (renderer) {
 
   const protagonist = createCharacter({ accent: true });
   protagonist.position.y = 0.19;
+  // 骨骼模型（2.6MB GLB）加载完成前不展示这个程序化替身。
+  // 它由胶囊体 + 锥体拼成，没有蒙皮与骨骼动作，在近景里明显"又大又丑"，
+  // 而 GLB 在本地实测要 0.9~1.3 秒才到（4 次冷启动：894/1070/1109/1263ms），
+  // 于是每次刷新都会先闪一个丑替身。宁可空着这 1 秒，也不要放个假的在那。
+  protagonist.visible = false;
   protagonistAnchor.add(protagonist);
 
   const footstepTraces = Array.from({ length: 8 }, (_, index) => {
@@ -959,6 +994,9 @@ if (renderer) {
     () => {
       visual.dataset.model = "fallback";
       visual.dataset.npcs = "procedural-fallback";
+      // 加载失败时兜底：替身默认是隐藏的（见 protagonist.visible 的说明），
+      // 只有真的拿不到 GLB 才把它放出来，避免"刷新后空无一人"。
+      protagonist.visible = true;
     },
   );
 
@@ -2129,6 +2167,50 @@ if (renderer) {
           ];
         });
         return out;
+      },
+      // 光锥在屏幕上的投影范围。
+      // 用途：确认"角色脚边那两条长线"是不是光锥底口边缘被 13° 俯角压扁造成的。
+      // 直接对几何体顶点做投影，不做手算轮廓。
+      // 必须挂在 __scene 上（不能塞进 snapshot 的返回值里）。
+      beamProbe: () => {
+        const bounds = visual.getBoundingClientRect();
+        const measure = (mesh, label) => {
+          if (!mesh) return null;
+          mesh.updateMatrixWorld(true);
+          const pos = mesh.geometry.attributes.position;
+          const screenPts = [];
+          const v = new THREE.Vector3();
+          for (let i = 0; i < pos.count; i += 1) {
+            v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld);
+            const p = v.clone().project(camera);
+            screenPts.push({
+              x: bounds.left + (p.x * 0.5 + 0.5) * bounds.width,
+              y: bounds.top + (-p.y * 0.5 + 0.5) * bounds.height,
+            });
+          }
+          const xs = screenPts.map((p) => p.x);
+          const ys = screenPts.map((p) => p.y);
+          const spanX = Math.max(...xs) - Math.min(...xs);
+          const spanY = Math.max(...ys) - Math.min(...ys);
+          return {
+            label,
+            spanX: +spanX.toFixed(1),
+            spanY: +spanY.toFixed(1),
+            flattenRatio: +(spanY / (spanX || 1)).toFixed(3),
+            box: {
+              left: +Math.min(...xs).toFixed(1), right: +Math.max(...xs).toFixed(1),
+              top: +Math.min(...ys).toFixed(1), bottom: +Math.max(...ys).toFixed(1),
+            },
+            visible: mesh.visible,
+          };
+        };
+        return {
+          coneBaseWorldY: +beamTarget.y.toFixed(3),
+          floorWorldY: -1.04,
+          gapToFloor: +(beamTarget.y + 1.04).toFixed(3),
+          outer: measure(beamOuter, "beamOuter"),
+          inner: measure(beam, "beam"),
+        };
       },
       // 当前播放的动作名与权重。
       // 注意 getEffectiveWeight() 对**已停止**的 action 也会返回 1，
