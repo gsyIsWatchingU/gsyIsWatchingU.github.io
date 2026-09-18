@@ -690,6 +690,10 @@ if (renderer) {
       handLead,
       armLength,
       legLength,
+      // 脚踝相对锚点的高度：身体抬升量要按它校准，否则脚会系统性悬在落脚点下方
+      // （实测未校准时 pelvis→foot 达 0.1656 > 腿长 0.1553，腿被拉长 = 穿模）
+      ankleHeight,
+      hipHeight,
     };
     visual.dataset.rig = "two-bone-ik";
     visual.dataset.rigInfo = `lead${handLead}/crouch${crouchWorld.toFixed(3)}`;
@@ -741,14 +745,31 @@ if (renderer) {
     twistBone(bones.neck_01, ikAxisX, neck);
     const side = climbRig.leftSign;
     const pole = new THREE.Vector3();
+    const clamped = new THREE.Vector3();
     const solve = (rootName, midName, tipName, target, ox, oy, oz) => {
       const root = bones[rootName];
       const mid = bones[midName];
       const tip = bones[tipName];
       if (!root || !mid || !tip || !target) return;
-      const rootPos = root.getWorldPosition(ikV4);
+      const rootPos = root.getWorldPosition(ikV4).clone();
+      // 安全钳制：目标点若超出"根关节 + 肢长"的可达球，就地拉到球面上。
+      // 这一步是"不穿模"的兜底 —— 下梯起步段（身体还在梯子上方）时
+      // 手的目标点比肩低 0.22，而臂长只有 0.078（约 3 倍臂长），
+      // IK 只能把整条手臂拉直再截在半路，观感就是"胳膊笔直垂着、手不在横杆上"。
+      // 钳到 0.96 倍肢长既保证够得到，又留一点余量避免完全锁死。
+      const midPos = mid.getWorldPosition(ikV2).clone();
+      const tipPos = tip.getWorldPosition(ikV3).clone();
+      const reach = (midPos.distanceTo(rootPos) + tipPos.distanceTo(midPos)) * 0.96;
+      clamped.copy(target);
+      const delta = clamped.clone().sub(rootPos);
+      const dist = delta.length();
+      if (dist > reach && dist > 1e-6) {
+        clamped.copy(rootPos).add(delta.multiplyScalar(reach / dist));
+      }
+      // pole 是"中间关节往哪边弯"的提示点。调用方传入的 ox 已经带了侧向符号
+      // （armOut * side），这里不要再乘一次 side，否则会双重镜像。
       pole.set(rootPos.x + ox, rootPos.y + oy, rootPos.z + oz);
-      solveTwoBone(root, mid, tip, target, pole);
+      solveTwoBone(root, mid, tip, clamped, pole);
     };
     solve("upperarm_l", "lowerarm_l", "hand_l", targets.hand_l, -armOut * side, armDrop, armFwd);
     solve("upperarm_r", "lowerarm_r", "hand_r", targets.hand_r, armOut * side, armDrop, armFwd);
@@ -801,12 +822,12 @@ if (renderer) {
     .find(Boolean);
 
   const makeInPlaceClip = (clip) => {
-    const isLocomotion = /(walk|run|sprint)/i.test(clip.name);
-    const tracks = clip.tracks.filter((track) => {
-      if (/pelvis\.position$/i.test(track.name)) return false;
-      if (isLocomotion && /hand_[lr]\.quaternion$/i.test(track.name)) return false;
-      return true;
-    });
+    // 只剥掉骨盆位移（把动作"原地化"），其余轨道一律保留。
+    // 注意：曾经这里还额外删掉 walk/run/sprint 的 hand_l/hand_r.quaternion，
+    // 而模型加载后没有任何其它代码驱动手部旋转 —— 结果走路时手保持固定朝向、
+    // 只有小臂在摆，看起来就是"手部动作不自然"。攀爬/拉绳期间的手部姿态由
+    // IK 接管并在退出时复位，不依赖这里删轨道。
+    const tracks = clip.tracks.filter((track) => !/pelvis\.position$/i.test(track.name));
     return new THREE.AnimationClip(clip.name, clip.duration, tracks);
   };
 
@@ -817,6 +838,17 @@ if (renderer) {
     characterRuntime.currentAction?.fadeOut(fade);
     characterRuntime.currentAction = nextAction;
     visual.dataset.action = name;
+    // 关键：把不在用的 action 真正停掉，而不是只 fadeOut。
+    // 之前只调 fadeOut 不 stop，导致所有 action 长期同时处于播放态、
+    // 各自权重都算 1 —— mixer 会把 idle/alert/run/hide/walk 五段动画
+    // 一起平均进同一个骨骼，走路时手臂就是五段的混合结果，
+    // 看起来"手不知道在干嘛"。停掉后同一时刻只有一段在跑。
+    Object.entries(characterRuntime.actions).forEach(([key, action]) => {
+      if (key === name) return;
+      window.setTimeout(() => {
+        if (characterRuntime.currentAction !== action) action.stop();
+      }, Math.ceil(fade * 1000) + 20);
+    });
   };
 
   const actionForStoryMode = {
@@ -865,7 +897,11 @@ if (renderer) {
         alert: ["interact", "idle_torch_loop"],
         run: ["sprint_loop", "run_loop"],
         hide: ["crouch_idle_loop"],
-        walk: ["walk_formal_loop", "walk_loop"],
+        // 优先用 walk_loop：经解码 GLB 实测，walk_formal_loop 的上臂整周期只转
+        // 2.6°（腿却在动，calf 80°），是"手插兜"式的僵直走姿；
+        // walk_loop 的上臂有 32.4°、小臂 27.2°、手腕 12.9°，才是正常摆臂。
+        // 之前把 formal 排在前面，正是"走路时手部动作不自然"的直接原因。
+        walk: ["walk_loop", "walk_formal_loop"],
       };
       Object.entries(clipMap).forEach(([name, candidates]) => {
         const sourceClip = findExactClip(gltf.animations, candidates);
@@ -873,7 +909,7 @@ if (renderer) {
         const clip = makeInPlaceClip(sourceClip);
         characterRuntime.actions[name] = characterRuntime.mixer.clipAction(clip);
       });
-      const npcWalkSource = findExactClip(gltf.animations, ["walk_formal_loop", "walk_loop"]);
+      const npcWalkSource = findExactClip(gltf.animations, ["walk_loop", "walk_formal_loop"]);
       if (npcWalkSource) {
         const npcWalkClip = makeInPlaceClip(npcWalkSource);
         const npcTones = [0x293336, 0x20292c, 0x343c3d, 0x252e31, 0x30383a, 0x1d2629];
@@ -976,6 +1012,10 @@ if (renderer) {
 
   const timer = new THREE.Timer();
   timer.connect(document);
+  // 无头验收时 document.hidden 恒为 true，THREE.Timer 会因此把 delta 归零，
+  // 动画永远走不动（表现为 progress 卡在 0.05、四肢姿态冻结）。
+  // 加一个只在 ?debug 下能用来"手动推进时间"的覆盖值，正式页面恒为 null。
+  let debugElapsedOverride = null;
   const pointer = new THREE.Vector2();
   const pointerDesired = new THREE.Vector2();
   const homePosition = new THREE.Vector3(-0.46, -1.025, 0.52);
@@ -1071,13 +1111,20 @@ if (renderer) {
     out,
   );
   const rungForStep = (step, dir) => (dir > 0 ? groundRung + step : topRung - step);
-  const climbBodyLiftBottom = homePosition.y - rungYAt(groundRung);
-  const climbBodyLiftTop = perchSpot.y - rungYAt(topRung);
-  const climbBodyY = (travelled) => {
-    const ratio = THREE.MathUtils.clamp(travelled, 0, climbSteps) / climbSteps;
-    return rungYAt(groundRung + travelled)
-      + THREE.MathUtils.lerp(climbBodyLiftBottom, climbBodyLiftTop, ratio);
-  };
+  // 身体抬升量：锚点要坐落在"脚踝刚好踩到横杆"的高度上。
+  // 关键：脚踝骨骼相对锚点本身有 ankleHeight 的偏移，必须补上这一截，
+  // 否则脚会系统性悬在落脚点下方约半级横杆，腿被 IK 拉长（实测超出腿长 6.6% = 穿模）。
+  const climbAnkleOffset = climbRig ? climbRig.ankleHeight : 0;
+  const climbBodyLift = climbAnkleOffset + (homePosition.y - rungYAt(groundRung));
+  // 身体高度只跟"脚踩在哪一级"走，不再在顶部往猫道高度插值。
+  // 曾经顶部用 climbBodyLiftTop = perchSpot.y - rungYAt(topRung) 把身体抬到猫道高度：
+  // 上行结束时很合适（人确实站到猫道上了），但下行是把它当**起点**用的 ——
+  // 结果下梯前段身体的肩部高于梯子最高一级（实测肩 y=-0.163 > 顶杆 y=-0.304），
+  // 而臂长只有 0.078（≈1.26 级横杆），手根本够不到任何一根横杆，
+  // IK 只能把手臂拉直截在半路，观感就是"两条胳膊笔直垂着往下滑"。
+  // 上/下猫道那一段的位移交给 topEase 只处理 z（身体从猫道侧挪到梯子侧），
+  // 高度一律由脚下的横杆决定。
+  const climbBodyY = (travelled) => rungYAt(groundRung + travelled) + climbBodyLift;
   // 一开始就落在最低一级上，避免进入攀爬的第一帧读到还没写过的 (0,0,0)
   const climbTargets = {
     hand_l: rungPoint(2, -0.045, new THREE.Vector3()),
@@ -1087,18 +1134,38 @@ if (renderer) {
   };
   const limbPointA = new THREE.Vector3();
   const limbPointB = new THREE.Vector3();
-  // 一级动作拆成"支撑 55% + 摆动 45%"：支撑段锁死在横杆上，摆动段沿弧线换到下一级
-  const limbToRung = (out, step, dir, offsetX, clearance) => {
+  // 一级动作拆成"支撑 + 摆动"：支撑段锁死在横杆上，摆动段沿弧线换到下一级。
+  // 摆动占比 0.62；中段额外把目标点朝身体收（flex），让膝盖/手肘真正弯起来 ——
+  // 只抬高 y 是不够的，腿会保持伸直、看起来像"贴着梯子平移"。
+  const limbToRung = (out, step, dir, offsetX, clearance, flex = 0, flexFrom = null, flexBase = 0) => {
     const base = Math.floor(step);
-    const swing = THREE.MathUtils.clamp((step - base - 0.55) / 0.45, 0, 1);
+    // 支撑段 45% + 摆动段 55%。注意窗口必须让"相位中点"对应 ease≈1：
+    // 写成 (frac-0.38)/0.62 时 frac=0.5 只得到 swing=0.19 → arc 峰值仅 0.30，
+    // 摆动几乎看不出来（膝/肘不弯，像贴着梯子平移）。
+    const swing = THREE.MathUtils.clamp((step - base - 0.45) / 0.55, 0, 1);
     const ease = swing * swing * (3 - 2 * swing);
     rungPoint(rungForStep(base, dir), offsetX, limbPointA);
     rungPoint(rungForStep(base + 1, dir), offsetX, limbPointB);
     out.lerpVectors(limbPointA, limbPointB, ease);
-    // 摆动中稍微离开梯子，避免手脚直接从横杆里穿过去
+    // 弧线两端为 0（中间点刚好贴住横杆），中段最大：避免手脚从横杆里穿过去。
+    // 屈膝/屈肘靠"把目标点朝身体收"实现：sin 弧线让摆动中段的目标点离开梯子、
+    // 更靠近身体 → 该肢体被折起来（膝盖/手肘真正弯曲），而不是整体平移。
     const arc = Math.sin(ease * Math.PI);
-    out.z += arc * clearance;
-    out.y += arc * clearance * 0.3;
+    const lift = arc * clearance;
+    out.z += lift;
+    out.y += lift * 0.6;
+    // flex：摆动中段把目标点朝"关节根"（髋/肩，由 flexFrom 传入）收，
+    // 让该肢体的中间关节真正折起来。两端 arc=0 不生效，落点仍精确落在横杆上。
+    // 注意 z 分量必须一起收：梯子方向（z）才是"抬腿离开横杆"的主方向；
+    // 只收 x/y 时，下梯这种"脚只往下挪一级"的场景膝盖仍然不会弯（实测 1.000）。
+    if ((flex > 0 || flexBase > 0) && flexFrom) {
+      // k = 摆动量（两端为 0）+ 基础量（全程都有）。
+      // 加 flexBase 是为了让"支撑段"也保持屈肘/屈膝，而不是被拉成笔直的一条线。
+      const k = Math.min(0.92, arc * flex + flexBase);
+      out.x += (flexFrom.x - out.x) * k;
+      out.y += (flexFrom.y - out.y) * k;
+      out.z += (flexFrom.z - out.z) * k;
+    }
     return out;
   };
 
@@ -1429,10 +1496,34 @@ if (renderer) {
       const dir = goingUp ? 1 : -1;
       const step = progress * climbSteps;
       const travelled = goingUp ? step : climbSteps - step;
-      // 到顶/离顶的最后 1.2 步：从梯子挪到猫道上（或反向）
-      const topOut = THREE.MathUtils.clamp((step - (climbSteps - 1.2)) / 1.2, 0, 1);
+      // 梯子↔猫道的换位过渡。
+      // topEase 的语义统一为「离猫道有多近」：
+      //   上行 —— 越接近终点越"在猫道上"，所以随 step 递增（0 → 1）
+      //   下行 —— 起点就在猫道上，所以随 step 递减（1 → 0）
+      // 之前下行也写成 step/easeSpan（0 → 1），导致 step>0 的第一帧 topEase 就恒为 1：
+      //   · lead = descendLead*(1-topEase) 恒为 0 → 手和脚抓同一级横杆，手臂笔直下垂
+      //   · poseBlend = 1-poseEase 恒为 0 → 整段下行都被 slerp 回 bind pose（悬空折叠）
+      // 这两个症状（"腿脚不自然" + "穿模"）其实都出自这一个符号错误。
+      // 位置换位（zMix）走得快一些（0.45 步），姿态淡入更短（0.3 步），
+      // 这样开头那一小段不会出现"人在梯子位置、姿态却还是静置位"。
+      const easeSpan = goingUp ? 1.2 : 0.45;
+      const raw = goingUp
+        ? (step - (climbSteps - easeSpan)) / easeSpan
+        : 1 - step / easeSpan;
+      const topOut = THREE.MathUtils.clamp(raw, 0, 1);
       const topEase = topOut * topOut * (3 - 2 * topOut);
-      const zMix = goingUp ? topEase : 1 - topEase;
+      // zMix：身体在 z 上位于"梯子 ↔ 猫道"之间的比例。
+      // topEase 现在统一表示"离猫道有多近"，所以两个方向都用它直接当比例：
+      // 上行越到后面越靠近猫道；下行开头最靠近猫道，随 step 递减回到梯子。
+      const zMix = topEase;
+      // 姿态淡入
+      const poseSpan = goingUp ? 1.2 : 0.3;
+      const poseRaw = goingUp
+        ? (step - (climbSteps - poseSpan)) / poseSpan
+        : 1 - step / poseSpan;
+      const poseOut = THREE.MathUtils.clamp(poseRaw, 0, 1);
+      const poseEase = poseOut * poseOut * (3 - 2 * poseOut);
+      const poseBlend = 1 - poseEase;
       // 身体高度跟着脚下的横杆走，再叠一层踩踏的起伏
       protagonistAnchor.position.set(
         ladderStand.x,
@@ -1442,24 +1533,58 @@ if (renderer) {
       protagonistAnchor.rotation.y += (
         THREE.MathUtils.lerp(-0.06, -0.14, zMix) - protagonistAnchor.rotation.y
       ) * Math.min(1, delta * 4);
-      // 手比脚领先几级，并且早半个周期出手；左右各差半级，形成交替
-      // 上行：手抓到比脚高 lead 级的高处横杆；下行：手只探到脚下约一级。
-      // 旧逻辑 handStep = step + 0.5 + lead*dir 在下行时，因 limbToRung 内部
-      // rungForStep(base,dir) 已按方向翻转索引，再乘 dir 等于双重翻转，
-      // 让手停在比脚高 lead 级的位置——手臂被 IK 拉成上举贴梯，既穿模又不自然。
-      // 改为上/下行各自合适的提前量，handStep 不再乘 dir。
+      // 手要抓在"肩膀高度"的横杆上。肩比骨盆高约 0.13，一级横杆 0.062，
+      // 也就是肩大约比脚高 3.7 级。
+      // 关键：rungForStep 里已经带了方向（下行 = topRung - step），
+      // 所以 step 越大世界高度越低 —— 下行的"手比脚高"必须用**负**的提前量。
+      // 之前一直写成正数，实际是把手放到脚**下面**去，
+      // 于是手臂被 IK 拉成笔直下垂（"扶着梯子往下滑"的观感）。
       const climbLead = climbRig ? Math.min(climbRig.handLead, 2.2) : 2.2;
-      const descendLead = 1.1;
-      const lead = goingUp ? climbLead : descendLead;
-      const handStep = step + 0.5 + lead;
+      const descendLead = -1.7;
+      // 收梯过渡（身体挪上/挪下猫道）时把提前量收到 0，
+      // 否则手会被钉在横杆上、身体却往平台走，臂长被拉爆。
+      const lead = (goingUp ? climbLead : descendLead) * (1 - topEase);
+      // 左右手错开半级；下梯时让"右手与左脚同步"（对侧步态），
+      // 观感上才是人在一格格挪，而不是四肢同时平移。
+      const handPhase = goingUp ? 0.5 : 0.0;
+      const handStep = step + handPhase + lead;
       const side = climbRig ? climbRig.limbSide : { hand_l: -1, foot_l: -1 };
       const handX = side.hand_l * 0.045;
       const footX = side.foot_l * 0.032;
-      limbToRung(climbTargets.hand_l, handStep, dir, handX, 0.038);
-      limbToRung(climbTargets.hand_r, handStep + 0.5, dir, -handX, 0.038);
-      limbToRung(climbTargets.foot_l, step, dir, footX, 0.028);
-      limbToRung(climbTargets.foot_r, step + 0.5, dir, -footX, 0.028);
-      applyClimbPose(climbTargets, Math.sin(step * Math.PI * 2), 1 - topEase, !goingUp);
+      // 取各肢体的"关节根"世界坐标（髋/肩）作为 flex 的收拢中心，
+      // 让摆动段膝盖、手肘真正弯曲而不是整体平移
+      const bones = climbRig ? climbRig.bones : null;
+      const rootOf = (name) => (bones && bones[name]
+        ? bones[name].getWorldPosition(new THREE.Vector3())
+        : null);
+      const hipL = rootOf("thigh_l");
+      const hipR = rootOf("thigh_r");
+      const shoL = rootOf("upperarm_l");
+      const shoR = rootOf("upperarm_r");
+      // 腿弯得更明显（人爬梯时膝盖折得最狠），手臂略收。
+      // 注意：手的目标点不能再往肩收（flexBase），因为手的 reach 本来就 >1（够不到），
+      // 再收只会把手从横杆上拽开。手"看起来像下垂"的根因是目标点太低，
+      // 已用 descendLead 抬高到胸口解决。
+      limbToRung(climbTargets.hand_l, handStep, dir, handX, 0.05, 0.3, shoL);
+      limbToRung(climbTargets.hand_r, handStep + 0.5, dir, -handX, 0.05, 0.3, shoR);
+      limbToRung(climbTargets.foot_l, step, dir, footX, 0.055, 0.42, hipL);
+      limbToRung(climbTargets.foot_r, step + 0.5, dir, -footX, 0.055, 0.42, hipR);
+      // 登顶/离顶过渡：身体已经在往猫道上挪（climbBodyY 的 lift 往 perchSpot 插值），
+      // 但 IK 目标点还钉在梯子横杆上 —— 两者拉开后手会被扯到臂长的 2 倍以上。
+      // 所以这一段把四肢目标点同样往身体收（保留 blend 淡出），让手脚跟着躯干一起"收梯"。
+      if (topEase > 0) {
+        const bodyY = protagonistAnchor.position.y;
+        const bodyZ = protagonistAnchor.position.z;
+        for (const key of ["hand_l", "hand_r", "foot_l", "foot_r"]) {
+          const target = climbTargets[key];
+          target.y += (bodyY - target.y) * topEase * 0.8;
+          target.z += (bodyZ - target.z) * topEase * 0.5;
+        }
+      }
+      // 姿态淡入/淡出用 poseEase（下行是一条更快的曲线，理由见上面 topEase 的注释），
+      // 位置换位仍用 topEase。两者分开后，下行刚开始那一段不会再出现
+      // "anchor 还在猫道、pose 却已被 slerp 回 bind pose"的悬空折叠姿态。
+      applyClimbPose(climbTargets, Math.sin(step * Math.PI * 2), poseBlend, !goingUp);
       climbPoseActive = true;
       beamAnchor.set(
         protagonistAnchor.position.x,
@@ -1570,7 +1695,9 @@ if (renderer) {
     renderer.setSize(Math.max(1, bounds.width), Math.max(1, bounds.height), false);
     camera.aspect = Math.max(0.1, bounds.width / Math.max(1, bounds.height));
     camera.fov = compactViewport.matches ? 45 : 38;
-    camera.position.z = compactViewport.matches ? 7.15 : 6.7;
+    // 调试近景镜头接管时不要动它的位置：resize 会在启动 / 视口变化时被调用，
+    // 如果这里无条件写 camera.position.z，调试镜头会被立刻拉回默认机位。
+    if (!debugCamera) camera.position.z = compactViewport.matches ? 7.15 : 6.7;
     camera.updateProjectionMatrix();
     pickCamera.aspect = camera.aspect;
     pickCamera.fov = camera.fov;
@@ -1587,9 +1714,34 @@ if (renderer) {
     }
   };
 
+  // 近景调试镜头（只在 ?debug 下由视觉接口赋值；正式页面恒为 null）。
+  // 必须声明在 render 之前，且与 render 同处一个作用域，否则 render 读不到。
+  let debugCamera = null;
+
+  // 把调试镜头写进 camera。抽成函数是因为 render 与 resize/接口 setter 都要用，
+  // 而且必须"每帧重设 position + lookAt"——只设一次会被后续的矩阵更新吃掉。
+  const applyDebugCamera = () => {
+    if (!debugCamera) return;
+    if (debugCamera.follow) {
+      // 跟随模式：pos/look 是相对角色锚点的偏移（world 组局部坐标）
+      const t = protagonistAnchor.position;
+      debugCamera.pos.set(t.x + debugCamera.follow.x, t.y + debugCamera.follow.y, t.z + debugCamera.follow.z);
+      const lk = debugCamera.followLook;
+      debugCamera.look.set(
+        lk ? t.x + lk.x : t.x,
+        lk ? t.y + lk.y : t.y + 0.17,
+        lk ? t.z + lk.z : t.z,
+      );
+    }
+    camera.position.copy(world.localToWorld(debugCamera.pos.clone()));
+    camera.lookAt(world.localToWorld(debugCamera.look.clone()));
+    camera.updateProjectionMatrix();
+  };
+
   const render = (timestamp) => {
     timer.update(timestamp);
-    const elapsed = timer.getElapsed();
+    // ?debug 下允许外部直接指定 elapsed（无头里 document.hidden 会冻结 timer）
+    const elapsed = debugElapsedOverride !== null ? debugElapsedOverride : timer.getElapsed();
     const delta = Math.min(0.05, Math.max(0.001, elapsed - previousElapsed || 0.016));
     previousElapsed = elapsed;
     const motion = reducedMotion.matches ? 0 : 1;
@@ -1597,9 +1749,15 @@ if (renderer) {
     hoverAmount += (hoverTarget - hoverAmount) * 0.065;
     visitorLightPulse *= Math.pow(0.985, delta * 60);
     const interactionAmount = Math.max(hoverAmount * 0.55, visitorLightPulse, beamHold * 0.62);
-    camera.position.x = 0.2 + pointer.x * 0.22;
-    camera.position.y = 1.05 + pointer.y * 0.14;
-    camera.lookAt(pointer.x * 0.08, -0.08 + pointer.y * 0.025, 0);
+    if (debugCamera) {
+      // 仅 ?debug 下生效：把镜头推到梯子/角色近处，用于无头验收时看清骨骼姿态。
+      // 正式页面 debugCamera 恒为 null，这段不会执行。
+      applyDebugCamera();
+    } else {
+      camera.position.x = 0.2 + pointer.x * 0.22;
+      camera.position.y = 1.05 + pointer.y * 0.14;
+      camera.lookAt(pointer.x * 0.08, -0.08 + pointer.y * 0.025, 0);
+    }
 
     const unattendedTargetX = idleBeamAnchor.x
       + visitorLightOffset * 0.12
@@ -1829,7 +1987,15 @@ if (renderer) {
   });
   const beamRaycaster = new THREE.Raycaster();
   const beamNdc = new THREE.Vector2();
-  const interactiveModes = ["idle", "lit", "glow", "perch", "arrived"];
+  // 可交互状态：只要不是"正在走的过场动画"都接受点击。
+  // 之前白名单只列 idle/lit/glow/perch/arrived，角色处于 follow/approach/descend 时
+  // 点击会被直接吞掉 —— 这是"鼠标点了没反应"的主因（descend 漏在白名单外尤其明显）。
+  const interactiveModes = [
+    "idle", "lit", "glow", "perch", "arrived",
+    "follow", "approach", "descend", "resolve", "depart",
+  ];
+  // 过场中不接受"改目的地"的状态：攀爬/拉绳/已登顶
+  const lockedModes = ["climb", "pull", "descend", "perch"];
 
   const pickInteraction = (point, hitObject) => {
     if (hitObject === ladderVolume) return "ladder";
@@ -1909,22 +2075,215 @@ if (renderer) {
     ];
     visual.__scene = {
       climbDuration: (value) => { climbDuration = value; },
+      // 无头验收用：手动指定"当前时间"（秒），让动画在没有真实 rAF 时间推进时也能跑。
+      // 传 null 恢复用 timer 自己的时间。正式页面不带 ?debug，用不到这个口。
+      elapsed: (value) => { debugElapsedOverride = value === null || value === undefined ? null : value; },
+      forceMode: (m) => setCharacterMode(m, debugElapsedOverride !== null ? debugElapsedOverride : timer.getElapsed()),
+      // 把镜头推到指定位置看特写（传 null 恢复）。坐标是 world 组局部坐标
+      // （snapshot().anchor 同一坐标系）。第二个参数传 true 表示跟随角色。
+      camera: (pos, look, follow) => {
+        debugCamera = pos
+          ? {
+            pos: new THREE.Vector3(pos[0], pos[1], pos[2]),
+            look: new THREE.Vector3(look[0], look[1], look[2]),
+            // follow=true 时把 pos/look 当作"相对角色的偏移"
+            follow: follow ? new THREE.Vector3(pos[0], pos[1], pos[2]) : null,
+            followLook: follow ? new THREE.Vector3(look[0], look[1], look[2]) : null,
+          }
+          : null;
+        if (debugCamera && debugCamera.follow) applyDebugCamera();
+      },
+      follow: (offset) => {
+        // 让近景镜头持续盯住角色（用于动画过程中的特写采样）
+        if (!offset) { debugCamera && (debugCamera.follow = null); return; }
+        const o = new THREE.Vector3(offset[0], offset[1], offset[2]);
+        debugCamera = {
+          pos: new THREE.Vector3(), look: new THREE.Vector3(),
+          follow: o.clone(), followLook: null,
+        };
+        applyDebugCamera();
+      },
+      cameraState: () => (debugCamera
+        ? {
+          followed: !!debugCamera.follow,
+          pos: world.worldToLocal(camera.position.clone()).toArray(),
+          look: debugCamera.look.toArray(),
+        }
+        : { followed: false }),
+      // 特写时提亮，否则近景里角色全黑看不清骨骼姿态（仅调试用）
+      exposure: (v) => { renderer.toneMappingExposure = v; },
       rungs: () => Array.from({ length: rungCount + 1 }, (_, i) => rungPoint(i - 1, 0, new THREE.Vector3()).toArray()),
-      snapshot: () => ({
+      snapshot: () => {
+        // 量测时必须同坐标系：anchor 是 world 组局部坐标，bones 是场景世界坐标，
+        // 直接相减会得出"手够不到目标"的假结论。这里统一给 world 坐标版本。
+        protagonistAnchor.updateMatrixWorld(true);
+        const anchorWorld = protagonistAnchor.getWorldPosition(new THREE.Vector3()).toArray();
+        return {
+          mode: characterStory.mode,
+          progress: +((((debugElapsedOverride !== null ? debugElapsedOverride : timer.getElapsed()) - characterStory.modeSince) / climbDuration).toFixed(4)),
+          rig: climbRig ? {
+            lead: climbRig.handLead,
+            arm: +climbRig.armLength.toFixed(4),
+            leg: +climbRig.legLength.toFixed(4),
+            crouch: +climbRig.crouchWorld.toFixed(4),
+            ankle: +climbRig.ankleHeight.toFixed(4),
+            hip: +climbRig.hipHeight.toFixed(4),
+            side: { hand_l: climbRig.limbSide.hand_l, foot_l: climbRig.limbSide.foot_l },
+            leftSign: climbRig.leftSign,
+          } : null,
+          // 梯子横杆与锚点在"world 组局部坐标"下的位置，用于核对目标点偏移是否合理
+          ladderLocal: { x: rungLocalX, z: rungLocalZ, groundY: rungYAt(groundRung), topY: rungYAt(topRung) },
+          // 横杆在世界坐标下的位置（与 targets / bones 同系，便于直接比对"脚是否踩在横杆上"）
+          rungWorld: Array.from({ length: rungCount + 1 }, (_, i) => rungPoint(i - 1, 0, new THREE.Vector3()).toArray()),
+          anchor: protagonistAnchor.position.toArray(),
+          anchorWorld,
+          bones: Object.fromEntries(limbNames.map((name) => [
+            name,
+            ikBones[name] ? ikBones[name].getWorldPosition(new THREE.Vector3()).toArray() : null,
+          ])),
+          // climbTargets 本身已经是世界坐标（rungPoint 内部走过 localToWorld），
+          // 之前这里又套了一层 localToWorld，导致"目标点理角色 4 倍臂长"的假报警。
+          targets: Object.fromEntries(Object.entries(climbTargets).map(([k, v]) => [k, v.toArray()])),
+        };
+      },
+      // 走路手部动作验收用：给出关键骨在**父骨局部系**下的欧拉角（度）。
+      // 只看世界坐标位置无法区分"手在摆"和"整条手臂被身体带着平移"，
+      // 必须看相对父骨的旋转量。
+      // 注意：这两个必须挂在 __scene 上，不能塞进 snapshot 的返回值里 ——
+      // 曾经误放进 snapshot 的返回对象，结果 `__scene.jointAngles` 是 undefined，
+      // 只剩 `__scene.snapshot().jointAngles` 能用，排查时非常迷惑。
+      jointAngles: () => {
+        const pick = [
+          "upperarm_l", "lowerarm_l", "hand_l", "upperarm_r", "lowerarm_r", "hand_r",
+          "thigh_l", "calf_l", "foot_l", "thigh_r", "calf_r", "foot_r", "spine", "spine1", "spine2",
+        ];
+        const out = {};
+        pick.forEach((name) => {
+          const bone = ikBones[name];
+          if (!bone) return;
+          const e = bone.rotation;
+          out[name] = [
+            +(THREE.MathUtils.radToDeg(e.x)).toFixed(1),
+            +(THREE.MathUtils.radToDeg(e.y)).toFixed(1),
+            +(THREE.MathUtils.radToDeg(e.z)).toFixed(1),
+          ];
+        });
+        return out;
+      },
+      // 当前播放的动作名与权重。
+      // 注意 getEffectiveWeight() 对**已停止**的 action 也会返回 1，
+      // 单看它会把"没在跑的动画"也报成满权重，误判成"五段动画在混"。
+      // 判据以 running 为准，weight 只作参考。
+      actionState: () => ({
         mode: characterStory.mode,
-        rig: climbRig ? {
-          lead: climbRig.handLead,
-          arm: +climbRig.armLength.toFixed(4),
-          leg: +climbRig.legLength.toFixed(4),
-          crouch: +climbRig.crouchWorld.toFixed(4),
-        } : null,
-        anchor: protagonistAnchor.position.toArray(),
-        bones: Object.fromEntries(limbNames.map((name) => [
-          name,
-          ikBones[name] ? ikBones[name].getWorldPosition(new THREE.Vector3()).toArray() : null,
+        story: visual.dataset.story || null,
+        action: visual.dataset.action,
+        actions: Object.fromEntries(Object.entries(characterRuntime.actions).map(([k, a]) => [
+          k,
+          {
+            running: a.isRunning(),
+            weight: +a.getEffectiveWeight().toFixed(3),
+            time: +a.time.toFixed(3),
+          },
         ])),
-        targets: Object.fromEntries(Object.entries(climbTargets).map(([k, v]) => [k, v.toArray()])),
       }),
+      // 动作片段自检：列出某个 action 的每条轨道及其取值幅度。
+      // 幅度接近 0 说明这条轨道是常量（关节点不会动）——
+      // 这正是"走路时手腕不动"这类问题的直接证据。
+      clipTracks: (name) => {
+        const action = characterRuntime.actions[name];
+        if (!action) return null;
+        const clip = action.getClip();
+        const head = [];
+        const amp = [];
+        clip.tracks.forEach((track) => {
+          const v = track.values;
+          const stride = track.getValueSize?.() ?? (v.length / track.times.length);
+          let mn = Infinity;
+          let mx = -Infinity;
+          for (let i = 0; i < v.length; i++) {
+            if (v[i] < mn) mn = v[i];
+            if (v[i] > mx) mx = v[i];
+          }
+          const row = {
+            name: track.name,
+            keys: track.times.length,
+            stride,
+            range: +(mx - mn).toFixed(4),
+            first: +v[0].toFixed(4),
+          };
+          head.push(row);
+          if (row.range < 1e-4) amp.push(track.name);
+        });
+        return { clip: clip.name, duration: +clip.duration.toFixed(3), trackCount: clip.tracks.length, constantTracks: amp, tracks: head };
+      },
+    };
+
+    // ---- 仅在 ?debug 下挂载的"点击命中验证"接口 ----
+    // 自动验收要回答的问题是"画面里看得见的东西，点下去认不认"。
+    // 所以这里给的不是内部对象，而是：把指定世界坐标投影成屏幕坐标、
+    // 以及按屏幕坐标走一遍真实的命中管线并回报它认成了什么。
+    visual.__hitTest = (worldPoint, screenPoint) => {
+      const toScreen = (p) => {
+        const v = world.localToWorld(new THREE.Vector3(p[0], p[1], p[2]));
+        v.project(camera);
+        const bounds = visual.getBoundingClientRect();
+        return {
+          x: bounds.left + (v.x * 0.5 + 0.5) * bounds.width,
+          y: bounds.top + (-v.y * 0.5 + 0.5) * bounds.height,
+          ndc: [v.x, v.y, v.z],
+        };
+      };
+      const out = {};
+      if (worldPoint) out.screen = toScreen(worldPoint);
+      if (screenPoint) {
+        // 屏幕坐标 → NDC（按 pickCamera，和真实点击走同一套相机与判定体）
+        const bounds = visual.getBoundingClientRect();
+        const nx = (screenPoint.x - bounds.left) / bounds.width - 0.5;
+        const ny = 0.5 - (screenPoint.y - bounds.top) / bounds.height;
+        const ray = new THREE.Raycaster();
+        ray.setFromCamera(new THREE.Vector2(nx * 2, ny * 2), pickCamera);
+        const [hit] = ray.intersectObjects(
+          [ladderVolume, ropeVolume, floor, platformDeck, platformEdge, revealPanel, rope, ropeHandle,
+            ...shutterSlats, ...ladder.children],
+          false,
+        );
+        const local = hit ? world.worldToLocal(hit.point.clone()) : null;
+        out.hitObject = hit ? (hit.object.name || hit.object.uuid.slice(0, 6)) : null;
+        out.local = local ? local.toArray() : null;
+        out.kind = local
+          ? pickInteraction(local, hit?.object)
+          : pickInteraction(new THREE.Vector3(nx * 3.2, -0.985, 0.42 + ny * 2.1), null);
+      }
+      return out;
+    };
+    // 直接看几个关键判定体在屏幕上的位置与尺寸，方便脚本瞄准
+    visual.__hotspots = () => {
+      const bounds = visual.getBoundingClientRect();
+      const probe = (name, obj) => {
+        obj.updateMatrixWorld(true);
+        const box = new THREE.Box3().setFromObject(obj);
+        if (!box.isEmpty() && box.max.distanceTo(box.min) === 0) return null;
+        // 取包围盒中心做投影；空盒/nan 直接返回 null
+        const c = box.getCenter(new THREE.Vector3());
+        if (!Number.isFinite(c.x)) return null;
+        const v = c.clone().project(camera);
+        return {
+          name,
+          local: world.worldToLocal(c.clone()).toArray(),
+          screen: {
+            x: bounds.left + (v.x * 0.5 + 0.5) * bounds.width,
+            y: bounds.top + (-v.y * 0.5 + 0.5) * bounds.height,
+          },
+        };
+      };
+      return [
+        probe("ladderVolume", ladderVolume),
+        probe("ropeVolume", ropeVolume),
+        probe("ropeHandle", ropeHandle),
+        probe("platformDeck", platformDeck),
+        probe("revealPanel", revealPanel),
+      ].filter(Boolean);
     };
   }
 
@@ -1959,19 +2318,26 @@ if (renderer) {
     visual.style.setProperty("--scan-x", `${clientX - bounds.left}px`);
     visual.style.setProperty("--scan-y", `${clientY - bounds.top}px`);
 
-    if (!interactiveModes.includes(characterStory.mode)) {
-      if (kind === "beam") beamAnchor.copy(point);
-      return kind;
+    // 过场动画中（攀爬/拉绳/下梯）不接受新的目的地，但光束仍要跟随点击，
+    // 保证"点了有反馈"，而不是静默无响应。
+    if (lockedModes.includes(characterStory.mode)) {
+      beamAnchor.copy(point);
+      return { kind, applied: false, locked: true };
     }
     beamAnchor.copy(point);
-    if (engageInvention(kind, point, previousElapsed)) registerChange();
-    return kind;
+    const applied = engageInvention(kind, point, previousElapsed);
+    if (applied) registerChange();
+    return { kind, applied, locked: false };
   };
 
   visual.addEventListener("click", (event) => {
     if (reducedMotion.matches) return;
-    placeBeamAt(event.clientX, event.clientY);
+    const result = placeBeamAt(event.clientX, event.clientY);
     triggerScanPulse();
+    // ?debug 下把"这次点击被认成了什么"记下来，供无头验收读取
+    if (visual.__scene) {
+      visual.__scene.lastClick = { x: event.clientX, y: event.clientY, ...result };
+    }
   });
   const releaseLight = (event) => {
     if (event?.pointerType === "touch") touchDragging = false;
