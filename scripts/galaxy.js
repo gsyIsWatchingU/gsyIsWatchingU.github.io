@@ -765,13 +765,13 @@ if (renderer) {
     }
   };
 
-  // 攀爬：躯干贴梯前倾、抬头看上方、手脚交替抓踩横杆
-  const applyClimbPose = (targets, sway, blend = 1) => poseRig(targets, {
+  // 攀爬：躯干贴梯前倾、抬头看上方、手脚交替抓踩横杆；下行时低头看脚下
+  const applyClimbPose = (targets, sway, blend = 1, down = false) => poseRig(targets, {
     blend,
     crouch: 1,
     lean: -0.14,
     leanUpper: -0.07,
-    neck: 0.28,
+    neck: down ? -0.18 : 0.28,
     sway,
     armOut: 0.16,
     armDrop: -0.2,
@@ -1443,8 +1443,15 @@ if (renderer) {
         THREE.MathUtils.lerp(-0.06, -0.14, zMix) - protagonistAnchor.rotation.y
       ) * Math.min(1, delta * 4);
       // 手比脚领先几级，并且早半个周期出手；左右各差半级，形成交替
-      const lead = climbRig ? climbRig.handLead : 5;
-      const handStep = step + 0.5 + lead * dir;
+      // 上行：手抓到比脚高 lead 级的高处横杆；下行：手只探到脚下约一级。
+      // 旧逻辑 handStep = step + 0.5 + lead*dir 在下行时，因 limbToRung 内部
+      // rungForStep(base,dir) 已按方向翻转索引，再乘 dir 等于双重翻转，
+      // 让手停在比脚高 lead 级的位置——手臂被 IK 拉成上举贴梯，既穿模又不自然。
+      // 改为上/下行各自合适的提前量，handStep 不再乘 dir。
+      const climbLead = climbRig ? Math.min(climbRig.handLead, 2.2) : 2.2;
+      const descendLead = 1.1;
+      const lead = goingUp ? climbLead : descendLead;
+      const handStep = step + 0.5 + lead;
       const side = climbRig ? climbRig.limbSide : { hand_l: -1, foot_l: -1 };
       const handX = side.hand_l * 0.045;
       const footX = side.foot_l * 0.032;
@@ -1452,7 +1459,7 @@ if (renderer) {
       limbToRung(climbTargets.hand_r, handStep + 0.5, dir, -handX, 0.038);
       limbToRung(climbTargets.foot_l, step, dir, footX, 0.028);
       limbToRung(climbTargets.foot_r, step + 0.5, dir, -footX, 0.028);
-      applyClimbPose(climbTargets, Math.sin(step * Math.PI * 2), 1 - topEase);
+      applyClimbPose(climbTargets, Math.sin(step * Math.PI * 2), 1 - topEase, !goingUp);
       climbPoseActive = true;
       beamAnchor.set(
         protagonistAnchor.position.x,
