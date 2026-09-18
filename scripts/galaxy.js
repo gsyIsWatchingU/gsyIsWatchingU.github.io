@@ -1218,25 +1218,10 @@ if (renderer) {
     world.add(post);
   });
 
-  const createHotspot = (x, z, color) => {
-    const material = new THREE.MeshBasicMaterial({
-      color,
-      transparent: true,
-      opacity: 0.1,
-      side: THREE.DoubleSide,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    });
-    const ring = new THREE.Mesh(new THREE.RingGeometry(0.17, 0.21, 48), material);
-    ring.rotation.x = -Math.PI / 2;
-    ring.position.set(x, -1.012, z);
-    ring.renderOrder = 3;
-    world.add(ring);
-    return ring;
-  };
-
-  // 不需要文字的可点提示：地面呼吸环 + 一圈圈向外扩散的涟漪 + 一道竖直光柱。
-  // 三样都是"会动的光"，在人眼余光里就能被注意到，比一行说明文字更早被看到。
+  // 不需要文字的可点提示：一道贴着装置的竖直微光。
+  // 这里刻意**不画**躺平的地面圆环 —— 相机俯角约 13°，躺平圆环会被压成一条细带，
+  // 语义从"这里有一块可点区域"退化成"地上有条划痕"，容易被当成 z-fighting 或渲染残留。
+  // 竖直信息在这种接近横视的机位下保留得最好，和梯子/绳子本身的纵向形态也一致。
   const createBeacon = (x, z, color, height) => {
     const columnMaterial = new THREE.MeshBasicMaterial({
       color,
@@ -1246,28 +1231,12 @@ if (renderer) {
       depthWrite: false,
       blending: THREE.AdditiveBlending,
     });
-    const column = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.055, height, 14, 1, true), columnMaterial);
+    // 下口宽、上口窄：读起来是"从装置旁升起的一缕微光"，而不是天上打下来的一束光照。
+    const column = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.15, height, 14, 1, true), columnMaterial);
     column.position.set(x, -1.01 + height / 2, z);
     column.renderOrder = 2;
     world.add(column);
-    const ripples = [0, 0.5].map((offset) => {
-      const material = new THREE.MeshBasicMaterial({
-        color,
-        transparent: true,
-        opacity: 0,
-        side: THREE.DoubleSide,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-      });
-      const ring = new THREE.Mesh(new THREE.RingGeometry(0.15, 0.2, 48), material);
-      ring.rotation.x = -Math.PI / 2;
-      ring.position.set(x, -1.008, z);
-      ring.renderOrder = 3;
-      ring.userData.offset = offset;
-      world.add(ring);
-      return ring;
-    });
-    return { column, ripples, hover: 0, kind: "beam" };
+    return { column, hover: 0, kind: "beam" };
   };
 
   // 点击判定体：梯子和绳子本身只有几厘米粗，直接拿它们做射线检测几乎点不中。
@@ -1288,8 +1257,6 @@ if (renderer) {
   const ladderVolume = createPickVolume(-1.5, -0.64, -1.5, 0.72, 1.06, 0.62);
   const ropeVolume = createPickVolume(0.9, -0.52, -2.0, 0.76, 1.24, 0.64);
 
-  const ladderHotspot = createHotspot(ladderStand.x, -1.4, 0x9cc0b1);
-  const ropeHotspot = createHotspot(ropeStand.x, -2.02, 0xd3a672);
   const ladderBeacon = { ...createBeacon(ladderStand.x, -1.4, 0x9cc0b1, 1.08), kind: "ladder" };
   const ropeBeacon = { ...createBeacon(ropeStand.x, -2.02, 0xd3a672, 1.4), kind: "rope" };
   const beacons = [ladderBeacon, ropeBeacon];
@@ -1811,7 +1778,6 @@ if (renderer) {
     rope.position.y = ropeAnchor.y - ropeLength / 2;
     rope.rotation.z = ropeSway * 0.8;
     ropeHandle.position.set(ropeAnchor.x + ropeSway, ropeAnchor.y - ropeLength, ropeAnchor.z);
-    const hotspotPulse = 0.5 + Math.sin(elapsed * 1.8) * 0.5;
     const ladderBusy = characterStory.mode === "climb"
       || characterStory.mode === "descend"
       || characterStory.mode === "perch";
@@ -1819,24 +1785,18 @@ if (renderer) {
     // 一直没动手时把提示加强，让人注意到这两个点是能点的
     const idleFor = elapsed - lastInteractionAt;
     const nudge = THREE.MathUtils.clamp((idleFor - 3.5) / 2.5, 0, 1) * (changeCount === 0 ? 1 : 0.3);
-    const beaconWave = (elapsed * 0.5) % 1;
     beacons.forEach((beacon) => {
       const wanted = hoverKind === beacon.kind ? 1 : 0;
       beacon.hover += (wanted - beacon.hover) * Math.min(1, delta * 8);
       const busy = beacon.kind === "ladder" ? ladderBusy : ropeBusy;
       const dim = busy ? 0.26 : 1;
-      beacon.column.material.opacity = (0.028 + Math.sin(elapsed * 1.5) * 0.014
-        + beacon.hover * 0.06 + nudge * 0.014) * dim;
-      beacon.ripples.forEach((ring) => {
-        const wave = (beaconWave + ring.userData.offset) % 1;
-        ring.scale.setScalar(0.85 + wave * 1.7);
-        ring.material.opacity = (1 - wave) * (0.085 + nudge * 0.09 + beacon.hover * 0.18) * dim;
-      });
+      // 地面环删掉之后，这缕竖光是唯一"还没碰就知道那里有东西"的常驻提示，
+      // 所以基准值比原来高一点；久未操作时靠 nudge 明显起来，而不是一开始就抢画面。
+      beacon.column.material.opacity = (0.045 + Math.sin(elapsed * 1.5) * 0.016
+        + beacon.hover * 0.08 + nudge * 0.05) * dim;
+      // 极缓慢的高度呼吸：静止时看起来是"活的"，又不至于变成 RPG 任务光柱
+      beacon.column.scale.y = 1 + Math.sin(elapsed * 0.7 + beacon.kind.length) * 0.04;
     });
-    ladderHotspot.material.opacity = (0.085 + hotspotPulse * 0.08 + ladderBeacon.hover * 0.16)
-      * (ladderBusy ? 0.3 : 1);
-    ropeHotspot.material.opacity = (0.085 + hotspotPulse * 0.08 + ropeBeacon.hover * 0.16)
-      * (ropeBusy ? 0.3 : 1);
     ladderGlowMaterial.emissiveIntensity = (0.36 + Math.sin(elapsed * 1.5) * 0.08
       + ladderBeacon.hover * 0.85 + nudge * 0.22) * (ladderBusy ? 0.55 : 1);
     ropeGlowMaterial.emissiveIntensity = (0.36 + Math.sin(elapsed * 1.7 + 1) * 0.08
