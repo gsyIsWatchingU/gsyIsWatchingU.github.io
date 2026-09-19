@@ -475,6 +475,11 @@ if (renderer) {
   beamOuterMaterial.opacity = 0.022;
   const beam = createBeam(beamSource, beamTarget, 0.8, beamMaterial);
   const beamOuter = createBeam(beamSource, beamTarget, 1.22, beamOuterMaterial);
+  // 半透明光锥壳在 13° 俯角下，底边会被压成两条横跨画面的长线，
+  // 读起来像多余的箭头/指引线。SpotLight + targetGlow + 灰尘粒子已经
+  // 完整传达了"手电筒在照"的观感，这两个壳只贡献了 bug 边缘，直接不渲染。
+  beam.visible = false;
+  beamOuter.visible = false;
   world.add(beamOuter, beam);
 
   const searchLight = new THREE.SpotLight(0xc9d3c9, 18, 9, Math.PI * 0.13, 0.78, 1.2);
