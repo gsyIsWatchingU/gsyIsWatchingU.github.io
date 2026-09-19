@@ -526,6 +526,7 @@ if (renderer) {
     material.userData.baseOpacity = 0.32;
     const path = new THREE.Mesh(new THREE.TubeGeometry(curve, 42, 0.018, 6, false), material);
     path.renderOrder = 3;
+    path.visible = false;
     world.add(path);
     return { path, material, target };
   });
