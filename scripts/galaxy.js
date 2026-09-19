@@ -1759,6 +1759,9 @@ if (renderer) {
     pointer.lerp(pointerDesired, 0.045);
     hoverAmount += (hoverTarget - hoverAmount) * 0.065;
     visitorLightPulse *= Math.pow(0.985, delta * 60);
+    // beamHold 只在"刚点完"的几秒内保持锁定，之后自然衰减回 0，
+    // 否则 NPC 行走速度会被永久压到 63%，在远处桥上看起来像停了。
+    beamHold *= Math.pow(0.5, delta / 3.5);
     const interactionAmount = Math.max(hoverAmount * 0.55, visitorLightPulse, beamHold * 0.62);
     if (debugCamera) {
       // 仅 ?debug 下生效：把镜头推到梯子/角色近处，用于无头验收时看清骨骼姿态。
