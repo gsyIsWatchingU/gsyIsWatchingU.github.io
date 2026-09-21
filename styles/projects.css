@@ -235,6 +235,14 @@
   transform: translateY(-2px);
 }
 
+.project-overview__actions {
+  grid-area: link;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .project-overview__availability {
   grid-area: link;
   width: fit-content;
@@ -333,6 +341,7 @@
 .product-card {
   --project-accent: var(--orange);
   position: relative;
+  scroll-margin-top: 82px;
   padding: clamp(26px, 3vw, 42px) 0 clamp(54px, 6vw, 88px);
   border-bottom: 1px solid var(--ink);
 }
@@ -1012,6 +1021,12 @@
   .project-overview__link,
   .project-overview__availability {
     width: 100%;
+  }
+
+  .project-overview__actions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .project-overview__controls {
