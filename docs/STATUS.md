@@ -78,7 +78,7 @@
 
 ## 下一步
 
-1. 发布工程控制台并验证 GitHub Pages 公网页面的控制台布局、证据联动与缓存版本生效。
+1. ~~发布工程控制台并验证 GitHub Pages 公网页面的控制台布局、证据联动与缓存版本生效。~~ 已完成（提交 `6749de1` 已推送，公网页面包含 `?v=20260927-console` 并通过无头 Chrome 冒烟）。
 2. 发布最新主页并验证 GitHub Pages 上的弹窗提交、弹幕动画和正式访客计数。
 3. ~~按 `docs/plan-list.md` 新建算法训练平台仓库并完成 W0。~~ 已完成（见 `E:/prj-gsy/algorithm-lab`，服务器内网已部署跑通）。
 4. 确认服务器规格、域名、DNS 和 GitHub OAuth 配置。
@@ -98,6 +98,7 @@
 
 ## 验证结果
 
+- 2026-09-27：工程控制台已推送 `main`（`6749de1`）并发布公网。`git ls-remote origin main` 确认为 `6749de1`；`https://gsyiswatchingu.github.io/` 返回新版页面（`data-console` 结构、`skills.css/skills.js?v=20260927-console`、`projects.js?v=20260927-console-select`、`data-project-id`、实习/工程经历锚点齐全）；再用无头 Chrome 直连公网页面冒烟：8 个能力入口就绪、默认展开「工具调用与编排」、无横向溢出、评测详情证据链接切换到 Algorithm Lab 并暂停自动轮播、控制台零 error/warning。验收脚本 `tmp/check-live-console.mjs`。
 - 2026-09-27：工程控制台完成无头 Chrome CDP 实渲染验收（1440×900 / 1280×720 / 390×844）：8 个能力入口齐全，默认展开「工具调用与编排」（唯一展开）且导航 `aria-current` 同步；桌面端导航与详情面板并排、切换单项展开无重叠无横向溢出；键盘方向键在导航内轮换并展开对应详情；Coffee Research / Algorithm Lab / Horizon Docs / CLI List / Skill Dock 五个项目证据全部切换正确（01–05 / 05）且暂停自动轮播（2.6 秒不前进）；实习与工程经历证据滚动到锚点并短暂高亮；`prefers-reduced-motion` 下交互正常；`--disable-javascript` 无 JS 降级可读（默认展开、证据锚点 href 完整、8 个次级实践说明默认隐藏）；控制台零 error/warning；`npm run build`、`npm run check`、`git diff --check` 通过。验收脚本 `tmp/verify-console.mjs`、`tmp/check-nojs.mjs`、`tmp/check-evidence.mjs`。
 - 2026-09-15：本次改动已推送 `main`（`3f5a409` 两套装置、`88381cf` 资源缓存版本号 `20260915-mystery-props`）并发布到公网。`git ls-remote origin main` 确认为 `88381cf`；`https://gsyiswatchingu.github.io/` 约 40 秒后返回新页面（图例三行齐全、`?v=20260915-mystery-props`），`styles/hero.css`、`assets/galaxy.js`、`assets/characters/red-sweater-boy-hero-v2.glb` 均 200，线上 `galaxy.js` 与本地产物字节一致（688004 B）；再用无头 Chrome 直连公网页面冒烟：模型 `ready`、NPC `skeletal-walk`、点击梯子区域走完 `approach → climb → perch`、控制台无报错。注意本地 `origin/main` 跟踪引用会卡在旧值（`git status` 长期显示 ahead 61），以 `git ls-remote` 为准。
 - 2026-09-15：首屏三套场景完成无头 Chrome CDP 实渲染验收（1440×900）。全画布 204 点扫描确认三类落点判定正确（`beam` 194 / `ladder` 5 / `rope` 5）；梯子链路 `approach → climb → perch`（终态"高处 · 他换了一个视角"）并截图确认人物站在猫道上；绳索链路 `approach → pull → glow`（终态"照亮 · 墙里的光漏了出来"）并截图确认卷帘拉起、暖光从开口漫出；下梯子链路 `perch → descend → lit` 走通；普通空地点击仍是 `follow → lit` 无回归；390×844 移动端 tap 正常、图例三行无重叠、无横向溢出；三轮运行控制台均无 warning/error；`npm run build`、`npm run check`、`git diff --check` 通过。验收脚本 `tmp/verify-hero-props.mjs`、`tmp/probe-descend.mjs`。
