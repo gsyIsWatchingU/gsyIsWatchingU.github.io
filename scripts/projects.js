@@ -107,6 +107,17 @@ document.querySelectorAll("[data-project-overview]").forEach((carousel) => {
     scheduleAutoPlay();
   };
 
+  // 供技能证据联动：选中指定项目并暂停自动轮播，方便访客阅读
+  carousel.selectProject = (projectId) => {
+    const index = slides.findIndex((slide) => slide.dataset.projectId === projectId);
+    if (index < 0) return false;
+    userPaused = true;
+    updateToggleButton();
+    showSlide(index);
+    scheduleAutoPlay();
+    return true;
+  };
+
   previousButton?.addEventListener("click", () => selectSlide(activeIndex - 1));
   nextButton?.addEventListener("click", () => selectSlide(activeIndex + 1));
   dots.forEach((dot, index) => dot.addEventListener("click", () => selectSlide(index)));
@@ -164,4 +175,12 @@ document.querySelectorAll("[data-project-overview]").forEach((carousel) => {
   showSlide(0);
   updateToggleButton();
   scheduleAutoPlay();
+});
+
+window.addEventListener("portfolio:select-project", (event) => {
+  const projectId = event.detail?.projectId;
+  if (!projectId) return;
+  document.querySelectorAll("[data-project-overview]").forEach((carousel) => {
+    carousel.selectProject?.(projectId);
+  });
 });

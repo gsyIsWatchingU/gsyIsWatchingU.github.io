@@ -58,7 +58,7 @@ const renderProjectOverview = () => {
           : `<span class="project-overview__availability" aria-label="私有演示，不开放下载">
                   <b>PRIVATE DEMO</b><span>不开放下载</span>
                 </span>`;
-      return `              <article class="project-overview__slide project-overview__slide--${escapeHtml(project.tone)}" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="${index + 1} / ${projects.length} · ${escapeHtml(project.name)}" aria-hidden="${index === 0 ? "false" : "true"}">
+      return `              <article class="project-overview__slide project-overview__slide--${escapeHtml(project.tone)}" data-overview-slide data-project-id="${escapeHtml(project.id)}" role="group" aria-roledescription="幻灯片" aria-label="${index + 1} / ${projects.length} · ${escapeHtml(project.name)}" aria-hidden="${index === 0 ? "false" : "true"}">
                 <span class="project-overview__icon" aria-hidden="true">
                   <img src="${escapeHtml(project.icon)}" alt="" width="1024" height="1024" loading="${index === 0 ? "eager" : "lazy"}" />
                 </span>

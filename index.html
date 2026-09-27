@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/header.css?v=20260906-nav50" />
     <link rel="stylesheet" href="./styles/hero.css?v=20260918-discovery" />
-    <link rel="stylesheet" href="./styles/skills.css" />
+    <link rel="stylesheet" href="./styles/skills.css?v=20260927-console" />
     <link rel="stylesheet" href="./styles/experience.css" />
     <link rel="stylesheet" href="./styles/projects.css?v=20260921-cli-list-detail" />
     <link rel="stylesheet" href="./styles/guestbook.css?v=20260917-mood" />
@@ -217,108 +217,327 @@
             <p>AI 能生成答案，但生产级 Agent 需要有人在模型周围搭一整套工程脚手架。</p>
           </header>
 
-          <div class="skills-grid reveal" data-capability-tree>
-            <!-- ============ Part 1: AI Agent Harness — the differentiator ============ -->
-            <article class="skill-panel skill-panel--harness">
-              <header class="skill-panel__head">
-                <p class="skill-panel__label">PART 01 / THE DIFFERENCE</p>
-                <h3>AI Agent Harness</h3>
-                <p class="skill-panel__thesis">模型负责生成，我负责让它在生产环境可用、可运营、可控成本。</p>
-              </header>
+          <div class="console reveal" data-console aria-label="工程控制台：八个能力入口与对应工程细节">
+            <div class="console__bar" aria-hidden="true">
+              <span>ENGINEERING CONSOLE · 08 CAPABILITIES</span>
+              <span class="console__bar-legend"><i class="console__bar-signal console__bar-signal--agent"></i>AGENT 工程</span>
+              <span class="console__bar-legend"><i class="console__bar-signal console__bar-signal--fullstack"></i>AI 全栈</span>
+            </div>
 
-              <div class="skill-panel__items">
-                <div class="skill-item">
-                  <h4>上下文与记忆</h4>
-                  <p>窗口不是越大越好——分层管理短期对话、长期记忆与 RAG 检索，防止 context rot。</p>
-                  <ul class="capability-tags">
-                    <li>Context Engineering</li><li>Memory</li><li>RAG</li>
-                  </ul>
-                </div>
-
-                <div class="skill-item">
-                  <h4>提示词与输出约束</h4>
-                  <p>Schema 约束 + 解析校验 + 自纠错兜底，Prompt 版本化可灰度，改了知道为什么变好。</p>
-                  <ul class="capability-tags">
-                    <li>Structured Output</li><li>JSON Schema</li><li>Prompt Versioning</li>
-                  </ul>
-                </div>
-
-                <div class="skill-item">
-                  <h4>工具调用与智能体编排</h4>
-                  <p>最大敌人是空转——硬步骤上限、重复调用检测、Plan/Execute 拆开，让模型动手不绕圈。</p>
-                  <ul class="capability-tags">
-                    <li>Tool Calling</li><li>MCP</li><li>ReAct</li><li>Loop Guard</li>
-                  </ul>
-                </div>
-
-                <div class="skill-item">
-                  <h4>评测与监控</h4>
-                  <p>线上失败 case 反哺评测集，全链路 Trace 可复现非确定性 bug，定期冒烟防模型静默漂移。</p>
-                  <ul class="capability-tags">
-                    <li>Eval / Regression</li><li>Tracing</li><li>LLM-as-Judge</li><li>Drift Alert</li>
-                  </ul>
-                </div>
-
-                <div class="skill-item">
-                  <h4>安全与可靠性</h4>
-                  <p>防 RAG 间接注入、审批按风险分级、重试加并发上限防 storm、高风险操作跑在沙箱里。</p>
-                  <ul class="capability-tags">
-                    <li>Injection Defense</li><li>Approval Gate</li><li>Sandbox</li><li>Circuit Breaker</li>
-                  </ul>
-                </div>
-
-                <div class="skill-item">
-                  <h4>推理成本工程</h4>
-                  <p>大小模型按任务路由，语义缓存设 TTL，Token 预算硬限制——不让简单问题烧大模型的钱。</p>
-                  <ul class="capability-tags">
-                    <li>Model Routing</li><li>Semantic Cache</li><li>Token Budget</li>
-                  </ul>
+            <nav class="console__rail" data-console-rail aria-label="能力导航">
+              <div class="console__group" data-console-group="agent">
+                <p class="console__group-label"><i></i>AGENT 工程</p>
+                <div class="console__group-entries">
+                  <a class="console__entry" href="#cap-context" data-console-entry="context-output">
+                    <span class="console__entry-index">A·01</span>
+                    <span class="console__entry-title">上下文与输出</span>
+                    <span class="console__entry-signal" aria-hidden="true"></span>
+                  </a>
+                  <a class="console__entry is-active" href="#cap-orchestration" data-console-entry="orchestration" aria-current="page">
+                    <span class="console__entry-index">A·02</span>
+                    <span class="console__entry-title">工具调用与编排</span>
+                    <span class="console__entry-signal" aria-hidden="true"></span>
+                  </a>
+                  <a class="console__entry" href="#cap-reliability" data-console-entry="reliability">
+                    <span class="console__entry-index">A·03</span>
+                    <span class="console__entry-title">可靠执行与治理</span>
+                    <span class="console__entry-signal" aria-hidden="true"></span>
+                  </a>
+                  <a class="console__entry" href="#cap-eval" data-console-entry="eval">
+                    <span class="console__entry-index">A·04</span>
+                    <span class="console__entry-title">评测与观测</span>
+                    <span class="console__entry-signal" aria-hidden="true"></span>
+                  </a>
                 </div>
               </div>
-            </article>
 
-            <!-- ============ Part 2: AI 全栈 — the foundation ============ -->
-            <article class="skill-panel skill-panel--fullstack">
-              <header class="skill-panel__head">
-                <p class="skill-panel__label">PART 02 / THE FOUNDATION</p>
-                <h3>AI 全栈</h3>
-                <p class="skill-panel__thesis">从界面到数据，独立把智能能力端到端做成可交付产品。</p>
-              </header>
-
-              <div class="skill-panel__items">
-                <div class="skill-item">
-                  <h4>端到端产品交付</h4>
-                  <p>从交互到上线一个人闭环：不依赖前后端分工，流式 UI、接口、数据库、部署自己串完。</p>
-                  <ul class="capability-tags">
-                    <li>TypeScript / React</li><li>Node.js / Go</li><li>独立交付</li>
-                  </ul>
-                </div>
-
-                <div class="skill-item">
-                  <h4>服务与数据建模</h4>
-                  <p>AI 生成的数据要可修正、可重跑、可追溯：用状态机区分"生成中/已确认/已修正"，缓存要分开确定性查询和概率性生成。</p>
-                  <ul class="capability-tags">
-                    <li>PostgreSQL</li><li>Redis</li><li>缓存策略</li>
-                  </ul>
-                </div>
-
-                <div class="skill-item">
-                  <h4>实时与异步系统</h4>
-                  <p>流式输出用 SSE 就够，长任务丢队列异步跑并推进度；关键是背压——AI 生成速度可能快过客户端渲染，不能无脑推。</p>
-                  <ul class="capability-tags">
-                    <li>SSE</li><li>BullMQ</li><li>Backpressure</li>
-                  </ul>
-                </div>
-
-                <div class="skill-item">
-                  <h4>架构与持续交付</h4>
-                  <p>确定性代码单测全覆盖，模块边界控制变化范围；模型版本和代码一起版本化，出问题能一起回滚。</p>
-                  <ul class="capability-tags">
-                    <li>CI / CD</li><li>Docker</li><li>Testing</li>
-                  </ul>
+              <div class="console__group" data-console-group="fullstack">
+                <p class="console__group-label"><i></i>AI 全栈</p>
+                <div class="console__group-entries">
+                  <a class="console__entry" href="#cap-delivery" data-console-entry="delivery">
+                    <span class="console__entry-index">B·01</span>
+                    <span class="console__entry-title">端到端产品交付</span>
+                    <span class="console__entry-signal" aria-hidden="true"></span>
+                  </a>
+                  <a class="console__entry" href="#cap-service-data" data-console-entry="service-data">
+                    <span class="console__entry-index">B·02</span>
+                    <span class="console__entry-title">服务与数据建模</span>
+                    <span class="console__entry-signal" aria-hidden="true"></span>
+                  </a>
+                  <a class="console__entry" href="#cap-realtime-async" data-console-entry="realtime-async">
+                    <span class="console__entry-index">B·03</span>
+                    <span class="console__entry-title">实时与异步系统</span>
+                    <span class="console__entry-signal" aria-hidden="true"></span>
+                  </a>
+                  <a class="console__entry" href="#cap-architecture" data-console-entry="architecture">
+                    <span class="console__entry-index">B·04</span>
+                    <span class="console__entry-title">架构与持续交付</span>
+                    <span class="console__entry-signal" aria-hidden="true"></span>
+                  </a>
                 </div>
               </div>
-            </article>
+            </nav>
+
+            <div class="console__details">
+              <details class="console__detail console__detail--agent" id="cap-context" data-console-detail="context-output">
+                <summary>
+                  <span class="console__detail-kicker">A · 01</span>
+                  <span class="console__detail-title">上下文与输出</span>
+                  <span class="console__detail-hint">CONTEXT · OUTPUT</span>
+                </summary>
+                <div class="console__detail-body">
+                  <section class="console__field">
+                    <span class="console__field-label">工程问题</span>
+                    <p>窗口不是越大越好。短期对话、长期记忆与 RAG 检索片段混在一起，上下文会持续腐烂；模型输出不守 Schema，改完 Prompt 也说不清是哪次改动真正生效。</p>
+                  </section>
+                  <section class="console__field">
+                    <span class="console__field-label">解决方法</span>
+                    <p>按层管理短期对话、长期记忆与检索注入，需要时才组装上下文；Schema 约束 + 解析校验 + 自纠错兜底；Prompt 版本化、可灰度，每次改动效果都能对比回滚。</p>
+                  </section>
+                  <div class="console__field">
+                    <span class="console__field-label">技术栈</span>
+                    <ul class="capability-tags">
+                      <li>Context Engineering</li><li>Memory</li><li>RAG</li><li>Structured Output</li><li>JSON Schema</li><li>Prompt Versioning</li>
+                    </ul>
+                  </div>
+                  <section class="console__field">
+                    <span class="console__field-label">站内证据</span>
+                    <ul class="console__evidence">
+                      <li><a href="#experience-a1" data-evidence="experience">TraceAgent · 长任务上下文与历史经验检索</a></li>
+                      <li><a href="#projects" data-project="research-workbench" data-evidence="project">Coffee Research · 证据双锚点回到原文验证</a></li>
+                      <li><a data-skill-document="context-output" hidden>实践说明 · 飞书文档 ↗</a></li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+
+              <details class="console__detail console__detail--agent" id="cap-orchestration" data-console-detail="orchestration" open>
+                <summary>
+                  <span class="console__detail-kicker">A · 02</span>
+                  <span class="console__detail-title">工具调用与编排</span>
+                  <span class="console__detail-hint">TOOL CALLING · ORCHESTRATION</span>
+                  <span class="console__badge">AGENT HARNESS</span>
+                </summary>
+                <div class="console__detail-body">
+                  <section class="console__field">
+                    <span class="console__field-label">工程问题</span>
+                    <p>最大敌人是空转：模型反复调用同一工具绕圈，长任务上下文持续膨胀，跨步骤的消息一致性难以保证——编排一旦失控，Agent 就从工具变成噪音。</p>
+                  </section>
+                  <section class="console__field">
+                    <span class="console__field-label">解决方法</span>
+                    <p>硬步骤上限 + 重复调用检测，Plan / Execute 拆开让模型先想再动；依赖图根因搜索、事件幂等与状态持久化，让编排可中断、可恢复、可审计——这是 Agent Harness 与普通 Prompt 工程的差异所在。</p>
+                  </section>
+                  <div class="console__field">
+                    <span class="console__field-label">技术栈</span>
+                    <ul class="capability-tags">
+                      <li>Tool Calling</li><li>MCP</li><li>ReAct</li><li>Loop Guard</li><li>Plan-Execute</li><li>Idempotency</li>
+                    </ul>
+                  </div>
+                  <section class="console__field">
+                    <span class="console__field-label">站内证据</span>
+                    <ul class="console__evidence">
+                      <li><a href="#experience-a1" data-evidence="experience">TraceAgent / FixAgent · 跟踪、定位与自动化验证</a></li>
+                      <li><a href="#case-agent-harness" data-evidence="experience">研发 Agent Harness · 分析决策 + 确定性执行</a></li>
+                      <li><a data-skill-document="orchestration" hidden>实践说明 · 飞书文档 ↗</a></li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+
+              <details class="console__detail console__detail--agent" id="cap-reliability" data-console-detail="reliability">
+                <summary>
+                  <span class="console__detail-kicker">A · 03</span>
+                  <span class="console__detail-title">可靠执行与治理</span>
+                  <span class="console__detail-hint">RELIABILITY · GOVERNANCE</span>
+                </summary>
+                <div class="console__detail-body">
+                  <section class="console__field">
+                    <span class="console__field-label">工程问题</span>
+                    <p>RAG 间接注入、高风险操作失控、重试风暴打垮下游、沙箱被绕过的代价都直接落在生产环境；简单问题烧在贵模型上则是另一种静默的成本失控。</p>
+                  </section>
+                  <section class="console__field">
+                    <span class="console__field-label">解决方法</span>
+                    <p>防注入 + 按风险分级审批；重试加并发上限防 storm；高风险操作跑在沙箱里；权限门禁与执行审计兜底；大小模型按任务路由、语义缓存设 TTL、Token 预算硬限制。</p>
+                  </section>
+                  <div class="console__field">
+                    <span class="console__field-label">技术栈</span>
+                    <ul class="capability-tags">
+                      <li>Injection Defense</li><li>Approval Gate</li><li>Sandbox</li><li>Circuit Breaker</li><li>Model Routing</li><li>Token Budget</li>
+                    </ul>
+                  </div>
+                  <section class="console__field">
+                    <span class="console__field-label">站内证据</span>
+                    <ul class="console__evidence">
+                      <li><a href="#experience-a3" data-evidence="experience">平台稳定性专项 · 两大平台六个仓库治理闭环</a></li>
+                      <li><a href="#projects" data-project="algorithm-lab" data-evidence="project">Algorithm Lab · 低权限沙箱、资源限制与超时终止</a></li>
+                      <li><a href="#projects" data-project="skill-dock" data-evidence="project">Skill Dock · 账号隔离、密钥过滤与版本识别</a></li>
+                      <li><a data-skill-document="reliability" hidden>实践说明 · 飞书文档 ↗</a></li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+
+              <details class="console__detail console__detail--agent" id="cap-eval" data-console-detail="eval">
+                <summary>
+                  <span class="console__detail-kicker">A · 04</span>
+                  <span class="console__detail-title">评测与观测</span>
+                  <span class="console__detail-hint">EVAL · OBSERVABILITY</span>
+                </summary>
+                <div class="console__detail-body">
+                  <section class="console__field">
+                    <span class="console__field-label">工程问题</span>
+                    <p>非确定性 bug 难以复现，模型静默漂移；线上失败 case 如果不回流，评测集和真实问题会越离越远，回归变成走过场。</p>
+                  </section>
+                  <section class="console__field">
+                    <span class="console__field-label">解决方法</span>
+                    <p>线上失败 case 反哺评测集；全链路 Trace 复现非确定性 bug；LLM-as-Judge 做批量回归，定期冒烟 + 漂移告警拦截模型静默变化。</p>
+                  </section>
+                  <div class="console__field">
+                    <span class="console__field-label">技术栈</span>
+                    <ul class="capability-tags">
+                      <li>Eval / Regression</li><li>Tracing</li><li>LLM-as-Judge</li><li>Drift Alert</li>
+                    </ul>
+                  </div>
+                  <section class="console__field">
+                    <span class="console__field-label">站内证据</span>
+                    <ul class="console__evidence">
+                      <li><a href="#experience-a1" data-evidence="experience">Agent Harness · 自动化验证与人工复核一致率</a></li>
+                      <li><a href="#projects" data-project="algorithm-lab" data-evidence="project">Algorithm Lab · 判题结果可追踪、隐藏用例零泄露</a></li>
+                      <li><a data-skill-document="eval" hidden>实践说明 · 飞书文档 ↗</a></li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+
+              <details class="console__detail console__detail--fullstack" id="cap-delivery" data-console-detail="delivery">
+                <summary>
+                  <span class="console__detail-kicker">B · 01</span>
+                  <span class="console__detail-title">端到端产品交付</span>
+                  <span class="console__detail-hint">END-TO-END DELIVERY</span>
+                </summary>
+                <div class="console__detail-body">
+                  <section class="console__field">
+                    <span class="console__field-label">工程问题</span>
+                    <p>不依赖前后端分工，一个人要独立把智能能力从交互做成可上线产品；链路一断、一环外包，交付日期就不可控。</p>
+                  </section>
+                  <section class="console__field">
+                    <span class="console__field-label">解决方法</span>
+                    <p>流式 UI、接口、数据库、部署自己串完；从技术评审到发布全链路负责，埋点、国际化、数据看板一次做齐，发布后继续用 PV 与反馈验证价值。</p>
+                  </section>
+                  <div class="console__field">
+                    <span class="console__field-label">技术栈</span>
+                    <ul class="capability-tags">
+                      <li>TypeScript / React</li><li>Node.js / Go</li><li>独立交付</li>
+                    </ul>
+                  </div>
+                  <section class="console__field">
+                    <span class="console__field-label">站内证据</span>
+                    <ul class="console__evidence">
+                      <li><a href="#experience-a4" data-evidence="experience">Smart Video · 技术评审到上线的全链路交付</a></li>
+                      <li><a href="#projects" data-project="cli-list" data-evidence="project">CLI List · 安装包交付的独立 Windows 应用</a></li>
+                      <li><a href="#case-edu-platform" data-evidence="experience">教育培训管理平台 · 20 万+ 用户全栈交付</a></li>
+                      <li><a data-skill-document="delivery" hidden>实践说明 · 飞书文档 ↗</a></li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+
+              <details class="console__detail console__detail--fullstack" id="cap-service-data" data-console-detail="service-data">
+                <summary>
+                  <span class="console__detail-kicker">B · 02</span>
+                  <span class="console__detail-title">服务与数据建模</span>
+                  <span class="console__detail-hint">SERVICE · DATA MODELING</span>
+                </summary>
+                <div class="console__detail-body">
+                  <section class="console__field">
+                    <span class="console__field-label">工程问题</span>
+                    <p>AI 生成的数据要可修正、可重跑、可追溯，直接把模型输出写库会在下游变成脏数据；缓存里混进概率性结果会让查询结果时真时假。</p>
+                  </section>
+                  <section class="console__field">
+                    <span class="console__field-label">解决方法</span>
+                    <p>用状态机区分「生成中 / 已确认 / 已修正」，写入带延迟保存与版本冲突保护；确定性查询与概率性生成分开缓存，按语义设 TTL。</p>
+                  </section>
+                  <div class="console__field">
+                    <span class="console__field-label">技术栈</span>
+                    <ul class="capability-tags">
+                      <li>PostgreSQL</li><li>Redis</li><li>缓存策略</li><li>State Machine</li>
+                    </ul>
+                  </div>
+                  <section class="console__field">
+                    <span class="console__field-label">站内证据</span>
+                    <ul class="console__evidence">
+                      <li><a href="#projects" data-project="algorithm-lab" data-evidence="project">Algorithm Lab · 题库模型、边界与审核流</a></li>
+                      <li><a href="#projects" data-project="research-workbench" data-evidence="project">Coffee Research · 延迟保存与版本冲突保护</a></li>
+                      <li><a data-skill-document="service-data" hidden>实践说明 · 飞书文档 ↗</a></li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+
+              <details class="console__detail console__detail--fullstack" id="cap-realtime-async" data-console-detail="realtime-async">
+                <summary>
+                  <span class="console__detail-kicker">B · 03</span>
+                  <span class="console__detail-title">实时与异步系统</span>
+                  <span class="console__detail-hint">REAL-TIME · ASYNC</span>
+                </summary>
+                <div class="console__detail-body">
+                  <section class="console__field">
+                    <span class="console__field-label">工程问题</span>
+                    <p>流式输出、长任务、多人实时协作同步，处理不好就是页面卡死、消息堆积或状态错乱；AI 生成速度可能快过客户端渲染，不能无脑推送。</p>
+                  </section>
+                  <section class="console__field">
+                    <span class="console__field-label">解决方法</span>
+                    <p>流式输出用 SSE 就够；长任务丢队列异步跑并推进度；背压控制让生产与消费速度匹配；协同与业务通知走独立通道，权限变化实时收敛。</p>
+                  </section>
+                  <div class="console__field">
+                    <span class="console__field-label">技术栈</span>
+                    <ul class="capability-tags">
+                      <li>SSE</li><li>WebSocket</li><li>BullMQ</li><li>Backpressure</li><li>Yjs</li>
+                    </ul>
+                  </div>
+                  <section class="console__field">
+                    <span class="console__field-label">站内证据</span>
+                    <ul class="console__evidence">
+                      <li><a href="#projects" data-project="write-here" data-evidence="project">Horizon Docs · Yjs 实时协同与双 WebSocket</a></li>
+                      <li><a href="#projects" data-project="algorithm-lab" data-evidence="project">Algorithm Lab · Redis + BullMQ 异步判题</a></li>
+                      <li><a data-skill-document="realtime-async" hidden>实践说明 · 飞书文档 ↗</a></li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+
+              <details class="console__detail console__detail--fullstack" id="cap-architecture" data-console-detail="architecture">
+                <summary>
+                  <span class="console__detail-kicker">B · 04</span>
+                  <span class="console__detail-title">架构与持续交付</span>
+                  <span class="console__detail-hint">ARCHITECTURE · CI / CD</span>
+                </summary>
+                <div class="console__detail-body">
+                  <section class="console__field">
+                    <span class="console__field-label">工程问题</span>
+                    <p>模型版本与代码一起变化，出问题要能一起回滚；跨仓改动如果失控，稳定性问题会在多个平台反复出现。</p>
+                  </section>
+                  <section class="console__field">
+                    <span class="console__field-label">解决方法</span>
+                    <p>确定性代码单测全覆盖，模块边界控制变化范围；模型版本与代码一起版本化，可整体回滚；跨仓改动统一盘点、分级排期、合并上线。</p>
+                  </section>
+                  <div class="console__field">
+                    <span class="console__field-label">技术栈</span>
+                    <ul class="capability-tags">
+                      <li>CI / CD</li><li>Docker</li><li>Testing</li><li>Monorepo</li><li>微前端</li>
+                    </ul>
+                  </div>
+                  <section class="console__field">
+                    <span class="console__field-label">站内证据</span>
+                    <ul class="console__evidence">
+                      <li><a href="#experience-a4" data-evidence="experience">Smart Video · 微前端架构与 Monorepo</a></li>
+                      <li><a href="#experience-a3" data-evidence="experience">平台稳定性专项 · 六仓库跨仓协同</a></li>
+                      <li><a data-skill-document="architecture" hidden>实践说明 · 飞书文档 ↗</a></li>
+                    </ul>
+                  </section>
+                </div>
+              </details>
+            </div>
           </div>
         </section>
         <section class="experience-section" id="experience" aria-labelledby="experience-title">
@@ -344,7 +563,7 @@
             </header>
 
             <ol class="experience-entry__achievements">
-              <li>
+              <li id="experience-a1">
                 <span class="experience-entry__index">01</span>
                 <div>
                   <h4>Agent Harness 与研发提效</h4>
@@ -360,7 +579,7 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li id="experience-a2">
                 <span class="experience-entry__index">02</span>
                 <div>
                   <h4>团队提效工具</h4>
@@ -376,7 +595,7 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li id="experience-a3">
                 <span class="experience-entry__index">03</span>
                 <div>
                   <h4>平台稳定性专项</h4>
@@ -393,7 +612,7 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li id="experience-a4">
                 <span class="experience-entry__index">04</span>
                 <div>
                   <h4>需求开发</h4>
@@ -431,7 +650,7 @@
           <div class="project-overview reveal" data-project-overview role="region" aria-roledescription="轮播" aria-label="项目名称、功能与技术栈概览" tabindex="0">
             <div class="project-overview__viewport" data-overview-viewport>
               <div class="project-overview__track" data-overview-track>
-              <article class="project-overview__slide project-overview__slide--forest" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="1 / 5 · Coffee Research" aria-hidden="false">
+              <article class="project-overview__slide project-overview__slide--forest" data-overview-slide data-project-id="research-workbench" role="group" aria-roledescription="幻灯片" aria-label="1 / 5 · Coffee Research" aria-hidden="false">
                 <span class="project-overview__icon" aria-hidden="true">
                   <img src="./assets/projects/icons/coffee-research.svg" alt="" width="1024" height="1024" loading="eager" />
                 </span>
@@ -456,7 +675,7 @@
                   进入 Coffee Research <span aria-hidden="true">↗</span>
                 </a>
               </article>
-              <article class="project-overview__slide project-overview__slide--blue" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="2 / 5 · Algorithm Lab" aria-hidden="true">
+              <article class="project-overview__slide project-overview__slide--blue" data-overview-slide data-project-id="algorithm-lab" role="group" aria-roledescription="幻灯片" aria-label="2 / 5 · Algorithm Lab" aria-hidden="true">
                 <span class="project-overview__icon" aria-hidden="true">
                   <img src="./assets/projects/icons/algorithm-lab.svg" alt="" width="1024" height="1024" loading="lazy" />
                 </span>
@@ -481,7 +700,7 @@
                   进入平台 <span aria-hidden="true">↗</span>
                 </a>
               </article>
-              <article class="project-overview__slide project-overview__slide--green" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="3 / 5 · Horizon Docs" aria-hidden="true">
+              <article class="project-overview__slide project-overview__slide--green" data-overview-slide data-project-id="write-here" role="group" aria-roledescription="幻灯片" aria-label="3 / 5 · Horizon Docs" aria-hidden="true">
                 <span class="project-overview__icon" aria-hidden="true">
                   <img src="./assets/projects/icons/horizon-docs.svg" alt="" width="1024" height="1024" loading="lazy" />
                 </span>
@@ -506,7 +725,7 @@
                   进入 Horizon Docs <span aria-hidden="true">↗</span>
                 </a>
               </article>
-              <article class="project-overview__slide project-overview__slide--green" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="4 / 5 · CLI List" aria-hidden="true">
+              <article class="project-overview__slide project-overview__slide--green" data-overview-slide data-project-id="cli-list" role="group" aria-roledescription="幻灯片" aria-label="4 / 5 · CLI List" aria-hidden="true">
                 <span class="project-overview__icon" aria-hidden="true">
                   <img src="./assets/projects/icons/cli-list.svg" alt="" width="1024" height="1024" loading="lazy" />
                 </span>
@@ -536,7 +755,7 @@
                   </span>
                 </div>
               </article>
-              <article class="project-overview__slide project-overview__slide--forest" data-overview-slide role="group" aria-roledescription="幻灯片" aria-label="5 / 5 · Skill Dock" aria-hidden="true">
+              <article class="project-overview__slide project-overview__slide--forest" data-overview-slide data-project-id="skill-dock" role="group" aria-roledescription="幻灯片" aria-label="5 / 5 · Skill Dock" aria-hidden="true">
                 <span class="project-overview__icon" aria-hidden="true">
                   <img src="./assets/projects/icons/skill-dock.svg" alt="" width="1024" height="1024" loading="lazy" />
                 </span>
@@ -642,7 +861,7 @@
             </header>
 
             <div class="project-cases__grid">
-              <article class="project-case">
+              <article class="project-case" id="case-agent-harness">
                 <span class="project-case__index">A / 01</span>
                 <p class="project-case__meta">AGENT ENGINEERING</p>
                 <h4>研发 Agent Harness</h4>
@@ -652,7 +871,7 @@
                 <strong>跟踪 24 个问题 · 推动 20 个处理</strong>
               </article>
 
-              <a class="project-case project-case--link" href="https://jp.liyunol.com" target="_blank" rel="noreferrer">
+              <a class="project-case project-case--link" id="case-edu-platform" href="https://jp.liyunol.com" target="_blank" rel="noreferrer">
                 <span class="project-case__index">A / 02</span>
                 <p class="project-case__meta">FULL-STACK DELIVERY</p>
                 <h4>教育培训管理平台</h4>
@@ -677,8 +896,8 @@
     <script defer src="./scripts/reveal.js"></script>
     <script defer src="./scripts/cursor.js"></script>
     <script defer src="./scripts/skill-links.js"></script>
-    <script defer src="./scripts/skills.js"></script>
-    <script defer src="./scripts/projects.js?v=20260914-overview-fade-fast"></script>
+    <script defer src="./scripts/skills.js?v=20260927-console"></script>
+    <script defer src="./scripts/projects.js?v=20260927-console-select"></script>
     <script defer src="./scripts/guestbook-config.js"></script>
     <script defer src="./scripts/guestbook.js?v=20260917-mood"></script>
     <script defer src="./scripts/game-feel.js"></script>

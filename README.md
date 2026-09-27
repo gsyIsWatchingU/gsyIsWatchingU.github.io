@@ -5,13 +5,15 @@
 | 板块 | 页面内容 | 样式 | 交互 |
 | --- | --- | --- | --- |
 | 首屏互动场景与留言弹窗 | `src/sections/hero.html`、`src/sections/guestbook.html` | `styles/hero.css`、`styles/guestbook.css` | `scripts/galaxy.js`、`scripts/guestbook.js` |
-| 专业技能树 | `src/sections/skills.html` | `styles/skills.css` | `scripts/skill-links.js`、`scripts/skills.js` |
+| 专业技能（工程控制台） | `src/sections/skills.html` | `styles/skills.css` | `scripts/skill-links.js`、`scripts/skills.js` |
 | 实习经历 | `src/sections/experience.html` | `styles/experience.css` | — |
 | 独立产品与工程经历 | `src/sections/projects.html`、`src/data/projects.json` | `styles/projects.css` | — |
 
 公共头部和页脚在 `src/components`，公共样式在 `styles/base.css`。
 
 能力分支的飞书实践说明链接统一配置在 `scripts/skill-links.js`。填写对应 URL 后，页面会显示实践说明入口。
+
+专业能力区以「工程控制台」呈现八个能力入口（Agent 工程 × 4 + AI 全栈 × 4），右侧详情包含工程问题、解决方法、技术栈与站内证据；站内证据链接会切换到独立产品轮播对应项目并暂停自动播放，或跳转到实习经历/工程经历锚点。
 
 独立产品的文案、可选在线入口与截图统一配置在 `src/data/projects.json`，字段约束见 `src/data/projects.schema.json`，真实产品截图位于 `assets/projects`，可通过 `gallery` 配置多图轮播；私有产品只展示能力与界面，不提供源码或下载入口。
 

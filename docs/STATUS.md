@@ -1,6 +1,6 @@
 ﻿# 项目状态
 
-最后更新：2026-09-25
+最后更新：2026-09-27
 
 ## 当前阶段
 
@@ -12,6 +12,8 @@
 
 ## 已完成
 
+- 已将专业技能区重构为「工程控制台」：左侧 8 个能力入口（Agent 工程：上下文与输出 / 工具调用与编排 / 可靠执行与治理 / 评测与观测；AI 全栈：端到端产品交付 / 服务与数据建模 / 实时与异步系统 / 架构与持续交付），右侧展示当前能力的工程问题、解决方法、技术栈与站内证据；安全、成本、Prompt、RAG、沙箱等知识点归入对应详情。延续黑白工业风，Agent 蓝 / 全栈橙信号色，扫描线、连接脉冲与内容切换克制动效；原生 `<details>/<summary>` 保证无 JS 可读，脚本增强为单项展开、状态同步与动效；手机端单列手风琴、桌面端能力导航加详情面板；支持键盘、焦点样式与 `prefers-reduced-motion`。
+- 已为实习成果增加稳定锚点（`#experience-a1` Agent Harness、`#experience-a2` 团队提效工具、`#experience-a3` 平台稳定性专项、`#experience-a4` Smart Video）与工程经历卡片锚点（`#case-agent-harness`、`#case-edu-platform`）；项目轮播项新增 `data-project-id`；新增内部事件 `portfolio:select-project`，技能证据链接可切换到 Coffee Research / Algorithm Lab / Horizon Docs / CLI List / Skill Dock 并暂停自动轮播供访客阅读；无 JS 时证据链接退化为跳转「实习经历」或「独立产品」；保留 `SKILL_DOCUMENT_LINKS` 作为可选次级实践说明（站内证据始终优先）。技能资源缓存版本更新为 `20260927-console`。
 - 已纠正 CLI List 的主页产品定位：它是下载安装包后可直接双击打开的独立 Windows 应用，不再把资源管理器右键入口作为核心形态；简介改为“独立应用—集中管理—高频直达”，详情图替换为应用本体与命令管理界面，继续明确“仅展示 · 不开放下载”。
 - 已修复「走路时手部动作不自然」的根因（在资产层面证实）：直接解码 `red-sweater-boy-hero-v2.glb` 的后备动画通道发现，原先优选的 `walk_formal_loop` 上臂整周期只转 **2.6°**（同一条片段里小腿却转 80°，是典型「手插兜」僵直走姿）；备用的 `walk_loop` 上臂 **32.4°**、小臂 27.2°、手腕 12.9°，才是正常摆臂。把 `clipMap.walk` 与 NPC 走路片段的优先级改为 `walk_loop` 优先。真实时钟下复测关节幅度：`upperarm_l` X 由约 0.3°（近乎冻结）提升到 **55.5°**、Z 44.7°，`lowerarm_l` X 28.8°，`hand_l` Y 20.9°，左右臂对称（`upperarm_r` X 54.1°、`hand_r` Y 21.1°），侧视连拍可见手臂前后摆动与屈肘。
 - 已修复「鼠标点击有时不响应」：原先点击白名单 `interactiveModes` 只列 `idle/lit/glow/perch/arrived`，角色处于 `follow`/`approach`/`descend` 时点击被整段吞掉（`descend` 漏在白名单外尤其明显）。补齐白名单并新增 `lockedModes`（攀爬/拉绳/下梯/猫道）——过场中仍让光束跟随点击给出反馈，但不改目的地。CDP 真实鼠标事件验收：点梯子 `idle→approach`（`kind:"ladder"`）、点绳子 `kind:"rope"`、点空地 `kind:"beam"`，`applied` 均为 `true`；画布 5×4 网格 **20/20 全部命中**，无死区。
@@ -76,9 +78,10 @@
 
 ## 下一步
 
-1. 发布最新主页并验证 GitHub Pages 上的弹窗提交、弹幕动画和正式访客计数。
-2. ~~按 `docs/plan-list.md` 新建算法训练平台仓库并完成 W0。~~ 已完成（见 `E:/prj-gsy/algorithm-lab`，服务器内网已部署跑通）。
-3. 确认服务器规格、域名、DNS 和 GitHub OAuth 配置。
+1. 发布工程控制台并验证 GitHub Pages 公网页面的控制台布局、证据联动与缓存版本生效。
+2. 发布最新主页并验证 GitHub Pages 上的弹窗提交、弹幕动画和正式访客计数。
+3. ~~按 `docs/plan-list.md` 新建算法训练平台仓库并完成 W0。~~ 已完成（见 `E:/prj-gsy/algorithm-lab`，服务器内网已部署跑通）。
+4. 确认服务器规格、域名、DNS 和 GitHub OAuth 配置。
    - 服务器规格已确认（128 vCPU / 503GB / 8TB / 2×L20，K8s Pod）。
    - 域名、DNS、GitHub OAuth 仍缺失，已列为阻塞项（见 `algorithm-lab/docs/deployment.md`）。
 4. 确认字节跳动内部项目名称、指标与教育平台域名是否适合公开展示，必要时做进一步脱敏。
@@ -95,6 +98,7 @@
 
 ## 验证结果
 
+- 2026-09-27：工程控制台完成无头 Chrome CDP 实渲染验收（1440×900 / 1280×720 / 390×844）：8 个能力入口齐全，默认展开「工具调用与编排」（唯一展开）且导航 `aria-current` 同步；桌面端导航与详情面板并排、切换单项展开无重叠无横向溢出；键盘方向键在导航内轮换并展开对应详情；Coffee Research / Algorithm Lab / Horizon Docs / CLI List / Skill Dock 五个项目证据全部切换正确（01–05 / 05）且暂停自动轮播（2.6 秒不前进）；实习与工程经历证据滚动到锚点并短暂高亮；`prefers-reduced-motion` 下交互正常；`--disable-javascript` 无 JS 降级可读（默认展开、证据锚点 href 完整、8 个次级实践说明默认隐藏）；控制台零 error/warning；`npm run build`、`npm run check`、`git diff --check` 通过。验收脚本 `tmp/verify-console.mjs`、`tmp/check-nojs.mjs`、`tmp/check-evidence.mjs`。
 - 2026-09-15：本次改动已推送 `main`（`3f5a409` 两套装置、`88381cf` 资源缓存版本号 `20260915-mystery-props`）并发布到公网。`git ls-remote origin main` 确认为 `88381cf`；`https://gsyiswatchingu.github.io/` 约 40 秒后返回新页面（图例三行齐全、`?v=20260915-mystery-props`），`styles/hero.css`、`assets/galaxy.js`、`assets/characters/red-sweater-boy-hero-v2.glb` 均 200，线上 `galaxy.js` 与本地产物字节一致（688004 B）；再用无头 Chrome 直连公网页面冒烟：模型 `ready`、NPC `skeletal-walk`、点击梯子区域走完 `approach → climb → perch`、控制台无报错。注意本地 `origin/main` 跟踪引用会卡在旧值（`git status` 长期显示 ahead 61），以 `git ls-remote` 为准。
 - 2026-09-15：首屏三套场景完成无头 Chrome CDP 实渲染验收（1440×900）。全画布 204 点扫描确认三类落点判定正确（`beam` 194 / `ladder` 5 / `rope` 5）；梯子链路 `approach → climb → perch`（终态"高处 · 他换了一个视角"）并截图确认人物站在猫道上；绳索链路 `approach → pull → glow`（终态"照亮 · 墙里的光漏了出来"）并截图确认卷帘拉起、暖光从开口漫出；下梯子链路 `perch → descend → lit` 走通；普通空地点击仍是 `follow → lit` 无回归；390×844 移动端 tap 正常、图例三行无重叠、无横向溢出；三轮运行控制台均无 warning/error；`npm run build`、`npm run check`、`git diff --check` 通过。验收脚本 `tmp/verify-hero-props.mjs`、`tmp/probe-descend.mjs`。
 - 2026-09-15：首屏"点击定位光束 + 人物跟随"链路完成无头 Chrome CDP 实渲染验收（1440×900）：依次点击右下、左中、中下三点，`变化 00 → 01 → 02 → 03` 计数正确，剧情态依次 `idle → follow → lit → follow → resolve → depart`，`data-beam` 首次点击后固定为 `locked`，光束亮斑随点击在右侧与左侧之间移动、人物在每个落点走到光里；390×844 触屏 emulation 下 tap 两次同样从 `idle` 进入 `follow` 且计数递增；两次运行控制台无 warning/error，`document.scrollWidth` 等于视口宽度无横向溢出；`npm run build`、`npm run check` 通过。验收脚本 `tmp/verify-hero-beam.mjs`（tmp 已在 .gitignore）。
