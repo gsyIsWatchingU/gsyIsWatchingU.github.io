@@ -21,11 +21,11 @@
     />
     <link rel="canonical" href="https://gsyiswatchingu.github.io/" />
     <title>郭书羽｜AI 全栈工程师 · Agent 应用</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico?v=20260930-sharp" />
-    <link rel="shortcut icon" href="./favicon.ico?v=20260930-sharp" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico?v=20261001-avatar" />
+    <link rel="shortcut icon" href="./favicon.ico?v=20261001-avatar" />
     <link
       rel="apple-touch-icon"
-      href="./assets/gsy-icon-rounded-white.png?v=20260930-sharp"
+      href="./assets/gsy-icon-rounded-avatar.png?v=20261001-avatar"
     />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/header.css?v=20260906-nav50" />
@@ -498,7 +498,7 @@
                   <section class="console__field">
                     <span class="console__field-label">站内证据</span>
                     <ul class="console__evidence">
-                      <li><a href="#projects" data-project="write-here" data-evidence="project">Horizon Docs · Yjs 实时协同与双 WebSocket</a></li>
+                      <li><a href="#projects" data-project="write-here" data-evidence="project">Lumi Doc · Yjs 实时协同与双 WebSocket</a></li>
                       <li><a href="#projects" data-project="algorithm-lab" data-evidence="project">Algorithm Lab · Redis + BullMQ 异步判题</a></li>
                       <li><a data-skill-document="realtime-async" hidden>实践说明 · 飞书文档 ↗</a></li>
                     </ul>
@@ -651,102 +651,148 @@
             <div class="project-overview__viewport" data-overview-viewport>
               <div class="project-overview__track" data-overview-track>
               <article class="project-overview__slide project-overview__slide--forest" data-overview-slide data-project-id="research-workbench" role="group" aria-roledescription="幻灯片" aria-label="1 / 5 · Coffee Research" aria-hidden="false">
-                <span class="project-overview__icon" aria-hidden="true">
-                  <img src="./assets/projects/icons/coffee-research.svg" alt="" width="1024" height="1024" loading="eager" />
-                </span>
-                <header class="project-overview__title">
-                  <p><span>01</span>AI KNOWLEDGE WORKFLOW</p>
-                  <h3>Coffee Research</h3>
-                  <small>AI Paper Validation Workspace</small>
-                </header>
-                <p class="project-overview__description">面向科研阅读的私有知识工作台，把 PDF 上传、连续阅读、全文检索、划词翻译、高亮批注与 Markdown 笔记收进一个完整闭环。</p>
-                <div class="project-overview__details">
-                  <section class="project-overview__feature" aria-label="核心功能">
-                    <span>核心功能</span>
-                    <strong>证据双锚点</strong>
-                    <p>把高亮同时绑定文本上下文与页面坐标，让 AI 草案能够回到原文验证。</p>
-                  </section>
-                  <section class="project-overview__stack" aria-label="技术栈">
-                    <span>技术栈</span>
-                    <div><span>React 19</span><span>TypeScript</span><span>FastAPI</span><span>PDF.js</span><span>SQLite</span></div>
-                  </section>
-                </div>
-                <a class="project-overview__link magnetic" href="https://elementary-von-appreciation-stretch.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="0">
+                <div class="project-overview__body">
+                  <header class="project-overview__title">
+                    <span class="project-overview__icon" aria-hidden="true">
+                      <img src="./assets/projects/icons/coffee-research.svg" alt="" width="1024" height="1024" loading="eager" />
+                    </span>
+                    <div>
+                      <p><span>01</span>AI KNOWLEDGE WORKFLOW</p>
+                      <h3>Coffee Research</h3>
+                      <small>AI Paper Validation Workspace</small>
+                    </div>
+                  </header>
+                  <p class="project-overview__description">面向科研阅读的私有知识工作台，把 PDF 上传、连续阅读、全文检索、划词翻译、高亮批注与 Markdown 笔记收进一个完整闭环。</p>
+                  <div class="project-overview__details">
+                    <section class="project-overview__feature" aria-label="核心功能">
+                      <span>核心功能</span>
+                      <strong>证据双锚点</strong>
+                      <p>把高亮同时绑定文本上下文与页面坐标，让 AI 草案能够回到原文验证。</p>
+                    </section>
+                    <section class="project-overview__stack" aria-label="技术栈">
+                      <span>技术栈</span>
+                      <div><span>React 19</span><span>TypeScript</span><span>FastAPI</span><span>PDF.js</span><span>SQLite</span></div>
+                    </section>
+                  </div>
+                  <a class="project-overview__link magnetic" href="https://elementary-von-appreciation-stretch.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="0">
                   进入 Coffee Research <span aria-hidden="true">↗</span>
                 </a>
+                </div>
               </article>
               <article class="project-overview__slide project-overview__slide--blue" data-overview-slide data-project-id="algorithm-lab" role="group" aria-roledescription="幻灯片" aria-label="2 / 5 · Algorithm Lab" aria-hidden="true">
-                <span class="project-overview__icon" aria-hidden="true">
-                  <img src="./assets/projects/icons/algorithm-lab.svg" alt="" width="1024" height="1024" loading="lazy" />
-                </span>
-                <header class="project-overview__title">
-                  <p><span>02</span>PLATFORM ENGINEERING</p>
-                  <h3>Algorithm Lab</h3>
-                  <small>Coding Practice &amp; Judge Platform</small>
-                </header>
-                <p class="project-overview__description">覆盖题库组织、在线编程、异步判题、学习进度与间隔复习，并通过公共/私人题库边界和整套审核流程处理内容治理。</p>
-                <div class="project-overview__details">
-                  <section class="project-overview__feature" aria-label="核心功能">
-                    <span>核心功能</span>
-                    <strong>隔离判题流水线</strong>
-                    <p>代码进入异步队列，在受限沙箱中运行并返回可追踪的判题结果。</p>
-                  </section>
-                  <section class="project-overview__stack" aria-label="技术栈">
-                    <span>技术栈</span>
-                    <div><span>Next.js 16</span><span>Prisma</span><span>PostgreSQL</span><span>Redis</span><span>BullMQ</span></div>
-                  </section>
-                </div>
-                <a class="project-overview__link magnetic" href="https://forget-charges-glass-accordance.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="-1">
+                <div class="project-overview__body">
+                  <header class="project-overview__title">
+                    <span class="project-overview__icon" aria-hidden="true">
+                      <img src="./assets/projects/icons/algorithm-lab.svg" alt="" width="1024" height="1024" loading="lazy" />
+                    </span>
+                    <div>
+                      <p><span>02</span>PLATFORM ENGINEERING</p>
+                      <h3>Algorithm Lab</h3>
+                      <small>Coding Practice &amp; Judge Platform</small>
+                    </div>
+                  </header>
+                  <p class="project-overview__description">覆盖题库组织、在线编程、异步判题、学习进度与间隔复习，并通过公共/私人题库边界和整套审核流程处理内容治理。</p>
+                  <div class="project-overview__details">
+                    <section class="project-overview__feature" aria-label="核心功能">
+                      <span>核心功能</span>
+                      <strong>隔离判题流水线</strong>
+                      <p>代码进入异步队列，在受限沙箱中运行并返回可追踪的判题结果。</p>
+                    </section>
+                    <section class="project-overview__stack" aria-label="技术栈">
+                      <span>技术栈</span>
+                      <div><span>Next.js 16</span><span>Prisma</span><span>PostgreSQL</span><span>Redis</span><span>BullMQ</span></div>
+                    </section>
+                  </div>
+                  <a class="project-overview__link magnetic" href="https://forget-charges-glass-accordance.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="-1">
                   进入平台 <span aria-hidden="true">↗</span>
                 </a>
-              </article>
-              <article class="project-overview__slide project-overview__slide--green" data-overview-slide data-project-id="write-here" role="group" aria-roledescription="幻灯片" aria-label="3 / 5 · Horizon Docs" aria-hidden="true">
-                <span class="project-overview__icon" aria-hidden="true">
-                  <img src="./assets/projects/icons/horizon-docs.svg" alt="" width="1024" height="1024" loading="lazy" />
-                </span>
-                <header class="project-overview__title">
-                  <p><span>03</span>REAL-TIME COLLABORATION</p>
-                  <h3>Horizon Docs</h3>
-                  <small>Real-time Collaborative Editor</small>
-                </header>
-                <p class="project-overview__description">轻量级在线文档协作平台，覆盖个人文档、公开社区、分享链接、协作申请审批、多人实时编辑与消息通知。</p>
-                <div class="project-overview__details">
-                  <section class="project-overview__feature" aria-label="核心功能">
-                    <span>核心功能</span>
-                    <strong>实时协同编辑</strong>
-                    <p>内容、光标与在线成员通过 Yjs 同步，权限变化实时收敛。</p>
-                  </section>
-                  <section class="project-overview__stack" aria-label="技术栈">
-                    <span>技术栈</span>
-                    <div><span>Vue 3</span><span>TipTap</span><span>Yjs</span><span>Express</span><span>WebSocket</span></div>
-                  </section>
                 </div>
-                <a class="project-overview__link magnetic" href="https://dollar-wendy-buildings-year.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="-1">
-                  进入 Horizon Docs <span aria-hidden="true">↗</span>
+              </article>
+              <article class="project-overview__slide project-overview__slide--green project-overview__slide--with-shot" data-overview-slide data-project-id="write-here" role="group" aria-roledescription="幻灯片" aria-label="3 / 5 · Lumi Doc" aria-hidden="true">
+                <figure class="project-overview__shot" data-overview-shot>
+                  <div class="project-overview__shot-frame">
+                    <span class="project-overview__shot-bar" aria-hidden="true"><i></i><i></i><i></i><b>LIVE PRODUCT</b></span>
+                    <div class="project-overview__shot-viewport">
+                      <img src="./assets/projects/lumi-doc/lumi-doc-editor-outline.png" alt="Lumi Doc 编辑器：左侧文档目录、中间正文表格、右侧大纲导航" width="1400" height="844" loading="lazy" data-overview-shot-image aria-hidden="false" />
+                      <img src="./assets/projects/lumi-doc/lumi-doc-workspace.png" alt="Lumi Doc 我的文档工作台，个人文档卡片与分享、删除操作" width="1400" height="738" loading="lazy" data-overview-shot-image aria-hidden="true" />
+                      <img src="./assets/projects/lumi-doc/lumi-doc-editor-directory.png" alt="Lumi Doc 编辑一篇简历文档，目录与大纲实时跟随正文" width="1400" height="844" loading="lazy" data-overview-shot-image aria-hidden="true" />
+                      <img src="./assets/projects/lumi-doc/lumi-doc-community.png" alt="Lumi Doc 社区文档列表，公开文档按综合、最新、最热排序" width="1400" height="544" loading="lazy" data-overview-shot-image aria-hidden="true" />
+                      <img src="./assets/projects/lumi-doc/lumi-doc-login.png" alt="Lumi Doc 登录页，邮箱账号在本站直接登录" width="1400" height="844" loading="lazy" data-overview-shot-image aria-hidden="true" />
+                    </div>
+                  </div>
+                  <figcaption class="project-overview__shot-caption">
+                    <b data-overview-shot-label>EDITOR</b>
+                    <span data-overview-shot-text>文档目录 + 正文 + 大纲三栏协同</span>
+                  </figcaption>
+                  <div class="project-overview__shot-tabs" aria-label="Lumi Doc 界面截图">
+                    <button type="button" data-overview-shot-tab="0" tabindex="-1" aria-current="true" aria-label="查看文档目录 + 正文 + 大纲三栏协同"><i></i><span>EDITOR</span></button>
+                    <button type="button" data-overview-shot-tab="1" tabindex="-1" aria-current="false" aria-label="查看个人文档工作台与协作文档分组"><i></i><span>WORKSPACE</span></button>
+                    <button type="button" data-overview-shot-tab="2" tabindex="-1" aria-current="false" aria-label="查看大纲随正文实时刷新并支持跳转"><i></i><span>OUTLINE</span></button>
+                    <button type="button" data-overview-shot-tab="3" tabindex="-1" aria-current="false" aria-label="查看公开社区与多维排序"><i></i><span>COMMUNITY</span></button>
+                    <button type="button" data-overview-shot-tab="4" tabindex="-1" aria-current="false" aria-label="查看站内邮箱登录与找回密码"><i></i><span>ACCOUNT</span></button>
+                  </div>
+                </figure>
+                <div class="project-overview__body">
+                  <header class="project-overview__title">
+                    <span class="project-overview__icon" aria-hidden="true">
+                      <img src="./assets/projects/icons/horizon-docs.svg" alt="" width="1024" height="1024" loading="lazy" />
+                    </span>
+                    <div>
+                      <p><span>03</span>REAL-TIME COLLABORATION</p>
+                      <h3>Lumi Doc</h3>
+                      <small>Real-time Collaborative Editor</small>
+                    </div>
+                  </header>
+                  <p class="project-overview__description">轻量级在线文档协作平台，覆盖个人文档、公开社区、分享链接、协作申请审批、多人实时编辑与消息通知。</p>
+                  <section class="project-overview__list" aria-label="主要功能">
+                    <span>主要功能</span>
+                    <ul><li>文档目录、全文搜索与 H1–H6 大纲定位</li><li>题库题面发布，版本快照供算法站隔离引用</li><li>划词评论线程、@提及与解决状态</li></ul>
+                  </section>
+                  <section class="project-overview__list project-overview__list--challenge" aria-label="技术难点">
+                    <span>技术难点</span>
+                    <ul><li><b>协同一致性</b><span>内容、光标与在线成员走 Yjs 同步与通知两条通道，编辑期间权限变化要实时收敛到每位参与者。</span></li><li><b>权限与 UI 强一致</b><span>后端放行读不代表前端可编辑，作者、协作者与访客三种能力必须在工具栏和可见性入口同步生效。</span></li><li><b>AI 与文档的边界</b><span>以个人 Token + SHA-256 哈希暴露最小文档 API，让外部模型读写文档而不接触账号密码。</span></li></ul>
+                  </section>
+                  <div class="project-overview__details">
+                    <section class="project-overview__feature" aria-label="核心功能">
+                      <span>核心功能</span>
+                      <strong>实时协同编辑</strong>
+                      <p>内容、光标与在线成员通过 Yjs 同步，权限变化实时收敛。</p>
+                    </section>
+                    <section class="project-overview__stack" aria-label="技术栈">
+                      <span>技术栈</span>
+                      <div><span>Vue 3</span><span>TipTap</span><span>Yjs</span><span>Express</span><span>WebSocket</span></div>
+                    </section>
+                  </div>
+                  <a class="project-overview__link magnetic" href="https://dollar-wendy-buildings-year.trycloudflare.com" target="_blank" rel="noreferrer" tabindex="-1">
+                  进入 Lumi Doc <span aria-hidden="true">↗</span>
                 </a>
+                </div>
               </article>
               <article class="project-overview__slide project-overview__slide--green" data-overview-slide data-project-id="cli-list" role="group" aria-roledescription="幻灯片" aria-label="4 / 5 · CLI List" aria-hidden="true">
-                <span class="project-overview__icon" aria-hidden="true">
-                  <img src="./assets/projects/icons/cli-list.svg" alt="" width="1024" height="1024" loading="lazy" />
-                </span>
-                <header class="project-overview__title">
-                  <p><span>04</span>WINDOWS DEVELOPER TOOL</p>
-                  <h3>CLI List</h3>
-                  <small>Local Command Deck</small>
-                </header>
-                <p class="project-overview__description">面向 Windows 开发者的独立命令管理应用。获取安装包后，双击即可打开 CLI List；在一个窗口里搜索、分类、排序并启动本地 CLI、远端 GPU、编辑器与日常工具，不再靠记忆命令或在多个入口间切换。</p>
-                <div class="project-overview__details">
-                  <section class="project-overview__feature" aria-label="核心功能">
-                    <span>核心功能</span>
-                    <strong>安装后就是一个独立应用</strong>
-                    <p>双击打开，用一个命令面板集中管理并启动本地与远端工具。</p>
-                  </section>
-                  <section class="project-overview__stack" aria-label="技术栈">
-                    <span>技术栈</span>
-                    <div><span>C#</span><span>Windows Forms</span><span>Installer</span><span>Single Instance</span><span>JSON Persistence</span></div>
-                  </section>
-                </div>
-                <div class="project-overview__actions">
+                <div class="project-overview__body">
+                  <header class="project-overview__title">
+                    <span class="project-overview__icon" aria-hidden="true">
+                      <img src="./assets/projects/icons/cli-list.svg" alt="" width="1024" height="1024" loading="lazy" />
+                    </span>
+                    <div>
+                      <p><span>04</span>WINDOWS DEVELOPER TOOL</p>
+                      <h3>CLI List</h3>
+                      <small>Local Command Deck</small>
+                    </div>
+                  </header>
+                  <p class="project-overview__description">面向 Windows 开发者的独立命令管理应用。获取安装包后，双击即可打开 CLI List；在一个窗口里搜索、分类、排序并启动本地 CLI、远端 GPU、编辑器与日常工具，不再靠记忆命令或在多个入口间切换。</p>
+                  <div class="project-overview__details">
+                    <section class="project-overview__feature" aria-label="核心功能">
+                      <span>核心功能</span>
+                      <strong>安装后就是一个独立应用</strong>
+                      <p>双击打开，用一个命令面板集中管理并启动本地与远端工具。</p>
+                    </section>
+                    <section class="project-overview__stack" aria-label="技术栈">
+                      <span>技术栈</span>
+                      <div><span>C#</span><span>Windows Forms</span><span>Installer</span><span>Single Instance</span><span>JSON Persistence</span></div>
+                    </section>
+                  </div>
+                  <div class="project-overview__actions">
                   <a class="project-overview__link magnetic" href="#project-cli-list" tabindex="-1">
                     查看项目详情 <span aria-hidden="true">↓</span>
                   </a>
@@ -754,37 +800,42 @@
                     <b>PRIVATE DEMO</b><span>不开放下载</span>
                   </span>
                 </div>
+                </div>
               </article>
               <article class="project-overview__slide project-overview__slide--forest" data-overview-slide data-project-id="skill-dock" role="group" aria-roledescription="幻灯片" aria-label="5 / 5 · Skill Dock" aria-hidden="true">
-                <span class="project-overview__icon" aria-hidden="true">
-                  <img src="./assets/projects/icons/skill-dock.svg" alt="" width="1024" height="1024" loading="lazy" />
-                </span>
-                <header class="project-overview__title">
-                  <p><span>05</span>AGENT SKILL INFRASTRUCTURE</p>
-                  <h3>Skill Dock</h3>
-                  <small>Cross-device Skill Workspace</small>
-                </header>
-                <p class="project-overview__description">面向 Agent 开发者的 Skill 管理工作台：扫描本机 Codex、Agents 与插件目录，识别缺失和版本差异，并完成私有同步、跨设备安装与社区共享。</p>
-                <div class="project-overview__details">
-                  <section class="project-overview__feature" aria-label="核心功能">
-                    <span>核心功能</span>
-                    <strong>跨设备 Skill 同步</strong>
-                    <p>把分散在本机目录中的 Skill 汇入版本仓，比较差异后安全同步到其他设备。</p>
-                  </section>
-                  <section class="project-overview__stack" aria-label="技术栈">
-                    <span>技术栈</span>
-                    <div><span>Node.js</span><span>PostgreSQL</span><span>File System Access API</span><span>SHA-256</span><span>Local Helper</span></div>
-                  </section>
-                </div>
-                <a class="project-overview__link magnetic" href="https://gsy-gpu.tail660bdf.ts.net:8443" target="_blank" rel="noreferrer" tabindex="-1">
+                <div class="project-overview__body">
+                  <header class="project-overview__title">
+                    <span class="project-overview__icon" aria-hidden="true">
+                      <img src="./assets/projects/icons/skill-dock.svg" alt="" width="1024" height="1024" loading="lazy" />
+                    </span>
+                    <div>
+                      <p><span>05</span>AGENT SKILL INFRASTRUCTURE</p>
+                      <h3>Skill Dock</h3>
+                      <small>Cross-device Skill Workspace</small>
+                    </div>
+                  </header>
+                  <p class="project-overview__description">面向 Agent 开发者的 Skill 管理工作台：扫描本机 Codex、Agents 与插件目录，识别缺失和版本差异，并完成私有同步、跨设备安装与社区共享。</p>
+                  <div class="project-overview__details">
+                    <section class="project-overview__feature" aria-label="核心功能">
+                      <span>核心功能</span>
+                      <strong>跨设备 Skill 同步</strong>
+                      <p>把分散在本机目录中的 Skill 汇入版本仓，比较差异后安全同步到其他设备。</p>
+                    </section>
+                    <section class="project-overview__stack" aria-label="技术栈">
+                      <span>技术栈</span>
+                      <div><span>Node.js</span><span>PostgreSQL</span><span>File System Access API</span><span>SHA-256</span><span>Local Helper</span></div>
+                    </section>
+                  </div>
+                  <a class="project-overview__link magnetic" href="https://gsy-gpu.tail660bdf.ts.net:8443" target="_blank" rel="noreferrer" tabindex="-1">
                   进入 Skill Dock <span aria-hidden="true">↗</span>
                 </a>
+                </div>
               </article>
               </div>
             </div>
             <footer class="project-overview__controls">
               <button type="button" data-overview-prev aria-label="上一个项目">←</button>
-              <div class="project-overview__dots" aria-label="选择项目"><button type="button" data-overview-dot="0" aria-label="查看 Coffee Research" aria-current="true"><i></i></button><button type="button" data-overview-dot="1" aria-label="查看 Algorithm Lab" aria-current="false"><i></i></button><button type="button" data-overview-dot="2" aria-label="查看 Horizon Docs" aria-current="false"><i></i></button><button type="button" data-overview-dot="3" aria-label="查看 CLI List" aria-current="false"><i></i></button><button type="button" data-overview-dot="4" aria-label="查看 Skill Dock" aria-current="false"><i></i></button></div>
+              <div class="project-overview__dots" aria-label="选择项目"><button type="button" data-overview-dot="0" aria-label="查看 Coffee Research" aria-current="true"><i></i></button><button type="button" data-overview-dot="1" aria-label="查看 Algorithm Lab" aria-current="false"><i></i></button><button type="button" data-overview-dot="2" aria-label="查看 Lumi Doc" aria-current="false"><i></i></button><button type="button" data-overview-dot="3" aria-label="查看 CLI List" aria-current="false"><i></i></button><button type="button" data-overview-dot="4" aria-label="查看 Skill Dock" aria-current="false"><i></i></button></div>
               <span data-overview-status aria-live="polite">01 / 05</span>
               <button type="button" data-overview-next aria-label="下一个项目">→</button>
               <button type="button" data-overview-toggle aria-label="暂停自动轮播" title="暂停自动轮播">Ⅱ</button>

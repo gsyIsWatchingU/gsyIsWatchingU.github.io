@@ -1,6 +1,6 @@
 ﻿# 项目状态
 
-最后更新：2026-09-27
+最后更新：2026-10-01
 
 ## 当前阶段
 
@@ -37,6 +37,7 @@
 - 已将“离开队列的人”扩展为可互动短剧情：自动巡逻追光、点击扫描波、实时剧情状态、冲刺脚步残光、队列停步回望与监控失焦会共同响应访客操作。
 - 已将首页互动短剧情改写为职业隐喻：变化信号触发角色离开重复队列，依次点亮“理解问题—编排 Agent—全栈交付”，完成后队列进入自动运转状态。
 - 已将首页互动区扩展为五个真实产品的光照展台：统一使用 Coffee Research、Algorithm Lab、Horizon Docs、CLI List 与 Skill Dock 品牌名；Skill Dock 新增“扫描—比对—同步”专属 3D 装置，CLI List 保持私有演示边界。
+- 已把站点图标换成侧脸人物插画（深灰蓝背景 + 黑发 + 红衣侧影）：新增 `scripts/make-icon.py` 作为可复现的图标生成脚本（源图 → `favicon.ico` 16/32/48 三帧 + `assets/gsy-icon-rounded-avatar.png` 512px 圆角 PNG），`src/index.html` 的 `icon` / `shortcut icon` / `apple-touch-icon` 全部切到新图，缓存版本号更新为 `20261001-avatar`。头部品牌 logo（`gsy-logo-transparent-mark.png` + 手写 wordmark）保持不变——新图在 50px 高度下会糊成暗色块。
 - 已重制站点 favicon：保留 `gsy` 手写字标，增加 GPT 风格白色圆角方底与透明外缘，同时更新 Apple Touch Icon。
 - 已将 `new-prj`《雾钟孤院》剧本升级至 1.1，补全小川因幸存者负罪被困在 23:47 心牢的前因、六阶段心理成长、空位终局及可二次解读的公平叙诡线索。
 - 已完成 `new-prj`《雾钟孤院》完整游戏设计剧本，明确“点名少一人”的核心谜团、8 枚记忆余烬、3 座钟坛、3 个结局、正史情绪闭环与 Steam 五章扩写方案。
