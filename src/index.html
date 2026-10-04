@@ -5,34 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="郭书羽的个人技术主页：AI 全栈开发、Agent 应用工程、字节跳动实习经历，以及 Coffee Research、Algorithm Lab、Horizon Docs、CLI List 与 Skill Dock 独立产品。"
+      content="郭书羽的小屋：点击房间里的物件，探索 AI 全栈与 Agent 应用的工程能力、实习经历与独立产品。"
     />
-    <meta name="theme-color" content="#0d0d0c" />
+    <meta name="theme-color" content="#f5efe3" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="郭书羽｜AI 全栈工程师 · Agent 应用" />
+    <meta property="og:title" content="郭书羽的小屋 · 互动房间" />
     <meta
       property="og:description"
-      content="从产品交互、服务与数据，到 Agent Runtime 与 Harness 的完整工程交付。"
+      content="一个正在生长的小空间：点击或轻点物件，探索房间。"
     />
     <meta
       property="og:image"
       content="https://gsyiswatchingu.github.io/assets/gsy-logo-transparent-mark.png"
     />
     <link rel="canonical" href="https://gsyiswatchingu.github.io/" />
-    <title>郭书羽｜AI 全栈工程师 · Agent 应用</title>
+    <title>郭书羽的小屋 · 互动房间</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico?v=20261001-avatar" />
     <link rel="shortcut icon" href="./favicon.ico?v=20261001-avatar" />
     <link
       rel="apple-touch-icon"
       href="./assets/gsy-icon-rounded-avatar.png?v=20261001-avatar"
     />
-    <link rel="stylesheet" href="./styles/base.css" />
-    <link rel="stylesheet" href="./styles/header.css?v=20260906-nav50" />
-    <link rel="stylesheet" href="./styles/hero.css?v=20260918-discovery" />
-    <link rel="stylesheet" href="./styles/skills.css?v=20260927-console" />
-    <link rel="stylesheet" href="./styles/experience.css" />
-    <link rel="stylesheet" href="./styles/projects.css?v=20260921-cli-list-detail" />
-    <link rel="stylesheet" href="./styles/guestbook.css?v=20260917-mood" />
+    <link rel="stylesheet" href="./styles/room.css?v=20261004-room" />
+    <link rel="stylesheet" href="./styles/room-content.css?v=20261004-room" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -48,35 +43,25 @@
     </script>
   </head>
   <body>
-    <div class="cursor-ring" aria-hidden="true"></div>
-    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="room-app" data-room-state="loading" data-scene-tone="day" data-weather="sunny">
+      <!-- @include sections/room-stage.html -->
+      <!-- @include sections/room-overlays.html -->
+    </div>
 
-    <!-- @include components/top-note.html -->
-    <!-- @include components/header.html -->
+    <noscript>
+      <div class="no-js-note">
+        <h1>郭书羽的小屋</h1>
+        <p>
+          华中科技大学电子信息硕士在读，字节跳动全栈研发与 Agent 工程实习经历，贯通产品交互、后端服务与可靠的 Agent Harness。
+        </p>
+        <p>欢迎直接联系：<a href="mailto:gsyiswatchingu@163.com">gsyiswatchingu@163.com</a></p>
+        <p>本站的互动房间需要开启 JavaScript 才能展示，内容包含工程能力、实习经历与独立产品。</p>
+      </div>
+    </noscript>
 
-    <main id="top">
-      <!-- @include sections/hero.html -->
-      <!-- @include sections/guestbook.html -->
-
-      <section class="explore" id="explore" aria-label="个人能力与经历">
-        <!-- @include sections/skills.html -->
-        <!-- @include sections/experience.html -->
-        <!-- @include sections/projects.html -->
-      </section>
-    </main>
-
-    <!-- @include components/footer.html -->
-
-    <script type="module" src="./assets/galaxy.js?v=20260919-beam-taper-noplaceholder"></script>
-    <script defer src="./scripts/header.js"></script>
-    <script defer src="./scripts/reveal.js"></script>
-    <script defer src="./scripts/cursor.js"></script>
     <script defer src="./scripts/skill-links.js"></script>
-    <script defer src="./scripts/skills.js?v=20260927-console"></script>
-    <script defer src="./scripts/projects.js?v=20260927-console-select"></script>
     <script defer src="./scripts/guestbook-config.js"></script>
-    <script defer src="./scripts/guestbook.js?v=20260917-mood"></script>
-    <script defer src="./scripts/game-feel.js"></script>
+    <script defer src="./scripts/room.js?v=20261004-room"></script>
+    <script defer src="./scripts/room-guestbook.js?v=20261004-room"></script>
   </body>
 </html>
-

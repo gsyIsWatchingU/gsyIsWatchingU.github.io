@@ -55,6 +55,16 @@ if (!Array.isArray(projects) || projects.length === 0) {
     if (!Array.isArray(project.tech) || project.tech.length === 0) {
       errors.push(`项目 ${project.id || "未知"} 至少需要 1 个技术标签`);
     }
+    if (project.features !== undefined) {
+      if (!Array.isArray(project.features) || project.features.some((item) => typeof item !== "string" || !item.trim())) {
+        errors.push(`项目 ${project.id || "未知"} 的 features 必须是非空字符串数组`);
+      }
+    }
+    if (project.challenges !== undefined) {
+      if (!Array.isArray(project.challenges) || project.challenges.some((item) => typeof item?.label !== "string" || !item.label.trim() || typeof item?.text !== "string" || !item.text.trim())) {
+        errors.push(`项目 ${project.id || "未知"} 的 challenges 必须是含 label/text 的对象数组`);
+      }
+    }
     const hasEntryUrl = typeof project.entryUrl === "string" && project.entryUrl.trim();
     const hasEntryLabel = typeof project.entryLabel === "string" && project.entryLabel.trim();
     if (Boolean(hasEntryUrl) !== Boolean(hasEntryLabel)) {
@@ -64,8 +74,8 @@ if (!Array.isArray(projects) || projects.length === 0) {
       errors.push(`项目 ${project.id || "未知"} 的在线入口必须使用 HTTPS`);
     }
     if (project.gallery !== undefined) {
-      if (!Array.isArray(project.gallery) || project.gallery.length < 2) {
-        errors.push(`项目 ${project.id || "未知"} 的轮播图至少需要 2 张截图`);
+      if (!Array.isArray(project.gallery) || project.gallery.length < 1) {
+        errors.push(`项目 ${project.id || "未知"} 的轮播图至少需要 1 张截图`);
       } else {
         for (const [index, item] of project.gallery.entries()) {
           const missingGalleryFields = ["src", "alt", "label", "caption"].filter(

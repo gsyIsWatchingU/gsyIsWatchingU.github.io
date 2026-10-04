@@ -23,7 +23,17 @@
     "image": "./assets/projects/research-workbench.png",
     "imageAlt": "Coffee Research 登录页，展示 AI 论文验证工作台的品牌主视觉",
     "entryUrl": "https://elementary-von-appreciation-stretch.trycloudflare.com",
-    "entryLabel": "进入 Coffee Research"
+    "entryLabel": "进入 Coffee Research",
+    "gallery": [
+      {
+        "src": "./assets/projects/research-workbench.png",
+        "alt": "Coffee Research 登录页，展示 AI 论文验证工作台的品牌主视觉",
+        "label": "SIGN IN",
+        "caption": "AI 论文验证工作台主视觉",
+        "width": 1440,
+        "height": 900
+      }
+    ]
   },
   {
     "id": "algorithm-lab",
@@ -51,14 +61,24 @@
     "entryUrl": "https://forget-charges-glass-accordance.trycloudflare.com",
     "entryLabel": "进入平台",
     "secondaryUrl": "./playground.html",
-    "secondaryLabel": "免登录快速体验"
+    "secondaryLabel": "免登录快速体验",
+    "gallery": [
+      {
+        "src": "./assets/projects/algorithm-lab.png",
+        "alt": "Algorithm Lab 全部题目页面，展示题目筛选与题库信息",
+        "label": "PROBLEMS",
+        "caption": "题库筛选与题目信息一览",
+        "width": 1440,
+        "height": 900
+      }
+    ]
   },
   {
     "id": "write-here",
     "number": "03",
     "tone": "green",
     "kicker": "REAL-TIME COLLABORATION",
-    "name": "Horizon Docs",
+    "name": "Lumi Doc",
     "englishName": "Real-time Collaborative Editor",
     "stage": "DEMO · GPU 演示环境",
     "role": "全栈开发与实时协作设计",
@@ -67,6 +87,25 @@
       "label": "实时协同编辑",
       "text": "内容、光标与在线成员通过 Yjs 同步，权限变化实时收敛。"
     },
+    "features": [
+      "文档目录、全文搜索与 H1–H6 大纲定位",
+      "题库题面发布，版本快照供算法站隔离引用",
+      "划词评论线程、@提及与解决状态"
+    ],
+    "challenges": [
+      {
+        "label": "协同一致性",
+        "text": "内容、光标与在线成员走 Yjs 同步与通知两条通道，编辑期间权限变化要实时收敛到每位参与者。"
+      },
+      {
+        "label": "权限与 UI 强一致",
+        "text": "后端放行读不代表前端可编辑，作者、协作者与访客三种能力必须在工具栏和可见性入口同步生效。"
+      },
+      {
+        "label": "AI 与文档的边界",
+        "text": "以个人 Token + SHA-256 哈希暴露最小文档 API，让外部模型读写文档而不接触账号密码。"
+      }
+    ],
     "proofs": [
       { "label": "实时协同", "text": "TipTap + Yjs 同步内容、光标与在线成员" },
       { "label": "双 WebSocket", "text": "协同编辑与业务通知使用独立通道" },
@@ -74,10 +113,53 @@
     ],
     "tech": ["Vue 3", "TipTap", "Yjs", "Express", "WebSocket"],
     "icon": "./assets/projects/icons/horizon-docs.svg",
-    "image": "./assets/projects/write-here.png",
-    "imageAlt": "Horizon Docs 登录页，展示轻量实时协作文档品牌界面",
+    "image": "./assets/projects/lumi-doc/lumi-doc-editor-outline.png",
+    "imageAlt": "Lumi Doc 编辑器界面，左侧文档目录、中间表格正文与右侧大纲",
+    "overviewShots": true,
+    "gallery": [
+      {
+        "src": "./assets/projects/lumi-doc/lumi-doc-editor-outline.png",
+        "alt": "Lumi Doc 编辑器：左侧文档目录、中间正文表格、右侧大纲导航",
+        "label": "EDITOR",
+        "caption": "文档目录 + 正文 + 大纲三栏协同",
+        "width": 1400,
+        "height": 844
+      },
+      {
+        "src": "./assets/projects/lumi-doc/lumi-doc-workspace.png",
+        "alt": "Lumi Doc 我的文档工作台，个人文档卡片与分享、删除操作",
+        "label": "WORKSPACE",
+        "caption": "个人文档工作台与协作文档分组",
+        "width": 1400,
+        "height": 738
+      },
+      {
+        "src": "./assets/projects/lumi-doc/lumi-doc-editor-directory.png",
+        "alt": "Lumi Doc 编辑一篇简历文档，目录与大纲实时跟随正文",
+        "label": "OUTLINE",
+        "caption": "大纲随正文实时刷新并支持跳转",
+        "width": 1400,
+        "height": 844
+      },
+      {
+        "src": "./assets/projects/lumi-doc/lumi-doc-community.png",
+        "alt": "Lumi Doc 社区文档列表，公开文档按综合、最新、最热排序",
+        "label": "COMMUNITY",
+        "caption": "公开社区与多维排序",
+        "width": 1400,
+        "height": 544
+      },
+      {
+        "src": "./assets/projects/lumi-doc/lumi-doc-login.png",
+        "alt": "Lumi Doc 登录页，邮箱账号在本站直接登录",
+        "label": "ACCOUNT",
+        "caption": "站内邮箱登录与找回密码",
+        "width": 1400,
+        "height": 844
+      }
+    ],
     "entryUrl": "https://dollar-wendy-buildings-year.trycloudflare.com",
-    "entryLabel": "进入 Horizon Docs"
+    "entryLabel": "进入 Lumi Doc"
   },
   {
     "id": "cli-list",
@@ -145,6 +227,16 @@
     "image": "./assets/projects/skill-dock.svg",
     "imageAlt": "Skill Dock 跨设备 Skill 扫描、版本比较与同步示意图",
     "entryUrl": "https://gsy-gpu.tail660bdf.ts.net:8443",
-    "entryLabel": "进入 Skill Dock"
+    "entryLabel": "进入 Skill Dock",
+    "gallery": [
+      {
+        "src": "./assets/projects/skill-dock.svg",
+        "alt": "Skill Dock 跨设备 Skill 扫描、版本比较与同步示意图",
+        "label": "OVERVIEW",
+        "caption": "本机 Skill 汇入版本仓并同步到其他设备",
+        "width": 1440,
+        "height": 900
+      }
+    ]
   }
 ]

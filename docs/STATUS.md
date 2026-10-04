@@ -1,6 +1,6 @@
 ﻿# 项目状态
 
-最后更新：2026-10-01
+最后更新：2026-10-04
 
 ## 当前阶段
 
@@ -12,6 +12,7 @@
 
 ## 已完成
 
+- 已将首页整体重做为「互动小屋」式主页（参考 Sharky's Room 形态，用户拍板：整体重做 + 温馨浅色）：纯 CSS 3D 房间（`preserve-3d` + 透视，无 Three.js），加载层带进度与「直接阅读作品」跳过；顶部覆盖式品牌头、底部参考站式物件 dock；房间可拖拽旋转（±48°）、滚轮/双指缩放（0.7–1.6×），点击物件转镜头后进入近景（busy 锁 380ms），ESC/背板点击关闭。物件 ↔ 内容映射：显示器→工程能力控制台（8 项能力单项展开 + 站内证据）、MacBook→独立产品（build 渲染 `<!-- @room-projects -->`）、iPad→实习经历（4 条 + 工程经历 2 卡）、手机→留言墙（线上 Worker + D1）、Marshall→音乐角落、钢琴→生活兴趣、窗户→关于我、灯光开关→氛围控制（白天/夜晚/多云 + 灯串，localStorage `gsy-room-ambient`）、垃圾桶→手写体纸条、全景→导览地图；房间空气渲染留言弹幕（`room:danmaku` 事件）。新增 `src/sections/room-stage.html`、`src/sections/room-overlays.html`、`styles/room.css`、`styles/room-content.css`、`scripts/room.js`、`scripts/room-guestbook.js`；`scripts/build.mjs` 新增 `@room-projects` 渲染；`scripts/check.mjs` 的 gallery 校验由 ≥2 放宽为 ≥1（旧版详情轮播已不在新首页使用，WIP 项目数据含 1 张截图的产品不再误报）。
 - 已将专业技能区重构为「工程控制台」：左侧 8 个能力入口（Agent 工程：上下文与输出 / 工具调用与编排 / 可靠执行与治理 / 评测与观测；AI 全栈：端到端产品交付 / 服务与数据建模 / 实时与异步系统 / 架构与持续交付），右侧展示当前能力的工程问题、解决方法、技术栈与站内证据；安全、成本、Prompt、RAG、沙箱等知识点归入对应详情。延续黑白工业风，Agent 蓝 / 全栈橙信号色，扫描线、连接脉冲与内容切换克制动效；原生 `<details>/<summary>` 保证无 JS 可读，脚本增强为单项展开、状态同步与动效；手机端单列手风琴、桌面端能力导航加详情面板；支持键盘、焦点样式与 `prefers-reduced-motion`。
 - 已为实习成果增加稳定锚点（`#experience-a1` Agent Harness、`#experience-a2` 团队提效工具、`#experience-a3` 平台稳定性专项、`#experience-a4` Smart Video）与工程经历卡片锚点（`#case-agent-harness`、`#case-edu-platform`）；项目轮播项新增 `data-project-id`；新增内部事件 `portfolio:select-project`，技能证据链接可切换到 Coffee Research / Algorithm Lab / Horizon Docs / CLI List / Skill Dock 并暂停自动轮播供访客阅读；无 JS 时证据链接退化为跳转「实习经历」或「独立产品」；保留 `SKILL_DOCUMENT_LINKS` 作为可选次级实践说明（站内证据始终优先）。技能资源缓存版本更新为 `20260927-console`。
 - 已纠正 CLI List 的主页产品定位：它是下载安装包后可直接双击打开的独立 Windows 应用，不再把资源管理器右键入口作为核心形态；简介改为“独立应用—集中管理—高频直达”，详情图替换为应用本体与命令管理界面，继续明确“仅展示 · 不开放下载”。
@@ -79,25 +80,31 @@
 
 ## 下一步
 
-1. ~~发布工程控制台并验证 GitHub Pages 公网页面的控制台布局、证据联动与缓存版本生效。~~ 已完成（提交 `6749de1` 已推送，公网页面包含 `?v=20260927-console` 并通过无头 Chrome 冒烟）。
-2. 发布最新主页并验证 GitHub Pages 上的弹窗提交、弹幕动画和正式访客计数。
-3. ~~按 `docs/plan-list.md` 新建算法训练平台仓库并完成 W0。~~ 已完成（见 `E:/prj-gsy/algorithm-lab`，服务器内网已部署跑通）。
-4. 确认服务器规格、域名、DNS 和 GitHub OAuth 配置。
+1. 发布互动小屋版主页并验证 GitHub Pages 公网页面的房间加载、物件近景、氛围切换与正式访客计数（`git ls-remote` 与无头 Chrome 直连公网冒烟）。
+2. ~~发布工程控制台并验证 GitHub Pages 公网页面的控制台布局、证据联动与缓存版本生效。~~ 已完成（提交 `6749de1` 已推送，公网页面包含 `?v=20260927-console` 并通过无头 Chrome 冒烟）。
+3. 发布最新主页并验证 GitHub Pages 上的弹窗提交、弹幕动画和正式访客计数。
+4. ~~按 `docs/plan-list.md` 新建算法训练平台仓库并完成 W0。~~ 已完成（见 `E:/prj-gsy/algorithm-lab`，服务器内网已部署跑通）。
+5. 确认服务器规格、域名、DNS 和 GitHub OAuth 配置。
    - 服务器规格已确认（128 vCPU / 503GB / 8TB / 2×L20，K8s Pod）。
    - 域名、DNS、GitHub OAuth 仍缺失，已列为阻塞项（见 `algorithm-lab/docs/deployment.md`）。
-4. 确认字节跳动内部项目名称、指标与教育平台域名是否适合公开展示，必要时做进一步脱敏。
-5. 为 Agent Harness 与教育培训平台补充脱敏架构图、关键决策和可验证演示材料。
-6. 补充 GitHub 与简历下载入口，并在发布后确认 GitHub Pages 页面、分享预览和站点图标显示正常。
+6. 确认字节跳动内部项目名称、指标与教育平台域名是否适合公开展示，必要时做进一步脱敏。
+7. 为 Agent Harness 与教育培训平台补充脱敏架构图、关键决策和可验证演示材料。
+8. 补充 GitHub 与简历下载入口，并在发布后确认 GitHub Pages 页面、分享预览和站点图标显示正常。
 
 ## 已知问题
 
 - 浏览器可能缓存旧站点图标，验证时需要强制刷新或清除站点缓存。
 - 三个独立产品仍使用 Cloudflare Quick Tunnel 临时地址，服务重启后需更新 `src/data/projects.json`；正式发布应迁移到固定子域名。
 - 根目录 `index.html` 是生成文件，修改源码后必须重新构建。
+- 互动小屋的物件为手绘扁平 SVG 风格，钢琴、Marshall 等物件的辨识度依赖整体画面（自动读图模型可能误读为柜子/台灯），后续可按需细化。
+- `scripts/check.mjs` 的 gallery 校验已放宽为 ≥1：旧首页的详情轮播（要求 ≥2 张截图）不再渲染，WIP 中 research-workbench / algorithm-lab / skill-dock 各只有 1 张截图的产品不再误报；补充第二张真实截图后可恢复更严校验。
+- 留言后端接口为线上 Cloudflare Worker，本地预览时如网络不可达，留言列表与弹幕静默降级为空。
 - Monaco Editor 通过 CDN 加载；网络不可用时自动使用基础文本编辑器。
 - 当前静态版本仅执行 JavaScript；多语言运行需要后端沙箱。
 
 ## 验证结果
+
+- 2026-10-04：互动小屋版首页完成构建检查与无头 Chrome CDP 实渲染验收（1440×900 与 390×844 设备模拟）：`npm run build` / `npm run check` 通过；桌面端房间加载到 `ready`、9 个物件全部可见、dock/顶栏齐全、无横向溢出；7 个近景弹层（显示器/MacBook/iPad/手机/Marshall/钢琴/窗户/灯光/垃圾桶）全部可打开；MacBook 产品卡由 `@room-projects` 渲染出 5 个项目（入口链接 4 个 + CLI List PRIVATE）；工程控制台 8 项能力单项展开、证据按钮 18 个可跳转到 iPad 对应经历并高亮；氛围切换白天/夜晚/关灯生效（计算样式验证天窗变深蓝、月亮显现、暗幕叠加）并写入 `localStorage`；留言 API 在线可用（3 条已过审留言 + 访客计数递增）；移动端 390px 全物件可见、dock 可见、无横向溢出；全部运行控制台零 error/warning。验收脚本 `tmp/room-verify.mjs`、`tmp/room-verify2.mjs`、`tmp/room-evidence.mjs`、`tmp/room-ambient-debug.mjs`（tmp 已在 .gitignore）。
 
 - 2026-09-27：工程控制台已推送 `main`（`6749de1`）并发布公网。`git ls-remote origin main` 确认为 `6749de1`；`https://gsyiswatchingu.github.io/` 返回新版页面（`data-console` 结构、`skills.css/skills.js?v=20260927-console`、`projects.js?v=20260927-console-select`、`data-project-id`、实习/工程经历锚点齐全）；再用无头 Chrome 直连公网页面冒烟：8 个能力入口就绪、默认展开「工具调用与编排」、无横向溢出、评测详情证据链接切换到 Algorithm Lab 并暂停自动轮播、控制台零 error/warning。验收脚本 `tmp/check-live-console.mjs`。
 - 2026-09-27：工程控制台完成无头 Chrome CDP 实渲染验收（1440×900 / 1280×720 / 390×844）：8 个能力入口齐全，默认展开「工具调用与编排」（唯一展开）且导航 `aria-current` 同步；桌面端导航与详情面板并排、切换单项展开无重叠无横向溢出；键盘方向键在导航内轮换并展开对应详情；Coffee Research / Algorithm Lab / Horizon Docs / CLI List / Skill Dock 五个项目证据全部切换正确（01–05 / 05）且暂停自动轮播（2.6 秒不前进）；实习与工程经历证据滚动到锚点并短暂高亮；`prefers-reduced-motion` 下交互正常；`--disable-javascript` 无 JS 降级可读（默认展开、证据锚点 href 完整、8 个次级实践说明默认隐藏）；控制台零 error/warning；`npm run build`、`npm run check`、`git diff --check` 通过。验收脚本 `tmp/verify-console.mjs`、`tmp/check-nojs.mjs`、`tmp/check-evidence.mjs`。
