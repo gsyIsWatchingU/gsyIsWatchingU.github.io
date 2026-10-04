@@ -4,7 +4,7 @@
 
 ## 互动小屋（首页）
 
-首页整体重做为「互动房间」式主页，参考 Sharky's Room 的探索形态：加载后进入一间可拖拽观察、滚轮/双指缩放的温馨浅色小屋，点击房间里的物件或底部 dock 进入对应近景。
+首页整体重做为「互动房间」式主页，参考 Sharky's Room 的探索形态：加载后进入一间可拖拽观察、滚轮/双指缩放的温馨浅色小屋，点击房间里的物件或底部 dock 进入对应近景。房间由 Three.js 实时渲染（透视相机、软阴影、环境反射、昼夜/天气/灯串联动），支持悬停高亮与点击转镜头。
 
 | 物件 | 近景内容 | 样式 | 交互 |
 | --- | --- | --- | --- |
@@ -20,7 +20,7 @@
 | 垃圾桶 trashcan | 手写体小纸条 | `styles/room-content.css` | `scripts/room.js` |
 
 - 页面入口：`src/index.html`；房间场景：`src/sections/room-stage.html`；全部近景层：`src/sections/room-overlays.html`。
-- 房间为纯 CSS 3D 场景（`preserve-3d` + 透视），物件为内嵌手绘 SVG，无 Three.js 依赖，加载更快。
+- 房间为 Three.js 实时 3D 场景（`scripts/room3d.js`，构建打包为 `assets/room3d.js`）：`preserve-3d` CSS 版本已废弃；拖拽旋转、滚轮/双指缩放、射线拾取悬停高亮、点击物件相机平滑转镜头后由 `room.js` 打开对应近景（`room:activate-request / activate-done / scene-click / reset-view / request-close` 事件桥接）；WebGL 不可用时兜底为点击直接打开近景。
 - 留言弹幕：`room-guestbook.js` 读取线上留言后通过 `room:danmaku` 事件投递，`room.js` 在房间空气中渲染浮动弹幕。
 - 站内证据：工程控制台的能力项可跳转到对应实习经历 / 工程经历（`experience-a1` 等锚点）或 MacBook 产品卡（`project:xxx`），跳转后目标卡片短暂高亮。
 

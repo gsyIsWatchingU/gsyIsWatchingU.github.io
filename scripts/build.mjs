@@ -13,22 +13,28 @@ const roomProjectsPattern = /^[\t ]*<!-- @room-projects -->[\t ]*$/gm;
 const entries = ["index.html", "playground.html"];
 const projects = JSON.parse(readFileSync(join(sourceRoot, "data", "projects.json"), "utf8"));
 const galaxyOutput = join(projectRoot, "assets", "galaxy.js");
+const room3dOutput = join(projectRoot, "assets", "room3d.js");
 
-buildSync({
-  entryPoints: [join(projectRoot, "scripts", "galaxy.js")],
-  outfile: galaxyOutput,
-  bundle: true,
-  minify: true,
-  format: "esm",
-  target: ["es2020"],
-  legalComments: "inline",
-  logLevel: "silent",
-});
-writeFileSync(
-  galaxyOutput,
-  readFileSync(galaxyOutput, "utf8").replace(/[\t ]+$/gm, "").replace(/^ +\t/gm, "\t"),
-  "utf8",
-);
+const bundle = (entry, outfile) => {
+  buildSync({
+    entryPoints: [entry],
+    outfile,
+    bundle: true,
+    minify: true,
+    format: "iife",
+    target: ["es2020"],
+    legalComments: "inline",
+    logLevel: "silent",
+  });
+  writeFileSync(
+    outfile,
+    readFileSync(outfile, "utf8").replace(/[\t ]+$/gm, "").replace(/^ +\t/gm, "\t"),
+    "utf8",
+  );
+};
+
+bundle(join(projectRoot, "scripts", "galaxy.js"), galaxyOutput);
+bundle(join(projectRoot, "scripts", "room3d.js"), room3dOutput);
 
 const escapeHtml = (value) =>
   String(value)

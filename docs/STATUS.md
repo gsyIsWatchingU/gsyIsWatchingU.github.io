@@ -12,6 +12,7 @@
 
 ## 已完成
 
+- 已将互动小屋的房间渲染从纯 CSS 3D 升级为 **Three.js 实时 3D**（回应“质感太差/完全不是 3D”的反馈）：WebGLRenderer + PCF 软阴影 + ACES 色调映射 + RoomEnvironment 环境反射 IBL + 场景雾；PerspectiveCamera 轨道相机（拖拽旋转 ±1.25 rad、滚轮/双指缩放 2.7–7.2、方向键微调），点击物件 / dock 时相机平滑转镜头（420ms 阻尼，`prefers-reduced-motion` 直切）后打开近景；房间由真实 3D 体块构成（木纹地板、后墙/左墙、踢脚线、地毯、挂画、书架 + 彩色书、可拾取窗户 + 窗景画布纹理 + 窗帘、灯串 TubeGeometry + 发光灯泡 + 点光、台灯自发光 + 点光、书桌、显示器/MacBook/iPad/手机发光屏幕、Marshall 菱格网罩 + 金色旋钮、胡桃木钢琴 + 琴键黑键 + 谱架乐谱 + 琴凳、开关、垃圾桶 + 纸条、植物、小狗摆件、积木塔）；氛围联动改为 MutationObserver 监听 `data-scene-tone/weather/lights`：窗景换日/夜/多云纹理、主光/环境光/补光强度与色温、灯串与台灯发光随昼夜 + 开关联动；射线拾取悬停高亮（光标 + 浮动标签 + 轻微放大）、tap 判定（移动 ≤6px 才算点击）；WebGL 不可用时兜底为“点击直接打开近景”。新增 `scripts/room3d.js`，`scripts/build.mjs` 增加第二个 esbuild 打包入口（`assets/room3d.js`，iife），`scripts/room.js` 改为事件桥接（`room:activate-request / activate-done / scene-click / reset-view / request-close / room3d:ready`），`styles/room.css` 移除 CSS 房间几何、保留外壳/dock/弹层/加载/弹幕样式。已修 three r186 两个坑：`Timer` 需每帧先 `update()` 再 `getDelta()`；`setPointerCapture` 对部分指针会抛异常需 try/catch。镜头聚焦角由投影扫描校准（物件中心投影到画面中央），窄屏（aspect < 0.75）FOV 自动 42°→64° 让更多物件入画。
 - 已将首页整体重做为「互动小屋」式主页（参考 Sharky's Room 形态，用户拍板：整体重做 + 温馨浅色）：纯 CSS 3D 房间（`preserve-3d` + 透视，无 Three.js），加载层带进度与「直接阅读作品」跳过；顶部覆盖式品牌头、底部参考站式物件 dock；房间可拖拽旋转（±48°）、滚轮/双指缩放（0.7–1.6×），点击物件转镜头后进入近景（busy 锁 380ms），ESC/背板点击关闭。物件 ↔ 内容映射：显示器→工程能力控制台（8 项能力单项展开 + 站内证据）、MacBook→独立产品（build 渲染 `<!-- @room-projects -->`）、iPad→实习经历（4 条 + 工程经历 2 卡）、手机→留言墙（线上 Worker + D1）、Marshall→音乐角落、钢琴→生活兴趣、窗户→关于我、灯光开关→氛围控制（白天/夜晚/多云 + 灯串，localStorage `gsy-room-ambient`）、垃圾桶→手写体纸条、全景→导览地图；房间空气渲染留言弹幕（`room:danmaku` 事件）。新增 `src/sections/room-stage.html`、`src/sections/room-overlays.html`、`styles/room.css`、`styles/room-content.css`、`scripts/room.js`、`scripts/room-guestbook.js`；`scripts/build.mjs` 新增 `@room-projects` 渲染；`scripts/check.mjs` 的 gallery 校验由 ≥2 放宽为 ≥1（旧版详情轮播已不在新首页使用，WIP 项目数据含 1 张截图的产品不再误报）。
 - 已将专业技能区重构为「工程控制台」：左侧 8 个能力入口（Agent 工程：上下文与输出 / 工具调用与编排 / 可靠执行与治理 / 评测与观测；AI 全栈：端到端产品交付 / 服务与数据建模 / 实时与异步系统 / 架构与持续交付），右侧展示当前能力的工程问题、解决方法、技术栈与站内证据；安全、成本、Prompt、RAG、沙箱等知识点归入对应详情。延续黑白工业风，Agent 蓝 / 全栈橙信号色，扫描线、连接脉冲与内容切换克制动效；原生 `<details>/<summary>` 保证无 JS 可读，脚本增强为单项展开、状态同步与动效；手机端单列手风琴、桌面端能力导航加详情面板；支持键盘、焦点样式与 `prefers-reduced-motion`。
 - 已为实习成果增加稳定锚点（`#experience-a1` Agent Harness、`#experience-a2` 团队提效工具、`#experience-a3` 平台稳定性专项、`#experience-a4` Smart Video）与工程经历卡片锚点（`#case-agent-harness`、`#case-edu-platform`）；项目轮播项新增 `data-project-id`；新增内部事件 `portfolio:select-project`，技能证据链接可切换到 Coffee Research / Algorithm Lab / Horizon Docs / CLI List / Skill Dock 并暂停自动轮播供访客阅读；无 JS 时证据链接退化为跳转「实习经历」或「独立产品」；保留 `SKILL_DOCUMENT_LINKS` 作为可选次级实践说明（站内证据始终优先）。技能资源缓存版本更新为 `20260927-console`。
@@ -80,7 +81,7 @@
 
 ## 下一步
 
-1. 发布互动小屋版主页并验证 GitHub Pages 公网页面的房间加载、物件近景、氛围切换与正式访客计数（`git ls-remote` 与无头 Chrome 直连公网冒烟）。
+1. 发布 Three.js 3D 版互动小屋并验证 GitHub Pages 公网页面的 WebGL 房间加载、物件近景、氛围切换、留言弹幕与正式访客计数（`git ls-remote` 与无头 Chrome 直连公网冒烟）。
 2. ~~发布工程控制台并验证 GitHub Pages 公网页面的控制台布局、证据联动与缓存版本生效。~~ 已完成（提交 `6749de1` 已推送，公网页面包含 `?v=20260927-console` 并通过无头 Chrome 冒烟）。
 3. 发布最新主页并验证 GitHub Pages 上的弹窗提交、弹幕动画和正式访客计数。
 4. ~~按 `docs/plan-list.md` 新建算法训练平台仓库并完成 W0。~~ 已完成（见 `E:/prj-gsy/algorithm-lab`，服务器内网已部署跑通）。
@@ -96,7 +97,8 @@
 - 浏览器可能缓存旧站点图标，验证时需要强制刷新或清除站点缓存。
 - 三个独立产品仍使用 Cloudflare Quick Tunnel 临时地址，服务重启后需更新 `src/data/projects.json`；正式发布应迁移到固定子域名。
 - 根目录 `index.html` 是生成文件，修改源码后必须重新构建。
-- 互动小屋的物件为手绘扁平 SVG 风格，钢琴、Marshall 等物件的辨识度依赖整体画面（自动读图模型可能误读为柜子/台灯），后续可按需细化。
+- 互动小屋的房间为 Three.js 实时 3D（透视/软阴影/PBR 材质），钢琴、Marshall 等物件的辨识度依赖整体画面（自动读图模型可能误读为柜子/打印机），聚焦近景视角可辨认琴键、网罩等细节；后续可按需继续细化模型。
+- 留言后端接口（Cloudflare Worker）的来源白名单为 `https://gsyiswatchingu.github.io` 与 `http://127.0.0.1:5500`、`http://localhost:5500`；其它端口本地预览会被 CORS 拒绝，留言列表与弹幕静默降级为空（部署后公网页面不受影响）。
 - `scripts/check.mjs` 的 gallery 校验已放宽为 ≥1：旧首页的详情轮播（要求 ≥2 张截图）不再渲染，WIP 中 research-workbench / algorithm-lab / skill-dock 各只有 1 张截图的产品不再误报；补充第二张真实截图后可恢复更严校验。
 - 留言后端接口为线上 Cloudflare Worker，本地预览时如网络不可达，留言列表与弹幕静默降级为空。
 - Monaco Editor 通过 CDN 加载；网络不可用时自动使用基础文本编辑器。
@@ -104,6 +106,7 @@
 
 ## 验证结果
 
+- 2026-10-04（Three.js 3D 版）：`npm run build` / `npm run check` 通过；无头 Chrome CDP 实渲染验收（1440×900 与 390×844）：WebGL 场景就绪（35 个网格、PCF 阴影、ACES 色调映射、RoomEnvironment 环境反射、场景雾），9 个物件投影命中射线拾取全部 `hit` 一致且在视；场景点击与 dock 点击均走通「转镜头 → `room:activate-done` → 近景打开」（显示器→工程能力、MacBook→独立产品）；拖拽改 yaw（阻尼生效）、滚轮改 radius、方向键微调正常；氛围联动验证：`night+cloudy+lights off` 后 key 1.6→0.55、hemi 0.6→0.34、灯串发光 0，窗景切夜空纹理，复位正常；弹层 10 个设备齐全、工程控制台内容正确渲染；留言弹幕链路通过合成事件验证（air 容器收到弹幕），真实 API 白名单仅含 github.io 与 5500 端口（本地 81xx 端口验证会被 CORS 拒绝，属预期）；窄屏 FOV 64° 下移动端默认视角 6/9 物件入画；全流程控制台零 error/warning。验收脚本 `tmp/room3d-verify.mjs`、`tmp/room3d-probe.mjs`、`tmp/room3d-sweep.mjs`、`tmp/room3d-final.mjs`、`tmp/danmaku-debug.mjs`（tmp 已在 .gitignore）。
 - 2026-10-04：互动小屋版首页完成构建检查与无头 Chrome CDP 实渲染验收（1440×900 与 390×844 设备模拟）：`npm run build` / `npm run check` 通过；桌面端房间加载到 `ready`、9 个物件全部可见、dock/顶栏齐全、无横向溢出；7 个近景弹层（显示器/MacBook/iPad/手机/Marshall/钢琴/窗户/灯光/垃圾桶）全部可打开；MacBook 产品卡由 `@room-projects` 渲染出 5 个项目（入口链接 4 个 + CLI List PRIVATE）；工程控制台 8 项能力单项展开、证据按钮 18 个可跳转到 iPad 对应经历并高亮；氛围切换白天/夜晚/关灯生效（计算样式验证天窗变深蓝、月亮显现、暗幕叠加）并写入 `localStorage`；留言 API 在线可用（3 条已过审留言 + 访客计数递增）；移动端 390px 全物件可见、dock 可见、无横向溢出；全部运行控制台零 error/warning。验收脚本 `tmp/room-verify.mjs`、`tmp/room-verify2.mjs`、`tmp/room-evidence.mjs`、`tmp/room-ambient-debug.mjs`（tmp 已在 .gitignore）。
 
 - 2026-09-27：工程控制台已推送 `main`（`6749de1`）并发布公网。`git ls-remote origin main` 确认为 `6749de1`；`https://gsyiswatchingu.github.io/` 返回新版页面（`data-console` 结构、`skills.css/skills.js?v=20260927-console`、`projects.js?v=20260927-console-select`、`data-project-id`、实习/工程经历锚点齐全）；再用无头 Chrome 直连公网页面冒烟：8 个能力入口就绪、默认展开「工具调用与编排」、无横向溢出、评测详情证据链接切换到 Algorithm Lab 并暂停自动轮播、控制台零 error/warning。验收脚本 `tmp/check-live-console.mjs`。
