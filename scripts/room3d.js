@@ -410,38 +410,6 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
   rugCenter.position.set(0, 0.014, -0.7);
   scene.add(rugCenter);
 
-  // 小挂画（贝壳框）
-  const frameMat = std("#e9c860", 0.6);
-  const artMatA = toon("#a8e0ec");
-  const artMatB = toon("#f6d8c0");
-  const wallArt = (x, y, w, h, innerMat, accent) => {
-    const g = new THREE.Group();
-    const f = box(w, h, 0.035, frameMat, { receive: true });
-    const inner = box(w * 0.78, h * 0.78, 0.032, innerMat, { receive: false });
-    inner.position.z = 0.02;
-    const dot = box(w * 0.16, h * 0.16, 0.03, accent, { receive: false });
-    dot.position.set(w * 0.2, h * 0.2, 0.022);
-    g.add(f, inner, dot);
-    g.position.set(x, y, -2.485);
-    scene.add(g);
-  };
-  wallArt(-0.75, 1.92, 0.78, 0.98, artMatA, toon("#e88a3a"));
-  wallArt(0.5, 1.86, 0.62, 0.8, artMatB, toon("#57a848"));
-
-  // 书架（彩色书，滑梯即视感）
-  const shelfMat = std("#b9763f", 0.6);
-  const shelf = box(2.5, 0.05, 0.34, shelfMat, { x: 0.72, y: 1.98, z: -2.18 });
-  scene.add(shelf);
-  const bookColors = ["#e86a5a", "#5aa8d8", "#57a848", "#e9c860", "#d96a8a", "#9b8ac8"];
-  bookColors.forEach((color, i) => {
-    const b = box(0.07, 0.2 + (i % 3) * 0.05, 0.24, toon(color), {
-      x: 0.72 - 0.85 + i * 0.17,
-      y: 2.18 + (i % 3) * 0.05 * 0.5,
-      z: -2.2,
-      ry: (i % 2 ? -0.12 : 0.1),
-    });
-    scene.add(b);
-  });
 
   /* ---------- 舷窗（pickable: window） ---------- */
   const windowGroup = new THREE.Group();
@@ -466,7 +434,7 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
   // 舷窗横档
   windowGroup.add(box(1.18, 0.06, 0.05, portholeBlue, { z: 0.04, cast: false }));
   windowGroup.add(box(0.06, 1.18, 0.05, portholeBlue, { z: 0.04, cast: false }));
-  windowGroup.position.set(-1.55, 1.62, -2.46);
+  windowGroup.position.set(1.7, 1.62, -2.46);
   pickable(windowGroup, "window");
   scene.add(windowGroup);
 
@@ -538,275 +506,261 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
   lampGroup.position.set(1.72, 0, -1.58);
   scene.add(lampGroup);
 
-  /* ---------- 书桌 ---------- */
-  const deskGroup = new THREE.Group();
-  const deskTopMat = std("#b9763f", 0.55, 0.02);
-  deskGroup.add(box(2.7, 0.07, 1.15, deskTopMat, { y: 0.72, z: -1.85 }));
-  const legMat = std("#8a5a30", 0.6);
-  [
-    [-1.18, -2.35],
-    [1.18, -2.35],
-    [-1.18, -1.38],
-    [1.18, -1.38],
-  ].forEach(([x, z]) => {
-    deskGroup.add(box(0.07, 0.7, 0.07, legMat, { x, y: 0.35, z }));
-  });
-  scene.add(deskGroup);
+/* ---------- 拱形木门（菠萝屋入口） ---------- */
+const doorGroup = new THREE.Group();
+const doorWood = std("#b9763f", 0.6);
+const doorWoodDark = std("#8a5a30", 0.65);
+// 门框（拱形：底部方柱 + 顶部半圆）
+doorGroup.add(box(0.1, 1.5, 0.08, doorWoodDark, { x: -0.42, y: 0.75, z: 0 }));
+doorGroup.add(box(0.1, 1.5, 0.08, doorWoodDark, { x: 0.42, y: 0.75, z: 0 }));
+const doorTop = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.05, 10, 24, Math.PI), doorWoodDark);
+doorTop.position.set(0, 1.5, 0);
+doorGroup.add(doorTop);
+// 门板
+doorGroup.add(box(0.78, 1.5, 0.05, doorWood, { y: 0.75, z: -0.01 }));
+// 门板竖纹
+[-0.2, 0, 0.2].forEach((x) => {
+  doorGroup.add(box(0.02, 1.4, 0.02, doorWoodDark, { x, y: 0.75, z: 0.03 }));
+});
+// 海星门环（蓝色）
+const knob = new THREE.Mesh(new THREE.TorusGeometry(0.07, 0.02, 8, 16), std("#4a6fa5", 0.5, 0.3));
+knob.position.set(0.28, 0.85, 0.05);
+doorGroup.add(knob);
+doorGroup.position.set(-1.35, 0, -2.46);
+scene.add(doorGroup);
 
-  /* ---------- 显示器 ---------- */
-  const monitorGroup = new THREE.Group();
-  monitorGroup.add(box(0.2, 0.24, 0.2, std("#3a7a9a", 0.55), { y: 0.12 }));
-  monitorGroup.add(box(0.1, 0.16, 0.1, std("#2f4a5a", 0.45), { y: 0.32 }));
-  const monFrame = box(1.12, 0.66, 0.05, std("#2f4a5a", 0.4, 0.1), { y: 0.69, z: -0.01 });
-  monitorGroup.add(monFrame);
-  const monScreen = new THREE.Mesh(new THREE.PlaneGeometry(1.02, 0.56), screenMat);
-  monScreen.position.set(0, 0.69, 0.025);
-  monitorGroup.add(monScreen);
-  monitorGroup.position.set(0.8, 0.73, -2.05);
-  monitorGroup.rotation.x = -0.04;
-  pickable(monitorGroup, "monitor");
-  scene.add(monitorGroup);
+/* ---------- 红扶手椅（真实菠萝屋款） ---------- */
+const chairGroup = new THREE.Group();
+const redFabric = toon("#d9382e");
+// 厚实坐垫
+const seat = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.32, 0.22, 24), redFabric);
+seat.position.y = 0.24;
+chairGroup.add(seat);
+// 高靠背（圆角）
+const back = box(0.56, 0.78, 0.16, redFabric, { y: 0.72, z: -0.2 });
+chairGroup.add(back);
+// 圆润扶手
+chairGroup.add(box(0.12, 0.34, 0.4, redFabric, { x: -0.32, y: 0.42, z: 0 }));
+chairGroup.add(box(0.12, 0.34, 0.4, redFabric, { x: 0.32, y: 0.42, z: 0 }));
+chairGroup.position.set(-0.85, 0, -1.55);
+chairGroup.rotation.y = 0.15;
+scene.add(chairGroup);
 
-  /* ---------- MacBook ---------- */
-  const mbGroup = new THREE.Group();
-  const mbBaseMat = std("#5a7a8a", 0.45, 0.25);
-  mbGroup.add(box(1.0, 0.035, 0.64, mbBaseMat, { y: 0.018 }));
-  const mbLid = box(1.0, 0.6, 0.03, std("#3a5a6a", 0.4, 0.1), { y: 0.31, z: -0.28, rx: 0.5 });
-  mbGroup.add(mbLid);
-  const mbScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.92, 0.52), screenMat);
-  mbScreen.position.set(0, 0.3, -0.285);
-  mbScreen.rotation.x = 0.5;
-  mbGroup.add(mbScreen);
-  mbGroup.position.set(-0.25, 0.735, -1.78);
-  mbGroup.rotation.y = -0.12;
-  pickable(mbGroup, "macbook");
-  scene.add(mbGroup);
+/* 救生圈脚凳（放在椅子正前方地上） */
+const ottomanGroup = new THREE.Group();
+const ringWhite = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.07, 12, 28), toon("#f2f2f2"));
+ringWhite.rotation.x = Math.PI / 2;
+ringWhite.position.y = 0.09;
+ottomanGroup.add(ringWhite);
+[0, Math.PI, Math.PI / 2, Math.PI * 1.5].forEach((a) => {
+  const seg = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.071, 8, 8, 0.5), toon("#d9382e"));
+  seg.rotation.x = Math.PI / 2;
+  seg.rotation.z = a;
+  seg.position.y = 0.09;
+  ottomanGroup.add(seg);
+});
+ottomanGroup.position.set(-0.85, 0, -1.05);
+scene.add(ottomanGroup);
 
-  /* ---------- iPad ---------- */
-  const ipadGroup = new THREE.Group();
-  ipadGroup.add(box(0.68, 0.92, 0.03, std("#4a6a7a", 0.45, 0.15), { z: -0.015 }));
-  const ipadScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.84), screenMat);
-  ipadScreen.position.z = 0.02;
-  ipadGroup.add(ipadScreen);
-  ipadGroup.position.set(1.72, 0.95, -2.28);
-  ipadGroup.rotation.x = -0.08;
-  ipadGroup.rotation.y = -0.24;
-  pickable(ipadGroup, "ipad");
-  scene.add(ipadGroup);
+/* ---------- 小圆木桌（放海螺） ---------- */
+const sideTableGroup = new THREE.Group();
+const tableWood = std("#b9763f", 0.55);
+const tableTop = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.045, 24), tableWood);
+tableTop.position.y = 0.5;
+sideTableGroup.add(tableTop);
+const tableLeg = cyl(0.035, 0.05, 0.48, std("#8a5a30", 0.6), { y: 0.25 });
+sideTableGroup.add(tableLeg);
+// 紫色海螺号角（桌上装饰）
+const conch = new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 10), toon("#8a5ab8"));
+conch.scale.set(1.4, 0.7, 1);
+conch.position.set(0.05, 0.58, 0);
+sideTableGroup.add(conch);
+sideTableGroup.position.set(0.0, 0, -1.5);
+scene.add(sideTableGroup);
 
-  /* ---------- 手机 ---------- */
-  const phoneGroup = new THREE.Group();
-  phoneGroup.add(box(0.3, 0.54, 0.025, std("#3a5a6a", 0.45, 0.15), { z: -0.012 }));
-  const phoneScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.26, 0.48), screenMat);
-  phoneScreen.position.z = 0.02;
-  phoneGroup.add(phoneScreen);
-  phoneGroup.position.set(1.35, 0.98, -1.66);
-  phoneGroup.rotation.x = -0.16;
-  phoneGroup.rotation.y = -0.4;
-  pickable(phoneGroup, "phone");
-  scene.add(phoneGroup);
+/* ---------- 绿色圆管沙发（靠墙，配蓝坐垫） ---------- */
+const couchGroup = new THREE.Group();
+const tubeGreen = toon("#4da83f");
+for (let i = 0; i < 3; i += 1) {
+  const tube = cyl(0.13, 0.13, 1.4, tubeGreen, { y: 0.2 + i * 0.27, z: 0 });
+  tube.rotation.z = Math.PI / 2;
+  couchGroup.add(tube);
+}
+// 蓝色坐垫
+couchGroup.add(box(1.3, 0.12, 0.42, toon("#3a6a9a"), { y: 0.1, z: 0.18 }));
+couchGroup.position.set(1.05, 0, -1.95);
+couchGroup.rotation.y = -0.05;
+scene.add(couchGroup);
 
-  /* ---------- Marshall ---------- */
-  const marshallGroup = new THREE.Group();
-  const ampBodyMat = std("#3a4a55", 0.6, 0.1);
-  const ampBody = box(0.62, 0.78, 0.4, ampBodyMat, { y: 0.45 });
-  marshallGroup.add(ampBody);
-  const grillMat = new THREE.MeshStandardMaterial({ color: "#5a7a8a", roughness: 0.9 });
-  const grill = box(0.52, 0.52, 0.02, grillMat, { y: 0.5, z: 0.2 });
-  marshallGroup.add(grill);
-  const knobMat = new THREE.MeshStandardMaterial({ color: 0xe9c860, roughness: 0.35, metalness: 0.5 });
-  [-0.18, -0.06, 0.06, 0.18].forEach((x) => {
-    const knob = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.05, 0.03, 16), knobMat);
-    knob.rotation.x = Math.PI / 2;
-    knob.position.set(x, 0.14, 0.2);
-    marshallGroup.add(knob);
-  });
-  const bandMat = std("#7a9aaa", 0.8);
-  [-0.14, 0.0, 0.14].forEach((x) => {
-    marshallGroup.add(box(0.36, 0.045, 0.02, bandMat, { x, y: -0.05, z: 0.2 }));
-  });
-  const script = box(0.3, 0.09, 0.012, new THREE.MeshStandardMaterial({ color: 0xe9c860, roughness: 0.3, metalness: 0.6 }), { y: 0.76, z: 0.2, cast: false });
-  marshallGroup.add(script);
-  const standMat = std("#4a5a65", 0.6);
-  [0.26, -0.26].forEach((z) => {
-    marshallGroup.add(box(0.05, 0.14, 0.05, standMat, { y: -0.07, z }));
-  });
-  marshallGroup.position.set(-2.3, 0.14, 0.9);
-  marshallGroup.rotation.y = 0.35;
-  pickable(marshallGroup, "marshall");
-  scene.add(marshallGroup);
+/* ---------- 墙上小相框（蜗牛画） ---------- */
+const picFrame = new THREE.Group();
+picFrame.add(box(0.34, 0.3, 0.03, std("#b9763f", 0.6), { receive: true }));
+picFrame.add(box(0.26, 0.22, 0.02, toon("#e8d8a8"), { z: 0.02, receive: false }));
+// 画里的小蜗牛剪影
+const snailArt = new THREE.Mesh(new THREE.SphereGeometry(0.05, 8, 6), toon("#d9785a"));
+snailArt.position.set(0.02, 0, 0.035);
+picFrame.add(snailArt);
+picFrame.position.set(-0.25, 1.72, -2.47);
+scene.add(picFrame);
 
-  /* ---------- 钢琴 ---------- */
-  const pianoGroup = new THREE.Group();
-  const walnut = std("#9c6f45", 0.55, 0.05);
-  const walnutDeep = std("#7a4f2c", 0.55, 0.05);
-  const pianoBody = box(0.72, 1.22, 0.6, walnut, { y: 0.66, z: 0.05 });
-  pianoGroup.add(pianoBody);
-  const sidePanel = box(0.035, 1.22, 0.6, walnutDeep, { x: 0.34, y: 0.66, z: 0.05 });
-  pianoGroup.add(sidePanel);
-  const topLid = box(0.78, 0.09, 0.66, walnutDeep, { y: 1.32, z: 0.05 });
-  pianoGroup.add(topLid);
-  const fallboard = box(0.7, 0.26, 0.04, std("#2f3a44", 0.5, 0.05), { y: 0.94, z: 0.36, rx: 0.12 });
-  pianoGroup.add(fallboard);
-  const emblem = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.014, 20), std("#e9c860", 0.3, 0.6));
-  emblem.rotation.x = Math.PI / 2;
-  emblem.position.set(0, 0.94, 0.38);
-  pianoGroup.add(emblem);
-  const musicRest = box(0.6, 0.02, 0.14, std("#2f3a44", 0.5), { y: 1.24, z: 0.1, rx: -0.28 });
-  pianoGroup.add(musicRest);
-  const sheet = box(0.42, 0.26, 0.012, std("#fff8ec", 0.8), { y: 1.36, z: 0.045, rx: 0.1 });
-  pianoGroup.add(sheet);
-  const keybed = box(0.68, 0.11, 0.42, std("#f6efe2", 0.5), { y: 1.17, z: 0.33 });
-  pianoGroup.add(keybed);
-  const blackKeyMat = std("#2f3a44", 0.5);
-  [-0.18, -0.09, 0, 0.09, 0.18].forEach((z) => {
-    pianoGroup.add(box(0.58, 0.08, 0.055, blackKeyMat, { y: 1.255, z: 0.33 + z }));
-  });
-  const pianoLegMat = std("#4a5a65", 0.6);
-  [[-0.24, 0.32], [0.24, 0.32], [-0.24, -0.22], [0.24, -0.22]].forEach(([x, z]) => {
-    pianoGroup.add(box(0.09, 0.22, 0.09, pianoLegMat, { x, y: 0.11, z }));
-  });
-  const stoolGroup = new THREE.Group();
-  stoolGroup.add(box(0.56, 0.07, 0.3, std("#2f3a44", 0.6), { y: 0.33 }));
-  const stoolLegMat = std("#4a5a65", 0.6);
-  [[-0.21, -0.11], [0.21, -0.11], [-0.21, 0.11], [0.21, 0.11]].forEach(([x, z]) => {
-    stoolGroup.add(box(0.05, 0.28, 0.05, stoolLegMat, { x, y: 0.14, z }));
-  });
-  stoolGroup.position.set(2.3, 0, 0.78);
-  stoolGroup.rotation.y = 0.25;
-  scene.add(stoolGroup);
+/* ---------- 墙上海螺号角装饰 ---------- */
+const hornGroup = new THREE.Group();
+hornGroup.add(new THREE.Mesh(new THREE.SphereGeometry(0.1, 12, 10), toon("#c86aa8")));
+const hornTip = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.16, 10), toon("#c86aa8"));
+hornTip.rotation.z = -Math.PI / 2;
+hornTip.position.x = 0.12;
+hornGroup.add(hornTip);
+// 黄色条纹
+const hornStripe = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.02, 8, 16), toon("#e9c860"));
+hornStripe.rotation.y = Math.PI / 2;
+hornGroup.add(hornStripe);
+hornGroup.position.set(0.45, 1.55, -2.46);
+scene.add(hornGroup);
 
-  pianoGroup.position.set(2.66, 0, -0.3);
-  pianoGroup.rotation.y = -0.18;
-  pickable(pianoGroup, "piano");
-  scene.add(pianoGroup);
+/* ---------- 电视柜 + 显示器（电视） ---------- */
+const tvStand = new THREE.Group();
+tvStand.add(box(1.1, 0.4, 0.4, std("#b9763f", 0.6), { y: 0.2 }));
+tvStand.position.set(2.0, 0, -2.1);
+scene.add(tvStand);
+const monitorGroup = new THREE.Group();
+monitorGroup.add(box(0.18, 0.22, 0.18, std("#3a7a9a", 0.55), { y: 0.11 }));
+monitorGroup.add(box(0.1, 0.14, 0.08, std("#2f4a5a", 0.45), { y: 0.28 }));
+const monFrame = box(0.95, 0.56, 0.05, std("#2f3a44", 0.4, 0.1), { y: 0.58, z: 0 });
+monitorGroup.add(monFrame);
+const monScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.87, 0.48), screenMat);
+monScreen.position.set(0, 0.58, 0.028);
+monitorGroup.add(monScreen);
+monitorGroup.position.set(2.0, 0.42, -2.1);
+monitorGroup.rotation.y = -0.25;
+pickable(monitorGroup, "monitor");
+scene.add(monitorGroup);
 
-  /* ---------- 开关 ---------- */
-  const switchGroup = new THREE.Group();
-  switchGroup.add(box(0.2, 0.3, 0.025, std("#cfe8f0", 0.7), { z: -0.01, cast: false }));
-  switchGroup.add(box(0.12, 0.16, 0.02, std("#2f4a5a", 0.4), { y: 0.03, z: 0.005, cast: false }));
-  switchGroup.add(cyl(0.05, 0.05, 0.02, new THREE.MeshStandardMaterial({ color: 0xe9c860, emissive: 0xe9c860, emissiveIntensity: 0.35, roughness: 0.4 }), { y: -0.09, z: 0.01, cast: false }));
-  switchGroup.position.set(1.62, 1.45, -2.485);
-  pickable(switchGroup, "lightswitch");
-  scene.add(switchGroup);
+/* ---------- MacBook（小圆桌上） ---------- */
+const mbGroup = new THREE.Group();
+const mbBaseMat = std("#5a7a8a", 0.45, 0.25);
+mbGroup.add(box(0.62, 0.025, 0.42, mbBaseMat, { y: 0.012 }));
+const mbLid = box(0.62, 0.38, 0.022, std("#3a5a6a", 0.4, 0.1), { y: 0.2, z: -0.18, rx: 0.5 });
+mbGroup.add(mbLid);
+const mbScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.56, 0.32), screenMat);
+mbScreen.position.set(0, 0.195, -0.185);
+mbScreen.rotation.x = 0.5;
+mbGroup.add(mbScreen);
+mbGroup.position.set(0.0, 0.525, -1.5);
+mbGroup.rotation.y = 0.1;
+pickable(mbGroup, "macbook");
+scene.add(mbGroup);
 
-  /* ---------- 垃圾桶 ---------- */
-  const trashGroup = new THREE.Group();
-  const binMat = std("#6fa8c8", 0.55);
-  trashGroup.add(cyl(0.26, 0.2, 0.62, binMat, { y: 0.31 }));
-  trashGroup.add(cyl(0.2, 0.2, 0.06, std("#5a92b2", 0.55), { y: 0.65 }));
-  const note = new THREE.Mesh(new THREE.PlaneGeometry(0.2, 0.14), new THREE.MeshStandardMaterial({ color: 0xfff8ec, roughness: 0.9, side: THREE.DoubleSide }));
-  note.position.set(0.16, 0.72, 0.12);
-  note.rotation.set(-0.3, -0.6, 0.2);
-  trashGroup.add(note);
-  trashGroup.position.set(2.0, 0, 1.35);
-  pickable(trashGroup, "trashcan");
-  scene.add(trashGroup);
+/* ---------- iPad（小画架上） ---------- */
+const ipadGroup = new THREE.Group();
+ipadGroup.add(box(0.5, 0.66, 0.025, std("#4a6a7a", 0.45, 0.15), { z: -0.012 }));
+const ipadScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.44, 0.58), screenMat);
+ipadScreen.position.z = 0.018;
+ipadGroup.add(ipadScreen);
+// 小画架
+ipadGroup.add(box(0.04, 0.5, 0.04, std("#b9763f", 0.6), { x: -0.22, y: -0.3, z: -0.05 }));
+ipadGroup.position.set(-2.0, 1.1, -2.2);
+ipadGroup.rotation.x = -0.1;
+ipadGroup.rotation.y = 0.3;
+pickable(ipadGroup, "ipad");
+scene.add(ipadGroup);
 
-  /* ---------- 红色扶手椅（救生圈垫脚，装饰） ---------- */
-  const chairGroup = new THREE.Group();
-  const redFabric = toon("#e23e35");
-  // 救生圈
-  const lifeRing = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.07, 12, 28), toon("#f2f2f2"));
-  lifeRing.rotation.x = Math.PI / 2;
-  lifeRing.position.y = 0.09;
-  chairGroup.add(lifeRing);
-  // 红白条段
-  [0, Math.PI, Math.PI / 2, Math.PI * 1.5].forEach((a) => {
-    const seg = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.071, 8, 8, 0.5), toon("#e23e35"));
-    seg.rotation.x = Math.PI / 2;
-    seg.rotation.z = a;
-    seg.position.y = 0.09;
-    chairGroup.add(seg);
-  });
-  // 椅座
-  const seat = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.26, 0.18, 20), redFabric);
-  seat.position.y = 0.26;
-  chairGroup.add(seat);
-  // 靠背
-  const back = box(0.52, 0.6, 0.12, redFabric, { y: 0.62, z: -0.18 });
-  chairGroup.add(back);
-  // 扶手
-  chairGroup.add(box(0.1, 0.3, 0.3, redFabric, { x: -0.3, y: 0.4, z: 0 }));
-  chairGroup.add(box(0.1, 0.3, 0.3, redFabric, { x: 0.3, y: 0.4, z: 0 }));
-  chairGroup.position.set(-0.95, 0, -0.55);
-  chairGroup.rotation.y = 0.35;
-  scene.add(chairGroup);
+/* ---------- 手机（小支架上） ---------- */
+const phoneGroup = new THREE.Group();
+phoneGroup.add(box(0.22, 0.4, 0.02, std("#3a5a6a", 0.45, 0.15), { z: -0.01 }));
+const phoneScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.19, 0.34), screenMat);
+phoneScreen.position.z = 0.015;
+phoneGroup.add(phoneScreen);
+phoneGroup.add(box(0.16, 0.04, 0.12, std("#b9763f", 0.6), { y: -0.22, z: -0.02 }));
+phoneGroup.position.set(-2.35, 0.55, -1.2);
+phoneGroup.rotation.y = 0.4;
+pickable(phoneGroup, "phone");
+scene.add(phoneGroup);
 
-  /* ---------- 绿色圆管沙发（装饰） ---------- */
-  const couchGroup = new THREE.Group();
-  const tubeGreen = toon("#57a848");
-  for (let i = 0; i < 3; i += 1) {
-    const tube = cyl(0.13, 0.13, 1.5, tubeGreen, { y: 0.18 + i * 0.26, z: 0 });
-    tube.rotation.z = Math.PI / 2;
-    couchGroup.add(tube);
-    // 橙色绑带
-    [-0.5, 0.5].forEach((x) => {
-      const band = cyl(0.135, 0.135, 0.05, toon("#e88a3a"), { x, y: 0.18 + i * 0.26, z: 0 });
-      band.rotation.z = Math.PI / 2;
-      couchGroup.add(band);
-    });
-  }
-  // 蓝色底座
-  couchGroup.add(box(1.6, 0.12, 0.4, toon("#3a6a9a"), { y: 0.06, z: 0.12 }));
-  couchGroup.position.set(1.7, 0, -1.9);
-  couchGroup.rotation.y = -0.15;
-  scene.add(couchGroup);
+/* ---------- Marshall（左角） ---------- */
+const marshallGroup = new THREE.Group();
+const ampBodyMat = std("#3a4a55", 0.6, 0.1);
+marshallGroup.add(box(0.5, 0.62, 0.32, ampBodyMat, { y: 0.36 }));
+const grillMat = new THREE.MeshStandardMaterial({ color: "#5a7a8a", roughness: 0.9 });
+marshallGroup.add(box(0.42, 0.42, 0.02, grillMat, { y: 0.4, z: 0.16 }));
+const knobMat = new THREE.MeshStandardMaterial({ color: 0xe9c860, roughness: 0.35, metalness: 0.5 });
+[-0.14, 0, 0.14].forEach((x) => {
+  const knob = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.04, 0.025, 14), knobMat);
+  knob.rotation.x = Math.PI / 2;
+  knob.position.set(x, 0.1, 0.16);
+  marshallGroup.add(knob);
+});
+marshallGroup.position.set(-2.55, 0, 0.9);
+marshallGroup.rotation.y = 0.4;
+pickable(marshallGroup, "marshall");
+scene.add(marshallGroup);
 
-  /* ---------- 海草植物 ---------- */
-  const plantGroup = new THREE.Group();
-  plantGroup.add(cyl(0.24, 0.18, 0.4, toon("#e88a5a"), { y: 0.2 }));
-  const leafMat = toon("#3f9a7a");
-  const leafMat2 = toon("#57b890");
-  [[0, 0.62, 0.34], [0.18, 0.52, 0.12], [-0.16, 0.5, 0.08], [0.06, 0.78, 0.3], [-0.1, 0.68, 0.22]].forEach(([x, y, r], i) => {
-    const leaf = new THREE.Mesh(new THREE.SphereGeometry(r, 14, 12), i % 2 ? leafMat : leafMat2);
-    leaf.position.set(x, y, 0);
-    leaf.scale.y = 0.85;
-    plantGroup.add(leaf);
-  });
-  const stem = cyl(0.02, 0.03, 0.45, toon("#2f7a5a"), { y: 0.5 });
-  plantGroup.add(stem);
-  plantGroup.position.set(-2.55, 0, -1.7);
-  scene.add(plantGroup);
+/* ---------- 钢琴（右角） ---------- */
+const pianoGroup = new THREE.Group();
+const walnut = std("#9c6f45", 0.55, 0.05);
+const walnutDeep = std("#7a4f2c", 0.55, 0.05);
+pianoGroup.add(box(0.6, 1.0, 0.5, walnut, { y: 0.55, z: 0.05 }));
+pianoGroup.add(box(0.03, 1.0, 0.5, walnutDeep, { x: 0.29, y: 0.55, z: 0.05 }));
+pianoGroup.add(box(0.64, 0.07, 0.54, walnutDeep, { y: 1.06, z: 0.05 }));
+const keybed = box(0.56, 0.09, 0.34, std("#f6efe2", 0.5), { y: 0.95, z: 0.28 });
+pianoGroup.add(keybed);
+[-0.14, -0.07, 0, 0.07, 0.14].forEach((z) => {
+  pianoGroup.add(box(0.5, 0.06, 0.045, std("#2f3a44", 0.5), { y: 1.01, z: 0.28 + z }));
+});
+pianoGroup.position.set(2.55, 0, 0.3);
+pianoGroup.rotation.y = -0.4;
+pickable(pianoGroup, "piano");
+scene.add(pianoGroup);
 
-  /* ---------- 小窝星摆件（替代小狗，海底风） ---------- */
-  const snailGroup = new THREE.Group();
-  snailGroup.add(new THREE.Mesh(new THREE.SphereGeometry(0.18, 16, 14), toon("#f29a8a")));
-  const snBody = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 12), toon("#f2b8a8"));
-  snBody.position.set(-0.1, -0.1, 0);
-  snBody.scale.set(1.3, 0.7, 0.9);
-  snailGroup.add(snBody);
-  // 眼睛柄
-  [[0.12, 0.12], [0.12, -0.12]].forEach(([x, z]) => {
-    const stalk = cyl(0.012, 0.012, 0.2, toon("#f2b8a8"), { x: 0.1, y: 0.18, z });
-    snailGroup.add(stalk);
-    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.035, 8, 6), toon("#f2f2f2"));
-    eye.position.set(0.1, 0.3, z);
-    snailGroup.add(eye);
-    const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.015, 8, 6), toon("#2f2b27"));
-    pupil.position.set(0.115, 0.3, z);
-    snailGroup.add(pupil);
-  });
-  snailGroup.position.set(-1.1, 0.18, 0.35);
-  snailGroup.rotation.y = 0.6;
-  scene.add(snailGroup);
+/* ---------- 开关（门边） ---------- */
+const switchGroup = new THREE.Group();
+switchGroup.add(box(0.16, 0.22, 0.02, std("#cfe8f0", 0.7), { z: -0.01, cast: false }));
+switchGroup.add(box(0.09, 0.12, 0.015, std("#2f4a5a", 0.4), { y: 0.02, z: 0.005, cast: false }));
+switchGroup.position.set(-0.55, 1.25, -2.485);
+pickable(switchGroup, "lightswitch");
+scene.add(switchGroup);
 
-  /* ---------- 海星积木（装饰） ---------- */
-  const towerGroup = new THREE.Group();
-  const towerMats = [toon("#5cc0d2"), toon("#a8e0ec"), toon("#57a848"), toon("#e9c860")];
-  const towerSpecs = [
-    [0.34, 0.14, 0.34, 0.07],
-    [0.28, 0.12, 0.28, 0.2],
-    [0.2, 0.1, 0.2, 0.31],
-    [0.1, 0.12, 0.1, 0.42],
-  ];
-  towerSpecs.forEach(([w, h, d, y], i) => {
-    const block = box(w, h, d, towerMats[i % towerMats.length], { y, cast: true });
-    towerGroup.add(block);
-  });
-  towerGroup.position.set(0.65, 0, 0.15);
-  towerGroup.rotation.y = 0.3;
-  scene.add(towerGroup);
+/* ---------- 垃圾桶（右前角） ---------- */
+const trashGroup = new THREE.Group();
+trashGroup.add(cyl(0.22, 0.18, 0.5, std("#6fa8c8", 0.55), { y: 0.25 }));
+trashGroup.add(cyl(0.17, 0.17, 0.05, std("#5a92b2", 0.55), { y: 0.52 }));
+trashGroup.position.set(2.3, 0, 1.2);
+pickable(trashGroup, "trashcan");
+scene.add(trashGroup);
+
+/* ---------- 海草植物（左角） ---------- */
+const plantGroup = new THREE.Group();
+plantGroup.add(cyl(0.22, 0.16, 0.36, toon("#e88a5a"), { y: 0.18 }));
+const leafMat = toon("#3f9a7a");
+const leafMat2 = toon("#57b890");
+[[0, 0.55, 0.3], [0.16, 0.46, 0.1], [-0.14, 0.44, 0.08], [0.05, 0.7, 0.26], [-0.08, 0.6, 0.2]].forEach(([x, y, r], i) => {
+  const leaf = new THREE.Mesh(new THREE.SphereGeometry(r, 14, 12), i % 2 ? leafMat : leafMat2);
+  leaf.position.set(x, y, 0);
+  leaf.scale.y = 0.85;
+  plantGroup.add(leaf);
+});
+plantGroup.position.set(-2.55, 0, -1.6);
+scene.add(plantGroup);
+
+/* ---------- 小蜗（地毯左边） ---------- */
+const snailGroup = new THREE.Group();
+snailGroup.add(new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 14), toon("#d9785a")));
+const snBody = new THREE.Mesh(new THREE.SphereGeometry(0.12, 16, 12), toon("#f2b8a8"));
+snBody.position.set(-0.08, -0.08, 0);
+snBody.scale.set(1.3, 0.7, 0.9);
+snailGroup.add(snBody);
+[[0.1, 0.1], [0.1, -0.1]].forEach(([x, z]) => {
+  const stalk = cyl(0.01, 0.01, 0.18, toon("#f2b8a8"), { x: 0.09, y: 0.16, z });
+  snailGroup.add(stalk);
+  const eye = new THREE.Mesh(new THREE.SphereGeometry(0.03, 8, 6), toon("#f2f2f2"));
+  eye.position.set(0.09, 0.27, z);
+  snailGroup.add(eye);
+  const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.013, 8, 6), toon("#2f2b27"));
+  pupil.position.set(0.1, 0.27, z);
+  snailGroup.add(pupil);
+});
+snailGroup.position.set(-1.45, 0.16, -0.3);
+snailGroup.rotation.y = 0.8;
+scene.add(snailGroup);
 
   /* ---------- 上升气泡 ---------- */
   const bubbleCount = 36;
