@@ -66,8 +66,8 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 
   const camera = new THREE.PerspectiveCamera(42, host.clientWidth / host.clientHeight, 0.1, 60);
   const TARGET = new THREE.Vector3(0, 1.0, 0);
-  const cam = { yaw: 0, pitch: 0.19, radius: 4.9 };
-  const camGoal = { yaw: 0, pitch: 0.19, radius: 4.9 };
+  const cam = { yaw: 0, pitch: 0.55, radius: 5.6 };
+  const camGoal = { yaw: 0, pitch: 0.55, radius: 5.6 };
   let busy = false;
 
   /* ---------- 后处理：描边 + SSAO + Bloom（3D 漫画感） ---------- */
