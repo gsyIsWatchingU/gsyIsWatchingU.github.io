@@ -7,6 +7,7 @@ import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
 import { SSAOPass } from "three/examples/jsm/postprocessing/SSAOPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 (() => {
   const host = document.querySelector("[data-room3d-host]");
@@ -582,30 +583,22 @@ doorGroup.position.set(-1.35, 0, -2.46);
 scene.add(doorGroup);
 
 /* ---------- 红扶手椅（真实菠萝屋款） ---------- */
-/* ---------- 红扶手椅（软包曲面款） ---------- */
+/* ---------- 红扶手椅（Blender GLB） ---------- */
 const chairGroup = new THREE.Group();
-const redFabric = toon("#d9382e");
-const seat = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 18), redFabric);
-seat.scale.set(1, 0.55, 0.9);
-seat.position.y = 0.22;
-seat.castShadow = true;
-chairGroup.add(seat);
-const back = new THREE.Mesh(new THREE.SphereGeometry(0.36, 24, 18), redFabric);
-back.scale.set(0.85, 1.1, 0.45);
-back.position.set(0, 0.62, -0.22);
-back.rotation.x = -0.18;
-back.castShadow = true;
-chairGroup.add(back);
-[-0.32, 0.32].forEach((x) => {
-  const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.42, 16), redFabric);
-  arm.rotation.x = Math.PI / 2;
-  arm.position.set(x, 0.42, 0.02);
-  arm.castShadow = true;
-  chairGroup.add(arm);
-});
 chairGroup.position.set(-0.85, 0, -1.55);
 chairGroup.rotation.y = 0.15;
 scene.add(chairGroup);
+const gltfLoader = new GLTFLoader();
+gltfLoader.load("assets/models/blender-chair.glb", (gltf) => {
+  const m = gltf.scene;
+  m.traverse((n) => { if (n.isMesh) { n.castShadow = true; } });
+  m.scale.setScalar(2.2);
+  chairGroup.add(m);
+}, undefined, () => {
+  // 加载失败回退：简易方块
+  const fb = box(0.5, 0.6, 0.5, toon("#d9382e"), { y: 0.3 });
+  chairGroup.add(fb);
+});
 
 /* 救生圈脚凳（放在椅子正前方地上） */
 const ottomanGroup = new THREE.Group();
