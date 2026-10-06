@@ -582,18 +582,27 @@ doorGroup.position.set(-1.35, 0, -2.46);
 scene.add(doorGroup);
 
 /* ---------- 红扶手椅（真实菠萝屋款） ---------- */
+/* ---------- 红扶手椅（软包曲面款） ---------- */
 const chairGroup = new THREE.Group();
 const redFabric = toon("#d9382e");
-// 厚实坐垫
-const seat = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.32, 0.22, 24), redFabric);
-seat.position.y = 0.24;
+const seat = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 18), redFabric);
+seat.scale.set(1, 0.55, 0.9);
+seat.position.y = 0.22;
+seat.castShadow = true;
 chairGroup.add(seat);
-// 高靠背（圆角）
-const back = box(0.56, 0.78, 0.16, redFabric, { y: 0.72, z: -0.2 });
+const back = new THREE.Mesh(new THREE.SphereGeometry(0.36, 24, 18), redFabric);
+back.scale.set(0.85, 1.1, 0.45);
+back.position.set(0, 0.62, -0.22);
+back.rotation.x = -0.18;
+back.castShadow = true;
 chairGroup.add(back);
-// 圆润扶手
-chairGroup.add(box(0.12, 0.34, 0.4, redFabric, { x: -0.32, y: 0.42, z: 0 }));
-chairGroup.add(box(0.12, 0.34, 0.4, redFabric, { x: 0.32, y: 0.42, z: 0 }));
+[-0.32, 0.32].forEach((x) => {
+  const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.42, 16), redFabric);
+  arm.rotation.x = Math.PI / 2;
+  arm.position.set(x, 0.42, 0.02);
+  arm.castShadow = true;
+  chairGroup.add(arm);
+});
 chairGroup.position.set(-0.85, 0, -1.55);
 chairGroup.rotation.y = 0.15;
 scene.add(chairGroup);
