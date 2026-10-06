@@ -113,15 +113,16 @@ a,
 }
 
 .page-brand__symbol {
-  width: 64px;
+  width: 40px;
   height: 40px;
   display: block;
-  overflow: hidden;
 }
 
 .page-brand__symbol img {
-  width: 78px;
+  width: auto;
+  height: 40px;
   max-width: none;
+  display: block;
   filter: brightness(0);
   opacity: 0.9;
 }
@@ -148,11 +149,23 @@ a,
 .page-header__mail {
   justify-self: end;
   padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  margin: 0;
   color: var(--ink);
+  font: inherit;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.page-header__mail:hover {
+  color: var(--accent-ink);
+  border-bottom-color: var(--accent-ink);
 }
 
 /* ---------- 房间舞台（3D 画布） ---------- */
@@ -406,28 +419,21 @@ a,
   --dock-space: 88px;
 }
 
-.object-dock::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 6px;
-  width: min(860px, calc(100vw - 20px));
-  height: 76px;
-  transform: translateX(-50%);
-  border-radius: 26px;
-  background: rgba(255, 250, 241, 0.72);
-  border: 1px solid rgba(122, 100, 74, 0.16);
-  box-shadow: 0 10px 34px rgba(93, 74, 52, 0.16);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
 .object-dock__scroll {
   position: relative;
   display: flex;
   gap: 4px;
   overflow-x: auto;
   padding: 8px 14px;
+  margin: 0 auto;
+  width: max-content;
+  max-width: min(860px, calc(100vw - 24px));
+  border-radius: 26px;
+  background: rgba(255, 250, 241, 0.72);
+  border: 1px solid rgba(122, 100, 74, 0.16);
+  box-shadow: 0 10px 34px rgba(93, 74, 52, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -734,8 +740,7 @@ a,
     --dock-space: 92px;
   }
 
-  .object-dock::before {
-    width: calc(100vw - 12px);
+  .object-dock__scroll {
     border-radius: 22px;
   }
 
@@ -801,4 +806,30 @@ a,
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ---------- 复制提示 Toast ---------- */
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%) translateY(10px);
+  z-index: 999;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(40, 32, 24, 0.88);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transition: opacity 280ms ease, transform 280ms ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.copy-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
