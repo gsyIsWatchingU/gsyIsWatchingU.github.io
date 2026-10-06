@@ -560,91 +560,50 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
   scene.add(lampGroup);
 
 /* ---------- 拱形木门（菠萝屋入口） ---------- */
+/* ---------- 家具（Blender GLB 真模型） ---------- */
+const gltfLoader = new GLTFLoader();
+function loadGLB(url, group, scale, fallbackFn) {
+  gltfLoader.load(url, (gltf) => {
+    const m = gltf.scene;
+    m.traverse((n) => { if (n.isMesh) n.castShadow = true; });
+    m.scale.setScalar(scale);
+    group.add(m);
+  }, undefined, () => { if (fallbackFn) fallbackFn(); });
+}
+
+/* 拱形木门 */
 const doorGroup = new THREE.Group();
-const doorWood = std("#b9763f", 0.6);
-const doorWoodDark = std("#8a5a30", 0.65);
-// 门框（拱形：底部方柱 + 顶部半圆）
-doorGroup.add(box(0.1, 1.5, 0.08, doorWoodDark, { x: -0.42, y: 0.75, z: 0 }));
-doorGroup.add(box(0.1, 1.5, 0.08, doorWoodDark, { x: 0.42, y: 0.75, z: 0 }));
-const doorTop = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.05, 10, 24, Math.PI), doorWoodDark);
-doorTop.position.set(0, 1.5, 0);
-doorGroup.add(doorTop);
-// 门板
-doorGroup.add(box(0.78, 1.5, 0.05, doorWood, { y: 0.75, z: -0.01 }));
-// 门板竖纹
-[-0.2, 0, 0.2].forEach((x) => {
-  doorGroup.add(box(0.02, 1.4, 0.02, doorWoodDark, { x, y: 0.75, z: 0.03 }));
-});
-// 海星门环（蓝色）
-const knob = new THREE.Mesh(new THREE.TorusGeometry(0.07, 0.02, 8, 16), std("#4a6fa5", 0.5, 0.3));
-knob.position.set(0.28, 0.85, 0.05);
-doorGroup.add(knob);
 doorGroup.position.set(-1.35, 0, -2.46);
 scene.add(doorGroup);
+loadGLB("assets/models/blender-door.glb", doorGroup, 1.6);
 
-/* ---------- 红扶手椅（真实菠萝屋款） ---------- */
-/* ---------- 红扶手椅（Blender GLB） ---------- */
+/* 红扶手椅 */
 const chairGroup = new THREE.Group();
 chairGroup.position.set(-0.85, 0, -1.55);
 chairGroup.rotation.y = 0.15;
 scene.add(chairGroup);
-const gltfLoader = new GLTFLoader();
-gltfLoader.load("assets/models/blender-chair.glb", (gltf) => {
-  const m = gltf.scene;
-  m.traverse((n) => { if (n.isMesh) { n.castShadow = true; } });
-  m.scale.setScalar(2.2);
-  chairGroup.add(m);
-}, undefined, () => {
-  // 加载失败回退：简易方块
-  const fb = box(0.5, 0.6, 0.5, toon("#d9382e"), { y: 0.3 });
-  chairGroup.add(fb);
+loadGLB("assets/models/blender-chair.glb", chairGroup, 2.2, () => {
+  chairGroup.add(box(0.5, 0.6, 0.5, toon("#d9382e"), { y: 0.3 }));
 });
 
-/* 救生圈脚凳（放在椅子正前方地上） */
+/* 救生圈脚凳 */
 const ottomanGroup = new THREE.Group();
-const ringWhite = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.07, 12, 28), toon("#f2f2f2"));
-ringWhite.rotation.x = Math.PI / 2;
-ringWhite.position.y = 0.09;
-ottomanGroup.add(ringWhite);
-[0, Math.PI, Math.PI / 2, Math.PI * 1.5].forEach((a) => {
-  const seg = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.071, 8, 8, 0.5), toon("#d9382e"));
-  seg.rotation.x = Math.PI / 2;
-  seg.rotation.z = a;
-  seg.position.y = 0.09;
-  ottomanGroup.add(seg);
-});
 ottomanGroup.position.set(-0.85, 0, -1.05);
 scene.add(ottomanGroup);
+loadGLB("assets/models/blender-ottoman.glb", ottomanGroup, 1.3);
 
-/* ---------- 小圆木桌（放海螺） ---------- */
+/* 小圆木桌 */
 const sideTableGroup = new THREE.Group();
-const tableWood = std("#b9763f", 0.55);
-const tableTop = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.045, 24), tableWood);
-tableTop.position.y = 0.5;
-sideTableGroup.add(tableTop);
-const tableLeg = cyl(0.035, 0.05, 0.48, std("#8a5a30", 0.6), { y: 0.25 });
-sideTableGroup.add(tableLeg);
-// 紫色海螺号角（桌上装饰）
-const conch = new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 10), toon("#8a5ab8"));
-conch.scale.set(1.4, 0.7, 1);
-conch.position.set(0.05, 0.58, 0);
-sideTableGroup.add(conch);
 sideTableGroup.position.set(0.0, 0, -1.5);
 scene.add(sideTableGroup);
+loadGLB("assets/models/blender-table.glb", sideTableGroup, 1.5);
 
-/* ---------- 绿色圆管沙发（靠墙，配蓝坐垫） ---------- */
+/* 绿管沙发 */
 const couchGroup = new THREE.Group();
-const tubeGreen = toon("#4da83f");
-for (let i = 0; i < 3; i += 1) {
-  const tube = cyl(0.13, 0.13, 1.4, tubeGreen, { y: 0.2 + i * 0.27, z: 0 });
-  tube.rotation.z = Math.PI / 2;
-  couchGroup.add(tube);
-}
-// 蓝色坐垫
-couchGroup.add(box(1.3, 0.12, 0.42, toon("#3a6a9a"), { y: 0.1, z: 0.18 }));
 couchGroup.position.set(1.05, 0, -1.95);
 couchGroup.rotation.y = -0.05;
 scene.add(couchGroup);
+loadGLB("assets/models/blender-couch.glb", couchGroup, 1.6);
 
 /* ---------- 墙上小相框（蜗牛画） ---------- */
 const picFrame = new THREE.Group();
@@ -1109,10 +1068,16 @@ scene.add(snailGroup);
     const w = host.clientWidth;
     const h = host.clientHeight;
     renderer.setSize(w, h, false);
+    composer.setSize(w, h);
     camera.aspect = w / h;
-    // 窄屏拉宽视野，让更多物件入画
-    camera.fov = w / h < 0.75 ? 64 : 42;
+    const aspect = w / h;
+    let fov, radius, pitch;
+    if (aspect < 0.75) { fov = 72; radius = 7.4; pitch = 0.65; }
+    else if (aspect < 1.2) { fov = 55; radius = 6.3; pitch = 0.58; }
+    else { fov = 42; radius = 5.6; pitch = 0.55; }
+    camera.fov = fov;
     camera.updateProjectionMatrix();
+    if (!busy) { cam.radius = camGoal.radius = radius; cam.pitch = camGoal.pitch = pitch; }
   };
   window.addEventListener("resize", resize);
   resize();
