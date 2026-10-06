@@ -1,4 +1,4 @@
-﻿# 项目状态
+# 项目状态
 
 最后更新：2026-10-06
 
@@ -11,6 +11,9 @@
 完善面向 AI 全栈与 Agent 应用岗位的个人技术主页，并提供可验证的项目与在线体验。
 
 ## 已完成
+
+- 已按用户提供的 8 张《海绵宝宝菠萝屋》参考图（存 `docs/refs/pineapple-house/`）把互动小屋从「写实浅色木屋」重做为**水下菠萝屋卡通风**：绿松石竖纹墙板、沙色地板（canvas 颗粒纹理）、橙色菠萝皮菱格穹顶（倒扣半球 BackSide）、穹顶绿叶冠；窗户改为蓝色铆钉圆形舷窗（窗外水下日/夜/多云 canvas 纹理）；新增红扶手椅坐救生圈、绿色圆管沙发叠橙色绑带、绿色圆地毯配黄心、小蜗 Q 版摆件、海草植物；MeshToonMaterial 平涂；水下蓝雾 + 36 个上升气泡。保留全部交互骨架（10 个 pickable ID/位置/FOCUS/事件桥/氛围联动不变）。缓存版本 `20261006-pineapple`。
+- gsy013 Forge3D：菠萝壳 environment 任务（job `025034a4`，30K 三角 4MB GLB）已 review，转台预览良好，已下载 `assets/models/pineapple-shell.glb`（暂未接入）；红扶手椅 prop 任务（job `7553169e`）仍在跑。
 
 - 已修复 3D 小屋上线后用户反馈的两处布局问题：① 左上角 logo 被裁切——`.page-brand__symbol` 是 64×40 的 `overflow:hidden` 盒子，而 logo 图被写死 `width:78px`（1254×1254 正方形图 → 渲染成 78×78），底部 38px 被裁掉；改为 `height:40px; width:auto`，logo 完整显示。② 底部 dock 按钮与白色胶囊背景错位——胶囊是 `.object-dock::before`（居中、固定 860px 宽），而按钮栏 `.object-dock__scroll` 从屏幕左缘开始排，宽屏下左侧按钮落在胶囊外；改为把胶囊样式直接套在 `.object-dock__scroll` 上（`width:max-content; max-width:min(860px,100vw-24px); margin:0 auto`），胶囊随按钮内容居中，窄屏自动横滑。CDP 实测量：1904 宽视口下 logo 40×40 完整、10 个按钮全部落在居中胶囊内（x=632..1272，胶囊 616..1287）；500 宽移动端胶囊贴边、首项无裁切可横滑。`npm run build`/`check` 通过，room.css 缓存版本号 bump 为 `20261006-room-fix`。
 - 已将互动小屋的房间渲染从纯 CSS 3D 升级为 **Three.js 实时 3D**（回应“质感太差/完全不是 3D”的反馈）：WebGLRenderer + PCF 软阴影 + ACES 色调映射 + RoomEnvironment 环境反射 IBL + 场景雾；PerspectiveCamera 轨道相机（拖拽旋转 ±1.25 rad、滚轮/双指缩放 2.7–7.2、方向键微调），点击物件 / dock 时相机平滑转镜头（420ms 阻尼，`prefers-reduced-motion` 直切）后打开近景；房间由真实 3D 体块构成（木纹地板、后墙/左墙、踢脚线、地毯、挂画、书架 + 彩色书、可拾取窗户 + 窗景画布纹理 + 窗帘、灯串 TubeGeometry + 发光灯泡 + 点光、台灯自发光 + 点光、书桌、显示器/MacBook/iPad/手机发光屏幕、Marshall 菱格网罩 + 金色旋钮、胡桃木钢琴 + 琴键黑键 + 谱架乐谱 + 琴凳、开关、垃圾桶 + 纸条、植物、小狗摆件、积木塔）；氛围联动改为 MutationObserver 监听 `data-scene-tone/weather/lights`：窗景换日/夜/多云纹理、主光/环境光/补光强度与色温、灯串与台灯发光随昼夜 + 开关联动；射线拾取悬停高亮（光标 + 浮动标签 + 轻微放大）、tap 判定（移动 ≤6px 才算点击）；WebGL 不可用时兜底为“点击直接打开近景”。新增 `scripts/room3d.js`，`scripts/build.mjs` 增加第二个 esbuild 打包入口（`assets/room3d.js`，iife），`scripts/room.js` 改为事件桥接（`room:activate-request / activate-done / scene-click / reset-view / request-close / room3d:ready`），`styles/room.css` 移除 CSS 房间几何、保留外壳/dock/弹层/加载/弹幕样式。已修 three r186 两个坑：`Timer` 需每帧先 `update()` 再 `getDelta()`；`setPointerCapture` 对部分指针会抛异常需 try/catch。镜头聚焦角由投影扫描校准（物件中心投影到画面中央），窄屏（aspect < 0.75）FOV 自动 42°→64° 让更多物件入画。

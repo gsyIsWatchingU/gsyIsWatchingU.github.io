@@ -17,7 +17,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
     phone: "手机 · 留言墙",
     marshall: "Marshall · 音乐角落",
     piano: "钢琴 · 生活兴趣",
-    window: "窗户 · 关于我",
+    window: "舷窗 · 关于我",
     lightswitch: "灯光 · 氛围",
     trashcan: "垃圾桶 · 小纸条",
   };
@@ -38,10 +38,11 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.08;
+  renderer.toneMappingExposure = 1.05;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0xf5efe3, 8.2, 13.5);
+  // 水下：浅蓝水雾
+  scene.fog = new THREE.Fog(0x9fd8ea, 8.2, 13.5);
 
   /* 环境反射（柔和室内 IBL） */
   const pmrem = new THREE.PMREMGenerator(renderer);
@@ -53,7 +54,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
     } catch {}
   }
   if (scene.environment) {
-    scene.environmentIntensity = 0.5;
+    scene.environmentIntensity = 0.45;
   }
 
   const camera = new THREE.PerspectiveCamera(42, host.clientWidth / host.clientHeight, 0.1, 60);
@@ -74,6 +75,9 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   /* ---------- 工具 ---------- */
   const std = (color, roughness = 0.65, metalness = 0.05) =>
     new THREE.MeshStandardMaterial({ color, roughness, metalness });
+  // 卡通 toon 色阶
+  const toon = (color) =>
+    new THREE.MeshToonMaterial({ color });
 
   const box = (w, h, d, material, opts = {}) => {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), material);
@@ -112,78 +116,83 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
     return [c, c.getContext("2d")];
   };
 
+  /* 舷窗视野：水下白天 */
   const skyDay = (() => {
     const [c, g] = makeCanvas(512, 256);
     const grad = g.createLinearGradient(0, 0, 0, 256);
-    grad.addColorStop(0, "#bcd9ef");
-    grad.addColorStop(0.7, "#dcebf4");
-    grad.addColorStop(1, "#eef6f8");
+    grad.addColorStop(0, "#8fd0e8");
+    grad.addColorStop(0.6, "#a8dcf0");
+    grad.addColorStop(1, "#c8ecf6");
     g.fillStyle = grad;
     g.fillRect(0, 0, 512, 256);
-    g.fillStyle = "#ffd97a";
-    g.shadowColor = "rgba(255, 214, 110, 0.9)";
-    g.shadowBlur = 42;
-    g.beginPath();
-    g.arc(404, 66, 34, 0, Math.PI * 2);
-    g.fill();
-    g.shadowBlur = 0;
-    g.fillStyle = "rgba(255, 255, 255, 0.92)";
-    [
-      [70, 90, 74, 20],
-      [150, 130, 60, 16],
-      [240, 80, 88, 22],
-      [330, 150, 70, 17],
-    ].forEach(([x, y, w, h]) => {
+    // 水面光斑
+    g.fillStyle = "rgba(255,255,230,0.35)";
+    for (let i = 0; i < 6; i += 1) {
+      const x = 40 + i * 80;
       g.beginPath();
-      g.ellipse(x, y, w / 2, h / 2, 0, 0, Math.PI * 2);
+      g.ellipse(x, 30 + (i % 3) * 18, 36, 10, 0, 0, Math.PI * 2);
       g.fill();
+    }
+    // 上升气泡
+    g.strokeStyle = "rgba(255,255,255,0.7)";
+    g.lineWidth = 1.5;
+    [[80, 180, 7], [160, 120, 5], [250, 200, 9], [330, 90, 6], [420, 160, 8], [470, 60, 4], [200, 40, 5]].forEach(([x, y, r]) => {
+      g.beginPath();
+      g.arc(x, y, r, 0, Math.PI * 2);
+      g.stroke();
     });
+    // 远处剪影海草
+    g.fillStyle = "rgba(40,110,90,0.35)";
+    g.beginPath();
+    g.ellipse(60, 240, 26, 40, 0.15, 0, Math.PI * 2);
+    g.fill();
+    g.beginPath();
+    g.ellipse(460, 245, 30, 34, -0.1, 0, Math.PI * 2);
+    g.fill();
     return new THREE.CanvasTexture(c);
   })();
 
+  /* 舷窗视野：水下夜晚 */
   const skyNight = (() => {
     const [c, g] = makeCanvas(512, 256);
     const grad = g.createLinearGradient(0, 0, 0, 256);
-    grad.addColorStop(0, "#203356");
-    grad.addColorStop(0.7, "#16233f");
-    grad.addColorStop(1, "#1c2c4a");
+    grad.addColorStop(0, "#0e2a4a");
+    grad.addColorStop(0.6, "#163a5e");
+    grad.addColorStop(1, "#1e4a70");
     g.fillStyle = grad;
     g.fillRect(0, 0, 512, 256);
-    g.fillStyle = "#f4f0df";
-    g.shadowColor = "rgba(244, 240, 223, 0.85)";
-    g.shadowBlur = 36;
+    g.fillStyle = "rgba(220,235,255,0.9)";
+    g.shadowColor = "rgba(200,225,255,0.8)";
+    g.shadowBlur = 26;
     g.beginPath();
-    g.arc(408, 70, 26, 0, Math.PI * 2);
+    g.arc(420, 56, 20, 0, Math.PI * 2);
     g.fill();
     g.shadowBlur = 0;
-    g.fillStyle = "#fff6d8";
-    [[60, 40, 3], [130, 80, 2], [210, 46, 3], [300, 90, 2], [360, 150, 2], [110, 170, 2], [250, 190, 2]].forEach(([x, y, r]) => {
+    g.strokeStyle = "rgba(200,225,255,0.5)";
+    g.lineWidth = 1.5;
+    [[90, 170, 6], [180, 110, 4], [280, 190, 8], [360, 80, 5], [450, 150, 6]].forEach(([x, y, r]) => {
       g.beginPath();
       g.arc(x, y, r, 0, Math.PI * 2);
-      g.fill();
+      g.stroke();
     });
     return new THREE.CanvasTexture(c);
   })();
 
+  /* 舷窗视野：多云 = 阴沉绿海水 */
   const skyCloudy = (() => {
     const [c, g] = makeCanvas(512, 256);
     const grad = g.createLinearGradient(0, 0, 0, 256);
-    grad.addColorStop(0, "#c9d6e2");
-    grad.addColorStop(0.7, "#dde6ec");
-    grad.addColorStop(1, "#ecf1f2");
+    grad.addColorStop(0, "#7ab8b8");
+    grad.addColorStop(0.6, "#8fc8c8");
+    grad.addColorStop(1, "#b0dcd0");
     g.fillStyle = grad;
     g.fillRect(0, 0, 512, 256);
-    g.fillStyle = "rgba(255, 250, 240, 0.95)";
-    [
-      [60, 70, 110, 34],
-      [170, 110, 130, 40],
-      [300, 60, 120, 36],
-      [380, 130, 100, 30],
-      [220, 170, 150, 42],
-    ].forEach(([x, y, w, h]) => {
+    g.strokeStyle = "rgba(255,255,255,0.6)";
+    g.lineWidth = 1.5;
+    [[100, 160, 6], [220, 100, 5], [340, 180, 7], [440, 90, 5]].forEach(([x, y, r]) => {
       g.beginPath();
-      g.ellipse(x, y, w / 2, h / 2, 0, 0, Math.PI * 2);
-      g.fill();
+      g.arc(x, y, r, 0, Math.PI * 2);
+      g.stroke();
     });
     return new THREE.CanvasTexture(c);
   })();
@@ -227,10 +236,11 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   const screenMat = new THREE.MeshBasicMaterial({ map: appScreen, toneMapped: false });
 
   /* ---------- 灯光 ---------- */
-  const hemi = new THREE.HemisphereLight(0xfff6e8, 0xc9a274, 0.6);
+  // 水下漫射：天青蓝 / 沙地黄
+  const hemi = new THREE.HemisphereLight(0xcfeef8, 0xe0c890, 0.62);
   scene.add(hemi);
 
-  const key = new THREE.DirectionalLight(0xfff1dc, 1.6);
+  const key = new THREE.DirectionalLight(0xf2fbff, 1.5);
   key.position.set(-3.2, 4.6, 2.4);
   key.castShadow = true;
   key.shadow.mapSize.set(2048, 2048);
@@ -244,41 +254,31 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   key.shadow.normalBias = 0.02;
   scene.add(key);
 
-  const fill = new THREE.PointLight(0xffdfb8, 0.55, 9, 2);
+  const fill = new THREE.PointLight(0x9fe0f0, 0.6, 9, 2);
   fill.position.set(2.6, 2.3, 1.6);
   scene.add(fill);
 
-  /* ---------- 地板木纹 ---------- */
-  const woodFloorTex = (() => {
+  /* ---------- 沙地地板 ---------- */
+  const sandTex = (() => {
     const [c, g] = makeCanvas(512, 512);
-    g.fillStyle = "#c9a274";
+    g.fillStyle = "#e6d39a";
     g.fillRect(0, 0, 512, 512);
-    const plankH = 64;
-    for (let row = 0; row < 8; row += 1) {
-      const y = row * plankH;
-      g.fillStyle = row % 2 ? "rgba(150, 108, 66, 0.14)" : "rgba(255, 232, 200, 0.08)";
-      g.fillRect(0, y, 512, plankH);
-      g.strokeStyle = "rgba(122, 84, 50, 0.28)";
-      g.lineWidth = 2;
-      g.beginPath();
-      g.moveTo(0, y + 1);
-      g.lineTo(512, y + 1);
-      g.stroke();
-      const off = row % 2 ? 128 : 0;
-      for (let seam = off; seam < 512; seam += 128) {
-        g.beginPath();
-        g.moveTo(seam, y);
-        g.lineTo(seam, y + plankH);
-        g.stroke();
-      }
+    // 沙粒斑点
+    for (let i = 0; i < 900; i += 1) {
+      const x = (i * 53) % 512;
+      const y = (i * 97) % 512;
+      g.fillStyle = i % 2 ? "rgba(180,150,90,0.25)" : "rgba(255,245,210,0.3)";
+      g.fillRect(x, y, 2, 2);
     }
-    g.strokeStyle = "rgba(122, 84, 50, 0.1)";
-    for (let i = 0; i < 46; i += 1) {
-      g.beginPath();
-      g.moveTo((i * 37) % 512, 0);
-      g.lineTo(((i * 37) % 512) + 30, 512);
-      g.stroke();
-    }
+    // 几块海星/贝壳
+    g.fillStyle = "#f29a8a";
+    g.beginPath();
+    g.arc(90, 400, 10, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = "#fff2d0";
+    g.beginPath();
+    g.arc(420, 120, 7, 0, Math.PI * 2);
+    g.fill();
     const tex = new THREE.CanvasTexture(c);
     tex.wrapS = THREE.RepeatWrapping;
     tex.wrapT = THREE.RepeatWrapping;
@@ -287,41 +287,131 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
     return tex;
   })();
 
+  /* ---------- 绿松石竖纹墙板 ---------- */
+  const wallTex = (() => {
+    const [c, g] = makeCanvas(512, 256);
+    g.fillStyle = "#5cc0d2";
+    g.fillRect(0, 0, 512, 256);
+    const plankW = 42;
+    for (let x = 0; x < 512; x += plankW) {
+      g.fillStyle = (x / plankW) % 2 ? "rgba(255,255,255,0.07)" : "rgba(20,90,110,0.08)";
+      g.fillRect(x, 0, plankW, 256);
+      g.strokeStyle = "rgba(20,90,110,0.35)";
+      g.lineWidth = 2;
+      g.beginPath();
+      g.moveTo(x, 0);
+      g.lineTo(x, 256);
+      g.stroke();
+    }
+    const tex = new THREE.CanvasTexture(c);
+    tex.wrapS = THREE.RepeatWrapping;
+    tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(2.4, 1);
+    tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    return tex;
+  })();
+
+  /* ---------- 菠萝皮橙纹（穹顶） ---------- */
+  const pineappleTex = (() => {
+    const [c, g] = makeCanvas(512, 256);
+    g.fillStyle = "#f2913a";
+    g.fillRect(0, 0, 512, 256);
+    // 菱格交叉线
+    g.strokeStyle = "rgba(160,80,20,0.55)";
+    g.lineWidth = 3;
+    for (let i = -256; i < 768; i += 48) {
+      g.beginPath();
+      g.moveTo(i, 0);
+      g.lineTo(i + 256, 256);
+      g.stroke();
+      g.beginPath();
+      g.moveTo(i + 256, 0);
+      g.lineTo(i, 256);
+      g.stroke();
+    }
+    // 小眼斑
+    g.fillStyle = "rgba(140,70,15,0.5)";
+    for (let y = 24; y < 256; y += 48) {
+      for (let x = 24; x < 512; x += 48) {
+        g.beginPath();
+        g.ellipse(x + ((y / 48) % 2) * 24, y, 4, 7, 0, 0, Math.PI * 2);
+        g.fill();
+      }
+    }
+    const tex = new THREE.CanvasTexture(c);
+    tex.wrapS = THREE.RepeatWrapping;
+    tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(3, 1);
+    tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    return tex;
+  })();
+
   /* ---------- 房间骨架 ---------- */
-  const woodFloorMat = new THREE.MeshStandardMaterial({ map: woodFloorTex, roughness: 0.55, metalness: 0.02 });
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(6, 5), woodFloorMat);
+  const sandMat = new THREE.MeshStandardMaterial({ map: sandTex, roughness: 0.95, metalness: 0 });
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(6, 5), sandMat);
   floor.rotation.x = -Math.PI / 2;
   floor.receiveShadow = true;
   scene.add(floor);
 
-  const wallBack = new THREE.Mesh(new THREE.PlaneGeometry(6, 2.8), std("#f1e5d2", 0.92));
+  const wallMat = new THREE.MeshStandardMaterial({ map: wallTex, roughness: 0.9 });
+  const wallBack = new THREE.Mesh(new THREE.PlaneGeometry(6, 2.8), wallMat);
   wallBack.position.set(0, 1.4, -2.5);
   wallBack.receiveShadow = true;
   scene.add(wallBack);
 
-  const wallLeft = new THREE.Mesh(new THREE.PlaneGeometry(5, 2.8), std("#eadcc5", 0.92));
+  const wallLeft = new THREE.Mesh(new THREE.PlaneGeometry(5, 2.8), wallMat);
   wallLeft.rotation.y = Math.PI / 2;
   wallLeft.position.set(-3, 1.4, 0);
   wallLeft.receiveShadow = true;
   scene.add(wallLeft);
 
-  // 踢脚线
-  scene.add(box(6, 0.14, 0.06, std("#ddc6a4", 0.7), { y: 0.07, z: -2.47, receive: true }));
-  const baseLeft = box(5, 0.14, 0.06, std("#dcc5a2", 0.7), { x: -2.97, y: 0.07, receive: true });
+  // 踢脚线（蓝色船板风）
+  scene.add(box(6, 0.14, 0.06, std("#3a7a9a", 0.7), { y: 0.07, z: -2.47, receive: true }));
+  const baseLeft = box(5, 0.14, 0.06, std("#3a7a9a", 0.7), { x: -2.97, y: 0.07, receive: true });
   baseLeft.rotation.y = Math.PI / 2;
   scene.add(baseLeft);
 
-  // 地毯
-  const rug = new THREE.Mesh(new THREE.CircleGeometry(1.65, 48), std("#ecd3ae", 0.92));
+  // 菠萝皮穹顶（倒扣半球罩在头顶，从内部看）
+  const domeMat = new THREE.MeshStandardMaterial({ map: pineappleTex, roughness: 0.85, side: THREE.BackSide });
+  const dome = new THREE.Mesh(
+    new THREE.SphereGeometry(3.6, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2),
+    domeMat,
+  );
+  dome.position.set(0, 0.0, -0.4);
+  dome.receiveShadow = false;
+  scene.add(dome);
+
+  // 穹顶上方的绿叶冠（几簇椭圆叶）
+  const leafCrown = new THREE.Group();
+  const leafGreen = std("#57a83f", 0.75);
+  const leafGreen2 = std("#6cbf4a", 0.75);
+  for (let i = 0; i < 7; i += 1) {
+    const a = (i / 7) * Math.PI - Math.PI / 2;
+    const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), i % 2 ? leafGreen : leafGreen2);
+    leaf.scale.set(0.45, 2.6, 0.18);
+    leaf.position.set(Math.sin(a) * 0.3, 3.6 + Math.cos(a) * 0.15, -0.4 + (i % 3) * 0.3);
+    leaf.rotation.z = -a * 0.6;
+    leaf.rotation.x = 0.25;
+    leafCrown.add(leaf);
+  }
+  leafCrown.position.set(0, 0, -2.2);
+  scene.add(leafCrown);
+
+  // 绿色圆地毯（菠萝纹圆心）
+  const rug = new THREE.Mesh(new THREE.CircleGeometry(1.5, 48), toon("#57a848"));
   rug.rotation.x = -Math.PI / 2;
   rug.position.set(0, 0.012, -0.7);
   rug.receiveShadow = true;
   scene.add(rug);
+  const rugCenter = new THREE.Mesh(new THREE.CircleGeometry(0.55, 32), toon("#e9c860"));
+  rugCenter.rotation.x = -Math.PI / 2;
+  rugCenter.position.set(0, 0.014, -0.7);
+  scene.add(rugCenter);
 
-  // 挂画（后墙）
-  const frameMat = std("#dcc9ac", 0.6);
-  const artMatA = std("#f6efe2", 0.85);
-  const artMatB = std("#e8d9bd", 0.85);
+  // 小挂画（贝壳框）
+  const frameMat = std("#e9c860", 0.6);
+  const artMatA = toon("#a8e0ec");
+  const artMatB = toon("#f6d8c0");
   const wallArt = (x, y, w, h, innerMat, accent) => {
     const g = new THREE.Group();
     const f = box(w, h, 0.035, frameMat, { receive: true });
@@ -333,16 +423,16 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
     g.position.set(x, y, -2.485);
     scene.add(g);
   };
-  wallArt(-0.75, 1.92, 0.78, 0.98, artMatA, std("#e8b98a", 0.6));
-  wallArt(0.5, 1.86, 0.62, 0.8, artMatB, std("#8fb7a8", 0.6));
+  wallArt(-0.75, 1.92, 0.78, 0.98, artMatA, toon("#e88a3a"));
+  wallArt(0.5, 1.86, 0.62, 0.8, artMatB, toon("#57a848"));
 
-  // 书架
-  const shelfMat = std("#b9895f", 0.6);
+  // 书架（彩色书，滑梯即视感）
+  const shelfMat = std("#b9763f", 0.6);
   const shelf = box(2.5, 0.05, 0.34, shelfMat, { x: 0.72, y: 1.98, z: -2.18 });
   scene.add(shelf);
-  const bookColors = ["#d98e5f", "#7fb3c9", "#8fb7a8", "#e0c38a", "#c98d62", "#9b8aa8"];
+  const bookColors = ["#e86a5a", "#5aa8d8", "#57a848", "#e9c860", "#d96a8a", "#9b8ac8"];
   bookColors.forEach((color, i) => {
-    const b = box(0.07, 0.2 + (i % 3) * 0.05, 0.24, std(color, 0.7), {
+    const b = box(0.07, 0.2 + (i % 3) * 0.05, 0.24, toon(color), {
       x: 0.72 - 0.85 + i * 0.17,
       y: 2.18 + (i % 3) * 0.05 * 0.5,
       z: -2.2,
@@ -351,34 +441,49 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
     scene.add(b);
   });
 
-  /* ---------- 窗户 ---------- */
+  /* ---------- 舷窗（pickable: window） ---------- */
   const windowGroup = new THREE.Group();
-  const winFrameMat = std("#8a5f3c", 0.5);
-  const winGlassMat = new THREE.MeshBasicMaterial({ map: skyDay, toneMapped: false });
-  const winGlass = new THREE.Mesh(new THREE.PlaneGeometry(1.36, 1.04), winGlassMat);
-  winGlass.position.set(0, 0, -0.02);
+  const portholeBlue = std("#4a6fa5", 0.5, 0.2);
+  // 圆形舷窗外框
+  const winRing = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.09, 14, 40), portholeBlue);
+  winRing.castShadow = false;
+  windowGroup.add(winRing);
+  // 玻璃 = 水下视野
+  const winGlass = new THREE.Mesh(new THREE.CircleGeometry(0.56, 40), new THREE.MeshBasicMaterial({ map: skyDay, toneMapped: false }));
+  winGlass.position.z = -0.02;
   winGlass.userData.pick = "window";
   windowGroup.add(winGlass);
-  const wfTop = box(1.56, 0.1, 0.08, winFrameMat, { y: 0.57, z: -0.04, cast: false });
-  const wfBottom = box(1.56, 0.12, 0.08, winFrameMat, { y: -0.58, z: -0.04, cast: false });
-  const wfLeft = box(0.1, 1.26, 0.08, winFrameMat, { x: -0.73, z: -0.04, cast: false });
-  const wfRight = box(0.1, 1.26, 0.08, winFrameMat, { x: 0.73, z: -0.04, cast: false });
-  const wfCross = box(0.07, 1.24, 0.06, winFrameMat, { z: -0.035, cast: false });
-  const wfCross2 = box(1.34, 0.07, 0.06, winFrameMat, { z: -0.035, cast: false });
-  windowGroup.add(wfTop, wfBottom, wfLeft, wfRight, wfCross, wfCross2);
-  // 窗帘
-  const curtainMat = std("#e8c9a4", 0.85);
-  const curL = box(0.26, 1.4, 0.06, curtainMat, { x: -0.95, y: 0.1, cast: false });
-  const curR = box(0.26, 1.4, 0.06, curtainMat, { x: 0.95, y: 0.1, cast: false });
-  windowGroup.add(curL, curR);
-  windowGroup.position.set(-1.55, 1.55, -2.47);
+  // 铆钉
+  const rivetMat = std("#c9d8e8", 0.4, 0.5);
+  for (let i = 0; i < 8; i += 1) {
+    const a = (i / 8) * Math.PI * 2;
+    const r = new THREE.Mesh(new THREE.SphereGeometry(0.035, 8, 6), rivetMat);
+    r.position.set(Math.cos(a) * 0.62, Math.sin(a) * 0.62, 0.05);
+    windowGroup.add(r);
+  }
+  // 舷窗横档
+  windowGroup.add(box(1.18, 0.06, 0.05, portholeBlue, { z: 0.04, cast: false }));
+  windowGroup.add(box(0.06, 1.18, 0.05, portholeBlue, { z: 0.04, cast: false }));
+  windowGroup.position.set(-1.55, 1.62, -2.46);
   pickable(windowGroup, "window");
   scene.add(windowGroup);
+
+  /* 左侧墙装饰舷窗（不可点） */
+  const decoPort = new THREE.Group();
+  const dpRing = new THREE.Mesh(new THREE.TorusGeometry(0.32, 0.06, 12, 28), portholeBlue);
+  dpRing.rotation.y = Math.PI / 2;
+  decoPort.add(dpRing);
+  const dpGlass = new THREE.Mesh(new THREE.CircleGeometry(0.28, 28), new THREE.MeshBasicMaterial({ map: skyDay, toneMapped: false }));
+  dpGlass.rotation.y = Math.PI / 2;
+  dpGlass.position.z = 0.02;
+  decoPort.add(dpGlass);
+  decoPort.position.set(-2.97, 1.7, -0.6);
+  scene.add(decoPort);
 
   /* ---------- 灯串 ---------- */
   const stringGroup = new THREE.Group();
   const stringMat = new THREE.MeshStandardMaterial({
-    color: 0x6b5b48,
+    color: 0x3a7a9a,
     roughness: 0.8,
     emissive: 0x000000,
   });
@@ -413,8 +518,8 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
   /* ---------- 台灯（装饰） ---------- */
   const lampGroup = new THREE.Group();
-  lampGroup.add(cyl(0.09, 0.12, 0.3, std("#8a5f3c", 0.5), { y: 0.15 }));
-  lampGroup.add(cyl(0.035, 0.035, 0.52, std("#3a3430", 0.4, 0.4), { y: 0.56 }));
+  lampGroup.add(cyl(0.09, 0.12, 0.3, std("#3a7a9a", 0.5), { y: 0.15 }));
+  lampGroup.add(cyl(0.035, 0.035, 0.52, std("#2f4a5a", 0.4, 0.4), { y: 0.56 }));
   const shadeMat = new THREE.MeshStandardMaterial({
     color: 0xffe2b8,
     emissive: 0xffd9a0,
@@ -433,9 +538,9 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
   /* ---------- 书桌 ---------- */
   const deskGroup = new THREE.Group();
-  const deskTopMat = std("#b9895f", 0.55, 0.02);
+  const deskTopMat = std("#b9763f", 0.55, 0.02);
   deskGroup.add(box(2.7, 0.07, 1.15, deskTopMat, { y: 0.72, z: -1.85 }));
-  const legMat = std("#8a5f3c", 0.6);
+  const legMat = std("#8a5a30", 0.6);
   [
     [-1.18, -2.35],
     [1.18, -2.35],
@@ -448,9 +553,9 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
   /* ---------- 显示器 ---------- */
   const monitorGroup = new THREE.Group();
-  monitorGroup.add(box(0.2, 0.24, 0.2, std("#8a5f3c", 0.55), { y: 0.12 }));
-  monitorGroup.add(box(0.1, 0.16, 0.1, std("#3a3430", 0.45), { y: 0.32 }));
-  const monFrame = box(1.12, 0.66, 0.05, std("#2f2b27", 0.4, 0.1), { y: 0.69, z: -0.01 });
+  monitorGroup.add(box(0.2, 0.24, 0.2, std("#3a7a9a", 0.55), { y: 0.12 }));
+  monitorGroup.add(box(0.1, 0.16, 0.1, std("#2f4a5a", 0.45), { y: 0.32 }));
+  const monFrame = box(1.12, 0.66, 0.05, std("#2f4a5a", 0.4, 0.1), { y: 0.69, z: -0.01 });
   monitorGroup.add(monFrame);
   const monScreen = new THREE.Mesh(new THREE.PlaneGeometry(1.02, 0.56), screenMat);
   monScreen.position.set(0, 0.69, 0.025);
@@ -462,9 +567,9 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
   /* ---------- MacBook ---------- */
   const mbGroup = new THREE.Group();
-  const mbBaseMat = std("#5a524b", 0.45, 0.25);
+  const mbBaseMat = std("#5a7a8a", 0.45, 0.25);
   mbGroup.add(box(1.0, 0.035, 0.64, mbBaseMat, { y: 0.018 }));
-  const mbLid = box(1.0, 0.6, 0.03, std("#3a3430", 0.4, 0.1), { y: 0.31, z: -0.28, rx: 0.5 });
+  const mbLid = box(1.0, 0.6, 0.03, std("#3a5a6a", 0.4, 0.1), { y: 0.31, z: -0.28, rx: 0.5 });
   mbGroup.add(mbLid);
   const mbScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.92, 0.52), screenMat);
   mbScreen.position.set(0, 0.3, -0.285);
@@ -477,7 +582,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
   /* ---------- iPad ---------- */
   const ipadGroup = new THREE.Group();
-  ipadGroup.add(box(0.68, 0.92, 0.03, std("#55514c", 0.45, 0.15), { z: -0.015 }));
+  ipadGroup.add(box(0.68, 0.92, 0.03, std("#4a6a7a", 0.45, 0.15), { z: -0.015 }));
   const ipadScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.84), screenMat);
   ipadScreen.position.z = 0.02;
   ipadGroup.add(ipadScreen);
@@ -489,7 +594,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
   /* ---------- 手机 ---------- */
   const phoneGroup = new THREE.Group();
-  phoneGroup.add(box(0.3, 0.54, 0.025, std("#4a443e", 0.45, 0.15), { z: -0.012 }));
+  phoneGroup.add(box(0.3, 0.54, 0.025, std("#3a5a6a", 0.45, 0.15), { z: -0.012 }));
   const phoneScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.26, 0.48), screenMat);
   phoneScreen.position.z = 0.02;
   phoneGroup.add(phoneScreen);
@@ -501,27 +606,26 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
   /* ---------- Marshall ---------- */
   const marshallGroup = new THREE.Group();
-  const ampBodyMat = std("#3a3430", 0.6, 0.1);
+  const ampBodyMat = std("#3a4a55", 0.6, 0.1);
   const ampBody = box(0.62, 0.78, 0.4, ampBodyMat, { y: 0.45 });
   marshallGroup.add(ampBody);
-  const grillMat = new THREE.MeshStandardMaterial({ color: "#57504a", roughness: 0.9 });
+  const grillMat = new THREE.MeshStandardMaterial({ color: "#5a7a8a", roughness: 0.9 });
   const grill = box(0.52, 0.52, 0.02, grillMat, { y: 0.5, z: 0.2 });
   marshallGroup.add(grill);
-  const knobMat = new THREE.MeshStandardMaterial({ color: 0xd9b98c, roughness: 0.35, metalness: 0.5 });
+  const knobMat = new THREE.MeshStandardMaterial({ color: 0xe9c860, roughness: 0.35, metalness: 0.5 });
   [-0.18, -0.06, 0.06, 0.18].forEach((x) => {
     const knob = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.05, 0.03, 16), knobMat);
     knob.rotation.x = Math.PI / 2;
     knob.position.set(x, 0.14, 0.2);
     marshallGroup.add(knob);
   });
-  const bandMat = std("#8a7f72", 0.8);
+  const bandMat = std("#7a9aaa", 0.8);
   [-0.14, 0.0, 0.14].forEach((x) => {
     marshallGroup.add(box(0.36, 0.045, 0.02, bandMat, { x, y: -0.05, z: 0.2 }));
   });
-  // 面板金字
-  const script = box(0.3, 0.09, 0.012, new THREE.MeshStandardMaterial({ color: 0xd9b98c, roughness: 0.3, metalness: 0.6 }), { y: 0.76, z: 0.2, cast: false });
+  const script = box(0.3, 0.09, 0.012, new THREE.MeshStandardMaterial({ color: 0xe9c860, roughness: 0.3, metalness: 0.6 }), { y: 0.76, z: 0.2, cast: false });
   marshallGroup.add(script);
-  const standMat = std("#5a524b", 0.6);
+  const standMat = std("#4a5a65", 0.6);
   [0.26, -0.26].forEach((z) => {
     marshallGroup.add(box(0.05, 0.14, 0.05, standMat, { y: -0.07, z }));
   });
@@ -533,44 +637,36 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   /* ---------- 钢琴 ---------- */
   const pianoGroup = new THREE.Group();
   const walnut = std("#9c6f45", 0.55, 0.05);
-  const walnutDeep = std("#8a5f3c", 0.55, 0.05);
-  // 琴身（暖胡桃木）
+  const walnutDeep = std("#7a4f2c", 0.55, 0.05);
   const pianoBody = box(0.72, 1.22, 0.6, walnut, { y: 0.66, z: 0.05 });
   pianoGroup.add(pianoBody);
-  // 侧板
   const sidePanel = box(0.035, 1.22, 0.6, walnutDeep, { x: 0.34, y: 0.66, z: 0.05 });
   pianoGroup.add(sidePanel);
-  // 闭合平顶盖
   const topLid = box(0.78, 0.09, 0.66, walnutDeep, { y: 1.32, z: 0.05 });
   pianoGroup.add(topLid);
-  // 前挡板（深色斜面板，突显琴键）
-  const fallboard = box(0.7, 0.26, 0.04, std("#4a443e", 0.5, 0.05), { y: 0.94, z: 0.36, rx: 0.12 });
+  const fallboard = box(0.7, 0.26, 0.04, std("#2f3a44", 0.5, 0.05), { y: 0.94, z: 0.36, rx: 0.12 });
   pianoGroup.add(fallboard);
-  const emblem = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.014, 20), std("#d9b98c", 0.3, 0.6));
+  const emblem = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.014, 20), std("#e9c860", 0.3, 0.6));
   emblem.rotation.x = Math.PI / 2;
   emblem.position.set(0, 0.94, 0.38);
   pianoGroup.add(emblem);
-  // 谱架 + 乐谱
-  const musicRest = box(0.6, 0.02, 0.14, std("#2f2b27", 0.5), { y: 1.24, z: 0.1, rx: -0.28 });
+  const musicRest = box(0.6, 0.02, 0.14, std("#2f3a44", 0.5), { y: 1.24, z: 0.1, rx: -0.28 });
   pianoGroup.add(musicRest);
   const sheet = box(0.42, 0.26, 0.012, std("#fff8ec", 0.8), { y: 1.36, z: 0.045, rx: 0.1 });
   pianoGroup.add(sheet);
-  // 琴键：宽白色键面 + 清晰黑键
   const keybed = box(0.68, 0.11, 0.42, std("#f6efe2", 0.5), { y: 1.17, z: 0.33 });
   pianoGroup.add(keybed);
-  const blackKeyMat = std("#2f2b27", 0.5);
+  const blackKeyMat = std("#2f3a44", 0.5);
   [-0.18, -0.09, 0, 0.09, 0.18].forEach((z) => {
     pianoGroup.add(box(0.58, 0.08, 0.055, blackKeyMat, { y: 1.255, z: 0.33 + z }));
   });
-  // 琴腿
-  const pianoLegMat = std("#5a524b", 0.6);
+  const pianoLegMat = std("#4a5a65", 0.6);
   [[-0.24, 0.32], [0.24, 0.32], [-0.24, -0.22], [0.24, -0.22]].forEach(([x, z]) => {
     pianoGroup.add(box(0.09, 0.22, 0.09, pianoLegMat, { x, y: 0.11, z }));
   });
-  // 琴凳
   const stoolGroup = new THREE.Group();
-  stoolGroup.add(box(0.56, 0.07, 0.3, std("#3a3430", 0.6), { y: 0.33 }));
-  const stoolLegMat = std("#5a524b", 0.6);
+  stoolGroup.add(box(0.56, 0.07, 0.3, std("#2f3a44", 0.6), { y: 0.33 }));
+  const stoolLegMat = std("#4a5a65", 0.6);
   [[-0.21, -0.11], [0.21, -0.11], [-0.21, 0.11], [0.21, 0.11]].forEach(([x, z]) => {
     stoolGroup.add(box(0.05, 0.28, 0.05, stoolLegMat, { x, y: 0.14, z }));
   });
@@ -585,18 +681,18 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
   /* ---------- 开关 ---------- */
   const switchGroup = new THREE.Group();
-  switchGroup.add(box(0.2, 0.3, 0.025, std("#f6efe2", 0.7), { z: -0.01, cast: false }));
-  switchGroup.add(box(0.12, 0.16, 0.02, std("#3a3430", 0.4), { y: 0.03, z: 0.005, cast: false }));
-  switchGroup.add(cyl(0.05, 0.05, 0.02, new THREE.MeshStandardMaterial({ color: 0xe9c46a, emissive: 0xe9c46a, emissiveIntensity: 0.35, roughness: 0.4 }), { y: -0.09, z: 0.01, cast: false }));
+  switchGroup.add(box(0.2, 0.3, 0.025, std("#cfe8f0", 0.7), { z: -0.01, cast: false }));
+  switchGroup.add(box(0.12, 0.16, 0.02, std("#2f4a5a", 0.4), { y: 0.03, z: 0.005, cast: false }));
+  switchGroup.add(cyl(0.05, 0.05, 0.02, new THREE.MeshStandardMaterial({ color: 0xe9c860, emissive: 0xe9c860, emissiveIntensity: 0.35, roughness: 0.4 }), { y: -0.09, z: 0.01, cast: false }));
   switchGroup.position.set(1.62, 1.45, -2.485);
   pickable(switchGroup, "lightswitch");
   scene.add(switchGroup);
 
   /* ---------- 垃圾桶 ---------- */
   const trashGroup = new THREE.Group();
-  const binMat = std("#7f9aa5", 0.55);
+  const binMat = std("#6fa8c8", 0.55);
   trashGroup.add(cyl(0.26, 0.2, 0.62, binMat, { y: 0.31 }));
-  trashGroup.add(cyl(0.2, 0.2, 0.06, std("#6f8791", 0.55), { y: 0.65 }));
+  trashGroup.add(cyl(0.2, 0.2, 0.06, std("#5a92b2", 0.55), { y: 0.65 }));
   const note = new THREE.Mesh(new THREE.PlaneGeometry(0.2, 0.14), new THREE.MeshStandardMaterial({ color: 0xfff8ec, roughness: 0.9, side: THREE.DoubleSide }));
   note.position.set(0.16, 0.72, 0.12);
   note.rotation.set(-0.3, -0.6, 0.2);
@@ -605,56 +701,97 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   pickable(trashGroup, "trashcan");
   scene.add(trashGroup);
 
-  /* ---------- 植物 ---------- */
+  /* ---------- 红色扶手椅（救生圈垫脚，装饰） ---------- */
+  const chairGroup = new THREE.Group();
+  const redFabric = toon("#e23e35");
+  // 救生圈
+  const lifeRing = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.07, 12, 28), toon("#f2f2f2"));
+  lifeRing.rotation.x = Math.PI / 2;
+  lifeRing.position.y = 0.09;
+  chairGroup.add(lifeRing);
+  // 红白条段
+  [0, Math.PI, Math.PI / 2, Math.PI * 1.5].forEach((a) => {
+    const seg = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.071, 8, 8, 0.5), toon("#e23e35"));
+    seg.rotation.x = Math.PI / 2;
+    seg.rotation.z = a;
+    seg.position.y = 0.09;
+    chairGroup.add(seg);
+  });
+  // 椅座
+  const seat = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.26, 0.18, 20), redFabric);
+  seat.position.y = 0.26;
+  chairGroup.add(seat);
+  // 靠背
+  const back = box(0.52, 0.6, 0.12, redFabric, { y: 0.62, z: -0.18 });
+  chairGroup.add(back);
+  // 扶手
+  chairGroup.add(box(0.1, 0.3, 0.3, redFabric, { x: -0.3, y: 0.4, z: 0 }));
+  chairGroup.add(box(0.1, 0.3, 0.3, redFabric, { x: 0.3, y: 0.4, z: 0 }));
+  chairGroup.position.set(-0.95, 0, -0.55);
+  chairGroup.rotation.y = 0.35;
+  scene.add(chairGroup);
+
+  /* ---------- 绿色圆管沙发（装饰） ---------- */
+  const couchGroup = new THREE.Group();
+  const tubeGreen = toon("#57a848");
+  for (let i = 0; i < 3; i += 1) {
+    const tube = cyl(0.13, 0.13, 1.5, tubeGreen, { y: 0.18 + i * 0.26, z: 0 });
+    tube.rotation.z = Math.PI / 2;
+    couchGroup.add(tube);
+    // 橙色绑带
+    [-0.5, 0.5].forEach((x) => {
+      const band = cyl(0.135, 0.135, 0.05, toon("#e88a3a"), { x, y: 0.18 + i * 0.26, z: 0 });
+      band.rotation.z = Math.PI / 2;
+      couchGroup.add(band);
+    });
+  }
+  // 蓝色底座
+  couchGroup.add(box(1.6, 0.12, 0.4, toon("#3a6a9a"), { y: 0.06, z: 0.12 }));
+  couchGroup.position.set(1.7, 0, -1.9);
+  couchGroup.rotation.y = -0.15;
+  scene.add(couchGroup);
+
+  /* ---------- 海草植物 ---------- */
   const plantGroup = new THREE.Group();
-  plantGroup.add(cyl(0.24, 0.18, 0.4, std("#c98d62", 0.6), { y: 0.2 }));
-  const leafMat = std("#7fa87f", 0.75);
-  const leafMat2 = std("#6f9a70", 0.75);
+  plantGroup.add(cyl(0.24, 0.18, 0.4, toon("#e88a5a"), { y: 0.2 }));
+  const leafMat = toon("#3f9a7a");
+  const leafMat2 = toon("#57b890");
   [[0, 0.62, 0.34], [0.18, 0.52, 0.12], [-0.16, 0.5, 0.08], [0.06, 0.78, 0.3], [-0.1, 0.68, 0.22]].forEach(([x, y, r], i) => {
     const leaf = new THREE.Mesh(new THREE.SphereGeometry(r, 14, 12), i % 2 ? leafMat : leafMat2);
     leaf.position.set(x, y, 0);
     leaf.scale.y = 0.85;
     plantGroup.add(leaf);
   });
-  const stem = cyl(0.02, 0.03, 0.45, std("#5d7f5e", 0.7), { y: 0.5 });
+  const stem = cyl(0.02, 0.03, 0.45, toon("#2f7a5a"), { y: 0.5 });
   plantGroup.add(stem);
   plantGroup.position.set(-2.55, 0, -1.7);
   scene.add(plantGroup);
 
-  /* ---------- 小狗摆件 ---------- */
-  const dogGroup = new THREE.Group();
-  const dogMat = std("#d9b98c", 0.8);
-  const dogMat2 = std("#c98d62", 0.8);
-  dogGroup.add(new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 14), dogMat));
-  const dogBody = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 12), dogMat2);
-  dogBody.position.set(-0.12, -0.12, 0);
-  dogBody.scale.set(1.3, 0.8, 0.9);
-  dogGroup.add(dogBody);
-  const dogEarL = new THREE.Mesh(new THREE.SphereGeometry(0.085, 10, 8), dogMat);
-  dogEarL.position.set(-0.11, 0.15, 0.11);
-  dogEarL.scale.set(1, 1.6, 0.6);
-  dogGroup.add(dogEarL);
-  const dogEarR = new THREE.Mesh(new THREE.SphereGeometry(0.085, 10, 8), dogMat);
-  dogEarR.position.set(-0.11, 0.15, -0.11);
-  dogEarR.scale.set(1, 1.6, 0.6);
-  dogGroup.add(dogEarR);
-  const dogEyeMat = new THREE.MeshStandardMaterial({ color: 0x2f2b27, roughness: 0.3 });
-  const dogEyeL = new THREE.Mesh(new THREE.SphereGeometry(0.024, 8, 6), dogEyeMat);
-  dogEyeL.position.set(0.06, 0.05, 0.16);
-  dogGroup.add(dogEyeL);
-  const dogEyeR = new THREE.Mesh(new THREE.SphereGeometry(0.024, 8, 6), dogEyeMat);
-  dogEyeR.position.set(0.06, 0.05, -0.16);
-  dogGroup.add(dogEyeR);
-  const dogNose = new THREE.Mesh(new THREE.SphereGeometry(0.03, 8, 6), dogEyeMat);
-  dogNose.position.set(0.19, -0.04, 0);
-  dogGroup.add(dogNose);
-  dogGroup.position.set(-1.1, 0.22, 0.35);
-  dogGroup.rotation.y = 0.6;
-  scene.add(dogGroup);
+  /* ---------- 小窝星摆件（替代小狗，海底风） ---------- */
+  const snailGroup = new THREE.Group();
+  snailGroup.add(new THREE.Mesh(new THREE.SphereGeometry(0.18, 16, 14), toon("#f29a8a")));
+  const snBody = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 12), toon("#f2b8a8"));
+  snBody.position.set(-0.1, -0.1, 0);
+  snBody.scale.set(1.3, 0.7, 0.9);
+  snailGroup.add(snBody);
+  // 眼睛柄
+  [[0.12, 0.12], [0.12, -0.12]].forEach(([x, z]) => {
+    const stalk = cyl(0.012, 0.012, 0.2, toon("#f2b8a8"), { x: 0.1, y: 0.18, z });
+    snailGroup.add(stalk);
+    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.035, 8, 6), toon("#f2f2f2"));
+    eye.position.set(0.1, 0.3, z);
+    snailGroup.add(eye);
+    const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.015, 8, 6), toon("#2f2b27"));
+    pupil.position.set(0.115, 0.3, z);
+    snailGroup.add(pupil);
+  });
+  snailGroup.position.set(-1.1, 0.18, 0.35);
+  snailGroup.rotation.y = 0.6;
+  scene.add(snailGroup);
 
-  /* ---------- 积木塔（装饰） ---------- */
+  /* ---------- 海星积木（装饰） ---------- */
   const towerGroup = new THREE.Group();
-  const towerMats = [std("#8fb7a8", 0.7), std("#a3c6b8", 0.7), std("#7aa99b", 0.7), std("#e9c46a", 0.6)];
+  const towerMats = [toon("#5cc0d2"), toon("#a8e0ec"), toon("#57a848"), toon("#e9c860")];
   const towerSpecs = [
     [0.34, 0.14, 0.34, 0.07],
     [0.28, 0.12, 0.28, 0.2],
@@ -668,6 +805,28 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   towerGroup.position.set(0.65, 0, 0.15);
   towerGroup.rotation.y = 0.3;
   scene.add(towerGroup);
+
+  /* ---------- 上升气泡 ---------- */
+  const bubbleCount = 36;
+  const bubbleGeo = new THREE.SphereGeometry(0.025, 8, 6);
+  const bubbleMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45 });
+  const bubbles = [];
+  const bubbleGroup = new THREE.Group();
+  for (let i = 0; i < bubbleCount; i += 1) {
+    const b = new THREE.Mesh(bubbleGeo, bubbleMat);
+    b.position.set(
+      (Math.random() - 0.5) * 5.5,
+      Math.random() * 3.2,
+      -2.2 + Math.random() * 3.5,
+    );
+    const s = 0.5 + Math.random() * 1.6;
+    b.scale.setScalar(s);
+    b.userData.speed = 0.25 + Math.random() * 0.4;
+    b.userData.drift = Math.random() * Math.PI * 2;
+    bubbleGroup.add(b);
+    bubbles.push(b);
+  }
+  scene.add(bubbleGroup);
 
   /* ---------- 交互：悬停 / 点击 / 旋转 / 缩放 ---------- */
   const raycaster = new THREE.Raycaster();
@@ -842,7 +1001,6 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   });
 
   /* ---------- 镜头聚焦 ---------- */
-  // 由投影扫描校准：使物件投影落在画面中央附近（±1.05 rad 内）
   const FOCUS_YAW = {
     overview: 0,
     monitor: -0.31,
@@ -912,11 +1070,11 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
     winGlass.material.map = night ? skyNight : weather === "cloudy" ? skyCloudy : skyDay;
     winGlass.material.needsUpdate = true;
 
-    hemi.intensity = night ? 0.34 : 0.6;
-    hemi.color.set(night ? 0x93a9d6 : 0xfff6e8);
-    key.intensity = night ? 0.55 : 1.6;
-    key.color.set(night ? 0x9db4e0 : 0xfff1dc);
-    fill.intensity = night ? 0.3 : 0.55;
+    hemi.intensity = night ? 0.34 : 0.62;
+    hemi.color.set(night ? 0x7a9ad0 : 0xcfeef8);
+    key.intensity = night ? 0.55 : 1.5;
+    key.color.set(night ? 0x9db8e8 : 0xf2fbff);
+    fill.intensity = night ? 0.3 : 0.6;
     lampLight.intensity = night ? 1.5 : 0.8;
 
     const on = lights === "on";
@@ -960,6 +1118,19 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
     cam.yaw += (camGoal.yaw - cam.yaw) * k;
     cam.radius += (camGoal.radius - cam.radius) * k;
+
+    // 气泡上升
+    if (!reduceMotion) {
+      bubbles.forEach((b) => {
+        b.position.y += b.userData.speed * dt;
+        b.userData.drift += dt;
+        b.position.x += Math.sin(b.userData.drift * 2) * 0.0015;
+        if (b.position.y > 3.2) {
+          b.position.y = 0.1;
+          b.position.x = (Math.random() - 0.5) * 5.5;
+        }
+      });
+    }
 
     // 悬停缩放
     if (hovered && !reduceMotion) {
