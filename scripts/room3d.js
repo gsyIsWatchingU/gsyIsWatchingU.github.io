@@ -1,6 +1,12 @@
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
+import { SSAOPass } from "three/examples/jsm/postprocessing/SSAOPass.js";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 
 (() => {
   const host = document.querySelector("[data-room3d-host]");
@@ -63,6 +69,25 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
   const cam = { yaw: 0, pitch: 0.19, radius: 4.9 };
   const camGoal = { yaw: 0, pitch: 0.19, radius: 4.9 };
   let busy = false;
+
+  /* ---------- 后处理：描边 + SSAO + Bloom（3D 漫画感） ---------- */
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const outlinePass = new OutlinePass(new THREE.Vector2(host.clientWidth, host.clientHeight), scene, camera);
+  outlinePass.edgeStrength = 1.4;
+  outlinePass.edgeGlow = 0.4;
+  outlinePass.edgeThickness = 1.0;
+  outlinePass.visibleEdgeColor.set("#2a3a4a");
+  outlinePass.hiddenEdgeColor.set("#1a2530");
+  composer.addPass(outlinePass);
+  const ssaoPass = new SSAOPass(scene, camera, host.clientWidth, host.clientHeight);
+  ssaoPass.kernelRadius = 0.04;
+  ssaoPass.minDistance = 0.001;
+  ssaoPass.maxDistance = 0.08;
+  composer.addPass(ssaoPass);
+  const bloomPass = new UnrealBloomPass(new THREE.Vector2(host.clientWidth, host.clientHeight), 0.12, 0.4, 0.92);
+  composer.addPass(bloomPass);
+  composer.addPass(new OutputPass());
 
   const applyCamera = () => {
     camera.position.set(
@@ -1130,7 +1155,7 @@ scene.add(snailGroup);
     }
 
     applyCamera();
-    renderer.render(scene, camera);
+    composer.render();
     requestAnimationFrame(animate);
   };
   requestAnimationFrame(animate);
