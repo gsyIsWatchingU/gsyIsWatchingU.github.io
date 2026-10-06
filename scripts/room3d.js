@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
+import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 
 (() => {
   const host = document.querySelector("[data-room3d-host]");
@@ -75,12 +76,13 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
   /* ---------- 工具 ---------- */
   const std = (color, roughness = 0.65, metalness = 0.05) =>
     new THREE.MeshStandardMaterial({ color, roughness, metalness });
-  // 卡通 toon 色阶
+  // 卡通色但走 PBR 光影
   const toon = (color) =>
-    new THREE.MeshToonMaterial({ color });
+    std(color, 0.72, 0.03);
 
   const box = (w, h, d, material, opts = {}) => {
-    const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), material);
+    const radius = Math.min(w, h, d) * 0.18;
+    const mesh = new THREE.Mesh(new RoundedBoxGeometry(w, h, d, 4, Math.min(radius, 0.06)), material);
     mesh.castShadow = opts.cast ?? true;
     mesh.receiveShadow = opts.receive ?? true;
     if (opts.pick) mesh.userData.pick = opts.pick;
