@@ -55,7 +55,7 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
     } catch {}
   }
   if (scene.environment) {
-    scene.environmentIntensity = 0.45;
+    scene.environmentIntensity = 0.12;
   }
 
   const camera = new THREE.PerspectiveCamera(42, host.clientWidth / host.clientHeight, 0.1, 60);
@@ -239,10 +239,10 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
 
   /* ---------- 灯光 ---------- */
   // 水下漫射：天青蓝 / 沙地黄
-  const hemi = new THREE.HemisphereLight(0xcfeef8, 0xe0c890, 0.62);
+  const hemi = new THREE.HemisphereLight(0xcfeef8, 0xd8b878, 0.38);
   scene.add(hemi);
 
-  const key = new THREE.DirectionalLight(0xf2fbff, 1.5);
+  const key = new THREE.DirectionalLight(0xfff4e0, 2.4);
   key.position.set(-3.2, 4.6, 2.4);
   key.castShadow = true;
   key.shadow.mapSize.set(2048, 2048);
@@ -405,6 +405,33 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
   rug.position.set(0, 0.012, -0.7);
   rug.receiveShadow = true;
   scene.add(rug);
+
+  // 接触阴影（漫画感：物体落地处压一圈暗）
+  const blobTex = (() => {
+    const [bc, bg] = makeCanvas(128, 128);
+    const grad = bg.createRadialGradient(64, 64, 8, 64, 64, 62);
+    grad.addColorStop(0, "rgba(40,30,20,0.42)");
+    grad.addColorStop(0.7, "rgba(40,30,20,0.18)");
+    grad.addColorStop(1, "rgba(40,30,20,0)");
+    bg.fillStyle = grad;
+    bg.fillRect(0, 0, 128, 128);
+    return new THREE.CanvasTexture(bc);
+  })();
+  const contactBlob = (x, z, r) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(r * 2, r * 2), new THREE.MeshBasicMaterial({ map: blobTex, transparent: true, depthWrite: false }));
+    m.rotation.x = -Math.PI / 2;
+    m.position.set(x, 0.015, z);
+    scene.add(m);
+  };
+  contactBlob(-0.85, -1.55, 0.55); // 红椅
+  contactBlob(-0.85, -1.05, 0.38); // 救生圈
+  contactBlob(0.0, -1.5, 0.32); // 小圆桌
+  contactBlob(1.05, -1.95, 0.8); // 绿沙发
+  contactBlob(-1.45, -0.3, 0.35); // 小蜗
+  contactBlob(2.0, -2.1, 0.7); // 电视柜
+  contactBlob(-2.55, 0.9, 0.4); // Marshall
+  contactBlob(2.55, 0.3, 0.5); // 钢琴
+  contactBlob(-2.55, -1.6, 0.4); // 植物
   const rugCenter = new THREE.Mesh(new THREE.CircleGeometry(0.55, 32), toon("#e9c860"));
   rugCenter.rotation.x = -Math.PI / 2;
   rugCenter.position.set(0, 0.014, -0.7);
