@@ -1,6 +1,6 @@
 # 项目状态
 
-最后更新：2026-10-06
+最后更新：2026-10-08
 
 ## 当前阶段
 
@@ -12,6 +12,7 @@
 
 ## 已完成
 
+- 已重制站点图标，解决「favicon 太暗、一眼看上去一片黑」的问题：保留黑发红衣少年侧影形象，背景由深暗青灰换成与页面主题一致的明亮奶油米色（`#f5efe3` 系），红衣提亮、黑发描清、外圈加暖白微光，缩小到 16px 仍可辨识为红衣少年而非暗色团块。新增源图 `assets/gsy-icon-source-bright.png`（2048×2048，可复现），用 `scripts/make-icon.py` 重新生成 `favicon.ico`（16/32/48 三帧、PNG 压缩、32bpp）与 `assets/gsy-icon-rounded-avatar.png`（512 圆角）；`src/index.html` 的 `icon`/`shortcut icon`/`apple-touch-icon` 与 `src/playground.html` 的 favicon 缓存版本号统一更新为 `20261008-bright`；「关于我」卡片头像同源自动更新。`npm run build`/`check` 通过，ICO 三帧 + 512 圆角实图目检合格。
 - 已按用户提供的 8 张《海绵宝宝菠萝屋》参考图（存 `docs/refs/pineapple-house/`）把互动小屋从「写实浅色木屋」重做为**水下菠萝屋卡通风**：绿松石竖纹墙板、沙色地板（canvas 颗粒纹理）、橙色菠萝皮菱格穹顶（倒扣半球 BackSide）、穹顶绿叶冠；窗户改为蓝色铆钉圆形舷窗（窗外水下日/夜/多云 canvas 纹理）；新增红扶手椅坐救生圈、绿色圆管沙发叠橙色绑带、绿色圆地毯配黄心、小蜗 Q 版摆件、海草植物；MeshToonMaterial 平涂；水下蓝雾 + 36 个上升气泡。保留全部交互骨架（10 个 pickable ID/位置/FOCUS/事件桥/氛围联动不变）。缓存版本 `20261006-pineapple`。
 - gsy013 Forge3D：菠萝壳 environment 任务（job `025034a4`，30K 三角 4MB GLB）已 review，转台预览良好，已下载 `assets/models/pineapple-shell.glb`（暂未接入）；红扶手椅 prop 任务（job `7553169e`）仍在跑。
 
