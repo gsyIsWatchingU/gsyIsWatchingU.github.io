@@ -1,2 +1,2 @@
-# 保持已验证游戏包的原始字节，不转换换行。
-/games/krusty-krab/** -text
+# 已验证的游戏运行产物保留原始字节和空白。
+/games/krusty-krab/** -text -whitespace
