@@ -1,0 +1,284 @@
+{
+  "schema_version": "1.0",
+  "job_id": "656032dc06954cc69676480c7862cf7e",
+  "asset_name": "siamese-kitten-walking",
+  "asset_kind": "prop",
+  "profile": "xhs_mobile",
+  "state": "review",
+  "source_file": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/source.png",
+  "source_sha256": "d6a2e0486e01b6703cf6a2b96ee9be4fbd2ae075b867923e75b80c8d18294a3c",
+  "material_source_file": null,
+  "material_source_sha256": null,
+  "prompt": "参考图中的同一只可爱暹罗幼猫，正常四足站姿，水平躯干，四条完整且互相分开的腿，前爪位于肩下，后爪位于髋下，爪子接地。蓝色大眼睛，巧克力脸耳爪尾，奶油色柔软毛发，粉鼻微笑。圆润连续曲面，清晰腿部结构，适合四足行走骨骼动画，不要坐姿，不要跳跃，不要地面，不要花，不要底座，不要锯齿刺状毛块。",
+  "seed": 1032,
+  "created_at": "2026-10-09T14:34:14.697630+00:00",
+  "updated_at": "2026-10-09T14:41:59.169129+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-09T14:34:14.700507+00:00",
+      "completed_at": "2026-10-09T14:34:14.702114+00:00",
+      "details": {
+        "fingerprint": "17b6bb9fa61bb97e",
+        "work_dir": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work",
+        "profile": "xhs_mobile",
+        "elapsed_seconds": 0.001,
+        "execution_job_id": "656032dc06954cc69676480c7862cf7e"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "completed",
+      "started_at": "2026-10-09T14:34:14.702602+00:00",
+      "completed_at": "2026-10-09T14:36:23.562036+00:00",
+      "details": {
+        "fingerprint": "ac3c039e37404b61",
+        "backend": "hunyuan3d-2.1",
+        "output": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/generated.glb",
+        "elapsed_seconds": 128.858,
+        "execution_job_id": "656032dc06954cc69676480c7862cf7e"
+      }
+    },
+    {
+      "name": "draft_preview",
+      "state": "completed",
+      "started_at": "2026-10-09T14:36:23.562663+00:00",
+      "completed_at": "2026-10-09T14:37:34.457332+00:00",
+      "details": {
+        "fingerprint": "735b56b4c75820be",
+        "draft_preview": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/draft-preview.png",
+        "draft_gate": "passed",
+        "elapsed_seconds": 70.893,
+        "execution_job_id": "656032dc06954cc69676480c7862cf7e"
+      }
+    },
+    {
+      "name": "generate_material",
+      "state": "completed",
+      "started_at": "2026-10-09T14:37:34.458006+00:00",
+      "completed_at": "2026-10-09T14:40:36.565377+00:00",
+      "details": {
+        "fingerprint": "6e59844064dcf7bb",
+        "backend": "hunyuan3d-paint-2.1",
+        "paint_source": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/paint-source.glb",
+        "output": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/textured.glb",
+        "material_source": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/source.png",
+        "elapsed_seconds": 182.106,
+        "execution_job_id": "656032dc06954cc69676480c7862cf7e"
+      }
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "completed",
+      "started_at": "2026-10-09T14:40:36.566056+00:00",
+      "completed_at": "2026-10-09T14:40:38.285203+00:00",
+      "details": {
+        "fingerprint": "ee68d6bec7c7f3ac",
+        "output": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/normalized.glb",
+        "elapsed_seconds": 1.718,
+        "execution_job_id": "656032dc06954cc69676480c7862cf7e"
+      }
+    },
+    {
+      "name": "export",
+      "state": "completed",
+      "started_at": "2026-10-09T14:40:38.285867+00:00",
+      "completed_at": "2026-10-09T14:40:40.356912+00:00",
+      "details": {
+        "fingerprint": "306210efca28b7c5",
+        "output": "/workspace/3d-assets/exports/siamese-kitten-walking/656032dc06954cc69676480c7862cf7e/siamese-kitten-walking-xhs_mobile.glb",
+        "elapsed_seconds": 2.07,
+        "execution_job_id": "656032dc06954cc69676480c7862cf7e"
+      }
+    },
+    {
+      "name": "render_preview",
+      "state": "completed",
+      "started_at": "2026-10-09T14:40:40.357588+00:00",
+      "completed_at": "2026-10-09T14:41:57.398059+00:00",
+      "details": {
+        "fingerprint": "ec67e1a5ed2a6a1c",
+        "preview": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/preview.png",
+        "manifest": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/preview.json",
+        "elapsed_seconds": 77.039,
+        "execution_job_id": "656032dc06954cc69676480c7862cf7e"
+      }
+    },
+    {
+      "name": "validate",
+      "state": "completed",
+      "started_at": "2026-10-09T14:41:57.398755+00:00",
+      "completed_at": "2026-10-09T14:41:59.168555+00:00",
+      "details": {
+        "fingerprint": "c42ff149a5840870",
+        "asset": "/workspace/3d-assets/exports/siamese-kitten-walking/656032dc06954cc69676480c7862cf7e/siamese-kitten-walking-xhs_mobile.glb",
+        "bytes": 2474504,
+        "elapsed_seconds": 1.768,
+        "execution_job_id": "656032dc06954cc69676480c7862cf7e"
+      }
+    }
+  ],
+  "outputs": {
+    "shape_mesh": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/generated.glb",
+    "generated_mesh": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/textured.glb",
+    "draft_preview": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/draft-preview.png",
+    "draft_preview_manifest": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/draft-preview.json",
+    "paint_source": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/paint-source.glb",
+    "pbr_mesh": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/textured.glb",
+    "normalized_mesh": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/work/normalized.glb",
+    "game_asset": "/workspace/3d-assets/exports/siamese-kitten-walking/656032dc06954cc69676480c7862cf7e/siamese-kitten-walking-xhs_mobile.glb",
+    "preview": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/preview.png",
+    "preview_manifest": "/workspace/3d-assets/jobs/656032dc06954cc69676480c7862cf7e/preview.json"
+  },
+  "metrics": {
+    "delivery_bytes": 2474504,
+    "triangle_budget": 30000,
+    "max_bones": 64,
+    "missing_animation_clips": [
+      "crouch",
+      "idle",
+      "interact",
+      "run",
+      "walk"
+    ],
+    "preview_quality": {
+      "luma_mean": 0.14511,
+      "luma_stddev": 0.15615,
+      "clipped_channel_ratio": 0.0,
+      "neutral_white_ratio": 0.0,
+      "edge_detail_score": 0.01942,
+      "min_character_height_ratio": 1.0,
+      "max_character_height_ratio": 1.0
+    },
+    "mesh_objects": 1,
+    "mesh_details": [
+      {
+        "name": "textured",
+        "triangles": 29091,
+        "hidden": false
+      }
+    ],
+    "triangles": 29091,
+    "vertices": 25678,
+    "armatures": 0,
+    "bones": 0,
+    "bone_names": [],
+    "bone_layout": [],
+    "max_weights_per_vertex": 0,
+    "materials": 1,
+    "material_details": [
+      {
+        "name": "Material",
+        "uses_nodes": true,
+        "channels": {
+          "Base Color": {
+            "texture": {
+              "image": "textured",
+              "width": 1024,
+              "height": 1024,
+              "channel": null,
+              "mean": 0.48284,
+              "stddev": 0.22732,
+              "p05": 0.12615,
+              "p50": 0.57736,
+              "p95": 0.73762,
+              "near_zero_ratio": 0.00117,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": [
+              0.8,
+              0.8,
+              0.8,
+              1.0
+            ]
+          },
+          "Metallic": {
+            "texture": {
+              "image": "Forge3D_ORM_Material",
+              "width": 1024,
+              "height": 1024,
+              "channel": 2,
+              "mean": 0.14357,
+              "stddev": 0.03134,
+              "p05": 0.09412,
+              "p50": 0.1451,
+              "p95": 0.18039,
+              "near_zero_ratio": 0.00188,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": 0.0
+          },
+          "Roughness": {
+            "texture": {
+              "image": "Forge3D_ORM_Material",
+              "width": 1024,
+              "height": 1024,
+              "channel": 1,
+              "mean": 0.8513,
+              "stddev": 0.07153,
+              "p05": 0.75294,
+              "p50": 0.86275,
+              "p95": 0.92941,
+              "near_zero_ratio": 0.00014,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": 0.5
+          }
+        }
+      }
+    ],
+    "material_metrics": {
+      "textured_materials": 1,
+      "missing_base_color_textures": 0,
+      "roughness_p95_min": 0.92941,
+      "roughness_collapsed_materials": 0,
+      "unassigned_material_faces": 0
+    },
+    "uv_details": [
+      {
+        "name": "textured",
+        "uv_layers": 1,
+        "uv_values": 87273,
+        "out_of_range_ratio": 0.0,
+        "non_finite_values": 0,
+        "degenerate_triangle_ratio": 0.000069
+      }
+    ],
+    "uv_metrics": {
+      "textured_meshes_without_uv": 0,
+      "out_of_range_ratio_max": 0.0,
+      "degenerate_triangle_ratio_max": 0.000069,
+      "non_finite_values": 0
+    },
+    "textures": 2,
+    "max_texture_width": 1024,
+    "max_texture_height": 1024,
+    "animations": []
+  },
+  "provenance": {
+    "source_filename": "reference-standing.png",
+    "material_source_filename": null,
+    "mesh_backend": "single",
+    "views": {},
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu"
+  },
+  "quality_gates": {
+    "file_exists": "passed",
+    "profile_contract": "passed",
+    "material_uv_review": "passed",
+    "render_anomaly_review": "passed",
+    "animation_pose_review": "n/a",
+    "deformation_review": "n/a",
+    "target_device_review": "required",
+    "automatic_pipeline": "passed",
+    "human_art_review": "required"
+  },
+  "error": null,
+  "stop_after": null
+}

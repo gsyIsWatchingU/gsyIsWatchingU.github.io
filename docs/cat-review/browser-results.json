@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "runtimeSHA": "94de892f60cb22121d1f5cc1139b010187a3f70a3f073d1fda74623e16eb10ab",
+  "viewportDesktop": [
+    1280,
+    720
+  ],
+  "viewportMobile": [
+    390,
+    844
+  ],
+  "samples": 48,
+  "states": [
+    "idle",
+    "walk",
+    "settling"
+  ],
+  "steps": [
+    204,
+    233
+  ],
+  "maximumStanceSlip": 8.863116407646038e-9,
+  "maximumIKError": 6.618422229921906e-8,
+  "clickReactions": 2,
+  "dialogPause": {
+    "state": "paused",
+    "positionUnchanged": true,
+    "waitMs": 1200
+  },
+  "consoleErrors": [],
+  "realDevice": false
+}

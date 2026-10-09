@@ -1,0 +1,38 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "originalReference": "reference-original.png",
+  "originalReferenceSHA256": "d1a7261dfaaa986f2c12af940733e162ee7ef5fa780681cbdbb832448d8ce679",
+  "modelReference": "reference-standing.png",
+  "modelReferenceSHA256": "d6a2e0486e01b6703cf6a2b96ee9be4fbd2ae075b867923e75b80c8d18294a3c",
+  "referencePreparation": {
+    "tool": "built-in image_gen.imagegen",
+    "operation": "same reference kitten identity; separate four legs in a natural standing pose; transparent background"
+  },
+  "production": {
+    "host": "gsy013",
+    "gpu": "NVIDIA L20",
+    "backend": "Hunyuan3D-2.1 / Hunyuan3D-Paint-2.1",
+    "jobId": "656032dc06954cc69676480c7862cf7e",
+    "seed": 1032,
+    "profile": "xhs_mobile"
+  },
+  "rig": {
+    "tool": "Blender 4.5.13",
+    "script": "scripts/art/prepare_siamese_pet.py",
+    "bones": 17,
+    "motion": "Four-beat walk with planted world-space feet, two-bone leg IK, ground-oriented paws, smooth curved turns, settle, head tilt and tail sway"
+  },
+  "fleet": {
+    "checked": "2026-10-09",
+    "gsy013": "one L20: shape and paint for this single candidate",
+    "gsy0901": "two L20: no additional candidate or remaining independent stage to schedule",
+    "gsy0930": "four T4: no parallel candidate; compatibility and old worker routing remain separate from this task"
+  },
+  "previousCandidate": {
+    "jobId": "fe5f4aa0e8594baeb3c756ef32a21653",
+    "status": "rejected movement by user",
+    "reason": "seated hopping is not normal feline walking",
+    "evidence": "rejected-seated/"
+  }
+}

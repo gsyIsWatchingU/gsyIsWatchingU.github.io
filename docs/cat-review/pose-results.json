@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "durationSeconds": 240,
+  "states": [
+    "idle",
+    "walk",
+    "settling"
+  ],
+  "positionRanges": [
+    [
+      -1.56016,
+      0.86308
+    ],
+    [
+      -0.0015,
+      0.0015
+    ],
+    [
+      1.41727,
+      2.09028
+    ]
+  ],
+  "minimumFootHeight": 0.00017129046106792206,
+  "maximumSampledEdgeStretch": 1.675450620741411,
+  "maximumIKError": 6.772525036023268e-8,
+  "maximumStanceSlip": 1.0274204714458987e-9,
+  "maximumToeSlip": 3.971182433493657e-8,
+  "toeVertexSamples": 572,
+  "pause": true,
+  "clickResponse": true,
+  "reducedMotion": true,
+  "runtimeSHA": "94de892f60cb22121d1f5cc1139b010187a3f70a3f073d1fda74623e16eb10ab"
+}

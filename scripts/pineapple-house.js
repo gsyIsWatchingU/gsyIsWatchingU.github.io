@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createHousePet } from "./house-pet.js";
 import config from "../src/data/pineapple-house.json";
 import awards from "../src/data/house-awards.json";
 import products from "../src/data/projects.json";
@@ -104,6 +105,8 @@ if (renderer) {
   let frames = 0;
   let lastFrameTime = performance.now();
   let measuredFps = 0;
+  let pet = null;
+  let lastPetFrame = null;
 
   // 实物证书作为墙面展示件；使用用户照片，不生成或改写证书内容。
   function displayPlane(name,width,height,material,position,normal,metadata) {
@@ -307,6 +310,7 @@ if (renderer) {
     for(const hit of hits) {
       let node=hit.object;
       while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.projectId && !node.userData.contentId) node=node.parent;
+      if(node?.userData.petId) return {petId:node.userData.petId,roomId:node.userData.roomId};
       if(node?.userData.contentId) return {contentId:node.userData.contentId,roomId:node.userData.roomId};
       if(node?.userData.awardId) return {awardId:node.userData.awardId,roomId:'storage'};
       if(node?.userData.projectId) return {projectId:node.userData.projectId,roomId:'library'};
@@ -326,18 +330,19 @@ if (renderer) {
     const hit=pick(event.clientX,event.clientY);
     if(!activeRoom){if(hit)focusRoom(hit.roomId);return;}
     if(!hit || hit.roomId!==activeRoom)return;
-    if(hit.contentId)window.dispatchEvent(new CustomEvent('house:content',{detail:{id:hit.contentId,section:interactions.get(hit.contentId).section}}));
+    if(hit.petId)pet?.react();
+    else if(hit.contentId)window.dispatchEvent(new CustomEvent('house:content',{detail:{id:hit.contentId,section:interactions.get(hit.contentId).section}}));
     else if(hit?.awardId)window.dispatchEvent(new CustomEvent('house:award',{detail:{id:hit.awardId}}));
     else if(hit?.projectId)window.dispatchEvent(new CustomEvent('house:project',{detail:{id:hit.projectId}}));
   });
   canvas.addEventListener("pointermove",event => {
     if(event.pointerType!=="mouse" || rotating || !ready) {tooltip.hidden=true;return;}
     const hit=pick(event.clientX,event.clientY);
-    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.awardId || hit.projectId || hit.contentId));
+    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.petId || hit.awardId || hit.projectId || hit.contentId));
     canvas.style.cursor=interactive?"pointer":"grab";
     tooltip.hidden=!interactive;
     if(interactive) {
-      tooltip.textContent=!activeRoom?rooms.get(hit.roomId).name:hit.contentId?interactions.get(hit.contentId).label:hit.awardId?awards.find(a=>a.id===hit.awardId).title:products.find(p=>p.id===hit.projectId).name;
+      tooltip.textContent=!activeRoom?rooms.get(hit.roomId).name:hit.petId?'暹罗猫 · 打个招呼':hit.contentId?interactions.get(hit.contentId).label:hit.awardId?awards.find(a=>a.id===hit.awardId).title:products.find(p=>p.id===hit.projectId).name;
       const rect=canvas.getBoundingClientRect();
       tooltip.style.left=`${Math.min(event.clientX-rect.left+14,viewWidth-120)}px`;
       tooltip.style.top=`${Math.min(event.clientY-rect.top+14,viewHeight-40)}px`;
@@ -400,6 +405,7 @@ if (renderer) {
           });
         });
         houseGroup.add(model);
+        if(spec.pet)pet=createHousePet(model,spec,{root,canvas,camera,reducedMotion});
         loaded.set(spec.id,model);
         failures.delete(spec.id);
         loadText.textContent=`已载入${spec.name}`;
@@ -460,6 +466,9 @@ if (renderer) {
     }
     controls.update();
     camera.updateMatrixWorld();
+    const petDt=lastPetFrame===null?0:Math.min((now-lastPetFrame)/1000,.06);
+    lastPetFrame=now;
+    pet?.update(petDt,ready && !document.hidden && (!activeRoom || activeRoom==='living') && !document.querySelector('dialog[open]'));
     if(!activeRoom) {
       for(const room of config.rooms) {
         const point=new THREE.Vector3(...room.label).project(camera);
@@ -481,7 +490,7 @@ if (renderer) {
   requestAnimationFrame(frame);
   // 验收接口只报告真实载入状态，不将候选标为 approved。
   window.__pineappleHouse={focusRoom,resetView,scene,camera,controls,config,
-    snapshot:() => ({state:root.dataset.houseState,view:activeRoom??"whole",loaded:[...loaded.keys()],failed:[...failures.keys()],fps:Number(measuredFps.toFixed(1)),renderer:renderer.info.render,camera:camera.position.toArray(),target:controls.target.toArray(),status:"review",structureOnly}),
+    snapshot:() => ({state:root.dataset.houseState,view:activeRoom??"whole",loaded:[...loaded.keys()],failed:[...failures.keys()],fps:Number(measuredFps.toFixed(1)),renderer:renderer.info.render,camera:camera.position.toArray(),target:controls.target.toArray(),pet:pet?.snapshot()??null,status:"review",structureOnly}),
     projectRoom:id => {
       const room=rooms.get(id);if(!room) return null;
       const point=new THREE.Vector3(...room.label).project(camera);

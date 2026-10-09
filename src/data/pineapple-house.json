@@ -1,5 +1,5 @@
 {
-  "version": "20261009-review5",
+  "version": "20261009-cat-walk1",
   "status": "review",
   "toiletProjects": {"asset":"toilet","room":"bathroom","anchor":[-1.3,4.1,-0.4]},
   "structure": {"id":"structure","name":"三层房屋结构","url":"assets/house-review/structure.glb"},
@@ -16,7 +16,7 @@
     {"id":"chair","name":"红扶手椅","room":"living","url":"assets/house-review/props/chair.glb","position":[-1.3,0,-0.3],"rotation":0.13},
     {"id":"couch","name":"绿管沙发","room":"living","url":"assets/house-review/props/couch.glb","position":[1.1,0,-0.35],"rotation":-0.18},
     {"id":"table","name":"圆桌与海螺","room":"living","url":"assets/house-review/props/table.glb","position":[0,0,0.05],"rotation":0},
-    {"id":"gary","name":"小蜗","room":"living","url":"assets/house-review/props/gary.glb","position":[-1.55,0,1.6],"rotation":0.22},
+    {"id":"siamese-cat","name":"暹罗猫","room":"living","url":"assets/house-review/props/siamese-cat.glb","position":[-1.55,0,1.6],"rotation":0.22,"pet":{"route":[[-1.4,1.95],[-0.65,2.08],[0.25,2.05],[0.85,1.88],[0.7,1.48],[0,1.43],[-0.95,1.44]]}},
     {"id":"treasure","name":"储藏室宝藏","room":"storage","url":"assets/house-review/props/treasure.glb","position":[-3.3,0,-0.1],"rotation":0},
     {"id":"bathtub","name":"浴缸","room":"bathroom","url":"assets/house-review/props/bathtub.glb","position":[-2.7,3,0.7],"rotation":0.1},
     {"id":"sink","name":"桶式洗手池","room":"bathroom","url":"assets/house-review/props/sink.glb","position":[-1.65,3.62,-2.6],"rotation":0},
