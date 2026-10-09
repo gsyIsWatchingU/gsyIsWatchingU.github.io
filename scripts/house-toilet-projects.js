@@ -93,6 +93,7 @@ label.addEventListener('click',start);
 panel.querySelector('[data-toilet-close]').addEventListener('click',closeProjects);
 panel.addEventListener('click',event=>{
   const filter=event.target.closest('[data-toilet-filter]');if(filter)filterProjects(filter.dataset.toiletFilter);
+  const resume=event.target.closest('[data-toilet-resume]');if(resume)window.openResume(resume.dataset.toiletResume);
 });
 window.addEventListener('keydown',event=>{
   if(event.key==='Escape'&&state!=='idle'&&!document.querySelector('dialog[open]')){event.preventDefault();event.stopImmediatePropagation();if(state==='reading')closeProjects();else sweep();}

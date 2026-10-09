@@ -1,0 +1,281 @@
+{
+  "mode": "local",
+  "url": "http://127.0.0.1:8799/",
+  "checks": [
+    {
+      "name": "desktop collection opened",
+      "pass": true
+    },
+    {
+      "name": "desktop product names",
+      "pass": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "desktop etms selected",
+      "pass": true
+    },
+    {
+      "name": "desktop etms icon",
+      "pass": true
+    },
+    {
+      "name": "desktop etms display name",
+      "pass": true
+    },
+    {
+      "name": "desktop etms direct button opens tab",
+      "pass": true,
+      "url": "https://jp.liyunol.com/",
+      "expected": "https://jp.liyunol.com/"
+    },
+    {
+      "name": "desktop write-here selected",
+      "pass": true
+    },
+    {
+      "name": "desktop write-here icon",
+      "pass": true
+    },
+    {
+      "name": "desktop write-here display name",
+      "pass": true
+    },
+    {
+      "name": "desktop write-here direct button opens tab",
+      "pass": true,
+      "url": "https://dollar-wendy-buildings-year.trycloudflare.com/",
+      "expected": "https://dollar-wendy-buildings-year.trycloudflare.com/"
+    },
+    {
+      "name": "desktop ai-project-hub selected",
+      "pass": true
+    },
+    {
+      "name": "desktop ai-project-hub icon",
+      "pass": true
+    },
+    {
+      "name": "desktop ai-project-hub display name",
+      "pass": true
+    },
+    {
+      "name": "desktop ai-project-hub direct button opens tab",
+      "pass": true,
+      "url": "https://midi-nose-somewhere-paint.trycloudflare.com/",
+      "expected": "https://midi-nose-somewhere-paint.trycloudflare.com/"
+    },
+    {
+      "name": "desktop algorithm-lab selected",
+      "pass": true
+    },
+    {
+      "name": "desktop algorithm-lab icon",
+      "pass": true
+    },
+    {
+      "name": "desktop algorithm-lab display name",
+      "pass": true
+    },
+    {
+      "name": "desktop algorithm-lab direct button opens tab",
+      "pass": true,
+      "url": "https://forget-charges-glass-accordance.trycloudflare.com/",
+      "expected": "https://forget-charges-glass-accordance.trycloudflare.com/"
+    },
+    {
+      "name": "desktop skill-atlas selected",
+      "pass": true
+    },
+    {
+      "name": "desktop skill-atlas icon",
+      "pass": true
+    },
+    {
+      "name": "desktop skill-atlas display name",
+      "pass": true
+    },
+    {
+      "name": "desktop skill-atlas screenshots only",
+      "pass": true
+    },
+    {
+      "name": "desktop cli-list selected",
+      "pass": true
+    },
+    {
+      "name": "desktop cli-list icon",
+      "pass": true
+    },
+    {
+      "name": "desktop cli-list display name",
+      "pass": true
+    },
+    {
+      "name": "desktop cli-list screenshots only",
+      "pass": true
+    },
+    {
+      "name": "desktop Skill Packer has no fake link",
+      "pass": true
+    },
+    {
+      "name": "desktop closing preserves objects",
+      "pass": true
+    },
+    {
+      "name": "desktop selection preserved",
+      "pass": true
+    },
+    {
+      "name": "desktop cleanup keeps bathroom",
+      "pass": true
+    },
+    {
+      "name": "mobile collection opened",
+      "pass": true
+    },
+    {
+      "name": "mobile product names",
+      "pass": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "mobile etms selected",
+      "pass": true
+    },
+    {
+      "name": "mobile etms icon",
+      "pass": true
+    },
+    {
+      "name": "mobile etms display name",
+      "pass": true
+    },
+    {
+      "name": "mobile etms direct button opens tab",
+      "pass": true,
+      "url": "https://jp.liyunol.com/",
+      "expected": "https://jp.liyunol.com/"
+    },
+    {
+      "name": "mobile write-here selected",
+      "pass": true
+    },
+    {
+      "name": "mobile write-here icon",
+      "pass": true
+    },
+    {
+      "name": "mobile write-here display name",
+      "pass": true
+    },
+    {
+      "name": "mobile write-here direct button opens tab",
+      "pass": true,
+      "url": "https://dollar-wendy-buildings-year.trycloudflare.com/",
+      "expected": "https://dollar-wendy-buildings-year.trycloudflare.com/"
+    },
+    {
+      "name": "mobile ai-project-hub selected",
+      "pass": true
+    },
+    {
+      "name": "mobile ai-project-hub icon",
+      "pass": true
+    },
+    {
+      "name": "mobile ai-project-hub display name",
+      "pass": true
+    },
+    {
+      "name": "mobile ai-project-hub direct button opens tab",
+      "pass": true,
+      "url": "https://midi-nose-somewhere-paint.trycloudflare.com/",
+      "expected": "https://midi-nose-somewhere-paint.trycloudflare.com/"
+    },
+    {
+      "name": "mobile algorithm-lab selected",
+      "pass": true
+    },
+    {
+      "name": "mobile algorithm-lab icon",
+      "pass": true
+    },
+    {
+      "name": "mobile algorithm-lab display name",
+      "pass": true
+    },
+    {
+      "name": "mobile algorithm-lab direct button opens tab",
+      "pass": true,
+      "url": "https://forget-charges-glass-accordance.trycloudflare.com/",
+      "expected": "https://forget-charges-glass-accordance.trycloudflare.com/"
+    },
+    {
+      "name": "mobile skill-atlas selected",
+      "pass": true
+    },
+    {
+      "name": "mobile skill-atlas icon",
+      "pass": true
+    },
+    {
+      "name": "mobile skill-atlas display name",
+      "pass": true
+    },
+    {
+      "name": "mobile skill-atlas screenshots only",
+      "pass": true
+    },
+    {
+      "name": "mobile cli-list selected",
+      "pass": true
+    },
+    {
+      "name": "mobile cli-list icon",
+      "pass": true
+    },
+    {
+      "name": "mobile cli-list display name",
+      "pass": true
+    },
+    {
+      "name": "mobile cli-list screenshots only",
+      "pass": true
+    },
+    {
+      "name": "mobile Skill Packer has no fake link",
+      "pass": true
+    },
+    {
+      "name": "mobile closing preserves objects",
+      "pass": true
+    },
+    {
+      "name": "mobile selection preserved",
+      "pass": true
+    },
+    {
+      "name": "mobile cleanup keeps bathroom",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "screenshots": [
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\house-toilet-review\\brands\\local-desktop-write-here.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\house-toilet-review\\brands\\local-desktop-skill-atlas.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\house-toilet-review\\brands\\local-desktop-cli-list.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\house-toilet-review\\brands\\local-mobile-write-here.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\house-toilet-review\\brands\\local-mobile-skill-atlas.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\house-toilet-review\\brands\\local-mobile-cli-list.png"
+  ],
+  "success": true
+}
