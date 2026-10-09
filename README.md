@@ -4,7 +4,7 @@
 
 ## 三层菠萝屋预览
 
-独立入口 `pineapple-house.html`：默认全屏探索三层菠萝屋，首屏仅显示姓名、查看简历入口和操作提示。点击房间转场后打开对应履历；右上角可直接阅读完整简历。客厅对应技能、天台对应实习、图书馆对应项目、卧室对应学历、储藏室对应 11 张真实证书。支持房间近景、旋转缩放、返回和 Esc；旧底栏、设备与留言不加载。审核通过后再替换首页。
+独立入口 `pineapple-house.html`：默认全屏探索三层菠萝屋，首屏仅显示原 gsyIsWatchingU 标志、查看简历入口和操作提示。点击房间转场后打开对应履历；右上角可直接阅读完整简历。客厅对应技能、天台对应实习、图书馆对应项目、卧室对应学历、储藏室对应 11 张真实证书。支持房间近景、旋转缩放、返回和 Esc；旧底栏、设备与留言不加载。审核通过后再替换首页。
 
 源码为 `src/pineapple-house.html`、`scripts/pineapple-house.js`、`styles/pineapple-house.css`；房间与镜头统一配置在 `src/data/pineapple-house.json`。制作来源、模型哈希与截图见 [审查记录](docs/house-review/README.md)。
 

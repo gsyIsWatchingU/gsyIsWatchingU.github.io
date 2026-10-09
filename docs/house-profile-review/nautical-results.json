@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-09",
+  "status": "review",
+  "url": "http://127.0.0.1:8769/pineapple-house.html?v=20261009-nautical3",
+  "tests": [
+    {
+      "buttonBackground": "radial-gradient(at 93% 28%, rgba(213, 175, 61, 0.6) 0px, rgba(213, 175, 61, 0.6) 3px, rgba(0, 0, 0, 0) 4px), radial-gradient(at 9% 83%, rgba(213, 175, 61, 0.44) 0px, rgba(213, 175, 61, 0.44) 4px, rgba(0, 0, 0, 0) 5px), radial-gradient(at 83% 87%, rgba(213, 175, 61, 0.44) 0px, rgba(213, 175, 61, 0.44) 2px, rgba(0, 0, 0, 0) 3px), linear-gradient(115deg, rgb(252, 230, 148), rgb(240, 207, 96))",
+      "case": "brand-and-button",
+      "pass": true,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "case": "resume-button-opens-without-camera-change",
+      "pass": true
+    },
+    {
+      "case": "room-and-close-buttons",
+      "pass": true
+    },
+    {
+      "brandImage": true,
+      "case": "narrow-brand-no-overlap",
+      "pass": true,
+      "viewport": [
+        478,
+        750
+      ]
+    },
+    {
+      "case": "certificate-controls",
+      "pass": true
+    }
+  ],
+  "viewportNote": "本轮 viewport.set 未改变实际视口；记录实际桌面 1280×720、窄屏 478×750，不冒充 1440×900 或 390×844。"
+}

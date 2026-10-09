@@ -1,6 +1,6 @@
 # 履历小屋预览
 
-入口：`http://127.0.0.1:8769/pineapple-house.html?v=20261009-explore2`。首屏全屏探索，无常驻履历侧栏。右上角“查看简历”打开完整内容；点击房间转场后打开对应内容。分类导航、下载与联系入口仅在阅读界面内出现。
+入口：`http://127.0.0.1:8769/pineapple-house.html?v=20261009-nautical3`。首屏全屏探索，无常驻履历侧栏。右上角“查看简历”打开完整内容；点击房间转场后打开对应内容。分类导航、下载与联系入口仅在阅读界面内出现。
 
 | 房间 | 内容 |
 | --- | --- |
@@ -12,7 +12,13 @@
 
 字体来自提供的 TTF；履历来自提供的 PDF；证书来自桌面 `郭书羽/award`。原件逐字节保留，SHA-256 与裁切、转正信息在 `assets/house-profile/sources.json`。缩略图由 `scripts/art/prepare_house_profile.py` 制作；原图点击后加载。证书未生成或改写；三维房屋及家具沿用已完成资产，来源见 `../house-review/`。
 
-## 本轮验证
+## 标志与按钮样式
+
+恢复原 `gsy-logo-transparent-mark.png` 与手写 gsyIsWatchingU 名称。主入口用海绵黄孔纹与救生圈，房间标签采用木框、沙色底和舷窗细节；阅读、返回、证书和重试控件统一木牌样式。
+
+实际桌面 1280×720、窄屏 478×750 验证通过：[结果](nautical-results.json)、[桌面](nautical-screenshots/desktop-house.jpg)、[窄屏](nautical-screenshots/narrow-house.jpg)、[阅读](nautical-screenshots/desktop-resume.jpg)。本轮视口覆盖接口未生效，截图按实际尺寸记录。
+
+## 探索与阅读验证
 
 - 1440×900、390×844 真实浏览器验证，24 项通过；[结果](explore-results.json)。手机为尺寸模拟，双指及实机性能仍需实机复核。
 - 首屏画布覆盖视口，无侧栏占位、履历正文或底部按钮排；[桌面全屋](explore-screenshots/desktop-house.jpg)、[手机全屋](explore-screenshots/mobile-house.jpg)。
