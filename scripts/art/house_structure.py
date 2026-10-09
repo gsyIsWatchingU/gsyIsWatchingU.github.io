@@ -67,16 +67,26 @@ def radius(z):
 def back_y(x,z):
     return .72*math.sqrt(max(.02,(radius(z)-.28)**2-x*x))-.035
 
-# 壳体拥有内外两层，切口厚度为真实网格；按房间拆开避免近景穿墙。
+# 楼梯每段使用垂直轴；楼层间通过落脚平台换位，不再让整根轴斜穿房间。
+STAIRS=[(2.8,1.35),(2.15,1.15),(1.15,.60)]
+TREAD_R=.68;RAIL_R=.72
+# 二、三层右后墙按隔墙边界拆分，近景保留房门后面的连续墙面。
 for level in range(3):
-    for side in range(2):
-        room=["living","bathroom","bedroom"][level] if side==1 else ("living" if level==0 else "library")
-        mat=[blue,green,plaid][level] if side==1 else (blue if level==0 else wood)
-        na,nz=32,16;a0=-.10+side*(math.pi+.2)/2;a1=a0+(math.pi+.2)/2
+    regions=[("right","living" if level==0 else "library",blue if level==0 else wood),
+             ("left",["living","bathroom","bedroom"][level],[blue,green,plaid][level])]
+    if level>0:
+        room,mat=[("bathroom",green),("bedroom",plaid)][level-1]
+        regions=[("right","library",wood),("room_back",room,mat),("left",room,mat)]
+    for region,room,mat in regions:
+        na,nz=32,16
         verts=[];uv=[]
         for inner in (False,True):
             for j in range(nz+1):
                 z=level*3+j*3/nz;r=radius(z)-(.28 if inner else 0)
+                split=math.acos((1.12 if level==2 else .25)/r)
+                if region=="left":a0,a1=math.pi/2,math.pi+.10
+                elif region=="room_back":a0,a1=split,math.pi/2
+                else:a0,a1=-.10,(split if level>0 else math.pi/2)
                 for i in range(na+1):
                     a=a0+(a1-a0)*i/na
                     verts.append((r*math.cos(a),r*.72*math.sin(a),z));uv.append((i/na*2,z/3))
@@ -89,7 +99,7 @@ for level in range(3):
         for j in range(nz):
             for i in (0,na):
                 k=j*(na+1)+i;faces.append((k,k+na+1,k+na+1+offset,k+offset))
-        ob=mesh(f"shell_{level}_{side}",verts,faces,orange,room,level,uv)
+        ob=mesh(f"shell_{level}_{region}",verts,faces,orange,room,level,uv)
         ob["occluder"]=True;ob.data.materials.append(mat);ob.data.materials.append(cut)
         for f in ob.data.polygons:
             f.material_index=1 if f.index<na*nz*2 and f.index%2 else (0 if f.index<na*nz*2 else 2)
@@ -111,14 +121,15 @@ def floor(name,z,r,mat,room,level,xmax=None,hole=False,xmin=None):
     uv=[((x/r+1)/2,(y/r+1)/2) for x,y in pts]*2
     ob=mesh(name,verts,faces,mat,room,level,uv)
     if hole:
-        bpy.ops.mesh.primitive_cylinder_add(vertices=48,radius=.91,depth=.8,location=(2.8-1.7*z/9,1.15-.4*z/9,z))
+        cx,cy=STAIRS[min(2,int(z/3)-1)]
+        bpy.ops.mesh.primitive_cylinder_add(vertices=48,radius=.80,depth=.8,location=(cx,cy,z))
         cutter=bpy.context.object;m=ob.modifiers.new("stair opening","BOOLEAN");m.operation="DIFFERENCE";m.object=cutter
         bpy.context.view_layer.objects.active=ob;bpy.ops.object.modifier_apply(modifier=m.name);bpy.data.objects.remove(cutter,do_unlink=True)
     return ob
 
 floor("floor_0",0,4.15,sand,"living",0)
-floor("floor_1",3,4.65,pink,"bathroom",1,hole=True)
-floor("library_floor",3.007,4.60,libfloor,"library",1,xmin=1.12,hole=True)
+floor("floor_1",3,4.65,pink,"bathroom",1,xmax=.25)
+floor("library_floor",3,4.65,libfloor,"library",1,xmin=.25,hole=True)
 floor("floor_2",6,4.02,sand,"bedroom",2,xmax=1.12)
 floor("roof_garden",9,2.4,libfloor,"roof",3,hole=True)
 # 弧形前缘、连续切面轮廓。
@@ -130,11 +141,25 @@ for z,r in [(0,4.15),(3,4.65),(6,4.02),(9,2.4)]:
 for a in (-.1,math.pi+.1):
     tube("cut_arch",[(radius(z)*math.cos(a),radius(z)*.72*math.sin(a),z) for i in range(91) for z in [i/10]],.105,cut,level=0)
 
-def partition(name,x,y0,y1,z,room,level,door_y=None):
-    ob=box(name,(x,(y0+y1)/2,z+1.45),(.13,y1-y0,2.9),blue,room,level)
+def partition(name,x,y0,y1,z,room,level,door_y=None,door_width=.90,door_height=1.7):
+    wallmat=green if room=="bathroom" else plaid if room=="bedroom" else blue
+    if room in ("bathroom","bedroom"):
+        # 后沿随曲面外壳收窄，避免隔墙后端露天或穿出墙外。
+        verts=[];steps=32
+        for i in range(steps+1):
+            zz=z+2.9*i/steps
+            for xx,front in [(x-.065,True),(x+.065,True),(x+.065,False),(x-.065,False)]:
+                verts.append((xx,y0 if front else back_y(xx,zz)+.06,zz))
+        faces=[(3,2,1,0),tuple(steps*4+j for j in range(4))]
+        for i in range(steps):
+            for j in range(4):
+                k=i*4+j;next_k=i*4+(j+1)%4;faces.append((k,next_k,next_k+4,k+4))
+        ob=mesh(name,verts,faces,wallmat,room,level,[((yy-y0)/3,(zz-z)/3) for xx,yy,zz in verts])
+    else:
+        ob=box(name,(x,(y0+y1)/2,z+1.45),(.13,y1-y0,2.9),wallmat,room,level)
     ob["occluder"]=True
     if door_y is not None:
-        cutter=box("door_cut",(x,door_y,z+.8),(.8,.90,1.7),blue,bevel=.1)
+        cutter=box("door_cut",(x,door_y,z+door_height/2),(.8,door_width,door_height+.1),blue,bevel=.06)
         mod=ob.modifiers.new("real door opening","BOOLEAN");mod.object=cutter;mod.operation="DIFFERENCE"
         bpy.context.view_layer.objects.active=ob;bpy.ops.object.modifier_apply(modifier=mod.name);bpy.data.objects.remove(cutter,do_unlink=True)
     uv=ob.data.uv_layers.active
@@ -142,14 +167,14 @@ def partition(name,x,y0,y1,z,room,level,door_y=None):
         for face in ob.data.polygons:
             for li in face.loop_indices:
                 co=ob.data.vertices[ob.data.loops[li].vertex_index].co
-                uv.data[li].uv=((co.y+y1-y0)/3,(co.z+1.45)/3)
+                uv.data[li].uv=((co.y-y0)/3,(co.z-z)/3) if room in ("bathroom","bedroom") else ((co.y+y1-y0)/3,(co.z+1.45)/3)
     return ob
 
 partition("storage_partition",-2.55,-1.6,2.35,0,"storage",0,-.25)
-partition("bath_partition",.25,-2.65,2.4,3,"bathroom",1,-.5)
-partition("bed_library_partition",1.12,-1.7,2.1,6,"bedroom",2,.5)
-for x,z in [(-2.55,0),(.25,3),(1.12,6)]:
-    tube("partition_front_post",[(x,-1.75,z),(x,-1.75,z+2.95)],.08,cut,level=int(z/3))
+partition("bath_partition",.25,-1.9,2.4,3,"bathroom",1,-.5)
+partition("bed_library_partition",1.12,-1.7,2.1,6,"bedroom",2,.6,1.75,2.9)
+for room,x,y,z in [("storage",-2.55,-1.6,0),("bathroom",.25,-1.9,3),("bedroom",1.12,-1.7,6)]:
+    tube("partition_front_post",[(x,y,z),(x,y,z+2.95)],.08,cut,room,level=int(z/3))
 
 # 舷窗与门：分离的金属框、铆钉、玻璃和木门。
 def porthole(name,x,y,z,r,room,level):
@@ -187,23 +212,34 @@ for dz in (-.37,.37):
 for x in (-.88,-.28):tube("ladder_rail",[(x,1.5,6.15),(x,1.7,8.7)],.035,metal,"bedroom",2)
 for i in range(9):tube("ladder_step",[(-.88,1.5+i*.023,6.35+i*.27),(-.28,1.5+i*.023,6.35+i*.27)],.029,metal,"bedroom",2)
 
-# 实体螺旋楼梯：60 个踏步、连续扶手、穿楼板的开口与三层落脚平台。
-for i in range(60):
-    z=i*.15;a=i*math.tau/20;cx=2.8-1.7*z/9;cy=1.15-.4*z/9
-    aa=[a-.13+j*.29/5 for j in range(6)]
-    vs=[(cx+r*math.cos(t),cy+r*math.sin(t),z+dz) for dz in (-.07,0) for r in (.14,.82) for t in aa]
-    faces=[tuple(range(6))+tuple(range(11,5,-1)),tuple(range(12,18))+tuple(range(23,17,-1))]
-    for j in range(5):faces.extend([(j,j+1,j+13,j+12),(j+6,j+18,j+19,j+7)])
-    faces.extend([(0,12,18,6),(5,11,23,17)])
-    mesh("stair_tread",vs,faces,wood,"stairs",int(z/3))
-    if i%2==0:tube("stair_baluster",[(cx+.84*math.cos(a),cy+.84*math.sin(a),z),(cx+.84*math.cos(a),cy+.84*math.sin(a),z+.72)],.017,metal,"stairs",int(z/3))
-for level in range(3):
-    pts=[];center=[]
+# 三段直立螺旋梯，每层一个完整回转；后侧平台把各段接到楼板和屋顶。
+for level,(cx,cy) in enumerate(STAIRS):
+    for i in range(21):
+        z=level*3+i*.15;a=i*math.tau/20
+        aa=[a-.13+j*.29/5 for j in range(6)]
+        vs=[(cx+r*math.cos(t),cy+r*math.sin(t),z+dz) for dz in (-.07,0) for r in (.14,TREAD_R) for t in aa]
+        faces=[tuple(range(6))+tuple(range(11,5,-1)),tuple(range(12,18))+tuple(range(23,17,-1))]
+        for j in range(5):faces.extend([(j,j+1,j+13,j+12),(j+6,j+18,j+19,j+7)])
+        faces.extend([(0,12,18,6),(5,11,23,17)])
+        mesh("stair_tread",vs,faces,wood,"stairs",level)
+        if i%2==0:tube("stair_baluster",[(cx+RAIL_R*math.cos(a),cy+RAIL_R*math.sin(a),z),(cx+RAIL_R*math.cos(a),cy+RAIL_R*math.sin(a),z+.72)],.017,metal,"stairs",level)
+    pts=[]
     for i in range(121):
-        z=level*3+i/40;a=z/.15*math.tau/20;cx=2.8-1.7*z/9;cy=1.15-.4*z/9
-        pts.append((cx+.84*math.cos(a),cy+.84*math.sin(a),z+.73));center.append((cx,cy,z))
-    tube("stair_handrail",pts,.025,metal,"stairs",level);tube("stair_spine",center,.095,metal,"stairs",level)
-box("bed_landing",(1.5,1.5,5.95),(1.0,.55,.1),wood,"stairs",2)
+        z=level*3+i/40;a=i/120*math.tau
+        pts.append((cx+RAIL_R*math.cos(a),cy+RAIL_R*math.sin(a),z+.73))
+    tube("stair_handrail",pts,.025,metal,"stairs",level)
+    tube("stair_spine",[(cx,cy,level*3),(cx,cy,(level+1)*3)],.085,metal,"stairs",level)
+    if level<2:
+        nx,ny=STAIRS[level+1];z=(level+1)*3
+        # 平台沿两段的东侧落脚点连接，横向扶手与踏步末端接齐。
+        x0=min(cx+TREAD_R,nx+TREAD_R)-.30;x1=max(cx+TREAD_R,nx+TREAD_R)+.28
+        y0=min(cy,ny)-.31;y1=max(cy,ny)+.31
+        box("stair_transfer_landing",((x0+x1)/2,(y0+y1)/2,z-.055),(x1-x0,y1-y0,.11),wood,"stairs",level+1)
+        tube("landing_guard",[(cx+RAIL_R,cy,z+.73),(nx+RAIL_R,ny,z+.73)],.025,metal,"stairs",level+1)
+        for x,y in [(x0,y1),(x1,y1)]:tube("landing_post",[(x,y,z),(x,y,z+.73)],.02,metal,"stairs",level+1)
+        tube("landing_back_guard",[(x0,y1,z+.73),(x1,y1,z+.73)],.025,metal,"stairs",level+1)
+box("bed_landing",(1.73,1.15,5.945),(1.38,.55,.11),wood,"stairs",2)
+box("roof_landing",(1.91,.6,8.945),(.42,.52,.11),wood,"stairs",3)
 
 # 图书馆弧形书架：真实逐本书脊、上下封面与书页，按材质合批。
 for row in range(12):
@@ -280,5 +316,5 @@ path=OUT/"structure.glb"
 bpy.ops.export_scene.gltf(filepath=str(path),export_format="GLB",export_yup=True,export_extras=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/"structure.blend"))
 triangles=sum(sum(len(f.vertices)-2 for f in o.data.polygons) for o in bpy.context.scene.objects if o.type=="MESH")
-(OUT/"structure-manifest.json").write_text(json.dumps({"backend":"Blender 4.5.13","source":"scripts/art/house_structure.py","coordinates":"glTF Y-up; +Z is front","floors":[0,3,6,9],"bodyHeight":9,"leafHeight":13.55,"triangles":triangles,"sha256":hashlib.sha256(path.read_bytes()).hexdigest(),"status":"review","humanReview":"pending"},indent=2)+"\n")
+(OUT/"structure-manifest.json").write_text(json.dumps({"backend":"Blender 4.5.13","source":"scripts/art/house_structure.py","coordinates":"glTF Y-up; +Z is front","floors":[0,3,6,9],"bodyHeight":9,"leafHeight":13.55,"triangles":triangles,"sha256":hashlib.sha256(path.read_bytes()).hexdigest(),"status":"review","humanReview":"pending","revision":5,"previousSha256":"8fe8b89c070f66ee1d18fda3df27c486a2fdc91d1ca18ad5c41537b1ad1ea89a","floorBoundaryX":.25,"bedroomWallBoundaryX":1.12,"stairFlightCenters":STAIRS,"stairAxis":"vertical per floor with transfer landings","sourceSHA256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+"\n")
 print(f"STRUCTURE EXPORTED {triangles} triangles")

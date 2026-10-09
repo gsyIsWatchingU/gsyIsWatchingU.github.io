@@ -1,0 +1,199 @@
+{
+  "date": "2026-10-09",
+  "url": "http://127.0.0.1:8769/pineapple-house.html?v=20261009-objects4",
+  "status": "review",
+  "humanReview": "pending",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      478,
+      750
+    ]
+  ],
+  "viewportNote": "视口覆盖未生效，按实际尺寸记录；双指与手机硬件性能待实机复核。",
+  "structure": {
+    "backend": "Blender 4.5.13",
+    "source": "scripts/art/house_structure.py",
+    "coordinates": "glTF Y-up; +Z is front",
+    "floors": [
+      0,
+      3,
+      6,
+      9
+    ],
+    "bodyHeight": 9,
+    "leafHeight": 13.55,
+    "triangles": 184968,
+    "sha256": "56869e8b5c7e0af9107bb9907ff051f0a2947f42cfdc67b09a386b477fa11a7d",
+    "status": "review",
+    "humanReview": "pending",
+    "revision": 5,
+    "previousSha256": "8fe8b89c070f66ee1d18fda3df27c486a2fdc91d1ca18ad5c41537b1ad1ea89a",
+    "floorBoundaryX": 0.25,
+    "bedroomWallBoundaryX": 1.12,
+    "stairFlightCenters": [
+      [
+        2.8,
+        1.35
+      ],
+      [
+        2.15,
+        1.15
+      ],
+      [
+        1.15,
+        0.6
+      ]
+    ],
+    "stairAxis": "vertical per floor with transfer landings",
+    "sourceSHA256": "061470178324ef4c6ce9fc5edd099939f0c82701e8a25e5e718703914d756252"
+  },
+  "tests": [
+    {
+      "case": "bedroom-entry-does-not-open-resume",
+      "pass": true
+    },
+    {
+      "case": "education-object-opens-education",
+      "pass": true
+    },
+    {
+      "case": "enter-living-explore-only",
+      "pass": true
+    },
+    {
+      "case": "click-skills-chart",
+      "pass": true
+    },
+    {
+      "case": "close-keeps-living-camera",
+      "pass": true
+    },
+    {
+      "case": "enter-roof-explore-only",
+      "pass": true
+    },
+    {
+      "case": "click-work-journal",
+      "pass": true
+    },
+    {
+      "case": "close-keeps-roof-camera",
+      "pass": true
+    },
+    {
+      "case": "enter-storage-explore-only",
+      "pass": true
+    },
+    {
+      "case": "click-honor-trophies",
+      "pass": true
+    },
+    {
+      "case": "close-keeps-storage-camera",
+      "pass": true
+    },
+    {
+      "case": "physical-chart-ray-pick",
+      "pass": true
+    },
+    {
+      "case": "enter-bathroom-no-dialog",
+      "pass": true
+    },
+    {
+      "case": "enter-stairs-no-dialog",
+      "pass": true
+    },
+    {
+      "case": "enter-library-no-dialog",
+      "pass": true
+    },
+    {
+      "case": "physical-project-book",
+      "pass": true
+    },
+    {
+      "case": "physical-trophy-opens-honors",
+      "pass": true
+    },
+    {
+      "case": "physical-certificate-opens-original",
+      "pass": true,
+      "award": "national-2021"
+    },
+    {
+      "case": "certificate-close-keeps-storage",
+      "pass": true
+    },
+    {
+      "case": "physical-work-journal-opens-internship",
+      "pass": true,
+      "evidence": "实际点击日志后实习段落位于阅读区顶部（y=185）"
+    },
+    {
+      "case": "education-frame-ray-pick-and-escape-keeps-bedroom",
+      "pass": true
+    },
+    {
+      "case": "escape-room-returns-whole",
+      "pass": true
+    },
+    {
+      "case": "refresh-default-whole-and-no-resume",
+      "pass": true
+    },
+    {
+      "case": "narrow-bedroom-explore-only",
+      "pass": true
+    },
+    {
+      "case": "narrow-object-opens-education",
+      "pass": true
+    },
+    {
+      "case": "narrow-close-keeps-bedroom",
+      "pass": true
+    },
+    {
+      "case": "final-bathroom-no-auto-reader",
+      "pass": true
+    },
+    {
+      "case": "model-failure-resume-still-readable",
+      "pass": true
+    },
+    {
+      "case": "model-retry-restores-13-models-and-11-textures",
+      "pass": true
+    },
+    {
+      "case": "webgl-unavailable-explicit-message-and-readable-resume",
+      "pass": true
+    },
+    {
+      "case": "whole-trophy-click-only-enters-storage",
+      "pass": true
+    },
+    {
+      "case": "native-drag-rotates-whole-camera",
+      "pass": true
+    },
+    {
+      "case": "native-wheel-zooms-whole-camera",
+      "pass": true
+    },
+    {
+      "case": "direct-complete-resume-preserves-current-camera",
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "fixtures": [
+    "tmp/house-object-failure.html",
+    "tmp/house-object-webgl.html"
+  ]
+}

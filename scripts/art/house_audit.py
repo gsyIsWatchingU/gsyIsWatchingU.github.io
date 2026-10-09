@@ -10,6 +10,24 @@ def read(path):return json.loads(path.read_text(encoding="utf-8-sig"))
 config=read(ROOT/"src/data/pineapple-house.json")
 structure=read(ROOT/"docs/house-review/manifests/structure.json")
 assert sha(ROOT/config["structure"]["url"])==structure["sha256"]
+if "sourceSHA256" in structure:
+    assert sha(ROOT/structure["source"])==structure["sourceSHA256"],"structure source"
+data=(ROOT/config["structure"]["url"]).read_bytes()
+gltf=json.loads(data[20:20+struct.unpack_from("<I",data,12)[0]])
+assert sum(gltf["accessors"][p["indices"]]["count"]//3 for mesh in gltf["meshes"] for p in mesh["primitives"])==structure["triangles"],"structure triangles"
+if structure.get("revision",0)>=5:
+    nodes={n["name"]:n for n in gltf["nodes"]}
+    def extent(name,edge):
+        node=nodes[name]
+        assert not any(k in node for k in ("translation","rotation","scale","matrix")),name
+        values=[gltf["accessors"][p["attributes"]["POSITION"]][edge][0] for p in gltf["meshes"][node["mesh"]]["primitives"]]
+        return (max if edge=="max" else min)(values)
+    assert abs(extent("bathroom_L1_pink","max")-structure["floorBoundaryX"])<1e-5,"bath floor edge"
+    assert abs(extent("library_L1_library_green","min")-structure["floorBoundaryX"])<1e-5,"library floor edge"
+    for level,room,boundary in [(1,"bathroom",structure["floorBoundaryX"]),(2,"bedroom",structure["bedroomWallBoundaryX"])]:
+        name=f"shell_{level}_room_back"
+        assert nodes[name]["extras"]["roomId"]==room and nodes[name]["extras"]["occluder"],name
+        assert abs(extent(name,"max")-boundary)<1e-5 and abs(extent(name,"min"))<1e-5,name
 records=[]
 for asset in config["assets"]:
     name=asset["url"].split("/")[-1].split(".")[0]

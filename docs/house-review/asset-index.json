@@ -13,15 +13,35 @@
     ],
     "bodyHeight": 9,
     "leafHeight": 13.55,
-    "triangles": 185206,
-    "sha256": "8fe8b89c070f66ee1d18fda3df27c486a2fdc91d1ca18ad5c41537b1ad1ea89a",
+    "triangles": 184968,
+    "sha256": "56869e8b5c7e0af9107bb9907ff051f0a2947f42cfdc67b09a386b477fa11a7d",
     "status": "review",
-    "humanReview": "pending"
+    "humanReview": "pending",
+    "revision": 5,
+    "previousSha256": "8fe8b89c070f66ee1d18fda3df27c486a2fdc91d1ca18ad5c41537b1ad1ea89a",
+    "floorBoundaryX": 0.25,
+    "bedroomWallBoundaryX": 1.12,
+    "stairFlightCenters": [
+      [
+        2.8,
+        1.35
+      ],
+      [
+        2.15,
+        1.15
+      ],
+      [
+        1.15,
+        0.6
+      ]
+    ],
+    "stairAxis": "vertical per floor with transfer landings",
+    "sourceSHA256": "061470178324ef4c6ce9fc5edd099939f0c82701e8a25e5e718703914d756252"
   },
   "primaryReference": "docs/refs/pineapple-house/01-cutaway-full.png",
   "primaryReferenceSha256": "e23941a429cc15655fba3e15a23fc0a490f9bd4486df9eafce299bbcb8fe8516",
   "runtimeModels": 13,
-  "runtimeTriangles": 411124,
+  "runtimeTriangles": 410886,
   "assets": [
     {
       "id": "chair",
@@ -217,7 +237,7 @@
     }
   ],
   "scripts": {
-    "scripts/art/house_audit.py": "fd33cc20e998c6a15e14c6f940f9f8c241a9f7c704c58cb9fc4ba4d10022af89",
+    "scripts/art/house_audit.py": "782e8fc736ae190f9f8455191167bcf095e8414d65d92e62e65e62c428162e30",
     "scripts/art/house_compare.py": "0512c93e2e3cb09f2f3c411654c59fb200727ae97a0aee0db7833e3850e411de",
     "scripts/art/house_prepare_refs.py": "64bd0a4b5583d065d8c210abc65441c45e24b1c695bd22a126fcf728b7f5e73f",
     "scripts/art/house_production.py": "435621d33dd6ac2e62c1476818aff66b57bf2f7f2520b413dbbbe7abf7880549",
@@ -227,7 +247,7 @@
     "scripts/art/house_repair_chair_ref.py": "f6528c3958330c6d4c660877370afaef909812884050370852bf50ea40d1ffa0",
     "scripts/art/house_retopology.py": "c382751bfe2a9cc09314f7db889262f3196726eb2ac352fd695d3ebb12821f31",
     "scripts/art/house_shape_batch.py": "358a1318ca14e334cf87c3902c05fb342b0ad620a03b40e780991f5c78aedc10",
-    "scripts/art/house_structure.py": "fcf388365a035ce2a5db64e386584e969747c63ce9a320a6ea0b4d43065f8849",
+    "scripts/art/house_structure.py": "061470178324ef4c6ce9fc5edd099939f0c82701e8a25e5e718703914d756252",
     "scripts/art/house_textures.py": "e104f14d6fc74be3133dedae07945534a78f725dd8289d87b6e548220b85e719"
   }
 }

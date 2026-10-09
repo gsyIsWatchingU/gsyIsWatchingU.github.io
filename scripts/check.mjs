@@ -26,6 +26,12 @@ for(const section of profile.sections)if(section.room && !houseRoomIds.has(secti
 for(const display of house.displays) {
   if(!houseRoomIds.has(display.room)||![...display.position,...display.normal,...display.size,display.level].every(Number.isFinite))errors.push(`履历展示件位置无效：${display.id}`);
 }
+const contentIds=new Set();
+for(const item of house.interactions) {
+  if(contentIds.has(item.id)||!houseRoomIds.has(item.room)||!profile.sections.some(section=>section.id===item.section)||!item.anchor.every(Number.isFinite))errors.push(`物品履历关联无效：${item.id}`);
+  contentIds.add(item.id);
+  if(item.asset ? !house.assets.some(asset=>asset.id===item.asset && asset.room===item.room) : !house.displays.some(display=>display.kind==='content' && display.id===item.id && display.room===item.room))errors.push(`履历物品模型或展示件不存在：${item.id}`);
+}
 if (houseRoomIds.size !== house.rooms.length) errors.push("菠萝屋房间 ID 重复");
 for (const asset of [house.structure, ...house.assets]) {
   if (!existsSync(join(projectRoot, asset.url))) errors.push(`菠萝屋模型不存在：${asset.url}`);

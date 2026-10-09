@@ -1,5 +1,5 @@
 {
-  "version": "20261009-review4",
+  "version": "20261009-review5",
   "status": "review",
   "structure": {"id":"structure","name":"三层房屋结构","url":"assets/house-review/structure.glb"},
   "rooms": [
@@ -7,8 +7,8 @@
     {"id":"storage","name":"储藏室","floor":"一层","level":0,"label":[-3.45,1.5,1.0],"bounds":[[-4.2,0,-2.5],[-2.55,2.9,1.6]],"target":[-3.32,1.15,0],"camera":[-4.6,2.2,5.7]},
     {"id":"bathroom","name":"浴室","floor":"二层","level":1,"label":[-2.0,3.55,2.7],"bounds":[[-4.6,3,-2.4],[0.25,5.95,2.7]],"target":[-1.75,4.25,0],"camera":[-2.6,5.1,7.7]},
     {"id":"bedroom","name":"卧室","floor":"三层","level":2,"label":[-1.2,6.55,2.2],"bounds":[[-4.1,6,-2.1],[1.12,8.95,2.6]],"target":[-1.2,7.2,0],"camera":[-2.3,8.15,7.6]},
-    {"id":"library","name":"图书馆","floor":"二、三层 · 挑高","level":1,"label":[3.3,4.8,1.2],"bounds":[[1.12,3,-2.8],[4.65,8.8,2.7]],"target":[2.7,5.7,0],"camera":[4.7,7.1,12.5]},
-    {"id":"stairs","name":"螺旋楼梯","floor":"连接三层与天台","level":0,"label":[2.7,2.35,-0.65],"bounds":[[0.2,0,-2.2],[3.7,9.8,0]],"target":[2,4.9,-1],"camera":[8,6.4,18]},
+    {"id":"library","name":"图书馆","floor":"二、三层 · 挑高","level":1,"label":[3.3,4.8,1.2],"bounds":[[0.25,3,-2.8],[4.65,8.8,2.7]],"target":[2.7,5.7,0],"camera":[4.7,7.1,12.5]},
+    {"id":"stairs","name":"螺旋楼梯","floor":"连接三层与天台","level":0,"label":[2.95,1.9,-0.85],"bounds":[[0.35,0,-2.15],[3.6,9.8,0.35]],"target":[2.0,4.9,-0.9],"camera":[8,6.4,18]},
     {"id":"roof","name":"屋顶花园","floor":"天台","level":3,"label":[0,9.45,1.2],"bounds":[[-2.5,9,-2],[2.5,10.8,2]],"target":[0,9.6,0],"camera":[0,12.4,7.9]}
   ],
   "assets": [
@@ -26,21 +26,30 @@
     {"id":"lounger","name":"天台躺椅","room":"roof","url":"assets/house-review/props/lounger.glb","position":[-0.85,9,0.15],"rotation":0.4}
   ],
   "displays": [
-    {"id": "national-2021","kind": "award","room": "storage","level": 0,"position": [-3.81021,1.43,-1.31209],"normal": [0.82983,0,0.55801],"size": [0.43,0.31041]},
-    {"id": "national-2023","kind": "award","room": "storage","level": 0,"position": [-3.33921,1.43,-1.84648],"normal": [0.67977,0,0.73342],"size": [0.43,0.30167]},
-    {"id": "math-2022","kind": "award","room": "storage","level": 0,"position": [-2.86678,1.43,-2.21072],"normal": [0.55374,0,0.83269],"size": [0.43,0.31175]},
-    {"id": "holtek-2023","kind": "award","room": "storage","level": 0,"position": [-3.81143,2.02,-1.41627],"normal": [0.80946,0,0.58717],"size": [0.43,0.30436]},
-    {"id": "mathorcup-2022","kind": "award","room": "storage","level": 0,"position": [-3.3401,2.02,-1.923],"normal": [0.66501,0,0.74684],"size": [0.43,0.29025]},
-    {"id": "scholarship-2022","kind": "award","room": "storage","level": 0,"position": [-2.86743,2.02,-2.27552],"normal": [0.54283,0,0.83984],"size": [0.33825,0.48]},
-    {"id": "graduate-2024","kind": "award","room": "storage","level": 0,"position": [-3.81205,2.61,-1.46938],"normal": [0.7991,0,0.6012],"size": [0.35475,0.48]},
-    {"id": "merit-2021","kind": "award","room": "storage","level": 0,"position": [-3.34055,2.61,-1.96296],"normal": [0.65745,0,0.7535],"size": [0.3525,0.48]},
-    {"id": "merit-2022","kind": "award","room": "storage","level": 0,"position": [-2.86777,2.61,-2.30964],"normal": [0.53723,0,0.84344],"size": [0.3495,0.48]},
-    {"id": "league-2021","kind": "award","room": "storage","level": 0,"position": [-2.66,1.91,-1.3],"normal": [-1,0,0],"size": [0.5,0.35078]},
-    {"id": "union-2021","kind": "award","room": "storage","level": 0,"position": [-2.66,2.52,-1.3],"normal": [-1,0,0],"size": [0.5,0.33203]},
-    {"id": "research-workbench","kind": "project","room": "library","level": 1,"position": [3.97025,3.47,0.075],"normal": [0,0,1],"size": [0.6,0.3]},
-    {"id": "algorithm-lab","kind": "project","room": "library","level": 1,"position": [3.94414,3.9,0.075],"normal": [0,0,1],"size": [0.6,0.3]},
-    {"id": "write-here","kind": "project","room": "library","level": 1,"position": [3.90134,4.33,0.075],"normal": [0,0,1],"size": [0.6,0.3]},
-    {"id": "cli-list","kind": "project","room": "library","level": 1,"position": [3.84136,4.76,0.075],"normal": [0,0,1],"size": [0.6,0.3]},
-    {"id": "skill-dock","kind": "project","room": "library","level": 1,"position": [3.76351,5.19,0.075],"normal": [0,0,1],"size": [0.6,0.3]}
+    {"id":"national-2021","kind":"award","room":"storage","level":0,"position":[-3.81021,1.43,-1.31209],"normal":[0.82983,0,0.55801],"size":[0.43,0.31041]},
+    {"id":"national-2023","kind":"award","room":"storage","level":0,"position":[-3.33921,1.43,-1.84648],"normal":[0.67977,0,0.73342],"size":[0.43,0.30167]},
+    {"id":"math-2022","kind":"award","room":"storage","level":0,"position":[-2.86678,1.43,-2.21072],"normal":[0.55374,0,0.83269],"size":[0.43,0.31175]},
+    {"id":"holtek-2023","kind":"award","room":"storage","level":0,"position":[-3.81143,2.02,-1.41627],"normal":[0.80946,0,0.58717],"size":[0.43,0.30436]},
+    {"id":"mathorcup-2022","kind":"award","room":"storage","level":0,"position":[-3.3401,2.02,-1.923],"normal":[0.66501,0,0.74684],"size":[0.43,0.29025]},
+    {"id":"scholarship-2022","kind":"award","room":"storage","level":0,"position":[-2.86743,2.02,-2.27552],"normal":[0.54283,0,0.83984],"size":[0.33825,0.48]},
+    {"id":"graduate-2024","kind":"award","room":"storage","level":0,"position":[-3.81205,2.61,-1.46938],"normal":[0.7991,0,0.6012],"size":[0.35475,0.48]},
+    {"id":"merit-2021","kind":"award","room":"storage","level":0,"position":[-3.34055,2.61,-1.96296],"normal":[0.65745,0,0.7535],"size":[0.3525,0.48]},
+    {"id":"merit-2022","kind":"award","room":"storage","level":0,"position":[-2.86777,2.61,-2.30964],"normal":[0.53723,0,0.84344],"size":[0.3495,0.48]},
+    {"id":"league-2021","kind":"award","room":"storage","level":0,"position":[-2.66,1.91,-1.3],"normal":[-1,0,0],"size":[0.5,0.35078]},
+    {"id":"union-2021","kind":"award","room":"storage","level":0,"position":[-2.66,2.52,-1.3],"normal":[-1,0,0],"size":[0.5,0.33203]},
+    {"id":"research-workbench","kind":"project","room":"library","level":1,"position":[3.97025,3.47,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
+    {"id":"algorithm-lab","kind":"project","room":"library","level":1,"position":[3.94414,3.9,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
+    {"id":"write-here","kind":"project","room":"library","level":1,"position":[3.90134,4.33,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
+    {"id":"cli-list","kind":"project","room":"library","level":1,"position":[3.84136,4.76,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
+    {"id":"skill-dock","kind":"project","room":"library","level":1,"position":[3.76351,5.19,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
+    {"id":"skills-chart","kind":"content","room":"living","level":0,"position":[-1.63,2.15,-2.85],"normal":[0.38,0,0.925],"size":[0.82,0.54]},
+    {"id":"work-journal","kind":"content","room":"roof","level":3,"position":[-0.71,9.37,0.49],"normal":[0,1,0],"size":[0.3,0.27]},
+    {"id":"education-frame","kind":"content","room":"bedroom","level":2,"position":[-3.03,7.55,-0.995],"normal":[0.84,0,0.55],"size":[0.43,0.58],"sourceAward":"graduate-2024"}
+  ],
+  "interactions": [
+    {"id":"skills-chart","room":"living","section":"skills","label":"技术航海图 · 专业技能","button":"技术航海图","anchor":[-1.63,2.55,-2.83]},
+    {"id":"work-journal","room":"roof","section":"internship","label":"实习日志 · 字节跳动实习","button":"实习日志","anchor":[-0.71,9.78,0.49]},
+    {"id":"education-frame","room":"bedroom","section":"education","label":"求学纪念 · 教育经历","button":"求学纪念","anchor":[-3.0,7.99,-0.94]},
+    {"id":"honor-trophies","room":"storage","section":"honors","label":"奖杯与证书 · 个人荣誉","button":"荣誉奖杯","asset":"treasure","anchor":[-3.3,1.05,-0.1]}
   ]
 }

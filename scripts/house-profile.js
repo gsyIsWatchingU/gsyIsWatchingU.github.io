@@ -1,4 +1,3 @@
-import profile from '../src/data/house-profile.json';
 import awards from '../src/data/house-awards.json';
 
 const reading=document.querySelector('[data-profile-reading]');
@@ -8,11 +7,9 @@ const original=dialog.querySelector('[data-award-original]');
 const photo=dialog.querySelector('.award-original');
 const zoom=dialog.querySelector('[data-award-zoom]');
 const awardById=new Map(awards.map(a=>[a.id,a]));
-const roomSections=new Map(profile.sections.filter(s=>s.room).map(s=>[s.room,s.id]));
-roomSections.set('living','skills');
 const resume=document.querySelector('[data-resume-dialog]');
 const entry=document.querySelector('[data-resume-open]');
-let pendingRoom=null, previousFocus=null, resumeFocus=null;
+let previousFocus=null, resumeFocus=null;
 
 function navigate(id) {
   const target=document.getElementById(id);
@@ -24,7 +21,6 @@ function navigate(id) {
 }
 
 function openResume(sectionId='overview') {
-  pendingRoom=null;
   if(!resume.open) {
     resumeFocus=document.activeElement;
     resume.showModal();
@@ -33,7 +29,6 @@ function openResume(sectionId='overview') {
   navigate(sectionId);
 }
 function closeResume() {
-  pendingRoom=null;
   if(dialog.open)dialog.close();
   if(resume.open)resume.close();
 }
@@ -47,17 +42,13 @@ function restoreFocus(element) {
 entry.addEventListener('click',()=>openResume());
 resume.querySelector('[data-resume-close]').addEventListener('click',closeResume);
 resume.addEventListener('close',()=>{document.body.dataset.resumeState='closed';restoreFocus(resumeFocus);});
-resume.addEventListener('cancel',()=>{pendingRoom=null;});
 document.addEventListener('click',event=>{
   const award=event.target.closest('[data-award-open]');
   if(award) {event.preventDefault();openAward(award.dataset.awardOpen);return;}
   const link=event.target.closest('[data-profile-nav],[data-profile-evidence]');
   if(link) {event.preventDefault();openResume(link.dataset.profileNav||link.dataset.profileEvidence);}
 });
-window.addEventListener('house:room-changed',event=>{pendingRoom=roomSections.has(event.detail.id)?event.detail.id:null;});
-window.addEventListener('house:camera-settled',event=>{
-  if(pendingRoom && pendingRoom===event.detail.id)openResume(roomSections.get(pendingRoom));
-});
+window.addEventListener('house:content',event=>openResume(event.detail.section));
 window.addEventListener('house:award',event=>openAward(event.detail.id));
 window.addEventListener('house:project',event=>openResume(`product-${event.detail.id}`));
 window.openResume=openResume;
@@ -66,7 +57,6 @@ document.body.dataset.resumeState='closed';
 
 function openAward(id) {
   const a=awardById.get(id);if(!a)return;
-  pendingRoom=null;
   previousFocus=document.activeElement;
   dialog.querySelector('h2').textContent=a.title;
   dialog.querySelector('[data-award-detail]').textContent=a.detail;

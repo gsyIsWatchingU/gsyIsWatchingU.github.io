@@ -14,8 +14,10 @@ const loadText = document.querySelector("[data-house-load-text]");
 const loadCount = document.querySelector("[data-house-load-count]");
 const caption = document.querySelector("[data-house-caption]");
 const labelsHost = document.querySelector("[data-house-labels]");
+const objectsHost = document.querySelector("[data-house-objects]");
 const tooltip = document.querySelector("[data-house-tooltip]");
 const rooms = new Map(config.rooms.map((room) => [room.id, room]));
+const interactions = new Map(config.interactions.map(item=>[item.id,item]));
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const structureOnly = new URLSearchParams(location.search).has("structure");
 const specs = [config.structure, ...(structureOnly ? [] : config.assets)];
@@ -92,6 +94,7 @@ if (renderer) {
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
   const roomButtons = new Map();
+  const objectButtons = new Map();
   let activeRoom = null;
   let animation = null;
   let pointerDown = null;
@@ -132,6 +135,29 @@ if (renderer) {
       const d=config.displays.find(d=>d.kind==='project' && d.id===product.id);
       displayPlane(`catalog-${product.id}`,...d.size,new THREE.MeshStandardMaterial({map:texture,roughness:.95}),d.position,new THREE.Vector3(...d.normal),{roomId:d.room,projectId:product.id});
     });
+    for(const d of config.displays.filter(d=>d.kind==='content')) {
+      let material;
+      if(d.sourceAward) material=awardMaterials.get(d.sourceAward);
+      else {
+        // 这些是个人记录展示件，复用证书框；不替换任何 Hunyuan 家具。
+        const paper=document.createElement('canvas');paper.width=768;paper.height=512;
+        const ctx=paper.getContext('2d');const chart=d.id==='skills-chart';
+        ctx.fillStyle=chart?'#e5efe1':'#447a81';ctx.fillRect(0,0,768,512);
+        ctx.strokeStyle=chart?'#bca172':'#d4b86b';ctx.lineWidth=14;ctx.strokeRect(22,22,724,468);
+        ctx.fillStyle=chart?'#335d62':'#fff0be';ctx.textAlign='center';ctx.font='bold 68px sans-serif';
+        ctx.fillText(chart?'技术航海图':'实习日志',384,126);
+        if(chart) {
+          for(const [i,text] of ['AI / Agent','全栈开发','工程交付'].entries()) {
+            const x=154+i*230;ctx.strokeStyle='#6e9990';ctx.lineWidth=5;ctx.beginPath();ctx.arc(x,284,66,0,Math.PI*2);ctx.stroke();
+            ctx.font='25px sans-serif';ctx.fillText(text,x,294);if(i<2){ctx.font='35px sans-serif';ctx.fillText('→',x+114,294);}
+          }
+          ctx.font='27px sans-serif';ctx.fillText('把技术带进真实业务',384,416);
+        } else {ctx.font='40px sans-serif';ctx.fillText('字节跳动',384,244);ctx.font='30px sans-serif';ctx.fillText('AI 直播 · Agent 工程',384,330);ctx.font='26px sans-serif';ctx.fillText('2026.06 — 2026.09',384,413);}
+        const texture=new THREE.CanvasTexture(paper);texture.colorSpace=THREE.SRGBColorSpace;
+        material=new THREE.MeshStandardMaterial({map:texture,roughness:.96});
+      }
+      displayPlane(`content-${d.id}`,...d.size,material,d.position,new THREE.Vector3(...d.normal),{roomId:d.room,contentId:d.id});
+    }
     root.dataset.awardDisplays=String(awards.length);root.dataset.projectDisplays=String(products.length);
   }
 
@@ -171,6 +197,7 @@ if (renderer) {
 
   function applyVisibility() {
     displays.children.forEach(group=>{group.visible=!activeRoom || group.userData.roomId===activeRoom;});
+    objectsHost.hidden=!activeRoom;
     for(const group of loaded.values()) {
       group.traverse((node) => {
         const d=node.userData;
@@ -186,11 +213,11 @@ if (renderer) {
         } else if (activeRoom === "stairs") {
           visible = d.roomId === "stairs" || d.roomId === "ground";
         } else if(roof) {
-          visible = d.roomId === "roof";
+          visible = d.roomId === "roof" || (d.roomId === "stairs" && d.level === 3);
         } else {
           visible = d.level === room.level && d.roomId !== "library";
           if(d.occluder && d.roomId !== activeRoom) visible=false;
-          if(d.roomId === "stairs") visible=false;
+          if(d.roomId === "stairs") visible=activeRoom === "bedroom" && d.level === 2;
           if(node.name.startsWith("cut_arch")) visible=false;
           if(activeRoom === "storage" && d.roomId === "living") visible=Boolean(d.occluder) || node.name === "living_L0_sand";
           if(activeRoom === "living" && d.roomId === "storage") visible=false;
@@ -211,6 +238,7 @@ if (renderer) {
     tooltip.hidden=true;
     document.querySelector("[data-house-floor]").textContent=room.floor;
     document.querySelector("[data-house-room-name]").textContent=room.name;
+    document.querySelector('[data-house-hint]').textContent=interactions.size && config.interactions.some(item=>item.room===id)?'点击物品查看履历 · 拖动观察 · 滚轮 / 双指缩放':id==='library'?'点击书目签查看项目 · 拖动观察':'拖动观察 · 滚轮 / 双指缩放';
     applyVisibility();
     const target=new THREE.Vector3(...room.target);
     const position=new THREE.Vector3(...room.camera);
@@ -232,6 +260,7 @@ if (renderer) {
     caption.hidden=true;
     labelsHost.hidden=false;
     tooltip.hidden=true;
+    document.querySelector('[data-house-hint]').textContent='拖动观察 · 滚轮 / 双指缩放 · 点击房间进入近景';
     applyVisibility();
     const pose=wholePose();
     tweenCamera(pose.position,pose.target);
@@ -248,6 +277,12 @@ if (renderer) {
     button.addEventListener("click",() => {if(focusRoom(room.id)) document.querySelector("[data-house-back]").focus({preventScroll:true});});
     labelsHost.append(button);
     roomButtons.set(room.id,button);
+  }
+  for(const item of config.interactions) {
+    const button=document.createElement('button');button.type='button';button.className='room-label object-label';
+    button.textContent=item.button;button.dataset.houseObject=item.id;button.setAttribute('aria-label',`点击${item.label}`);
+    button.addEventListener('click',()=>{if(ready && activeRoom===item.room)window.dispatchEvent(new CustomEvent('house:content',{detail:{id:item.id,section:item.section}}));});
+    objectsHost.append(button);objectButtons.set(item.id,button);
   }
   document.querySelector("[data-house-back]").addEventListener("click",() => {
     const previous=activeRoom;resetView();roomButtons.get(previous)?.focus({preventScroll:true});
@@ -271,7 +306,8 @@ if (renderer) {
     const hits=raycaster.intersectObjects(meshes,false);
     for(const hit of hits) {
       let node=hit.object;
-      while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.projectId) node=node.parent;
+      while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.projectId && !node.userData.contentId) node=node.parent;
+      if(node?.userData.contentId) return {contentId:node.userData.contentId,roomId:node.userData.roomId};
       if(node?.userData.awardId) return {awardId:node.userData.awardId,roomId:'storage'};
       if(node?.userData.projectId) return {projectId:node.userData.projectId,roomId:'library'};
       const id=node?.userData.roomId;
@@ -288,18 +324,20 @@ if (renderer) {
     const start=pointerDown;pointerDown=null;
     if(!start || start.id!==event.pointerId || Math.hypot(event.clientX-start.x,event.clientY-start.y)>7 || performance.now()-start.time>650 || !ready) return;
     const hit=pick(event.clientX,event.clientY);
-    if(hit?.awardId)window.dispatchEvent(new CustomEvent('house:award',{detail:{id:hit.awardId}}));
+    if(!activeRoom){if(hit)focusRoom(hit.roomId);return;}
+    if(!hit || hit.roomId!==activeRoom)return;
+    if(hit.contentId)window.dispatchEvent(new CustomEvent('house:content',{detail:{id:hit.contentId,section:interactions.get(hit.contentId).section}}));
+    else if(hit?.awardId)window.dispatchEvent(new CustomEvent('house:award',{detail:{id:hit.awardId}}));
     else if(hit?.projectId)window.dispatchEvent(new CustomEvent('house:project',{detail:{id:hit.projectId}}));
-    else if(hit && !activeRoom)focusRoom(hit.roomId);
   });
   canvas.addEventListener("pointermove",event => {
     if(event.pointerType!=="mouse" || rotating || !ready) {tooltip.hidden=true;return;}
     const hit=pick(event.clientX,event.clientY);
-    const interactive=hit && (!activeRoom || hit.awardId || hit.projectId);
+    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.awardId || hit.projectId || hit.contentId));
     canvas.style.cursor=interactive?"pointer":"grab";
     tooltip.hidden=!interactive;
     if(interactive) {
-      tooltip.textContent=hit.awardId?awards.find(a=>a.id===hit.awardId).title:hit.projectId?products.find(p=>p.id===hit.projectId).name:rooms.get(hit.roomId).name;
+      tooltip.textContent=!activeRoom?rooms.get(hit.roomId).name:hit.contentId?interactions.get(hit.contentId).label:hit.awardId?awards.find(a=>a.id===hit.awardId).title:products.find(p=>p.id===hit.projectId).name;
       const rect=canvas.getBoundingClientRect();
       tooltip.style.left=`${Math.min(event.clientX-rect.left+14,viewWidth-120)}px`;
       tooltip.style.top=`${Math.min(event.clientY-rect.top+14,viewHeight-40)}px`;
@@ -352,6 +390,8 @@ if (renderer) {
           node.castShadow=true;
           node.receiveShadow=true;
           if(spec.room) node.userData.roomId=spec.room;
+          const interaction=config.interactions.find(item=>item.asset===spec.id);
+          if(interaction)node.userData.contentId=interaction.id;
           const materials=Array.isArray(node.material)?node.material:[node.material];
           materials.forEach(material => {
             material.roughness=Math.max(material.roughness??0.8,0.7);
@@ -428,6 +468,11 @@ if (renderer) {
         button.style.left=`${(point.x*.5+.5)*viewWidth}px`;
         button.style.top=`${(-point.y*.5+.5)*viewHeight}px`;
       }
+    }
+    for(const item of config.interactions) {
+      const button=objectButtons.get(item.id);const point=new THREE.Vector3(...item.anchor).project(camera);
+      button.hidden=!ready || activeRoom!==item.room || point.z>1 || Math.abs(point.x)>1 || Math.abs(point.y)>1;
+      button.style.left=`${(point.x*.5+.5)*viewWidth}px`;button.style.top=`${(-point.y*.5+.5)*viewHeight}px`;
     }
     renderer.render(scene,camera);
     frames++;
