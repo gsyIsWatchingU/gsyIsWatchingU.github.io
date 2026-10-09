@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-09",
+  "desktop": [
+    1440,
+    900
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "tests": [
+    {
+      "case": "desktop-clean-first-screen-and-emitted-without-panel",
+      "pass": true
+    },
+    {
+      "case": "premium-button-opens-right-panel-with-six-categories",
+      "pass": true
+    },
+    {
+      "case": "category-etms",
+      "pass": true
+    },
+    {
+      "case": "category-write-here",
+      "pass": true
+    },
+    {
+      "case": "category-ai-project-hub",
+      "pass": true
+    },
+    {
+      "case": "category-algorithm-lab",
+      "pass": true
+    },
+    {
+      "case": "category-skill-atlas",
+      "pass": true
+    },
+    {
+      "case": "category-cli-list",
+      "pass": true
+    },
+    {
+      "case": "escape-clears-and-keeps-bathroom-focus",
+      "pass": true
+    },
+    {
+      "case": "burst-clean-cancels-timers-and-refresh-clean",
+      "pass": true
+    },
+    {
+      "case": "mobile-physical-toilet-premium-click-category-no-overflow",
+      "pass": true
+    },
+    {
+      "case": "mobile-clean-keeps-bathroom",
+      "pass": true
+    }
+  ],
+  "notes": [
+    "手机为浏览器视口模拟。",
+    "项目集在右侧（手机底部）按六个项目分类；先点马桶，再点极品项目。"
+  ]
+}

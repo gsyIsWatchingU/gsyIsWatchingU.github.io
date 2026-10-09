@@ -1,0 +1,8 @@
+[
+  {"id":"etms","label":"ETMS","source":"resume","sourceId":"project-etms"},
+  {"id":"write-here","label":"write-here","source":"product","sourceId":"write-here","name":"write-here · 协作文档"},
+  {"id":"ai-project-hub","label":"ai-project-hub","source":"custom","name":"ai-project-hub · AI 项目工作台","status":"个人项目 · Agent 工程","description":"把私有 GitHub 项目、AI 对话、代码修改和发布审批放进同一个工作台。","tech":["React","TypeScript","Express","PostgreSQL","DSH / Qwen"],"proofs":[{"label":"项目隔离","text":"项目、会话、附件与 Agent 工作目录按用户和项目隔离。"},{"label":"代码上下文","text":"查看真实 GitHub 文件树，将选定文件加入当前对话上下文。"},{"label":"受控交付","text":"修改、发布、部署分别审批；临时 Runner 执行改码与质量命令。"}],"provenance":"E:/prj-gsy/agent-adc/README.md"},
+  {"id":"algorithm-lab","label":"算法八股学习网站","source":"product","sourceId":"algorithm-lab","name":"算法八股学习网站 · Algorithm Lab"},
+  {"id":"skill-atlas","label":"skill-atlas","source":"custom","name":"skill-atlas · Skill 工作流管理","status":"个人项目 · 桌面应用","description":"管理本机 Agent Skills、业务工作流和项目环境，把一套可复用的工作流打包分享。","tech":["Electron","Node.js","PostgreSQL","SHA-256"],"proofs":[{"label":"本地盘点","text":"共用只读扫描内核，区分个人、系统与插件来源，识别缺失和版本差异。"},{"label":"业务工作流","text":"组合并排序 Skill，生成业务流入口与可复制的调用语句。"},{"label":"环境与同步","text":"管理项目启用的 Skills，保留桌面云同步与工作流包分享。"}],"provenance":"E:/prj-gsy/skill-atlas/README.md"},
+  {"id":"cli-list","label":"cli-list","source":"product","sourceId":"cli-list","name":"cli-list · 命令管理应用"}
+]
