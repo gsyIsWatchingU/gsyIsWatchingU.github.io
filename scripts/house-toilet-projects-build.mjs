@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const read=name=>JSON.parse(readFileSync(resolve(root,'src/data',name),'utf8'));
@@ -13,7 +13,9 @@ export function renderToiletProjects() {
     const base=item.source==='resume'?profile.projects.find(p=>p.id===item.sourceId):item.source==='product'?products.find(p=>p.id===item.sourceId):item;
     if(!base||ids.has(item.id)||!item.label||!base.tech?.length)throw new Error(`项目集配置无效：${item.id}`);
     ids.add(item.id);
-    return {...base,...item,description:base.description||base.problem,demo:item.source==='product'&&profile.verifiedDemoIds.includes(base.id)};
+    const localDemo=item.source==='custom'&&Boolean(item.entryUrl);
+    if(localDemo&&(!/^\.\/games\/(?:[a-z0-9][a-z0-9.-]*\/)+$/.test(item.entryUrl)||!item.entryLabel?.trim()||!existsSync(resolve(root,item.entryUrl,'index.html'))))throw new Error(`游戏试玩入口无效：${item.id}`);
+    return {...base,...item,description:base.description||base.problem,demo:localDemo||(item.source==='product'&&profile.verifiedDemoIds.includes(base.id)),entryLabel:localDemo?item.entryLabel:'进入演示 ↗'};
   });
   return `<div class="toilet-effects" data-toilet-effects hidden aria-label="马桶弹出的物品"></div>
 <section id="toilet-project-collection" class="toilet-panel" data-toilet-panel hidden role="dialog" aria-modal="false" aria-labelledby="toilet-title" data-phase="idle">
@@ -21,7 +23,7 @@ export function renderToiletProjects() {
   <div class="toilet-content" data-toilet-content hidden>
     <p class="toilet-description">按项目阅读，查看实现与成果。</p>
     <nav class="toilet-filters" aria-label="项目分类">${items.map((p,i)=>`<button type="button" data-toilet-filter="${e(p.id)}" aria-pressed="${i===0}" aria-controls="toilet-project-${e(p.id)}">${e(p.label)}</button>`).join('')}</nav>
-    <div class="toilet-projects" aria-label="项目内容">${items.map((p,i)=>`<article id="toilet-project-${e(p.id)}" class="toilet-card" data-toilet-card data-project="${e(p.id)}"${i?' hidden':''}><p class="toilet-card-kind">${e(p.status||p.stage)}${p.date?` · ${e(p.date)}`:''}</p><h3>${e(p.name)}</h3>${p.role?`<p class="toilet-card-summary">${e(p.role)}</p>`:''}<p class="toilet-card-summary">${e(p.description)}</p><div class="toilet-card-tech">${p.tech.map(t=>`<span>${e(t)}</span>`).join('')}</div>${p.source==='resume'?`<dl class="toilet-card-proof"><dt>我的贡献</dt><dd>${e(p.work)}</dd><dt>结果</dt><dd>${e(p.result)}</dd></dl>${p.note?`<p class="toilet-card-summary">${e(p.note)}</p>`:''}`:`${p.heroFeature?`<p class="toilet-card-summary"><strong>${e(p.heroFeature.label)}</strong>：${e(p.heroFeature.text)}</p>`:''}<dl class="toilet-card-proof">${p.proofs.map(f=>`<dt>${e(f.label)}</dt><dd>${e(f.text)}</dd>`).join('')}</dl>`}${p.image?`<img class="toilet-project-image" src="${e(p.image)}" alt="${e(p.imageAlt)}" loading="lazy" />`:''}${p.demo?`<div class="toilet-card-actions"><a href="${e(p.entryUrl)}" target="_blank" rel="noopener noreferrer">进入演示 ↗</a></div>`:''}</article>`).join('')}</div>
+    <div class="toilet-projects" aria-label="项目内容">${items.map((p,i)=>`<article id="toilet-project-${e(p.id)}" class="toilet-card" data-toilet-card data-project="${e(p.id)}"${i?' hidden':''}><p class="toilet-card-kind">${e(p.status||p.stage)}${p.date?` · ${e(p.date)}`:''}</p><h3>${e(p.name)}</h3>${p.role?`<p class="toilet-card-summary">${e(p.role)}</p>`:''}<p class="toilet-card-summary">${e(p.description)}</p>${p.demo&&p.source==='custom'?`<div class="toilet-card-actions"><a href="${e(p.entryUrl)}" target="_blank" rel="noopener noreferrer">${e(p.entryLabel)}</a></div>`:''}<div class="toilet-card-tech">${p.tech.map(t=>`<span>${e(t)}</span>`).join('')}</div>${p.source==='resume'?`<dl class="toilet-card-proof"><dt>我的贡献</dt><dd>${e(p.work)}</dd><dt>结果</dt><dd>${e(p.result)}</dd></dl>${p.note?`<p class="toilet-card-summary">${e(p.note)}</p>`:''}`:`${p.heroFeature?`<p class="toilet-card-summary"><strong>${e(p.heroFeature.label)}</strong>：${e(p.heroFeature.text)}</p>`:''}<dl class="toilet-card-proof">${p.proofs.map(f=>`<dt>${e(f.label)}</dt><dd>${e(f.text)}</dd>`).join('')}</dl>`}${p.image?`<img class="toilet-project-image" src="${e(p.image)}" alt="${e(p.imageAlt)}" loading="lazy" />`:''}${p.demo&&p.source!=='custom'?`<div class="toilet-card-actions"><a href="${e(p.entryUrl)}" target="_blank" rel="noopener noreferrer">${e(p.entryLabel)}</a></div>`:''}</article>`).join('')}</div>
   </div>
 </section>`;
 }

@@ -1,0 +1,2 @@
+# 保持已验证游戏包的原始字节，不转换换行。
+/games/krusty-krab/** -text

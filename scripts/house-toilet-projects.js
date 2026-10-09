@@ -61,7 +61,7 @@ function scatter(origin) {
     const piece=document.createElement('div');piece.className=`toilet-debris toilet-debris--${kind}`;
     piece.innerHTML=kind==='brain'?brain:kind==='mosaic'?`<span class="toilet-pixel-pile">${Array.from({length:25},(_,j)=>`<i style="--pixel:${j%5}"></i>`).join('')}</span>`:'<span class="toilet-poop" aria-hidden="true">💩</span>';
     const caption=document.createElement(kind==='poop'?'button':'b');caption.textContent=text;
-    if(kind==='poop'){caption.type='button';caption.dataset.toiletOpen='';caption.innerHTML='<span>极品项目</span><small>👆 点击查看 ↗</small>';caption.title='点击打开六个项目分类';caption.setAttribute('aria-label','极品项目，打开项目集');caption.setAttribute('aria-controls','toilet-project-collection');caption.addEventListener('click',reveal);}
+    if(kind==='poop'){caption.type='button';caption.dataset.toiletOpen='';caption.innerHTML='<span>极品项目</span><small>👆 点击查看 ↗</small>';caption.title=`点击打开 ${panel.querySelectorAll('[data-toilet-filter]').length} 个项目分类`;caption.setAttribute('aria-label','极品项目，打开项目集');caption.setAttribute('aria-controls','toilet-project-collection');caption.addEventListener('click',reveal);}
     else piece.setAttribute('aria-hidden','true');
     piece.append(caption);
     const tx=Math.max(60,Math.min(innerWidth-60,origin.x-80-i*85));

@@ -1,0 +1,114 @@
+{
+  "version": "0.3.5",
+  "edition": "restroom-main",
+  "sourcePackage": "krusty-krab-last-order-xhs-0.3.5-restroom.zip",
+  "sourcePackageSHA256": "e2d4dfabd26fcb2d79bd7be5bc62c4686ab1f7a7233a9ce58c8339fe3b3d982e",
+  "fileCount": 21,
+  "files": [
+    {
+      "file": "games/krusty-krab/0.3.5/bootstrap.js",
+      "bytes": 2349,
+      "sha256": "f4d16fc6444de9a3d6352cecb7697aded4c1d9ef339815b8260b70bd8b811bfd"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/fonts/wenxue-cover.woff2",
+      "bytes": 236764,
+      "sha256": "9e979a9556cc8ffc48bd6b834079f0ef1bd5cb4a1afdbac56f0bb3a779cf86ff"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/hud.css",
+      "bytes": 67720,
+      "sha256": "1abbdeab5737bc666d24110d2ffba6b0cd877cd30c420c8548ceabf99574cf11"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/index.html",
+      "bytes": 4221,
+      "sha256": "76e41dba70140666082c81283ccc78844b089233a6a801df1bbde28d3bbf4a34"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/audio-data.js",
+      "bytes": 618523,
+      "sha256": "44896200d890e99a9a6d56b3b198f3ec8c8297c374bba20f8994afe702a68202"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/audio.js",
+      "bytes": 27884,
+      "sha256": "d8b8b7c7587c461144203ffabd2c518401547d4fcba5b1691b66dd5c1a59396b"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/cover.js",
+      "bytes": 14799,
+      "sha256": "357506d2d0b8ed6021d7ce7833bc33d6e3a3c0006db9554a5f8c09b8e2b00e4f"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/game-state.js",
+      "bytes": 16867,
+      "sha256": "b8799c9df060bf146349d6a8e9509593d45b704b0c91d9f54e77375d595aa36a"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/game.js",
+      "bytes": 40243,
+      "sha256": "b2e6b0a9bac9da636f8abb665f58b89e9e41b0998cbee251db72c1ede961f69a"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/illustrations.js",
+      "bytes": 20899,
+      "sha256": "660924e6fa1b475a028b06ea144c4b27d1c242933695e742efdad4b68bee7d51"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/main.js",
+      "bytes": 21341,
+      "sha256": "526b46707266d2d6651440c0c3dcde3899928235109c6d42041c164aa064052c"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/restroom.js",
+      "bytes": 5716,
+      "sha256": "7da5e15c52f92bb576047de951e8afeddf84813ea52df958d7184615ac50535d"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/scene-data.js",
+      "bytes": 44139,
+      "sha256": "4921bd19a3ddd3ba30abbbb1301c1538de806e17be66bb5cc8ac78fc1ffd269d"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/scene-geometry-0.js",
+      "bytes": 1735494,
+      "sha256": "2984f307e8e30ffa30663fc8e2846ccb1e8f8b585807ab4cd99ab436d87cb7db"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/scene-geometry-1.js",
+      "bytes": 1157493,
+      "sha256": "49ae4819e4d15f861ec93ba3bac2c51caedc5ef166b6b2bc407dabfc2a7a615d"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/scene-geometry-2.js",
+      "bytes": 398118,
+      "sha256": "961ad539f3b2dd41f60a3231c316937ae51ee8074b8dc0096e02ba9b2ed49411"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/scene.js",
+      "bytes": 51300,
+      "sha256": "65de4a230af6dfb67a2aa97ae54d1af88824de6d0f77afc0770d746756fcc1c9"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/story.js",
+      "bytes": 15092,
+      "sha256": "2ef67b525ad61c04f026cdb1ef7552b3d6f216aaeaeb2df526dd2edc5bbd7836"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/three.js",
+      "bytes": 1300039,
+      "sha256": "496323bb9ff4cdca3750040e6e0dcf7a431e99b5adc30d98b59f960b1ba1528f"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/runtime/walk.js",
+      "bytes": 4813,
+      "sha256": "e40d1e8c7d84d3cb1396bf496ff5b53f31dffba6ef6aa75b738052588d65e23f"
+    },
+    {
+      "file": "games/krusty-krab/0.3.5/viewport.js",
+      "bytes": 1577,
+      "sha256": "64fa7df4691d46988dcd26a1c6381a923f9d8344f8b182e017b64e5618ca8bdd"
+    }
+  ]
+}

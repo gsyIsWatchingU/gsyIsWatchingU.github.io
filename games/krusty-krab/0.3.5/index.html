@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#17272c">
+<title>罪恶蟹湖</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./hud.css">
+</head>
+<body class="at-menu">
+<div id="viewportFrame"><div id="app">
+<div id="ui">
+<div id="shift"><span id="clock">23:59</span><span id="modeTag">午夜前一刻</span></div>
+<div id="actions"><button id="btnHint" class="small-control">线索</button><button id="btnEvidence" class="small-control">证据 0/5</button><button id="btnHelp" class="small-control">暂停</button></div>
+<div id="crosshair" aria-hidden="true"></div>
+<div id="inventory" role="group" aria-label="物品栏"><span class="eyebrow">物品</span><div id="inventoryItems"></div><p id="selectionLabel" aria-live="polite"></p></div>
+<div id="movePad" role="application" aria-label="拖动摇杆移动"><span>＋</span><div id="stick"></div></div>
+<div id="subtitle" role="status" aria-live="polite" hidden></div><div id="toast" role="status" aria-live="polite" hidden></div><div id="saveStatus" role="status"></div>
+<div id="loading" role="status">正在打开夜班餐厅…</div>
+</div>
+<div id="veil" hidden></div>
+<section id="menu" class="overlay" hidden aria-label="罪恶蟹湖"><div id="coverScene"></div><div class="cover-shade" aria-hidden="true"></div><div class="menu-card"><h2><span class="cover-title-city">罪恶</span><span class="cover-title-lake">蟹湖</span></h2><p class="cover-hook">听说你是新来的员工。</p><div id="menuButtons"></div></div></section>
+<button id="btnSettings" type="button" aria-label="游戏设置" aria-haspopup="dialog" title="设置"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m13 3 6 0 1 4 3 2 4-1 3 5-3 3v3l3 3-3 5-4-1-3 2-1 4h-6l-1-4-3-2-4 1-3-5 3-3v-3l-3-3 3-5 4 1 3-2z"/><circle cx="16" cy="17" r="5"/></svg></button>
+<section id="settingsOverlay" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="settings-card"><header><h2 id="settingsTitle">设置</h2><button id="closeSettings" class="close" aria-label="返回游戏">返回</button></header><div class="settings-row"><span>声音</span><button id="btnSound" class="sound-switch" aria-label="关闭声音" aria-pressed="true">开启</button></div></div></section>
+<section id="inspect" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="inspectTitle"><div class="inspect-card"><header><div><span id="inspectKicker" class="eyebrow">夜班物件</span><h2 id="inspectTitle"></h2></div><button id="closeInspect" class="close" aria-label="返回">返回</button></header><div id="inspectBody"></div><div id="inspectMessages" aria-label="对白与操作提示"></div><p id="panelFeedback" role="status" aria-live="polite"></p></div></section>
+<section id="ending" class="overlay" hidden aria-label="逃出与举报"><div class="escape-ending"><span class="eyebrow">街道 · 餐厅外</span><div id="endingArt"></div><p id="endingCaption" aria-live="polite"></p><div class="ending-actions"><button class="secondary" data-action="endingSkip" id="endingSkip">看结尾</button><button class="primary" id="replay" hidden>重新开始</button></div></div></section>
+</div>
+</div>
+<script src="./viewport.js"></script>
+<script src="./bootstrap.js"></script>
+<script src="./runtime/three.js"></script>
+<script src="./runtime/scene-data.js"></script>
+<script src="./runtime/scene-geometry-0.js"></script>
+<script src="./runtime/scene-geometry-1.js"></script>
+<script src="./runtime/scene-geometry-2.js"></script>
+<script src="./runtime/audio-data.js"></script>
+<script src="./runtime/story.js"></script>
+<script src="./runtime/game-state.js"></script>
+<script src="./runtime/illustrations.js"></script>
+<script src="./runtime/restroom.js"></script>
+<script src="./runtime/walk.js"></script>
+<script src="./runtime/scene.js"></script>
+<script src="./runtime/audio.js"></script>
+<script src="./runtime/cover.js"></script>
+<script src="./runtime/game.js"></script>
+<script src="./runtime/main.js"></script>
+</body>
+</html>

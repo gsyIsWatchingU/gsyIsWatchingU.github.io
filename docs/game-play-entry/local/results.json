@@ -1,0 +1,156 @@
+{
+  "url": "http://127.0.0.1:8808/",
+  "checkedAt": "2026-10-09T16:48:56.553Z",
+  "checks": [
+    {
+      "name": "desktop homepage models ready",
+      "pass": true
+    },
+    {
+      "name": "desktop game project selected",
+      "pass": true
+    },
+    {
+      "name": "desktop seven projects",
+      "pass": true
+    },
+    {
+      "name": "desktop no homepage horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "desktop playable link label",
+      "pass": true
+    },
+    {
+      "name": "desktop link opens hosted game",
+      "pass": true
+    },
+    {
+      "name": "desktop game cover loaded",
+      "pass": true
+    },
+    {
+      "name": "desktop real WebGL renderer",
+      "pass": true
+    },
+    {
+      "name": "desktop new game starts",
+      "pass": true
+    },
+    {
+      "name": "desktop keyboard movement works",
+      "pass": true
+    },
+    {
+      "name": "desktop pause opens",
+      "pass": true
+    },
+    {
+      "name": "desktop restroom route present",
+      "pass": true
+    },
+    {
+      "name": "desktop no game horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "desktop game autosaved",
+      "pass": true
+    },
+    {
+      "name": "desktop reload offers continuation",
+      "pass": true
+    },
+    {
+      "name": "desktop saved game resumes",
+      "pass": true
+    },
+    {
+      "name": "desktop game audio initialized",
+      "pass": true
+    },
+    {
+      "name": "desktop portfolio stays open",
+      "pass": true
+    },
+    {
+      "name": "mobile homepage models ready",
+      "pass": true
+    },
+    {
+      "name": "mobile game project selected",
+      "pass": true
+    },
+    {
+      "name": "mobile seven projects",
+      "pass": true
+    },
+    {
+      "name": "mobile no homepage horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "mobile playable link label",
+      "pass": true
+    },
+    {
+      "name": "mobile link opens hosted game",
+      "pass": true
+    },
+    {
+      "name": "mobile game cover loaded",
+      "pass": true
+    },
+    {
+      "name": "mobile real WebGL renderer",
+      "pass": true
+    },
+    {
+      "name": "mobile new game starts",
+      "pass": true
+    },
+    {
+      "name": "mobile pause opens",
+      "pass": true
+    },
+    {
+      "name": "mobile restroom route present",
+      "pass": true
+    },
+    {
+      "name": "mobile no game horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "mobile game autosaved",
+      "pass": true
+    },
+    {
+      "name": "mobile reload offers continuation",
+      "pass": true
+    },
+    {
+      "name": "mobile saved game resumes",
+      "pass": true
+    },
+    {
+      "name": "mobile game audio initialized",
+      "pass": true
+    },
+    {
+      "name": "mobile portfolio stays open",
+      "pass": true
+    },
+    {
+      "name": "no JavaScript errors",
+      "pass": true
+    },
+    {
+      "name": "no failed resources",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "failedResources": []
+}
