@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const read=name=>JSON.parse(readFileSync(resolve(root,'src/data',name),'utf8'));
@@ -15,10 +15,12 @@ export function renderToiletProjects() {
     const base=item.source==='resume'?profile.projects.find(p=>p.id===item.sourceId):item.source==='product'?products.find(p=>p.id===item.sourceId):item;
     if(!base||ids.has(item.id)||!item.label||!base.tech?.length)throw new Error(`项目集配置无效：${item.id}`);
     ids.add(item.id);
+    const localDemo=item.source==='custom'&&Boolean(item.entryUrl);
+    if(localDemo&&(!/^\.\/games\/(?:[a-z0-9][a-z0-9.-]*\/)+$/.test(item.entryUrl)||!item.entryLabel?.trim()||!existsSync(resolve(root,item.entryUrl,'index.html'))))throw new Error(`游戏试玩入口无效：${item.id}`);
     const project={...base,...item,description:base.description||base.problem};
-    project.actionUrl=item.actionUrl||(item.source==='product'&&profile.verifiedDemoIds.includes(base.id)?base.entryUrl:null);
-    project.actionLabel=item.actionLabel||'直达网站';
-    if(project.actionUrl&&!/^https:\/\//.test(project.actionUrl))throw new Error(`项目入口必须使用 HTTPS：${item.id}`);
+    project.actionUrl=item.actionUrl||(localDemo?item.entryUrl:item.source==='product'&&profile.verifiedDemoIds.includes(base.id)?base.entryUrl:null);
+    project.actionLabel=item.actionLabel||(localDemo?item.entryLabel.replace(/\s*↗$/,''):'直达网站');
+    if(project.actionUrl&&!localDemo&&!/^https:\/\//.test(project.actionUrl))throw new Error(`项目入口必须使用 HTTPS：${item.id}`);
     if(item.source==='product'&&!item.name)project.name=base.name;
     return project;
   });

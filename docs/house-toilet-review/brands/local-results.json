@@ -119,6 +119,24 @@
       "pass": true
     },
     {
+      "name": "desktop krusty-krab selected",
+      "pass": true
+    },
+    {
+      "name": "desktop krusty-krab icon",
+      "pass": true
+    },
+    {
+      "name": "desktop krusty-krab display name",
+      "pass": true
+    },
+    {
+      "name": "desktop krusty-krab direct button opens tab",
+      "pass": true,
+      "url": "http://127.0.0.1:8799/games/krusty-krab/0.3.5/",
+      "expected": "http://127.0.0.1:8799/games/krusty-krab/0.3.5/"
+    },
+    {
       "name": "desktop Skill Packer has no fake link",
       "pass": true
     },
@@ -249,6 +267,24 @@
     {
       "name": "mobile cli-list screenshots only",
       "pass": true
+    },
+    {
+      "name": "mobile krusty-krab selected",
+      "pass": true
+    },
+    {
+      "name": "mobile krusty-krab icon",
+      "pass": true
+    },
+    {
+      "name": "mobile krusty-krab display name",
+      "pass": true
+    },
+    {
+      "name": "mobile krusty-krab direct button opens tab",
+      "pass": true,
+      "url": "http://127.0.0.1:8799/games/krusty-krab/0.3.5/",
+      "expected": "http://127.0.0.1:8799/games/krusty-krab/0.3.5/"
     },
     {
       "name": "mobile Skill Packer has no fake link",

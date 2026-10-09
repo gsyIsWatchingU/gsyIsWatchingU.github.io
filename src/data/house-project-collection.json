@@ -96,5 +96,36 @@
     "source": "product",
     "sourceId": "cli-list",
     "screenshotOnly": true
+  },
+  {
+    "id": "krusty-krab",
+    "label": "罪恶蟹湖",
+    "source": "custom",
+    "name": "罪恶蟹湖 · 夜班悬疑解谜",
+    "status": "个人游戏 · 试玩 0.3.5",
+    "description": "你是午夜餐厅的新员工。寻找小海的事故证据，解开循环，逃出蟹湖。",
+    "tech": [
+      "Three.js",
+      "WebAudio",
+      "JavaScript",
+      "离线 H5"
+    ],
+    "proofs": [
+      {
+        "label": "空间探索",
+        "text": "第一人称移动与物件调查，串联餐厅、办公室、冷库和厕所线索。"
+      },
+      {
+        "label": "剧情解谜",
+        "text": "收集证据、还原事故，完成逃脱与举报。"
+      },
+      {
+        "label": "随时继续",
+        "text": "自动保存进度，支持键鼠和触控操作。"
+      }
+    ],
+    "entryUrl": "./games/krusty-krab/0.3.5/",
+    "entryLabel": "开始试玩 ↗",
+    "iconText": "🦀"
   }
 ]

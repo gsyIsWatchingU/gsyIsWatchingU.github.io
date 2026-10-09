@@ -1,0 +1,2 @@
+# 已验证的游戏运行产物保留原始字节和空白。
+/games/krusty-krab/** -text -whitespace
