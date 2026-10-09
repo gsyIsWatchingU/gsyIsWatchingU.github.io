@@ -1,5 +1,5 @@
 {
-  "version": "20261009-cat-face1",
+  "version": "20261009-cat-behavior1",
   "status": "review",
   "toiletProjects": {"asset":"toilet","room":"bathroom","anchor":[-1.3,4.1,-0.4]},
   "structure": {"id":"structure","name":"三层房屋结构","url":"assets/house-review/structure.glb"},

@@ -21,6 +21,9 @@ const rooms = new Map(config.rooms.map((room) => [room.id, room]));
 const interactions = new Map(config.interactions.map(item=>[item.id,item]));
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const structureOnly = new URLSearchParams(location.search).has("structure");
+// 截图专用脱敏视图：证书保持展示位置，照片换成不含个人信息的封面。
+const privatePreview = new URLSearchParams(location.search).has("privacy");
+if(privatePreview)document.body.classList.add('privacy-preview');
 const specs = [config.structure, ...(structureOnly ? [] : config.assets)];
 const textureSpecs = structureOnly ? [] : awards.map(a=>({id:`award-${a.id}`,name:a.title,url:a.thumbnail,kind:'texture',award:a}));
 const resourceCount=specs.length+textureSpecs.length;
@@ -166,6 +169,16 @@ if (renderer) {
 
   function loadTexture(spec) {
     return new Promise(resolve=>{
+      if(privatePreview){
+        const cover=document.createElement('canvas');cover.width=512;cover.height=360;
+        const ctx=cover.getContext('2d');ctx.fillStyle='#f8f0d9';ctx.fillRect(0,0,512,360);
+        ctx.strokeStyle='#ad894c';ctx.lineWidth=12;ctx.strokeRect(18,18,476,324);
+        ctx.fillStyle='#53665d';ctx.textAlign='center';ctx.font='bold 48px sans-serif';ctx.fillText('荣誉证书',256,162);
+        ctx.font='28px sans-serif';ctx.fillText('个人信息已隐藏',256,226);
+        const texture=new THREE.CanvasTexture(cover);texture.colorSpace=THREE.SRGBColorSpace;
+        const material=awardMaterials.get(spec.award.id);material.map=texture;material.needsUpdate=true;
+        textureLoaded.add(spec.id);updateLoading();resolve(true);return;
+      }
       new THREE.TextureLoader().load(spec.url,texture=>{
         texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());
         const material=awardMaterials.get(spec.award.id);material.map=texture;material.needsUpdate=true;
@@ -328,7 +341,7 @@ if (renderer) {
     const start=pointerDown;pointerDown=null;
     if(!start || start.id!==event.pointerId || Math.hypot(event.clientX-start.x,event.clientY-start.y)>7 || performance.now()-start.time>650 || !ready) return;
     const hit=pick(event.clientX,event.clientY);
-    if(!activeRoom){if(hit)focusRoom(hit.roomId);return;}
+    if(!activeRoom){if(hit){focusRoom(hit.roomId);if(hit.petId)pet?.react();}return;}
     if(!hit || hit.roomId!==activeRoom)return;
     if(hit.petId)pet?.react();
     else if(hit.contentId)window.dispatchEvent(new CustomEvent('house:content',{detail:{id:hit.contentId,section:interactions.get(hit.contentId).section}}));

@@ -12,3 +12,8 @@
 .house[data-house-view="room"] .house-title,.house[data-house-view="room"] .house-hint,.house[data-house-view="room"] .room-caption>span{display:none}.house[data-house-state="loading"] .room-labels,.house[data-house-state="error"] .room-labels{display:none}
 @media(max-width:600px){.house-title{top:20px;left:20px}.house-title p{font-size:10px;margin-bottom:6px}.house-title h1{font-size:21px}.room-caption{top:20px;left:20px}.room-caption h2{font-size:24px}.room-label{font-size:10px;padding:3px 5px}.house-hint{font-size:10px;bottom:max(16px,env(safe-area-inset-bottom))}.review-note{font-size:9px}.house-loading{bottom:70px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+
+.pet-greeting{position:absolute;z-index:8;transform:translate(-50%,-100%);pointer-events:none;padding:8px 15px;background:#fff4cc;border:2px solid #ab8241;border-radius:18px 18px 18px 4px;color:#665029;font-size:19px;font-family:HouseHand,"KaiTi",serif;box-shadow:2px 3px 0 rgba(119,86,36,.16)}
+.privacy-preview .profile-brand,.privacy-preview [data-resume-open]{visibility:hidden}
+.privacy-preview .profile-contact,.privacy-preview .profile-overview,.privacy-preview .profile-footer,.privacy-preview .education-timeline,.privacy-preview [data-award-original],.privacy-preview [data-award-link]{display:none!important}
+.privacy-preview .resume-header h2{font-size:0}.privacy-preview .resume-header h2::after{content:"网页内容";font-size:20px}

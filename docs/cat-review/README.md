@@ -15,3 +15,5 @@
 本轮修正：脸部权重原来混入躯干，重做为头部整体蒙皮，仅脖子过渡；头部枢轴移到颈根，并限制歪头幅度。8319 个面部顶点、799 对距离及颈部拉伸检查通过，见 face-results.json、face-desktop.png、face-mobile.png；旧行走截图保留为上一版证据。
 
 复测：node scripts/verify-house-pet-face.mjs、node scripts/verify-house-pet.mjs、npm run build、npm run check。
+
+最新行为：闲逛、趴下及点击看向当前镜头。见 [动作记录](behavior-review.md)；菠萝屋九图见 [建模与交互](../house-gallery-review/index.html)。

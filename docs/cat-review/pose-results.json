@@ -3,8 +3,9 @@
   "durationSeconds": 240,
   "states": [
     "idle",
+    "settling",
     "walk",
-    "settling"
+    "lie"
   ],
   "positionRanges": [
     [
@@ -12,7 +13,7 @@
       0.86308
     ],
     [
-      -0.0015,
+      -0.1265,
       0.0015
     ],
     [
@@ -20,14 +21,24 @@
       2.09028
     ]
   ],
-  "minimumFootHeight": 0.00017129046106792206,
-  "maximumSampledEdgeStretch": 1.675450620741411,
-  "maximumIKError": 6.772525036023268e-8,
-  "maximumStanceSlip": 1.0274204714458987e-9,
-  "maximumToeSlip": 3.971182433493657e-8,
+  "minimumFootHeight": 0.00017123777752725555,
+  "maximumSampledEdgeStretch": 1.7784246382248927,
+  "maximumIKError": 6.777911209048894e-8,
+  "maximumStanceSlip": 1.029671346749053e-9,
+  "maximumToeSlip": 3.946709968123189e-8,
   "toeVertexSamples": 572,
+  "maximumTurnIKError": 6.482647917352913e-8,
+  "maximumTurnStretch": 1.6949309023215156,
+  "turningFrames": 1042,
+  "lookedFromLie": true,
   "pause": true,
   "clickResponse": true,
+  "facingCameraInFourQuadrants": [
+    1,
+    1,
+    1,
+    1
+  ],
   "reducedMotion": true,
   "runtimeSHA": "75b50e76c18f13d60af43e8f093e5b65bb3deeafde869b8624144d609add084a"
 }

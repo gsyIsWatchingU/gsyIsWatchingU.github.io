@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-10",
+  "status": "review",
+  "source": "本地工作区完整菠萝屋；包含同时进行的其他房间修改",
+  "url": "http://127.0.0.1:8769/pineapple-house.html?privacy=1",
+  "viewport": [
+    1440,
+    900
+  ],
+  "privacy": [
+    "隐藏个人标识与简历入口",
+    "证书照片替换为脱敏封面",
+    "未打开个人简历或证书原图"
+  ],
+  "images": [
+    {
+      "file": "01-whole.jpg",
+      "caption": "全屋剖面",
+      "sha256": "d45ad4526ae681793fc3dd8882bbcd63910ae709e27ec16640028ab438d30bcb"
+    },
+    {
+      "file": "02-living.jpg",
+      "caption": "客厅",
+      "sha256": "bc04cbe877e0258851abbfbb08ac2c49a6e3255760d0cdc8bc394f90a492437f"
+    },
+    {
+      "file": "03-music.jpg",
+      "caption": "音箱交互",
+      "sha256": "8ddc3d4e77cacf34b02c61094f7375a9843bf03cc886ce465331d3523d2ac48e"
+    },
+    {
+      "file": "04-storage.jpg",
+      "caption": "储藏室",
+      "sha256": "e0688d6f147779b50c47b12a50cf192f1462f50d6ad70078ac8c44c0fd593aad"
+    },
+    {
+      "file": "05-bathroom.jpg",
+      "caption": "浴室",
+      "sha256": "2477f134b370bd5c818d29279dc64b3fef223fce80f53215781d8f3895ca62a8"
+    },
+    {
+      "file": "06-projects.jpg",
+      "caption": "马桶弹出交互",
+      "sha256": "8530ac405bb709e4ea186bbf165a040ed6c6580b9d9c8cc13e5a81291772024a"
+    },
+    {
+      "file": "07-bedroom.jpg",
+      "caption": "卧室",
+      "sha256": "48a75d576c21a62fd35d6b847589bed0d6308446d6f028c739088b9063331240"
+    },
+    {
+      "file": "08-library.jpg",
+      "caption": "图书馆",
+      "sha256": "04ab9182056a8a1fc651b95fcac19d846d5b2f6aada0ac081f0a02613fcf89b9"
+    },
+    {
+      "file": "09-roof.jpg",
+      "caption": "屋顶花园",
+      "sha256": "a31401c203e5b42eace12ec7514f60e8d6d0cd077babd2e94d42c2feebeafeef"
+    }
+  ],
+  "sourceHashes": {
+    "scripts/house-pet.js": "56035d338be123559fc3ee45eccea8822da3d19779f9b67ad16a526036eaa86a",
+    "scripts/pineapple-house.js": "e0cde2a6965fbb79eaa4dda5ce100cebe65ed1a963c1cd6748a6298677a0917e",
+    "src/data/pineapple-house.json": "fdd7578d10f72e5eb0ba282f398070390e400a1a5624d67a94ebd0c1114ec411",
+    "assets/pineapple-house.js": "54f401bb182d5f06982f69785e841f2b9c050d77b2faba4c89be26555a638747",
+    "assets/house-review/structure.glb": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
+    "assets/house-review/props/siamese-cat.glb": "75b50e76c18f13d60af43e8f093e5b65bb3deeafde869b8624144d609add084a"
+  }
+}
