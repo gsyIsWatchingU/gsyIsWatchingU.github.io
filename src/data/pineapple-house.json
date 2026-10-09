@@ -1,6 +1,7 @@
 {
   "version": "20261009-review5",
   "status": "review",
+  "toiletProjects": {"asset":"toilet","room":"bathroom","anchor":[-1.3,4.1,-0.4]},
   "structure": {"id":"structure","name":"三层房屋结构","url":"assets/house-review/structure.glb"},
   "rooms": [
     {"id":"living","name":"客厅","floor":"一层","level":0,"label":[0,0.5,2.75],"bounds":[[-2.5,0,-2.5],[2.2,2.9,2.8]],"target":[0,1.25,0],"camera":[0,2.25,8.6]},

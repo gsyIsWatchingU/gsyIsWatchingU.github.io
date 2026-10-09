@@ -3,6 +3,7 @@ import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildSync } from "esbuild";
 import { renderHouseProfile } from "./house-profile-build.mjs";
+import { renderToiletProjects } from "./house-toilet-projects-build.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(projectRoot, "src");
@@ -38,6 +39,7 @@ bundle(join(projectRoot, "scripts", "galaxy.js"), galaxyOutput);
 bundle(join(projectRoot, "scripts", "room3d.js"), room3dOutput);
 bundle(join(projectRoot, "scripts", "pineapple-house.js"), join(projectRoot, "assets", "pineapple-house.js"));
 bundle(join(projectRoot, "scripts", "house-profile.js"), join(projectRoot, "assets", "house-profile.js"));
+bundle(join(projectRoot, "scripts", "house-toilet-projects.js"), join(projectRoot, "assets", "house-toilet-projects.js"));
 
 const escapeHtml = (value) =>
   String(value)
@@ -343,6 +345,7 @@ const render = (content, parents = []) => {
   });
   return withIncludes
     .replace(/<!-- @house-profile -->/g, renderHouseProfile)
+    .replace(/<!-- @house-toilet-projects -->/g, renderToiletProjects)
     .replace(projectOverviewPattern, renderProjectOverview)
     .replace(projectArchivePattern, renderProjectArchive)
     .replace(projectDetailPattern, (_, projectId) => renderProjectDetail(projectId))

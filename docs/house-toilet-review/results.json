@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-09",
+  "desktop": [
+    1440,
+    900
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "tests": [
+    {
+      "case": "clean-first-screen",
+      "pass": true
+    },
+    {
+      "case": "bathroom-entry-explores-only",
+      "pass": true
+    },
+    {
+      "case": "physical-toilet-burst-and-seven-cards",
+      "pass": true
+    },
+    {
+      "case": "resume-filter-two",
+      "pass": true
+    },
+    {
+      "case": "etms-detail-and-clean-return-bathroom",
+      "pass": true
+    },
+    {
+      "case": "personal-five-demo-three",
+      "pass": true
+    },
+    {
+      "case": "layered-escape-and-fast-cleanup",
+      "pass": true
+    },
+    {
+      "case": "mobile-390x844-physical-click-reading-filter-clean-no-overflow",
+      "pass": true
+    },
+    {
+      "case": "desktop-1440x900-skip-and-clean",
+      "pass": true
+    },
+    {
+      "case": "model-resource-failure-resume-remains-available",
+      "pass": true
+    },
+    {
+      "case": "scoped-preview-latest-build-and-burst-clean-timers-cancelled",
+      "pass": true
+    }
+  ],
+  "notes": [
+    "手机为浏览器视口模拟，未验证实机双指。",
+    "主预览页并行设备资源未齐时，履历兜底可用；本任务已构建独立校验快照并在浏览器验证。",
+    "独立快照预览：http://127.0.0.1:8769/tmp/toilet-scoped-check/pineapple-house.html"
+  ]
+}
