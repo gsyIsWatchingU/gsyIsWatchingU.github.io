@@ -1,0 +1,161 @@
+{
+  "commit": "44dcfc9612ee46797ae500043d465aaa8fc81ab7",
+  "runId": 37961112111,
+  "runUrl": "https://github.com/gsyIsWatchingU/gsyIsWatchingU.github.io/actions/runs/37961112111",
+  "conclusion": "success",
+  "url": "https://gsyiswatchingu.github.io/",
+  "checkedAt": "2026-10-09T16:44:02.732Z",
+  "resources": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 35664,
+      "sha256": "75cb3116905bf9ab86f4bdb50c192e805e315d5ae21877abb100d7118ec4fbb5"
+    },
+    {
+      "file": "pineapple-house.html",
+      "status": 200,
+      "bytes": 35664,
+      "sha256": "75cb3116905bf9ab86f4bdb50c192e805e315d5ae21877abb100d7118ec4fbb5"
+    },
+    {
+      "file": "assets/pineapple-house.js",
+      "status": 200,
+      "bytes": 709922,
+      "sha256": "54f401bb182d5f06982f69785e841f2b9c050d77b2faba4c89be26555a638747"
+    },
+    {
+      "file": "assets/house-profile.js",
+      "status": 200,
+      "bytes": 9179,
+      "sha256": "ccabb22019b5c65f71571cddc913764091a58f63097df169a83a9f1959da4695"
+    },
+    {
+      "file": "assets/house-toilet-projects.js",
+      "status": 200,
+      "bytes": 36955,
+      "sha256": "1c328c19d6afde736150dd10151ac6bc18f60636f121b82fcc68eed715946f5b"
+    },
+    {
+      "file": "styles/pineapple-house.css",
+      "status": 200,
+      "bytes": 4887,
+      "sha256": "38cad63eb9b739456470688af2a78514386053de0c33d2fcc615febdef7e1a00"
+    },
+    {
+      "file": "styles/house-profile.css",
+      "status": 200,
+      "bytes": 22204,
+      "sha256": "8e0043afd5e9381ffe3e044e4ba6fb44141def65c2249434e9739419506be4bc"
+    },
+    {
+      "file": "styles/house-controls.css",
+      "status": 200,
+      "bytes": 3625,
+      "sha256": "39552a9a780836dc6591595653f9e143a2aa17967d7d7b6f89aa32c45e0371d0"
+    },
+    {
+      "file": "styles/house-music.css",
+      "status": 200,
+      "bytes": 2358,
+      "sha256": "1788fa09a3abdbe3a261c7832f4dcd6baac0054290bfbf3124ae2d68e153521b"
+    },
+    {
+      "file": "assets/house-review/structure.glb",
+      "status": 200,
+      "bytes": 12732172,
+      "sha256": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2"
+    },
+    {
+      "file": "assets/house-review/props/chair.glb",
+      "status": 200,
+      "bytes": 1029904,
+      "sha256": "71911bc18f487c26e27b26236ab189e7f040271e1861812d286deff5f36b0762"
+    },
+    {
+      "file": "assets/house-review/props/couch.glb",
+      "status": 200,
+      "bytes": 1099432,
+      "sha256": "2e6de56f3409274f268fa6f6b4c7f43a13c2cfb0b558c3a7fbba42397d86d07c"
+    },
+    {
+      "file": "assets/house-review/props/table-speaker-base.glb",
+      "status": 200,
+      "bytes": 337052,
+      "sha256": "1b8be2e0d2052f7c03d1f930bacea475ca20ded3943ef9df741e71d0307ad774"
+    },
+    {
+      "file": "assets/house-review/props/speaker.glb",
+      "status": 200,
+      "bytes": 4279792,
+      "sha256": "fb83bc6a3073902bae103ba94394984087ff79afd6c8d6ab281f36e873661789"
+    },
+    {
+      "file": "assets/house-review/props/laptop.glb",
+      "status": 200,
+      "bytes": 3616976,
+      "sha256": "def0adb716d900664d56fa9000d8b72423b8950c4b743b8c8197204d91da4a70"
+    },
+    {
+      "file": "assets/house-review/props/siamese-cat.glb",
+      "status": 200,
+      "bytes": 2991828,
+      "sha256": "75b50e76c18f13d60af43e8f093e5b65bb3deeafde869b8624144d609add084a"
+    },
+    {
+      "file": "assets/house-review/props/treasure.glb",
+      "status": 200,
+      "bytes": 1902612,
+      "sha256": "ff8e998420b543d01a3f0468577239906da34033e47eb6046a7152cfae21f355"
+    },
+    {
+      "file": "assets/house-review/props/bathtub.glb",
+      "status": 200,
+      "bytes": 487724,
+      "sha256": "eb93911c6962c9b2d6b7732bb4a18125ce683dca16dc0c03e98e34df98dd7fb2"
+    },
+    {
+      "file": "assets/house-review/props/sink.glb",
+      "status": 200,
+      "bytes": 513472,
+      "sha256": "fd545ee2c0c0b42976d17e4a7fb80350298f8b51ce8a820483257cbe96dcd978"
+    },
+    {
+      "file": "assets/house-review/props/toilet.glb",
+      "status": 200,
+      "bytes": 743288,
+      "sha256": "f238b940f170442fbf4d5fe78c354a70cc2901160b9b81e7a439a0f6a871af28"
+    },
+    {
+      "file": "assets/house-review/props/bed.glb",
+      "status": 200,
+      "bytes": 2929196,
+      "sha256": "3f8c79fc6ab0536b19a0c8e5d7c8562beb41d111260027a8293b7d7076820d36"
+    },
+    {
+      "file": "assets/house-review/props/barrel.glb",
+      "status": 200,
+      "bytes": 914248,
+      "sha256": "f1f1b8eaec76fe7b7210b0ae8c6fb94e3b6e621ada3b4a08ea32561a6efafad0"
+    },
+    {
+      "file": "assets/house-review/props/chest.glb",
+      "status": 200,
+      "bytes": 644904,
+      "sha256": "b118e39a50e0ac7ed5558815f00601db94370114b0d80b60834ce4efb170bf68"
+    },
+    {
+      "file": "assets/house-review/props/lounger.glb",
+      "status": 200,
+      "bytes": 733944,
+      "sha256": "ded9baa23a5932c436748490c6c04cbf756d5596d6bef4df55818c0111e99d25"
+    },
+    {
+      "file": "assets/house-profile/resume.pdf",
+      "status": 200,
+      "bytes": 371992,
+      "sha256": "eb19d6597e8245ebad9bb54f996bb3597022131f53f44fd2144b30b4474e77da"
+    }
+  ],
+  "success": true
+}

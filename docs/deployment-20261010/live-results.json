@@ -1,0 +1,254 @@
+{
+  "mode": "live",
+  "url": "https://gsyiswatchingu.github.io/",
+  "checks": [
+    {
+      "name": "desktop all models loaded",
+      "pass": true
+    },
+    {
+      "name": "desktop initial whole view",
+      "pass": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "desktop resume opens",
+      "pass": true
+    },
+    {
+      "name": "desktop resume closes",
+      "pass": true
+    },
+    {
+      "name": "desktop living focus",
+      "pass": true
+    },
+    {
+      "name": "desktop storage focus",
+      "pass": true
+    },
+    {
+      "name": "desktop bathroom focus",
+      "pass": true
+    },
+    {
+      "name": "desktop bedroom focus",
+      "pass": true
+    },
+    {
+      "name": "desktop library focus",
+      "pass": true
+    },
+    {
+      "name": "desktop roof focus",
+      "pass": true
+    },
+    {
+      "name": "desktop skills book opens skills",
+      "pass": true
+    },
+    {
+      "name": "desktop close keeps library",
+      "pass": true
+    },
+    {
+      "name": "mobile all models loaded",
+      "pass": true
+    },
+    {
+      "name": "mobile initial whole view",
+      "pass": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "mobile resume opens",
+      "pass": true
+    },
+    {
+      "name": "mobile resume closes",
+      "pass": true
+    },
+    {
+      "name": "mobile living focus",
+      "pass": true
+    },
+    {
+      "name": "mobile storage focus",
+      "pass": true
+    },
+    {
+      "name": "mobile bathroom focus",
+      "pass": true
+    },
+    {
+      "name": "mobile bedroom focus",
+      "pass": true
+    },
+    {
+      "name": "mobile library focus",
+      "pass": true
+    },
+    {
+      "name": "mobile roof focus",
+      "pass": true
+    },
+    {
+      "name": "mobile skills book opens skills",
+      "pass": true
+    },
+    {
+      "name": "mobile close keeps library",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "screenshots": [
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\deployment-20261010\\live-desktop-whole.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\deployment-20261010\\live-desktop-resume.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\deployment-20261010\\live-mobile-whole.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\deployment-20261010\\live-mobile-resume.png"
+  ],
+  "snapshot": {
+    "state": "ready",
+    "view": "whole",
+    "loaded": [
+      "chair",
+      "sink",
+      "table",
+      "barrel",
+      "couch",
+      "toilet",
+      "chest",
+      "lounger",
+      "treasure",
+      "bathtub",
+      "structure",
+      "bed",
+      "siamese-cat",
+      "laptop",
+      "bluetooth-speaker"
+    ],
+    "failed": [],
+    "fps": 60,
+    "renderer": {
+      "frame": 589,
+      "calls": 267,
+      "triangles": 783024,
+      "points": 0,
+      "lines": 8
+    },
+    "camera": [
+      4.41531938197212,
+      8.493736729415438,
+      25.55411519206926
+    ],
+    "target": [
+      1.8331222710122894,
+      5.7321065825551,
+      0
+    ],
+    "pet": {
+      "state": "idle",
+      "position": [
+        -1.55,
+        -0.00146,
+        1.6
+      ],
+      "yaw": -0.45128,
+      "steps": 0,
+      "reactions": 0,
+      "reducedMotion": false,
+      "bones": 17,
+      "crouch": 0,
+      "facingCamera": 0.77845,
+      "head": [
+        0.000023244867852092995,
+        0.01052456285345086,
+        0.0022085025351591177,
+        0.9999421761046847
+      ],
+      "tail": [
+        0.07240919643908551,
+        -0.04174505325407428,
+        0.021563268627771654,
+        0.9962676878587912
+      ],
+      "feet": [
+        {
+          "name": "back_r",
+          "swing": false,
+          "phase": 0,
+          "contacts": 0,
+          "target": [
+            -1.339215610155427,
+            0.06499998312687846,
+            1.3521831734427003
+          ],
+          "actual": [
+            -1.3392156166875595,
+            0.0649999963950767,
+            1.3521831869213328
+          ]
+        },
+        {
+          "name": "front_r",
+          "swing": false,
+          "phase": 0.75,
+          "contacts": 0,
+          "target": [
+            -1.5677872157677089,
+            0.06499991950745079,
+            1.775235324302401
+          ],
+          "actual": [
+            -1.5677872329897977,
+            0.06499995719166804,
+            1.775235351297044
+          ]
+        },
+        {
+          "name": "back_l",
+          "swing": false,
+          "phase": 0.5,
+          "contacts": 0,
+          "target": [
+            -1.54185683758933,
+            0.06500000763557343,
+            1.2927806474296994
+          ],
+          "actual": [
+            -1.5418568406297595,
+            0.06500003444288693,
+            1.2927806537034283
+          ]
+        },
+        {
+          "name": "front_l",
+          "swing": false,
+          "phase": 0.25,
+          "contacts": 0,
+          "target": [
+            -1.7221211454520446,
+            0.06499990438715211,
+            1.713335330203667
+          ],
+          "actual": [
+            -1.7221211600717699,
+            0.06499993897480796,
+            1.7133353603705295
+          ]
+        }
+      ]
+    },
+    "status": "review",
+    "structureOnly": false
+  },
+  "success": true
+}
