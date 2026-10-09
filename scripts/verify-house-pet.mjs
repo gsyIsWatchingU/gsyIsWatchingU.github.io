@@ -24,7 +24,8 @@ const model = asset.scene; model.position.fromArray(spec.position); model.update
 const meshes = []; model.traverse(n => { if (n.isSkinnedMesh) meshes.push(n); });
 assert(meshes.length > 0, "宠物必须使用真实蒙皮网格");
 const camera = new THREE.PerspectiveCamera(34, 1.5); camera.position.set(0, 2, 8); camera.lookAt(0, .5, 0); camera.updateMatrixWorld();
-const options = { root: { dataset: {} }, canvas: { getBoundingClientRect: () => ({ left: 0, top: 0, width: 1280, height: 720 }) }, camera, reducedMotion: false };
+globalThis.document={createElement:()=>({style:{},setAttribute(){},hidden:true})};
+const options = { root: { dataset: {},append(){},getBoundingClientRect:()=>({left:0,top:0}) }, canvas: { getBoundingClientRect: () => ({ left: 0, top: 0, width: 1280, height: 720 }) }, camera, reducedMotion: false };
 const pet = createHousePet(model, spec, options);
 const states = new Set(), ranges = [[Infinity, -Infinity], [Infinity, -Infinity], [Infinity, -Infinity]];
 let minimumFootHeight = Infinity, maximumStretch = 0, maximumIKError = 0, maximumStanceSlip = 0;

@@ -43,6 +43,8 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
   function resetBones() { for (const {node,quaternion} of bones.values()) node.quaternion.copy(quaternion); }
   function pose(name,x=0,y=0,z=0) {
     const bone=bones.get(name);if(!bone)return;
+    // 面部整体随头骨转动，限制颈关节角度，避免大幅转头拉扯胸毛。
+    if(name==="pet_head"){x=THREE.MathUtils.clamp(x,-.07,.07);y=THREE.MathUtils.clamp(y,-.36,.36);z=THREE.MathUtils.clamp(z,-.19,.19); }
     bone.node.rotateX(x);bone.node.rotateY(y);bone.node.rotateZ(z);
   }
   function aim(bone,target) {

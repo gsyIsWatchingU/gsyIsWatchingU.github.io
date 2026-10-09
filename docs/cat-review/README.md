@@ -12,4 +12,6 @@
 
 步序依据：[猫的四足行走研究](https://pmc.ncbi.nlm.nih.gov/articles/PMC4044364/)。
 
-复测：node scripts/verify-house-pet.mjs、npm run build、npm run check。
+本轮修正：脸部权重原来混入躯干，重做为头部整体蒙皮，仅脖子过渡；头部枢轴移到颈根，并限制歪头幅度。8319 个面部顶点、799 对距离及颈部拉伸检查通过，见 face-results.json、face-desktop.png、face-mobile.png；旧行走截图保留为上一版证据。
+
+复测：node scripts/verify-house-pet-face.mjs、node scripts/verify-house-pet.mjs、npm run build、npm run check。

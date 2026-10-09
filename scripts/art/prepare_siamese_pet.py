@@ -38,7 +38,7 @@ def bone(name,head,tail,parent=None):
     positions[name]=list(head);return b
 bone('pet_root',(0,0,.02),(0,0,.1))
 bone('pet_chest',(0,front_y,.38),(0,front_y,.45),'pet_root')
-bone('pet_head',(0,front_y-.015,.48),(0,front_y-.015,.57),'pet_root')
+bone('pet_head',(0,front_y+.02,.43),(0,front_y+.02,.53),'pet_root')
 # 尾巴位于后臀正上方，连续链减少根部折角。
 bone('pet_tail',(0,back_y+.11,.43),(0,back_y+.16,.58),'pet_root')
 bone('pet_tail_tip',(0,back_y+.16,.58),(0,back_y+.19,.75),'pet_tail')
@@ -61,7 +61,9 @@ for o in meshes:
         x,y,z=v.co;weights={}
         tail=smooth(back_y+.085,back_y+.18,y)*smooth(.35,.47,z)
         tip=smooth(.55,.67,z);weights['pet_tail']=tail*(1-tip);weights['pet_tail_tip']=tail*tip
-        head=smooth(.44,.53,z)*(1-smooth(front_y+.055,front_y+.15,y))*(1-tail);weights['pet_head']=head
+        # 脸、眼、下颌和胡须整体归头骨；仅颈部斜面过渡，避免脸内混入躯干。
+        head=smooth(.29,.415,z-.6*(y-front_y))*(1-smooth(front_y+.20,front_y+.32,y))*(1-tail)
+        weights['pet_head']=head
         nearest=min(feet,key=lambda name:(x-feet[name].x)**2+(y-feet[name].y)**2)
         f=feet[nearest];distance=math.hypot(x-f.x,y-f.y)
         middle_x=sum(v.x for v in (back if nearest.startswith('back') else front))/2
@@ -87,5 +89,5 @@ path=output/'siamese-cat.glb';bpy.ops.object.select_all(action='DESELECT');rig.s
 for o in meshes:o.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(path),export_format='GLB',export_yup=True,use_selection=True,export_extras=True,export_animations=False)
 p=[v.co for o in meshes for v in o.data.vertices];dims=[max(v[i] for v in p)-min(v[i] for v in p) for i in range(3)]
-record={'status':'review','humanReview':'pending','meshBackend':'Hunyuan3D-2.1','sourceSha256':hashlib.sha256(source.read_bytes()).hexdigest(),'runtimeSha256':hashlib.sha256(path.read_bytes()).hexdigest(),'dimensionsYUp':[dims[0],dims[2],dims[1]],'triangles':sum(sum(len(p.vertices)-2 for p in o.data.polygons) for o in meshes),'bones':len(positions),'maxWeights':4,'weightedVertices':counts,'feetBlender':{n:list(v) for n,v in feet.items()},'animation':'Four beat walk; stance anchors; two bone IK; ground oriented paws; head and tail idle','repairs':['uniform scale 0.85m','canonical forward +Z','preserve GPU mesh and UV','separate upper/lower/paw chains for four legs','texture <=1024']}
+record={'status':'review','humanReview':'pending','meshBackend':'Hunyuan3D-2.1','sourceSha256':hashlib.sha256(source.read_bytes()).hexdigest(),'runtimeSha256':hashlib.sha256(path.read_bytes()).hexdigest(),'dimensionsYUp':[dims[0],dims[2],dims[1]],'triangles':sum(sum(len(p.vertices)-2 for p in o.data.polygons) for o in meshes),'bones':len(positions),'maxWeights':4,'weightedVertices':counts,'feetBlender':{n:list(v) for n,v in feet.items()},'animation':'Four beat walk; stance anchors; two bone IK; ground oriented paws; head and tail idle','repairs':['uniform scale 0.85m','canonical forward +Z','preserve GPU mesh and UV','separate upper/lower/paw chains for four legs','texture <=1024','rigid face weighting; blend only at sloped neck; head pivot at neck base']}
 (output/'runtime.json').write_text(json.dumps(record,indent=2)+'\n');bpy.ops.wm.save_as_mainfile(filepath=str(output/'siamese-cat.blend'));print(json.dumps(record))
