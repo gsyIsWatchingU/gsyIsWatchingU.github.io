@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-09",
+  "url": "http://127.0.0.1:8769/pineapple-house.html?v=20261009-explore2",
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "tests": [
+    {
+      "case": "complete-resume-no-camera-change",
+      "pass": true
+    },
+    {
+      "case": "escape-resume-preserves-whole",
+      "pass": true
+    },
+    {
+      "case": "living-close-preserves-room-camera",
+      "pass": true
+    },
+    {
+      "case": "escape-near-returns-whole",
+      "pass": true
+    },
+    {
+      "case": "room-roof",
+      "pass": true
+    },
+    {
+      "case": "room-library",
+      "pass": true
+    },
+    {
+      "case": "room-bedroom",
+      "pass": true
+    },
+    {
+      "case": "room-storage",
+      "pass": true
+    },
+    {
+      "case": "nested-award-escape-keeps-resume-and-room",
+      "pass": true
+    },
+    {
+      "case": "explore-only-bathroom",
+      "pass": true
+    },
+    {
+      "case": "explore-only-stairs",
+      "pass": true
+    },
+    {
+      "case": "drag-rotation",
+      "pass": true
+    },
+    {
+      "case": "wheel-zoom",
+      "pass": true
+    },
+    {
+      "case": "mobile-bedroom-reading",
+      "pass": true
+    },
+    {
+      "case": "resize-near-does-not-reopen-resume",
+      "pass": true
+    },
+    {
+      "case": "mobile-award-original-zoom",
+      "pass": true
+    },
+    {
+      "case": "refresh-default-clean",
+      "pass": true
+    },
+    {
+      "case": "resource-failure-resume-available",
+      "pass": true,
+      "failureText": "红扶手椅：assets/house-review/props/chair.glb"
+    },
+    {
+      "case": "resource-retry-restores-house",
+      "pass": true
+    },
+    {
+      "case": "webgl-unavailable-readable-resume",
+      "pass": true,
+      "errorText": "浏览器未能启用 WebGL。请检查浏览器的硬件加速设置后重试。"
+    },
+    {
+      "case": "click-book-opens-project-details",
+      "pass": true
+    },
+    {
+      "case": "click-wall-certificate-opens-original",
+      "pass": true,
+      "award": "national-2023"
+    },
+    {
+      "case": "wall-certificate-escape-preserves-room",
+      "pass": true
+    },
+    {
+      "case": "normal-console-clean",
+      "pass": true,
+      "logs": []
+    }
+  ],
+  "mobile": "浏览器尺寸模拟；双指与实机性能待实机复核",
+  "status": "review"
+}

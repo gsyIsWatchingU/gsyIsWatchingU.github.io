@@ -10,46 +10,63 @@ const zoom=dialog.querySelector('[data-award-zoom]');
 const awardById=new Map(awards.map(a=>[a.id,a]));
 const roomSections=new Map(profile.sections.filter(s=>s.room).map(s=>[s.room,s.id]));
 roomSections.set('living','skills');
-let pendingRoom=null, syncing=false, previousFocus=null;
+const resume=document.querySelector('[data-resume-dialog]');
+const entry=document.querySelector('[data-resume-open]');
+let pendingRoom=null, previousFocus=null, resumeFocus=null;
 
-function navigate(id,{camera=true,history=true}={}) {
+function navigate(id) {
   const target=document.getElementById(id);
   if(!target || !reading.contains(target)) return;
   const section=target.closest('.profile-section')?.id || 'overview';
   document.body.dataset.profileSection=section;
   nav.forEach(a=>{if(a.dataset.profileNav===section)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   reading.scrollTo({top:Math.max(0,target.getBoundingClientRect().top-reading.getBoundingClientRect().top+reading.scrollTop-24),behavior:'instant'});
-  if(history) window.history.replaceState(null,'',`#${id}`);
-  if(camera) {
-    pendingRoom=profile.sections.find(s=>s.id===section)?.room ?? null;
-    syncing=true;
-    if(pendingRoom) window.__pineappleHouse?.focusRoom(pendingRoom);
-    else window.__pineappleHouse?.resetView();
-    syncing=false;
+}
+
+function openResume(sectionId='overview') {
+  pendingRoom=null;
+  if(!resume.open) {
+    resumeFocus=document.activeElement;
+    resume.showModal();
+    document.body.dataset.resumeState='open';
+  }
+  navigate(sectionId);
+}
+function closeResume() {
+  pendingRoom=null;
+  if(dialog.open)dialog.close();
+  if(resume.open)resume.close();
+}
+function restoreFocus(element) {
+  if(element instanceof HTMLElement && element.getClientRects().length && !element.closest('[hidden]'))element.focus({preventScroll:true});
+  else {
+    const back=document.querySelector('[data-house-back]');
+    (back.getClientRects().length?back:entry).focus({preventScroll:true});
   }
 }
+entry.addEventListener('click',()=>openResume());
+resume.querySelector('[data-resume-close]').addEventListener('click',closeResume);
+resume.addEventListener('close',()=>{document.body.dataset.resumeState='closed';restoreFocus(resumeFocus);});
+resume.addEventListener('cancel',()=>{pendingRoom=null;});
 document.addEventListener('click',event=>{
   const award=event.target.closest('[data-award-open]');
   if(award) {event.preventDefault();openAward(award.dataset.awardOpen);return;}
-  const link=event.target.closest('[data-profile-nav],[data-profile-evidence],.profile-brand');
-  if(link) {event.preventDefault();navigate(link.dataset.profileNav||link.dataset.profileEvidence||'overview');}
+  const link=event.target.closest('[data-profile-nav],[data-profile-evidence]');
+  if(link) {event.preventDefault();openResume(link.dataset.profileNav||link.dataset.profileEvidence);}
 });
-window.addEventListener('house:room-changed',event=>{
-  if(syncing) return;
-  const section=roomSections.get(event.detail.id);
-  pendingRoom=event.detail.id;
-  if(section) navigate(section,{camera:false});
-  else if(!event.detail.id) navigate('overview',{camera:false});
-});
-window.addEventListener('house:ready',()=>{
-  if(pendingRoom) {syncing=true;window.__pineappleHouse.focusRoom(pendingRoom);syncing=false;}
+window.addEventListener('house:room-changed',event=>{pendingRoom=roomSections.has(event.detail.id)?event.detail.id:null;});
+window.addEventListener('house:camera-settled',event=>{
+  if(pendingRoom && pendingRoom===event.detail.id)openResume(roomSections.get(pendingRoom));
 });
 window.addEventListener('house:award',event=>openAward(event.detail.id));
-window.addEventListener('house:project',event=>navigate(`product-${event.detail.id}`));
-window.addEventListener('hashchange',()=>navigate(location.hash.slice(1)||'overview',{history:false}));
+window.addEventListener('house:project',event=>openResume(`product-${event.detail.id}`));
+window.openResume=openResume;
+window.closeResume=closeResume;
+document.body.dataset.resumeState='closed';
 
 function openAward(id) {
   const a=awardById.get(id);if(!a)return;
+  pendingRoom=null;
   previousFocus=document.activeElement;
   dialog.querySelector('h2').textContent=a.title;
   dialog.querySelector('[data-award-detail]').textContent=a.detail;
@@ -76,10 +93,9 @@ zoom.addEventListener('click',()=>{
   if(!expand){original.style.maxWidth='';original.style.maxHeight='';}
   else {photo.scrollLeft=(photo.scrollWidth-photo.clientWidth)/2;photo.scrollTop=(photo.scrollHeight-photo.clientHeight)/2;}
 });
-dialog.addEventListener('close',()=>previousFocus?.focus({preventScroll:true}));
+dialog.addEventListener('close',()=>restoreFocus(previousFocus));
 dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
+// 原生 dialog 处理 Esc；阻止同一次按键重置背后的房间镜头。
 window.addEventListener('keydown',event=>{
-  if(event.key==='Escape' && dialog.open)event.stopImmediatePropagation();
-  else if(event.key==='Escape')navigate('overview');
+  if(event.key==='Escape' && (dialog.open || resume.open))event.stopImmediatePropagation();
 });
-navigate(location.hash.slice(1)||'overview',{history:false});

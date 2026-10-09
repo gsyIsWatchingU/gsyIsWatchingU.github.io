@@ -203,6 +203,7 @@ if (renderer) {
   function focusRoom(id) {
     const room=rooms.get(id);
     if(!room || !ready || contextLost) return false;
+    const changed=activeRoom!==id;
     activeRoom=id;
     root.dataset.houseView="room";
     caption.hidden=false;
@@ -221,7 +222,7 @@ if (renderer) {
     offset.multiplyScalar(Math.max(1,fit/offset.length()));
     position.copy(target).add(offset);
     tweenCamera(position,target);
-    window.dispatchEvent(new CustomEvent("house:room-changed",{detail:{id}}));
+    if(changed) window.dispatchEvent(new CustomEvent("house:room-changed",{detail:{id}}));
     return true;
   }
 
@@ -241,8 +242,7 @@ if (renderer) {
     const button=document.createElement("button");
     button.type="button";
     button.className="room-label";
-    const topics={living:'技能',storage:'荣誉',library:'项目',bedroom:'学历',roof:'实习'};
-    button.textContent=topics[room.id]?`${room.name} · ${topics[room.id]}`:room.name;
+    button.textContent=room.name;
     button.dataset.houseRoom=room.id;
     button.setAttribute("aria-label",`${room.floor} ${room.name}，进入近景`);
     button.addEventListener("click",() => {if(focusRoom(room.id)) document.querySelector("[data-house-back]").focus({preventScroll:true});});
@@ -253,7 +253,7 @@ if (renderer) {
     const previous=activeRoom;resetView();roomButtons.get(previous)?.focus({preventScroll:true});
   });
   window.addEventListener("keydown",(event) => {
-    if(event.key==="Escape" && activeRoom) { const previous=activeRoom;resetView();roomButtons.get(previous)?.focus({preventScroll:true}); }
+    if(event.key==="Escape" && !event.defaultPrevented && !document.querySelector('dialog[open]') && activeRoom) { const previous=activeRoom;resetView();roomButtons.get(previous)?.focus({preventScroll:true}); }
   });
   controls.addEventListener("start",() => { animation=null;root.dataset.cameraTransition="idle";rotating=true;tooltip.hidden=true; });
   controls.addEventListener("end",() => { rotating=false; });
@@ -416,7 +416,7 @@ if (renderer) {
       const eased=t*t*(3-2*t);
       camera.position.lerpVectors(animation.fromPosition,animation.position,eased);
       controls.target.lerpVectors(animation.fromTarget,animation.target,eased);
-      if(t===1) {animation=null;controls.enabled=true;root.dataset.cameraTransition="idle";}
+      if(t===1) {animation=null;controls.enabled=true;root.dataset.cameraTransition="idle";window.dispatchEvent(new CustomEvent('house:camera-settled',{detail:{id:activeRoom}}));}
     }
     controls.update();
     camera.updateMatrixWorld();
