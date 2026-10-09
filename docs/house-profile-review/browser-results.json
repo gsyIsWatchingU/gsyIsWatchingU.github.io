@@ -1,0 +1,297 @@
+{
+  "desktop": [
+    {
+      "canvas": {
+        "camera": "[0,2.25,8.6]",
+        "engine": "three.js r186",
+        "houseCanvas": "",
+        "target": "[0,1.25,0]"
+      },
+      "height": 900,
+      "house": {
+        "awardDisplays": "11",
+        "cameraTransition": "idle",
+        "failedModels": "0",
+        "failedResources": "0",
+        "failedTextures": "0",
+        "houseState": "ready",
+        "houseView": "room",
+        "loadedModels": "13",
+        "loadedTextures": "11",
+        "projectDisplays": "5"
+      },
+      "room": "客厅",
+      "section": "skills",
+      "width": 1440
+    },
+    {
+      "canvas": {
+        "camera": "[0,12.4,7.9]",
+        "drawCalls": "9",
+        "engine": "three.js r186",
+        "fps": "55.3",
+        "houseCanvas": "",
+        "target": "[0,9.6,0]",
+        "triangles": "36512"
+      },
+      "height": 900,
+      "house": {
+        "awardDisplays": "11",
+        "cameraTransition": "idle",
+        "failedModels": "0",
+        "failedResources": "0",
+        "failedTextures": "0",
+        "houseState": "ready",
+        "houseView": "room",
+        "loadedModels": "13",
+        "loadedTextures": "11",
+        "projectDisplays": "5"
+      },
+      "room": "屋顶花园",
+      "section": "internship",
+      "width": 1440
+    },
+    {
+      "canvas": {
+        "camera": "[4.7,7.1,12.5]",
+        "drawCalls": "9",
+        "engine": "three.js r186",
+        "fps": "55.3",
+        "houseCanvas": "",
+        "target": "[2.7,5.7,0]",
+        "triangles": "36512"
+      },
+      "height": 900,
+      "house": {
+        "awardDisplays": "11",
+        "cameraTransition": "idle",
+        "failedModels": "0",
+        "failedResources": "0",
+        "failedTextures": "0",
+        "houseState": "ready",
+        "houseView": "room",
+        "loadedModels": "13",
+        "loadedTextures": "11",
+        "projectDisplays": "5"
+      },
+      "room": "图书馆",
+      "section": "projects",
+      "width": 1440
+    },
+    {
+      "canvas": {
+        "camera": "[-2.3,8.15,7.6]",
+        "drawCalls": "9",
+        "engine": "three.js r186",
+        "fps": "55.3",
+        "houseCanvas": "",
+        "target": "[-1.2,7.2,0]",
+        "triangles": "36512"
+      },
+      "height": 900,
+      "house": {
+        "awardDisplays": "11",
+        "cameraTransition": "idle",
+        "failedModels": "0",
+        "failedResources": "0",
+        "failedTextures": "0",
+        "houseState": "ready",
+        "houseView": "room",
+        "loadedModels": "13",
+        "loadedTextures": "11",
+        "projectDisplays": "5"
+      },
+      "room": "卧室",
+      "section": "education",
+      "width": 1440
+    },
+    {
+      "canvas": {
+        "camera": "[-4.6,2.2,5.7]",
+        "drawCalls": "19",
+        "engine": "three.js r186",
+        "fps": "60.0",
+        "houseCanvas": "",
+        "target": "[-3.32,1.15,0]",
+        "triangles": "85192"
+      },
+      "height": 900,
+      "house": {
+        "awardDisplays": "11",
+        "cameraTransition": "idle",
+        "failedModels": "0",
+        "failedResources": "0",
+        "failedTextures": "0",
+        "houseState": "ready",
+        "houseView": "room",
+        "loadedModels": "13",
+        "loadedTextures": "11",
+        "projectDisplays": "5"
+      },
+      "room": "储藏室",
+      "section": "honors",
+      "width": 1440
+    },
+    {
+      "canvas": {
+        "camera": "[1.521,8.703,27.649]",
+        "drawCalls": "19",
+        "engine": "three.js r186",
+        "fps": "60.0",
+        "houseCanvas": "",
+        "target": "[0,5.8,0]",
+        "triangles": "85192"
+      },
+      "height": 900,
+      "house": {
+        "awardDisplays": "11",
+        "cameraTransition": "idle",
+        "failedModels": "0",
+        "failedResources": "0",
+        "failedTextures": "0",
+        "houseState": "ready",
+        "houseView": "whole",
+        "loadedModels": "13",
+        "loadedTextures": "11",
+        "projectDisplays": "5"
+      },
+      "room": "储藏室",
+      "section": "overview",
+      "width": 1440
+    }
+  ],
+  "mobile": [
+    {
+      "docWidth": 390,
+      "panelWidth": 380,
+      "room": "客厅",
+      "section": "skills",
+      "width": 390
+    },
+    {
+      "docWidth": 390,
+      "panelWidth": 380,
+      "room": "屋顶花园",
+      "section": "internship",
+      "width": 390
+    },
+    {
+      "docWidth": 390,
+      "panelWidth": 380,
+      "room": "图书馆",
+      "section": "projects",
+      "width": 390
+    },
+    {
+      "docWidth": 390,
+      "panelWidth": 380,
+      "room": "卧室",
+      "section": "education",
+      "width": 390
+    },
+    {
+      "docWidth": 390,
+      "panelWidth": 380,
+      "room": "储藏室",
+      "section": "honors",
+      "width": 390
+    }
+  ],
+  "awards": [
+    {
+      "id": "national-2021",
+      "width": 1080
+    },
+    {
+      "id": "national-2023",
+      "width": 1080
+    },
+    {
+      "id": "math-2022",
+      "width": 1080
+    },
+    {
+      "id": "holtek-2023",
+      "width": 1080
+    },
+    {
+      "id": "mathorcup-2022",
+      "width": 1080
+    },
+    {
+      "id": "scholarship-2022",
+      "width": 1080
+    },
+    {
+      "id": "graduate-2024",
+      "width": 1080
+    },
+    {
+      "id": "merit-2021",
+      "width": 1920
+    },
+    {
+      "id": "merit-2022",
+      "width": 1080
+    },
+    {
+      "id": "league-2021",
+      "width": 1080
+    },
+    {
+      "id": "union-2021",
+      "width": 1080
+    }
+  ],
+  "resourceFailure": {
+    "errors": "红扶手椅：assets/house-review/props/chair.glbMathorCup · 三等奖：./assets/house-profile/mathorcup-2022.jpg",
+    "house": {
+      "awardDisplays": "11",
+      "cameraTransition": "moving",
+      "failedModels": "1",
+      "failedResources": "2",
+      "failedTextures": "1",
+      "houseState": "error",
+      "houseView": "whole",
+      "loadedModels": "12",
+      "loadedTextures": "10",
+      "projectDisplays": "5"
+    },
+    "section": "skills"
+  },
+  "retry": {
+    "house": {
+      "awardDisplays": "11",
+      "cameraTransition": "idle",
+      "failedModels": "0",
+      "failedResources": "0",
+      "failedTextures": "0",
+      "houseState": "ready",
+      "houseView": "room",
+      "loadedModels": "13",
+      "loadedTextures": "11",
+      "projectDisplays": "5"
+    },
+    "room": "客厅",
+    "section": "skills"
+  },
+  "noWebGL": {
+    "error": "浏览器未能启用 WebGL。请检查浏览器的硬件加速设置后重试。",
+    "internship": "字节跳动国际电商 AI 直播 · AI 全栈开发实习",
+    "section": "internship",
+    "state": "error"
+  },
+  "evidence": {
+    "hash": "#internship-agent",
+    "room": "屋顶花园",
+    "section": "internship"
+  },
+  "rotation": {
+    "before": "[1.521,8.703,27.649]",
+    "after": "[18.628,13.603,19.165]"
+  },
+  "wheel": {
+    "before": "[1.521,8.703,27.649]",
+    "after": "[2.502,10.577,45.496]"
+  }
+}

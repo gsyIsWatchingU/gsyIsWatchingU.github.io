@@ -1,0 +1,200 @@
+[
+  {
+    "id": "national-2021",
+    "title": "国家励志奖学金",
+    "detail": "2020—2021 学年",
+    "sourceName": "国家励志奖学金2021.jpg",
+    "sourceSHA256": "a53837456384b6d78a20a7e25bbf9c5ab42c4d29eff23be8e60001d36a9cd930",
+    "thumbnail": "./assets/house-profile/national-2021.jpg",
+    "original": "./assets/house-profile/national-2021-original.jpg",
+    "width": 640,
+    "height": 462,
+    "rotation": 90,
+    "crop": [
+      0.045,
+      0.235,
+      0.97,
+      0.955
+    ]
+  },
+  {
+    "id": "national-2023",
+    "title": "国家励志奖学金",
+    "detail": "2022—2023 学年",
+    "sourceName": "国家励志奖学金2023.jpg",
+    "sourceSHA256": "597f4b90d5cf32ea33160c3d95331d83d57cdd579ffbc3098383625bf32655bc",
+    "thumbnail": "./assets/house-profile/national-2023.jpg",
+    "original": "./assets/house-profile/national-2023-original.jpg",
+    "width": 640,
+    "height": 449,
+    "rotation": 90,
+    "crop": [
+      0.01,
+      0.19,
+      0.99,
+      0.975
+    ]
+  },
+  {
+    "id": "math-2022",
+    "title": "全国大学生数学竞赛 · 一等奖",
+    "detail": "第十四届 · 非数学类",
+    "sourceName": "全国大学生数学竞赛.jpg",
+    "sourceSHA256": "411b2f002172a09df06e6500447ad551604086aa51fdb72d1db623e3ffacbb79",
+    "thumbnail": "./assets/house-profile/math-2022.jpg",
+    "original": "./assets/house-profile/math-2022-original.jpg",
+    "width": 640,
+    "height": 464,
+    "rotation": 90,
+    "crop": [
+      0.01,
+      0.14,
+      0.99,
+      0.9
+    ]
+  },
+  {
+    "id": "holtek-2023",
+    "title": "合泰杯 · 一等奖",
+    "detail": "2023 年单片机应用设计竞赛",
+    "sourceName": "合泰杯2023.jpg",
+    "sourceSHA256": "4e755594fcec2eb7c740d82b38c9e6e05a9e03c2cd44ec3ee629de983187ccc7",
+    "thumbnail": "./assets/house-profile/holtek-2023.jpg",
+    "original": "./assets/house-profile/holtek-2023-original.jpg",
+    "width": 640,
+    "height": 453,
+    "rotation": 90,
+    "crop": [
+      0.03,
+      0.13,
+      0.985,
+      0.89
+    ]
+  },
+  {
+    "id": "mathorcup-2022",
+    "title": "MathorCup · 三等奖",
+    "detail": "2022 年 · 本科生组",
+    "sourceName": "mathorcup高校数模挑战赛.jpg",
+    "sourceSHA256": "f635ea9f270f143fba58d2744922f20927c7cb9b3b05bb1ab0178d13e939443b",
+    "thumbnail": "./assets/house-profile/mathorcup-2022.jpg",
+    "original": "./assets/house-profile/mathorcup-2022-original.jpg",
+    "width": 640,
+    "height": 432,
+    "rotation": 90,
+    "crop": [
+      0.035,
+      0.16,
+      0.97,
+      0.94
+    ]
+  },
+  {
+    "id": "scholarship-2022",
+    "title": "一等奖学金",
+    "detail": "2021—2022 学年",
+    "sourceName": "一等奖学金2022.jpg",
+    "sourceSHA256": "157bd5ae21962e0aa6d4af3977bb261c8899834e0f241acb74deeb0cbf2a517d",
+    "thumbnail": "./assets/house-profile/scholarship-2022.jpg",
+    "original": "./assets/house-profile/scholarship-2022-original.jpg",
+    "width": 451,
+    "height": 640,
+    "rotation": 0,
+    "crop": [
+      0.015,
+      0.11,
+      0.98,
+      0.88
+    ]
+  },
+  {
+    "id": "graduate-2024",
+    "title": "优秀毕业生",
+    "detail": "西南大学 · 2024 年",
+    "sourceName": "优秀毕业生2024.jpg",
+    "sourceSHA256": "2831a13120b0875a395c39bb5c30dbabe3468e58c2aae0a7ae9980274f6d5262",
+    "thumbnail": "./assets/house-profile/graduate-2024.jpg",
+    "original": "./assets/house-profile/graduate-2024-original.jpg",
+    "width": 473,
+    "height": 640,
+    "rotation": 0,
+    "crop": [
+      0.015,
+      0.14,
+      0.98,
+      0.875
+    ]
+  },
+  {
+    "id": "merit-2021",
+    "title": "三好学生",
+    "detail": "2020—2021 学年",
+    "sourceName": "校三好2021.jpg",
+    "sourceSHA256": "ee6d5d7e07ea7be0ed49d146339d6b82d8750f4acf5b0263d2f66c232edb0ade",
+    "thumbnail": "./assets/house-profile/merit-2021.jpg",
+    "original": "./assets/house-profile/merit-2021-original.jpg",
+    "width": 470,
+    "height": 640,
+    "rotation": 90,
+    "crop": [
+      0.055,
+      0.035,
+      0.79,
+      0.995
+    ]
+  },
+  {
+    "id": "merit-2022",
+    "title": "三好学生",
+    "detail": "2021—2022 学年",
+    "sourceName": "校三好2022.jpg",
+    "sourceSHA256": "23f1564ec3411c58db1c1fb5456cd4b9475ac54731889da98cbe4dc45efeaaa6",
+    "thumbnail": "./assets/house-profile/merit-2022.jpg",
+    "original": "./assets/house-profile/merit-2022-original.jpg",
+    "width": 466,
+    "height": 640,
+    "rotation": 0,
+    "crop": [
+      0.015,
+      0.2,
+      0.985,
+      0.95
+    ]
+  },
+  {
+    "id": "league-2021",
+    "title": "优秀共青团员",
+    "detail": "2020 年度 · 西南大学",
+    "sourceName": "优秀共青团员2021.jpg",
+    "sourceSHA256": "d178912952354cdf571f22d99377ca0082f7486ebb557fd9bbcde05dea4e5fb5",
+    "thumbnail": "./assets/house-profile/league-2021.jpg",
+    "original": "./assets/house-profile/league-2021-original.jpg",
+    "width": 640,
+    "height": 449,
+    "rotation": 90,
+    "crop": [
+      0.0,
+      0.145,
+      0.98,
+      0.93
+    ]
+  },
+  {
+    "id": "union-2021",
+    "title": "学生会工作经历 · 聘书",
+    "detail": "院学生会宣传部部长 · 2020.09—2021.06",
+    "sourceName": "学生会2021.jpg",
+    "sourceSHA256": "78c95dc9ffa5835cf130127ecb4f2356718036266658d71f15bb358d1f14d796",
+    "thumbnail": "./assets/house-profile/union-2021.jpg",
+    "original": "./assets/house-profile/union-2021-original.jpg",
+    "width": 640,
+    "height": 425,
+    "rotation": 90,
+    "crop": [
+      0.005,
+      0.11,
+      0.985,
+      0.94
+    ]
+  }
+]

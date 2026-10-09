@@ -2,6 +2,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildSync } from "esbuild";
+import { renderHouseProfile } from "./house-profile-build.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceRoot = join(projectRoot, "src");
@@ -36,6 +37,7 @@ const bundle = (entry, outfile) => {
 bundle(join(projectRoot, "scripts", "galaxy.js"), galaxyOutput);
 bundle(join(projectRoot, "scripts", "room3d.js"), room3dOutput);
 bundle(join(projectRoot, "scripts", "pineapple-house.js"), join(projectRoot, "assets", "pineapple-house.js"));
+bundle(join(projectRoot, "scripts", "house-profile.js"), join(projectRoot, "assets", "house-profile.js"));
 
 const escapeHtml = (value) =>
   String(value)
@@ -340,6 +342,7 @@ const render = (content, parents = []) => {
     return render(fragment, [...parents, includePath]);
   });
   return withIncludes
+    .replace(/<!-- @house-profile -->/g, renderHouseProfile)
     .replace(projectOverviewPattern, renderProjectOverview)
     .replace(projectArchivePattern, renderProjectArchive)
     .replace(projectDetailPattern, (_, projectId) => renderProjectDetail(projectId))

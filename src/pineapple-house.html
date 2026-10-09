@@ -3,20 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="海绵宝宝的三层菠萝屋：探索客厅、浴室、卧室、图书馆与屋顶花园。" />
+    <meta name="description" content="郭书羽的履历小屋：AI 全栈开发、Agent 工程、实习、项目、教育与真实荣誉证书。" />
     <meta name="theme-color" content="#b9dce3" />
     <meta name="robots" content="noindex" />
-    <title>海绵宝宝的菠萝屋 · 三层剖面预览</title>
+    <title>郭书羽的小屋 · AI 全栈 / Agent 工程</title>
     <link rel="icon" href="./favicon.ico" />
-    <link rel="stylesheet" href="./styles/pineapple-house.css?v=20261009-final" />
+    <link rel="stylesheet" href="./styles/pineapple-house.css?v=20261009-profile1" />
+    <link rel="stylesheet" href="./styles/house-profile.css?v=20261009-profile1" />
   </head>
-  <body>
+  <body class="portfolio">
+    <!-- @house-profile -->
     <main class="house" data-house-state="loading" aria-label="海绵宝宝的三层菠萝屋">
       <canvas data-house-canvas aria-label="拖动旋转菠萝屋，滚轮或双指缩放，点击房间进入近景" tabindex="0"></canvas>
       <header class="house-title">
-        <p>比奇堡 · 三层剖面</p>
-        <h1>海绵宝宝的菠萝屋</h1>
-        <span class="review-note">建模预览 · 待审</span>
+        <p>比奇堡 · 点击房间探索履历</p>
+        <h2>欢迎来我的小屋</h2>
+        <span class="review-note">海绵宝宝的菠萝屋</span>
       </header>
       <div class="room-caption" data-house-caption hidden>
         <span data-house-floor></span><h2 data-house-room-name></h2>
@@ -27,7 +29,7 @@
       <section class="house-loading" data-house-loading role="status" aria-live="polite">
         <p data-house-load-text>正在载入菠萝屋</p>
         <progress data-house-progress max="100" value="0" aria-label="模型加载进度"></progress>
-        <span data-house-load-count>0 / 13</span>
+        <span data-house-load-count>正在载入资源</span>
       </section>
       <section class="house-error" data-house-error hidden role="alert">
         <h2>部分模型未能载入</h2>
@@ -38,6 +40,7 @@
       <p class="house-hint" data-house-hint>拖动观察 <i>·</i> 滚轮 / 双指缩放 <i>·</i> 点击房间进入近景</p>
       <noscript><p class="house-error">请开启 JavaScript，才能浏览三维菠萝屋。</p></noscript>
     </main>
-    <script defer src="./assets/pineapple-house.js?v=20261009-review7"></script>
+    <script defer src="./assets/house-profile.js?v=20261009-profile1"></script>
+    <script defer src="./assets/pineapple-house.js?v=20261009-profile1"></script>
   </body>
 </html>

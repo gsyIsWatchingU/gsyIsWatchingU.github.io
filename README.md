@@ -4,9 +4,11 @@
 
 ## 三层菠萝屋预览
 
-独立入口 `pineapple-house.html`：三层剖面、七个房间近景、拖动旋转、滚轮/双指缩放、返回及 Esc。此页不加载个人主页底栏、设备、留言和内容弹层。审核通过后再替换首页。
+独立入口 `pineapple-house.html`：首屏履历摘要、六项直达导航与三层菠萝屋。客厅对应技能、天台对应实习、图书馆对应项目、卧室对应学历、储藏室对应 11 张真实证书。支持房间近景、旋转缩放、返回和 Esc；旧底栏、设备与留言不加载。审核通过后再替换首页。
 
 源码为 `src/pineapple-house.html`、`scripts/pineapple-house.js`、`styles/pineapple-house.css`；房间与镜头统一配置在 `src/data/pineapple-house.json`。制作来源、模型哈希与截图见 [审查记录](docs/house-review/README.md)。
+
+履历内容在 `src/data/house-profile.json`，证书清单在 `src/data/house-awards.json`；构建时生成可直接阅读的 HTML，`scripts/house-profile.js` 独立控制导航与证书查看。新增字体、简历、证书来源和浏览器截图见 [履历小屋记录](docs/house-profile-review/README.md)。
 
 ```powershell
 npm run build

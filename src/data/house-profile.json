@@ -1,0 +1,44 @@
+{
+  "name": "郭书羽",
+  "role": "AI 全栈开发工程师",
+  "direction": "全栈开发 · AI 提效 · Agent 工程",
+  "email": "gsyiswatchingu@163.com",
+  "verifiedDemoIds": ["research-workbench", "algorithm-lab", "write-here"],
+  "unavailableDemoIds": ["skill-dock"],
+  "intro": "把 AI 能力接进真实业务，完成从产品设计、全栈实现到部署与验证的工程闭环。",
+  "highlights": [
+    {"value":"30+", "label":"Agent 问题闭环", "note":"字节实习 · TraceAgent / FixAgent", "target":"internship-agent"},
+    {"value":"1.2W+", "label":"Smart Video PV", "note":"参与开发 · 上线 20 天", "target":"internship-video"},
+    {"value":"20万+", "label":"ETMS 平台累计用户", "note":"项目负责人 · 平台规模", "target":"project-etms"}
+  ],
+  "skills": [
+    {"name":"AI / Agent", "text":"让多步骤任务可恢复、可追踪、可验收。", "tech":["LLM API","Tool Calling / MCP","Context Engineering","DAG / Workflow","Checkpoint","Tracing / Evals"], "evidence":"internship-agent", "evidenceLabel":"TraceAgent / FixAgent 的证据闭环"},
+    {"name":"全栈开发", "text":"打通交互、服务、数据与异步任务。", "tech":["TypeScript","React / Vue","Python / FastAPI","Node.js","SSE / WebSocket","MySQL / PostgreSQL / Redis"], "evidence":"project-etms", "evidenceLabel":"ETMS：直播、支付、社区与考试"},
+    {"name":"工程交付", "text":"把可运行的功能变成稳定的业务能力。", "tech":["Docker / CI/CD","Unit / E2E","Logs / Metrics / Trace","幂等 / 重试","缓存 / 请求去重"], "evidence":"internship-stability", "evidenceLabel":"六个仓库的稳定性治理"}
+  ],
+  "internship": {
+    "company":"字节跳动", "team":"国际电商 AI 直播", "role":"AI 全栈开发实习", "date":"2026.06—2026.09",
+    "cases":[
+      {"id":"internship-agent","name":"Agent Harness","status":"参与开发","problem":"复杂问题跨日志、数据库、代码与部署，需要可核查的定位和修复链路。","work":"自研 TraceAgent / FixAgent；用 DAG 定义依赖与验收条件，Tool Calling 聚合证据，Evidence Gate 决定通过、重试或 Re-plan；加入 Checkpoint、幂等执行与 Badcase 回放。","result":"跟踪 40+ 项问题，闭环 30+ 项，辅助定位 20+ 项；人工复核一致率约 80%。","tech":["Tool Calling","DAG","Evidence Gate","Checkpoint","Trace / Evals"]},
+      {"id":"internship-debug","name":"浏览器调试平台","status":"已上线 · 参与开发","problem":"Header、Mock 与抓包配置难复用，插件重启后规则容易冲突。","work":"Chrome MV3 插件与 FaaS 配合，设计规则编译、稳定 Rule ID、优先级裁决和状态对账，恢复配置并确定冲突规则的生效顺序。","result":"上线 25 天使用 387 次。","tech":["Chrome MV3","FaaS","Rule ID","状态对账"]},
+      {"id":"internship-stability","name":"平台稳定性治理","status":"已上线 · 参与开发","problem":"页面状态耦合、重复请求和币种精度问题影响业务稳定性。","work":"SWR 缓存先渲染、后台更新与请求去重；用 Jotai 按业务域拆分状态，统一币种、千分位和精度处理。","result":"六个仓库累计修复上线 40+ 项。","tech":["SWR","Jotai","缓存","多仓协作"]},
+      {"id":"internship-video","name":"Smart Video","status":"已上线 · 参与开发","problem":"AI 视频生成与存量剪辑都有长耗时异步流程，需要可靠反馈和失败恢复。","work":"统一异步状态机，接入幂等提交、退避轮询、断点续查与重试；完成微前端集成、i18n、埋点与数据看板。","result":"上线 20 天累计 1.2W+ PV。","tech":["异步状态机","微前端","i18n","埋点 / 看板"]}
+    ]
+  },
+  "projects": [
+    {"id":"project-etms","name":"ETMS 教育培训管理平台","status":"参与开发 · 项目负责人","role":"前端开发 / Agent 方案设计","date":"2024.09—2026.05","problem":"全国教师培训需串联直播录播、支付、社区互动与在线考试。","work":"负责项目推进与前端开发；围绕微前端、多渠道支付回调幂等和集中考试并发完成工程设计与实现。","result":"平台累计 20 万+ 用户、日活 1 万+；数字为平台规模。","tech":["微前端","支付幂等","直播 / 录播","在线考试"],"note":"社区治理 Agent 为方案设计：分层规则、模型复核、Policy Engine、人工申诉及幂等审计；Golden Set 与 Recall / 误杀率 / P95 评估属于规划。"},
+    {"id":"project-home","name":"个人技术主页","status":"独立开发","role":"产品设计 / 全栈实现 / 部署运维","date":"2026.03—至今","problem":"让面试官快速了解能力，同时给出可操作的产品与履历证据。","work":"组件源码经 Node 构建，JSON Schema 校验内容；WebGL / Canvas 展示；Worker + D1 留言服务接入限流与轮转 IP HMAC，原始 IP 零存储。","result":"本页提供履历直读、房间探索、项目界面与真实证书；旧主页功能源码保留。","tech":["Three.js","Node.js","JSON Schema","Worker / D1"]}
+  ],
+  "education":[
+    {"school":"华中科技大学","degree":"电子信息 · 硕士","date":"2024.09—2027.06","tag":"985 · 在读"},
+    {"school":"西南大学","degree":"电子信息 · 本科","date":"2020.09—2024.06","tag":"211 · 优秀毕业生"}
+  ],
+  "sections":[
+    {"id":"overview","label":"概览","room":null},
+    {"id":"skills","label":"技能","room":"living"},
+    {"id":"internship","label":"实习","room":"roof"},
+    {"id":"projects","label":"项目","room":"library"},
+    {"id":"education","label":"学历","room":"bedroom"},
+    {"id":"honors","label":"荣誉","room":"storage"}
+  ]
+}

@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, extname, join, resolve } from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const projectManifestPath = join(projectRoot, "src", "data", "projects.json");
@@ -11,8 +12,20 @@ execFileSync(process.execPath, [join(projectRoot, "scripts", "build.mjs")], {
 });
 
 const errors = [];
+const profileSources=JSON.parse(readFileSync(join(projectRoot,"assets/house-profile/sources.json"),"utf8"));
+for(const item of [...profileSources.awards,...profileSources.documents]) {
+  const original=join(projectRoot,item.original??item.url);
+  if(!existsSync(original)) {errors.push(`履历原始资源不存在：${item.sourceName}`);continue;}
+  if(createHash('sha256').update(readFileSync(original)).digest('hex')!==item.sourceSHA256)errors.push(`履历原始资源哈希不一致：${item.sourceName}`);
+  if(item.thumbnail && !existsSync(join(projectRoot,item.thumbnail)))errors.push(`证书缩略图不存在：${item.thumbnail}`);
+}
+const profile=JSON.parse(readFileSync(join(projectRoot,"src/data/house-profile.json"),"utf8"));
 const house = JSON.parse(readFileSync(join(projectRoot, "src/data/pineapple-house.json"), "utf8"));
 const houseRoomIds = new Set(house.rooms.map(room => room.id));
+for(const section of profile.sections)if(section.room && !houseRoomIds.has(section.room))errors.push(`履历房间无效：${section.id}`);
+for(const display of house.displays) {
+  if(!houseRoomIds.has(display.room)||![...display.position,...display.normal,...display.size,display.level].every(Number.isFinite))errors.push(`履历展示件位置无效：${display.id}`);
+}
 if (houseRoomIds.size !== house.rooms.length) errors.push("菠萝屋房间 ID 重复");
 for (const asset of [house.structure, ...house.assets]) {
   if (!existsSync(join(projectRoot, asset.url))) errors.push(`菠萝屋模型不存在：${asset.url}`);
