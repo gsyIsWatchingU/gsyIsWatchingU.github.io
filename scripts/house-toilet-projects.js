@@ -7,7 +7,6 @@ const canvas=document.querySelector('[data-house-canvas]');
 const panel=document.querySelector('[data-toilet-panel]');
 const effects=document.querySelector('[data-toilet-effects]');
 const content=panel.querySelector('[data-toilet-content]');
-const clean=panel.querySelector('[data-toilet-clean]');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const raycaster=new Raycaster(),pointer=new Vector2();
 const timers=new Set();
@@ -46,8 +45,12 @@ function filterProjects(filter=panel.querySelector('[data-toilet-filter]').datas
 function reveal() {
   if(!['burst','emitted'].includes(state)||document.querySelector('dialog[open]'))return;
   cancelTimers();panel.hidden=false;content.hidden=false;setState('reading');
-  effects.querySelector('[data-toilet-effect-clean]').hidden=true;
-  panel.querySelector('[data-toilet-filter]').focus({preventScroll:true});
+  panel.querySelector('[data-toilet-filter][aria-pressed="true"]').focus({preventScroll:true});
+}
+function closeProjects() {
+  if(state!=='reading')return;
+  panel.hidden=true;content.hidden=true;setState('emitted');
+  effects.querySelector('[data-toilet-open]').focus({preventScroll:true});
 }
 // 自嘲装饰仅使用卡通脑花与打码团，不改变项目内容或真实状态。
 const brain=`<svg viewBox="0 0 100 88" aria-hidden="true"><path d="M49 16C39 4 22 8 20 22C5 22 3 39 12 47C1 64 16 78 29 76C35 87 49 82 50 73C55 86 70 86 75 75C90 77 99 64 89 51C99 39 91 22 80 24C78 8 62 5 51 16Z" fill="#ed9aaa" stroke="#80525b" stroke-width="4"/><path d="M50 18V72M23 27Q42 23 39 39M18 49Q32 37 39 52Q46 63 31 69M75 30Q59 26 62 42M81 51Q66 38 61 53Q56 65 73 69" fill="none" stroke="#b86b82" stroke-width="3.5" stroke-linecap="round"/></svg>`;
@@ -58,7 +61,7 @@ function scatter(origin) {
     const piece=document.createElement('div');piece.className=`toilet-debris toilet-debris--${kind}`;
     piece.innerHTML=kind==='brain'?brain:kind==='mosaic'?`<span class="toilet-pixel-pile">${Array.from({length:25},(_,j)=>`<i style="--pixel:${j%5}"></i>`).join('')}</span>`:'<span class="toilet-poop" aria-hidden="true">💩</span>';
     const caption=document.createElement(kind==='poop'?'button':'b');caption.textContent=text;
-    if(kind==='poop'){caption.type='button';caption.dataset.toiletOpen='';caption.setAttribute('aria-label','极品项目，打开项目集');caption.setAttribute('aria-controls','toilet-project-collection');caption.addEventListener('click',reveal);}
+    if(kind==='poop'){caption.type='button';caption.dataset.toiletOpen='';caption.innerHTML='<span>极品项目</span><small>👆 点击查看 ↗</small>';caption.title='点击打开六个项目分类';caption.setAttribute('aria-label','极品项目，打开项目集');caption.setAttribute('aria-controls','toilet-project-collection');caption.addEventListener('click',reveal);}
     else piece.setAttribute('aria-hidden','true');
     piece.append(caption);
     const tx=Math.max(60,Math.min(innerWidth-60,origin.x-80-i*85));
@@ -66,7 +69,9 @@ function scatter(origin) {
     piece.style.cssText=`left:${origin.x}px;top:${origin.y}px;--dx:${tx-origin.x}px;--dy:${ty-origin.y}px;--turn:${(i-1)*14}deg;--delay:${delay}ms`;
     effects.append(piece);
   }
-  const effectClean=document.createElement('button');effectClean.type='button';effectClean.className='toilet-effect-clean';effectClean.dataset.toiletEffectClean='';effectClean.textContent='🧹 一键打扫';effectClean.setAttribute('aria-label','一键打扫弹出的物品');effectClean.addEventListener('click',()=>sweep());effects.append(effectClean);
+  const tools=document.createElement('div');tools.className='toilet-effect-tools';
+  const effectClean=document.createElement('button');effectClean.type='button';effectClean.className='toilet-effect-clean';effectClean.dataset.toiletEffectClean='';effectClean.textContent='🧹 一键打扫';effectClean.setAttribute('aria-label','一键打扫马桶弹出的所有物品');effectClean.addEventListener('click',()=>sweep());
+  const scope=document.createElement('small');scope.textContent='清理马桶弹出的所有物品';tools.append(effectClean,scope);effects.append(tools);
 }
 function start() {
   attachHouse();
@@ -85,12 +90,12 @@ function sweep(animate=true,restore=true) {
   if(animate&&!reduced.matches)later(finish,180);else finish();
 }
 label.addEventListener('click',start);
-clean.addEventListener('click',()=>sweep());
+panel.querySelector('[data-toilet-close]').addEventListener('click',closeProjects);
 panel.addEventListener('click',event=>{
   const filter=event.target.closest('[data-toilet-filter]');if(filter)filterProjects(filter.dataset.toiletFilter);
 });
 window.addEventListener('keydown',event=>{
-  if(event.key==='Escape'&&state!=='idle'&&!document.querySelector('dialog[open]')){event.preventDefault();event.stopImmediatePropagation();sweep();}
+  if(event.key==='Escape'&&state!=='idle'&&!document.querySelector('dialog[open]')){event.preventDefault();event.stopImmediatePropagation();if(state==='reading')closeProjects();else sweep();}
 },true);
 canvas.addEventListener('pointerdown',event=>{down={room,x:event.clientX,y:event.clientY,time:performance.now(),id:event.pointerId};});
 canvas.addEventListener('pointercancel',()=>{down=null;});

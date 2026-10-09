@@ -17,7 +17,7 @@ export function renderToiletProjects() {
   });
   return `<div class="toilet-effects" data-toilet-effects hidden aria-label="马桶弹出的物品"></div>
 <section id="toilet-project-collection" class="toilet-panel" data-toilet-panel hidden role="dialog" aria-modal="false" aria-labelledby="toilet-title" data-phase="idle">
-  <header class="toilet-header"><div><p>💩 极品项目 · ${items.length} 个项目</p><h2 id="toilet-title">项目集</h2></div><button type="button" data-toilet-clean aria-label="一键打扫极品项目"><span aria-hidden="true">🧹</span> 一键打扫</button></header>
+  <header class="toilet-header"><div><p>💩 极品项目 · ${items.length} 个项目</p><h2 id="toilet-title">项目集</h2></div><button type="button" data-toilet-close aria-label="关闭项目集，保留弹出物品">收起 ×</button></header>
   <div class="toilet-content" data-toilet-content hidden>
     <p class="toilet-description">按项目阅读，查看实现与成果。</p>
     <nav class="toilet-filters" aria-label="项目分类">${items.map((p,i)=>`<button type="button" data-toilet-filter="${e(p.id)}" aria-pressed="${i===0}" aria-controls="toilet-project-${e(p.id)}">${e(p.label)}</button>`).join('')}</nav>

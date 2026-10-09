@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-09",
+  "desktop": [
+    1280,
+    720
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "tests": [
+    {
+      "case": "explicit-click-hint-and-three-items-cleaned-as-scene-objects",
+      "pass": true
+    },
+    {
+      "case": "close-collection-keeps-three-items-and-clean-removes-all",
+      "pass": true
+    },
+    {
+      "case": "mobile-hint-independent-clean-escape-and-selection-preserved",
+      "pass": true
+    },
+    {
+      "case": "burst-clean-cancels-pending-effects",
+      "pass": true
+    }
+  ],
+  "notes": [
+    "主预览桌面实际1280×720；当前旧预览入口实际390×844，均为真实浏览器验证。",
+    "刷新旧入口也已加载toilet3资源；手机为视口模拟。"
+  ]
+}
