@@ -1,0 +1,28 @@
+{
+  "asset": "table",
+  "revision": 3,
+  "sourceBackend": "Hunyuan3D-2.1",
+  "meshBackend": "Blender reference retopology",
+  "rawSha256": "2a0fb88e88ac0398777c99f9b529fdb94eb58b61089591a60e2599007ace60d8",
+  "rawDimensionsZUp": [
+    1.7687309980392456,
+    0.2724592983722687,
+    1.994059223167886
+  ],
+  "runtimeSha256": "287a8040cc1b850e239cb9c68400f4f72b9e6fbb6436cd7569b07d05a011f1ee",
+  "triangles": 14884,
+  "dimensionsYUp": [
+    0.7400000095367432,
+    1.0153639502823353,
+    0.7400000095367432
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "reject paper-like AI topology and background sheets",
+    "rebuild curved silhouette and connected parts",
+    "explicit hollow bowls, straps and support feet",
+    "new UV and painted material maps"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

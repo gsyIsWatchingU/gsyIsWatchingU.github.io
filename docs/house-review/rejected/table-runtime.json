@@ -1,0 +1,26 @@
+{
+  "asset": "table",
+  "rawSha256": "2a0fb88e88ac0398777c99f9b529fdb94eb58b61089591a60e2599007ace60d8",
+  "runtimeSha256": "ad9a791ec564580a97bbfa9cb0916808604fe02e8ebddec5b941c4b4914b4a84",
+  "triangles": 18000,
+  "dimensionsYUp": [
+    0.72,
+    1.0,
+    0.7
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    1.7687309980392456,
+    0.2724590301513672,
+    1.9940627813339233
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

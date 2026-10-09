@@ -1,0 +1,24 @@
+{
+  "id": "chair",
+  "source": "docs/refs/pineapple-house/06-living-details.png",
+  "sourceSha256": "1400ec6fa60f647a8ad7570bf8efa382914968352564b4a15a52f17f3eba635a",
+  "preprocessing": {
+    "parentReference": "docs/house-review/sources/chair.png",
+    "remove": "blue/green background outside lower life ring",
+    "revision": 2
+  },
+  "reference": "docs/house-review/sources/chair-v2.png",
+  "referenceSha256": "f5a40fc58c0fbd2c13750f28a200a4530a605c039616496f7cf559f92cccf2cb",
+  "seed": 20261109,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 2,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "860c80e2ecb43edd6a83e3e542460e9bb03325f90c11377f447e73d1d6aed091",
+  "triangles": 2859800,
+  "elapsedSeconds": 426.38,
+  "state": "review",
+  "job_id": "pineapple-house-20261009-r2-chair-shape"
+}

@@ -1,0 +1,175 @@
+{
+  "id": "chair",
+  "source": "docs/refs/pineapple-house/06-living-details.png",
+  "sourceSha256": "1400ec6fa60f647a8ad7570bf8efa382914968352564b4a15a52f17f3eba635a",
+  "preprocessing": {
+    "size": [
+      1080,
+      1440
+    ],
+    "polygon": [
+      [
+        551,
+        573
+      ],
+      [
+        656,
+        570
+      ],
+      [
+        711,
+        589
+      ],
+      [
+        750,
+        624
+      ],
+      [
+        747,
+        824
+      ],
+      [
+        767,
+        842
+      ],
+      [
+        765,
+        885
+      ],
+      [
+        745,
+        903
+      ],
+      [
+        741,
+        930
+      ],
+      [
+        715,
+        952
+      ],
+      [
+        555,
+        952
+      ],
+      [
+        511,
+        938
+      ],
+      [
+        484,
+        911
+      ],
+      [
+        481,
+        878
+      ],
+      [
+        476,
+        870
+      ],
+      [
+        481,
+        841
+      ],
+      [
+        509,
+        823
+      ],
+      [
+        508,
+        630
+      ],
+      [
+        528,
+        591
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/chair.png",
+  "referenceSha256": "f6326afc34457c79b337a6308a5c303df8f07cf658211a152a8d9d4f3ee0571a",
+  "seed": 20261009,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 0,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "01123c8ad7dca51777d56727b3cdf6c9decce6bb5f4f6664e371d7b9f870757a",
+  "triangles": 2127880,
+  "elapsedSeconds": 448.76,
+  "state": "review",
+  "job_id": "house-20261009-chair-shape",
+  "paintHost": "gsy013",
+  "paintJobId": "ba7deb2b88484ca291a9b0d9d7fe1fc7",
+  "paintManifest": {
+    "schema_version": "1.0",
+    "job_id": "ba7deb2b88484ca291a9b0d9d7fe1fc7",
+    "asset_name": "house-chair-20261009",
+    "asset_kind": "prop",
+    "profile": "xhs_mobile",
+    "state": "completed",
+    "source_file": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/source.glb",
+    "source_sha256": "1032d73161dcceef485913a3c0d7fbf0c9081b70ba4e8072d83f193595b8b0be",
+    "material_source_file": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/material-source.png",
+    "material_source_sha256": "f6326afc34457c79b337a6308a5c303df8f07cf658211a152a8d9d4f3ee0571a",
+    "prompt": "",
+    "seed": 20261009,
+    "created_at": "2026-10-09T01:17:30.176770+00:00",
+    "updated_at": "2026-10-09T01:20:14.244741+00:00",
+    "stages": [
+      {
+        "name": "prepare",
+        "state": "completed",
+        "started_at": "2026-10-09T01:17:30.182458+00:00",
+        "completed_at": "2026-10-09T01:17:30.184442+00:00",
+        "details": {
+          "fingerprint": "17b6bb9fa61bb97e",
+          "work_dir": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/work",
+          "profile": "xhs_mobile",
+          "elapsed_seconds": 0.001,
+          "execution_job_id": "ba7deb2b88484ca291a9b0d9d7fe1fc7"
+        }
+      },
+      {
+        "name": "generate_material",
+        "state": "completed",
+        "started_at": "2026-10-09T01:17:30.184988+00:00",
+        "completed_at": "2026-10-09T01:20:14.244301+00:00",
+        "details": {
+          "fingerprint": "6e81daed81a8010d",
+          "backend": "hunyuan3d-paint-2.1",
+          "paint_source": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/work/paint-source.glb",
+          "output": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/work/textured.glb",
+          "material_source": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/material-source.png",
+          "elapsed_seconds": 164.058,
+          "execution_job_id": "ba7deb2b88484ca291a9b0d9d7fe1fc7"
+        }
+      }
+    ],
+    "outputs": {
+      "shape_mesh": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/source.glb",
+      "paint_source": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/work/paint-source.glb",
+      "pbr_mesh": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/work/textured.glb",
+      "generated_mesh": "/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/work/textured.glb"
+    },
+    "metrics": {},
+    "provenance": {
+      "source_filename": "paint-source.glb",
+      "material_source_filename": "chair.png",
+      "mesh_backend": "selected-candidate",
+      "forge3d_version": "0.1.0",
+      "resource_class": "gpu",
+      "queue_name": "forge3d:jobs:gpu",
+      "partial_pipeline": "generate_material"
+    },
+    "quality_gates": {
+      "automatic_pipeline": "passed"
+    },
+    "error": null,
+    "stop_after": "generate_material"
+  },
+  "rawTexturedSha256": "140973c786496ae06594e13a5d003184dee233b7695654fb0d8865c99b807dde",
+  "rawRemotePath": "gsy013:/workspace/3d-assets/jobs/ba7deb2b88484ca291a9b0d9d7fe1fc7/work/textured.glb",
+  "humanReview": "pending"
+}

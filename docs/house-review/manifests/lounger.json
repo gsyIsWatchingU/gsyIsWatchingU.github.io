@@ -1,0 +1,155 @@
+{
+  "id": "lounger",
+  "source": "docs/refs/pineapple-house/08-storage-roofgarden.png",
+  "sourceSha256": "77055b86142e6af7f462638e3b7c606ca32c8b6f0e7dbead4e57a36c25af6e5d",
+  "preprocessing": {
+    "size": [
+      1080,
+      1440
+    ],
+    "polygon": [
+      [
+        345,
+        1057
+      ],
+      [
+        393,
+        1060
+      ],
+      [
+        409,
+        1129
+      ],
+      [
+        495,
+        1125
+      ],
+      [
+        537,
+        1121
+      ],
+      [
+        551,
+        1154
+      ],
+      [
+        526,
+        1155
+      ],
+      [
+        524,
+        1237
+      ],
+      [
+        511,
+        1245
+      ],
+      [
+        506,
+        1164
+      ],
+      [
+        417,
+        1182
+      ],
+      [
+        402,
+        1237
+      ],
+      [
+        388,
+        1240
+      ],
+      [
+        392,
+        1177
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/lounger.png",
+  "referenceSha256": "eb24983683fa79f84fcb54b9557c5d9128e5b9240b3b4dbc0ee7811f6204ad4d",
+  "seed": 20261019,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 2,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "25ae406bd39d4289dec0a83016cf31de3f57adf18c63bec43fd72eb134059d1c",
+  "triangles": 396788,
+  "elapsedSeconds": 426.07,
+  "state": "review",
+  "job_id": "house-20261009-lounger-shape",
+  "paintHost": "gsy013",
+  "paintJobId": "0d5dee22e6574b448a86ccef3d177b76",
+  "paintManifest": {
+    "schema_version": "1.0",
+    "job_id": "0d5dee22e6574b448a86ccef3d177b76",
+    "asset_name": "house-lounger-20261009",
+    "asset_kind": "prop",
+    "profile": "xhs_mobile",
+    "state": "completed",
+    "source_file": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/source.glb",
+    "source_sha256": "05e00bff1361905696a51c3a997f7778471d207cb8932bea6cd29b6acceb95eb",
+    "material_source_file": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/material-source.png",
+    "material_source_sha256": "eb24983683fa79f84fcb54b9557c5d9128e5b9240b3b4dbc0ee7811f6204ad4d",
+    "prompt": "",
+    "seed": 20261019,
+    "created_at": "2026-10-09T01:33:49.130830+00:00",
+    "updated_at": "2026-10-09T01:36:28.405908+00:00",
+    "stages": [
+      {
+        "name": "prepare",
+        "state": "completed",
+        "started_at": "2026-10-09T01:33:49.133619+00:00",
+        "completed_at": "2026-10-09T01:33:49.134942+00:00",
+        "details": {
+          "fingerprint": "17b6bb9fa61bb97e",
+          "work_dir": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/work",
+          "profile": "xhs_mobile",
+          "elapsed_seconds": 0.001,
+          "execution_job_id": "0d5dee22e6574b448a86ccef3d177b76"
+        }
+      },
+      {
+        "name": "generate_material",
+        "state": "completed",
+        "started_at": "2026-10-09T01:33:49.135372+00:00",
+        "completed_at": "2026-10-09T01:36:28.405486+00:00",
+        "details": {
+          "fingerprint": "6e81daed81a8010d",
+          "backend": "hunyuan3d-paint-2.1",
+          "paint_source": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/work/paint-source.glb",
+          "output": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/work/textured.glb",
+          "material_source": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/material-source.png",
+          "elapsed_seconds": 159.269,
+          "execution_job_id": "0d5dee22e6574b448a86ccef3d177b76"
+        }
+      }
+    ],
+    "outputs": {
+      "shape_mesh": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/source.glb",
+      "paint_source": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/work/paint-source.glb",
+      "pbr_mesh": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/work/textured.glb",
+      "generated_mesh": "/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/work/textured.glb"
+    },
+    "metrics": {},
+    "provenance": {
+      "source_filename": "paint-source.glb",
+      "material_source_filename": "lounger.png",
+      "mesh_backend": "selected-candidate",
+      "forge3d_version": "0.1.0",
+      "resource_class": "gpu",
+      "queue_name": "forge3d:jobs:gpu",
+      "partial_pipeline": "generate_material"
+    },
+    "quality_gates": {
+      "automatic_pipeline": "passed"
+    },
+    "error": null,
+    "stop_after": "generate_material"
+  },
+  "rawTexturedSha256": "32de4ef6a072a47e190e51e30cfdb6fbdaa31bb5f329515aaf70acdf1d9f108c",
+  "rawRemotePath": "gsy013:/workspace/3d-assets/jobs/0d5dee22e6574b448a86ccef3d177b76/work/textured.glb",
+  "humanReview": "pending"
+}

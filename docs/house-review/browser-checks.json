@@ -1,0 +1,90 @@
+{
+  "rooms": [
+    {
+      "viewport": "1440x900",
+      "room": "living",
+      "view": "room",
+      "camera": "[0,2.25,8.6]"
+    },
+    {
+      "viewport": "1440x900",
+      "room": "storage",
+      "view": "room",
+      "camera": "[-4.6,2.2,5.7]"
+    },
+    {
+      "viewport": "1440x900",
+      "room": "bathroom",
+      "view": "room",
+      "camera": "[-2.6,5.1,7.7]"
+    },
+    {
+      "viewport": "1440x900",
+      "room": "bedroom",
+      "view": "room",
+      "camera": "[-2.3,8.15,7.6]"
+    },
+    {
+      "viewport": "1440x900",
+      "room": "library",
+      "view": "room",
+      "camera": "[4.7,7.1,12.5]"
+    },
+    {
+      "viewport": "1440x900",
+      "room": "stairs",
+      "view": "room",
+      "camera": "[8,6.4,18]"
+    },
+    {
+      "viewport": "1440x900",
+      "room": "roof",
+      "view": "room",
+      "camera": "[0,12.4,7.9]"
+    },
+    {
+      "viewport": "390x844",
+      "room": "living",
+      "view": "room",
+      "camera": "[0,3.325,17.845]"
+    },
+    {
+      "viewport": "390x844",
+      "room": "storage",
+      "view": "room",
+      "camera": "[-4.68,2.266,6.057]"
+    },
+    {
+      "viewport": "390x844",
+      "room": "bathroom",
+      "view": "room",
+      "camera": "[-3.772,6.272,18.317]"
+    },
+    {
+      "viewport": "390x844",
+      "room": "bedroom",
+      "view": "room",
+      "camera": "[-4.036,9.65,19.598]"
+    },
+    {
+      "viewport": "390x844",
+      "room": "library",
+      "view": "room",
+      "camera": "[4.819,7.183,13.243]"
+    },
+    {
+      "viewport": "390x844",
+      "room": "stairs",
+      "view": "room",
+      "camera": "[8,6.4,18]"
+    },
+    {
+      "viewport": "390x844",
+      "room": "roof",
+      "view": "room",
+      "camera": "[0,15.985,18.014]"
+    }
+  ],
+  "status": "review",
+  "mobile": "viewport simulation"
+}

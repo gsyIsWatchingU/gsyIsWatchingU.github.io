@@ -1,0 +1,26 @@
+{
+  "asset": "lounger",
+  "rawSha256": "32de4ef6a072a47e190e51e30cfdb6fbdaa31bb5f329515aaf70acdf1d9f108c",
+  "runtimeSha256": "162d2b9ce3e3f1c851648ae5faeb5f4f571f56e576918324dbadd55ee627b5de",
+  "triangles": 18000,
+  "dimensionsYUp": [
+    0.76,
+    0.95,
+    1.56
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    1.9956669807434082,
+    0.6336911916732788,
+    1.4326541423797607
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

@@ -1,0 +1,28 @@
+{
+  "version": "20261009-review4",
+  "status": "review",
+  "structure": {"id":"structure","name":"三层房屋结构","url":"assets/house-review/structure.glb"},
+  "rooms": [
+    {"id":"living","name":"客厅","floor":"一层","level":0,"label":[0,0.5,2.75],"bounds":[[-2.5,0,-2.5],[2.2,2.9,2.8]],"target":[0,1.25,0],"camera":[0,2.25,8.6]},
+    {"id":"storage","name":"储藏室","floor":"一层","level":0,"label":[-3.45,1.5,1.0],"bounds":[[-4.2,0,-2.5],[-2.55,2.9,1.6]],"target":[-3.32,1.15,0],"camera":[-4.6,2.2,5.7]},
+    {"id":"bathroom","name":"浴室","floor":"二层","level":1,"label":[-2.0,3.55,2.7],"bounds":[[-4.6,3,-2.4],[0.25,5.95,2.7]],"target":[-1.75,4.25,0],"camera":[-2.6,5.1,7.7]},
+    {"id":"bedroom","name":"卧室","floor":"三层","level":2,"label":[-1.2,6.55,2.2],"bounds":[[-4.1,6,-2.1],[1.12,8.95,2.6]],"target":[-1.2,7.2,0],"camera":[-2.3,8.15,7.6]},
+    {"id":"library","name":"图书馆","floor":"二、三层 · 挑高","level":1,"label":[3.3,4.8,1.2],"bounds":[[1.12,3,-2.8],[4.65,8.8,2.7]],"target":[2.7,5.7,0],"camera":[4.7,7.1,12.5]},
+    {"id":"stairs","name":"螺旋楼梯","floor":"连接三层与天台","level":0,"label":[2.7,2.35,-0.65],"bounds":[[0.2,0,-2.2],[3.7,9.8,0]],"target":[2,4.9,-1],"camera":[8,6.4,18]},
+    {"id":"roof","name":"屋顶花园","floor":"天台","level":3,"label":[0,9.45,1.2],"bounds":[[-2.5,9,-2],[2.5,10.8,2]],"target":[0,9.6,0],"camera":[0,12.4,7.9]}
+  ],
+  "assets": [
+    {"id":"chair","name":"红扶手椅","room":"living","url":"assets/house-review/props/chair.glb","position":[-1.3,0,-0.3],"rotation":0.13},
+    {"id":"couch","name":"绿管沙发","room":"living","url":"assets/house-review/props/couch.glb","position":[1.1,0,-0.35],"rotation":-0.18},
+    {"id":"table","name":"圆桌与海螺","room":"living","url":"assets/house-review/props/table.glb","position":[0,0,0.05],"rotation":0},
+    {"id":"gary","name":"小蜗","room":"living","url":"assets/house-review/props/gary.glb","position":[-1.55,0,1.6],"rotation":0.22},
+    {"id":"treasure","name":"储藏室宝藏","room":"storage","url":"assets/house-review/props/treasure.glb","position":[-3.3,0,-0.1],"rotation":0},
+    {"id":"bathtub","name":"浴缸","room":"bathroom","url":"assets/house-review/props/bathtub.glb","position":[-2.7,3,0.7],"rotation":0.1},
+    {"id":"sink","name":"桶式洗手池","room":"bathroom","url":"assets/house-review/props/sink.glb","position":[-1.65,3.62,-2.6],"rotation":0},
+    {"id":"toilet","name":"马桶","room":"bathroom","url":"assets/house-review/props/toilet.glb","position":[-1.3,3,-0.6],"rotation":0},
+    {"id":"bed","name":"竹节床","room":"bedroom","url":"assets/house-review/props/bed.glb","position":[-1.65,6,-0.25],"rotation":0},
+    {"id":"barrel","name":"卧室桶柜","room":"bedroom","url":"assets/house-review/props/barrel.glb","position":[-3.0,6,-0.55],"rotation":0},
+    {"id":"chest","name":"卧室收纳箱","room":"bedroom","url":"assets/house-review/props/chest.glb","position":[0.05,6,0.65],"rotation":-0.15},
+    {"id":"lounger","name":"天台躺椅","room":"roof","url":"assets/house-review/props/lounger.glb","position":[-0.85,9,0.15],"rotation":0.4}
+  ]
+}

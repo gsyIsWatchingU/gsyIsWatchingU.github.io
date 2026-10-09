@@ -4,7 +4,12 @@
   const overlayLayer = document.querySelector("[data-overlay-layer]");
   const air = document.querySelector("[data-room-air]");
   const hint = document.querySelector("[data-room-hint]");
-  if (!root || !dock || !overlayLayer) return;
+  // 旧主页仍使用底栏与弹层；独立房屋展示无需这两个入口。
+  if (!root) return;
+  if (!dock || !overlayLayer) {
+    window.addEventListener("house:ready", () => { root.dataset.roomState = "ready"; });
+    return;
+  }
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

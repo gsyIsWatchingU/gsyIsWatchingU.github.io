@@ -1,0 +1,140 @@
+{
+  "id": "couch",
+  "source": "docs/refs/pineapple-house/06-living-details.png",
+  "sourceSha256": "1400ec6fa60f647a8ad7570bf8efa382914968352564b4a15a52f17f3eba635a",
+  "preprocessing": {
+    "size": [
+      1080,
+      1440
+    ],
+    "polygon": [
+      [
+        226,
+        223
+      ],
+      [
+        243,
+        201
+      ],
+      [
+        300,
+        187
+      ],
+      [
+        405,
+        172
+      ],
+      [
+        488,
+        174
+      ],
+      [
+        513,
+        189
+      ],
+      [
+        519,
+        233
+      ],
+      [
+        501,
+        256
+      ],
+      [
+        512,
+        290
+      ],
+      [
+        495,
+        320
+      ],
+      [
+        508,
+        347
+      ],
+      [
+        559,
+        343
+      ],
+      [
+        608,
+        353
+      ],
+      [
+        638,
+        371
+      ],
+      [
+        645,
+        407
+      ],
+      [
+        609,
+        428
+      ],
+      [
+        373,
+        470
+      ],
+      [
+        287,
+        464
+      ],
+      [
+        240,
+        444
+      ],
+      [
+        225,
+        411
+      ],
+      [
+        223,
+        374
+      ],
+      [
+        239,
+        340
+      ],
+      [
+        224,
+        307
+      ],
+      [
+        235,
+        272
+      ],
+      [
+        224,
+        254
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/couch.png",
+  "referenceSha256": "758b9dcbdb52135002992111b209fafbad3e59d94e6a4b324fdfe0759ca329b3",
+  "seed": 20261010,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 1,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "aa36d67d280519d4fd53a92ca313ddd9e9e9d407aebba91912eb98abcbe457fb",
+  "triangles": 2108732,
+  "elapsedSeconds": 439.54,
+  "state": "review",
+  "job_id": "house-20261009-couch-shape",
+  "paintHost": "mygpu",
+  "paintJobId": "house-20261009-couch-paint",
+  "paintManifest": {
+    "backend": "Hunyuan3D-Paint-2.1",
+    "execution": "direct deployed backend; API lacks paint-only route",
+    "seed": 20261010,
+    "views": 6,
+    "resolution": 768,
+    "state": "completed"
+  },
+  "rawTexturedSha256": "826cb36b0bbdfba5811ac41c844a6f5e25ed7f5345eab2f1f0317183f8431acd",
+  "rawRemotePath": "mygpu:/workspace/3d-assets/pineapple-house-20261009/input/couch-textured.glb",
+  "humanReview": "pending"
+}

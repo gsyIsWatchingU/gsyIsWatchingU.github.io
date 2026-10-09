@@ -1,0 +1,28 @@
+{
+  "asset": "barrel",
+  "revision": 3,
+  "sourceBackend": "Hunyuan3D-2.1",
+  "meshBackend": "Blender reference retopology",
+  "rawSha256": "b1f50409d1a0c92164f4284b6d068fd3fe2f77fd5d8d187aba05fb42f2d60ad6",
+  "rawDimensionsZUp": [
+    1.994655966758728,
+    1.9943844676017761,
+    1.994509518146515
+  ],
+  "runtimeSha256": "f1f1b8eaec76fe7b7210b0ae8c6fb94e3b6e621ada3b4a08ea32561a6efafad0",
+  "triangles": 8420,
+  "dimensionsYUp": [
+    0.5640000104904175,
+    0.8170000175014138,
+    0.5640000104904175
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "reject paper-like AI topology and background sheets",
+    "rebuild curved silhouette and connected parts",
+    "explicit hollow bowls, straps and support feet",
+    "new UV and painted material maps"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

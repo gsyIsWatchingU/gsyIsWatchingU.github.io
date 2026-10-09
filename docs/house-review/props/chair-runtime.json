@@ -1,0 +1,28 @@
+{
+  "asset": "chair",
+  "revision": 3,
+  "sourceBackend": "Hunyuan3D-2.1",
+  "meshBackend": "Blender reference retopology",
+  "rawSha256": "140973c786496ae06594e13a5d003184dee233b7695654fb0d8865c99b807dde",
+  "rawDimensionsZUp": [
+    1.7119119763374329,
+    1.4835413694381714,
+    1.9938314953982683
+  ],
+  "runtimeSha256": "71911bc18f487c26e27b26236ab189e7f040271e1861812d286deff5f36b0762",
+  "triangles": 12960,
+  "dimensionsYUp": [
+    1.0540000200271606,
+    1.6231942363083363,
+    1.035273253917694
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "reject paper-like AI topology and background sheets",
+    "rebuild curved silhouette and connected parts",
+    "explicit hollow bowls, straps and support feet",
+    "new UV and painted material maps"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

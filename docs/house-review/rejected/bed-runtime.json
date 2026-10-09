@@ -1,0 +1,26 @@
+{
+  "asset": "bed",
+  "rawSha256": "ace453189bda65822e04ff3dd2842d7b3ca31747c78d0acbbb77f19e8ab2a4a1",
+  "runtimeSha256": "6fbb871b1bda7afbfe9d9687cafcb9636445441248749b7f1fe89db4041a2195",
+  "triangles": 18000,
+  "dimensionsYUp": [
+    1.55,
+    1.8,
+    1.75
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    1.2730712890625,
+    1.9952123165130615,
+    1.8845551013946533
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

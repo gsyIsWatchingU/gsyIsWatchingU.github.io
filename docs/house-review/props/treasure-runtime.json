@@ -1,0 +1,28 @@
+{
+  "asset": "treasure",
+  "revision": 3,
+  "sourceBackend": "Hunyuan3D-2.1",
+  "meshBackend": "Blender reference retopology",
+  "rawSha256": "21f260c850c4b51b8fa7d5f0d2a46b58e6f2e112a602506f8722134c9182b914",
+  "rawDimensionsZUp": [
+    1.9966890215873718,
+    0.4567642956972122,
+    1.850455403327942
+  ],
+  "runtimeSha256": "ff8e998420b543d01a3f0468577239906da34033e47eb6046a7152cfae21f355",
+  "triangles": 66016,
+  "dimensionsYUp": [
+    1.281725823879242,
+    0.6522505506873131,
+    1.1348218321800232
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "reject paper-like AI topology and background sheets",
+    "rebuild curved silhouette and connected parts",
+    "explicit hollow bowls, straps and support feet",
+    "new UV and painted material maps"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

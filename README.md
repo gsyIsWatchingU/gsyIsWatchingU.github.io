@@ -2,6 +2,18 @@
 
 项目已按板块拆分。日常修改 `src`、`styles`、`scripts` 中的源码，不直接修改根目录的 `index.html`。
 
+## 三层菠萝屋预览
+
+独立入口 `pineapple-house.html`：三层剖面、七个房间近景、拖动旋转、滚轮/双指缩放、返回及 Esc。此页不加载个人主页底栏、设备、留言和内容弹层。审核通过后再替换首页。
+
+源码为 `src/pineapple-house.html`、`scripts/pineapple-house.js`、`styles/pineapple-house.css`；房间与镜头统一配置在 `src/data/pineapple-house.json`。制作来源、模型哈希与截图见 [审查记录](docs/house-review/README.md)。
+
+```powershell
+npm run build
+python -m http.server 8769 --bind 127.0.0.1
+# 浏览 http://127.0.0.1:8769/pineapple-house.html
+```
+
 ## 互动小屋（首页）
 
 首页整体重做为「互动房间」式主页，参考 Sharky's Room 的探索形态：加载后进入一间可拖拽观察、滚轮/双指缩放的温馨浅色小屋，点击房间里的物件或底部 dock 进入对应近景。房间由 Three.js 实时渲染（透视相机、软阴影、环境反射、昼夜/天气/灯串联动），支持悬停高亮与点击转镜头。

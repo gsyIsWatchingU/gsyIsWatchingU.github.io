@@ -1,0 +1,26 @@
+{
+  "asset": "sink",
+  "rawSha256": "041422e7bb94dcae79b854166d9432189b24ad65e10ea10afca881109098d068",
+  "runtimeSha256": "ae1e52c4ab404047b0e5a3cc1106ffb20982ce5dc07a88687ecb3dd3fc96581c",
+  "triangles": 18000,
+  "dimensionsYUp": [
+    0.63,
+    0.56,
+    0.43
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    1.772407054901123,
+    0.9031692147254944,
+    1.9882252216339111
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

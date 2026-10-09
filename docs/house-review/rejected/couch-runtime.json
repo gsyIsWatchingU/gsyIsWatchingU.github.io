@@ -1,0 +1,26 @@
+{
+  "asset": "couch",
+  "rawSha256": "826cb36b0bbdfba5811ac41c844a6f5e25ed7f5345eab2f1f0317183f8431acd",
+  "runtimeSha256": "ced450835c1d9506b7842fe9bc6386efad7ae7a01d003fef3daac60c69293adb",
+  "triangles": 18000,
+  "dimensionsYUp": [
+    1.72,
+    1.2,
+    1.03
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    1.0801630020141602,
+    1.9938912391662598,
+    1.1721580028533936
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

@@ -1,0 +1,26 @@
+{
+  "asset": "barrel",
+  "rawSha256": "b1f50409d1a0c92164f4284b6d068fd3fe2f77fd5d8d187aba05fb42f2d60ad6",
+  "runtimeSha256": "0c48a75078aaa52816c27fa742d5c4534467a2574c18dd75e17e5c025c4ddb6d",
+  "triangles": 18000,
+  "dimensionsYUp": [
+    0.56,
+    0.7,
+    0.56
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    1.994655966758728,
+    1.9943842887878418,
+    1.994509220123291
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

@@ -1,0 +1,128 @@
+{
+  "id": "sink",
+  "source": "docs/refs/pineapple-house/03-bedroom-bath-library.png",
+  "sourceSha256": "56398fee11567b73c204ccf01c40dc48999c436536e2aee5523d781c00e6d29d",
+  "preprocessing": {
+    "size": [
+      977,
+      1302
+    ],
+    "polygon": [
+      [
+        132,
+        818
+      ],
+      [
+        144,
+        807
+      ],
+      [
+        157,
+        813
+      ],
+      [
+        151,
+        835
+      ],
+      [
+        175,
+        837
+      ],
+      [
+        176,
+        813
+      ],
+      [
+        187,
+        806
+      ],
+      [
+        197,
+        814
+      ],
+      [
+        194,
+        838
+      ],
+      [
+        208,
+        835
+      ],
+      [
+        209,
+        815
+      ],
+      [
+        219,
+        813
+      ],
+      [
+        229,
+        820
+      ],
+      [
+        221,
+        840
+      ],
+      [
+        217,
+        850
+      ],
+      [
+        220,
+        877
+      ],
+      [
+        214,
+        905
+      ],
+      [
+        176,
+        917
+      ],
+      [
+        136,
+        906
+      ],
+      [
+        130,
+        874
+      ],
+      [
+        126,
+        850
+      ],
+      [
+        138,
+        838
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/sink.png",
+  "referenceSha256": "fda7690f2f59b413ce76b63a045414f51c26059b5d07a9290932adf5c492205c",
+  "seed": 20261014,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 1,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "2ef53cc5d1465be4cbd8bf23eb11979ab1b22d5ede04fec27d01addca06b8ef1",
+  "triangles": 1897656,
+  "elapsedSeconds": 444.9,
+  "state": "review",
+  "job_id": "house-20261009-sink-shape",
+  "paintHost": "mygpu",
+  "paintJobId": "house-20261009-sink-paint",
+  "paintManifest": {
+    "backend": "Hunyuan3D-Paint-2.1",
+    "execution": "direct deployed backend; API lacks paint-only route",
+    "seed": 20261014,
+    "views": 6,
+    "resolution": 768,
+    "state": "completed"
+  },
+  "rawTexturedSha256": "041422e7bb94dcae79b854166d9432189b24ad65e10ea10afca881109098d068",
+  "rawRemotePath": "mygpu:/workspace/3d-assets/pineapple-house-20261009/input/sink-textured.glb",
+  "humanReview": "pending"
+}

@@ -1,0 +1,100 @@
+{
+  "id": "treasure",
+  "source": "docs/refs/pineapple-house/08-storage-roofgarden.png",
+  "sourceSha256": "77055b86142e6af7f462638e3b7c606ca32c8b6f0e7dbead4e57a36c25af6e5d",
+  "preprocessing": {
+    "size": [
+      1080,
+      1440
+    ],
+    "polygon": [
+      [
+        352,
+        160
+      ],
+      [
+        427,
+        164
+      ],
+      [
+        465,
+        149
+      ],
+      [
+        518,
+        136
+      ],
+      [
+        557,
+        167
+      ],
+      [
+        610,
+        136
+      ],
+      [
+        636,
+        159
+      ],
+      [
+        666,
+        160
+      ],
+      [
+        694,
+        252
+      ],
+      [
+        707,
+        347
+      ],
+      [
+        688,
+        456
+      ],
+      [
+        633,
+        480
+      ],
+      [
+        351,
+        480
+      ],
+      [
+        325,
+        405
+      ],
+      [
+        325,
+        288
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/treasure.png",
+  "referenceSha256": "99c2d1c65d0388c41c6e6bb78b57c5d487c85b5fdb3f324f3660021d319b05d9",
+  "seed": 20261020,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 3,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "d2c9ccb4a1f89c71e36767d039845569a2c9e94631d2e9309909efece7993917",
+  "triangles": 2119488,
+  "elapsedSeconds": 426.44,
+  "state": "review",
+  "job_id": "house-20261009-treasure-shape",
+  "paintHost": "mygpu",
+  "paintJobId": "house-20261009-treasure-paint",
+  "paintManifest": {
+    "backend": "Hunyuan3D-Paint-2.1",
+    "execution": "direct deployed backend; API lacks paint-only route",
+    "seed": 20261020,
+    "views": 6,
+    "resolution": 768,
+    "state": "completed"
+  },
+  "rawTexturedSha256": "21f260c850c4b51b8fa7d5f0d2a46b58e6f2e112a602506f8722134c9182b914",
+  "rawRemotePath": "mygpu:/workspace/3d-assets/pineapple-house-20261009/input/treasure-textured.glb",
+  "humanReview": "pending"
+}

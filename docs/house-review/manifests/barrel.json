@@ -1,0 +1,72 @@
+{
+  "id": "barrel",
+  "source": "docs/refs/pineapple-house/12-sims-bedroom.png",
+  "sourceSha256": "8adbc8a4bf6b3f79611ec8a0537caec6a91c4a739ba4182e4d9f7617b2c01b22",
+  "preprocessing": {
+    "size": [
+      920,
+      2048
+    ],
+    "polygon": [
+      [
+        87,
+        590
+      ],
+      [
+        104,
+        574
+      ],
+      [
+        184,
+        575
+      ],
+      [
+        197,
+        590
+      ],
+      [
+        199,
+        673
+      ],
+      [
+        181,
+        692
+      ],
+      [
+        103,
+        692
+      ],
+      [
+        81,
+        671
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/barrel.png",
+  "referenceSha256": "89bc9fe543fa5fc43071b0c4e69f3c37f1ea8ae5cdbf61bf0c41a2cdf46ffecb",
+  "seed": 20261016,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 3,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "2b303d02e5db914843f18bea7f3566d7d0638e49fdb88c4a04eb2322919e70ce",
+  "triangles": 3084600,
+  "elapsedSeconds": 426.47,
+  "state": "review",
+  "job_id": "house-20261009-barrel-shape",
+  "paintHost": "mygpu",
+  "paintJobId": "house-20261009-barrel-paint",
+  "paintManifest": {
+    "backend": "Hunyuan3D-Paint-2.1",
+    "execution": "direct deployed backend; API lacks paint-only route",
+    "seed": 20261016,
+    "views": 6,
+    "resolution": 768,
+    "state": "completed"
+  },
+  "rawTexturedSha256": "b1f50409d1a0c92164f4284b6d068fd3fe2f77fd5d8d187aba05fb42f2d60ad6",
+  "rawRemotePath": "mygpu:/workspace/3d-assets/pineapple-house-20261009/input/barrel-textured.glb",
+  "humanReview": "pending"
+}

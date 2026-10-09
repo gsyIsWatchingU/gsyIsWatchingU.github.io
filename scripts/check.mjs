@@ -11,6 +11,18 @@ execFileSync(process.execPath, [join(projectRoot, "scripts", "build.mjs")], {
 });
 
 const errors = [];
+const house = JSON.parse(readFileSync(join(projectRoot, "src/data/pineapple-house.json"), "utf8"));
+const houseRoomIds = new Set(house.rooms.map(room => room.id));
+if (houseRoomIds.size !== house.rooms.length) errors.push("菠萝屋房间 ID 重复");
+for (const asset of [house.structure, ...house.assets]) {
+  if (!existsSync(join(projectRoot, asset.url))) errors.push(`菠萝屋模型不存在：${asset.url}`);
+  if (asset.room && !houseRoomIds.has(asset.room)) errors.push(`菠萝屋模型房间无效：${asset.id}`);
+}
+for (const room of house.rooms) {
+  if (![...room.target, ...room.camera, ...room.bounds.flat()].every(Number.isFinite)) {
+    errors.push(`菠萝屋镜头或包围盒无效：${room.id}`);
+  }
+}
 let projects = [];
 
 try {
@@ -107,7 +119,7 @@ if (!Array.isArray(projects) || projects.length === 0) {
   }
 }
 
-for (const page of ["index.html", "playground.html"]) {
+for (const page of ["index.html", "playground.html", "pineapple-house.html"]) {
   const html = readFileSync(join(projectRoot, page), "utf8");
 
   if (html.includes("@include")) {

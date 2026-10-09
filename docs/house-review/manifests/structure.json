@@ -1,0 +1,17 @@
+{
+  "backend": "Blender 4.5.13",
+  "source": "scripts/art/house_structure.py",
+  "coordinates": "glTF Y-up; +Z is front",
+  "floors": [
+    0,
+    3,
+    6,
+    9
+  ],
+  "bodyHeight": 9,
+  "leafHeight": 13.55,
+  "triangles": 185206,
+  "sha256": "8fe8b89c070f66ee1d18fda3df27c486a2fdc91d1ca18ad5c41537b1ad1ea89a",
+  "status": "review",
+  "humanReview": "pending"
+}

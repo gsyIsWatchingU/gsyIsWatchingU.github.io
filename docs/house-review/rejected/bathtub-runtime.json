@@ -1,0 +1,26 @@
+{
+  "asset": "bathtub",
+  "rawSha256": "51a551a092e2cf5ee11f7fb05dfe1617b2023c430e111f64a6fb522536c20c66",
+  "runtimeSha256": "31247fbbd5cc7561de65a6c130ce766982164c3cb50821da2fee19b7e989be87",
+  "triangles": 17999,
+  "dimensionsYUp": [
+    1.7,
+    0.72,
+    0.92
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    1.9585283994674683,
+    1.6478254795074463,
+    0.7416496276855469
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

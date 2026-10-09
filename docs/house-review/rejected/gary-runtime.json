@@ -1,0 +1,26 @@
+{
+  "asset": "gary",
+  "rawSha256": "ab658811ac14c2954f1b2c0348d2790dca0bd760e076f5aa02775d211c87297f",
+  "runtimeSha256": "659f55de5bc24cd9f95b82533dae7c60006a146be743057ab8360449e8626487",
+  "triangles": 18000,
+  "dimensionsYUp": [
+    0.86,
+    0.79,
+    0.54
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    0.9355329871177673,
+    1.9861671924591064,
+    0.610663890838623
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

@@ -1,0 +1,159 @@
+{
+  "id": "bathtub",
+  "source": "docs/refs/pineapple-house/13-sims-bathroom.png",
+  "sourceSha256": "09e51b557fec7238cdca943545ccb8420df70f06b6d4285bc20e68d18dc5b46f",
+  "preprocessing": {
+    "size": [
+      920,
+      2048
+    ],
+    "polygon": [
+      [
+        55,
+        585
+      ],
+      [
+        94,
+        568
+      ],
+      [
+        315,
+        568
+      ],
+      [
+        387,
+        592
+      ],
+      [
+        407,
+        623
+      ],
+      [
+        386,
+        668
+      ],
+      [
+        341,
+        700
+      ],
+      [
+        375,
+        711
+      ],
+      [
+        369,
+        732
+      ],
+      [
+        269,
+        729
+      ],
+      [
+        255,
+        709
+      ],
+      [
+        149,
+        696
+      ],
+      [
+        130,
+        712
+      ],
+      [
+        92,
+        702
+      ],
+      [
+        78,
+        675
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/bathtub.png",
+  "referenceSha256": "c44a2cac7bd5700f431d5e3f544d03727b450a86ae259caf544234a6249a5268",
+  "seed": 20261013,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 0,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "80111588f81158942dea77a3efe2811739b373dcb6078b1f0b19c36e926aef5f",
+  "triangles": 2739584,
+  "elapsedSeconds": 453.6,
+  "state": "review",
+  "job_id": "house-20261009-bathtub-shape",
+  "paintHost": "gsy013",
+  "paintJobId": "710632c731214c58a6a35feafd81a0ad",
+  "paintManifest": {
+    "schema_version": "1.0",
+    "job_id": "710632c731214c58a6a35feafd81a0ad",
+    "asset_name": "house-bathtub-20261009",
+    "asset_kind": "prop",
+    "profile": "xhs_mobile",
+    "state": "completed",
+    "source_file": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/source.glb",
+    "source_sha256": "4abd8851f8904cdbe7e881ea49867c9ca442b69029e47a215ab85de1ca0cbeb3",
+    "material_source_file": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/material-source.png",
+    "material_source_sha256": "c44a2cac7bd5700f431d5e3f544d03727b450a86ae259caf544234a6249a5268",
+    "prompt": "",
+    "seed": 20261013,
+    "created_at": "2026-10-09T01:23:39.942955+00:00",
+    "updated_at": "2026-10-09T01:26:26.871155+00:00",
+    "stages": [
+      {
+        "name": "prepare",
+        "state": "completed",
+        "started_at": "2026-10-09T01:23:39.945575+00:00",
+        "completed_at": "2026-10-09T01:23:39.947173+00:00",
+        "details": {
+          "fingerprint": "17b6bb9fa61bb97e",
+          "work_dir": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/work",
+          "profile": "xhs_mobile",
+          "elapsed_seconds": 0.001,
+          "execution_job_id": "710632c731214c58a6a35feafd81a0ad"
+        }
+      },
+      {
+        "name": "generate_material",
+        "state": "completed",
+        "started_at": "2026-10-09T01:23:39.947653+00:00",
+        "completed_at": "2026-10-09T01:26:26.870724+00:00",
+        "details": {
+          "fingerprint": "6e81daed81a8010d",
+          "backend": "hunyuan3d-paint-2.1",
+          "paint_source": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/work/paint-source.glb",
+          "output": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/work/textured.glb",
+          "material_source": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/material-source.png",
+          "elapsed_seconds": 166.922,
+          "execution_job_id": "710632c731214c58a6a35feafd81a0ad"
+        }
+      }
+    ],
+    "outputs": {
+      "shape_mesh": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/source.glb",
+      "paint_source": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/work/paint-source.glb",
+      "pbr_mesh": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/work/textured.glb",
+      "generated_mesh": "/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/work/textured.glb"
+    },
+    "metrics": {},
+    "provenance": {
+      "source_filename": "paint-source.glb",
+      "material_source_filename": "bathtub.png",
+      "mesh_backend": "selected-candidate",
+      "forge3d_version": "0.1.0",
+      "resource_class": "gpu",
+      "queue_name": "forge3d:jobs:gpu",
+      "partial_pipeline": "generate_material"
+    },
+    "quality_gates": {
+      "automatic_pipeline": "passed"
+    },
+    "error": null,
+    "stop_after": "generate_material"
+  },
+  "rawTexturedSha256": "51a551a092e2cf5ee11f7fb05dfe1617b2023c430e111f64a6fb522536c20c66",
+  "rawRemotePath": "gsy013:/workspace/3d-assets/jobs/710632c731214c58a6a35feafd81a0ad/work/textured.glb",
+  "humanReview": "pending"
+}

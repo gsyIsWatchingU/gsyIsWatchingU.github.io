@@ -1,0 +1,26 @@
+{
+  "asset": "chair",
+  "rawSha256": "140973c786496ae06594e13a5d003184dee233b7695654fb0d8865c99b807dde",
+  "runtimeSha256": "71beec169fb9ea8f7b4d148fe6506f5cd615b6896652072e16da28fd1285cac9",
+  "triangles": 17999,
+  "dimensionsYUp": [
+    0.98,
+    1.6,
+    0.88
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    1.711911916732788,
+    1.4835180044174194,
+    1.9938313961029053
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

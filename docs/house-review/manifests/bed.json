@@ -1,0 +1,148 @@
+{
+  "id": "bed",
+  "source": "docs/refs/pineapple-house/03-bedroom-bath-library.png",
+  "sourceSha256": "56398fee11567b73c204ccf01c40dc48999c436536e2aee5523d781c00e6d29d",
+  "preprocessing": {
+    "size": [
+      977,
+      1302
+    ],
+    "polygon": [
+      [
+        148,
+        278
+      ],
+      [
+        162,
+        278
+      ],
+      [
+        165,
+        337
+      ],
+      [
+        181,
+        309
+      ],
+      [
+        207,
+        294
+      ],
+      [
+        232,
+        307
+      ],
+      [
+        239,
+        332
+      ],
+      [
+        240,
+        284
+      ],
+      [
+        243,
+        266
+      ],
+      [
+        258,
+        266
+      ],
+      [
+        257,
+        422
+      ],
+      [
+        371,
+        416
+      ],
+      [
+        397,
+        426
+      ],
+      [
+        393,
+        532
+      ],
+      [
+        384,
+        544
+      ],
+      [
+        383,
+        565
+      ],
+      [
+        375,
+        570
+      ],
+      [
+        367,
+        568
+      ],
+      [
+        366,
+        550
+      ],
+      [
+        334,
+        548
+      ],
+      [
+        330,
+        573
+      ],
+      [
+        317,
+        575
+      ],
+      [
+        317,
+        550
+      ],
+      [
+        154,
+        548
+      ],
+      [
+        150,
+        574
+      ],
+      [
+        135,
+        575
+      ],
+      [
+        136,
+        531
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/bed.png",
+  "referenceSha256": "f1b1b2851df56747e13b85bf797a1a28a04a7d502438748e114e624b0b7cf20a",
+  "seed": 20261012,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 3,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "5236e4b9eea733a5547b4b5913bc31016d3cc41ad98ec767b6b2a48bdc1dfaf8",
+  "triangles": 2800996,
+  "elapsedSeconds": 422.71,
+  "state": "review",
+  "job_id": "house-20261009-bed-shape",
+  "paintHost": "mygpu",
+  "paintJobId": "house-20261009-bed-paint",
+  "paintManifest": {
+    "backend": "Hunyuan3D-Paint-2.1",
+    "execution": "direct deployed backend; API lacks paint-only route",
+    "seed": 20261012,
+    "views": 6,
+    "resolution": 768,
+    "state": "completed"
+  },
+  "rawTexturedSha256": "ace453189bda65822e04ff3dd2842d7b3ca31747c78d0acbbb77f19e8ab2a4a1",
+  "rawRemotePath": "mygpu:/workspace/3d-assets/pineapple-house-20261009/input/bed-textured.glb",
+  "humanReview": "pending"
+}

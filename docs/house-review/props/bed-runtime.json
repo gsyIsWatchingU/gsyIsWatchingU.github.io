@@ -1,0 +1,28 @@
+{
+  "asset": "bed",
+  "revision": 3,
+  "sourceBackend": "Hunyuan3D-2.1",
+  "meshBackend": "Blender reference retopology",
+  "rawSha256": "ace453189bda65822e04ff3dd2842d7b3ca31747c78d0acbbb77f19e8ab2a4a1",
+  "rawDimensionsZUp": [
+    1.272544026374817,
+    1.995212435722351,
+    1.884555459022522
+  ],
+  "runtimeSha256": "3f8c79fc6ab0536b19a0c8e5d7c8562beb41d111260027a8293b7d7076820d36",
+  "triangles": 47780,
+  "dimensionsYUp": [
+    1.4969976544380188,
+    1.796543720178306,
+    1.7199999690055847
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "reject paper-like AI topology and background sheets",
+    "rebuild curved silhouette and connected parts",
+    "explicit hollow bowls, straps and support feet",
+    "new UV and painted material maps"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

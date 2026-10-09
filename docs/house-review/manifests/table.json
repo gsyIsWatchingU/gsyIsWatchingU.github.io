@@ -1,0 +1,151 @@
+{
+  "id": "table",
+  "source": "docs/refs/pineapple-house/06-living-details.png",
+  "sourceSha256": "1400ec6fa60f647a8ad7570bf8efa382914968352564b4a15a52f17f3eba635a",
+  "preprocessing": {
+    "size": [
+      1080,
+      1440
+    ],
+    "polygon": [
+      [
+        769,
+        793
+      ],
+      [
+        883,
+        796
+      ],
+      [
+        886,
+        843
+      ],
+      [
+        913,
+        858
+      ],
+      [
+        910,
+        900
+      ],
+      [
+        865,
+        919
+      ],
+      [
+        865,
+        950
+      ],
+      [
+        900,
+        955
+      ],
+      [
+        900,
+        960
+      ],
+      [
+        778,
+        960
+      ],
+      [
+        786,
+        919
+      ],
+      [
+        763,
+        895
+      ],
+      [
+        760,
+        850
+      ]
+    ]
+  },
+  "reference": "docs/house-review/sources/table.png",
+  "referenceSha256": "79660b75a1d654a1273fcee7939c28a0e3f40e6953a6bff2f55ae22a387e8353",
+  "seed": 20261011,
+  "status": "prepared",
+  "shapeHost": "gsy0930",
+  "gpu": 2,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "be497ac36a3d8ce1f05cb9e04cb4101d7d7e72c843d3c3d0136f6c232036f567",
+  "triangles": 1036278,
+  "elapsedSeconds": 423.23,
+  "state": "review",
+  "job_id": "house-20261009-table-shape",
+  "paintHost": "gsy013",
+  "paintJobId": "9314bb2e471648ec9f04b82ffbc6a1af",
+  "paintManifest": {
+    "schema_version": "1.0",
+    "job_id": "9314bb2e471648ec9f04b82ffbc6a1af",
+    "asset_name": "house-table-20261009",
+    "asset_kind": "prop",
+    "profile": "xhs_mobile",
+    "state": "completed",
+    "source_file": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/source.glb",
+    "source_sha256": "89ce2ad9dc08d53349623e360b3aba37cacc7006a0a4fde3d07ce7ac930e322c",
+    "material_source_file": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/material-source.png",
+    "material_source_sha256": "79660b75a1d654a1273fcee7939c28a0e3f40e6953a6bff2f55ae22a387e8353",
+    "prompt": "",
+    "seed": 20261011,
+    "created_at": "2026-10-09T01:20:37.082677+00:00",
+    "updated_at": "2026-10-09T01:22:49.469484+00:00",
+    "stages": [
+      {
+        "name": "prepare",
+        "state": "completed",
+        "started_at": "2026-10-09T01:20:37.085664+00:00",
+        "completed_at": "2026-10-09T01:20:37.087219+00:00",
+        "details": {
+          "fingerprint": "17b6bb9fa61bb97e",
+          "work_dir": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/work",
+          "profile": "xhs_mobile",
+          "elapsed_seconds": 0.001,
+          "execution_job_id": "9314bb2e471648ec9f04b82ffbc6a1af"
+        }
+      },
+      {
+        "name": "generate_material",
+        "state": "completed",
+        "started_at": "2026-10-09T01:20:37.087700+00:00",
+        "completed_at": "2026-10-09T01:22:49.469040+00:00",
+        "details": {
+          "fingerprint": "6e81daed81a8010d",
+          "backend": "hunyuan3d-paint-2.1",
+          "paint_source": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/work/paint-source.glb",
+          "output": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/work/textured.glb",
+          "material_source": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/material-source.png",
+          "elapsed_seconds": 132.38,
+          "execution_job_id": "9314bb2e471648ec9f04b82ffbc6a1af"
+        }
+      }
+    ],
+    "outputs": {
+      "shape_mesh": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/source.glb",
+      "paint_source": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/work/paint-source.glb",
+      "pbr_mesh": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/work/textured.glb",
+      "generated_mesh": "/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/work/textured.glb"
+    },
+    "metrics": {},
+    "provenance": {
+      "source_filename": "paint-source.glb",
+      "material_source_filename": "table.png",
+      "mesh_backend": "selected-candidate",
+      "forge3d_version": "0.1.0",
+      "resource_class": "gpu",
+      "queue_name": "forge3d:jobs:gpu",
+      "partial_pipeline": "generate_material"
+    },
+    "quality_gates": {
+      "automatic_pipeline": "passed"
+    },
+    "error": null,
+    "stop_after": "generate_material"
+  },
+  "rawTexturedSha256": "2a0fb88e88ac0398777c99f9b529fdb94eb58b61089591a60e2599007ace60d8",
+  "rawRemotePath": "gsy013:/workspace/3d-assets/jobs/9314bb2e471648ec9f04b82ffbc6a1af/work/textured.glb",
+  "humanReview": "pending"
+}

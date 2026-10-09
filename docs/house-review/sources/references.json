@@ -1,0 +1,1034 @@
+[
+  {
+    "id": "chair",
+    "source": "docs/refs/pineapple-house/06-living-details.png",
+    "sourceSha256": "1400ec6fa60f647a8ad7570bf8efa382914968352564b4a15a52f17f3eba635a",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          551,
+          573
+        ],
+        [
+          656,
+          570
+        ],
+        [
+          711,
+          589
+        ],
+        [
+          750,
+          624
+        ],
+        [
+          747,
+          824
+        ],
+        [
+          767,
+          842
+        ],
+        [
+          765,
+          885
+        ],
+        [
+          745,
+          903
+        ],
+        [
+          741,
+          930
+        ],
+        [
+          715,
+          952
+        ],
+        [
+          555,
+          952
+        ],
+        [
+          511,
+          938
+        ],
+        [
+          484,
+          911
+        ],
+        [
+          481,
+          878
+        ],
+        [
+          476,
+          870
+        ],
+        [
+          481,
+          841
+        ],
+        [
+          509,
+          823
+        ],
+        [
+          508,
+          630
+        ],
+        [
+          528,
+          591
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/chair.png",
+    "referenceSha256": "f6326afc34457c79b337a6308a5c303df8f07cf658211a152a8d9d4f3ee0571a",
+    "seed": 20261009,
+    "status": "prepared"
+  },
+  {
+    "id": "couch",
+    "source": "docs/refs/pineapple-house/06-living-details.png",
+    "sourceSha256": "1400ec6fa60f647a8ad7570bf8efa382914968352564b4a15a52f17f3eba635a",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          226,
+          223
+        ],
+        [
+          243,
+          201
+        ],
+        [
+          300,
+          187
+        ],
+        [
+          405,
+          172
+        ],
+        [
+          488,
+          174
+        ],
+        [
+          513,
+          189
+        ],
+        [
+          519,
+          233
+        ],
+        [
+          501,
+          256
+        ],
+        [
+          512,
+          290
+        ],
+        [
+          495,
+          320
+        ],
+        [
+          508,
+          347
+        ],
+        [
+          559,
+          343
+        ],
+        [
+          608,
+          353
+        ],
+        [
+          638,
+          371
+        ],
+        [
+          645,
+          407
+        ],
+        [
+          609,
+          428
+        ],
+        [
+          373,
+          470
+        ],
+        [
+          287,
+          464
+        ],
+        [
+          240,
+          444
+        ],
+        [
+          225,
+          411
+        ],
+        [
+          223,
+          374
+        ],
+        [
+          239,
+          340
+        ],
+        [
+          224,
+          307
+        ],
+        [
+          235,
+          272
+        ],
+        [
+          224,
+          254
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/couch.png",
+    "referenceSha256": "758b9dcbdb52135002992111b209fafbad3e59d94e6a4b324fdfe0759ca329b3",
+    "seed": 20261010,
+    "status": "prepared"
+  },
+  {
+    "id": "table",
+    "source": "docs/refs/pineapple-house/06-living-details.png",
+    "sourceSha256": "1400ec6fa60f647a8ad7570bf8efa382914968352564b4a15a52f17f3eba635a",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          769,
+          793
+        ],
+        [
+          883,
+          796
+        ],
+        [
+          886,
+          843
+        ],
+        [
+          913,
+          858
+        ],
+        [
+          910,
+          900
+        ],
+        [
+          865,
+          919
+        ],
+        [
+          865,
+          950
+        ],
+        [
+          900,
+          955
+        ],
+        [
+          900,
+          960
+        ],
+        [
+          778,
+          960
+        ],
+        [
+          786,
+          919
+        ],
+        [
+          763,
+          895
+        ],
+        [
+          760,
+          850
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/table.png",
+    "referenceSha256": "79660b75a1d654a1273fcee7939c28a0e3f40e6953a6bff2f55ae22a387e8353",
+    "seed": 20261011,
+    "status": "prepared"
+  },
+  {
+    "id": "bed",
+    "source": "docs/refs/pineapple-house/03-bedroom-bath-library.png",
+    "sourceSha256": "56398fee11567b73c204ccf01c40dc48999c436536e2aee5523d781c00e6d29d",
+    "preprocessing": {
+      "size": [
+        977,
+        1302
+      ],
+      "polygon": [
+        [
+          148,
+          278
+        ],
+        [
+          162,
+          278
+        ],
+        [
+          165,
+          337
+        ],
+        [
+          181,
+          309
+        ],
+        [
+          207,
+          294
+        ],
+        [
+          232,
+          307
+        ],
+        [
+          239,
+          332
+        ],
+        [
+          240,
+          284
+        ],
+        [
+          243,
+          266
+        ],
+        [
+          258,
+          266
+        ],
+        [
+          257,
+          422
+        ],
+        [
+          371,
+          416
+        ],
+        [
+          397,
+          426
+        ],
+        [
+          393,
+          532
+        ],
+        [
+          384,
+          544
+        ],
+        [
+          383,
+          565
+        ],
+        [
+          375,
+          570
+        ],
+        [
+          367,
+          568
+        ],
+        [
+          366,
+          550
+        ],
+        [
+          334,
+          548
+        ],
+        [
+          330,
+          573
+        ],
+        [
+          317,
+          575
+        ],
+        [
+          317,
+          550
+        ],
+        [
+          154,
+          548
+        ],
+        [
+          150,
+          574
+        ],
+        [
+          135,
+          575
+        ],
+        [
+          136,
+          531
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/bed.png",
+    "referenceSha256": "f1b1b2851df56747e13b85bf797a1a28a04a7d502438748e114e624b0b7cf20a",
+    "seed": 20261012,
+    "status": "prepared"
+  },
+  {
+    "id": "bathtub",
+    "source": "docs/refs/pineapple-house/13-sims-bathroom.png",
+    "sourceSha256": "09e51b557fec7238cdca943545ccb8420df70f06b6d4285bc20e68d18dc5b46f",
+    "preprocessing": {
+      "size": [
+        920,
+        2048
+      ],
+      "polygon": [
+        [
+          55,
+          585
+        ],
+        [
+          94,
+          568
+        ],
+        [
+          315,
+          568
+        ],
+        [
+          387,
+          592
+        ],
+        [
+          407,
+          623
+        ],
+        [
+          386,
+          668
+        ],
+        [
+          341,
+          700
+        ],
+        [
+          375,
+          711
+        ],
+        [
+          369,
+          732
+        ],
+        [
+          269,
+          729
+        ],
+        [
+          255,
+          709
+        ],
+        [
+          149,
+          696
+        ],
+        [
+          130,
+          712
+        ],
+        [
+          92,
+          702
+        ],
+        [
+          78,
+          675
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/bathtub.png",
+    "referenceSha256": "c44a2cac7bd5700f431d5e3f544d03727b450a86ae259caf544234a6249a5268",
+    "seed": 20261013,
+    "status": "prepared"
+  },
+  {
+    "id": "sink",
+    "source": "docs/refs/pineapple-house/03-bedroom-bath-library.png",
+    "sourceSha256": "56398fee11567b73c204ccf01c40dc48999c436536e2aee5523d781c00e6d29d",
+    "preprocessing": {
+      "size": [
+        977,
+        1302
+      ],
+      "polygon": [
+        [
+          132,
+          818
+        ],
+        [
+          144,
+          807
+        ],
+        [
+          157,
+          813
+        ],
+        [
+          151,
+          835
+        ],
+        [
+          175,
+          837
+        ],
+        [
+          176,
+          813
+        ],
+        [
+          187,
+          806
+        ],
+        [
+          197,
+          814
+        ],
+        [
+          194,
+          838
+        ],
+        [
+          208,
+          835
+        ],
+        [
+          209,
+          815
+        ],
+        [
+          219,
+          813
+        ],
+        [
+          229,
+          820
+        ],
+        [
+          221,
+          840
+        ],
+        [
+          217,
+          850
+        ],
+        [
+          220,
+          877
+        ],
+        [
+          214,
+          905
+        ],
+        [
+          176,
+          917
+        ],
+        [
+          136,
+          906
+        ],
+        [
+          130,
+          874
+        ],
+        [
+          126,
+          850
+        ],
+        [
+          138,
+          838
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/sink.png",
+    "referenceSha256": "fda7690f2f59b413ce76b63a045414f51c26059b5d07a9290932adf5c492205c",
+    "seed": 20261014,
+    "status": "prepared"
+  },
+  {
+    "id": "toilet",
+    "source": "docs/refs/pineapple-house/03-bedroom-bath-library.png",
+    "sourceSha256": "56398fee11567b73c204ccf01c40dc48999c436536e2aee5523d781c00e6d29d",
+    "preprocessing": {
+      "size": [
+        977,
+        1302
+      ],
+      "polygon": [
+        [
+          276,
+          736
+        ],
+        [
+          356,
+          737
+        ],
+        [
+          348,
+          761
+        ],
+        [
+          346,
+          855
+        ],
+        [
+          341,
+          869
+        ],
+        [
+          353,
+          881
+        ],
+        [
+          349,
+          920
+        ],
+        [
+          324,
+          944
+        ],
+        [
+          316,
+          958
+        ],
+        [
+          325,
+          972
+        ],
+        [
+          313,
+          980
+        ],
+        [
+          267,
+          978
+        ],
+        [
+          261,
+          965
+        ],
+        [
+          273,
+          944
+        ],
+        [
+          247,
+          938
+        ],
+        [
+          227,
+          917
+        ],
+        [
+          228,
+          880
+        ],
+        [
+          274,
+          878
+        ],
+        [
+          275,
+          857
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/toilet.png",
+    "referenceSha256": "be1cc5aff969a0b54b32faa8ed3b0a72cb7f782eb2e1d04ea629592c92789df6",
+    "seed": 20261015,
+    "status": "prepared"
+  },
+  {
+    "id": "barrel",
+    "source": "docs/refs/pineapple-house/12-sims-bedroom.png",
+    "sourceSha256": "8adbc8a4bf6b3f79611ec8a0537caec6a91c4a739ba4182e4d9f7617b2c01b22",
+    "preprocessing": {
+      "size": [
+        920,
+        2048
+      ],
+      "polygon": [
+        [
+          87,
+          590
+        ],
+        [
+          104,
+          574
+        ],
+        [
+          184,
+          575
+        ],
+        [
+          197,
+          590
+        ],
+        [
+          199,
+          673
+        ],
+        [
+          181,
+          692
+        ],
+        [
+          103,
+          692
+        ],
+        [
+          81,
+          671
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/barrel.png",
+    "referenceSha256": "89bc9fe543fa5fc43071b0c4e69f3c37f1ea8ae5cdbf61bf0c41a2cdf46ffecb",
+    "seed": 20261016,
+    "status": "prepared"
+  },
+  {
+    "id": "chest",
+    "source": "docs/refs/pineapple-house/03-bedroom-bath-library.png",
+    "sourceSha256": "56398fee11567b73c204ccf01c40dc48999c436536e2aee5523d781c00e6d29d",
+    "preprocessing": {
+      "size": [
+        977,
+        1302
+      ],
+      "polygon": [
+        [
+          478,
+          525
+        ],
+        [
+          480,
+          512
+        ],
+        [
+          499,
+          508
+        ],
+        [
+          540,
+          522
+        ],
+        [
+          555,
+          527
+        ],
+        [
+          563,
+          531
+        ],
+        [
+          580,
+          538
+        ],
+        [
+          590,
+          562
+        ],
+        [
+          584,
+          583
+        ],
+        [
+          562,
+          597
+        ],
+        [
+          491,
+          578
+        ],
+        [
+          481,
+          560
+        ],
+        [
+          474,
+          548
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/chest.png",
+    "referenceSha256": "d566970ff791475b0c8a2c12f2fd9223ba2b01c7a929db96be280df6ee4dac05",
+    "seed": 20261017,
+    "status": "prepared"
+  },
+  {
+    "id": "gary",
+    "source": "docs/refs/pineapple-house/02-living-room.png",
+    "sourceSha256": "14292fe6c4c0537dfeb1f4ab77c89f7d49b16a4805f3171ad605ad9e44dffaa8",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          137,
+          675
+        ],
+        [
+          176,
+          654
+        ],
+        [
+          221,
+          665
+        ],
+        [
+          242,
+          697
+        ],
+        [
+          260,
+          680
+        ],
+        [
+          280,
+          686
+        ],
+        [
+          296,
+          716
+        ],
+        [
+          280,
+          746
+        ],
+        [
+          304,
+          840
+        ],
+        [
+          316,
+          854
+        ],
+        [
+          296,
+          868
+        ],
+        [
+          241,
+          860
+        ],
+        [
+          202,
+          851
+        ],
+        [
+          157,
+          826
+        ],
+        [
+          125,
+          823
+        ],
+        [
+          116,
+          806
+        ],
+        [
+          145,
+          787
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/gary.png",
+    "referenceSha256": "a3a46157fc88e61d2f30b33f6ebe724ce5e4c6e5c0a85f093c3d9c95099fe7b0",
+    "seed": 20261018,
+    "status": "prepared"
+  },
+  {
+    "id": "lounger",
+    "source": "docs/refs/pineapple-house/08-storage-roofgarden.png",
+    "sourceSha256": "77055b86142e6af7f462638e3b7c606ca32c8b6f0e7dbead4e57a36c25af6e5d",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          345,
+          1057
+        ],
+        [
+          393,
+          1060
+        ],
+        [
+          409,
+          1129
+        ],
+        [
+          495,
+          1125
+        ],
+        [
+          537,
+          1121
+        ],
+        [
+          551,
+          1154
+        ],
+        [
+          526,
+          1155
+        ],
+        [
+          524,
+          1237
+        ],
+        [
+          511,
+          1245
+        ],
+        [
+          506,
+          1164
+        ],
+        [
+          417,
+          1182
+        ],
+        [
+          402,
+          1237
+        ],
+        [
+          388,
+          1240
+        ],
+        [
+          392,
+          1177
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/lounger.png",
+    "referenceSha256": "eb24983683fa79f84fcb54b9557c5d9128e5b9240b3b4dbc0ee7811f6204ad4d",
+    "seed": 20261019,
+    "status": "prepared"
+  },
+  {
+    "id": "treasure",
+    "source": "docs/refs/pineapple-house/08-storage-roofgarden.png",
+    "sourceSha256": "77055b86142e6af7f462638e3b7c606ca32c8b6f0e7dbead4e57a36c25af6e5d",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          352,
+          160
+        ],
+        [
+          427,
+          164
+        ],
+        [
+          465,
+          149
+        ],
+        [
+          518,
+          136
+        ],
+        [
+          557,
+          167
+        ],
+        [
+          610,
+          136
+        ],
+        [
+          636,
+          159
+        ],
+        [
+          666,
+          160
+        ],
+        [
+          694,
+          252
+        ],
+        [
+          707,
+          347
+        ],
+        [
+          688,
+          456
+        ],
+        [
+          633,
+          480
+        ],
+        [
+          351,
+          480
+        ],
+        [
+          325,
+          405
+        ],
+        [
+          325,
+          288
+        ]
+      ]
+    },
+    "reference": "docs/house-review/sources/treasure.png",
+    "referenceSha256": "99c2d1c65d0388c41c6e6bb78b57c5d487c85b5fdb3f324f3660021d319b05d9",
+    "seed": 20261020,
+    "status": "prepared"
+  }
+]

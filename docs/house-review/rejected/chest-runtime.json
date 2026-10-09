@@ -1,0 +1,26 @@
+{
+  "asset": "chest",
+  "rawSha256": "ed4b15ec928df8235ffd7340c0e598b954c9e5f5f7db799735ef09b60a1cdefe",
+  "runtimeSha256": "a0a4c139d79197327b67f903d04066a942db6fad64256c12eadc8c244450bb66",
+  "triangles": 18000,
+  "dimensionsYUp": [
+    0.84,
+    0.52,
+    0.53
+  ],
+  "origin": "bottom-center",
+  "originalDimensionsZUp": [
+    0.93995201587677,
+    1.9856555461883545,
+    1.0579307079315186
+  ],
+  "repairs": [
+    "remove tiny loose islands",
+    "merge close vertices",
+    "recalculate normals",
+    "decimate preserving UV",
+    "apply reference dimensions"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

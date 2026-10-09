@@ -1,0 +1,28 @@
+{
+  "asset": "lounger",
+  "revision": 3,
+  "sourceBackend": "Hunyuan3D-2.1",
+  "meshBackend": "Blender reference retopology",
+  "rawSha256": "32de4ef6a072a47e190e51e30cfdb6fbdaa31bb5f329515aaf70acdf1d9f108c",
+  "rawDimensionsZUp": [
+    1.9956669807434082,
+    0.6336912214756012,
+    1.4326541844026401
+  ],
+  "runtimeSha256": "ded9baa23a5932c436748490c6c04cbf756d5596d6bef4df55818c0111e99d25",
+  "triangles": 7284,
+  "dimensionsYUp": [
+    0.7300000190734863,
+    0.8913068808615208,
+    1.3214699029922485
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "reject paper-like AI topology and background sheets",
+    "rebuild curved silhouette and connected parts",
+    "explicit hollow bowls, straps and support feet",
+    "new UV and painted material maps"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}

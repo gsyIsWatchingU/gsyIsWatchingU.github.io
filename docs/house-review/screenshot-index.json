@@ -1,0 +1,301 @@
+[
+  {
+    "file": "docs/house-review/screenshots/desktop-bathroom.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-bedroom.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-library.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-living.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-load-failure.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-load-recovered.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-roof.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-rotated.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-stairs.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-storage.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-webgl-unavailable.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-whole.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/desktop-zoom.png",
+    "viewportCss": [
+      1440,
+      900
+    ],
+    "capturedPixels": [
+      1440,
+      900
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-bathroom.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-bedroom.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-library.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-living.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-load-failure.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-roof.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-stairs.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-storage.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-webgl-unavailable.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  },
+  {
+    "file": "docs/house-review/screenshots/mobile-whole.png",
+    "viewportCss": [
+      390,
+      844
+    ],
+    "capturedPixels": [
+      390,
+      843
+    ],
+    "source": "real browser screenshot",
+    "pixelEditing": false
+  }
+]

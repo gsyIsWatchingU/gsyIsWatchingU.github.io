@@ -1,0 +1,28 @@
+{
+  "asset": "chest",
+  "revision": 3,
+  "sourceBackend": "Hunyuan3D-2.1",
+  "meshBackend": "Blender reference retopology",
+  "rawSha256": "ed4b15ec928df8235ffd7340c0e598b954c9e5f5f7db799735ef09b60a1cdefe",
+  "rawDimensionsZUp": [
+    0.93995201587677,
+    1.9855733513832092,
+    1.0577544119447424
+  ],
+  "runtimeSha256": "b118e39a50e0ac7ed5558815f00601db94370114b0d80b60834ce4efb170bf68",
+  "triangles": 5126,
+  "dimensionsYUp": [
+    0.8500000238418579,
+    0.5409999946132302,
+    0.5398043990135193
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "reject paper-like AI topology and background sheets",
+    "rebuild curved silhouette and connected parts",
+    "explicit hollow bowls, straps and support feet",
+    "new UV and painted material maps"
+  ],
+  "status": "review",
+  "humanReview": "pending"
+}
