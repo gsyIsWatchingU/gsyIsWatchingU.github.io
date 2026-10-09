@@ -1,0 +1,6 @@
+# 原始大网格保存在本机及自有 GPU，位置与哈希见 asset-index.json。
+raw/**/*.glb
+raw/**/paint.log
+# 运行模型统一提交 assets；修整工程和预览保留。
+refined/*.glb
+refined/*.blend1

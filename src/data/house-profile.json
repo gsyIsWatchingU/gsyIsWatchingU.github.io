@@ -1,28 +1,27 @@
 {
   "name": "郭书羽",
-  "role": "AI 全栈开发工程师",
-  "direction": "全栈开发 · AI 提效 · Agent 工程",
+  "role": "AI 全栈 / Agent 工程师",
+  "direction": "Agent 工程 · AI 应用开发 · 全栈交付",
   "email": "gsyiswatchingu@163.com",
   "verifiedDemoIds": ["research-workbench", "algorithm-lab", "write-here"],
   "unavailableDemoIds": ["skill-dock"],
-  "intro": "把 AI 能力接进真实业务，完成从产品设计、全栈实现到部署与验证的工程闭环。",
+  "intro": "开发 TraceAgent / FixAgent，参与 AI 视频平台开发；独立实现产品前后端、数据与部署。",
   "highlights": [
     {"value":"30+", "label":"Agent 问题闭环", "note":"字节实习 · TraceAgent / FixAgent", "target":"internship-agent"},
     {"value":"1.2W+", "label":"Smart Video PV", "note":"参与开发 · 上线 20 天", "target":"internship-video"},
     {"value":"20万+", "label":"ETMS 平台累计用户", "note":"项目负责人 · 平台规模", "target":"project-etms"}
   ],
   "skills": [
-    {"name":"AI / Agent", "text":"让多步骤任务可恢复、可追踪、可验收。", "tech":["LLM API","Tool Calling / MCP","Context Engineering","DAG / Workflow","Checkpoint","Tracing / Evals"], "evidence":"internship-agent", "evidenceLabel":"TraceAgent / FixAgent 的证据闭环"},
-    {"name":"全栈开发", "text":"打通交互、服务、数据与异步任务。", "tech":["TypeScript","React / Vue","Python / FastAPI","Node.js","SSE / WebSocket","MySQL / PostgreSQL / Redis"], "evidence":"project-etms", "evidenceLabel":"ETMS：直播、支付、社区与考试"},
-    {"name":"工程交付", "text":"把可运行的功能变成稳定的业务能力。", "tech":["Docker / CI/CD","Unit / E2E","Logs / Metrics / Trace","幂等 / 重试","缓存 / 请求去重"], "evidence":"internship-stability", "evidenceLabel":"六个仓库的稳定性治理"}
+    {"name":"Agent 工程", "featured":true, "context":"字节实习 · TraceAgent / FixAgent", "text":"开发排查与修复 Agent，联动日志、数据库、代码与部署。", "metrics":[{"value":"30+","label":"问题闭环"},{"value":"≈80%","label":"人工复核一致率"}], "capabilities":[{"label":"任务编排","text":"DAG 定义依赖，Tool Calling 聚合工具证据。"},{"label":"失败恢复","text":"Checkpoint 恢复进度，幂等执行避免重复操作。"},{"label":"结果验收","text":"Evidence Gate 决定通过、重试或 Re-plan；Badcase 回放。"}], "tech":["Tool Calling","DAG","Checkpoint","Trace / Evals"], "evidence":"internship-agent", "evidenceLabel":"TraceAgent / FixAgent 的证据闭环"},
+    {"name":"AI 全栈开发", "featured":true, "context":"字节实习 · Smart Video · 参与开发", "text":"接入 AI 视频生成与剪辑流程，完成异步任务与业务页面。", "metrics":[{"value":"1.2W+","label":"PV · 上线 20 天"}], "capabilities":[{"label":"异步任务","text":"统一状态机，幂等提交、退避轮询、断点续查与重试。"},{"label":"业务集成","text":"微前端、i18n、埋点与数据看板。"},{"label":"后端开发","text":"Java / Go / Python / Node.js，覆盖接口开发、数据访问与异步处理。"},{"label":"独立产品","text":"React / Vue + FastAPI / Node.js，覆盖前端、服务、数据库与部署。"}], "tech":["TypeScript","React / Vue","Java / Go","Python / FastAPI","Node.js","SQL / Redis"], "evidence":"internship-video", "evidenceLabel":"Smart Video 异步任务与业务集成"}
   ],
   "internship": {
     "company":"字节跳动", "team":"国际电商 AI 直播", "role":"AI 全栈开发实习", "date":"2026.06—2026.09",
     "cases":[
-      {"id":"internship-agent","name":"Agent Harness","status":"参与开发","problem":"复杂问题跨日志、数据库、代码与部署，需要可核查的定位和修复链路。","work":"自研 TraceAgent / FixAgent；用 DAG 定义依赖与验收条件，Tool Calling 聚合证据，Evidence Gate 决定通过、重试或 Re-plan；加入 Checkpoint、幂等执行与 Badcase 回放。","result":"跟踪 40+ 项问题，闭环 30+ 项，辅助定位 20+ 项；人工复核一致率约 80%。","tech":["Tool Calling","DAG","Evidence Gate","Checkpoint","Trace / Evals"]},
-      {"id":"internship-debug","name":"浏览器调试平台","status":"已上线 · 参与开发","problem":"Header、Mock 与抓包配置难复用，插件重启后规则容易冲突。","work":"Chrome MV3 插件与 FaaS 配合，设计规则编译、稳定 Rule ID、优先级裁决和状态对账，恢复配置并确定冲突规则的生效顺序。","result":"上线 25 天使用 387 次。","tech":["Chrome MV3","FaaS","Rule ID","状态对账"]},
-      {"id":"internship-stability","name":"平台稳定性治理","status":"已上线 · 参与开发","problem":"页面状态耦合、重复请求和币种精度问题影响业务稳定性。","work":"SWR 缓存先渲染、后台更新与请求去重；用 Jotai 按业务域拆分状态，统一币种、千分位和精度处理。","result":"六个仓库累计修复上线 40+ 项。","tech":["SWR","Jotai","缓存","多仓协作"]},
-      {"id":"internship-video","name":"Smart Video","status":"已上线 · 参与开发","problem":"AI 视频生成与存量剪辑都有长耗时异步流程，需要可靠反馈和失败恢复。","work":"统一异步状态机，接入幂等提交、退避轮询、断点续查与重试；完成微前端集成、i18n、埋点与数据看板。","result":"上线 20 天累计 1.2W+ PV。","tech":["异步状态机","微前端","i18n","埋点 / 看板"]}
+      {"id":"internship-agent","summary":"开发 TraceAgent / FixAgent，串联日志、数据库和代码排查，支持任务恢复与结果验收。","summaryResult":"闭环 30+ 项问题，人工复核一致率约 80%。","name":"Agent Harness","status":"参与开发","problem":"复杂问题跨日志、数据库、代码与部署，需要可核查的定位和修复链路。","work":"自研 TraceAgent / FixAgent；用 DAG 定义依赖与验收条件，Tool Calling 聚合证据，Evidence Gate 决定通过、重试或 Re-plan；加入 Checkpoint、幂等执行与 Badcase 回放。","result":"跟踪 40+ 项问题，闭环 30+ 项，辅助定位 20+ 项；人工复核一致率约 80%。","tech":["Tool Calling","DAG","Evidence Gate","Checkpoint","Trace / Evals"]},
+      {"id":"internship-debug","summary":"开发 Chrome 调试插件，统一 Header、Mock 和抓包配置，处理规则冲突与配置恢复。","summaryResult":"上线 25 天使用 387 次。","name":"浏览器调试平台","status":"已上线 · 参与开发","problem":"Header、Mock 与抓包配置难复用，插件重启后规则容易冲突。","work":"Chrome MV3 插件与 FaaS 配合，设计规则编译、稳定 Rule ID、优先级裁决和状态对账，恢复配置并确定冲突规则的生效顺序。","result":"上线 25 天使用 387 次。","tech":["Chrome MV3","FaaS","Rule ID","状态对账"]},
+      {"id":"internship-stability","summary":"优化请求缓存与页面状态，统一币种格式和精度处理，减少重复请求。","summaryResult":"六个仓库累计修复上线 40+ 项。","name":"平台稳定性治理","status":"已上线 · 参与开发","problem":"页面状态耦合、重复请求和币种精度问题影响业务稳定性。","work":"SWR 缓存先渲染、后台更新与请求去重；用 Jotai 按业务域拆分状态，统一币种、千分位和精度处理。","result":"六个仓库累计修复上线 40+ 项。","tech":["SWR","Jotai","缓存","多仓协作"]},
+      {"id":"internship-video","summary":"参与 AI 视频生成与剪辑平台开发，完成异步任务、失败重试和数据看板。","summaryResult":"上线 20 天累计 1.2W+ PV。","name":"Smart Video","status":"已上线 · 参与开发","problem":"AI 视频生成与存量剪辑都有长耗时异步流程，需要可靠反馈和失败恢复。","work":"统一异步状态机，接入幂等提交、退避轮询、断点续查与重试；完成微前端集成、i18n、埋点与数据看板。","result":"上线 20 天累计 1.2W+ PV。","tech":["异步状态机","微前端","i18n","埋点 / 看板"]}
     ]
   },
   "projects": [
@@ -36,7 +35,7 @@
   "sections":[
     {"id":"overview","label":"概览","room":null},
     {"id":"skills","label":"技能","room":"living"},
-    {"id":"internship","label":"实习","room":"roof"},
+    {"id":"internship","label":"实习","room":"bedroom"},
     {"id":"projects","label":"项目","room":"library"},
     {"id":"education","label":"学历","room":"bedroom"},
     {"id":"honors","label":"荣誉","room":"storage"}

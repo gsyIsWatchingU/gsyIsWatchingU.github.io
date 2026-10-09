@@ -27,8 +27,10 @@ for(const display of house.displays) {
   if(!houseRoomIds.has(display.room)||![...display.position,...display.normal,...display.size,display.level].every(Number.isFinite))errors.push(`履历展示件位置无效：${display.id}`);
 }
 const contentIds=new Set();
+const houseMusic=JSON.parse(readFileSync(join(projectRoot,"src/data/house-music.json"),"utf8"));
+if(houseMusic.length!==3||new Set(houseMusic.map(track=>track.id)).size!==3||houseMusic.some(track=>!track.title||!track.credit||!/^https:\/\/music\.163\.com\/song\/media\/outer\/url\?id=\d+\.mp3$/.test(track.url)))errors.push('客厅三首音乐配置无效');
 for(const item of house.interactions) {
-  if(contentIds.has(item.id)||!houseRoomIds.has(item.room)||!profile.sections.some(section=>section.id===item.section)||!item.anchor.every(Number.isFinite))errors.push(`物品履历关联无效：${item.id}`);
+  if(contentIds.has(item.id)||!houseRoomIds.has(item.room)||!(item.action==='music'||profile.sections.some(section=>section.id===item.section))||!item.anchor.every(Number.isFinite))errors.push(`物品履历关联无效：${item.id}`);
   contentIds.add(item.id);
   if(item.asset ? !house.assets.some(asset=>asset.id===item.asset && asset.room===item.room) : !house.displays.some(display=>display.kind==='content' && display.id===item.id && display.room===item.room))errors.push(`履历物品模型或展示件不存在：${item.id}`);
 }

@@ -1,0 +1,21 @@
+{
+  "modelSHA256": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
+  "retainedMeshes": 64,
+  "newMesh": "shell_2_library_back_fill",
+  "bounds": [
+    [
+      0.25,
+      6.0,
+      -3.0797810554504395
+    ],
+    [
+      1.1200000047683716,
+      9.0,
+      -1.5259791612625122
+    ]
+  ],
+  "existingGeometryAndMetadataUnchanged": true,
+  "closedWallSurface": true,
+  "visibleOnlyIn": "library",
+  "status": "review"
+}

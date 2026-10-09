@@ -9,13 +9,14 @@
     {"id":"bathroom","name":"浴室","floor":"二层","level":1,"label":[-2.0,3.55,2.7],"bounds":[[-4.6,3,-2.4],[0.25,5.95,2.7]],"target":[-1.75,4.25,0],"camera":[-2.6,5.1,7.7]},
     {"id":"bedroom","name":"卧室","floor":"三层","level":2,"label":[-1.2,6.55,2.2],"bounds":[[-4.1,6,-2.1],[1.12,8.95,2.6]],"target":[-1.2,7.2,0],"camera":[-2.3,8.15,7.6]},
     {"id":"library","name":"图书馆","floor":"二、三层 · 挑高","level":1,"label":[3.3,4.8,1.2],"bounds":[[0.25,3,-2.8],[4.65,8.8,2.7]],"target":[2.7,5.7,0],"camera":[4.7,7.1,12.5]},
-    {"id":"stairs","name":"螺旋楼梯","floor":"连接三层与天台","level":0,"label":[2.95,1.9,-0.85],"bounds":[[0.35,0,-2.15],[3.6,9.8,0.35]],"target":[2.0,4.9,-0.9],"camera":[8,6.4,18]},
     {"id":"roof","name":"屋顶花园","floor":"天台","level":3,"label":[0,9.45,1.2],"bounds":[[-2.5,9,-2],[2.5,10.8,2]],"target":[0,9.6,0],"camera":[0,12.4,7.9]}
   ],
   "assets": [
     {"id":"chair","name":"红扶手椅","room":"living","url":"assets/house-review/props/chair.glb","position":[-1.3,0,-0.3],"rotation":0.13},
     {"id":"couch","name":"绿管沙发","room":"living","url":"assets/house-review/props/couch.glb","position":[1.1,0,-0.35],"rotation":-0.18},
-    {"id":"table","name":"圆桌与海螺","room":"living","url":"assets/house-review/props/table.glb","position":[0,0,0.05],"rotation":0},
+    {"id":"table","name":"圆桌","room":"living","url":"assets/house-review/props/table-speaker-base.glb","position":[0,0,0.05],"rotation":0},
+    {"id":"bluetooth-speaker","name":"蓝牙音箱","room":"living","url":"assets/house-review/props/speaker.glb","position":[0,0.76,0.05],"rotation":-0.08},
+    {"id":"laptop","name":"沙发上的笔记本电脑","room":"living","url":"assets/house-review/props/laptop.glb","position":[1.08,0.49,-0.1],"rotation":-0.18},
     {"id":"siamese-cat","name":"暹罗猫","room":"living","url":"assets/house-review/props/siamese-cat.glb","position":[-1.55,0,1.6],"rotation":0.22,"pet":{"route":[[-1.4,1.95],[-0.65,2.08],[0.25,2.05],[0.85,1.88],[0.7,1.48],[0,1.43],[-0.95,1.44]]}},
     {"id":"treasure","name":"储藏室宝藏","room":"storage","url":"assets/house-review/props/treasure.glb","position":[-3.3,0,-0.1],"rotation":0},
     {"id":"bathtub","name":"浴缸","room":"bathroom","url":"assets/house-review/props/bathtub.glb","position":[-2.7,3,0.7],"rotation":0.1},
@@ -38,19 +39,15 @@
     {"id":"merit-2022","kind":"award","room":"storage","level":0,"position":[-2.86777,2.61,-2.30964],"normal":[0.53723,0,0.84344],"size":[0.3495,0.48]},
     {"id":"league-2021","kind":"award","room":"storage","level":0,"position":[-2.66,1.91,-1.3],"normal":[-1,0,0],"size":[0.5,0.35078]},
     {"id":"union-2021","kind":"award","room":"storage","level":0,"position":[-2.66,2.52,-1.3],"normal":[-1,0,0],"size":[0.5,0.33203]},
-    {"id":"research-workbench","kind":"project","room":"library","level":1,"position":[3.97025,3.47,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
-    {"id":"algorithm-lab","kind":"project","room":"library","level":1,"position":[3.94414,3.9,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
-    {"id":"write-here","kind":"project","room":"library","level":1,"position":[3.90134,4.33,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
-    {"id":"cli-list","kind":"project","room":"library","level":1,"position":[3.84136,4.76,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
-    {"id":"skill-dock","kind":"project","room":"library","level":1,"position":[3.76351,5.19,0.075],"normal":[0,0,1],"size":[0.6,0.3]},
-    {"id":"skills-chart","kind":"content","room":"living","level":0,"position":[-1.63,2.15,-2.85],"normal":[0.38,0,0.925],"size":[0.82,0.54]},
-    {"id":"work-journal","kind":"content","room":"roof","level":3,"position":[-0.71,9.37,0.49],"normal":[0,1,0],"size":[0.3,0.27]},
-    {"id":"education-frame","kind":"content","room":"bedroom","level":2,"position":[-3.03,7.55,-0.995],"normal":[0.84,0,0.55],"size":[0.43,0.58],"sourceAward":"graduate-2024"}
+    {"id":"skills-book","kind":"content","room":"library","level":1,"position":[1.45,3.6,1.42],"normal":[0.15,0,0.99],"size":[0.8,1.1]},
+    {"id":"work-journal","kind":"content","room":"bedroom","level":2,"position":[-1.42,6.842,0.12],"normal":[0,1,0],"size":[0.48,0.6],"style":"book"}
   ],
   "interactions": [
-    {"id":"skills-chart","room":"living","section":"skills","label":"技术航海图 · 专业技能","button":"技术航海图","anchor":[-1.63,2.55,-2.83]},
-    {"id":"work-journal","room":"roof","section":"internship","label":"实习日志 · 字节跳动实习","button":"实习日志","anchor":[-0.71,9.78,0.49]},
-    {"id":"education-frame","room":"bedroom","section":"education","label":"求学纪念 · 教育经历","button":"求学纪念","anchor":[-3.0,7.99,-0.94]},
+    {"id":"living-speaker","room":"living","action":"music","label":"蓝牙音箱 · 网页背景音乐","button":"听音乐","asset":"bluetooth-speaker","anchor":[0,1.3,0.05]},
+    {"id":"laptop-profile","room":"living","section":"overview","label":"笔记本电脑 · 基本信息","button":"基本信息","asset":"laptop","anchor":[1.08,1.3,-0.1]},
+    {"id":"skills-book","room":"library","section":"skills","label":"专业技能书 · 全栈与 Agent 工程","button":"专业技能","anchor":[1.45,4.37,1.47]},
+    {"id":"work-journal","room":"bedroom","section":"internship","label":"床上日记本 · 实习经历","button":"实习日记","anchor":[-1.42,7.14,0.12]},
+    {"id":"education-clock","room":"bedroom","section":"education","label":"闹钟 · 教育经历","button":"闹钟","asset":"barrel","localBounds":[[-0.13,0.615,-0.1],[0.13,0.835,0.13]],"anchor":[-3.0,7.06,-0.45]},
     {"id":"honor-trophies","room":"storage","section":"honors","label":"奖杯与证书 · 个人荣誉","button":"荣誉奖杯","asset":"treasure","anchor":[-3.3,1.05,-0.1]}
   ]
 }

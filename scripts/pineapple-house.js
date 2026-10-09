@@ -1,10 +1,11 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { createSkillsBook } from "./house-skills-book.js";
 import { createHousePet } from "./house-pet.js";
 import config from "../src/data/pineapple-house.json";
 import awards from "../src/data/house-awards.json";
-import products from "../src/data/projects.json";
+import './house-music.js';
 
 const root = document.querySelector(".house");
 const canvas = document.querySelector("[data-house-canvas]");
@@ -19,6 +20,10 @@ const objectsHost = document.querySelector("[data-house-objects]");
 const tooltip = document.querySelector("[data-house-tooltip]");
 const rooms = new Map(config.rooms.map((room) => [room.id, room]));
 const interactions = new Map(config.interactions.map(item=>[item.id,item]));
+function activateObject(id) {
+  const item=interactions.get(id);if(!item)return;
+  window.dispatchEvent(new CustomEvent(item.action==='music'?'house:music':'house:content',{detail:{id,section:item.section}}));
+}
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const structureOnly = new URLSearchParams(location.search).has("structure");
 // 截图专用脱敏视图：证书保持展示位置，照片换成不含个人信息的封面。
@@ -116,9 +121,18 @@ if (renderer) {
     const group=new THREE.Group();group.name=name;Object.assign(group.userData,metadata);
     group.position.fromArray(position);
     group.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),normal.clone().normalize());
-    const frame=new THREE.Mesh(new THREE.BoxGeometry(width+.045,height+.045,.045),new THREE.MeshStandardMaterial({color:0x927146,roughness:.88}));
+    const book=metadata.book;
+    const frame=new THREE.Mesh(new THREE.BoxGeometry(width+.045,height+.045,.045),new THREE.MeshStandardMaterial({color:book?0xf3e7c9:0x927146,roughness:.88}));
     frame.receiveShadow=true;group.add(frame);
-    const paper=new THREE.Mesh(new THREE.PlaneGeometry(width,height),material);paper.position.z=.024;group.add(paper);
+    const paper=new THREE.Mesh(new THREE.PlaneGeometry(book?width+.055:width,book?height+.055:height),material);paper.position.z=.024;group.add(paper);
+    if(book) {
+      const back=paper.clone();back.position.z=-.024;back.rotation.y=Math.PI;group.add(back);
+      const spine=frame.clone();spine.scale.set(.06,1.02,1.16);spine.position.x=-width/2;spine.material=new THREE.MeshStandardMaterial({color:0x416c79,roughness:.95});group.add(spine);
+      for(let i=0;i<3;i++){
+        const points=[new THREE.Vector3(-width/2, -height/2-.023,-.013+i*.011),new THREE.Vector3(width/2+.022,-height/2-.023,-.013+i*.011)];
+        group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineBasicMaterial({color:0xcbbb9c})));
+      }
+    }
     displays.add(group);return group;
   }
   if(!structureOnly) {
@@ -128,20 +142,8 @@ if (renderer) {
       const d=config.displays.find(d=>d.kind==='award' && d.id===a.id);
       displayPlane(`certificate-${a.id}`,...d.size,material,d.position,new THREE.Vector3(...d.normal),{roomId:d.room,awardId:a.id});
     });
-    // 书架前端的小型书目签与现有书册相邻，避免重叠原有书籍和滑梯通道。
-    products.forEach((product,i)=>{
-      const label=document.createElement('canvas');label.width=512;label.height=256;
-      const context=label.getContext('2d');
-      context.fillStyle=['#edf0d9','#dbe9ee','#efe1c5','#dedfe8','#e1e8d5'][i];context.fillRect(0,0,512,256);
-      context.strokeStyle='#aa956d';context.lineWidth=12;context.strokeRect(12,12,488,232);
-      context.fillStyle='#29464c';context.font='600 65px sans-serif';context.textAlign='center';context.textBaseline='middle';
-      const words=product.name.split(' ');words.forEach((word,j)=>context.fillText(word,256,105+(j-(words.length-1)/2)*64,456));
-      context.font='22px sans-serif';context.fillText(`0${i+1}  /  OPEN`,256,207);
-      const texture=new THREE.CanvasTexture(label);texture.colorSpace=THREE.SRGBColorSpace;
-      const d=config.displays.find(d=>d.kind==='project' && d.id===product.id);
-      displayPlane(`catalog-${product.id}`,...d.size,new THREE.MeshStandardMaterial({map:texture,roughness:.95}),d.position,new THREE.Vector3(...d.normal),{roomId:d.room,projectId:product.id});
-    });
     for(const d of config.displays.filter(d=>d.kind==='content')) {
+      if(d.id==='skills-book') {displays.add(createSkillsBook(d));continue;}
       let material;
       if(d.sourceAward) material=awardMaterials.get(d.sourceAward);
       else {
@@ -151,7 +153,7 @@ if (renderer) {
         ctx.fillStyle=chart?'#e5efe1':'#447a81';ctx.fillRect(0,0,768,512);
         ctx.strokeStyle=chart?'#bca172':'#d4b86b';ctx.lineWidth=14;ctx.strokeRect(22,22,724,468);
         ctx.fillStyle=chart?'#335d62':'#fff0be';ctx.textAlign='center';ctx.font='bold 68px sans-serif';
-        ctx.fillText(chart?'技术航海图':'实习日志',384,126);
+        ctx.fillText(chart?'技术航海图':'实习日记',384,126);
         if(chart) {
           for(const [i,text] of ['AI / Agent','全栈开发','工程交付'].entries()) {
             const x=154+i*230;ctx.strokeStyle='#6e9990';ctx.lineWidth=5;ctx.beginPath();ctx.arc(x,284,66,0,Math.PI*2);ctx.stroke();
@@ -162,9 +164,9 @@ if (renderer) {
         const texture=new THREE.CanvasTexture(paper);texture.colorSpace=THREE.SRGBColorSpace;
         material=new THREE.MeshStandardMaterial({map:texture,roughness:.96});
       }
-      displayPlane(`content-${d.id}`,...d.size,material,d.position,new THREE.Vector3(...d.normal),{roomId:d.room,contentId:d.id});
+      displayPlane(`content-${d.id}`,...d.size,material,d.position,new THREE.Vector3(...d.normal),{roomId:d.room,contentId:d.id,book:d.style==='book'});
     }
-    root.dataset.awardDisplays=String(awards.length);root.dataset.projectDisplays=String(products.length);
+    root.dataset.awardDisplays=String(awards.length);root.dataset.projectDisplays='0';
   }
 
   function loadTexture(spec) {
@@ -218,7 +220,7 @@ if (renderer) {
       group.traverse((node) => {
         const d=node.userData;
         if(!node.isMesh) return;
-        if(!activeRoom) { node.visible=true;return; }
+        if(!activeRoom) { node.visible=!d.roomViewOnly;return; }
         const room=rooms.get(activeRoom);
         const roof = activeRoom === "roof";
         let visible = true;
@@ -226,8 +228,6 @@ if (renderer) {
           visible = group.userData.roomId === activeRoom;
         } else if (activeRoom === "library") {
           visible = d.roomId === "library";
-        } else if (activeRoom === "stairs") {
-          visible = d.roomId === "stairs" || d.roomId === "ground";
         } else if(roof) {
           visible = d.roomId === "roof" || (d.roomId === "stairs" && d.level === 3);
         } else {
@@ -238,7 +238,7 @@ if (renderer) {
           if(activeRoom === "storage" && d.roomId === "living") visible=Boolean(d.occluder) || node.name === "living_L0_sand";
           if(activeRoom === "living" && d.roomId === "storage") visible=false;
         }
-        node.visible=visible;
+        node.visible=d.roomViewOnly?d.roomViewOnly===activeRoom:visible;
       });
     }
   }
@@ -254,7 +254,7 @@ if (renderer) {
     tooltip.hidden=true;
     document.querySelector("[data-house-floor]").textContent=room.floor;
     document.querySelector("[data-house-room-name]").textContent=room.name;
-    document.querySelector('[data-house-hint]').textContent=interactions.size && config.interactions.some(item=>item.room===id)?'点击物品查看履历 · 拖动观察 · 滚轮 / 双指缩放':id==='library'?'点击书目签查看项目 · 拖动观察':'拖动观察 · 滚轮 / 双指缩放';
+    document.querySelector('[data-house-hint]').textContent=config.interactions.some(item=>item.room===id)?'点击物品查看履历 · 拖动观察 · 滚轮 / 双指缩放':'拖动观察 · 滚轮 / 双指缩放';
     applyVisibility();
     const target=new THREE.Vector3(...room.target);
     const position=new THREE.Vector3(...room.camera);
@@ -297,7 +297,7 @@ if (renderer) {
   for(const item of config.interactions) {
     const button=document.createElement('button');button.type='button';button.className='room-label object-label';
     button.textContent=item.button;button.dataset.houseObject=item.id;button.setAttribute('aria-label',`点击${item.label}`);
-    button.addEventListener('click',()=>{if(ready && activeRoom===item.room)window.dispatchEvent(new CustomEvent('house:content',{detail:{id:item.id,section:item.section}}));});
+    button.addEventListener('click',()=>{if(ready && activeRoom===item.room)activateObject(item.id);});
     objectsHost.append(button);objectButtons.set(item.id,button);
   }
   document.querySelector("[data-house-back]").addEventListener("click",() => {
@@ -322,11 +322,10 @@ if (renderer) {
     const hits=raycaster.intersectObjects(meshes,false);
     for(const hit of hits) {
       let node=hit.object;
-      while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.projectId && !node.userData.contentId) node=node.parent;
+      while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.contentId) node=node.parent;
       if(node?.userData.petId) return {petId:node.userData.petId,roomId:node.userData.roomId};
-      if(node?.userData.contentId) return {contentId:node.userData.contentId,roomId:node.userData.roomId};
+      if(node?.userData.contentId && (!node.userData.contentBounds || node.userData.contentBounds.containsPoint(node.worldToLocal(hit.point.clone())))) return {contentId:node.userData.contentId,roomId:node.userData.roomId};
       if(node?.userData.awardId) return {awardId:node.userData.awardId,roomId:'storage'};
-      if(node?.userData.projectId) return {projectId:node.userData.projectId,roomId:'library'};
       const id=node?.userData.roomId;
       if(rooms.has(id)) return {roomId:id};
     }
@@ -344,18 +343,17 @@ if (renderer) {
     if(!activeRoom){if(hit){focusRoom(hit.roomId);if(hit.petId)pet?.react();}return;}
     if(!hit || hit.roomId!==activeRoom)return;
     if(hit.petId)pet?.react();
-    else if(hit.contentId)window.dispatchEvent(new CustomEvent('house:content',{detail:{id:hit.contentId,section:interactions.get(hit.contentId).section}}));
+    else if(hit.contentId)activateObject(hit.contentId);
     else if(hit?.awardId)window.dispatchEvent(new CustomEvent('house:award',{detail:{id:hit.awardId}}));
-    else if(hit?.projectId)window.dispatchEvent(new CustomEvent('house:project',{detail:{id:hit.projectId}}));
   });
   canvas.addEventListener("pointermove",event => {
     if(event.pointerType!=="mouse" || rotating || !ready) {tooltip.hidden=true;return;}
     const hit=pick(event.clientX,event.clientY);
-    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.petId || hit.awardId || hit.projectId || hit.contentId));
+    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.petId || hit.awardId || hit.contentId));
     canvas.style.cursor=interactive?"pointer":"grab";
     tooltip.hidden=!interactive;
     if(interactive) {
-      tooltip.textContent=!activeRoom?rooms.get(hit.roomId).name:hit.petId?'暹罗猫 · 打个招呼':hit.contentId?interactions.get(hit.contentId).label:hit.awardId?awards.find(a=>a.id===hit.awardId).title:products.find(p=>p.id===hit.projectId).name;
+      tooltip.textContent=!activeRoom?rooms.get(hit.roomId).name:hit.petId?'暹罗猫 · 打个招呼':hit.contentId?interactions.get(hit.contentId).label:awards.find(a=>a.id===hit.awardId).title;
       const rect=canvas.getBoundingClientRect();
       tooltip.style.left=`${Math.min(event.clientX-rect.left+14,viewWidth-120)}px`;
       tooltip.style.top=`${Math.min(event.clientY-rect.top+14,viewHeight-40)}px`;
@@ -399,7 +397,7 @@ if (renderer) {
           // 多材质 GLB 壳体会变为 Group，extras 位于父节点，需继承到实际网格。
           let parent=node.parent;
           while(parent && parent!==model.parent) {
-            for(const key of ["roomId","level","occluder"]) {
+            for(const key of ["roomId","level","occluder","roomViewOnly"]) {
               if(node.userData[key]===undefined && parent.userData[key]!==undefined) node.userData[key]=parent.userData[key];
             }
             if(parent===model) break;
@@ -409,7 +407,10 @@ if (renderer) {
           node.receiveShadow=true;
           if(spec.room) node.userData.roomId=spec.room;
           const interaction=config.interactions.find(item=>item.asset===spec.id);
-          if(interaction)node.userData.contentId=interaction.id;
+          if(interaction){
+            node.userData.contentId=interaction.id;
+            if(interaction.localBounds)node.userData.contentBounds=new THREE.Box3(new THREE.Vector3(...interaction.localBounds[0]),new THREE.Vector3(...interaction.localBounds[1]));
+          }
           const materials=Array.isArray(node.material)?node.material:[node.material];
           materials.forEach(material => {
             material.roughness=Math.max(material.roughness??0.8,0.7);

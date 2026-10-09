@@ -1,0 +1,40 @@
+{
+  "id": "laptop",
+  "seed": 2026100907,
+  "reference": "docs/house-device-review/references/laptop.png",
+  "sourceSha256": "8aa52f5fc626fe981aa1a52f47d9ca0e5490eb6c5c781947aa869014d823516d",
+  "imageGeneration": {
+    "id": "laptop",
+    "host": "mygpu",
+    "gpu": 0,
+    "backend": "Z-Image-Turbo",
+    "modelRevision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "prompt": "单个打开的笔记本电脑游戏道具设计图，完整独立物品，纯白背景，无桌子无人物。海绵宝宝动画布景的手绘卡通风格，正面三分之四视角，从略高处看见完整屏幕和键盘，屏幕与底座打开110度，浅蓝色圆润金属外壳，深蓝色屏幕边框，浅米色键帽，蓝绿色屏幕上一枚大大的海贝图案，底座有触控板，薄而有厚度的机身和清晰铰链，少量柔和明暗和轮廓线，表面细腻手绘材质，无文字无商标，只有一台电脑，无漂浮零件。",
+    "seed": 2026100907,
+    "steps": 9,
+    "size": [
+      768,
+      768
+    ],
+    "sourceSHA256": "8aa52f5fc626fe981aa1a52f47d9ca0e5490eb6c5c781947aa869014d823516d",
+    "status": "review"
+  },
+  "shapeHost": "gsy0930",
+  "gpu": 1,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "94f1a07249dd7900e84e61b9f37df08184f8147086f96cf90fb4fef539617e77",
+  "triangles": 1942720,
+  "elapsedSeconds": 439.89,
+  "state": "review",
+  "job_id": "pineapple-devices-20261009-laptop-shape",
+  "paintHost": "mygpu",
+  "paintGpu": 1,
+  "paintJobId": "pineapple-devices-20261009-laptop-paint",
+  "paintBackend": "Hunyuan3D-Paint-2.1",
+  "paintViews": 6,
+  "paintResolution": 768,
+  "rawTexturedSha256": "bb0d1a905beb90c899783b1555beab84d4787546a36429636f8aee164564f78a",
+  "humanReview": "pending"
+}

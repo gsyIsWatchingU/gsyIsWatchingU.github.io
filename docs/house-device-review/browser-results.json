@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-09",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "observations": [
+    {
+      "audioPaused": false,
+      "musicVisible": true,
+      "resume": true,
+      "room": "room",
+      "test": "音箱播放时点击电脑，简历位于最上层"
+    },
+    {
+      "musicVisible": true,
+      "resume": false,
+      "test": "Esc 先关闭简历，保留音箱和客厅",
+      "view": "room"
+    },
+    {
+      "hidden": true,
+      "paused": true,
+      "test": "下一次 Esc 关闭音箱并暂停，保持房间",
+      "view": "room"
+    },
+    {
+      "test": "无内容时 Esc 返回全屋",
+      "view": "whole"
+    },
+    {
+      "height": 900,
+      "musicHidden": true,
+      "paused": true,
+      "resume": false,
+      "test": "刷新全屋，首屏无履历或音箱，音乐不自动播放",
+      "view": "whole",
+      "width": 1440
+    },
+    {
+      "height": 844,
+      "resume": true,
+      "section": "overview",
+      "test": "390×844 电脑打开基本信息",
+      "width": 390
+    },
+    {
+      "collapsed": true,
+      "height": 844,
+      "panel": {
+        "bottom": 802.3505554199219,
+        "height": 140.19021606445312,
+        "left": 128.4375,
+        "right": 378.43751525878906,
+        "top": 662.1603393554688,
+        "width": 250.00001525878903,
+        "x": 128.4375,
+        "y": 662.1603393554688
+      },
+      "paused": false,
+      "test": "手机收起面板后音乐继续，保留暂停和展开",
+      "time": 10.027308,
+      "width": 390
+    },
+    {
+      "duration": 286.904308,
+      "paused": false,
+      "ready": 4,
+      "src": "https://music.163.com/song/media/outer/url?id=1951778950.mp3",
+      "test": "下一首循环回约会"
+    }
+  ],
+  "manualVerified": [
+    "桌面直接点电脑屏幕打开基本信息",
+    "桌面直接点音箱网罩打开选曲",
+    "进入房间不打开履历或音乐",
+    "暂停、音量、进度滑块",
+    "音源真实 404 提示、重试、平台链接",
+    "默认不播放音乐，首屏无播放器",
+    "原有房间探索、简历关闭、Esc 保持镜头",
+    "客厅拖拽旋转与滚轮缩放，摄像机坐标均改变"
+  ],
+  "limits": [
+    "手机为浏览器视口模拟；未做手机扬声器和双指实机测试"
+  ]
+}

@@ -77,6 +77,9 @@ for level in range(3):
     if level>0:
         room,mat=[("bathroom",green),("bedroom",plaid)][level-1]
         regions=[("right","library",wood),("room_back",room,mat),("left",room,mat)]
+    if level==2:
+        # 全屋仍使用卧室后墙；图书馆近景补同一曲面上的木质墙片，连接两层切面。
+        regions.append(("library_back_fill","library",wood))
     for region,room,mat in regions:
         na,nz=32,16
         verts=[];uv=[]
@@ -86,10 +89,12 @@ for level in range(3):
                 split=math.acos((1.12 if level==2 else .25)/r)
                 if region=="left":a0,a1=math.pi/2,math.pi+.10
                 elif region=="room_back":a0,a1=split,math.pi/2
+                elif region=="library_back_fill":a0,a1=math.acos(1.12/r),math.acos(.25/r)
                 else:a0,a1=-.10,(split if level>0 else math.pi/2)
                 for i in range(na+1):
                     a=a0+(a1-a0)*i/na
-                    verts.append((r*math.cos(a),r*.72*math.sin(a),z));uv.append((i/na*2,z/3))
+                    u=(a+.10)/(math.acos(1.12/r)+.10)*2 if region=="library_back_fill" else i/na*2
+                    verts.append((r*math.cos(a),r*.72*math.sin(a),z));uv.append((u,z/3))
         faces=[];offset=(na+1)*(nz+1)
         for j in range(nz):
             for i in range(na):
@@ -100,6 +105,7 @@ for level in range(3):
             for i in (0,na):
                 k=j*(na+1)+i;faces.append((k,k+na+1,k+na+1+offset,k+offset))
         ob=mesh(f"shell_{level}_{region}",verts,faces,orange,room,level,uv)
+        if region=="library_back_fill":ob["roomViewOnly"]="library"
         ob["occluder"]=True;ob.data.materials.append(mat);ob.data.materials.append(cut)
         for f in ob.data.polygons:
             f.material_index=1 if f.index<na*nz*2 and f.index%2 else (0 if f.index<na*nz*2 else 2)
@@ -316,5 +322,5 @@ path=OUT/"structure.glb"
 bpy.ops.export_scene.gltf(filepath=str(path),export_format="GLB",export_yup=True,export_extras=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/"structure.blend"))
 triangles=sum(sum(len(f.vertices)-2 for f in o.data.polygons) for o in bpy.context.scene.objects if o.type=="MESH")
-(OUT/"structure-manifest.json").write_text(json.dumps({"backend":"Blender 4.5.13","source":"scripts/art/house_structure.py","coordinates":"glTF Y-up; +Z is front","floors":[0,3,6,9],"bodyHeight":9,"leafHeight":13.55,"triangles":triangles,"sha256":hashlib.sha256(path.read_bytes()).hexdigest(),"status":"review","humanReview":"pending","revision":5,"previousSha256":"8fe8b89c070f66ee1d18fda3df27c486a2fdc91d1ca18ad5c41537b1ad1ea89a","floorBoundaryX":.25,"bedroomWallBoundaryX":1.12,"stairFlightCenters":STAIRS,"stairAxis":"vertical per floor with transfer landings","sourceSHA256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+"\n")
+(OUT/"structure-manifest.json").write_text(json.dumps({"backend":"Blender 4.5.13","source":"scripts/art/house_structure.py","coordinates":"glTF Y-up; +Z is front","floors":[0,3,6,9],"bodyHeight":9,"leafHeight":13.55,"triangles":triangles,"sha256":hashlib.sha256(path.read_bytes()).hexdigest(),"status":"review","humanReview":"pending","revision":6,"previousSha256":"56869e8b5c7e0af9107bb9907ff051f0a2947f42cfdc67b09a386b477fa11a7d","floorBoundaryX":.25,"bedroomWallBoundaryX":1.12,"libraryCloseupWallBoundaryX":.25,"libraryCloseupWall":"shell_2_library_back_fill","stairFlightCenters":STAIRS,"stairAxis":"vertical per floor with transfer landings","sourceSHA256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+"\n")
 print(f"STRUCTURE EXPORTED {triangles} triangles")

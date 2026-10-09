@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-09",
+  "desktop": [
+    1440,
+    900
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "scope": "真实浏览器截图检查缺口已消失，旋转后墙面连续，全屋与卧室原有墙体保持；手机为浏览器视口模拟",
+  "checks": [
+    {
+      "case": "library-desktop-ready",
+      "pass": true
+    },
+    {
+      "case": "return-whole-after-rotation",
+      "pass": true
+    },
+    {
+      "case": "bedroom-still-ready",
+      "pass": true
+    },
+    {
+      "case": "mobile-library-ready-no-overflow",
+      "pass": true
+    },
+    {
+      "case": "skills-book-still-opens-skills",
+      "pass": true
+    },
+    {
+      "case": "escape-keeps-library",
+      "pass": true
+    }
+  ]
+}

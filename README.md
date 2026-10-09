@@ -2,9 +2,9 @@
 
 项目已按板块拆分。日常修改 `src`、`styles`、`scripts` 中的源码，不直接修改根目录的 `index.html`。
 
-## 三层菠萝屋预览
+## 三层菠萝屋（首页）
 
-独立入口 `pineapple-house.html`：默认全屏探索三层菠萝屋，首屏仅显示原 gsyIsWatchingU 标志、查看简历入口和操作提示。点击房间只进入近景；再点击技术航海图看技能、实习日志看实习、书籍看项目、求学纪念看学历、奖杯看荣誉、奖状看原图。右上角可直接阅读完整简历。支持旋转缩放、返回和 Esc；旧底栏、设备与留言不加载。审核通过后再替换首页。
+首页与 `pineapple-house.html` 使用同一份源码：默认全屏探索三层菠萝屋，首屏仅显示原 gsyIsWatchingU 标志、查看简历入口和操作提示。点击房间只进入近景；图书馆仅以黄色技能书打开专业技能，书架保留装饰；其他履历由各房间物品打开。右上角可直接阅读完整简历。支持旋转缩放、返回和 Esc；旧底栏、设备与留言不加载。2026-10-10 按用户部署指令替换正式首页；旧首页源码保留在 `src/legacy-room.html`。
 
 源码为 `src/pineapple-house.html`、`scripts/pineapple-house.js`、`styles/pineapple-house.css`；房间与镜头统一配置在 `src/data/pineapple-house.json`。制作来源、模型哈希与截图见 [审查记录](docs/house-review/README.md)。
 
@@ -16,7 +16,7 @@ python -m http.server 8769 --bind 127.0.0.1
 # 浏览 http://127.0.0.1:8769/pineapple-house.html
 ```
 
-## 互动小屋（首页）
+## 旧互动小屋（保留源码）
 
 首页整体重做为「互动房间」式主页，参考 Sharky's Room 的探索形态：加载后进入一间可拖拽观察、滚轮/双指缩放的温馨浅色小屋，点击房间里的物件或底部 dock 进入对应近景。房间由 Three.js 实时渲染（透视相机、软阴影、环境反射、昼夜/天气/灯串联动），支持悬停高亮与点击转镜头。
 

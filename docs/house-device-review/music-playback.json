@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-09",
+  "browser": "Codex In-app Browser",
+  "test": "真实 Audio 元素播放，进度递增，非模拟数据",
+  "tracks": [
+    {
+      "duration": 286.904308,
+      "id": "date",
+      "paused": false,
+      "ready": 4,
+      "time": 10.490189
+    },
+    {
+      "duration": 301.824603,
+      "id": "lawrence",
+      "paused": false,
+      "ready": 4,
+      "time": 44.325756
+    },
+    {
+      "duration": 232.555102,
+      "id": "summer",
+      "paused": false,
+      "ready": 4,
+      "time": 48.934727
+    }
+  ]
+}

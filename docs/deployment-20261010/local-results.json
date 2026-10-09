@@ -1,0 +1,254 @@
+{
+  "mode": "local",
+  "url": "http://127.0.0.1:8799/",
+  "checks": [
+    {
+      "name": "desktop all models loaded",
+      "pass": true
+    },
+    {
+      "name": "desktop initial whole view",
+      "pass": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "desktop resume opens",
+      "pass": true
+    },
+    {
+      "name": "desktop resume closes",
+      "pass": true
+    },
+    {
+      "name": "desktop living focus",
+      "pass": true
+    },
+    {
+      "name": "desktop storage focus",
+      "pass": true
+    },
+    {
+      "name": "desktop bathroom focus",
+      "pass": true
+    },
+    {
+      "name": "desktop bedroom focus",
+      "pass": true
+    },
+    {
+      "name": "desktop library focus",
+      "pass": true
+    },
+    {
+      "name": "desktop roof focus",
+      "pass": true
+    },
+    {
+      "name": "desktop skills book opens skills",
+      "pass": true
+    },
+    {
+      "name": "desktop close keeps library",
+      "pass": true
+    },
+    {
+      "name": "mobile all models loaded",
+      "pass": true
+    },
+    {
+      "name": "mobile initial whole view",
+      "pass": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "mobile resume opens",
+      "pass": true
+    },
+    {
+      "name": "mobile resume closes",
+      "pass": true
+    },
+    {
+      "name": "mobile living focus",
+      "pass": true
+    },
+    {
+      "name": "mobile storage focus",
+      "pass": true
+    },
+    {
+      "name": "mobile bathroom focus",
+      "pass": true
+    },
+    {
+      "name": "mobile bedroom focus",
+      "pass": true
+    },
+    {
+      "name": "mobile library focus",
+      "pass": true
+    },
+    {
+      "name": "mobile roof focus",
+      "pass": true
+    },
+    {
+      "name": "mobile skills book opens skills",
+      "pass": true
+    },
+    {
+      "name": "mobile close keeps library",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "screenshots": [
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\deployment-20261010\\local-desktop-whole.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\deployment-20261010\\local-desktop-resume.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\deployment-20261010\\local-mobile-whole.png",
+    "E:\\prj-gsy\\gsyIsWatchingU\\docs\\deployment-20261010\\local-mobile-resume.png"
+  ],
+  "snapshot": {
+    "state": "ready",
+    "view": "whole",
+    "loaded": [
+      "table",
+      "chair",
+      "couch",
+      "bathtub",
+      "sink",
+      "treasure",
+      "barrel",
+      "chest",
+      "toilet",
+      "lounger",
+      "bed",
+      "siamese-cat",
+      "bluetooth-speaker",
+      "laptop",
+      "structure"
+    ],
+    "failed": [],
+    "fps": 60,
+    "renderer": {
+      "frame": 603,
+      "calls": 278,
+      "triangles": 788378,
+      "points": 0,
+      "lines": 8
+    },
+    "camera": [
+      4.309491714867106,
+      8.601767656453282,
+      26.588415361534015
+    ],
+    "target": [
+      1.734022425599725,
+      5.73577694720001,
+      0
+    ],
+    "pet": {
+      "state": "idle",
+      "position": [
+        -1.55,
+        -0.00127,
+        1.6
+      ],
+      "yaw": -0.45128,
+      "steps": 0,
+      "reactions": 0,
+      "reducedMotion": false,
+      "bones": 17,
+      "crouch": 0,
+      "facingCamera": 0.7858,
+      "head": [
+        -0.000002796151769952219,
+        0.009436445837339578,
+        -0.00029630087416802827,
+        0.9999554318508065
+      ],
+      "tail": [
+        0.0724038939672573,
+        -0.046048573485598564,
+        0.01865495865418762,
+        0.9961371487709334
+      ],
+      "feet": [
+        {
+          "name": "back_r",
+          "swing": false,
+          "phase": 0,
+          "contacts": 0,
+          "target": [
+            -1.339215610155427,
+            0.06499998312687846,
+            1.3521831734427003
+          ],
+          "actual": [
+            -1.3392156167059959,
+            0.0649999963410238,
+            1.3521831869593754
+          ]
+        },
+        {
+          "name": "front_r",
+          "swing": false,
+          "phase": 0.75,
+          "contacts": 0,
+          "target": [
+            -1.5677872157677089,
+            0.06499991950745079,
+            1.775235324302401
+          ],
+          "actual": [
+            -1.5677872329999758,
+            0.06499995736755648,
+            1.775235351318046
+          ]
+        },
+        {
+          "name": "back_l",
+          "swing": false,
+          "phase": 0.5,
+          "contacts": 0,
+          "target": [
+            -1.54185683758933,
+            0.06500000763557343,
+            1.2927806474296994
+          ],
+          "actual": [
+            -1.5418568406428421,
+            0.06500003438099544,
+            1.2927806537304236
+          ]
+        },
+        {
+          "name": "front_l",
+          "swing": false,
+          "phase": 0.25,
+          "contacts": 0,
+          "target": [
+            -1.7221211454520446,
+            0.06499990438715211,
+            1.713335330203667
+          ],
+          "actual": [
+            -1.722121160079031,
+            0.06499993915357019,
+            1.713335360385512
+          ]
+        }
+      ]
+    },
+    "status": "review",
+    "structureOnly": false
+  },
+  "success": true
+}

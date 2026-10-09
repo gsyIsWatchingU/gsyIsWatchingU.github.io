@@ -1,0 +1,28 @@
+/* 小屋退出控件：海绵黄、救生圈与柔软的按压反馈。 */
+body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close],[data-toilet-clean],[data-toilet-effect-clean]){
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;flex-shrink:0;
+  min-width:46px;min-height:46px;padding:8px 13px;isolation:isolate;cursor:pointer;
+  border:2px solid #98713e;border-radius:18px 15px 20px 14px;
+  background:radial-gradient(ellipse at 94% 24%,#dfb84277 0 3px,transparent 4px),radial-gradient(ellipse at 8% 82%,#dfb84266 0 3px,transparent 4px),linear-gradient(140deg,#fff1a9,#f7d571);
+  color:#4b5f51;font:19px/1.2 HouseHand,KaiTi,serif;white-space:nowrap;
+  box-shadow:0 4px 0 #bd914d,inset 0 2px 0 #fff9d9,inset 0 -3px 0 #e8bc5677,0 6px 10px #785a2820;
+  transition:transform .16s ease,box-shadow .16s ease,filter .16s ease;
+}
+body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close])::before{
+  content:"";display:block;width:27px;height:27px;flex:0 0 27px;
+  background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Ccircle cx='18' cy='18' r='15' fill='%23fff8e4' stroke='%23917451' stroke-width='1.6'/%3E%3Cpath d='M10 7L14 13M25 8L22 13M29 25L23 22M10 29L14 23' stroke='%23e98270' stroke-width='7'/%3E%3Ccircle cx='18' cy='18' r='8.5' fill='%23fff0ba' stroke='%23917451' stroke-width='1.3'/%3E%3Cpath d='M15 15L21 21M21 15L15 21' stroke='%2350797a' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M6 14Q7 8 12 6' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  filter:drop-shadow(0 1px 0 #b4864766);transform:rotate(-9deg);transition:transform .16s ease;
+}
+body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close],[data-toilet-clean],[data-toilet-effect-clean]):hover{
+  transform:translateY(-2px) rotate(-1deg);filter:brightness(1.04);box-shadow:0 6px 0 #bd914d,inset 0 2px 0 #fff9d9,inset 0 -3px 0 #e8bc5677,0 9px 14px #785a2826;
+}
+body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close]):hover::before{transform:rotate(6deg)}
+body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close],[data-toilet-clean],[data-toilet-effect-clean]):active{
+  transform:translateY(3px);box-shadow:0 1px 0 #bd914d,inset 0 2px 0 #fff9d9,inset 0 -2px 0 #e8bc5677;
+}
+body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close],[data-toilet-clean],[data-toilet-effect-clean]):focus-visible{outline:3px solid #367c8b;outline-offset:5px}
+body.portfolio button[data-music-close]{width:46px;padding:7px;font-size:0}
+body.portfolio .award-dialog>header>div{min-width:0;flex:1}
+body.portfolio .award-dialog>header h2{overflow-wrap:anywhere}
+@media(max-width:700px){body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-toilet-clean],[data-toilet-effect-clean]){font-size:17px;padding:7px 10px;gap:6px}}
+@media(prefers-reduced-motion:reduce){body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close],[data-toilet-clean],[data-toilet-effect-clean]),body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close])::before{transition:none}body.portfolio button:is([data-resume-close],[data-award-close],[data-diary-close],[data-music-close],[data-toilet-clean],[data-toilet-effect-clean]):hover{transform:none}}

@@ -1,4 +1,5 @@
 import awards from '../src/data/house-awards.json';
+import { createInternshipDiary } from './house-diary.js';
 
 const reading=document.querySelector('[data-profile-reading]');
 const nav=[...document.querySelectorAll('[data-profile-nav]')];
@@ -10,6 +11,7 @@ const awardById=new Map(awards.map(a=>[a.id,a]));
 const resume=document.querySelector('[data-resume-dialog]');
 const entry=document.querySelector('[data-resume-open]');
 let previousFocus=null, resumeFocus=null;
+const internshipDiary=createInternshipDiary();
 
 function navigate(id) {
   const target=document.getElementById(id);
@@ -48,7 +50,10 @@ document.addEventListener('click',event=>{
   const link=event.target.closest('[data-profile-nav],[data-profile-evidence]');
   if(link) {event.preventDefault();openResume(link.dataset.profileNav||link.dataset.profileEvidence);}
 });
-window.addEventListener('house:content',event=>openResume(event.detail.section));
+window.addEventListener('house:content',event=>{
+  if(event.detail.id==='work-journal')internshipDiary.open();
+  else openResume(event.detail.section);
+});
 window.addEventListener('house:award',event=>openAward(event.detail.id));
 window.addEventListener('house:project',event=>openResume(`product-${event.detail.id}`));
 window.openResume=openResume;

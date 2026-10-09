@@ -1,0 +1,71 @@
+{
+  "state": "review",
+  "humanReview": "pending",
+  "assets": [
+    {
+      "id": "speaker",
+      "runtime": "assets/house-review/props/speaker.glb",
+      "runtimeSha256": "fb83bc6a3073902bae103ba94394984087ff79afd6c8d6ab281f36e873661789",
+      "triangles": 20639,
+      "repairManifest": "docs/house-device-review/refined/speaker-runtime.json",
+      "blend": "docs/house-device-review/refined/speaker.blend",
+      "blendSha256": "59074e8644a93480334cefaa152a7bd940db76dd3da18c89749702bc8cf85e16",
+      "dimensionsYUp": [
+        0.4300000071525574,
+        0.38762515783309937,
+        0.24790138751268387
+      ],
+      "state": "review",
+      "generationManifest": "docs/house-device-review/raw/speaker/manifest.json",
+      "sourceSha256": "ee5202640faf1475c00326787be27b8a1397b1f79679259095fa6ab7716fdb87",
+      "rawLocal": "docs/house-device-review/raw/speaker",
+      "rawRemote": {
+        "shape": "gsy0930:/workspace/projects/pineapple-devices-20261009/shape/speaker/shape.glb",
+        "paint": "mygpu:/workspace/projects/pineapple-devices-20261009/speaker/textured.glb"
+      }
+    },
+    {
+      "id": "laptop",
+      "runtime": "assets/house-review/props/laptop.glb",
+      "runtimeSha256": "def0adb716d900664d56fa9000d8b72423b8950c4b743b8c8197204d91da4a70",
+      "triangles": 8858,
+      "repairManifest": "docs/house-device-review/refined/laptop-runtime.json",
+      "blend": "docs/house-device-review/refined/laptop.blend",
+      "blendSha256": "8372794c62b8ce854fcd3aa9e94693d5cbfde01f05789be45f62d53dc539e7d6",
+      "dimensionsYUp": [
+        0.7500000596046448,
+        0.515948474407196,
+        0.6352279484272003
+      ],
+      "state": "review",
+      "generationManifest": "docs/house-device-review/raw/laptop/manifest.json",
+      "sourceSha256": "8aa52f5fc626fe981aa1a52f47d9ca0e5490eb6c5c781947aa869014d823516d",
+      "rawLocal": "docs/house-device-review/raw/laptop",
+      "rawRemote": {
+        "shape": "gsy0930:/workspace/projects/pineapple-devices-20261009/shape/laptop/shape.glb",
+        "paint": "mygpu:/workspace/projects/pineapple-devices-20261009/laptop/textured.glb"
+      }
+    },
+    {
+      "id": "table-speaker-base",
+      "runtime": "assets/house-review/props/table-speaker-base.glb",
+      "runtimeSha256": "1b8be2e0d2052f7c03d1f930bacea475ca20ded3943ef9df741e71d0307ad774",
+      "triangles": 2940,
+      "repairManifest": "docs/house-device-review/refined/table-speaker-base-runtime.json",
+      "blend": "docs/house-device-review/refined/table-speaker-base.blend",
+      "blendSha256": "6d68151a318c070ac8d27fbd03236ae4d49b8eef4725684f782717f7b3cd99b0",
+      "dimensionsYUp": [
+        0.7400000095367432,
+        0.7418041229248047,
+        0.7400000095367432
+      ],
+      "state": "review"
+    }
+  ],
+  "scripts": {
+    "scripts/art/house_device_refs.py": "60b50c2fa8bac91e5558abe35ab171c4e446a448588fea87dcbe5da7dfcbf6f3",
+    "scripts/art/house_device_production.py": "b006bb10230a140a1f53758371588dc0389b013a7b58a436403ae3e9d6959fbf",
+    "scripts/art/house_device_refine.py": "c8ccf6f738df1029647f92b5d616e1eb48c9e0593b8853cbac49eb6bc48e518f",
+    "scripts/art/house_device_audit.py": "1a5d4183342bbd56647b23e4dc7ce2f1542c728f26a01253d49fae02e19eee58"
+  }
+}

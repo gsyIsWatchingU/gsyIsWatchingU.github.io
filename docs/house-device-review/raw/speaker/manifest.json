@@ -1,0 +1,40 @@
+{
+  "id": "speaker",
+  "seed": 2026100906,
+  "reference": "docs/house-device-review/references/speaker.png",
+  "sourceSha256": "ee5202640faf1475c00326787be27b8a1397b1f79679259095fa6ab7716fdb87",
+  "imageGeneration": {
+    "id": "speaker",
+    "host": "mygpu",
+    "gpu": 0,
+    "backend": "Z-Image-Turbo",
+    "modelRevision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "prompt": "单个便携蓝牙音箱的游戏道具设计图，完整独立物品，纯白背景，无桌子无人物。海绵宝宝动画布景的手绘卡通风格，正面三分之四视角，圆角长方体，深蓝绿织物网罩，蜂蜜色木框，顶部两个圆形黄铜旋钮和小电源按钮，低矮橡胶脚，少量柔和明暗和轮廓线，比例宽2高1深1，厚实可信，表面细腻手绘材质，无文字无商标，无漂浮零件。",
+    "seed": 2026100906,
+    "steps": 9,
+    "size": [
+      768,
+      768
+    ],
+    "sourceSHA256": "ee5202640faf1475c00326787be27b8a1397b1f79679259095fa6ab7716fdb87",
+    "status": "review"
+  },
+  "shapeHost": "gsy0930",
+  "gpu": 0,
+  "backend": "Hunyuan3D-2.1",
+  "steps": 40,
+  "octree": 512,
+  "shapeSha256": "cdab3be7de062ae0cadf07657128c6660056bfdc4f96e2b6c157092dd1ba3124",
+  "triangles": 1380808,
+  "elapsedSeconds": 449.51,
+  "state": "review",
+  "job_id": "pineapple-devices-20261009-speaker-shape",
+  "paintHost": "mygpu",
+  "paintGpu": 1,
+  "paintJobId": "pineapple-devices-20261009-speaker-paint",
+  "paintBackend": "Hunyuan3D-Paint-2.1",
+  "paintViews": 6,
+  "paintResolution": 768,
+  "rawTexturedSha256": "0d2f333e58cb87da9a34ddea71b3b1d40ed7acac5989667329128208bdfa34d2",
+  "humanReview": "pending"
+}

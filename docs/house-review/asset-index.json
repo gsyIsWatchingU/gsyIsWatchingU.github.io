@@ -13,14 +13,16 @@
     ],
     "bodyHeight": 9,
     "leafHeight": 13.55,
-    "triangles": 184968,
-    "sha256": "56869e8b5c7e0af9107bb9907ff051f0a2947f42cfdc67b09a386b477fa11a7d",
+    "triangles": 187208,
+    "sha256": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
     "status": "review",
     "humanReview": "pending",
-    "revision": 5,
-    "previousSha256": "8fe8b89c070f66ee1d18fda3df27c486a2fdc91d1ca18ad5c41537b1ad1ea89a",
+    "revision": 6,
+    "previousSha256": "56869e8b5c7e0af9107bb9907ff051f0a2947f42cfdc67b09a386b477fa11a7d",
     "floorBoundaryX": 0.25,
     "bedroomWallBoundaryX": 1.12,
+    "libraryCloseupWallBoundaryX": 0.25,
+    "libraryCloseupWall": "shell_2_library_back_fill",
     "stairFlightCenters": [
       [
         2.8,
@@ -36,12 +38,12 @@
       ]
     ],
     "stairAxis": "vertical per floor with transfer landings",
-    "sourceSHA256": "061470178324ef4c6ce9fc5edd099939f0c82701e8a25e5e718703914d756252"
+    "sourceSHA256": "3d9518870e25367c1e559a50d430c55a98a169ac588a8981930e6b6601064508"
   },
   "primaryReference": "docs/refs/pineapple-house/01-cutaway-full.png",
   "primaryReferenceSha256": "e23941a429cc15655fba3e15a23fc0a490f9bd4486df9eafce299bbcb8fe8516",
   "runtimeModels": 13,
-  "runtimeTriangles": 410886,
+  "runtimeTriangles": 413126,
   "assets": [
     {
       "id": "chair",
@@ -247,7 +249,7 @@
     "scripts/art/house_repair_chair_ref.py": "f6528c3958330c6d4c660877370afaef909812884050370852bf50ea40d1ffa0",
     "scripts/art/house_retopology.py": "c382751bfe2a9cc09314f7db889262f3196726eb2ac352fd695d3ebb12821f31",
     "scripts/art/house_shape_batch.py": "358a1318ca14e334cf87c3902c05fb342b0ad620a03b40e780991f5c78aedc10",
-    "scripts/art/house_structure.py": "061470178324ef4c6ce9fc5edd099939f0c82701e8a25e5e718703914d756252",
+    "scripts/art/house_structure.py": "3d9518870e25367c1e559a50d430c55a98a169ac588a8981930e6b6601064508",
     "scripts/art/house_textures.py": "e104f14d6fc74be3133dedae07945534a78f725dd8289d87b6e548220b85e719"
   }
 }
