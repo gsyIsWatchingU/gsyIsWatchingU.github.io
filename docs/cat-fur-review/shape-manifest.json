@@ -1,0 +1,18 @@
+{
+  "asset": "siamese-kitten-fur",
+  "runId": "siamese-kitten-clean-20261010-shape",
+  "host": "gsy013",
+  "hostname": "gsy-s-9cff6dc4f-65m6j",
+  "gpu": 0,
+  "backend": "Hunyuan3D-2.1",
+  "seed": 1041,
+  "steps": 50,
+  "octree": 512,
+  "guidance": 5.0,
+  "sourceSha256": "4ab66c0fa72b71c46c6448107b26329f9b2e4c717db90445732329659892b505",
+  "state": "review",
+  "elapsedSeconds": 141.01,
+  "triangles": 1754186,
+  "cudaPeakBytes": 9289785856,
+  "shapeSha256": "3b709bb76c4f23650f719ec8f3ceba58675e492707859096a5ae6668973a1982"
+}

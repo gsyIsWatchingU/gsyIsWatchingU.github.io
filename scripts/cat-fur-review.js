@@ -1,0 +1,33 @@
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { createHousePet } from './house-pet.js';
+import { addSiameseFur } from './house-pet-fur.js';
+import calibration from '../docs/cat-fur-review/rig-calibration.json';
+
+const root=document.querySelector('main'),canvas=document.querySelector('canvas'),status=document.querySelector('output');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#eee9dd');
+const camera=new THREE.PerspectiveCamera(32,1,.05,30);camera.position.set(1.55,1.1,2.4);
+const controls=new OrbitControls(camera,canvas);controls.target.set(0,.4,.06);controls.enableDamping=true;controls.maxDistance=5;controls.minDistance=.65;controls.maxPolarAngle=Math.PI*.49;
+scene.add(new THREE.HemisphereLight(0xfff8ed,0x8d8172,2));
+const key=new THREE.DirectionalLight(0xfff5df,2.6);key.position.set(-2,4,3);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.bias=-.0002;scene.add(key);
+const fill=new THREE.DirectionalLight(0xeaf6ff,1);fill.position.set(2,2,-2);scene.add(fill);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(15,15),new THREE.MeshStandardMaterial({color:'#e5dfd1',roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.006;floor.receiveShadow=true;scene.add(floor);
+function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();}resize();addEventListener('resize',resize);
+let pet,model,paused=false,last=performance.now(),frames=0,seconds=0;
+new GLTFLoader().load('siamese-cat.glb?v=fur2',gltf=>{
+  model=gltf.scene;model.traverse(n=>{if(n.isMesh){n.castShadow=true;n.receiveShadow=true;n.material.roughness=.9;n.material.metalness=0;n.material.roughnessMap=null;n.material.metalnessMap=null;}});scene.add(model);
+  const fur=addSiameseFur(model);root.dataset.fur=JSON.stringify(fur);
+  let furry=true;document.querySelector('#fur').onclick=()=>{furry=!furry;fur.setVisible(furry);document.querySelector('#fur').setAttribute('aria-pressed',String(furry));};
+  pet=createHousePet(model,{id:'siamese-cat',position:[0,0,0],rotation:0,pet:{restPoses:true,...calibration,route:[[0,.2],[.4,.2],[.4,-.3],[0,-.3]]}},{root,canvas,camera,reducedMotion:false});pet.setRestPose('idle');
+  root.dataset.loaded='true';
+},undefined,()=>{status.textContent='模型加载失败，请刷新。';root.dataset.loaded='failed';});
+document.querySelectorAll('[data-pose]').forEach(button=>button.onclick=()=>{pet?.setRestPose(button.dataset.pose);document.querySelectorAll('[data-pose]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));});
+document.querySelector('#greet').onclick=()=>pet?.react();
+document.querySelector('#pause').onclick=()=>{paused=!paused;document.querySelector('#pause').textContent=paused?'继续动作':'暂停动作';};
+let down=null;canvas.addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY];});
+canvas.addEventListener('pointerup',e=>{if(!model||!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5)return;const rect=canvas.getBoundingClientRect();const ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1),camera);if(ray.intersectObject(model,true).length)pet.react();});
+function frame(now){const dt=Math.min(.05,(now-last)/1000);last=now;controls.update();pet?.update(dt,!paused);renderer.render(scene,camera);frames++;seconds+=dt;if(seconds>1){status.textContent=`自有 GPU 生成 · 短绒毛 · ${pet?.snapshot().state??'加载中'} · ${Math.round(frames/seconds)} FPS`;root.dataset.fps=String(Math.round(frames/seconds));frames=0;seconds=0;}requestAnimationFrame(frame);}requestAnimationFrame(frame);

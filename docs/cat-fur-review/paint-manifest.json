@@ -1,0 +1,16 @@
+{
+  "runId": "siamese-kitten-clean-20261010-paint",
+  "host": "gsy013",
+  "hostname": "gsy-s-9cff6dc4f-65m6j",
+  "gpu": 0,
+  "backend": "Hunyuan3D-2.1 Paint",
+  "views": 8,
+  "resolution": 768,
+  "seed": 1041,
+  "sourceSha256": "4ab66c0fa72b71c46c6448107b26329f9b2e4c717db90445732329659892b505",
+  "meshSha256": "9c91c3edd64f00c5b94874c318fd6ac8fd758af0be82f256d4f8f40d63aeee6a",
+  "state": "review",
+  "exitCode": 0,
+  "elapsedSeconds": 133.21,
+  "texturedSha256": "f905758d28afc34e19de165649b11b280949b5dd68e97193926b818850be4104"
+}

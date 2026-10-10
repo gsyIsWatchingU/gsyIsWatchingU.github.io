@@ -1,0 +1,175 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "mode": "direct GPU stages",
+  "guide": {
+    "file": "standing-guide-clean.png",
+    "generator": "image_gen",
+    "sha256": "4ab66c0fa72b71c46c6448107b26329f9b2e4c717db90445732329659892b505"
+  },
+  "references": [
+    {
+      "pose": "standing",
+      "sha256": "85b9b346000b465d40cb40114bb99c83f491707958496d720b4d8d6489f0cb43",
+      "published": false
+    },
+    {
+      "pose": "sitting",
+      "sha256": "a758cecad481629e08fca3f1f1df6c3e89828f18b4cc2c4125cc446baddb5e62",
+      "published": false
+    },
+    {
+      "pose": "lying",
+      "sha256": "ed068a7cd29c0ff670a0dc14c0a1e10d2f59cd994a073ce22436f1e4abed8377",
+      "published": false
+    }
+  ],
+  "shape": {
+    "asset": "siamese-kitten-fur",
+    "runId": "siamese-kitten-clean-20261010-shape",
+    "host": "gsy013",
+    "hostname": "gsy-s-9cff6dc4f-65m6j",
+    "gpu": 0,
+    "backend": "Hunyuan3D-2.1",
+    "seed": 1041,
+    "steps": 50,
+    "octree": 512,
+    "guidance": 5,
+    "sourceSha256": "4ab66c0fa72b71c46c6448107b26329f9b2e4c717db90445732329659892b505",
+    "state": "review",
+    "elapsedSeconds": 141.01,
+    "triangles": 1754186,
+    "cudaPeakBytes": 9289785856,
+    "shapeSha256": "3b709bb76c4f23650f719ec8f3ceba58675e492707859096a5ae6668973a1982"
+  },
+  "paint": {
+    "runId": "siamese-kitten-clean-20261010-paint",
+    "host": "gsy013",
+    "hostname": "gsy-s-9cff6dc4f-65m6j",
+    "gpu": 0,
+    "backend": "Hunyuan3D-2.1 Paint",
+    "views": 8,
+    "resolution": 768,
+    "seed": 1041,
+    "sourceSha256": "4ab66c0fa72b71c46c6448107b26329f9b2e4c717db90445732329659892b505",
+    "meshSha256": "9c91c3edd64f00c5b94874c318fd6ac8fd758af0be82f256d4f8f40d63aeee6a",
+    "state": "review",
+    "exitCode": 0,
+    "elapsedSeconds": 133.21,
+    "texturedSha256": "f905758d28afc34e19de165649b11b280949b5dd68e97193926b818850be4104",
+    "attempt": 2,
+    "operation": "repaint after surface closure"
+  },
+  "runtime": {
+    "status": "review",
+    "humanReview": "pending",
+    "meshBackend": "Hunyuan3D-2.1",
+    "sourceSha256": "f905758d28afc34e19de165649b11b280949b5dd68e97193926b818850be4104",
+    "runtimeSha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",
+    "dimensionsYUp": [
+      0.4651638865470886,
+      0.8500000834465027,
+      1.077287495136261
+    ],
+    "triangles": 30000,
+    "bones": 18,
+    "maxWeights": 4,
+    "weightedVertices": {
+      "pet_root": 4035,
+      "pet_chest": 2725,
+      "pet_haunch": 3233,
+      "pet_head": 5730,
+      "pet_tail": 1237,
+      "pet_tail_tip": 928,
+      "pet_front_l_upper": 1136,
+      "pet_front_l_lower": 470,
+      "pet_front_l_paw": 823,
+      "pet_front_r_upper": 1153,
+      "pet_front_r_lower": 470,
+      "pet_front_r_paw": 885,
+      "pet_back_l_upper": 1236,
+      "pet_back_l_lower": 639,
+      "pet_back_l_paw": 901,
+      "pet_back_r_upper": 1186,
+      "pet_back_r_lower": 530,
+      "pet_back_r_paw": 847
+    },
+    "feetBlender": {
+      "front_l": [
+        -0.12002695351839066,
+        -0.28928279876708984,
+        0.029306426644325256
+      ],
+      "front_r": [
+        0.12002703547477722,
+        -0.2933807373046875,
+        0.028746988624334335
+      ],
+      "back_l": [
+        -0.15008893609046936,
+        0.24865546822547913,
+        0.025739898905158043
+      ],
+      "back_r": [
+        0.1500888466835022,
+        0.26303020119667053,
+        0.02621421590447426
+      ]
+    },
+    "animation": "Four beat walk; stance anchors; two bone IK; ground oriented paws; head and tail idle",
+    "repairs": [
+      "uniform scale 0.85m",
+      "canonical forward +Z",
+      "preserve GPU mesh and UV",
+      "separate upper/lower/paw chains for four legs",
+      "texture <=1024",
+      "rigid face weighting; blend only at sloped neck; head pivot at neck base"
+    ],
+    "fileVerifiedSHA256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9"
+  },
+  "surfaceRepair": "voxel remesh of GPU geometry, smooth, decimate, GPU repaint",
+  "coat": {
+    "layers": 5,
+    "length": 0.005,
+    "binding": "barycentric four bone weights",
+    "rootSamples": 14000,
+    "fibers": 8011
+  },
+  "preview": "pineapple-house.html?cat=furry&privacy=1",
+  "formalReplacement": false,
+  "animations": [
+    "four beat walk with anchored paws",
+    "seated spine and folded back legs",
+    "relaxed side lying",
+    "rise before turn and walk",
+    "rigid face look at camera"
+  ],
+  "calibration": {
+    "runtimeSha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",
+    "method": "centroids of blue eye pixels sampled on GPU textured surface",
+    "eyePoints": 236,
+    "eyeCenters": [
+      [
+        0.11371926963329315,
+        0.6533110737800598,
+        0.471558541059494
+      ],
+      [
+        0.19851739704608917,
+        0.6451928019523621,
+        0.3767915964126587
+      ]
+    ],
+    "faceCenter": [
+      0.15611833333969116,
+      0.6492519378662109,
+      0.42417508363723755
+    ],
+    "faceYaw": 0.8408576938171537,
+    "faceForward": [
+      0.7452153247454482,
+      0,
+      0.6668239046139065
+    ]
+  }
+}

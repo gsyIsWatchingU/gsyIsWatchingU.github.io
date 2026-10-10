@@ -40,6 +40,7 @@ bundle(join(projectRoot, "scripts", "room3d.js"), room3dOutput);
 bundle(join(projectRoot, "scripts", "pineapple-house.js"), join(projectRoot, "assets", "pineapple-house.js"));
 bundle(join(projectRoot, "scripts", "house-profile.js"), join(projectRoot, "assets", "house-profile.js"));
 bundle(join(projectRoot, "scripts", "house-toilet-projects.js"), join(projectRoot, "assets", "house-toilet-projects.js"));
+bundle(join(projectRoot, "scripts", "cat-fur-review.js"), join(projectRoot, "docs", "cat-fur-review", "viewer.js"));
 
 const escapeHtml = (value) =>
   String(value)

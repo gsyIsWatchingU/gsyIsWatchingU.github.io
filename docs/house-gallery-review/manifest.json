@@ -2,10 +2,10 @@
   "date": "2026-10-10",
   "status": "review",
   "source": "本地工作区完整菠萝屋；包含同时进行的其他房间修改",
-  "url": "http://127.0.0.1:8769/pineapple-house.html?privacy=1",
+  "url": "http://127.0.0.1:8769/pineapple-house.html?cat=furry&privacy=1",
   "viewport": [
-    1440,
-    900
+    1280,
+    720
   ],
   "privacy": [
     "隐藏个人标识与简历入口",
@@ -16,47 +16,47 @@
     {
       "file": "01-whole.jpg",
       "caption": "全屋剖面",
-      "sha256": "d45ad4526ae681793fc3dd8882bbcd63910ae709e27ec16640028ab438d30bcb"
+      "sha256": "70c8e579577590e3d14a06738e014a13a5a600dd905180be83655f32582f6269"
     },
     {
       "file": "02-living.jpg",
-      "caption": "客厅",
-      "sha256": "bc04cbe877e0258851abbfbb08ac2c49a6e3255760d0cdc8bc394f90a492437f"
+      "caption": "客厅与猫咪点击回应",
+      "sha256": "9134179d3950e645b81fb09f011848edcb41e546b1b9f1affc2c3bef4176a06f"
     },
     {
       "file": "03-music.jpg",
       "caption": "音箱交互",
-      "sha256": "8ddc3d4e77cacf34b02c61094f7375a9843bf03cc886ce465331d3523d2ac48e"
+      "sha256": "d9119843b29966723208108254ab68bcbe693dda6dd33b556c201f3dafbf4e58"
     },
     {
       "file": "04-storage.jpg",
       "caption": "储藏室",
-      "sha256": "e0688d6f147779b50c47b12a50cf192f1462f50d6ad70078ac8c44c0fd593aad"
+      "sha256": "1be10c640219a3348888e630d7a262e60ed8ee258f4cf57139ece2a0f2101a64"
     },
     {
       "file": "05-bathroom.jpg",
       "caption": "浴室",
-      "sha256": "2477f134b370bd5c818d29279dc64b3fef223fce80f53215781d8f3895ca62a8"
+      "sha256": "109f422c28c7aab56a2e07019a5764bd6fcd59d98d6d63975e13fa61413f7d99"
     },
     {
       "file": "06-projects.jpg",
       "caption": "马桶弹出交互",
-      "sha256": "8530ac405bb709e4ea186bbf165a040ed6c6580b9d9c8cc13e5a81291772024a"
+      "sha256": "770125a7da8a812da95bacae9557e46b1904c17c3c8e66fdab65a282f85f1b89"
     },
     {
       "file": "07-bedroom.jpg",
       "caption": "卧室",
-      "sha256": "48a75d576c21a62fd35d6b847589bed0d6308446d6f028c739088b9063331240"
+      "sha256": "839cfe76a45006f4d3e3113c0b5e2808d97ec1a4eeba433d81c43b1c0b830e10"
     },
     {
       "file": "08-library.jpg",
       "caption": "图书馆",
-      "sha256": "04ab9182056a8a1fc651b95fcac19d846d5b2f6aada0ac081f0a02613fcf89b9"
+      "sha256": "225425a99f80e8806d8e3fe83a40a2671b67fdbc74b917729e389b8fa3b581e3"
     },
     {
       "file": "09-roof.jpg",
       "caption": "屋顶花园",
-      "sha256": "a31401c203e5b42eace12ec7514f60e8d6d0cd077babd2e94d42c2feebeafeef"
+      "sha256": "fd150f7830921760336c77f22a736978563bf61bb07bb8b135b4506b575c7298"
     }
   ],
   "sourceHashes": {
@@ -66,5 +66,6 @@
     "assets/pineapple-house.js": "54f401bb182d5f06982f69785e841f2b9c050d77b2faba4c89be26555a638747",
     "assets/house-review/structure.glb": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
     "assets/house-review/props/siamese-cat.glb": "75b50e76c18f13d60af43e8f093e5b65bb3deeafde869b8624144d609add084a"
-  }
+  },
+  "catRuntimeSha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9"
 }
