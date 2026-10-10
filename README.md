@@ -8,6 +8,8 @@
 
 源码为 `src/pineapple-house.html`、`scripts/pineapple-house.js`、`styles/pineapple-house.css`；房间与镜头统一配置在 `src/data/pineapple-house.json`。制作来源、模型哈希与截图见 [审查记录](docs/house-review/README.md)。
 
+客厅默认宠物为已确认的短绒毛暹罗幼猫，可自动行走、坐下和侧躺；点击后起身并正面看向镜头。造型、来源与动作验证见 [猫咪记录](docs/cat-fur-review/README.md)，整屋脱敏截图见 [九图展示](docs/house-gallery-review/index.html)。
+
 履历内容在 `src/data/house-profile.json`，证书清单在 `src/data/house-awards.json`；构建时生成可直接阅读的 HTML，`scripts/house-profile.js` 独立控制阅读弹层与证书查看，提供 `openResume(sectionId)`、`closeResume()`；关闭内容保留原房间与镜头，Esc 优先关闭最上层内容。新增字体、简历、证书来源和浏览器截图见 [履历小屋记录](docs/house-profile-review/README.md)。
 
 ```powershell

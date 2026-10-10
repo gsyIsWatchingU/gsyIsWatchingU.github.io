@@ -1,6 +1,6 @@
 {
-  "status": "review",
-  "humanReview": "pending",
+  "status": "approved",
+  "humanReview": "approved",
   "meshBackend": "Hunyuan3D-2.1",
   "sourceSha256": "f905758d28afc34e19de165649b11b280949b5dd68e97193926b818850be4104",
   "runtimeSha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",
@@ -62,5 +62,12 @@
     "separate upper/lower/paw chains for four legs",
     "texture <=1024",
     "rigid face weighting; blend only at sloped neck; head pivot at neck base"
-  ]
+  ],
+  "approval": {
+    "date": "2026-10-10",
+    "response": "可以",
+    "scope": "采用短绒毛暹罗幼猫造型与坐卧动作，替换默认模型"
+  },
+  "formalReplacement": true,
+  "runtimeUrl": "assets/house-review/props/siamese-kitten-fur.glb"
 }

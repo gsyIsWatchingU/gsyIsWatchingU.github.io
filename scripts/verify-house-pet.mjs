@@ -7,6 +7,7 @@ import { createHousePet } from "./house-pet.js";
 // 验证真实运行时网格、蒙皮变形与完整路线；Node 只省略贴图解码。
 const config = JSON.parse(readFileSync(new URL("../src/data/pineapple-house.json", import.meta.url)));
 const spec = config.assets.find(a => a.id === "siamese-cat");
+if(spec.pet.fur){await import('./verify-house-pet-fur.mjs');process.exit(0);}
 const data = readFileSync(new URL(`../${spec.url}`, import.meta.url));
 const jsonLength = data.readUInt32LE(12);
 const gltf = JSON.parse(data.subarray(20, 20 + jsonLength).toString());

@@ -1,5 +1,5 @@
 {
-  "version": "20261009-cat-behavior1",
+  "version": "20261010-cat-fur-approved",
   "status": "review",
   "toiletProjects": {"asset":"toilet","room":"bathroom","anchor":[-1.3,4.1,-0.4]},
   "structure": {"id":"structure","name":"三层房屋结构","url":"assets/house-review/structure.glb"},
@@ -17,7 +17,7 @@
     {"id":"table","name":"圆桌","room":"living","url":"assets/house-review/props/table-speaker-base.glb","position":[0,0,0.05],"rotation":0},
     {"id":"bluetooth-speaker","name":"蓝牙音箱","room":"living","url":"assets/house-review/props/speaker.glb","position":[0,0.76,0.05],"rotation":-0.08},
     {"id":"laptop","name":"沙发上的笔记本电脑","room":"living","url":"assets/house-review/props/laptop.glb","position":[1.08,0.49,-0.1],"rotation":-0.18},
-    {"id":"siamese-cat","name":"暹罗猫","room":"living","url":"assets/house-review/props/siamese-cat.glb","position":[-1.55,0,1.6],"rotation":0.22,"pet":{"route":[[-1.4,1.95],[-0.65,2.08],[0.25,2.05],[0.85,1.88],[0.7,1.48],[0,1.43],[-0.95,1.44]]}},
+    {"id":"siamese-cat","name":"暹罗猫","room":"living","url":"assets/house-review/props/siamese-kitten-fur.glb","position":[-1.55,0,1.6],"rotation":0.22,"pet":{"route":[[-1.4,1.95],[-0.65,2.08],[0.25,2.05],[0.85,1.88],[0.7,1.48],[0,1.43],[-0.95,1.44]],"fur":true,"restPoses":true,"runtimeSha256":"65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9","faceForward":[0.7452153247454482,0,0.6668239046139065],"faceCenter":[0.15611833333969116,0.6492519378662109,0.42417508363723755]}},
     {"id":"treasure","name":"储藏室宝藏","room":"storage","url":"assets/house-review/props/treasure.glb","position":[-3.3,0,-0.1],"rotation":0},
     {"id":"bathtub","name":"浴缸","room":"bathroom","url":"assets/house-review/props/bathtub.glb","position":[-2.7,3,0.7],"rotation":0.1},
     {"id":"sink","name":"桶式洗手池","room":"bathroom","url":"assets/house-review/props/sink.glb","position":[-1.65,3.62,-2.6],"rotation":0},

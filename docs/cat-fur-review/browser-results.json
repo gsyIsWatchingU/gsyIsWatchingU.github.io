@@ -136,5 +136,28 @@
     "meshes": 1
   },
   "status": "passed",
-  "runtimeSha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9"
+  "runtimeSha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",
+  "defaultAdoption": {
+    "date": "2026-10-10",
+    "url": "http://127.0.0.1:8769/index.html?privacy=1",
+    "catQueryRequired": false,
+    "loadedModels": 15,
+    "loadedTextures": 11,
+    "failedResources": 0,
+    "bones": 18,
+    "nativeCanvasClick": {
+      "reactions": 1,
+      "state": "curious",
+      "facing": true,
+      "pose": {
+        "yaw": -0.58113,
+        "sit": 0,
+        "sideLie": 0,
+        "facingCamera": 1
+      }
+    },
+    "screenshot": "screenshots/default-living.jpg",
+    "screenshotPose": "坐姿；点击正脸状态另由现场 DOM 记录",
+    "galleryScreenshot": "screenshots/gallery.jpg"
+  }
 }

@@ -4,7 +4,6 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { createSkillsBook } from "./house-skills-book.js";
 import { createHousePet } from "./house-pet.js";
 import { addSiameseFur } from "./house-pet-fur.js";
-import catCalibration from "../docs/cat-fur-review/rig-calibration.json";
 import config from "../src/data/pineapple-house.json";
 import awards from "../src/data/house-awards.json";
 import './house-music.js';
@@ -30,8 +29,6 @@ const structureOnly = new URLSearchParams(location.search).has("structure");
 const privatePreview = new URLSearchParams(location.search).has("privacy");
 if(privatePreview)document.body.classList.add('privacy-preview');
 const specs = [config.structure, ...(structureOnly ? [] : config.assets)];
-const furryCatPreview = new URLSearchParams(location.search).get("cat") === "furry";
-if(furryCatPreview){const cat=specs.find(asset=>asset.pet);if(cat){cat.url="docs/cat-fur-review/siamese-cat.glb";Object.assign(cat.pet,catCalibration,{restPoses:true});}}
 const textureSpecs = structureOnly ? [] : awards.map(a=>({id:`award-${a.id}`,name:a.title,url:a.thumbnail,kind:'texture',award:a}));
 const resourceCount=specs.length+textureSpecs.length;
 const textureLoaded=new Set();
@@ -418,7 +415,7 @@ if (renderer) {
           });
         });
         houseGroup.add(model);
-        if(spec.pet){if(furryCatPreview)addSiameseFur(model);pet=createHousePet(model,spec,{root,canvas,camera,reducedMotion});}
+        if(spec.pet){if(spec.pet.fur)addSiameseFur(model);pet=createHousePet(model,spec,{root,canvas,camera,reducedMotion});}
         loaded.set(spec.id,model);
         failures.delete(spec.id);
         applyVisibility();

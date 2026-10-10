@@ -520,6 +520,9 @@
       ]
     ]
   },
+  "pause": true,
+  "reducedMotion": true,
+  "runtimeUrl": "assets/house-review/props/siamese-kitten-fur.glb",
   "faceVertices": 6567,
   "facePairs": 387,
   "runtimeSHA": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",

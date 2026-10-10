@@ -2,7 +2,7 @@
   "date": "2026-10-10",
   "status": "review",
   "source": "本地工作区完整菠萝屋；包含同时进行的其他房间修改",
-  "url": "http://127.0.0.1:8769/pineapple-house.html?cat=furry&privacy=1",
+  "url": "http://127.0.0.1:8769/pineapple-house.html?privacy=1",
   "viewport": [
     1280,
     720
@@ -67,5 +67,11 @@
     "assets/house-review/structure.glb": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
     "assets/house-review/props/siamese-cat.glb": "75b50e76c18f13d60af43e8f093e5b65bb3deeafde869b8624144d609add084a"
   },
-  "catRuntimeSha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9"
+  "catRuntimeSha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",
+  "catApproval": {
+    "date": "2026-10-10",
+    "response": "可以",
+    "scope": "采用短绒毛暹罗幼猫造型与坐卧动作，替换默认模型"
+  },
+  "catRuntimeUrl": "assets/house-review/props/siamese-kitten-fur.glb"
 }

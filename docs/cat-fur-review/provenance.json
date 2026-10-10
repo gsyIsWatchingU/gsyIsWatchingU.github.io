@@ -1,6 +1,6 @@
 {
-  "status": "review",
-  "humanReview": "pending",
+  "status": "approved",
+  "humanReview": "approved",
   "mode": "direct GPU stages",
   "guide": {
     "file": "standing-guide-clean.png",
@@ -136,7 +136,7 @@
     "fibers": 8011
   },
   "preview": "pineapple-house.html?cat=furry&privacy=1",
-  "formalReplacement": false,
+  "formalReplacement": true,
   "animations": [
     "four beat walk with anchored paws",
     "seated spine and folded back legs",
@@ -171,5 +171,11 @@
       0,
       0.6668239046139065
     ]
-  }
+  },
+  "approval": {
+    "date": "2026-10-10",
+    "response": "可以",
+    "scope": "采用短绒毛暹罗幼猫造型与坐卧动作，替换默认模型"
+  },
+  "runtimeUrl": "assets/house-review/props/siamese-kitten-fur.glb"
 }
