@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-10T12:22:52.096Z",
+  "releaseCommit": "36285fa18a7ce3680269a19797eaff5153b88683",
+  "url": "https://gsyiswatchingu.github.io/",
+  "status": "passed",
+  "resources": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 39872,
+      "sha256": "6a698df9f5b4d3899a3afd1ab5650056e7aece1a357b302503d81cf137d942a5",
+      "expected": "6a698df9f5b4d3899a3afd1ab5650056e7aece1a357b302503d81cf137d942a5",
+      "match": true
+    },
+    {
+      "file": "pineapple-house.html",
+      "status": 200,
+      "bytes": 39872,
+      "sha256": "6a698df9f5b4d3899a3afd1ab5650056e7aece1a357b302503d81cf137d942a5",
+      "expected": "6a698df9f5b4d3899a3afd1ab5650056e7aece1a357b302503d81cf137d942a5",
+      "match": true
+    },
+    {
+      "file": "assets/pineapple-house.js",
+      "status": 200,
+      "bytes": 719598,
+      "sha256": "eb3ed1fed067d64ed7a3e2f5dd291e9960d2c24c43e51e3ad50d10d3972135b8",
+      "expected": "eb3ed1fed067d64ed7a3e2f5dd291e9960d2c24c43e51e3ad50d10d3972135b8",
+      "match": true
+    },
+    {
+      "file": "assets/house-review/props/siamese-kitten-fur.glb",
+      "status": 200,
+      "bytes": 2119720,
+      "sha256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",
+      "expected": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",
+      "match": true
+    }
+  ],
+  "browser": {
+    "url": "https://gsyiswatchingu.github.io/?privacy=1&t=1791634975573",
+    "wholeRendered": true,
+    "livingRoomRendered": true,
+    "catVisible": true,
+    "screenshot": "screenshots/live-living.jpg",
+    "catClick": "not verified",
+    "limitation": "浏览器 DOM 与输入连接连续超时；未将本地通过视为线上点击通过"
+  },
+  "localChecks": [
+    "npm run build",
+    "npm run check",
+    "node scripts/verify-house-pet.mjs",
+    "git diff --check"
+  ]
+}
