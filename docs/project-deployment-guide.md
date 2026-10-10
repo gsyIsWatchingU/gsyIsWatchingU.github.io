@@ -1,6 +1,6 @@
 # 项目部署与更新总览
 
-最后更新：2026-09-09
+最后更新：2026-10-10
 
 > 当前入口取自各项目仓库配置。`trycloudflare.com` 为 Cloudflare Quick Tunnel 临时地址，服务重启后可能变化；更新前应按本文命令重新查询。
 
@@ -9,8 +9,8 @@
 | 项目 | 当前情况 | 技术栈 | 部署位置 | 当前入口 |
 | --- | --- | --- | --- | --- |
 | 个人主页 | 维护中，展示个人经历、能力树、项目和留言弹幕 | HTML、CSS、JavaScript、Node.js 构建脚本；留言服务使用 Cloudflare Worker + D1 | 页面：GitHub Pages；留言：Cloudflare Worker + D1 | [gsyiswatchingu.github.io](https://gsyiswatchingu.github.io/) |
-| Coffee Research | V0.1 GPU 演示环境，已完成 PDF 阅读、检索、翻译、批注和笔记闭环 | React 19、TypeScript、Vite、PDF.js、FastAPI、PyMuPDF、SQLite | GPU 服务器 `/workspace/projects/research-workbench`，端口 `8008`，Supervisor 守护 | [临时入口](https://elementary-von-appreciation-stretch.trycloudflare.com) |
-| 算法训练平台 | MVP GPU 演示环境，支持题库、异步判题、学习进度和公共/私人题库治理 | Next.js 16、React 19、Prisma 6、PostgreSQL 14、Redis、BullMQ、Monaco Editor | GPU 服务器 `/workspace/algorithm-lab`，端口 `3000`，Supervisor 守护 | [临时入口](https://forget-charges-glass-accordance.trycloudflare.com) |
+| Coffee Research | V0.1 GPU 演示环境，已完成 PDF 阅读、检索、翻译、批注和笔记闭环 | React 19、TypeScript、Vite、PDF.js、FastAPI、PyMuPDF、SQLite | GPU 服务器 `/workspace/projects/research-workbench`，端口 `8008`，Supervisor 守护 | [直达阅读页](https://elementary-von-appreciation-stretch.trycloudflare.com/?v=046572f#/reader) |
+| 算法训练平台 | MVP GPU 演示环境，支持题库、异步判题、学习进度和公共/私人题库治理 | Next.js 16、React 19、Prisma 6、PostgreSQL 14、Redis、BullMQ、Monaco Editor | GPU 服务器 `/workspace/algorithm-lab`，端口 `3000`，Supervisor 守护 | [直达题目列表](https://forget-charges-glass-accordance.trycloudflare.com/problems) |
 | Horizon Docs | Demo GPU 演示环境，支持在线文档、分享、评论和实时协作 | Vue 3、Vite、TipTap、Yjs、Express、WebSocket、SQLite | GPU 服务器 `/workspace/projects/write-here`，端口 `3210`，Supervisor 守护 | [临时入口](https://dollar-wendy-buildings-year.trycloudflare.com) |
 
 ## 1. 个人主页
