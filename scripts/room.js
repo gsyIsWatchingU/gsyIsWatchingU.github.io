@@ -331,4 +331,37 @@
     const { items, fresh } = event.detail || {};
     if (Array.isArray(items)) appendDanmaku(items, { fresh: Boolean(fresh) });
   });
+
+  /* ---------- 邮箱点击复制 ---------- */
+  const copyEmailBtn = document.querySelector("[data-copy-email]");
+  if (copyEmailBtn) {
+    const showToast = (text) => {
+      const toast = document.createElement("div");
+      toast.className = "copy-toast";
+      toast.textContent = text;
+      document.body.append(toast);
+      requestAnimationFrame(() => toast.classList.add("is-visible"));
+      setTimeout(() => {
+        toast.classList.remove("is-visible");
+        setTimeout(() => toast.remove(), 300);
+      }, 1600);
+    };
+    copyEmailBtn.addEventListener("click", async () => {
+      const email = copyEmailBtn.dataset.email || copyEmailBtn.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast("已复制到剪贴板");
+      } catch {
+        const ta = document.createElement("textarea");
+        ta.value = email;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.append(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        showToast("已复制到剪贴板");
+      }
+    });
+  }
 })();

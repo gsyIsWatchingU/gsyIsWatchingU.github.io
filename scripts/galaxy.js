@@ -29,6 +29,7 @@ const stageNames = {
   descend: "下行 · 他回到地面",
   pull: "发力 · 他拉住了绳子",
   glow: "照亮 · 墙里的光漏了出来",
+  inspect: "驻足 · 他盯着那块屏幕",
   resolve: "分岔 · 三条路出现",
   depart: "出发 · 他走进光里",
   arrived: "抵达 · 他走出了自己的路",
@@ -905,6 +906,7 @@ if (renderer) {
     resolve: "walk",
     depart: "walk",
     arrived: "idle",
+    inspect: "idle",
   };
 
   const npcRuntimes = [];
@@ -1301,9 +1303,44 @@ if (renderer) {
   const ladderVolume = createPickVolume(-1.5, -0.64, -1.5, 0.72, 1.06, 0.62);
   const ropeVolume = createPickVolume(0.9, -0.52, -2.0, 0.76, 1.24, 0.64);
 
+  // ── 可交互装置之三：工作台 + 显示器
+  // 场景里原本只有梯子和绳子两处能点出故事，图鉴面板的 01 号入口需要第三个点。
+  // 比例按人物身高 0.325 来：桌面 -0.88（约腰高），屏幕中心 -0.695（约视线高），
+  // 屏幕整体朝观众侧转 0.32rad —— 正面朝相机才读得出"这是一块亮着的屏幕"。
+  const monitorStand = new THREE.Vector3(0.62, homePosition.y, 1.0);
+  const monitorSpot = new THREE.Vector3(1.04, -1.04, 1.06);
+  const monitorScreenMaterial = new THREE.MeshStandardMaterial({
+    color: 0x0b1113,
+    emissive: 0x6f9a92,
+    emissiveIntensity: 0.22,
+    roughness: 0.44,
+    metalness: 0.08,
+  });
+  const workbench = new THREE.Group();
+  workbench.position.copy(monitorSpot);
+  workbench.rotation.y = -0.32;
+  const desk = new THREE.Mesh(new THREE.BoxGeometry(0.54, 0.16, 0.32), rigMaterial);
+  desk.position.y = 0.08;
+  desk.castShadow = true;
+  desk.receiveShadow = true;
+  const monitorNeck = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.06, 0.07), rigMaterial);
+  monitorNeck.position.y = 0.19;
+  const monitorShell = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.25, 0.024), rigMaterial);
+  monitorShell.position.y = 0.345;
+  monitorShell.castShadow = true;
+  const monitorScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.36, 0.21), monitorScreenMaterial);
+  monitorScreen.position.set(0, 0.345, 0.0135);
+  const keyboard = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.012, 0.09), rigMaterial);
+  keyboard.position.set(0, 0.166, 0.1);
+  workbench.add(desk, monitorNeck, monitorShell, monitorScreen, keyboard);
+  world.add(workbench);
+  const monitorMeshes = [desk, monitorNeck, monitorShell, monitorScreen, keyboard];
+  const monitorVolume = createPickVolume(1.0, -0.78, 1.05, 0.68, 0.56, 0.52);
+
   const ladderBeacon = { ...createBeacon(ladderStand.x, -1.4, 0x9cc0b1, 1.08), kind: "ladder" };
   const ropeBeacon = { ...createBeacon(ropeStand.x, -2.02, 0xd3a672, 1.4), kind: "rope" };
-  const beacons = [ladderBeacon, ropeBeacon];
+  const monitorBeacon = { ...createBeacon(monitorSpot.x, monitorSpot.z, 0x9fb8c9, 0.92), kind: "monitor" };
+  const beacons = [ladderBeacon, ropeBeacon, monitorBeacon];
   let shutterProgress = 0;
   let shutterTarget = 0;
   let climbPoseActive = false;
@@ -1321,6 +1358,7 @@ if (renderer) {
     descend: ["他从高处下来", "落地之后，继续跟着光走"],
     pull: ["他握住绳子", "一下、两下，卷帘开始上升"],
     glow: ["卷帘升起了", "他自己把这块地方点亮了"],
+    inspect: ["他停在屏幕前", "显示器自己亮着，像在等谁来读"],
     resolve: ["三次变化已被留下", "旧道路分开，人群开始走向不同方向"],
     depart: ["他做出了选择", "这一次，他主动走进光里"],
     arrived: ["拥抱变化", "没有现成地图，也可以亲手走出一条路"],
@@ -1342,6 +1380,7 @@ if (renderer) {
   const discoveryHints = {
     ladder: "这里好像有梯子……",
     rope: "绳子下面好像藏着什么……",
+    monitor: "那台显示器好像亮着……",
   };
   let lastDiscoveryKind = null;
   const updateDiscoveryHint = () => {
@@ -1355,11 +1394,13 @@ if (renderer) {
       const beamZ = beamTarget.z;
       const ladderDist = Math.hypot(beamX - ladderStand.x, beamZ - ladderStand.z);
       const ropeDist = Math.hypot(beamX - ropeStand.x, beamZ - ropeStand.z);
+      const monitorDist = Math.hypot(beamX - monitorSpot.x, beamZ - monitorSpot.z);
       const reach = 1.05;
       const onPerch = mode === "perch";
       const shutterDone = mode === "glow" && shutterProgress > 0.9;
       if (!onPerch && ladderDist < reach && ladderDist <= ropeDist) kind = "ladder";
       else if (!shutterDone && ropeDist < reach) kind = "rope";
+      else if (monitorDist < 0.72) kind = "monitor";
     }
     if (kind === lastDiscoveryKind) return;
     lastDiscoveryKind = kind;
@@ -1462,6 +1503,12 @@ if (renderer) {
     footstepTraces.forEach((trace) => { trace.visible = false; });
   };
 
+  // 图鉴面板（scripts/archive.js）与场景解耦：这里只在三个触发点报出项目序号，
+  // 面板自己的开关、轮播与关闭都在 DOM 侧完成。
+  const openArchive = (index) => {
+    window.dispatchEvent(new CustomEvent("portfolio:archive", { detail: { index } }));
+  };
+
   const updateCharacterStory = (elapsed, delta) => {
     if (delta <= 0) return;
     const mode = characterStory.mode;
@@ -1492,7 +1539,10 @@ if (renderer) {
       } else if (mode === "follow") {
         setCharacterMode("lit", elapsed);
       } else if (mode === "approach") {
-        setCharacterMode(characterStory.nextMode || "follow", elapsed);
+        const next = characterStory.nextMode || "follow";
+        // 走到显示器前 → 图鉴面板停在 01 Coffee Research
+        if (next === "inspect") openArchive(0);
+        setCharacterMode(next, elapsed);
       } else if (mode === "resolve") {
         characterStory.target.copy(pathTargets[chosenPathIndex]).setY(homePosition.y);
         setCharacterMode("depart", elapsed);
@@ -1607,6 +1657,8 @@ if (renderer) {
         releaseFootsteps(elapsed);
         if (goingUp) {
           setCharacterMode("perch", elapsed);
+          // 爬到梯子顶 → 图鉴面板停在 02 Algorithm Lab
+          openArchive(1);
         } else {
           const next = characterStory.nextMode || "follow";
           characterStory.nextMode = null;
@@ -1642,10 +1694,12 @@ if (renderer) {
       if (progress >= 1) {
         releaseFootsteps(elapsed);
         setCharacterMode("glow", elapsed);
+        // 拉完绳子 → 图鉴面板停在 03 Lumi Doc
+        openArchive(2);
       }
     }
 
-    if (mode === "idle" || mode === "lit" || mode === "arrived" || mode === "perch" || mode === "glow") {
+    if (mode === "idle" || mode === "lit" || mode === "arrived" || mode === "perch" || mode === "glow" || mode === "inspect") {
       const restY = mode === "perch" ? perchSpot.y : homePosition.y;
       protagonistAnchor.position.y += (restY + Math.sin(elapsed * 1.2) * 0.005 - protagonistAnchor.position.y) * Math.min(1, delta * 3);
       const restingDirection = mode === "arrived"
@@ -1654,13 +1708,15 @@ if (renderer) {
           ? -0.14
           : mode === "glow"
             ? -0.85
-            : mode === "lit"
-              ? -0.06
-              : -0.28;
+            : mode === "inspect"
+              ? -0.8
+              : mode === "lit"
+                ? -0.06
+                : -0.28;
       protagonistAnchor.rotation.y += (restingDirection - protagonistAnchor.rotation.y) * Math.min(1, delta * 3);
     }
 
-    const exposureTarget = mode === "lit" || mode === "perch" || mode === "glow"
+    const exposureTarget = mode === "lit" || mode === "perch" || mode === "glow" || mode === "inspect"
       ? 1
       : mode === "follow" || mode === "approach" || mode === "climb" || mode === "pull"
         ? 0.42
@@ -1829,13 +1885,14 @@ if (renderer) {
       || characterStory.mode === "descend"
       || characterStory.mode === "perch";
     const ropeBusy = characterStory.mode === "pull" || shutterProgress > 0.9;
+    const monitorBusy = characterStory.mode === "inspect";
     // 一直没动手时把提示加强，让人注意到这两个点是能点的
     const idleFor = elapsed - lastInteractionAt;
     const nudge = THREE.MathUtils.clamp((idleFor - 3.5) / 2.5, 0, 1) * (changeCount === 0 ? 1 : 0.3);
     beacons.forEach((beacon) => {
       const wanted = hoverKind === beacon.kind ? 1 : 0;
       beacon.hover += (wanted - beacon.hover) * Math.min(1, delta * 8);
-      const busy = beacon.kind === "ladder" ? ladderBusy : ropeBusy;
+      const busy = beacon.kind === "ladder" ? ladderBusy : beacon.kind === "rope" ? ropeBusy : monitorBusy;
       const dim = busy ? 0.26 : 1;
       // 地面环删掉之后，这缕竖光是唯一"还没碰就知道那里有东西"的常驻提示，
       // 所以基准值比原来高一点；久未操作时靠 nudge 明显起来，而不是一开始就抢画面。
@@ -1849,6 +1906,9 @@ if (renderer) {
     ropeGlowMaterial.emissiveIntensity = (0.36 + Math.sin(elapsed * 1.7 + 1) * 0.08
       + ropeBeacon.hover * 0.85 + nudge * 0.22) * (ropeBusy ? 0.55 : 1);
     ropeMaterial.emissiveIntensity = 0.5 + ropeBeacon.hover * 0.5 + nudge * 0.18;
+    // 显示器靠屏幕自发光提示"这里能点"：悬停时明显亮一档，站定看它时再亮一档
+    monitorScreenMaterial.emissiveIntensity = (0.22 + Math.sin(elapsed * 1.1) * 0.05
+      + monitorBeacon.hover * 0.55 + nudge * 0.12) * (monitorBusy ? 2.1 : 1);
 
     const exposure = characterStory.exposure;
     const traveling = characterStory.mode === "follow" ? 1 : 0;
@@ -1999,7 +2059,7 @@ if (renderer) {
   // 点击会被直接吞掉 —— 这是"鼠标点了没反应"的主因（descend 漏在白名单外尤其明显）。
   const interactiveModes = [
     "idle", "lit", "glow", "perch", "arrived",
-    "follow", "approach", "descend", "resolve", "depart",
+    "follow", "approach", "descend", "resolve", "depart", "inspect",
   ];
   // 过场中不接受"改目的地"的状态：攀爬/拉绳/已登顶
   const lockedModes = ["climb", "pull", "descend", "perch"];
@@ -2007,12 +2067,15 @@ if (renderer) {
   const pickInteraction = (point, hitObject) => {
     if (hitObject === ladderVolume) return "ladder";
     if (hitObject === ropeVolume) return "rope";
+    if (hitObject === monitorVolume || monitorMeshes.includes(hitObject)) return "monitor";
     if (hitObject === platformDeck || hitObject === platformEdge || ladder.children.includes(hitObject)) return "ladder";
     if (hitObject === revealPanel || hitObject === rope || hitObject === ropeHandle || shutterSlats.includes(hitObject)) return "rope";
     const ladderDistance = Math.hypot(point.x - ladderStand.x, point.z - ladderStand.z);
     const ropeDistance = Math.hypot(point.x - ropeStand.x, point.z - ropeStand.z);
+    const monitorDistance = Math.hypot(point.x - monitorSpot.x, point.z - monitorSpot.z);
     if (ladderDistance < 0.85 && ladderDistance <= ropeDistance) return "ladder";
     if (ropeDistance < 0.85) return "rope";
+    if (monitorDistance < 0.62) return "monitor";
     return "beam";
   };
 
@@ -2034,7 +2097,7 @@ if (renderer) {
     hoverNdc.set(nx * 2, ny * 2);
     hoverRaycaster.setFromCamera(hoverNdc, pickCamera);
     const [hit] = hoverRaycaster.intersectObjects(
-      [ladderVolume, ropeVolume, ...ladder.children, platformDeck, platformEdge, rope, ropeHandle, revealPanel, ...shutterSlats],
+      [ladderVolume, ropeVolume, monitorVolume, ...monitorMeshes, ...ladder.children, platformDeck, platformEdge, rope, ropeHandle, revealPanel, ...shutterSlats],
       false,
     );
     if (!hit) {
@@ -2052,6 +2115,16 @@ if (renderer) {
       }
       characterStory.target.copy(ladderStand);
       characterStory.nextMode = "climb";
+      setCharacterMode("approach", elapsed);
+      return true;
+    }
+    if (kind === "monitor") {
+      if (characterStory.mode === "inspect") {
+        beamAnchor.set(monitorSpot.x, -0.68, monitorSpot.z);
+        return false;
+      }
+      characterStory.target.copy(monitorStand);
+      characterStory.nextMode = "inspect";
       setCharacterMode("approach", elapsed);
       return true;
     }
@@ -2331,6 +2404,7 @@ if (renderer) {
       return [
         probe("ladderVolume", ladderVolume),
         probe("ropeVolume", ropeVolume),
+        probe("monitorVolume", monitorVolume),
         probe("ropeHandle", ropeHandle),
         probe("platformDeck", platformDeck),
         probe("revealPanel", revealPanel),
@@ -2346,7 +2420,7 @@ if (renderer) {
     beamNdc.set(nx * 2, ny * 2);
     beamRaycaster.setFromCamera(beamNdc, pickCamera);
     const [hit] = beamRaycaster.intersectObjects(
-      [ladderVolume, ropeVolume, floor, platformDeck, platformEdge, revealPanel, rope, ropeHandle,
+      [ladderVolume, ropeVolume, monitorVolume, ...monitorMeshes, floor, platformDeck, platformEdge, revealPanel, rope, ropeHandle,
         ...shutterSlats, ...ladder.children],
       false,
     );

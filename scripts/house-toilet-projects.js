@@ -91,11 +91,34 @@ function sweep(animate=true,restore=true) {
 }
 label.addEventListener('click',start);
 panel.querySelector('[data-toilet-close]').addEventListener('click',closeProjects);
+// 截图预览：点击图片在当前页弹出大图，不跳转新页面
+let viewerActive=false;
+function openScreenshotViewer(src,alt){
+  if(viewerActive||!src)return;
+  viewerActive=true;
+  const viewer=document.createElement('div');
+  viewer.className='toilet-screenshot-viewer';
+  viewer.setAttribute('role','dialog');
+  viewer.setAttribute('aria-modal','true');
+  viewer.setAttribute('aria-label',alt||'截图预览');
+  const img=document.createElement('img');
+  img.src=src;img.alt=alt||'';
+  viewer.append(img);
+  viewer.addEventListener('click',closeScreenshotViewer);
+  document.body.append(viewer);
+}
+function closeScreenshotViewer(){
+  if(!viewerActive)return;
+  viewerActive=false;
+  document.querySelector('.toilet-screenshot-viewer')?.remove();
+}
 panel.addEventListener('click',event=>{
   const filter=event.target.closest('[data-toilet-filter]');if(filter)filterProjects(filter.dataset.toiletFilter);
   const resume=event.target.closest('[data-toilet-resume]');if(resume)window.openResume(resume.dataset.toiletResume);
+  const shot=event.target.closest('.toilet-screenshot-link');if(shot)openScreenshotViewer(shot.dataset.screenshotSrc,shot.querySelector('img')?.alt||'');
 });
 window.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&viewerActive){event.stopImmediatePropagation();closeScreenshotViewer();return;}
   if(event.key==='Escape'&&state!=='idle'&&!document.querySelector('dialog[open]')){event.preventDefault();event.stopImmediatePropagation();if(state==='reading')closeProjects();else sweep();}
 },true);
 canvas.addEventListener('pointerdown',event=>{down={room,x:event.clientX,y:event.clientY,time:performance.now(),id:event.pointerId};});

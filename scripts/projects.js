@@ -46,6 +46,45 @@ document.querySelectorAll("[data-project-carousel]").forEach((carousel) => {
   showSlide(0);
 });
 
+// 轮播卡片内的界面截图切换器：缩略图只做导航，主图保持可读。
+document.querySelectorAll("[data-overview-shot]").forEach((shot) => {
+  const images = [...shot.querySelectorAll("[data-overview-shot-image]")];
+  const tabs = [...shot.querySelectorAll("[data-overview-shot-tab]")];
+  const label = shot.querySelector("[data-overview-shot-label]");
+  const text = shot.querySelector("[data-overview-shot-text]");
+  const captions = tabs.map((tab) => ({
+    label: tab.querySelector("span")?.textContent ?? "",
+    caption: tab.getAttribute("aria-label")?.replace(/^查看/, "") ?? "",
+  }));
+
+  if (images.length < 2 || tabs.length !== images.length) return;
+
+  const show = (nextIndex) => {
+    const active = (nextIndex + images.length) % images.length;
+    images.forEach((img, i) => img.setAttribute("aria-hidden", String(i !== active)));
+    tabs.forEach((tab, i) => {
+      tab.setAttribute("aria-current", String(i === active));
+      tab.tabIndex = i === active ? 0 : -1;
+    });
+    if (label && captions[active]) label.textContent = captions[active].label;
+    if (text && captions[active]) text.textContent = captions[active].caption;
+  };
+
+  tabs.forEach((tab, i) => tab.addEventListener("click", () => show(i)));
+  shot.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    // 左右键留给截图切换，不冒泡给外层轮播，避免一次按键同时翻两处
+    event.preventDefault();
+    event.stopPropagation();
+    const current = tabs.findIndex((tab) => tab.getAttribute("aria-current") === "true");
+    const step = event.key === "ArrowRight" ? 1 : -1;
+    const next = (current + step + tabs.length) % tabs.length;
+    show(next);
+    tabs[next]?.focus();
+  });
+  shot.showShot = show;
+});
+
 document.querySelectorAll("[data-project-overview]").forEach((carousel) => {
   const track = carousel.querySelector("[data-overview-track]");
   const viewport = carousel.querySelector("[data-overview-viewport]");
@@ -87,6 +126,14 @@ document.querySelectorAll("[data-project-overview]").forEach((carousel) => {
       slide.querySelectorAll("a, button, [tabindex]").forEach((control) => {
         control.tabIndex = hidden ? -1 : 0;
       });
+      // 非当前页的截图切换器复位并退出键盘序，避免一张截图被多个页面同时选中
+      const shot = slide.querySelector("[data-overview-shot]");
+      if (shot) {
+        if (hidden) shot.showShot?.(0);
+        shot.querySelectorAll("[data-overview-shot-tab]").forEach((tab, tabIndex) => {
+          tab.tabIndex = !hidden && tabIndex === 0 ? 0 : -1;
+        });
+      }
     });
     dots.forEach((dot, index) => dot.setAttribute("aria-current", String(index === activeIndex)));
     status.setAttribute("aria-live", automated ? "off" : "polite");
