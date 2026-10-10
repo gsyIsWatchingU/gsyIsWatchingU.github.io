@@ -7,3 +7,5 @@ tmp/
 .env.local
 meshy_output/
 __pycache__/
+.codex/
+.workbuddy/
