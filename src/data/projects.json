@@ -22,7 +22,7 @@
     "icon": "./assets/projects/icons/coffee-research.svg",
     "image": "./assets/projects/research-workbench.png",
     "imageAlt": "Coffee Research 登录页，展示 AI 论文验证工作台的品牌主视觉",
-    "entryUrl": "https://elementary-von-appreciation-stretch.trycloudflare.com",
+    "entryUrl": "https://elementary-von-appreciation-stretch.trycloudflare.com/?v=046572f#/reader",
     "entryLabel": "进入 Coffee Research",
     "gallery": [
       {
@@ -58,7 +58,7 @@
     "icon": "./assets/projects/icons/algorithm-lab.svg",
     "image": "./assets/projects/algorithm-lab.png",
     "imageAlt": "Algorithm Lab 全部题目页面，展示题目筛选与题库信息",
-    "entryUrl": "https://forget-charges-glass-accordance.trycloudflare.com",
+    "entryUrl": "https://forget-charges-glass-accordance.trycloudflare.com/problems",
     "entryLabel": "进入平台",
     "secondaryUrl": "./playground.html",
     "secondaryLabel": "免登录快速体验",
@@ -80,7 +80,7 @@
     "kicker": "REAL-TIME COLLABORATION",
     "name": "Lumi Doc",
     "englishName": "Real-time Collaborative Editor",
-    "stage": "DEMO · GPU 演示环境",
+    "stage": "LIVE · GPU 部署环境",
     "role": "全栈开发与实时协作设计",
     "description": "轻量级在线文档协作平台，覆盖个人文档、公开社区、分享链接、协作申请审批、多人实时编辑与消息通知。",
     "heroFeature": {
@@ -168,7 +168,7 @@
     "kicker": "WINDOWS DEVELOPER TOOL",
     "name": "CLI List",
     "englishName": "Local Command Deck",
-    "stage": "WINDOWS DESKTOP · 私有演示",
+    "stage": "WINDOWS DESKTOP",
     "role": "独立产品设计与原生桌面开发",
     "description": "面向 Windows 开发者的独立命令管理应用。获取安装包后，双击即可打开 CLI List；在一个窗口里搜索、分类、排序并启动本地 CLI、远端 GPU、编辑器与日常工具，不再靠记忆命令或在多个入口间切换。",
     "heroFeature": {
