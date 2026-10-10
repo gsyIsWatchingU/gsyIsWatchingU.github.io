@@ -62,7 +62,7 @@
     "label": "Skill Packer",
     "source": "custom",
     "name": "Skill Packer",
-    "status": "个人项目 · 桌面应用",
+    "status": "桌面应用",
     "description": "管理本机 Agent Skills、业务工作流和项目环境，把一套可复用的工作流打包分享。",
     "tech": [
       "Electron",
@@ -126,6 +126,6 @@
     ],
     "entryUrl": "./games/krusty-krab/0.3.5/",
     "entryLabel": "开始试玩 ↗",
-    "iconText": "🦀"
+    "icon": "./assets/projects/icons/krusty-krab.png"
   }
 ]
