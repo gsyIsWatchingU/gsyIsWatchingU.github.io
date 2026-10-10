@@ -1,0 +1,40 @@
+{
+  "url": "http://127.0.0.1:8801/",
+  "checks": [
+    {
+      "name": "loading text is 欢迎进入",
+      "pass": true
+    },
+    {
+      "name": "loading has no resource count span",
+      "pass": true
+    },
+    {
+      "name": "no loading wording 正在",
+      "pass": true
+    },
+    {
+      "name": "operation hint removed",
+      "pass": true
+    },
+    {
+      "name": "models loaded clean",
+      "pass": true
+    },
+    {
+      "name": "close button has no text ×",
+      "pass": true
+    },
+    {
+      "name": "close button keeps aria label",
+      "pass": true
+    },
+    {
+      "name": "resume closes",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "success": true
+}

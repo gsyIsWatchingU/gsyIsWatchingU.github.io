@@ -12,8 +12,6 @@ const canvas = document.querySelector("[data-house-canvas]");
 const loading = document.querySelector("[data-house-loading]");
 const errorPanel = document.querySelector("[data-house-error]");
 const progress = document.querySelector("[data-house-progress]");
-const loadText = document.querySelector("[data-house-load-text]");
-const loadCount = document.querySelector("[data-house-load-count]");
 const caption = document.querySelector("[data-house-caption]");
 const labelsHost = document.querySelector("[data-house-labels]");
 const objectsHost = document.querySelector("[data-house-objects]");
@@ -184,7 +182,7 @@ if (renderer) {
       new THREE.TextureLoader().load(spec.url,texture=>{
         texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());
         const material=awardMaterials.get(spec.award.id);material.map=texture;material.needsUpdate=true;
-        textureLoaded.add(spec.id);failures.delete(spec.id);loadText.textContent=`已载入${spec.name}`;updateLoading();resolve(true);
+        textureLoaded.add(spec.id);failures.delete(spec.id);updateLoading();resolve(true);
       },undefined,()=>{failures.set(spec.id,spec);updateLoading();resolve(false);});
     });
   }
@@ -254,7 +252,6 @@ if (renderer) {
     tooltip.hidden=true;
     document.querySelector("[data-house-floor]").textContent=room.floor;
     document.querySelector("[data-house-room-name]").textContent=room.name;
-    document.querySelector('[data-house-hint]').textContent=config.interactions.some(item=>item.room===id)?'点击物品查看履历 · 拖动观察 · 滚轮 / 双指缩放':'拖动观察 · 滚轮 / 双指缩放';
     applyVisibility();
     const target=new THREE.Vector3(...room.target);
     const position=new THREE.Vector3(...room.camera);
@@ -276,7 +273,6 @@ if (renderer) {
     caption.hidden=true;
     labelsHost.hidden=false;
     tooltip.hidden=true;
-    document.querySelector('[data-house-hint]').textContent='拖动观察 · 滚轮 / 双指缩放 · 点击房间进入近景';
     applyVisibility();
     const pose=wholePose();
     tweenCamera(pose.position,pose.target);
@@ -368,7 +364,6 @@ if (renderer) {
     root.dataset.failedTextures=String([...failures.values()].filter(s=>s.kind==='texture').length);
     root.dataset.failedResources=String(failures.size);
     progress.value=(loaded.size+textureLoaded.size)/resourceCount*100;
-    loadCount.textContent=`${loaded.size+textureLoaded.size} / ${resourceCount} 个资源`;
     if(failures.size) {
       ready=false;
       showFailure("履历可以继续阅读。请重试以下资源，全部载入后即可进入房间。");
@@ -422,7 +417,6 @@ if (renderer) {
         if(spec.pet)pet=createHousePet(model,spec,{root,canvas,camera,reducedMotion});
         loaded.set(spec.id,model);
         failures.delete(spec.id);
-        loadText.textContent=`已载入${spec.name}`;
         applyVisibility();
         updateLoading();
         resolve(true);
