@@ -7,14 +7,13 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 100%; height: 100%; overflow: hidden; background: #a8d4e6; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
-  #canvas-wrap { width: 100%; height: 100%; position: relative; }
+  #canvas-wrap { width: 100%; height: 100%; position: relative; cursor: grab; }
+  #canvas-wrap:active { cursor: grabbing; }
   canvas { display: block; }
   .top-bar { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; background: rgba(255,255,255,0.85); border-radius: 24px; padding: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.12); backdrop-filter: blur(8px); flex-wrap: wrap; justify-content: center; max-width: 95vw; }
   .top-bar button { border: none; background: transparent; padding: 8px 14px; border-radius: 18px; font-size: 13px; cursor: pointer; color: #3a6b7d; transition: all .2s; font-weight: 500; white-space: nowrap; }
   .top-bar button.active { background: #f4c542; color: #5a4a10; }
   .top-bar button:hover:not(.active) { background: rgba(0,0,0,0.06); }
-  .top-bar button.enter-btn { background: #5ac8e0; color: #fff; }
-  .top-bar button.enter-btn.active { background: #3aa8c0; color: #fff; }
   .info-panel { position: absolute; bottom: 20px; left: 20px; z-index: 10; background: rgba(255,255,255,0.88); border-radius: 12px; padding: 14px 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); max-width: 300px; backdrop-filter: blur(8px); }
   .info-panel h2 { font-size: 16px; color: #2c5a6e; margin-bottom: 6px; }
   .info-panel p { font-size: 12px; color: #5a7a8a; line-height: 1.6; }
@@ -26,10 +25,11 @@
   .floor-bar.visible { display: flex; }
   .floor-bar button { border: none; background: transparent; padding: 6px 14px; border-radius: 14px; font-size: 12px; cursor: pointer; color: #3a6b7d; }
   .floor-bar button.active { background: #5ac8e0; color: #fff; }
+  .door-tooltip { position: absolute; z-index: 10; background: rgba(44,90,110,0.9); color: #fff; padding: 6px 12px; border-radius: 14px; font-size: 12px; pointer-events: none; opacity: 0; transition: opacity .2s; white-space: nowrap; }
+  .door-tooltip.visible { opacity: 1; }
   .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 20; text-align: center; color: #2c5a6e; }
   .loading .spinner { width: 36px; height: 36px; border: 3px solid #cce; border-top-color: #5ac; border-radius: 50%; margin: 0 auto 12px; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .error { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 20; background: #fff; padding: 24px; border-radius: 12px; color: #c33; text-align: center; max-width: 360px; }
 </style>
 </head>
 <body>
@@ -37,7 +37,7 @@
   <div class="top-bar">
     <button id="btn-squidward" class="active">章鱼哥的人像屋</button>
     <button id="btn-patrick">派大星的石头屋</button>
-    <button id="btn-interior" class="enter-btn" style="display:none">进入内部</button>
+    <button id="btn-exit" style="display:none">返回外部</button>
   </div>
   <button class="reset-btn" id="btn-reset">重置镜头</button>
   <div class="floor-bar" id="floor-bar">
@@ -47,12 +47,12 @@
   </div>
   <div class="info-panel" id="info-panel">
     <h2 id="info-title">章鱼哥的人像屋</h2>
-    <p id="info-desc">深蓝灰火山岩摩艾造型，块状平顶，圆形舷窗眼、长鼻与木门。</p>
+    <p id="info-desc">深蓝灰火山岩摩艾造型，块状平顶，圆形舷窗眼、长鼻与木门。点击门进入。</p>
     <div class="meta" id="info-meta"></div>
   </div>
   <div class="controls-hint">拖拽旋转 · 滚轮/双指缩放</div>
+  <div class="door-tooltip" id="door-tip">点击门进入</div>
   <div class="loading" id="loading"><div class="spinner"></div><p>正在加载模型…</p></div>
-  <div class="error" id="error" hidden></div>
 </div>
 
 <script type="importmap">
@@ -89,14 +89,13 @@ const MODELS = {
 };
 
 const FLOOR_INFO = [
-  { name: '一层 客厅', y: 0.6, desc: '沙发、茶几、厨房区域' },
-  { name: '二层 卧室', y: 1.8, desc: '四柱床、浴室' },
-  { name: '三层 练习室', y: 3.0, desc: '钢琴、画廊' },
+  { name: '一层 客厅', y: 0.6, desc: 'L 形沙发、茶几、扶手椅、厨房吧台与冰箱' },
+  { name: '二层 卧室', y: 1.8, desc: '四柱床、床头柜、浴室水池' },
+  { name: '三层 练习室', y: 3.0, desc: '立式钢琴、琴凳、墙上画廊画框' },
 ];
 
 const wrap = document.getElementById('canvas-wrap');
 const loadingEl = document.getElementById('loading');
-const errorEl = document.getElementById('error');
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xa8d4e6);
 scene.fog = new THREE.Fog(0xa8d4e6, 12, 30);
@@ -112,162 +111,204 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.08;
 controls.target.set(0, 1.0, 0);
-controls.minDistance = 1;
-controls.maxDistance = 15;
+controls.minDistance = 0.5;
+controls.maxDistance = 12;
 controls.maxPolarAngle = Math.PI / 2 + 0.1;
-const hemi = new THREE.HemisphereLight(0xd0eef5, 0x8a7a5a, 0.7);
-scene.add(hemi);
+scene.add(new THREE.HemisphereLight(0xd0eef5, 0x8a7a5a, 0.8));
 const key = new THREE.DirectionalLight(0xffffff, 1.8);
 key.position.set(3, 5, 4);
 key.castShadow = true;
 key.shadow.mapSize.set(1024, 1024);
-key.shadow.camera.left = -5; key.shadow.camera.right = 5;
-key.shadow.camera.top = 5; key.shadow.camera.bottom = -5;
 scene.add(key);
 const fill = new THREE.DirectionalLight(0xb0d0e0, 0.5);
 fill.position.set(-3, 2, -2);
 scene.add(fill);
-const groundGeo = new THREE.CircleGeometry(10, 64);
-const groundMat = new THREE.MeshStandardMaterial({ color: 0xd4c89a, roughness: 0.95 });
-const ground = new THREE.Mesh(groundGeo, groundMat);
+const ground = new THREE.Mesh(
+  new THREE.CircleGeometry(10, 64),
+  new THREE.MeshStandardMaterial({ color: 0xd4c89a, roughness: 0.95 })
+);
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
 scene.add(ground);
-const gltfLoader = new GLTFLoader();
-const modelGroup = new THREE.Group();
-scene.add(modelGroup);
-const loaded = {};
-let currentKey = null;
-let interiorMode = false;
-let currentFloor = 0;
 
-function countTriangles(root) {
-  let tris = 0;
-  root.traverse(o => { if (o.isMesh && o.geometry) { const pos = o.geometry.attributes.position; if (pos) tris += pos.count / 3; } });
-  return Math.round(tris);
+const loader = new GLTFLoader();
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+const extGroup = new THREE.Group();
+const intGroup = new THREE.Group();
+scene.add(extGroup, intGroup);
+intGroup.visible = false;
+
+const state = {
+  current: 'squidward',
+  inside: false,
+  doorAnim: null,
+  camAnim: null,
+  extMesh: null,
+  intMesh: null,
+  doorObj: null,
+  tris: 0,
+  intTris: 0,
+};
+
+function countTris(root) {
+  let t = 0;
+  root.traverse(o => { if (o.isMesh && o.geometry && o.geometry.attributes.position) t += o.geometry.attributes.position.count / 3; });
+  return Math.round(t);
 }
 
-function setView(position, target) {
-  camera.position.copy(position);
-  controls.target.copy(target);
-  controls.update();
+function setCam(pos, tgt, dur) {
+  state.camAnim = { fromPos: camera.position.clone(), fromTgt: controls.target.clone(), toPos: pos, toTgt: tgt, start: performance.now(), dur: dur || 800 };
 }
 
 function loadExterior(key) {
-  if (loaded[key] && loaded[key].exterior) { showExterior(key); return; }
   loadingEl.style.display = 'block';
   const cfg = MODELS[key];
-  gltfLoader.load(cfg.url, (gltf) => {
-    const mesh = gltf.scene;
-    mesh.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
-    const box = new THREE.Box3().setFromObject(mesh);
-    const center = box.getCenter(new THREE.Vector3());
-    mesh.position.x -= center.x;
-    mesh.position.z -= center.z;
-    mesh.position.y -= box.min.y;
-    loaded[key] = { exterior: mesh, tris: countTriangles(mesh) };
+  loader.load(cfg.url, (gltf) => {
+    state.extMesh = gltf.scene;
+    state.extMesh.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+    const box = new THREE.Box3().setFromObject(state.extMesh);
+    const c = box.getCenter(new THREE.Vector3());
+    state.extMesh.position.x -= c.x; state.extMesh.position.z -= c.z; state.extMesh.position.y -= box.min.y;
+    state.tris = countTris(state.extMesh);
+    extGroup.add(state.extMesh);
     loadingEl.style.display = 'none';
-    showExterior(key);
-  }, undefined, (err) => {
+    showExterior();
+  }, undefined, () => { loadingEl.textContent = '加载失败'; });
+}
+
+function loadInterior(cb) {
+  if (state.intMesh) { cb(); return; }
+  loadingEl.style.display = 'block';
+  const cfg = MODELS[state.current];
+  loader.load(cfg.interiorUrl, (gltf) => {
+    state.intMesh = gltf.scene;
+    state.intMesh.traverse(o => {
+      if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; }
+      if (o.name === 'door' || o.name === 'door_panel') state.doorObj = o;
+    });
+    state.intTris = countTris(state.intMesh);
+    intGroup.add(state.intMesh);
     loadingEl.style.display = 'none';
-    errorEl.hidden = false;
-    errorEl.textContent = '模型加载失败: ' + (err.message || err);
+    cb();
   });
 }
 
-function loadInterior(key, callback) {
-  if (loaded[key] && loaded[key].interior) { callback(loaded[key].interior); return; }
-  loadingEl.style.display = 'block';
-  const cfg = MODELS[key];
-  gltfLoader.load(cfg.interiorUrl, (gltf) => {
-    const mesh = gltf.scene;
-    mesh.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
-    loaded[key].interior = mesh;
-    loaded[key].interiorTris = countTriangles(mesh);
-    loadingEl.style.display = 'none';
-    callback(mesh);
-  }, undefined, (err) => {
-    loadingEl.style.display = 'none';
-    errorEl.hidden = false;
-    errorEl.textContent = '内部模型加载失败: ' + (err.message || err);
-  });
-}
-
-function showExterior(key) {
-  currentKey = key;
-  interiorMode = false;
-  modelGroup.clear();
-  const ext = loaded[key].exterior;
-  const tris = loaded[key].tris;
-  modelGroup.add(ext);
-  const cfg = MODELS[key];
-  document.getElementById('info-title').textContent = cfg.title;
-  document.getElementById('info-desc').textContent = cfg.desc;
-  document.getElementById('info-meta').innerHTML =
-    '三角面: ' + tris.toLocaleString() + '<br>' +
-    '任务: ' + cfg.jobId.slice(0,8) + '… · seed: ' + cfg.seed + '<br>' +
-    '状态: review（待人工确认）';
-  document.querySelectorAll('.top-bar > button').forEach(b => b.classList.remove('active'));
-  document.getElementById('btn-' + key).classList.add('active');
-  document.getElementById('btn-interior').style.display = cfg.hasInterior ? '' : 'none';
-  document.getElementById('btn-interior').classList.remove('active');
+function showExterior() {
+  state.inside = false;
+  intGroup.visible = false;
+  extGroup.visible = true;
   document.getElementById('floor-bar').classList.remove('visible');
-  const box = new THREE.Box3().setFromObject(ext);
-  const size = box.getSize(new THREE.Vector3());
-  const maxDim = Math.max(size.x, size.y, size.z);
-  setView(new THREE.Vector3(maxDim*0.4, size.y*0.7, maxDim*1.6), new THREE.Vector3(0, size.y*0.4, 0));
+  document.getElementById('btn-exit').style.display = 'none';
+  const box = new THREE.Box3().setFromObject(state.extMesh);
+  const s = box.getSize(new THREE.Vector3());
+  const m = Math.max(s.x, s.y, s.z);
+  setCam(new THREE.Vector3(m*0.4, s.y*0.7, m*1.6), new THREE.Vector3(0, s.y*0.4, 0), 600);
+  const cfg = MODELS[state.current];
+  document.getElementById('info-title').textContent = cfg.title;
+  document.getElementById('info-desc').textContent = cfg.desc + ' 点击门进入。';
+  document.getElementById('info-meta').innerHTML = '三角面: ' + state.tris.toLocaleString() + '<br>任务: ' + cfg.jobId.slice(0,8) + '…<br>状态: review';
+  document.querySelectorAll('.top-bar > button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + state.current).classList.add('active');
 }
 
-function showInterior(key) {
-  currentKey = key;
-  interiorMode = true;
-  loadInterior(key, function(interiorMesh) {
-    modelGroup.clear();
-    modelGroup.add(interiorMesh);
-    const cfg = MODELS[key];
-    document.getElementById('info-title').textContent = cfg.title + ' · 内部剖切';
-    document.getElementById('info-desc').textContent = '前半切开可见三层：一层客厅、二层卧室、三层练习室。';
-    document.getElementById('info-meta').innerHTML =
-      '内部三角面: ' + loaded[key].interiorTris.toLocaleString() + '<br>' +
-      '任务: ' + cfg.jobId.slice(0,8) + '… · seed: ' + cfg.seed + '<br>' +
-      '状态: review（待人工确认）';
-    document.getElementById('btn-interior').classList.add('active');
-    document.getElementById('floor-bar').classList.add('visible');
-    setFloor(0);
+function enterInterior() {
+  loadInterior(() => {
+    state.inside = true;
+    if (state.doorObj) {
+      state.doorAnim = { start: performance.now(), from: 0, to: -Math.PI/2.5, dur: 900 };
+    }
+    setTimeout(() => {
+      extGroup.visible = false;
+      intGroup.visible = true;
+      document.getElementById('floor-bar').classList.add('visible');
+      document.getElementById('btn-exit').style.display = '';
+      const cfg = MODELS[state.current];
+      document.getElementById('info-title').textContent = cfg.title + ' · 内部';
+      document.getElementById('info-desc').textContent = '前半切开：三层空间可见。';
+      document.getElementById('info-meta').innerHTML = '内部三角面: ' + state.intTris.toLocaleString() + '<br>任务: ' + cfg.jobId.slice(0,8) + '…<br>状态: review';
+      setFloor(0);
+    }, 900);
   });
 }
 
-function setFloor(floor) {
-  currentFloor = floor;
+function setFloor(f) {
+  const info = FLOOR_INFO[f];
+  setCam(new THREE.Vector3(0.9, info.y + 0.4, 2.6), new THREE.Vector3(0, info.y, 0), 600);
   document.querySelectorAll('#floor-bar button').forEach(b => b.classList.remove('active'));
-  document.querySelector('#floor-bar button[data-floor="' + floor + '"]').classList.add('active');
-  const info = FLOOR_INFO[floor];
-  setView(new THREE.Vector3(0.8, info.y + 0.3, 2.5), new THREE.Vector3(0, info.y, 0));
+  document.querySelector('#floor-bar button[data-floor="' + f + '"]').classList.add('active');
   document.getElementById('info-desc').textContent = info.name + '：' + info.desc;
 }
 
-document.getElementById('btn-squidward').addEventListener('click', function() { loadExterior('squidward'); });
-document.getElementById('btn-patrick').addEventListener('click', function() { loadExterior('patrick'); });
-document.getElementById('btn-interior').addEventListener('click', function() {
-  if (interiorMode) showExterior(currentKey);
-  else showInterior(currentKey);
+wrap.addEventListener('pointermove', (e) => {
+  if (state.inside) { document.getElementById('door-tip').classList.remove('visible'); return; }
+  pointer.set((e.clientX - wrap.getBoundingClientRect().left) / wrap.clientWidth * 2 - 1, -(e.clientY - wrap.getBoundingClientRect().top) / wrap.clientHeight * 2 + 1);
+  raycaster.setFromCamera(pointer, camera);
+  const hits = raycaster.intersectObject(state.extMesh, true);
+  const tip = document.getElementById('door-tip');
+  if (hits.length && hits[0].distance < 4) {
+    tip.classList.add('visible');
+    tip.style.left = (e.clientX - wrap.getBoundingClientRect().left + 14) + 'px';
+    tip.style.top = (e.clientY - wrap.getBoundingClientRect().top + 14) + 'px';
+  } else {
+    tip.classList.remove('visible');
+  }
 });
-document.querySelectorAll('#floor-bar button').forEach(function(b) {
-  b.addEventListener('click', function() { setFloor(parseInt(b.dataset.floor)); });
+
+let downPos = null;
+wrap.addEventListener('pointerdown', e => { downPos = { x: e.clientX, y: e.clientY }; });
+wrap.addEventListener('pointerup', e => {
+  if (!downPos) return;
+  const dx = e.clientX - downPos.x, dy = e.clientY - downPos.y;
+  downPos = null;
+  if (Math.hypot(dx, dy) > 6 || state.inside) return;
+  pointer.set((e.clientX - wrap.getBoundingClientRect().left) / wrap.clientWidth * 2 - 1, -(e.clientY - wrap.getBoundingClientRect().top) / wrap.clientHeight * 2 + 1);
+  raycaster.setFromCamera(pointer, camera);
+  const hits = raycaster.intersectObject(state.extMesh, true);
+  if (hits.length && hits[0].distance < 4 && MODELS[state.current].hasInterior) enterInterior();
 });
-document.getElementById('btn-reset').addEventListener('click', function() {
-  if (interiorMode) showInterior(currentKey);
-  else showExterior(currentKey);
-});
-window.addEventListener('resize', function() {
+
+document.getElementById('btn-squidward').addEventListener('click', () => { state.current = 'squidward'; resetToExterior(); });
+document.getElementById('btn-patrick').addEventListener('click', () => { state.current = 'patrick'; resetToExterior(); });
+document.getElementById('btn-exit').addEventListener('click', showExterior);
+document.querySelectorAll('#floor-bar button').forEach(b => b.addEventListener('click', () => setFloor(parseInt(b.dataset.floor))));
+document.getElementById('btn-reset').addEventListener('click', () => state.inside ? setFloor(0) : showExterior());
+
+function resetToExterior() {
+  extGroup.clear(); intGroup.clear();
+  state.extMesh = null; state.intMesh = null; state.doorObj = null;
+  state.inside = false;
+  loadExterior(state.current);
+}
+
+window.addEventListener('resize', () => {
   camera.aspect = wrap.clientWidth / wrap.clientHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(wrap.clientWidth, wrap.clientHeight);
 });
-function animate() { requestAnimationFrame(animate); controls.update(); renderer.render(scene, camera); }
+
+function animate() {
+  requestAnimationFrame(animate);
+  if (state.camAnim) {
+    const a = state.camAnim;
+    const t = Math.min(1, (performance.now() - a.start) / a.dur);
+    const e = 1 - Math.pow(1 - t, 3);
+    camera.position.lerpVectors(a.fromPos, a.toPos, e);
+    controls.target.lerpVectors(a.fromTgt, a.toTgt, e);
+    if (t >= 1) state.camAnim = null;
+  }
+  if (state.doorAnim && state.doorObj) {
+    const a = state.doorAnim;
+    const t = Math.min(1, (performance.now() - a.start) / a.dur);
+    const e = 1 - Math.pow(1 - t, 3);
+    state.doorObj.rotation.y = a.from + (a.to - a.from) * e;
+    if (t >= 1) state.doorAnim = null;
+  }
+  controls.update();
+  renderer.render(scene, camera);
+}
 animate();
-const initial = new URLSearchParams(location.search).get('house') || 'squidward';
-loadExterior(initial);
+loadExterior('squidward');
 </script>
 </body>
 </html>
