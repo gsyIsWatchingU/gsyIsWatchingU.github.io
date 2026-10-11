@@ -25,8 +25,6 @@
   .floor-bar.visible { display: flex; }
   .floor-bar button { border: none; background: transparent; padding: 6px 14px; border-radius: 14px; font-size: 12px; cursor: pointer; color: #3a6b7d; }
   .floor-bar button.active { background: #5ac8e0; color: #fff; }
-  .door-tooltip { position: absolute; z-index: 10; background: rgba(44,90,110,0.9); color: #fff; padding: 6px 12px; border-radius: 14px; font-size: 12px; pointer-events: none; opacity: 0; transition: opacity .2s; white-space: nowrap; }
-  .door-tooltip.visible { opacity: 1; }
   .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 20; text-align: center; color: #2c5a6e; }
   .loading .spinner { width: 36px; height: 36px; border: 3px solid #cce; border-top-color: #5ac; border-radius: 50%; margin: 0 auto 12px; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -50,8 +48,7 @@
     <p id="info-desc">深蓝灰火山岩摩艾造型，块状平顶，圆形舷窗眼、长鼻与木门。点击门进入。</p>
     <div class="meta" id="info-meta"></div>
   </div>
-  <div class="controls-hint">拖拽旋转 · 滚轮/双指缩放</div>
-  <div class="door-tooltip" id="door-tip">点击门进入</div>
+  <div class="controls-hint">拖拽旋转 · 滚轮/双指缩放 · 点击门进入</div>
   <div class="loading" id="loading"><div class="spinner"></div><p>正在加载模型…</p></div>
 </div>
 
@@ -239,21 +236,6 @@ function setFloor(f) {
   document.querySelector('#floor-bar button[data-floor="' + f + '"]').classList.add('active');
   document.getElementById('info-desc').textContent = info.name + '：' + info.desc;
 }
-
-wrap.addEventListener('pointermove', (e) => {
-  if (state.inside) { document.getElementById('door-tip').classList.remove('visible'); return; }
-  pointer.set((e.clientX - wrap.getBoundingClientRect().left) / wrap.clientWidth * 2 - 1, -(e.clientY - wrap.getBoundingClientRect().top) / wrap.clientHeight * 2 + 1);
-  raycaster.setFromCamera(pointer, camera);
-  const hits = raycaster.intersectObject(state.extMesh, true);
-  const tip = document.getElementById('door-tip');
-  if (hits.length && hits[0].distance < 4) {
-    tip.classList.add('visible');
-    tip.style.left = (e.clientX - wrap.getBoundingClientRect().left + 14) + 'px';
-    tip.style.top = (e.clientY - wrap.getBoundingClientRect().top + 14) + 'px';
-  } else {
-    tip.classList.remove('visible');
-  }
-});
 
 let downPos = null;
 wrap.addEventListener('pointerdown', e => { downPos = { x: e.clientX, y: e.clientY }; });
