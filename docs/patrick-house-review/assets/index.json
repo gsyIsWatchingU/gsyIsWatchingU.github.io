@@ -1,0 +1,351 @@
+{
+  "fridge": {
+    "file": "assets/models/patrick-house/fridge.glb",
+    "bytes": 5292980,
+    "job_id": "1698cf2c5fa442258dbff5a84d2bc6d3",
+    "retries": 1,
+    "triangles": 28983,
+    "bbox": [
+      [
+        -0.3497,
+        0,
+        -0.9972
+      ],
+      [
+        0.3497,
+        1.2424,
+        0.9972
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [],
+    "notes": "seed=5678 r2, Blender切除侧面杠铃片杂物"
+  },
+  "stove": {
+    "file": "assets/models/patrick-house/stove.glb",
+    "bytes": 5614144,
+    "job_id": "c3c1c69296524c66a335a05966f08950",
+    "retries": 1,
+    "triangles": 79776,
+    "bbox": [
+      [
+        -1.0725,
+        0,
+        -0.0815
+      ],
+      [
+        1.0725,
+        2.1444,
+        0.0815
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [],
+    "notes": "seed=5678 r2, Blender solidify加厚度0.15"
+  },
+  "sink": {
+    "file": "assets/models/patrick-house/sink.glb",
+    "bytes": 3774832,
+    "job_id": "139ff19ec87a4d69a77da5eb00cad7c3",
+    "retries": 1,
+    "triangles": 79778,
+    "bbox": [
+      [
+        -0.8095,
+        0,
+        -0.1743
+      ],
+      [
+        0.8095,
+        2.0945,
+        0.1743
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [],
+    "notes": "seed=5678 r2, Blender solidify加厚度0.10"
+  },
+  "cabinet": {
+    "file": "assets/models/patrick-house/cabinet.glb",
+    "bytes": 4019620,
+    "job_id": "8cf7d227d6f347b3af0f346bd6e9fbe5",
+    "retries": 0,
+    "triangles": 40000,
+    "bbox": [
+      [
+        -0.9994,
+        0.0,
+        -0.3081
+      ],
+      [
+        0.9872,
+        0.7087,
+        0.3143
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [
+      "orientation_suspect: Y 高度 / 最长边 = 0.36 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）"
+    ],
+    "notes": "seed=1234 r1, validate失败但视觉合格直接采用"
+  },
+  "bed": {
+    "file": "assets/models/patrick-house/bed.glb",
+    "bytes": 4254600,
+    "job_id": "0989430197a14cf8bccd80a88f9dbdf7",
+    "retries": 1,
+    "triangles": 40000,
+    "bbox": [
+      [
+        -0.9957,
+        0,
+        -0.6123
+      ],
+      [
+        0.9957,
+        0.6737,
+        0.6123
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [
+      "orientation_suspect: Y 高度 / 最长边 = 0.34 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）"
+    ],
+    "notes": "seed=5678 r2, validate失败但视觉合格(紫色床)"
+  },
+  "star-pillow": {
+    "file": "assets/models/patrick-house/star-pillow.glb",
+    "bytes": 5787756,
+    "job_id": "d93f3c572acb418fb81eaa344ef4441a",
+    "retries": 1,
+    "triangles": 74844,
+    "bbox": [
+      [
+        -0.3177,
+        0,
+        -0.128
+      ],
+      [
+        0.3177,
+        1.2038,
+        0.128
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [],
+    "notes": "seed=5678 r2, Blender solidify加厚度0.08"
+  },
+  "bed-lamp": {
+    "file": "assets/models/patrick-house/bed-lamp.glb",
+    "bytes": 3226464,
+    "job_id": "798ecbc40ffc46d68690aff0c0aea239",
+    "retries": 0,
+    "triangles": 8240,
+    "bbox": [
+      [
+        -0.104,
+        0,
+        -0.1018
+      ],
+      [
+        0.104,
+        0.1525,
+        0.1018
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [],
+    "notes": "seed=1234 r1, Blender切除底座平台"
+  },
+  "bench-press": {
+    "file": "assets/models/patrick-house/bench-press.glb",
+    "bytes": 5109024,
+    "job_id": "5ae85c5c63274ccbbc895ca68e6bb9de",
+    "retries": 0,
+    "triangles": 40000,
+    "bbox": [
+      [
+        -0.9991,
+        -0.0,
+        -0.9998
+      ],
+      [
+        0.993,
+        0.4616,
+        0.9945
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [
+      "orientation_suspect: Y 高度 / 最长边 = 0.23 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）"
+    ],
+    "notes": "seed=1234 r1, validate失败但视觉合格"
+  },
+  "sofa": {
+    "file": "assets/models/patrick-house/sofa.glb",
+    "bytes": 5250632,
+    "job_id": "58194e584516491faebd689aa8915e9e",
+    "retries": 0,
+    "triangles": 40000,
+    "bbox": [
+      [
+        -1.0003,
+        -0.0,
+        -0.9998
+      ],
+      [
+        0.995,
+        0.4596,
+        0.9946
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [
+      "orientation_suspect: Y 高度 / 最长边 = 0.23 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）"
+    ],
+    "notes": "seed=1234 r1, validate失败但视觉合格"
+  },
+  "coffee-table": {
+    "file": "assets/models/patrick-house/coffee-table.glb",
+    "bytes": 4672092,
+    "job_id": "1137e11dcd1b4a9e9daf68284c06ca39",
+    "retries": 1,
+    "triangles": 39898,
+    "bbox": [
+      [
+        -0.8319,
+        0,
+        -0.93
+      ],
+      [
+        0.8319,
+        0.4412,
+        0.93
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [
+      "orientation_suspect: Y 高度 / 最长边 = 0.24 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）"
+    ],
+    "notes": "seed=5678 r2, validate失败, 形状偏blob但可用"
+  },
+  "old-tv": {
+    "file": "assets/models/patrick-house/old-tv.glb",
+    "bytes": 6045808,
+    "job_id": "d924989ac4fb4845be566413d4b9cc84",
+    "retries": 1,
+    "triangles": 79884,
+    "bbox": [
+      [
+        -1.0874,
+        0,
+        -0.0963
+      ],
+      [
+        1.0874,
+        2.175,
+        0.0963
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [],
+    "notes": "seed=5678 r2, Blender solidify加厚度0.18"
+  },
+  "floor-lamp": {
+    "file": "assets/models/patrick-house/floor-lamp.glb",
+    "bytes": 4491004,
+    "job_id": "919f8263a81840728e81afacbf6a1deb",
+    "retries": 0,
+    "triangles": 40000,
+    "bbox": [
+      [
+        -1.0001,
+        0.0,
+        -0.9992
+      ],
+      [
+        0.9948,
+        0.4597,
+        0.9945
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [
+      "orientation_suspect: Y 高度 / 最长边 = 0.23 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）"
+    ],
+    "notes": "seed=1234 r1, validate失败但视觉合格"
+  },
+  "ceiling-fan": {
+    "file": "assets/models/patrick-house/ceiling-fan.glb",
+    "bytes": 4691272,
+    "job_id": "d0152f77173f461abc886e0014803c40",
+    "retries": 0,
+    "triangles": 40000,
+    "bbox": [
+      [
+        -1.0002,
+        -0.0,
+        -1.0
+      ],
+      [
+        0.9948,
+        0.4558,
+        0.9947
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [
+      "orientation_suspect: Y 高度 / 最长边 = 0.23 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）"
+    ],
+    "notes": "seed=1234 r1, validate失败但视觉合格"
+  },
+  "patrick": {
+    "file": "assets/models/patrick-house/patrick.glb",
+    "bytes": 1247640,
+    "job_id": "97edd8ed638d4d3fbb92f1bbea55749",
+    "retries": 0,
+    "triangles": 7326,
+    "bbox": [
+      [
+        -0.3882,
+        0,
+        -0.3804
+      ],
+      [
+        0.3882,
+        1.25,
+        0.3804
+      ]
+    ],
+    "has_baseColorTexture": true,
+    "qc_ok": true,
+    "qc_flags": [],
+    "notes": "seed=1234 r1, unirig失败后Blender手工清理(去巨石/平台)+绑骨+idle/wave动画",
+    "bones": [
+      "root",
+      "spine",
+      "head",
+      "armL",
+      "armR",
+      "legL",
+      "legR"
+    ],
+    "animations": [
+      "idle",
+      "wave"
+    ]
+  }
+}

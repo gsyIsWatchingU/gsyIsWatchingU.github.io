@@ -1,51 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- 此文件由 npm run build 生成，请修改 src 下的源码。 -->
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>派大星石头屋 3D</title>
-<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: #0d1b2a;
-    color: #e0e0e0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  header {
-    padding: 16px 24px;
-    background: rgba(0,0,0,0.3);
-  }
-  header h1 { font-size: 18px; font-weight: 600; }
-  header p { font-size: 13px; opacity: 0.6; margin-top: 4px; }
-  model-viewer {
-    flex: 1;
-    width: 100%;
-    --poster-color: transparent;
-    background: linear-gradient(180deg, #1b2838 0%, #2a3f5f 60%, #c4b59a 100%);
-  }
-</style>
-</head>
-<body>
-<header>
-  <h1>派大星石头屋</h1>
-  <p>Hunyuan3D 生成 · Blender 补骨头风向标 · 拖拽旋转 / 滚轮缩放</p>
-</header>
-<model-viewer
-  src="assets/patrick-house-v2.glb"
-  camera-controls
-  auto-rotate
-  auto-rotate-delay="0"
-  rotation-per-second="20deg"
-  camera-orbit="35deg 75deg 3m"
-  field-of-view="30deg"
-  shadow-intensity="1"
-  environment-image="neutral"
-  exposure="1"
-  alt="派大星石头屋3D模型">
-</model-viewer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="派大星的石头小屋：两层剖面结构与家具占位构图预览。" />
+    <meta name="theme-color" content="#b9dce3" />
+    <title>gsyIsWatchingU · 派大星屋</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./styles/patrick-house.css?v=20261012-struct2" />
+  </head>
+  <body>
+    <main class="house" data-house-state="loading" data-house-view="whole" aria-label="派大星的石头小屋">
+      <canvas data-house-canvas aria-label="拖动旋转小屋，滚轮或双指缩放，点击房间进入近景" tabindex="0"></canvas>
+      <div class="house-title">
+        <p>PATRICK'S ROCK</p>
+        <h1>派大星的石头屋</h1>
+        <span class="review-note">结构构图预览 · 家具为占位块</span>
+      </div>
+      <button type="button" class="mode-toggle" data-house-mode aria-pressed="false" aria-label="切换外观与剖面">外观</button>
+      <div class="room-caption" data-house-caption hidden>
+        <span data-house-floor></span><h2 data-house-room-name></h2>
+        <button type="button" data-house-back aria-label="返回全屋剖面">← 返回全屋</button>
+      </div>
+      <div class="room-labels" data-house-labels aria-label="选择房间"></div>
+      <div class="house-tooltip" data-house-tooltip hidden role="tooltip"></div>
+      <section class="house-loading" data-house-loading role="status" aria-live="polite">
+        <p>正在搭起石头小屋…</p>
+        <progress max="100" value="100" aria-label="场景加载进度"></progress>
+      </section>
+      <section class="house-error" data-house-error hidden role="alert">
+        <h2>无法显示三维小屋</h2>
+        <p>浏览器未能启用 WebGL。请检查硬件加速设置后刷新。</p>
+        <button type="button" data-house-retry>重新载入</button>
+      </section>
+      <noscript><p class="house-error">请开启 JavaScript，才能浏览三维派大星屋。</p></noscript>
+    </main>
+    <script defer src="./assets/patrick-house.js?v=20261012-struct2"></script>
+  </body>
 </html>

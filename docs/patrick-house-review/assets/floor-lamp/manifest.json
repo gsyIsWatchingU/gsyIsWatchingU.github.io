@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "job_id": "919f8263a81840728e81afacbf6a1deb",
+  "asset_name": "floor-lamp",
+  "asset_kind": "prop",
+  "profile": "steam_desktop",
+  "state": "failed",
+  "source_file": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/source.png",
+  "source_sha256": "9a282c6f72eb69b901e3562c808047f367e2ccc7f98be55cd602b88145bd70cf",
+  "material_source_file": null,
+  "material_source_sha256": null,
+  "prompt": "落地灯，米色锥形灯罩，细长金属灯杆，圆形底座，简约卡通动画风格",
+  "seed": 1234,
+  "created_at": "2026-10-12T03:25:46.778367+00:00",
+  "updated_at": "2026-10-12T05:21:22.618508+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-12T05:15:14.495647+00:00",
+      "completed_at": "2026-10-12T05:15:14.497298+00:00",
+      "details": {
+        "fingerprint": "adc6547548919438",
+        "work_dir": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work",
+        "profile": "steam_desktop",
+        "elapsed_seconds": 0.001,
+        "execution_job_id": "919f8263a81840728e81afacbf6a1deb"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "completed",
+      "started_at": "2026-10-12T05:15:14.497767+00:00",
+      "completed_at": "2026-10-12T05:16:56.748539+00:00",
+      "details": {
+        "fingerprint": "12b94bf6fe55761b",
+        "backend": "hunyuan3d-2.1",
+        "output": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/generated.glb",
+        "elapsed_seconds": 102.249,
+        "execution_job_id": "919f8263a81840728e81afacbf6a1deb"
+      }
+    },
+    {
+      "name": "draft_preview",
+      "state": "completed",
+      "started_at": "2026-10-12T05:16:56.749186+00:00",
+      "completed_at": "2026-10-12T05:17:50.945810+00:00",
+      "details": {
+        "fingerprint": "9ec098c3fdff95c7",
+        "draft_preview": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/draft-preview.png",
+        "draft_gate": "passed",
+        "elapsed_seconds": 54.195,
+        "execution_job_id": "919f8263a81840728e81afacbf6a1deb"
+      }
+    },
+    {
+      "name": "generate_material",
+      "state": "completed",
+      "started_at": "2026-10-12T05:17:50.946480+00:00",
+      "completed_at": "2026-10-12T05:19:54.721820+00:00",
+      "details": {
+        "fingerprint": "82f4bb7b40513f6c",
+        "backend": "hunyuan3d-paint-2.1",
+        "paint_source": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/paint-source.glb",
+        "output": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/textured.glb",
+        "material_source": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/source.png",
+        "elapsed_seconds": 123.774,
+        "execution_job_id": "919f8263a81840728e81afacbf6a1deb"
+      }
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "completed",
+      "started_at": "2026-10-12T05:19:54.722501+00:00",
+      "completed_at": "2026-10-12T05:19:56.542089+00:00",
+      "details": {
+        "fingerprint": "5435cf7d00875785",
+        "output": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/normalized.glb",
+        "elapsed_seconds": 1.818,
+        "execution_job_id": "919f8263a81840728e81afacbf6a1deb"
+      }
+    },
+    {
+      "name": "export",
+      "state": "completed",
+      "started_at": "2026-10-12T05:19:56.542744+00:00",
+      "completed_at": "2026-10-12T05:19:58.212399+00:00",
+      "details": {
+        "fingerprint": "2dd89a62bce54aec",
+        "output": "/workspace/3d-assets/exports/floor-lamp/919f8263a81840728e81afacbf6a1deb/floor-lamp-steam_desktop.glb",
+        "elapsed_seconds": 1.668,
+        "execution_job_id": "919f8263a81840728e81afacbf6a1deb"
+      }
+    },
+    {
+      "name": "render_preview",
+      "state": "completed",
+      "started_at": "2026-10-12T05:19:58.213092+00:00",
+      "completed_at": "2026-10-12T05:21:20.196912+00:00",
+      "details": {
+        "fingerprint": "e1f7548e2b867ae0",
+        "preview": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/preview.png",
+        "manifest": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/preview.json",
+        "elapsed_seconds": 81.982,
+        "execution_job_id": "919f8263a81840728e81afacbf6a1deb"
+      }
+    },
+    {
+      "name": "validate",
+      "state": "running",
+      "started_at": "2026-10-12T05:21:20.197650+00:00",
+      "completed_at": null,
+      "details": {
+        "fingerprint": "b613964b2762218f",
+        "elapsed_seconds": 2.419,
+        "execution_job_id": "919f8263a81840728e81afacbf6a1deb"
+      }
+    }
+  ],
+  "outputs": {
+    "shape_mesh": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/generated.glb",
+    "generated_mesh": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/textured.glb",
+    "draft_preview": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/draft-preview.png",
+    "draft_preview_manifest": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/draft-preview.json",
+    "paint_source": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/paint-source.glb",
+    "pbr_mesh": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/textured.glb",
+    "normalized_mesh": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/work/normalized.glb",
+    "game_asset": "/workspace/3d-assets/exports/floor-lamp/919f8263a81840728e81afacbf6a1deb/floor-lamp-steam_desktop.glb",
+    "preview": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/preview.png",
+    "preview_manifest": "/workspace/3d-assets/jobs/919f8263a81840728e81afacbf6a1deb/preview.json"
+  },
+  "metrics": {
+    "delivery_bytes": 4491004,
+    "triangle_budget": 120000,
+    "max_bones": 128,
+    "missing_animation_clips": [
+      "climb",
+      "crouch",
+      "death",
+      "idle",
+      "interact",
+      "push",
+      "run",
+      "walk"
+    ],
+    "preview_quality": {
+      "luma_mean": 0.13889,
+      "luma_stddev": 0.20633,
+      "clipped_channel_ratio": 0.01974,
+      "neutral_white_ratio": 0.02887,
+      "edge_detail_score": 0.01502,
+      "min_character_height_ratio": 1.0,
+      "max_character_height_ratio": 1.0
+    },
+    "mesh_objects": 1,
+    "mesh_details": [
+      {
+        "name": "textured",
+        "triangles": 40000,
+        "hidden": false
+      }
+    ],
+    "triangles": 40000,
+    "vertices": 22444,
+    "armatures": 0,
+    "bones": 0,
+    "bone_names": [],
+    "bone_layout": [],
+    "max_weights_per_vertex": 0,
+    "materials": 1,
+    "material_details": [
+      {
+        "name": "Material",
+        "uses_nodes": true,
+        "channels": {
+          "Base Color": {
+            "texture": {
+              "image": "textured",
+              "width": 2048,
+              "height": 2048,
+              "channel": null,
+              "mean": 0.79665,
+              "stddev": 0.09357,
+              "p05": 0.6366,
+              "p50": 0.80407,
+              "p95": 0.92314,
+              "near_zero_ratio": 0.0,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": [
+              0.8,
+              0.8,
+              0.8,
+              1.0
+            ]
+          },
+          "Metallic": {
+            "texture": {
+              "image": "Forge3D_ORM_Material",
+              "width": 2048,
+              "height": 2048,
+              "channel": 2,
+              "mean": 0.06029,
+              "stddev": 0.165,
+              "p05": 0.0,
+              "p50": 0.0,
+              "p95": 0.51373,
+              "near_zero_ratio": 0.87143,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": 0.0
+          },
+          "Roughness": {
+            "texture": {
+              "image": "Forge3D_ORM_Material",
+              "width": 2048,
+              "height": 2048,
+              "channel": 1,
+              "mean": 0.60174,
+              "stddev": 0.02304,
+              "p05": 0.58039,
+              "p50": 0.6,
+              "p95": 0.64314,
+              "near_zero_ratio": 0.0,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": 0.5
+          }
+        }
+      }
+    ],
+    "material_metrics": {
+      "textured_materials": 1,
+      "missing_base_color_textures": 0,
+      "roughness_p95_min": 0.64314,
+      "roughness_collapsed_materials": 0,
+      "unassigned_material_faces": 0
+    },
+    "uv_details": [
+      {
+        "name": "textured",
+        "uv_layers": 1,
+        "uv_values": 120000,
+        "out_of_range_ratio": 0.0,
+        "non_finite_values": 0,
+        "degenerate_triangle_ratio": 0.00005
+      }
+    ],
+    "uv_metrics": {
+      "textured_meshes_without_uv": 0,
+      "out_of_range_ratio_max": 0.0,
+      "degenerate_triangle_ratio_max": 0.00005,
+      "non_finite_values": 0
+    },
+    "textures": 2,
+    "max_texture_width": 2048,
+    "max_texture_height": 2048,
+    "animations": []
+  },
+  "provenance": {
+    "source_filename": "crop-floor-lamp.png",
+    "material_source_filename": null,
+    "mesh_backend": "single",
+    "views": {},
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu"
+  },
+  "quality_gates": {
+    "file_exists": "passed",
+    "profile_contract": "failed",
+    "material_uv_review": "passed",
+    "render_anomaly_review": "failed",
+    "animation_pose_review": "n/a",
+    "deformation_review": "n/a",
+    "target_device_review": "required"
+  },
+  "error": "质量门禁失败: render_white_patch_risk",
+  "stop_after": null
+}

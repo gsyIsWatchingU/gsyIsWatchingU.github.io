@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "job_id": "5ae85c5c63274ccbbc895ca68e6bb9de",
+  "asset_name": "bench-press",
+  "asset_kind": "prop",
+  "profile": "steam_desktop",
+  "state": "failed",
+  "source_file": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/source.png",
+  "source_sha256": "afcda2a934a15e30949696fb201837ef792e6e2cc14661768a39a0d1efb4fcc3",
+  "material_source_file": null,
+  "material_source_sha256": null,
+  "prompt": "卧推凳力量训练器，红色软垫卧推板，金色金属支架，两侧挂黑色杠铃片，黑色杠铃杆，卡通动画风格",
+  "seed": 1234,
+  "created_at": "2026-10-12T03:25:42.648978+00:00",
+  "updated_at": "2026-10-12T04:55:46.074994+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-12T04:49:28.520516+00:00",
+      "completed_at": "2026-10-12T04:49:28.522181+00:00",
+      "details": {
+        "fingerprint": "adc6547548919438",
+        "work_dir": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work",
+        "profile": "steam_desktop",
+        "elapsed_seconds": 0.001,
+        "execution_job_id": "5ae85c5c63274ccbbc895ca68e6bb9de"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "completed",
+      "started_at": "2026-10-12T04:49:28.522659+00:00",
+      "completed_at": "2026-10-12T04:51:04.397763+00:00",
+      "details": {
+        "fingerprint": "fcb2890bc2bc7c0a",
+        "backend": "hunyuan3d-2.1",
+        "output": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/generated.glb",
+        "elapsed_seconds": 95.874,
+        "execution_job_id": "5ae85c5c63274ccbbc895ca68e6bb9de"
+      }
+    },
+    {
+      "name": "draft_preview",
+      "state": "completed",
+      "started_at": "2026-10-12T04:51:04.398395+00:00",
+      "completed_at": "2026-10-12T04:52:02.505744+00:00",
+      "details": {
+        "fingerprint": "7a2927753a9e0f00",
+        "draft_preview": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/draft-preview.png",
+        "draft_gate": "passed",
+        "elapsed_seconds": 58.106,
+        "execution_job_id": "5ae85c5c63274ccbbc895ca68e6bb9de"
+      }
+    },
+    {
+      "name": "generate_material",
+      "state": "completed",
+      "started_at": "2026-10-12T04:52:02.506442+00:00",
+      "completed_at": "2026-10-12T04:54:16.046019+00:00",
+      "details": {
+        "fingerprint": "d9d47d6061bbbf77",
+        "backend": "hunyuan3d-paint-2.1",
+        "paint_source": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/paint-source.glb",
+        "output": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/textured.glb",
+        "material_source": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/source.png",
+        "elapsed_seconds": 133.538,
+        "execution_job_id": "5ae85c5c63274ccbbc895ca68e6bb9de"
+      }
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "completed",
+      "started_at": "2026-10-12T04:54:16.046689+00:00",
+      "completed_at": "2026-10-12T04:54:17.966290+00:00",
+      "details": {
+        "fingerprint": "7025507e0bb89dc7",
+        "output": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/normalized.glb",
+        "elapsed_seconds": 1.918,
+        "execution_job_id": "5ae85c5c63274ccbbc895ca68e6bb9de"
+      }
+    },
+    {
+      "name": "export",
+      "state": "completed",
+      "started_at": "2026-10-12T04:54:17.966984+00:00",
+      "completed_at": "2026-10-12T04:54:19.435821+00:00",
+      "details": {
+        "fingerprint": "2578aed09f363ce0",
+        "output": "/workspace/3d-assets/exports/bench-press/5ae85c5c63274ccbbc895ca68e6bb9de/bench-press-steam_desktop.glb",
+        "elapsed_seconds": 1.468,
+        "execution_job_id": "5ae85c5c63274ccbbc895ca68e6bb9de"
+      }
+    },
+    {
+      "name": "render_preview",
+      "state": "completed",
+      "started_at": "2026-10-12T04:54:19.436460+00:00",
+      "completed_at": "2026-10-12T04:55:43.853212+00:00",
+      "details": {
+        "fingerprint": "b3b0d96635a66a9b",
+        "preview": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/preview.png",
+        "manifest": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/preview.json",
+        "elapsed_seconds": 84.415,
+        "execution_job_id": "5ae85c5c63274ccbbc895ca68e6bb9de"
+      }
+    },
+    {
+      "name": "validate",
+      "state": "running",
+      "started_at": "2026-10-12T04:55:43.853931+00:00",
+      "completed_at": null,
+      "details": {
+        "fingerprint": "8f1775a05f807c97",
+        "elapsed_seconds": 2.22,
+        "execution_job_id": "5ae85c5c63274ccbbc895ca68e6bb9de"
+      }
+    }
+  ],
+  "outputs": {
+    "shape_mesh": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/generated.glb",
+    "generated_mesh": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/textured.glb",
+    "draft_preview": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/draft-preview.png",
+    "draft_preview_manifest": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/draft-preview.json",
+    "paint_source": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/paint-source.glb",
+    "pbr_mesh": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/textured.glb",
+    "normalized_mesh": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/work/normalized.glb",
+    "game_asset": "/workspace/3d-assets/exports/bench-press/5ae85c5c63274ccbbc895ca68e6bb9de/bench-press-steam_desktop.glb",
+    "preview": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/preview.png",
+    "preview_manifest": "/workspace/3d-assets/jobs/5ae85c5c63274ccbbc895ca68e6bb9de/preview.json"
+  },
+  "metrics": {
+    "delivery_bytes": 5109024,
+    "triangle_budget": 120000,
+    "max_bones": 128,
+    "missing_animation_clips": [
+      "climb",
+      "crouch",
+      "death",
+      "idle",
+      "interact",
+      "push",
+      "run",
+      "walk"
+    ],
+    "preview_quality": {
+      "luma_mean": 0.13762,
+      "luma_stddev": 0.19386,
+      "clipped_channel_ratio": 0.007,
+      "neutral_white_ratio": 0.00188,
+      "edge_detail_score": 0.01586,
+      "min_character_height_ratio": 1.0,
+      "max_character_height_ratio": 1.0
+    },
+    "mesh_objects": 1,
+    "mesh_details": [
+      {
+        "name": "textured",
+        "triangles": 40000,
+        "hidden": false
+      }
+    ],
+    "triangles": 40000,
+    "vertices": 23643,
+    "armatures": 0,
+    "bones": 0,
+    "bone_names": [],
+    "bone_layout": [],
+    "max_weights_per_vertex": 0,
+    "materials": 1,
+    "material_details": [
+      {
+        "name": "Material",
+        "uses_nodes": true,
+        "channels": {
+          "Base Color": {
+            "texture": {
+              "image": "textured",
+              "width": 2048,
+              "height": 2048,
+              "channel": null,
+              "mean": 0.42669,
+              "stddev": 0.09934,
+              "p05": 0.26139,
+              "p50": 0.43421,
+              "p95": 0.59997,
+              "near_zero_ratio": 0.0,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": [
+              0.8,
+              0.8,
+              0.8,
+              1.0
+            ]
+          },
+          "Metallic": {
+            "texture": {
+              "image": "Forge3D_ORM_Material",
+              "width": 2048,
+              "height": 2048,
+              "channel": 2,
+              "mean": 0.10627,
+              "stddev": 0.11525,
+              "p05": 0.01961,
+              "p50": 0.06667,
+              "p95": 0.39608,
+              "near_zero_ratio": 0.06186,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": 0.0
+          },
+          "Roughness": {
+            "texture": {
+              "image": "Forge3D_ORM_Material",
+              "width": 2048,
+              "height": 2048,
+              "channel": 1,
+              "mean": 0.64229,
+              "stddev": 0.07303,
+              "p05": 0.50588,
+              "p50": 0.65882,
+              "p95": 0.71765,
+              "near_zero_ratio": 0.0,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": 0.5
+          }
+        }
+      }
+    ],
+    "material_metrics": {
+      "textured_materials": 1,
+      "missing_base_color_textures": 0,
+      "roughness_p95_min": 0.71765,
+      "roughness_collapsed_materials": 0,
+      "unassigned_material_faces": 0
+    },
+    "uv_details": [
+      {
+        "name": "textured",
+        "uv_layers": 1,
+        "uv_values": 120000,
+        "out_of_range_ratio": 0.0,
+        "non_finite_values": 0,
+        "degenerate_triangle_ratio": 0.000025
+      }
+    ],
+    "uv_metrics": {
+      "textured_meshes_without_uv": 0,
+      "out_of_range_ratio_max": 0.0,
+      "degenerate_triangle_ratio_max": 0.000025,
+      "non_finite_values": 0
+    },
+    "textures": 2,
+    "max_texture_width": 2048,
+    "max_texture_height": 2048,
+    "animations": []
+  },
+  "provenance": {
+    "source_filename": "crop-bench-press.png",
+    "material_source_filename": null,
+    "mesh_backend": "single",
+    "views": {},
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu"
+  },
+  "quality_gates": {
+    "file_exists": "passed",
+    "profile_contract": "failed",
+    "material_uv_review": "passed",
+    "render_anomaly_review": "failed",
+    "animation_pose_review": "n/a",
+    "deformation_review": "n/a",
+    "target_device_review": "required"
+  },
+  "error": "质量门禁失败: render_white_patch_risk",
+  "stop_after": null
+}

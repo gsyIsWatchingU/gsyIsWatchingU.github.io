@@ -1,0 +1,27 @@
+{
+  "version": "20261012-glb2",
+  "status": "review",
+  "whole": {"target": [0, 1.5, 0], "camera": [0, 4.4, 13.8]},
+  "rooms": [
+    {"id": "kitchen", "name": "厨房", "floor": "上层", "level": 0, "label": [-1.6, 2.4, -2.0], "bounds": [[-2.9, 0, -3.2], [-0.4, 3.2, -2.2]], "target": [-1.5, 1.4, -2.7], "camera": [-1.6, 2.0, 6.2]},
+    {"id": "bedroom", "name": "卧室", "floor": "上层", "level": 0, "label": [2.3, 2.0, -1.0], "bounds": [[1.0, 0, -2.6], [3.4, 3.0, -0.2]], "target": [2.1, 1.0, -1.5], "camera": [0.6, 1.9, 5.0]},
+    {"id": "gym", "name": "健身区", "floor": "上层", "level": 0, "label": [-0.9, 1.9, 0.6], "bounds": [[-1.8, 0, -0.3], [0.0, 1.7, 1.3]], "target": [-0.9, 0.7, 0.5], "camera": [-0.9, 1.6, 3.2]},
+    {"id": "living", "name": "地下客厅", "floor": "下层", "level": -1, "label": [-0.2, -0.6, 0.4], "bounds": [[-2.8, -2.3, -2.2], [2.6, -0.8, 1.4]], "target": [0, -1.9, -0.8], "camera": [0.2, -1.0, 4.6]}
+  ],
+  "assets": [
+    {"id": "fridge", "url": "assets/models/patrick-house/fridge.glb", "position": [-2.3, 0, -2.7], "rotationY": 0, "scale": 1.4, "room": "kitchen"},
+    {"id": "stove", "url": "assets/models/patrick-house/stove.glb", "position": [-1.45, 0, -2.75], "rotationY": 0, "scale": 0.45, "room": "kitchen"},
+    {"id": "sink", "url": "assets/models/patrick-house/sink.glb", "position": [-0.65, 0.9, -3.02], "rotationY": 0, "scale": 0.45, "room": "kitchen"},
+    {"id": "cabinet", "url": "assets/models/patrick-house/cabinet.glb", "position": [-1.5, 2.75, -3.05], "rotationY": 0, "scale": 0.8, "room": "kitchen"},
+    {"id": "bed", "url": "assets/models/patrick-house/bed.glb", "position": [2.0, 0, -1.5], "rotationY": 0, "scale": 0.85, "room": "bedroom"},
+    {"id": "star-pillow", "url": "assets/models/patrick-house/star-pillow.glb", "position": [2.0, 0.45, -2.05], "rotationY": 0, "scale": 0.5, "room": "bedroom"},
+    {"id": "bed-lamp", "url": "assets/models/patrick-house/bed-lamp.glb", "position": [3.0, 0.55, -2.3], "rotationY": 0, "scale": 2.5, "room": "bedroom", "interaction": "lamp"},
+    {"id": "bench-press", "url": "assets/models/patrick-house/bench-press.glb", "position": [-0.9, -0.015, 0.5], "rotationY": 0, "scale": 0.7, "room": "gym"},
+    {"id": "sofa", "url": "assets/models/patrick-house/sofa.glb", "position": [-1.3, -2.315, -0.9], "rotationY": 0, "scale": 0.55, "room": "living"},
+    {"id": "coffee-table", "url": "assets/models/patrick-house/coffee-table.glb", "position": [-0.3, -2.3, -0.1], "rotationY": 0, "scale": 0.4, "room": "living"},
+    {"id": "old-tv", "url": "assets/models/patrick-house/old-tv.glb", "position": [1.5, -2.3, -1.3], "rotationY": 0, "scale": 0.44, "room": "living", "interaction": "tv"},
+    {"id": "floor-lamp", "url": "assets/models/patrick-house/floor-lamp.glb", "position": [-2.3, -2.315, -1.7], "rotationY": 0, "scale": 0.6, "room": "living", "interaction": "lamp"},
+    {"id": "ceiling-fan", "url": "assets/models/patrick-house/ceiling-fan.glb", "position": [0, 3.75, 0], "rotationY": 0, "scale": 0.6, "hang": true, "room": "kitchen", "interaction": "fan"},
+    {"id": "patrick", "url": "assets/models/patrick-house/patrick.glb", "position": [0.6, -2.3, 0.2], "rotationY": 0, "scale": 0.95, "room": "living", "interaction": "patrick"}
+  ]
+}
