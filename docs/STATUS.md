@@ -2,6 +2,30 @@
 
 最后更新：2026-10-12
 
+## 派大星石头屋 · 第二轮优化（2026-10-12，review 待审，built5 已推公网待复测）
+
+- **目标**：针对用户第二轮六项硬验收——①派大星五官可见 ②体积比例按参考图重建 ③招手全程肩-肘连续连接 ④窗口尺寸变化不裁切 ⑤家具与材质精修至菠萝屋级 ⑥工程+公网上线。不是增加功能/提高自动测试通过数。
+- **已修复（本地实测验证）**：
+  1. 五官可见：删除覆盖正脸的 `rim`（原为 bodyGeo 克隆放大 1.02/1.015/1.04 的不透明同形外壳，完全罩住五官贴图）。身体改圆润旋转体（五角瓣幅度≈0.02 避免脊峰折脸），贴图 u=0.5 对应正面 +z；眼白/瞳孔/眉毛/嘴渲染像素聚类验证可见；`emissiveIntensity 0.22→0.32` + 正面补光 frontFill。
+  2. 体积比例：轮廓改为「腰部（藏进短裤）→ 圆润腹部 → 胸部 → 颈部 → 细长圆润头部 → 冠顶」，新增颈段与头部（1.04–1.635），冠顶球 y1.66；短裤为 LatheGeometry 环带（腰带→鼓起裙摆→裤脚）+ 裤脚 hem + 腰带 torus，绿紫花贴图，非第二块星形板；两条锥形圆润手臂（肩球埋入躯干→上臂→肘→前臂→手），短腿+脚底接地。
+  3. 招手连接：肩部枢轴位于真实连接位置（side*0.4, 0.8, 0），肘为肩组子节点，抬手（rz 0.15→2.45）/摆动（±0.07）/回落全程肩-肘连续；连续点击不叠加；呼吸缩放不破坏连接；待机轻摆。验收为真实鼠标点击（前端 8 帧 + 侧面 5 帧 + 状态机采样 idle→raise→wave→lower→idle），未调用 startWave() 替代点击。
+  4. 窗口尺寸：`ResizeObserver` 改为每次有效尺寸变化调用 `refitView()`——取消进行中镜头补间（防旧终点覆盖）、重算 FOV（aspect<0.72→50°）、按可见包围盒重算距离与目标点、保留用户旋转方向；全屋 margin 1.42、外观 elev 0.25；地下房间相机钳制 y≤-0.2（楼板下）。验收：390×844 首载、1440×900→390×844→844×390→1440×900、剖面/外观、四房间近景、过渡中改尺寸全部完整入画（document.scrollWidth 无溢出 ≠ 模型未裁切，本项以投影包围盒在视口内为准）。
+  5. 拾取与遮挡：`lineOfSightBlocked` 递归收集可见遮挡网格（外壳/内壁/楼板是组合体）；隐藏祖先节点物件不参与拾取；拖拽（位移>7px/650ms）不误触；living 相机下沉后电视/落地灯/床头灯/吊扇全部真实点击可达（点击前后状态断言：tvOn 翻转、floorLampOn/bedLampOn 翻转、fanSpinning 翻转、风扇只转叶片吊杆静止）。
+  6. 家具材质（第二轮）：冰箱浅蓝金属（双门+门缝+银把手）、炉灶奶白箱体+黑玻璃灶台+4 火环+4 烤网+玻璃视窗炉门+金把手 4 旋钮、水槽石英台面+陶瓷盆+镀铬 L 龙头双把手+柜门竖纹、床 4 腿+蓝垫紫被+带眼睛海星枕贴床、沙发圆角底座+后倾靠背+双坐垫+弧形扶手+4 腿、卧推凳+杠铃架/片/卡扣；woodTex 加 dir 参数（竖纹/横纹按件区分）；外壳保持圆润低矮穹顶。
+  7. 工程：缓存版本 built4→built5；`npm run build` / `npm run check` / `git diff --check` 通过；控制台零错误零资源失败；菠萝屋回归通过（本地 HTTP 8667，WebGL2 正常、无错误、API 就绪）。
+- **验收方式与局限（分开报告）**：本地验收用无头 Chrome CDP（SwiftShader 软渲染）+ 真实 GPU 模式各跑一遍；技术断言通过 ≠ 角色/动画/材质验收合格（视觉结论来自自动读图逐张复核）；手机为 390×844 视口模拟，**真实手机实机性能与双指手势未测**；SwiftShader 帧率不代表真实 GPU/手机性能。
+- **未验证 / 遗留**：
+  - 真实手机实机帧率与物理触屏未测，需用户实机复核。
+  - 派大星招手为程序化骨骼（独立手臂 Group），非 GLB 蒙皮动画；如需更丰富动画需 GPU/Blender 资产。
+  - 新资产均为本地程序化重建，状态保持 **review，不标记 approved**。
+  - 视觉对照：与菠萝屋同尺寸截图对比存 `docs/patrick-house-review/round2-diag/`（r2f-* 四区域+全屋+外观、r2g-* 招手连续帧、r2d-* 尺寸变化）。
+- **交付**：公网链接 https://gsyiswatchingu.github.io/patrick-house.html（?v=20261012-built5）；部署提交号与缓存版本见提交推送小节；证据目录 `docs/patrick-house-review/round2-diag/`。
+
+### 第二轮提交推送与公网复测（2026-10-12）
+
+- 提交说明：仅本任务文件（scripts/patrick-build.js、scripts/patrick-house.js、src/patrick-house.html、src/data/patrick-house.json、构建产物 patrick-house.html / assets/patrick-house.js、docs/patrick-house-review/、docs/STATUS.md）；他人未提交修改（index.html、pineapple-house.html、assets/projects/*、src/data/projects.json、house-project-collection.json、quote-page/、patrick-house-3d/ 等）未并入、未回滚。
+- 缓存版本 `?v=20261012-built5`；公网复测结果与最终截图见本轮交付说明（使用新缓存版本重新截图与点击复测，不复用旧版本证据）。
+
 ## 派大星石头屋 · 修复到菠萝屋同级质量（2026-10-12，review 待审，已推公网待复测）
 
 - **目标**：线上 https://gsyiswatchingu.github.io/patrick-house.html 从"结构构图预览·家具为占位块"修复为可交互成品，与菠萝屋视觉/交互同级。本轮完成修复→本地全量验收→提交推送，公网复测结果见下文对应小节。
