@@ -4,11 +4,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="派大星的石头小屋：两层剖面结构与家具占位构图预览。" />
+    <meta name="description" content="派大星的石头小屋：程序化构建的两层房屋、家具与角色互动。" />
     <meta name="theme-color" content="#b9dce3" />
     <title>gsyIsWatchingU · 派大星屋</title>
     <link rel="icon" href="./favicon.ico" />
-    <link rel="stylesheet" href="./styles/patrick-house.css?v=20261012-struct2" />
+    <link rel="stylesheet" href="./styles/patrick-house.css?v=20261012-built4" />
   </head>
   <body>
     <main class="house" data-house-state="loading" data-house-view="whole" aria-label="派大星的石头小屋">
@@ -16,7 +16,6 @@
       <div class="house-title">
         <p>PATRICK'S ROCK</p>
         <h1>派大星的石头屋</h1>
-        <span class="review-note">结构构图预览 · 家具为占位块</span>
       </div>
       <button type="button" class="mode-toggle" data-house-mode aria-pressed="false" aria-label="切换外观与剖面">外观</button>
       <div class="room-caption" data-house-caption hidden>
@@ -31,11 +30,11 @@
       </section>
       <section class="house-error" data-house-error hidden role="alert">
         <h2>无法显示三维小屋</h2>
-        <p>浏览器未能启用 WebGL。请检查硬件加速设置后刷新。</p>
+        <p data-house-error-text>浏览器未能启用 WebGL。请检查硬件加速设置后刷新。</p>
         <button type="button" data-house-retry>重新载入</button>
       </section>
       <noscript><p class="house-error">请开启 JavaScript，才能浏览三维派大星屋。</p></noscript>
     </main>
-    <script defer src="./assets/patrick-house.js?v=20261012-struct2"></script>
+    <script defer src="./assets/patrick-house.js?v=20261012-built4"></script>
   </body>
 </html>
