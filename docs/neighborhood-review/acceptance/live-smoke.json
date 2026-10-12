@@ -1,0 +1,21 @@
+{
+  "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/index.html",
+  "checks": {
+    "state": {
+      "house": "squidward",
+      "view": "cutaway",
+      "tier": "desktop",
+      "extTris": 90200,
+      "intTris": 81504
+    },
+    "overflow": {
+      "iw": 1440,
+      "sw": 1440
+    },
+    "errors": [
+      "THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead."
+    ],
+    "failedReq": [],
+    "cacheBust": true
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "version": "20261012-squidward-v4-final",
+  "version": "20261012-squidward-v5",
   "status": "review",
-  "note": "章鱼哥屋最终预览配置。坐标按新 GLB 实测包围盒 + space-config.json 权威布局（glTF Y-up，地面 y=0，正门朝 +Z，四层楼板 y=0.15/1.20/2.40/3.60）。",
-  "cacheBust": "v=20261012-squidward-v4-final",
+  "note": "章鱼哥屋最终预览配置。坐标按新 GLB 实测包围盒 + space-config.json 权威布局（glTF Y-up，地面 y=0，正门朝 +Z，四层楼板 y=0.15/1.20/2.40/3.60）。门点击改为射线直接对 door_* 网格求交；房间近景隐藏整个门组。",
+  "cacheBust": "v=20261012-squidward-v5",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,
@@ -44,8 +44,8 @@
           "prefix": "kitchen_",
           "bounds": [[-1.3, 0.0, -1.3], [1.3, 1.1, 1.3]],
           "label": [0, 0.85, 0],
-          "target": [0, 0.5, -0.6],
-          "camera": [0, 2.2, 2.8]
+          "target": [-0.3, 0.55, -0.9],
+          "camera": [0.2, 1.0, 1.6]
         },
         {
           "id": "living",

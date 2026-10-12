@@ -95,7 +95,8 @@ const state = {
   extMesh: null,
   intMesh: null,
   shift: new THREE.Vector3(),
-  doorMeshes: [],
+  doorMeshes: [],       // 室内门网格（intGroup）
+  extDoorMeshes: [],    // 外观门网格（extGroup）
   extTris: 0,
   intTris: 0,
   camAnim: null,
@@ -207,6 +208,7 @@ function loadExterior(gen) {
     state.extMesh = cached.ext;
     state.shift.copy(cached.shift);
     state.extTris = cached.extTris;
+    state.extDoorMeshes = cached.extDoorMeshes || [];
     extGroup.add(state.extMesh);
     showLoading(false);
     enterExterior();
@@ -219,11 +221,16 @@ function loadExterior(gen) {
     normalizeAndAttach(sceneObj);
     state.extMesh = sceneObj;
     state.extTris = countTris(sceneObj);
+    // 收集外观门网格（与室内门同名），射线直接对门网格求交
+    state.extDoorMeshes = [];
+    const names = cfg.door.meshNames || [];
+    sceneObj.traverse(o => { if (o.isMesh && names.includes(o.name)) state.extDoorMeshes.push(o); });
     extGroup.add(sceneObj);
     if (!cache.has(keyFor(state.house, state.tier))) cache.set(keyFor(state.house, state.tier), {});
     const c = cache.get(keyFor(state.house, state.tier));
     c.ext = sceneObj; c.shift = state.shift.clone(); c.extTris = state.extTris;
-    console.log('[neighborhood] exterior loaded', state.extTris, 'tris');
+    c.extDoorMeshes = state.extDoorMeshes;
+    console.log('[neighborhood] exterior loaded', state.extTris, 'tris, doors=', state.extDoorMeshes.length);
     showLoading(false);
     enterExterior();
     } catch (err) {
@@ -296,9 +303,8 @@ function setRoomFurnitureVisible(roomId) {
     if (o.name.startsWith('floor_') || o.name.startsWith('stairs_')) {
       o.visible = true; return;
     }
-    // 门：frame/handle 始终可见；panel 在房间近景时隐藏（不挡视线）
-    if (o.name === 'door_panel') { o.visible = !roomId; return; }
-    if (o.name.startsWith('door_')) { o.visible = true; return; }
+    // 门组：房间近景时整体隐藏（frame/panel/handle 都不挡视线）；剖切全局时显示
+    if (o.name.startsWith('door_')) { o.visible = !roomId; return; }
     if (!roomId) { o.visible = true; return; }
     const room = cfg.rooms.find(r => r.id === roomId);
     const prefix = room && room.prefix;
@@ -435,22 +441,11 @@ function onCanvasClick(e) {
   if (!state.extMesh && !state.intMesh) return;
   const ray = pickAt(e.clientX, e.clientY);
   if (state.view === 'exterior') {
-    const hits = ray.intersectObject(state.extMesh, true);
-    if (!hits.length) return;
     const cfg = config.houses[state.house];
-    if (!cfg.hasInterior) return;
-    // 门区域判定：命中点转换到模型局部空间，检查是否落在门探针盒内
-    const hit = hits[0];
-    const local = hit.object.worldToLocal(hit.point.clone());
-    const probe = cfg.door.exteriorProbe;
-    if (!probe) return;
-    if (
-      local.x >= probe.x[0] && local.x <= probe.x[1] &&
-      local.y >= probe.y[0] && local.y <= probe.y[1] &&
-      local.z >= probe.z[0] && local.z <= probe.z[1]
-    ) {
-      tryEnterInterior();
-    }
+    if (!cfg.hasInterior || !state.extDoorMeshes.length) return;
+    // 射线只对门网格求交（door_frame/door_panel/door_handle），命中即触发进入
+    const hits = ray.intersectObjects(state.extDoorMeshes, false);
+    if (hits.length) tryEnterInterior();
   } else if (state.view === 'cutaway') {
     const hits = ray.intersectObject(state.intMesh, true);
     if (!hits.length) return;
@@ -483,17 +478,9 @@ wrap.addEventListener('pointermove', e => {
   if (e.pointerType !== 'mouse') return;
   const ray = pickAt(e.clientX, e.clientY);
   let hot = false;
-  if (state.view === 'exterior' && state.extMesh) {
-    const hits = ray.intersectObject(state.extMesh, true);
-    if (hits.length) {
-      const probe = config.houses[state.house].door.exteriorProbe;
-      if (probe) {
-        const local = hits[0].object.worldToLocal(hits[0].point.clone());
-        hot = local.x >= probe.x[0] && local.x <= probe.x[1] &&
-              local.y >= probe.y[0] && local.y <= probe.y[1] &&
-              local.z >= probe.z[0] && local.z <= probe.z[1];
-      }
-    }
+  if (state.view === 'exterior' && state.extDoorMeshes.length) {
+    const hits = ray.intersectObjects(state.extDoorMeshes, false);
+    hot = hits.length > 0;
   } else if (state.view === 'cutaway' && state.intMesh) {
     const hits = ray.intersectObject(state.intMesh, true);
     if (hits.length) {

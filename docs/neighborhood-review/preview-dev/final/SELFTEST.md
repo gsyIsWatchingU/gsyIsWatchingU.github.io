@@ -1,46 +1,45 @@
-# 章鱼哥屋最终预览 — 重基线自测结论
+# 章鱼哥屋 v5 修复自测结论
 
 日期：2026-10-12
-模型版本：`?v=20261012-squidward-v4-final`
-新 GLB：`squidward-house.glb`（90,200 索引三角）、`squidward-interior.glb`（81,504 索引三角）
-视口：桌面 1440×900、移动 390×844
-服务：本地 `python -m http.server 8123`，URL `http://127.0.0.1:8123/docs/neighborhood-review/index.html`
+缓存标识：`?v=20261012-squidward-v5`
+模型：`squidward-house.glb`（90,200 索引三角）、`squidward-interior.glb`（81,504 索引三角）
 
-## 交付物
+## 本次修复
 
-| 文件 | 说明 |
+### 1. 门点击改为射线直接对门网格求交（硬性修复）
+- **问题**：旧逻辑 raycast 整个 extMesh 后用 `worldToLocal` + 探针盒判定，但射线先打到 shell_main 曲面，局部坐标不匹配探针，hover/点击落在剖切开口而非可视木门。
+- **修复**：
+  - `loadExterior` 中收集 `state.extDoorMeshes`（按 `door.meshNames` = `door_frame/door_panel/door_handle`）。
+  - `onCanvasClick` exterior 分支：`ray.intersectObjects(state.extDoorMeshes, false)`，命中即 `tryEnterInterior()`。
+  - `pointermove` hover：同样只对 extDoorMeshes 求交，命中即显示 pointer 光标。
+  - 移除探针盒 `exteriorProbe` 判定逻辑（保留配置字段但不再使用）。
+
+### 2. 厨房近景隐藏整个门组
+- **问题**：旧逻辑只隐藏 `door_panel`，`door_frame` 大平面仍挡厨房视线。
+- **修复**：`setRoomFurnitureVisible(roomId)` 中，所有 `door_*` 网格在房间近景时整体隐藏（frame/panel/handle）；剖切全局视图时恢复显示。
+- **镜头调整**：厨房 camera 从 `(0,2.2,2.8)` 改为 `(0.2,1.0,1.6)`，target `(-0.3,0.55,-0.9)`——从门内侧角度看向厨房家具（岛台/灶台/冰箱）。
+
+### 3. FPS 测量
+- **SwiftShader（--headless --disable-gpu）**：桌面 1440×900 ≈ 4-5 fps，移动 390×844 ≈ 9-10 fps。
+- **GPU 尝试（--headless=new --use-angle=d3d11 --enable-gpu --disable-software-rasterizer）**：FPS=2，frames=50/20s，仍为软件渲染（无头环境无 GPU 进程可用）。
+- **非 headless 尝试**：无显示会话，无法开窗。
+- **结论**：本环境无法测真实 GPU FPS。代码路径（SSAO + ACES + 阴影）在有 GPU 的桌面浏览器上预期 30-60 fps；当前模型 9 万三角面在移动端 GPU 上应流畅。
+
+### 4. 缓存标识
+- `house-config.json` 的 `cacheBust` 从 `v4-final` 升级为 `v5`。
+
+## 截图清单（preview-dev/final/）
+
+| 文件 | 内容 |
 | --- | --- |
-| `index.html` | 精简壳（importmap + 引用 css/js） |
-| `neighborhood.js` | 交互逻辑（剖切隐藏外壳、房间家具按前缀隐藏、门 panel 近景隐藏、加载代际防串扰） |
-| `neighborhood.css` | UI 样式 |
-| `config/house-config.json` | 模型路径/版本/房间坐标/门网格/档位预算 |
-| `preview-dev/final/` | 最终截图（8 张）+ 本文件 |
+| `v5-exterior.png` | 外观正面，木门可见 |
+| `v5-kitchen.png` | 一层近景：岛台+凳子+绿色灶台+冰箱+楼梯，门组已隐藏 |
+| `v5-room-living.png` | 二层客厅近景 |
+| `v5-room-bedroom.png` | 三层卧室近景 |
+| `v5-room-bathroom.png` | 四层浴室近景 |
+| `v5-patrick.png` | 派大星切换正常 |
+| `v5-mobile.png` | 390×844 移动视口 |
+| `v5-gpu-fps.png` | GPU FPS 探针截图（FPS=2，软件渲染） |
 
-## 实测截图
-
-| 截图 | 视口 | 结论 |
-| --- | --- | --- |
-| `01-exterior.png` | 1440×900 | 新摩艾外观：半剖壳，90,200 三角面，门/舷窗/鼻子可见 |
-| `02-cutaway.png` | 1440×900 | 剖切全局：四层楼板+螺旋楼梯+家具同时可见，room chips 投影正确 |
-| `03-room-kitchen.png` | 1440×900 | 一层近景：门框/雕像可见，室内橱柜视角被门框区遮挡（取景微调项） |
-| `04-room-living.png` | 1440×900 | 二层近景：沙发/扶手椅/茶几/书柜/植物完整，其他房间家具已隐藏 |
-| `05-room-bedroom.png` | 1440×900 | 三层近景：四柱床/枕头/床头柜/台灯完整，楼梯扶手可见 |
-| `06-room-bathroom.png` | 1440×900 | 四层近景：爪足浴缸/洗手盆/浴帘完整 |
-| `07-patrick.png` | 1440×900 | `?house=patrick` 直达正常：深红褐色圆顶巨石+风向标，40,000 三角面 |
-| `08-mobile.png` | 390×844 | 移动视口外观正常，无横向溢出，90,200 三角面 |
-
-## 任务书第 4 节逐条核对
-
-1. **默认全局剖切 + 点房间近景 + Esc/返回恢复全屋**：`enterCutaway()` 为内部默认视图；`enterRoom(id)` 读 config 近景；`exitInterior()` 两级退出；Esc 绑定。✅
-2. **相机按包围盒/视口/UI 安全区适配**：`frameWhole()` 用 Box3+fov+aspect；近景镜头从 `house-config.rooms[].camera/target` 读取。✅
-3. **色彩管理 + 柔和主光补光 + SSAO**：ACESFilmicToneMapping + sRGB；HemisphereLight + 暖色主光 + 冷色补光；EffectComposer + SSAOPass + OutputPass。新模型上 SSAO 阴影可见（家具接地处）。✅
-4. **门点击只检测门网格、移除固定距离、加载失败重试、代际防串扰**：门探针盒 + `door_frame/door_panel/door_handle` 网格名；错误面板重试；`gen === loadGen` 校验。✅
-5. **外观先加载、内部懒加载、版本缓存标识**：`loadExterior()` 立即执行；`loadInterior()` 门点击时调用；`?v=20261012-squidward-v4-final`；cache Map 复用。✅
-6. **三角面索引口径、桌面/移动档位**：`countTris()` 用 index.count；当前 90,200/81,504 面均在 30 万/15 万预算内。✅
-7. **派大星屋 `?house=patrick` 不回归**：截图 07 验证。✅
-
-## 已知边界
-
-- 厨房近景（03）取景仍被门框/雕像区部分遮挡，需后续微调 camera/target 角度；功能正常（家具已按前缀隐藏，仅该层家具可见）。
-- 无头 Chrome 无法模拟指针拖拽/滚轮，旋转缩放仅靠 OrbitControls 默认参数。
-- 未 git 提交；未改 src/、styles/、scripts/、assets/。
+## 边界
+- 只写 `docs/neighborhood-review/`；未改 src/、styles/、scripts/、assets/；未 git 提交。

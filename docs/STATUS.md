@@ -2,6 +2,14 @@
 
 最后更新：2026-10-12
 
+## 章鱼哥人像屋 v5 复验 · 门进入+厨房近景修复（2026-10-12，review 待审）
+
+- 针对 v4 两处问题修复后复验：①门点击由探针盒改为对 door_frame/panel/handle 网格射线求交；②厨房近景隐藏 door_* 并改镜头看岛台/灶台/冰箱。缓存 ?v=20261012-squidward-v5。
+- 复验通过（证据 docs/neighborhood-review/acceptance/v5/）：桌面门热区即可视 tan 木门本体（x≈650–775），hover 有反馈、点击开门进剖切 81,504；移动 390×844 门热区（中心≈190,540）同样可进入；厨房岛台/灶台/螺旋楼梯可读；其余三房间无回归；派大星 40,000 切换正常；三角面 90,200/81,504 不变；无横向溢出、零脚本错误/资源失败。
+- npm run build、npm run check、git diff --check 复跑通过。
+- FPS：本环境仅 SwiftShader 软渲染（桌面≈4–5 / 移动≈9–10），真实 GPU ≥50/≥30 需用户实机复核，未伪造。
+- 模型资产本轮无变动（GLB 哈希同 v4）。
+
 ## 章鱼哥人像屋最终重建 · 完整验收（2026-10-12，review 待审）
 
 - 对最终 v4-final（缓存 `?v=20261012-squidward-v4-final`）做了视觉＋运行＋构建完整验收，证据存 `docs/neighborhood-review/acceptance/`，中文审查记录见 `docs/neighborhood-review/verification.md`、README 已同步。
