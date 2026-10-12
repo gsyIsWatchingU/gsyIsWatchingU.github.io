@@ -2,6 +2,16 @@
 
 最后更新：2026-10-12
 
+## 章鱼哥人像屋 v6 · 独立验收 9 项修复（2026-10-12，review 待审，已推独立分支）
+
+- 针对独立验收（45 项检查 42 过 3 败）9 项问题修复：①外观剖切缺口 → GLB 级补片 `shell_cutaway_cover`（2,200 三角，θ95°→165°，与 shell_main 边界 0 误差贴合，整屋 90,200→92,400，SHA `4d797fd3…40f6cb`）；②运行时石材画布纹理 + 舷窗框/玻璃（不改 GLB）；③厨房侧向近景镜头 + 客厅/卧室近景 `hideFloors` 隐藏上方楼板；④⑤ asset-index/README 来源分列「最终采用/候选未采用」、按最终 GLB 修正贴图登记（4 图像/4 纹理，2 张 Forge3D ORM 供地毯/茶几，外壳无图像纹理）；⑥场景拾取限定渲染 canvas（返回/重置按钮不再误触房间）；⑦双指缩放后重置保持剖切、roomId=null；⑧切屋重建房间标签（`?house=patrick` 直达切回场景）；⑨移动端操作提示按信息卡高度排其上方、落入悬浮层的房间标签自动上移。
+- 复验：`npm run build` / `npm run check` / `git diff --check` 通过；本地 CDP 双视口 **41 项断言 0 失败**（桌面 21 + 移动 20，含连点两次返回依次剖切→外观、pinch+重置、直达切屋 4 标签全可点击、移动端外观与四房间均无提示重叠）；v5→v6 像素对照：左侧缺口区由「剖开露内部」变「闭合圆柱+斑点纹理」（右壳局部标准差 11.3→15.3）；输入事件全部 isTrusted=true，页面零脚本错误、零非取消资源失败。
+- 模型：`assets/models/neighborhood/squidward-house(-web).glb` 92,400 三角、SHA `4d797fd3…40f6cb`；v5-final2 备份于 `tmp/backup-v5-final2/`；室内 81,504 未变；派大星屋未动。
+- 限制：无头 Chrome + SwiftShader 软渲染，**真实 GPU 帧率与物理触屏未测**；保持 `review`，不接首页、不推送发布。
+- 证据：`tmp/cdp-v6/`（desktop/mobile-results.json、输入日志、19 张截图、diff）；复验记录见 `docs/neighborhood-review/verification.md` v6 章节。
+- 提交：仅本任务文件（预览 4 件 + 整屋 GLB 2 件）推送独立分支；他人并行未提交修改未并入。
+
+
 ## 海绵宝宝入住菠萝屋（2026-10-12，独立预览，review 待审）
 
 - 新增 `pineapple-companion.html`：2 分钟作息、六房间快速入场与陪伴、点击角色聊天、翻页、睡觉、吹泡泡、静音与重播。正式首页未启用角色。

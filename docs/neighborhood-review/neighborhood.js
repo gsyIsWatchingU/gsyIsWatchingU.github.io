@@ -16,6 +16,8 @@ const infoMeta = document.getElementById('info-meta');
 const btnExit = document.getElementById('btn-exit');
 const btnReset = document.getElementById('btn-reset');
 const chipsHost = document.getElementById('room-chips');
+const hintEl = document.querySelector('.controls-hint');
+const infoPanel = document.getElementById('info-panel');
 
 // ========== Config ==========
 let config = null;
@@ -169,6 +171,16 @@ function showError(url) {
 }
 function hideError() { errorEl.hidden = true; failInfo = null; }
 
+// 移动端把操作提示排在信息卡上方（按信息卡内容高度定位），避免遮挡说明文字
+function layoutHint() {
+  if (!hintEl) return;
+  if (state.tier === 'mobile' && infoPanel) {
+    hintEl.style.bottom = Math.round(infoPanel.getBoundingClientRect().height) + 24 + 'px';
+  } else {
+    hintEl.style.bottom = '';
+  }
+}
+
 function setInfo(title, desc, extraMeta) {
   infoTitle.textContent = title;
   infoDesc.textContent = desc;
@@ -178,6 +190,123 @@ function setInfo(title, desc, extraMeta) {
     `三角面(索引): ${tris.toLocaleString()}<br>` +
     `任务: ${cfg.jobId}<br>状态: review` +
     (extraMeta ? `<br>${extraMeta}` : '');
+  layoutHint();
+}
+
+// ========== 外观材质增强（运行时画布纹理 + 舷窗框/玻璃，不改 GLB） ==========
+function makeStoneTexture() {
+  const S = 256;
+  const c = document.createElement('canvas');
+  c.width = c.height = S;
+  const g = c.getContext('2d');
+  g.fillStyle = '#e9eff3';
+  g.fillRect(0, 0, S, S);
+  const dots = [];
+  for (let i = 0; i < 2200; i++) dots.push([Math.random() * S, Math.random() * S, 0.8 + Math.random() * 2.2, 0.08 + Math.random() * 0.15]);
+  for (const [x, y, r, a] of dots) {
+    g.fillStyle = 'rgba(88,118,143,' + a + ')';
+    for (const ox of [0, S, -S]) for (const oy of [0, S, -S]) { g.beginPath(); g.arc(x + ox, y + oy, r, 0, Math.PI * 2); g.fill(); }
+  }
+  const lights = [];
+  for (let i = 0; i < 1300; i++) lights.push([Math.random() * S, Math.random() * S, 0.5 + Math.random() * 1.1, 0.10 + Math.random() * 0.14]);
+  for (const [x, y, r, a] of lights) {
+    g.fillStyle = 'rgba(255,255,255,' + a + ')';
+    for (const ox of [0, S, -S]) for (const oy of [0, S, -S]) { g.beginPath(); g.arc(x + ox, y + oy, r, 0, Math.PI * 2); g.fill(); }
+  }
+  for (let i = 0; i < 26; i++) {
+    const y = Math.random() * S;
+    g.fillStyle = 'rgba(66,96,121,0.10)';
+    g.fillRect(0, y, S, 1 + Math.random() * 2);
+    g.fillStyle = 'rgba(255,255,255,0.06)';
+    g.fillRect(0, (y + 3) % S, S, 1);
+  }
+  const tex = new THREE.CanvasTexture(c);
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 4;
+  return tex;
+}
+
+function setCylindricalUv(geom) {
+  // 外壳为旋转体：圆柱映射 (θ, y)，石材纹理沿壳面连续
+  const pos = geom.attributes.position;
+  const uv = new Float32Array(pos.count * 2);
+  for (let i = 0; i < pos.count; i++) {
+    uv[i * 2] = (Math.atan2(pos.getZ(i), pos.getX(i)) / (Math.PI * 2) + 0.5) * 2;
+    uv[i * 2 + 1] = pos.getY(i) * 0.85;
+  }
+  geom.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+}
+
+function setPlanarUv(geom) {
+  const pos = geom.attributes.position;
+  const box = new THREE.Box3();
+  const v = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) { v.fromBufferAttribute(pos, i); box.expandByPoint(v); }
+  const size = box.getSize(new THREE.Vector3());
+  const s = Math.max(size.x, size.y, size.z) || 1;
+  const uv = new Float32Array(pos.count * 2);
+  for (let i = 0; i < pos.count; i++) {
+    uv[i * 2] = (pos.getX(i) - box.min.x) / s;
+    uv[i * 2 + 1] = (pos.getY(i) - box.min.y) / s;
+  }
+  geom.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+}
+
+const extPatched = new WeakSet();
+function applyExteriorMaterials(root) {
+  if (extPatched.has(root)) return;
+  extPatched.add(root);
+  const stoneTex = makeStoneTexture();
+  stoneTex.repeat.set(1.2, 1);
+  root.traverse(o => {
+    if (!o.isMesh) return;
+    // GLTFLoader 对多 primitive 节点追加 _1/_2 后缀（shell_main、shell_cutaway_cover 均含内外壁两个 primitive）
+    const isShell = /^shell_main(_\d+)?$/.test(o.name) || /^shell_cutaway_cover(_\d+)?$/.test(o.name);
+    const isFace = /^shell_(eyebrow|porthole_L|porthole_R|nose|ear_L|ear_R)(_\d+)?$/.test(o.name);
+    if (!isShell && !isFace) return;
+    if (!o.geometry.attributes.uv) {
+      if (isShell) setCylindricalUv(o.geometry);
+      else setPlanarUv(o.geometry);
+    }
+    const mats = Array.isArray(o.material) ? o.material : [o.material];
+    for (const m of mats) {
+      if (!m || m.userData.stonePatched) continue;
+      m.userData.stonePatched = true;
+      m.map = stoneTex;
+      m.needsUpdate = true;
+    }
+  });
+  addPortholeDetails(root);
+}
+
+function addPortholeDetails(root) {
+  if (root.userData.portholeDetails) return;
+  root.userData.portholeDetails = true;
+  const group = new THREE.Group();
+  group.name = 'porthole_details';
+  const frameMat = new THREE.MeshStandardMaterial({ color: 0x2f5a6b, roughness: 0.35, metalness: 0.25 });
+  const glassMat = new THREE.MeshPhysicalMaterial({
+    color: 0x3a8aa0, metalness: 0.5, roughness: 0.12,
+    transparent: true, opacity: 0.45, clearcoat: 0.9, clearcoatRoughness: 0.15,
+  });
+  root.traverse(o => {
+    if (!o.isMesh || !/^shell_porthole_[LR]$/.test(o.name)) return;
+    const box = new THREE.Box3().setFromObject(o);
+    const c = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    const radius = Math.max(size.x, size.z) / 2;
+    const dir = c.clone().setY(0).normalize();
+    const frame = new THREE.Mesh(new THREE.TorusGeometry(radius, radius * 0.3, 12, 28), frameMat);
+    frame.position.copy(c);
+    frame.lookAt(c.clone().add(dir));
+    group.add(frame);
+    const glass = new THREE.Mesh(new THREE.CircleGeometry(radius * 0.66, 28), glassMat);
+    glass.position.copy(c).addScaledVector(dir, radius * 0.16);
+    glass.lookAt(c.clone().add(dir));
+    group.add(glass);
+  });
+  if (group.children.length) root.add(group);
 }
 
 // ========== Loading ==========
@@ -210,6 +339,7 @@ function loadExterior(gen) {
     state.extTris = cached.extTris;
     state.extDoorMeshes = cached.extDoorMeshes || [];
     extGroup.add(state.extMesh);
+    applyExteriorMaterials(state.extMesh);
     showLoading(false);
     enterExterior();
     return;
@@ -226,6 +356,7 @@ function loadExterior(gen) {
     const names = cfg.door.meshNames || [];
     sceneObj.traverse(o => { if (o.isMesh && names.includes(o.name)) state.extDoorMeshes.push(o); });
     extGroup.add(sceneObj);
+    applyExteriorMaterials(sceneObj);
     if (!cache.has(keyFor(state.house, state.tier))) cache.set(keyFor(state.house, state.tier), {});
     const c = cache.get(keyFor(state.house, state.tier));
     c.ext = sceneObj; c.shift = state.shift.clone(); c.extTris = state.extTris;
@@ -294,19 +425,21 @@ function setShellVisible(visible) {
 }
 
 function setRoomFurnitureVisible(roomId) {
-  // roomId=null 显示全部家具；否则只显示该房间前缀 + art_，其他房间家具隐藏
+  // roomId=null 显示全部家具；否则只显示该房间前缀 + art_，其他房间家具隐藏。
+  // 房间近景时按 hideFloors 隐藏当前房间上方的楼板（保留楼梯/门逻辑），返回后恢复。
   const cfg = config.houses[state.house];
   if (!state.intMesh) return;
+  const room = roomId ? cfg.rooms.find(r => r.id === roomId) : null;
+  const hideFloors = room && Array.isArray(room.hideFloors) ? room.hideFloors : [];
   state.intMesh.traverse(o => {
     if (!o.isMesh) return;
-    // 结构件始终可见
-    if (o.name.startsWith('floor_') || o.name.startsWith('stairs_')) {
-      o.visible = true; return;
-    }
+    // 楼梯始终可见
+    if (o.name.startsWith('stairs_')) { o.visible = true; return; }
+    // 楼板：房间近景按配置隐藏当前层上方的遮挡楼板
+    if (o.name.startsWith('floor_')) { o.visible = !hideFloors.includes(o.name); return; }
     // 门组：房间近景时整体隐藏（frame/panel/handle 都不挡视线）；剖切全局时显示
     if (o.name.startsWith('door_')) { o.visible = !roomId; return; }
     if (!roomId) { o.visible = true; return; }
-    const room = cfg.rooms.find(r => r.id === roomId);
     const prefix = room && room.prefix;
     o.visible = !!prefix && (o.name.startsWith(prefix) || o.name.startsWith('art_'));
   });
@@ -409,6 +542,7 @@ function switchHouse(house) {
   intGroup.clear();
   state.intMesh = null; state.doorMeshes = []; state.intTris = 0;
   state.extMesh = null;
+  buildChips(); // 切换房屋后按新房屋重建房间标签（直达 URL 场景）
   loadExterior(gen);
 }
 
@@ -463,9 +597,11 @@ function onCanvasClick(e) {
 }
 
 // ========== Pointer events (drag vs click) ==========
+// 拾取仅绑定在渲染 canvas 上，排除 UI 控件（按钮/chip/提示/信息卡）触发的场景点击
+const canvasEl = renderer.domElement;
 let downPos = null;
-wrap.addEventListener('pointerdown', e => { downPos = { x: e.clientX, y: e.clientY }; });
-wrap.addEventListener('pointerup', e => {
+canvasEl.addEventListener('pointerdown', e => { downPos = { x: e.clientX, y: e.clientY }; });
+canvasEl.addEventListener('pointerup', e => {
   if (!downPos) return;
   const dx = e.clientX - downPos.x, dy = e.clientY - downPos.y;
   downPos = null;
@@ -474,7 +610,7 @@ wrap.addEventListener('pointerup', e => {
 });
 
 // Hover cursor on door (exterior) / room slice (cutaway)
-wrap.addEventListener('pointermove', e => {
+canvasEl.addEventListener('pointermove', e => {
   if (e.pointerType !== 'mouse') return;
   const ray = pickAt(e.clientX, e.clientY);
   let hot = false;
@@ -529,13 +665,23 @@ function buildChips() {
 function projectChips() {
   if (chipsHost.hidden || state.view !== 'cutaway') return;
   const w = wrap.clientWidth, h = wrap.clientHeight;
+  // 底部悬浮层（信息卡/操作提示）矩形：落进其区域的 chip 上移到最高上沿之上，避免被遮挡不可点击
+  let obstacleTop = 0;
+  if (state.tier === 'mobile' && infoPanel) {
+    obstacleTop = infoPanel.getBoundingClientRect().top;
+    const hr = hintEl ? hintEl.getBoundingClientRect() : null;
+    if (hr && hr.height > 0) obstacleTop = Math.min(obstacleTop, hr.top);
+  }
   for (const room of config.houses[state.house].rooms) {
     const el = chipMap.get(room.id);
     if (!el) continue;
     const p = new THREE.Vector3(...room.label).add(state.shift).project(camera);
     el.hidden = p.z > 1 || Math.abs(p.x) > 1 || Math.abs(p.y) > 1;
-    el.style.left = ((p.x * 0.5 + 0.5) * w) + 'px';
-    el.style.top = ((-p.y * 0.5 + 0.5) * h) + 'px';
+    let cx = (p.x * 0.5 + 0.5) * w;
+    let cy = (-p.y * 0.5 + 0.5) * h;
+    if (obstacleTop && cy + el.offsetHeight / 2 > obstacleTop) cy = obstacleTop - el.offsetHeight / 2 - 6;
+    el.style.left = cx + 'px';
+    el.style.top = cy + 'px';
   }
 }
 
@@ -545,6 +691,7 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(wrap.clientWidth, wrap.clientHeight);
   composer.setSize(wrap.clientWidth, wrap.clientHeight);
+  layoutHint();
 });
 
 // ========== Loop ==========
@@ -590,6 +737,8 @@ const loader = new GLTFLoader();
 // 自测/验收接口
 window.__neighborhood = {
   get state() { return state; },
+  get camera() { return camera; },
+  get renderer() { return renderer; },
   enterExterior, enterCutaway, enterRoom, exitInterior, resetView,
   switchHouse,
 };
