@@ -39,9 +39,10 @@
   </div>
   <button class="reset-btn" id="btn-reset">重置镜头</button>
   <div class="floor-bar" id="floor-bar">
-    <button data-floor="0" class="active">一层 客厅</button>
-    <button data-floor="1">二层 卧室</button>
-    <button data-floor="2">三层 练习室</button>
+    <button data-floor="0" class="active">一层 厨房</button>
+    <button data-floor="1">二层 客厅</button>
+    <button data-floor="2">三层 卧室</button>
+    <button data-floor="3">四层 展示</button>
   </div>
   <div class="info-panel" id="info-panel">
     <h2 id="info-title">章鱼哥的人像屋</h2>
@@ -86,9 +87,10 @@ const MODELS = {
 };
 
 const FLOOR_INFO = [
-  { name: '一层 客厅', y: 0.6, desc: 'L 形沙发、茶几、扶手椅、厨房吧台与冰箱' },
-  { name: '二层 卧室', y: 1.8, desc: '四柱床、床头柜、浴室水池' },
-  { name: '三层 练习室', y: 3.0, desc: '立式钢琴、琴凳、墙上画廊画框' },
+  { name: "一层 厨房入口", y: 0.55, desc: "绿色橱柜、灶台、水槽、冰箱、圆餐桌与凳子" },
+  { name: "二层 客厅", y: 1.75, desc: "棕色沙发、扶手椅、茶几、旧电视、书架、盆栽" },
+  { name: "三层 卧室浴室", y: 2.9, desc: "竹四柱床、床头柜台灯、梳妆台、浴缸与洗手台" },
+  { name: "四层 艺术品展示", y: 3.95, desc: "摩艾头雕塑、画廊画框、穹顶" },
 ];
 
 const wrap = document.getElementById('canvas-wrap');
@@ -222,7 +224,7 @@ function enterInterior() {
       document.getElementById('btn-exit').style.display = '';
       const cfg = MODELS[state.current];
       document.getElementById('info-title').textContent = cfg.title + ' · 内部';
-      document.getElementById('info-desc').textContent = '前半切开：三层空间可见。';
+      document.getElementById('info-desc').textContent = '前半切开：四层空间可见。';
       document.getElementById('info-meta').innerHTML = '内部三角面: ' + state.intTris.toLocaleString() + '<br>任务: ' + cfg.jobId.slice(0,8) + '…<br>状态: review';
       setFloor(0);
     }, 900);
