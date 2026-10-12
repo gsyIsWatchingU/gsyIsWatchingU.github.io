@@ -102,28 +102,43 @@ export function greenWallTex(size = 256) {
   }
   return srgb(new THREE.CanvasTexture(c));
 }
-// 木纹（板缝 + 木纹颗粒），variant: plank / dark
-export function woodTex(size = 512, variant = "plank") {
+// 木纹（板缝 + 木纹颗粒），variant: plank / dark；dir: h 横向（台面）/ v 竖向（门板、桌腿）
+export function woodTex(size = 512, variant = "plank", dir = "h") {
   const [c, g] = makeCanvas(size, size);
   const base = variant === "dark" ? "#7a5230" : "#b98d5e";
   g.fillStyle = base;
   g.fillRect(0, 0, size, size);
-  // 横向板缝
+  // 板缝
   g.fillStyle = "rgba(60,38,18,0.55)";
-  for (let y = 0; y < size; y += size / 8) {
-    g.fillRect(0, y, size, 2 + (Math.random() * 2));
+  if (dir === "h") {
+    for (let y = 0; y < size; y += size / 8) {
+      g.fillRect(0, y, size, 2 + (Math.random() * 2));
+    }
+  } else {
+    for (let x = 0; x < size; x += size / 6) {
+      g.fillRect(x, 0, 2 + (Math.random() * 2), size);
+    }
   }
-  // 木纹
+  // 木纹（顺板方向）
   for (let i = 0; i < 70; i++) {
-    const y = Math.random() * size;
+    const off = Math.random() * size;
     g.strokeStyle = `rgba(${variant === "dark" ? "70,42,22" : "120,82,48"},${0.15 + Math.random() * 0.2})`;
     g.lineWidth = 1 + Math.random() * 2;
     g.beginPath();
-    g.moveTo(0, y);
-    let x = 0;
-    while (x < size) {
-      x += 8 + Math.random() * 30;
-      g.lineTo(x, y + (Math.random() - 0.5) * 8);
+    if (dir === "h") {
+      g.moveTo(0, off);
+      let x = 0;
+      while (x < size) {
+        x += 8 + Math.random() * 30;
+        g.lineTo(x, off + (Math.random() - 0.5) * 8);
+      }
+    } else {
+      g.moveTo(off, 0);
+      let y = 0;
+      while (y < size) {
+        y += 8 + Math.random() * 30;
+        g.lineTo(off + (Math.random() - 0.5) * 8, y);
+      }
     }
     g.stroke();
   }
@@ -241,6 +256,57 @@ export function tvScreenTex(on = true) {
   g.stroke();
   return srgb(new THREE.CanvasTexture(c));
 }
+// 派大星全身皮肤贴图：粉底 + 头部正面五官（一次 UV 覆盖，背面/侧面不重复）
+export function patrickBodyTex(sizeW = 512, sizeH = 1024) {
+  const [c, g] = makeCanvas(sizeW, sizeH);
+  g.fillStyle = "#ffa6c6";
+  g.fillRect(0, 0, sizeW, sizeH);
+  // 柔和体积高光（上亮下暗）
+  const grad = g.createRadialGradient(sizeW * 0.42, sizeH * 0.36, sizeH * 0.05, sizeW * 0.5, sizeH * 0.5, sizeH * 0.66);
+  grad.addColorStop(0, "rgba(255,208,220,0.55)");
+  grad.addColorStop(1, "rgba(255,116,166,0)");
+  g.fillStyle = grad;
+  g.fillRect(0, 0, sizeW, sizeH);
+  // 噪点颗粒
+  for (let i = 0; i < 1500; i++) {
+    g.fillStyle = Math.random() > 0.5 ? "rgba(255,192,208,0.12)" : "rgba(214,104,148,0.1)";
+    g.fillRect(Math.random() * sizeW, Math.random() * sizeH, 2, 2);
+  }
+  // 正面头部（canvas 中心 x=256，头部带 y≈0..360）五官
+  // 眉毛
+  g.strokeStyle = "#a3405f";
+  g.lineWidth = 15;
+  g.lineCap = "round";
+  g.beginPath();
+  g.moveTo(sizeW / 2 - 50, 76);
+  g.quadraticCurveTo(sizeW / 2 - 30, 60, sizeW / 2 - 8, 74);
+  g.moveTo(sizeW / 2 + 50, 76);
+  g.quadraticCurveTo(sizeW / 2 + 30, 60, sizeW / 2 + 8, 74);
+  g.stroke();
+  // 眼睛（白 + 瞳 + 高光），加大保证远看可辨
+  for (const s of [-1, 1]) {
+    const ex = sizeW / 2 + s * 26;
+    g.fillStyle = "#fff";
+    g.beginPath();
+    g.arc(ex, 124, 20, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = "#3a2030";
+    g.beginPath();
+    g.arc(ex + s * 7, 125, 11, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = "#fff";
+    g.beginPath();
+    g.arc(ex + s * 3, 119, 4.5, 0, Math.PI * 2);
+    g.fill();
+  }
+  // 嘴（微笑弧）
+  g.strokeStyle = "#a3405f";
+  g.lineWidth = 13;
+  g.beginPath();
+  g.arc(sizeW / 2, 202, 38, 0.15, Math.PI - 0.15);
+  g.stroke();
+  return srgb(new THREE.CanvasTexture(c));
+}
 // 派大星纯色皮肤（腿/臂）
 export function skinPlainTex(size = 128) {
   const [c, g] = makeCanvas(size, size);
@@ -342,15 +408,23 @@ const shade = (obj) => {
 
 export function buildFridge() {
   const g = new THREE.Group();
-  const body = new THREE.Mesh(rbox(0.7, 1.55, 0.6, 0.07), texMat(woodTex(512, "plank"), 0.8));
+  // 参考图：浅蓝色金属双门冰箱，顶部红盒+罐头
+  const body = new THREE.Mesh(rbox(0.7, 1.55, 0.6, 0.07), mat(0x9fc8dd, 0.42, { metalness: 0.32 }));
   body.position.y = 0.775;
   g.add(body);
-  const door = new THREE.Mesh(rbox(0.32, 1.18, 0.04, 0.03), texMat(woodTex(512, "plank"), 0.8));
-  door.position.set(-0.17, 0.72, 0.31);
+  const door = new THREE.Mesh(rbox(0.3, 1.18, 0.035, 0.025), mat(0xb2d6e8, 0.4, { metalness: 0.3 }));
+  door.position.set(-0.17, 0.72, 0.305);
   g.add(door);
-  const handle = new THREE.Mesh(rbox(0.03, 0.26, 0.05, 0.015), goldMat());
-  handle.position.set(-0.17, 0.75, 0.36);
-  g.add(handle);
+  // 门缝（双门分隔线）
+  const seam = new THREE.Mesh(rbox(0.012, 1.1, 0.005, 0.002), mat(0x6f92a5, 0.5, { metalness: 0.3 }));
+  seam.position.set(0.02, 0.72, 0.335);
+  g.add(seam);
+  // 银色把手 ×2
+  for (const hx of [-0.24, 0.16]) {
+    const handle = new THREE.Mesh(rbox(0.03, 0.26, 0.045, 0.015), mat(0xdbe4e9, 0.3, { metalness: 0.7 }));
+    handle.position.set(hx, 0.75, 0.37);
+    g.add(handle);
+  }
   // 顶部小红盒与罐头（参考图）
   const box = new THREE.Mesh(rbox(0.16, 0.14, 0.14, 0.03), mat(0xd94f4f, 0.85));
   box.position.set(-0.16, 1.72, 0.05);
@@ -363,25 +437,30 @@ export function buildFridge() {
 
 export function buildStove() {
   const g = new THREE.Group();
-  const body = new THREE.Mesh(rbox(0.9, 0.62, 0.55, 0.06), mat(0x8a8f94, 0.6, { metalness: 0.2 }));
+  // 参考图灰色炉灶：奶白箱体 + 黑色玻璃灶台 + 炉门/视窗/金色把手/旋钮
+  const body = new THREE.Mesh(rbox(0.9, 0.62, 0.55, 0.06), mat(0xdde0e3, 0.55, { metalness: 0.25 }));
   body.position.y = 0.31;
   g.add(body);
-  const cooktop = new THREE.Mesh(rbox(0.74, 0.04, 0.42, 0.015), mat(0x2e3238, 0.5, { metalness: 0.4 }));
-  cooktop.position.y = 0.62;
+  const cooktop = new THREE.Mesh(rbox(0.74, 0.045, 0.42, 0.015), mat(0x1d2126, 0.35, { metalness: 0.45 }));
+  cooktop.position.y = 0.625;
   g.add(cooktop);
   for (const [bx, bz] of [[-0.24, -0.13], [0.24, -0.13], [-0.24, 0.13], [0.24, 0.13]]) {
-    const burner = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.075, 0.015, 14), mat(0x10151a, 0.5, { metalness: 0.5 }));
-    burner.position.set(bx, 0.65, bz);
+    const burner = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.075, 0.018, 14), mat(0x10151a, 0.5, { metalness: 0.5 }));
+    burner.position.set(bx, 0.655, bz);
     g.add(burner);
+    const grate = new THREE.Mesh(new THREE.TorusGeometry(0.06, 0.008, 6, 16), mat(0x4a4d52, 0.45, { metalness: 0.5 }));
+    grate.rotation.x = Math.PI / 2;
+    grate.position.set(bx, 0.67, bz);
+    g.add(grate);
   }
-  // 炉门
-  const door = new THREE.Mesh(rbox(0.56, 0.26, 0.04, 0.02), mat(0x5d6166, 0.6, { metalness: 0.2 }));
-  door.position.set(0, 0.22, 0.285);
+  // 炉门 + 视窗
+  const door = new THREE.Mesh(rbox(0.56, 0.26, 0.045, 0.02), mat(0xc9cdd1, 0.5, { metalness: 0.3 }));
+  door.position.set(0, 0.22, 0.283);
   g.add(door);
-  const win = new THREE.Mesh(rbox(0.32, 0.1, 0.02, 0.01), mat(0x243038, 0.4, { metalness: 0.3 }));
-  win.position.set(0, 0.24, 0.305);
+  const win = new THREE.Mesh(rbox(0.32, 0.1, 0.02, 0.01), mat(0x1a2226, 0.35, { metalness: 0.35 }));
+  win.position.set(0, 0.24, 0.307);
   g.add(win);
-  const handle = new THREE.Mesh(rbox(0.16, 0.03, 0.04, 0.012), goldMat());
+  const handle = new THREE.Mesh(rbox(0.16, 0.03, 0.045, 0.012), goldMat());
   handle.position.set(0, 0.1, 0.31);
   g.add(handle);
   // 旋钮
@@ -395,68 +474,90 @@ export function buildStove() {
 
 export function buildSink() {
   const g = new THREE.Group();
+  // 参考图蓝色洗手池：木质柜体 + 浅色台面 + 陶瓷盆腔 + 镀铬龙头
   const counter = new THREE.Mesh(rbox(1.0, 0.62, 0.55, 0.06), texMat(woodTex(512, "plank"), 0.8));
   counter.position.y = 0.31;
   g.add(counter);
-  // 台面
-  const top = new THREE.Mesh(rbox(1.02, 0.05, 0.57, 0.02), mat(0x7ea6a9, 0.4, { metalness: 0.15 }));
+  // 台面（浅石英）
+  const top = new THREE.Mesh(rbox(1.02, 0.05, 0.57, 0.02), mat(0xdbe4e0, 0.5, { metalness: 0.1 }));
   top.position.y = 0.635;
   g.add(top);
-  // 盆腔
-  const basin = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.13, 0.14, 20), mat(0xb8d0d2, 0.25, { metalness: 0.3 }));
-  basin.position.set(-0.16, 0.55, 0);
-  g.add(basin);
-  const basinRim = new THREE.Mesh(new THREE.TorusGeometry(0.175, 0.025, 10, 24), mat(0xb8d0d2, 0.3, { metalness: 0.3 }));
-  basinRim.rotation.x = Math.PI / 2;
-  basinRim.position.set(-0.16, 0.645, 0);
+  // 盆腔（方形陶瓷盆 + 内侧深色）
+  const basinOuter = new THREE.Mesh(rbox(0.4, 0.16, 0.3, 0.05), mat(0xf2f6f6, 0.25, { metalness: 0.2 }));
+  basinOuter.position.set(-0.16, 0.57, 0);
+  g.add(basinOuter);
+  const basinInner = new THREE.Mesh(rbox(0.32, 0.06, 0.22, 0.04), mat(0xbfd4d6, 0.35, { metalness: 0.2 }));
+  basinInner.position.set(-0.16, 0.52, 0);
+  g.add(basinInner);
+  const basinRim = new THREE.Mesh(rbox(0.42, 0.02, 0.32, 0.01), mat(0xf6fafb, 0.3, { metalness: 0.25 }));
+  basinRim.position.set(-0.16, 0.655, 0);
   g.add(basinRim);
-  // 龙头
-  const spout = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.025, 8, 16, Math.PI), mat(0xc8d8da, 0.3, { metalness: 0.5 }));
+  // 镀铬龙头（L 形管 + 立管 + 双把手）
+  const chrome = mat(0xd9e0e4, 0.2, { metalness: 0.75 });
+  const spout = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.024, 8, 16, Math.PI), chrome);
   spout.position.set(0.22, 0.68, 0);
   g.add(spout);
-  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.09, 10), mat(0xc8d8da, 0.3, { metalness: 0.5 }));
-  stem.position.set(0.22, 0.66, 0);
+  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 0.1, 10), chrome);
+  stem.position.set(0.22, 0.65, 0);
   g.add(stem);
-  const knob = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.05, 10), mat(0xc8d8da, 0.3, { metalness: 0.5 }));
-  knob.position.set(0.31, 0.68, 0);
-  g.add(knob);
-  // 下方柜门
+  for (const kx of [0.15, 0.29]) {
+    const knob = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 0.05, 10), chrome);
+    knob.position.set(kx, 0.68, 0);
+    g.add(knob);
+  }
+  // 下方柜门（竖向木纹）
   for (const sx of [-0.28, 0.26]) {
-    const d = new THREE.Mesh(rbox(0.42, 0.4, 0.04, 0.02), texMat(woodTex(512, "plank"), 0.8));
+    const d = new THREE.Mesh(rbox(0.42, 0.4, 0.04, 0.02), texMat(woodTex(512, "plank", "v"), 0.8));
     d.position.set(sx, 0.24, 0.28);
     g.add(d);
+    const dknob = new THREE.Mesh(new THREE.SphereGeometry(0.014, 8, 6), goldMat());
+    dknob.position.set(sx, 0.24, 0.31);
+    g.add(dknob);
   }
   return shade(g);
 }
 
 export function buildWallCabinet() {
   const g = new THREE.Group();
-  const body = new THREE.Mesh(rbox(1.5, 0.5, 0.3, 0.05), texMat(woodTex(512, "dark"), 0.82));
+  const body = new THREE.Mesh(rbox(1.5, 0.5, 0.3, 0.05), texMat(woodTex(512, "dark", "v"), 0.82));
   g.add(body);
   for (let i = 0; i < 4; i++) {
-    const door = new THREE.Mesh(rbox(0.32, 0.42, 0.035, 0.015), texMat(woodTex(512, "dark"), 0.82));
+    const door = new THREE.Mesh(rbox(0.32, 0.42, 0.035, 0.015), texMat(woodTex(512, "dark", "v"), 0.82));
     door.position.set(-0.52 + i * 0.34, 0, 0.16);
     g.add(door);
+    const knob = new THREE.Mesh(new THREE.SphereGeometry(0.015, 8, 6), goldMat());
+    knob.position.set(-0.52 + i * 0.34, 0.18, 0.18);
+    g.add(knob);
   }
   return shade(g);
 }
 
 export function buildBed() {
   const g = new THREE.Group();
+  // 参考图：蓝垫紫被、双抽屉床头柜、拱形木门；床体带腿、紫被有厚度
+  for (const [lx, lz] of [[-0.8, -0.45], [0.8, -0.45], [-0.8, 0.45], [0.8, 0.45]]) {
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.1, 8), texMat(woodTex(128, "dark", "v"), 0.85));
+    leg.position.set(lx, 0.05, lz);
+    g.add(leg);
+  }
   const frame = new THREE.Mesh(rbox(1.95, 0.2, 1.1, 0.05), texMat(woodTex(512, "plank"), 0.8));
-  frame.position.y = 0.12;
+  frame.position.y = 0.14;
   g.add(frame);
-  const mattress = new THREE.Mesh(rbox(1.85, 0.14, 1.0, 0.05), mat(0x6aa5d8, 0.92, { emissive: 0x24598a, emissiveIntensity: 0.03 }));
-  mattress.position.y = 0.3;
+  const mattress = new THREE.Mesh(rbox(1.85, 0.15, 1.0, 0.05), mat(0x6aa5d8, 0.92, { emissive: 0x24598a, emissiveIntensity: 0.03 }));
+  mattress.position.y = 0.32;
   g.add(mattress);
-  const blanket = new THREE.Mesh(rbox(1.6, 0.1, 0.7, 0.04), texMat(fabricTex("#9a5fa8", "#6d3f7c", "#c08fd0", null, 60), 0.9));
-  blanket.position.set(-0.1, 0.38, 0.12);
+  // 紫被：两层（下层铺满、上层卷边）形成厚度感
+  const blanket = new THREE.Mesh(rbox(1.62, 0.12, 0.72, 0.06), texMat(fabricTex("#9a5fa8", "#6d3f7c", "#c08fd0", null, 60), 0.9));
+  blanket.position.set(-0.1, 0.4, 0.12);
   g.add(blanket);
-  const pillow = new THREE.Mesh(rbox(0.5, 0.1, 0.3, 0.05), mat(0xf2eef0, 0.95));
-  pillow.position.set(-0.4, 0.42, 0.32);
+  const blanketEdge = new THREE.Mesh(rbox(1.58, 0.06, 0.1, 0.03), texMat(fabricTex("#b06fc0", "#7d4a8c", "#d49ae0", null, 40), 0.9));
+  blanketEdge.position.set(-0.1, 0.39, 0.53);
+  g.add(blanketEdge);
+  const pillow = new THREE.Mesh(rbox(0.5, 0.11, 0.3, 0.05), mat(0xf2eef0, 0.95));
+  pillow.position.set(-0.4, 0.44, 0.32);
   g.add(pillow);
-  const headboard = new THREE.Mesh(rbox(1.95, 0.55, 0.08, 0.04), texMat(woodTex(512, "dark"), 0.8));
-  headboard.position.set(0, 0.42, -0.52);
+  const headboard = new THREE.Mesh(rbox(1.95, 0.55, 0.08, 0.04), texMat(woodTex(512, "dark", "v"), 0.8));
+  headboard.position.set(0, 0.45, -0.52);
   g.add(headboard);
   return shade(g);
 }
@@ -481,12 +582,17 @@ export function buildStarPillow() {
 
 export function buildNightstand() {
   const g = new THREE.Group();
-  const body = new THREE.Mesh(rbox(0.48, 0.5, 0.4, 0.05), texMat(woodTex(512, "plank"), 0.82));
+  const body = new THREE.Mesh(rbox(0.48, 0.5, 0.4, 0.05), texMat(woodTex(512, "plank", "v"), 0.82));
   body.position.y = 0.26;
   g.add(body);
-  const drawer = new THREE.Mesh(rbox(0.36, 0.16, 0.02, 0.01), texMat(woodTex(512, "plank"), 0.82));
-  drawer.position.set(0, 0.38, 0.21);
-  g.add(drawer);
+  for (const dy of [0.34, 0.18]) {
+    const drawer = new THREE.Mesh(rbox(0.36, 0.14, 0.02, 0.01), texMat(woodTex(512, "plank", "v"), 0.82));
+    drawer.position.set(0, dy, 0.21);
+    g.add(drawer);
+    const knob = new THREE.Mesh(new THREE.SphereGeometry(0.016, 8, 6), goldMat());
+    knob.position.set(0, dy, 0.23);
+    g.add(knob);
+  }
   return shade(g);
 }
 
@@ -508,40 +614,55 @@ export function buildBedLamp() {
 
 export function buildBenchPress() {
   const g = new THREE.Group();
-  // 卧推凳
+  // 参考图：卧推凳（真实支撑）+ 杠铃架（立柱 + 挂钩托杠 + 铃片）
   const bench = new THREE.Mesh(rbox(1.15, 0.12, 0.34, 0.05), mat(0xc84a3a, 0.9));
   bench.position.y = 0.36;
   g.add(bench);
   const pad = new THREE.Mesh(rbox(0.5, 0.06, 0.3, 0.04), mat(0xd8674f, 0.92));
   pad.position.set(-0.28, 0.45, 0);
   g.add(pad);
-  for (const lx of [0.45, -0.45]) {
-    const legF = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.03, 0.34, 8), mat(0x5a5a5a, 0.6, { metalness: 0.4 }));
-    legF.position.set(lx, 0.17, 0.12);
-    g.add(legF);
-    const legB = legF.clone();
-    legB.position.z = -0.12;
-    g.add(legB);
+  // 凳腿（斜撑 + 横撑）
+  const steel = mat(0x5a5a5a, 0.55, { metalness: 0.45 });
+  for (const lx of [0.42, -0.42]) {
+    for (const lz of [0.1, -0.1]) {
+      const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.032, 0.34, 8), steel);
+      leg.position.set(lx, 0.17, lz);
+      leg.rotation.x = lz > 0 ? 0.06 : -0.06;
+      g.add(leg);
+    }
   }
-  // 杠铃架
-  const rack = new THREE.Mesh(rbox(1.0, 0.5, 0.3, 0.04), mat(0xd94f4f, 0.7));
-  rack.position.set(0.35, 0.55, -0.1);
-  g.add(rack);
-  // 杠铃
+  const cross = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.3, 8), steel);
+  cross.rotation.z = Math.PI / 2;
+  cross.position.set(0, 0.1, 0);
+  g.add(cross);
+  // 杠铃架：两根立柱 + 顶部横梁 + 挂钩
+  const rackX = 0.42;
+  for (const s of [-1, 1]) {
+    const post = new THREE.Mesh(rbox(0.06, 1.0, 0.06, 0.02), mat(0xd94f4f, 0.6));
+    post.position.set(rackX + s * 0.16, 0.5, 0);
+    g.add(post);
+    const hook = new THREE.Mesh(rbox(0.06, 0.05, 0.09, 0.015), mat(0xd94f4f, 0.6));
+    hook.position.set(rackX + s * 0.16, 0.78, 0.06);
+    g.add(hook);
+  }
+  const topBar = new THREE.Mesh(rbox(0.38, 0.04, 0.05, 0.015), mat(0xd94f4f, 0.6));
+  topBar.position.set(rackX, 1.0, 0);
+  g.add(topBar);
+  // 杠铃（托在挂钩上）
   const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 1.1, 10), mat(0x22272c, 0.45, { metalness: 0.7 }));
   bar.rotation.z = Math.PI / 2;
-  bar.position.set(0.35, 0.82, 0.05);
+  bar.position.set(rackX, 0.8, 0.05);
   g.add(bar);
   for (const s of [-1, 1]) {
     for (const [pr, ph] of [[0.11, 0.07], [0.085, 0.05]]) {
       const plate = new THREE.Mesh(new THREE.CylinderGeometry(pr, pr, ph, 14), mat(0x333, 0.6, { metalness: 0.5 }));
       plate.rotation.z = Math.PI / 2;
-      plate.position.set(0.35 + s * 0.14, 0.82, 0.05);
+      plate.position.set(rackX + s * 0.14, 0.8, 0.05);
       g.add(plate);
     }
     const clip = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.07, 8), mat(0xc84a3a, 0.8));
     clip.rotation.z = Math.PI / 2;
-    clip.position.set(0.35 + s * 0.3, 0.82, 0.05);
+    clip.position.set(rackX + s * 0.3, 0.8, 0.05);
     g.add(clip);
   }
   return shade(g);
@@ -549,26 +670,36 @@ export function buildBenchPress() {
 
 export function buildSofa() {
   const g = new THREE.Group();
-  const base = new THREE.Mesh(rbox(1.55, 0.42, 0.72, 0.09), mat(0x4a8f6e, 0.92));
+  // 圆润连接：厚实底座 + 后倾靠背 + 双坐垫 + 弧形扶手，减少积木感
+  const base = new THREE.Mesh(rbox(1.55, 0.4, 0.72, 0.11), mat(0x4a8f6e, 0.92));
   base.position.y = 0.24;
   g.add(base);
-  const back = new THREE.Mesh(rbox(1.55, 0.42, 0.18, 0.08), mat(0x3f7c5d, 0.92));
-  back.position.set(0, 0.48, -0.29);
+  const back = new THREE.Mesh(rbox(1.55, 0.46, 0.2, 0.1), mat(0x3f7c5d, 0.92));
+  back.position.set(0, 0.52, -0.28);
+  back.rotation.x = -0.07;
   g.add(back);
-  const cushionL = new THREE.Mesh(rbox(0.62, 0.14, 0.5, 0.08), mat(0x63b28a, 0.95));
-  cushionL.position.set(-0.42, 0.52, 0.03);
+  // 坐垫（微微前倾出沿）
+  const cushionGeo = rbox(0.64, 0.15, 0.52, 0.09);
+  const cushionL = new THREE.Mesh(cushionGeo, mat(0x63b28a, 0.95));
+  cushionL.position.set(-0.42, 0.55, 0.04);
+  cushionL.rotation.x = 0.04;
   g.add(cushionL);
-  const cushionR = cushionL.clone();
-  cushionR.position.x = 0.42;
+  const cushionR = new THREE.Mesh(cushionGeo.clone(), mat(0x63b28a, 0.95));
+  cushionR.position.set(0.42, 0.55, 0.04);
+  cushionR.rotation.x = 0.04;
   g.add(cushionR);
-  for (const [ax, az] of [[-0.62, 0.22], [0.62, 0.22], [-0.62, -0.24], [0.62, -0.24]]) {
-    const arm = new THREE.Mesh(rbox(0.14, 0.36, 0.68, 0.07), mat(0x3f7c5d, 0.92));
-    arm.position.set(ax, 0.44, az);
+  // 弧形扶手（前圆后宽，与靠背融合）
+  for (const s of [-1, 1]) {
+    const arm = new THREE.Mesh(rbox(0.2, 0.34, 0.66, 0.1), mat(0x3f7c5d, 0.92));
+    arm.position.set(s * 0.73, 0.48, 0);
     g.add(arm);
+    const armPad = new THREE.Mesh(rbox(0.16, 0.06, 0.52, 0.05), mat(0x63b28a, 0.95));
+    armPad.position.set(s * 0.73, 0.67, 0.03);
+    g.add(armPad);
   }
-  for (const [lx, lz] of [[-0.5, 0.24], [0.5, 0.24], [-0.5, -0.24], [0.5, -0.24]]) {
-    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.12, 8), mat(0x6b4526, 0.8));
-    leg.position.set(lx, 0.06, lz);
+  for (const [lx, lz] of [[-0.55, 0.26], [0.55, 0.26], [-0.55, -0.26], [0.55, -0.26]]) {
+    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.036, 0.14, 8), mat(0x6b4526, 0.8));
+    leg.position.set(lx, 0.07, lz);
     g.add(leg);
   }
   return shade(g);
@@ -694,95 +825,162 @@ export function buildCeilingFan() {
 export function buildWeatherVane() {
   const g = new THREE.Group();
   const gold = goldMat();
-  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.045, 1.0, 10), gold);
+  // 参考图：金色风向标——立柱 + 中球 + 两端箭头
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.05, 1.0, 10), gold);
   pole.position.y = 0.5;
   g.add(pole);
   const top = new THREE.Group();
   top.position.y = 1.0;
-  const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.028, 1.25, 8), gold);
+  const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 1.1, 8), gold);
   bar.rotation.z = Math.PI / 2;
   top.add(bar);
-  // 骨头两端：圆球头 + 小叉
+  // 两端箭头（锥尖向外）
   for (const s of [-1, 1]) {
-    const knob = new THREE.Mesh(new THREE.SphereGeometry(0.085, 12, 10), gold);
-    knob.scale.set(1, 1.35, 1);
-    knob.position.set(s * 0.62, 0, 0);
-    top.add(knob);
-    const prong1 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.11, 8), gold);
-    prong1.rotation.z = Math.PI / 2;
-    prong1.position.set(s * 0.66, 0.06, 0);
-    top.add(prong1);
-    const prong2 = prong1.clone();
-    prong2.rotation.z = Math.PI / 2 - 0.5;
-    prong2.position.set(s * 0.66, 0, 0.09);
-    top.add(prong2);
+    const arrow = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.22, 14), gold);
+    arrow.rotation.z = s === 1 ? -Math.PI / 2 : Math.PI / 2;
+    arrow.position.set(s * 0.65, 0, 0);
+    top.add(arrow);
+    const ferrule = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 0.08, 10), gold);
+    ferrule.rotation.z = Math.PI / 2;
+    ferrule.position.set(s * 0.52, 0, 0);
+    top.add(ferrule);
   }
   // 中央球
-  const mid = new THREE.Mesh(new THREE.SphereGeometry(0.06, 10, 8), gold);
+  const mid = new THREE.Mesh(new THREE.SphereGeometry(0.07, 12, 10), gold);
   top.add(mid);
   g.add(top);
   g.userData.vaneTop = top;
   return shade(g);
 }
 
+/* 派大星：连续圆润身体（躯干+头部一次参数化曲面，正面头部贴五官） */
+function smoothProfile(pts, y) {
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [y0, r0] = pts[i], [y1, r1] = pts[i + 1];
+    if (y >= y0 && y <= y1) {
+      const t = (y - y0) / (y1 - y0);
+      const s = t * t * (3 - 2 * t);
+      return r0 + (r1 - r0) * s;
+    }
+  }
+  return pts[pts.length - 1][1];
+}
+
+export function starBodyGeo() {
+  // 竖向轮廓 [y, 半径]：腰部（藏进短裤）→ 圆润腹部 → 胸部 → 颈部 → 细长圆润头部 → 冠
+  const profile = [
+    [0.50, 0.30], [0.60, 0.355], [0.72, 0.415], [0.84, 0.405], [0.96, 0.335],
+    [1.04, 0.275], [1.12, 0.245], [1.20, 0.235], [1.30, 0.225],
+    [1.42, 0.185], [1.52, 0.13], [1.60, 0.055], [1.635, 0.01],
+  ];
+  // 星形轮廓由四肢+头构成；身体本体用圆润旋转体（五角瓣幅度≈0，避免脊峰折脸）
+  const ampAt = () => 0.02;
+  const AZ = 72, HS = 52, Y0 = 0.5, H = 1.635;
+  const positions = [], uvs = [], indices = [];
+  for (let j = 0; j <= HS; j++) {
+    const t = j / HS;
+    const y = Y0 + t * (H - Y0);
+    const radius = smoothProfile(profile, y);
+    const amp = ampAt(y);
+    for (let i = 0; i <= AZ; i++) {
+      const th = (i / AZ) * Math.PI * 2;
+      const r = radius * (1 + amp * Math.cos(5 * th));
+      const x = r * Math.sin(th);
+      const z = r * Math.cos(th);
+      positions.push(x, y, z);
+      // u：0.5 为正面 (+z)，接缝在背面；v：0 底 → 1 顶
+      const phi = Math.atan2(x, z);
+      uvs.push(0.5 + phi / (Math.PI * 2), t);
+    }
+  }
+  for (let j = 0; j < HS; j++) {
+    for (let i = 0; i < AZ; i++) {
+      const a = j * (AZ + 1) + i, b = a + 1, c = a + AZ + 1, d = c + 1;
+      indices.push(a, c, b, b, c, d);
+    }
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  geo.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
+  geo.setIndex(indices);
+  geo.computeVertexNormals();
+  return geo;
+}
+
+// 绿紫花短裤：腰带上宽、下摆略鼓的环带（lathe），贴绿底紫花
+export function shortsBandGeo() {
+  const pts = [
+    new THREE.Vector2(0.335, 0.38),
+    new THREE.Vector2(0.365, 0.41),
+    new THREE.Vector2(0.395, 0.435),
+    new THREE.Vector2(0.40, 0.465),
+    new THREE.Vector2(0.38, 0.49),
+  ];
+  return new THREE.LatheGeometry(pts, 44);
+}
+
 export function buildPatrick() {
   const g = new THREE.Group();
-  const skin = texMat(patrickFaceTex(), 0.82);
-  const skinEdge = mat(0xf28aa8, 0.85);
+  const skin = texMat(patrickBodyTex(), 0.82);
   const plainSkin = texMat(skinPlainTex(), 0.82);
   const shortsM = texMat(shortsTex(), 0.85);
 
-  // 身体：圆润五角星（正面向 +z）
-  const bodyShape = starShape(0.4, 0.2);
-  const bodyGeo = new THREE.ExtrudeGeometry(bodyShape, { depth: 0.26, bevelEnabled: true, bevelThickness: 0.1, bevelSize: 0.09, bevelSegments: 3, curveSegments: 18 });
-  bodyGeo.translate(0, 0, -0.13);
-  const body = new THREE.Mesh(bodyGeo, skin);
+  // 身体（躯干+头部一体）：原点底边 y=0.5，网格自带高度
+  const body = new THREE.Mesh(starBodyGeo(), skin);
   body.name = "patrick-body";
-  body.position.y = 0.66;
+  // 少量自发光抬升：避免被阴影+ACES 压到与肤色不可分，五官始终可读
+  body.material.emissive = new THREE.Color(0xffffff);
+  body.material.emissiveMap = body.material.map;
+  body.material.emissiveIntensity = 0.32;
   g.add(body);
-  // 身体边缘描边（卡通感）
-  const rim = new THREE.Mesh(bodyGeo.clone(), skinEdge);
-  rim.name = "patrick-rim";
-  rim.scale.set(1.02, 1.015, 1.04);
-  rim.position.y = 0.66;
-  rim.position.z = -0.005;
-  g.add(rim);
+  // 冠顶小圆球（收口圆润）
+  const crown = new THREE.Mesh(new THREE.SphereGeometry(0.075, 14, 10), skin);
+  crown.position.y = 1.66;
+  g.add(crown);
 
-  // 短裤（稍大于身体下部的绿紫花环带）
-  const shortsShape = starShape(0.42, 0.22);
-  const shortsGeo = new THREE.ExtrudeGeometry(shortsShape, { depth: 0.3, bevelEnabled: true, bevelThickness: 0.06, bevelSize: 0.05, bevelSegments: 2, curveSegments: 16 });
-  shortsGeo.translate(0, 0, -0.15);
-  const shorts = new THREE.Mesh(shortsGeo, shortsM);
+  // 短裤（包住腰腹）
+  const shorts = new THREE.Mesh(shortsBandGeo(), shortsM);
   shorts.name = "patrick-shorts";
-  shorts.position.y = 0.36;
   g.add(shorts);
+  // 裤脚收边
+  const hem = new THREE.Mesh(new THREE.TorusGeometry(0.385, 0.024, 8, 36), shortsM);
+  hem.rotation.x = Math.PI / 2;
+  hem.position.y = 0.47;
+  g.add(hem);
+  // 腰带
+  const belt = new THREE.Mesh(new THREE.TorusGeometry(0.335, 0.03, 8, 36), shortsM);
+  belt.rotation.x = Math.PI / 2;
+  belt.position.y = 0.39;
+  g.add(belt);
 
-  // 腿
+  // 腿 + 脚（从短裤下摆露出，与裤脚无缝衔接，脚底接地）
   for (const s of [-1, 1]) {
-    const leg = new THREE.Mesh(capsule(0.055, 0.045, 0.16, 10), plainSkin);
-    leg.position.set(s * 0.14, 0.06, 0);
+    const leg = new THREE.Mesh(capsule(0.062, 0.05, 0.3, 10), plainSkin);
+    leg.position.set(s * 0.135, 0.33, 0);
     g.add(leg);
-    const foot = new THREE.Mesh(rbox(0.09, 0.05, 0.14, 0.02), plainSkin);
-    foot.position.set(s * 0.14, 0.02, 0.06);
+    const foot = new THREE.Mesh(rbox(0.11, 0.055, 0.18, 0.025), plainSkin);
+    foot.position.set(s * 0.135, 0.035, 0.07);
     g.add(foot);
   }
 
-  // 双臂（独立枢轴链）
+  // 双臂：肩球埋入躯干 → 锥形上臂 → 肘 → 锥形前臂 → 圆手（肩关节在真实连接位）
   const makeArm = (side) => {
     const pivot = new THREE.Group();
-    pivot.position.set(side * 0.42, 0.62, 0);
-    const upper = new THREE.Mesh(capsule(0.05, 0.042, 0.3, 10), plainSkin);
-    upper.position.y = -0.15;
+    pivot.position.set(side * 0.4, 0.8, 0);
+    const ball = new THREE.Mesh(new THREE.SphereGeometry(0.105, 14, 10), plainSkin);
+    pivot.add(ball);
+    const upper = new THREE.Mesh(capsule(0.06, 0.045, 0.22, 10), plainSkin);
+    upper.position.y = -0.11;
     pivot.add(upper);
     const elbow = new THREE.Group();
-    elbow.position.y = -0.3;
+    elbow.position.y = -0.22;
     pivot.add(elbow);
-    const fore = new THREE.Mesh(capsule(0.042, 0.035, 0.26, 10), plainSkin);
-    fore.position.y = -0.13;
+    const fore = new THREE.Mesh(capsule(0.045, 0.033, 0.18, 10), plainSkin);
+    fore.position.y = -0.09;
     elbow.add(fore);
-    const hand = new THREE.Mesh(new THREE.SphereGeometry(0.062, 12, 10), plainSkin);
-    hand.scale.y = 1.25;
-    hand.position.y = -0.26;
+    const hand = new THREE.Mesh(new THREE.SphereGeometry(0.055, 12, 10), plainSkin);
+    hand.scale.y = 1.2;
+    hand.position.y = -0.18;
     elbow.add(hand);
     pivot.userData.elbow = elbow;
     return pivot;
@@ -794,7 +992,7 @@ export function buildPatrick() {
   g.userData.patrickArms = { armL, armR };
 
   // 地面投影环
-  const ring = new THREE.Mesh(new THREE.RingGeometry(0.32, 0.42, 26), mat(0x7c4b66, 1, { transparent: true, opacity: 0.2 }));
+  const ring = new THREE.Mesh(new THREE.RingGeometry(0.3, 0.44, 26), mat(0x7c4b66, 1, { transparent: true, opacity: 0.18 }));
   ring.rotation.x = -Math.PI / 2;
   ring.position.y = 0.01;
   g.add(ring);

@@ -70,6 +70,10 @@ if (renderer) {
   const fill = new THREE.DirectionalLight(0xd1edff, 0.8);
   fill.position.set(6, 6, 7);
   scene.add(fill);
+  // 正面柔和补光: 保证默认镜头/角色正脸与正面家具不被暗部吞掉
+  const frontFill = new THREE.DirectionalLight(0xfff6ea, 0.5);
+  frontFill.position.set(0, 4, 11);
+  scene.add(frontFill);
   const bedLight = new THREE.PointLight(0xffe6a8, 0, 6);
   bedLight.position.set(2.9, 1.25, -2.3);
   scene.add(bedLight);
@@ -116,7 +120,8 @@ if (renderer) {
         0.5 * Math.sin(a + nx * 11.3 - nz * 7.7 + ny * 4.4) +
         0.25 * Math.cos(a + nx * 17.7 + nz * 13.1 + ny * 8.8);
       const f = ny < 0.12 ? Math.max(0, 1 - (0.12 - ny) * 4) : 1;
-      const grow = 1 + Math.max(-0.14, Math.min(0.16, n * 0.05)) * f;
+      // 温和低频起伏：保持圆润低矮岩石穹顶，不做尖山/破碎壳
+      const grow = 1 + Math.max(-0.08, Math.min(0.09, n * 0.028)) * f;
       v.setLength(r * grow);
       pos.setXYZ(i, v.x, v.y, v.z);
     }
@@ -290,7 +295,7 @@ if (renderer) {
   bed.position.set(2.0, 0, -1.6);
   roomGroups.bedroom.add(bed);
   const pillow = buildStarPillow();
-  pillow.position.set(1.75, 0.42, -1.5);
+  pillow.position.set(1.75, 0.5, -1.5); // 贴合紫被表面
   roomGroups.bedroom.add(pillow);
   const nightstand = buildNightstand();
   nightstand.position.set(2.9, 0, -2.3);
@@ -314,7 +319,7 @@ if (renderer) {
   roomGroups.living.add(coffeeTable);
   const oldTv = buildOldTv();
   oldTv.position.set(1.0, -2.3, -1.9);
-  oldTv.rotation.y = 2.7;
+  oldTv.rotation.y = -1.126; // 屏幕朝向沙发/客厅中央，默认近景可见屏幕、旋钮与天线
   oldTv.userData.interaction = "tv";
   roomGroups.living.add(oldTv);
   const floorLamp = buildFloorLamp();
@@ -376,8 +381,9 @@ if (renderer) {
   let waveState = "idle";
   let waveT = 0;
   const WAVE = { raise: 0.5, wave: 1.5, lower: 0.6 };
-  const REST = { rz: 0.22, el: 0.15 };
-  const UP = { rz: 2.35, el: -2.05 };
+  // 新臂链：肩球埋入躯干，肘为子节点；右臂自然抬-摆-放
+  const REST = { rz: 0.15, el: 0.12 };
+  const UP = { rz: 2.45, el: 1.05 };
   const ease = (t) => t * t * (3 - 2 * t);
 
   function startWave() {
@@ -392,17 +398,17 @@ if (renderer) {
     if (waveState === "raise") {
       const k = ease(Math.min(waveT / WAVE.raise, 1));
       armR.rotation.z = REST.rz + (UP.rz - REST.rz) * k;
-      elbowR.rotation.x = REST.el + (UP.el - REST.el) * k;
+      elbowR.rotation.z = REST.el + (UP.el - REST.el) * k;
       if (waveT >= WAVE.raise) { waveState = "wave"; waveT = 0; }
     } else if (waveState === "wave") {
       const w = waveT * Math.PI * 2 * 1.6;
-      armR.rotation.z = UP.rz + Math.sin(w) * 0.09;
-      elbowR.rotation.x = UP.el + Math.sin(w + 0.9) * 0.55;
+      armR.rotation.z = UP.rz + Math.sin(w) * 0.07;
+      elbowR.rotation.z = UP.el + Math.sin(w + 0.9) * 0.32;
       if (waveT >= WAVE.wave) { waveState = "lower"; waveT = 0; }
     } else if (waveState === "lower") {
       const k = ease(Math.min(waveT / WAVE.lower, 1));
       armR.rotation.z = REST.rz + (UP.rz - REST.rz) * (1 - k);
-      elbowR.rotation.x = REST.el + (UP.el - REST.el) * (1 - k);
+      elbowR.rotation.z = REST.el + (UP.el - REST.el) * (1 - k);
       if (waveT >= WAVE.lower) { waveState = "idle"; waveT = 0; }
     }
   }
@@ -425,19 +431,36 @@ if (renderer) {
     }
   }
 
+  // 按可见包围盒适配：全屋剖面/外观共用，窄屏/宽屏都完整入画
   function wholePose() {
     applyFov();
     const fov = THREE.MathUtils.degToRad(camera.fov / 2);
-    if (mode === "exterior") {
-      return { target: new THREE.Vector3(0, 2.4, 0), position: new THREE.Vector3(0, 3.4, 17.5) };
-    }
-    const halfW = (WHOLE_MAX.x - WHOLE_MIN.x) * 0.6;
-    const halfH = (WHOLE_MAX.y - WHOLE_MIN.y) * 0.62;
-    const dist = Math.max(halfH / Math.tan(fov), halfW / (Math.tan(fov) * camera.aspect));
-    return {
-      target: new THREE.Vector3(0, 1.7, 0),
-      position: new THREE.Vector3(0, 1.7 + dist * 0.16, dist),
-    };
+    const halfW = (WHOLE_MAX.x - WHOLE_MIN.x) * 0.5;
+    const halfH = (WHOLE_MAX.y - WHOLE_MIN.y) * 0.5;
+    const margin = 1.42;
+    const target = new THREE.Vector3(0, mode === "exterior" ? 2.4 : 1.7, 0);
+    const dist = Math.max(
+      (halfH * margin) / Math.tan(fov),
+      (halfW * margin) / (Math.tan(fov) * camera.aspect),
+    );
+    const elev = mode === "exterior" ? 0.25 : 0.12;
+    return { target, position: new THREE.Vector3(0, target.y + dist * elev, dist) };
+  }
+
+  // 房间近景适配：默认视角方向 + 包围盒距离（focusRoom 用默认方向，resize 用当前方向）
+  function roomPose(room, dir) {
+    const target = new THREE.Vector3(...room.target);
+    const w = room.bounds[1][0] - room.bounds[0][0];
+    const h = room.bounds[1][1] - room.bounds[0][1];
+    const tangent = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+    const fitBase = Math.max(w / (2 * tangent * camera.aspect), h / (2 * tangent)) * 1.08;
+    // 手机窄屏下限制拉远，保持作者构图与近景质感，允许轻微裁边
+    const defaultDist = new THREE.Vector3(...room.camera).sub(target).length();
+    const fit = Math.min(fitBase, defaultDist * 1.3);
+    const direction = dir ?? new THREE.Vector3(...room.camera).sub(target).normalize();
+    // 地下房间：相机必须保持在上层楼板（y≈0）之下，避免楼板成为拾取遮挡物
+    const maxCamY = room.level < 0 ? -0.2 : undefined;
+    return { target, direction, fit, maxCamY };
   }
 
   function tweenCamera(position, target) {
@@ -451,6 +474,46 @@ if (renderer) {
       target,
       duration: reducedMotion ? 0 : 650,
     };
+  }
+
+  // 尺寸变化：保留用户观察方向（方位/俯仰），按当前视图重算镜头距离与目标点
+  function refitView() {
+    applyFov();
+    if (!ready) return;
+    cameraAnim = null; // 动画过渡中被改尺寸：取消旧补间，避免旧终点覆盖
+    root.dataset.cameraTransition = "idle";
+    controls.enabled = true;
+    let target, fit;
+    if (activeRoom) {
+      const room = rooms.get(activeRoom);
+      const pose = roomPose(room);
+      target = pose.target;
+      fit = pose.fit;
+    } else {
+      const pose = wholePose();
+      target = pose.target;
+      fit = pose.position.distanceTo(pose.target);
+    }
+    // 保留当前视角方向
+    let dir = camera.position.clone().sub(controls.target);
+    const len = dir.length();
+    if (len < 0.001) dir.set(0, 0.2, 1);
+    else dir.divideScalar(len);
+    const polar = Math.acos(THREE.MathUtils.clamp(dir.y, -1, 1));
+    const maxPolar = controls.maxPolarAngle;
+    if (polar > maxPolar) {
+      const az = Math.atan2(dir.x, dir.z);
+      const p = Math.max(maxPolar, 0.01);
+      dir.set(Math.sin(p) * Math.sin(az), Math.cos(p), Math.sin(p) * Math.cos(az));
+    }
+    controls.target.copy(target);
+    camera.position.copy(target).addScaledVector(dir, fit);
+    if (activeRoom) {
+      const pose2 = roomPose(rooms.get(activeRoom));
+      if (pose2.maxCamY !== undefined && camera.position.y > pose2.maxCamY) camera.position.y = pose2.maxCamY;
+    }
+    controls.update();
+    updateRoomLabels();
   }
 
   function applyModeVisibility() {
@@ -498,16 +561,10 @@ if (renderer) {
     document.querySelector("[data-house-floor]").textContent = room.floor;
     document.querySelector("[data-house-room-name]").textContent = room.name;
     applyRoomVisibility();
-    const target = new THREE.Vector3(...room.target);
-    const position = new THREE.Vector3(...room.camera);
-    const width = room.bounds[1][0] - room.bounds[0][0];
-    const height = room.bounds[1][1] - room.bounds[0][1];
-    const tangent = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    const fit = Math.max(width / (2 * tangent * camera.aspect), height / (2 * tangent)) * 1.08;
-    const offset = position.clone().sub(target);
-    offset.multiplyScalar(Math.max(1, fit / offset.length()));
-    position.copy(target).add(offset);
-    tweenCamera(position, target);
+    const pose = roomPose(room);
+    const position = pose.target.clone().addScaledVector(pose.direction, pose.fit);
+    if (pose.maxCamY !== undefined && position.y > pose.maxCamY) position.y = pose.maxCamY;
+    tweenCamera(position, pose.target);
     return true;
   }
 
@@ -575,8 +632,12 @@ if (renderer) {
     raycaster.set(camera.position, dir);
     raycaster.near = 0.02;
     raycaster.far = dist - 0.02;
-    // 只考虑当前可见的遮挡物：剖面模式下 extShell 隐藏，不能参与遮挡判定
-    const blockers = occluders.filter((o) => o.visible);
+    // 只考虑当前可见的遮挡物：剖面模式下 extShell 隐藏，不能参与遮挡判定；
+    // 递归收集可见网格（外壳/内壁/楼板可能是组合体）
+    const blockers = [];
+    for (const o of occluders) {
+      if (o.visible) o.traverse((n) => { if (n.isMesh && visibleChain(n)) blockers.push(n); });
+    }
     const blocked = raycaster.intersectObjects(blockers, false).length > 0;
     raycaster.near = 0;
     raycaster.far = Infinity;
@@ -664,12 +725,15 @@ if (renderer) {
   canvas.addEventListener("webglcontextlost", (event) => event.preventDefault());
 
   new ResizeObserver(() => {
-    viewWidth = Math.max(1, root.clientWidth);
-    viewHeight = Math.max(1, root.clientHeight);
-    camera.aspect = viewWidth / viewHeight;
-    camera.updateProjectionMatrix();
+    const w = Math.max(1, root.clientWidth);
+    const h = Math.max(1, root.clientHeight);
+    if (w === viewWidth && h === viewHeight) return;
+    viewWidth = w;
+    viewHeight = h;
+    camera.aspect = w / h;
     renderer.setPixelRatio(Math.min(devicePixelRatio, 1.6));
-    renderer.setSize(viewWidth, viewHeight, false);
+    renderer.setSize(w, h, false);
+    refitView();
   }).observe(root);
 
   /* ---------- 房间标签（视口夹取，避免与标题/按钮重叠） ---------- */
@@ -760,15 +824,16 @@ if (renderer) {
     }
     // 待机呼吸 + 手臂轻摆（不做行走，脚底始终接地）
     patrickBody.scale.set(
-      1 + Math.sin(elapsed * 1.9) * 0.012,
-      1 + Math.sin(elapsed * 1.9) * 0.016,
-      1 + Math.sin(elapsed * 1.9 + 0.7) * 0.012,
+      1 + Math.sin(elapsed * 1.9) * 0.01,
+      1 + Math.sin(elapsed * 1.9) * 0.014,
+      1 + Math.sin(elapsed * 1.9 + 0.7) * 0.01,
     );
     patrickBody.rotation.z = Math.sin(elapsed * 2.2) * 0.01;
     if (waveState === "idle") {
-      armL.rotation.z = -REST.rz + Math.sin(elapsed * 1.6) * 0.035;
-      armR.rotation.z = REST.rz + Math.sin(elapsed * 1.6 + 0.8) * 0.035;
-      elbowL.rotation.x = REST.el + Math.sin(elapsed * 1.3) * 0.05;
+      armL.rotation.z = -REST.rz + Math.sin(elapsed * 1.6) * 0.045;
+      armR.rotation.z = REST.rz + Math.sin(elapsed * 1.6 + 0.8) * 0.045;
+      elbowL.rotation.z = -REST.el + Math.sin(elapsed * 1.3) * 0.05;
+      elbowR.rotation.z = REST.el + Math.sin(elapsed * 1.3 + 0.6) * 0.05;
     }
     updateWave(delta);
     if (interactState.fanSpinning) fan.userData.fanBlades.rotation.y += delta * 5;
@@ -812,7 +877,7 @@ if (renderer) {
       state: waveState,
       t: waveT,
       armRz: armR.rotation.z,
-      elbowRx: elbowR.rotation.x,
+      elbowRz: elbowR.rotation.z,
       bodyScale: patrickBody.scale.toArray(),
       patrickPos: patrick.position.toArray(),
     }),
