@@ -1,0 +1,989 @@
+﻿=== scenes/nodes ===
+node[0] name='door_frame' mesh=0('door_frame')
+node[1] name='door_panel' mesh=1('door_panel')
+node[2] name='floor_1' mesh=2('floor_1')
+node[3] name='floor_2' mesh=3('floor_2')
+node[4] name='floor_3' mesh=4('floor_3')
+node[5] name='floor_4' mesh=5('floor_4')
+node[6] name='stairs_step0' mesh=6('stairs_step0')
+node[7] name='stairs_step1' mesh=7('stairs_step1')
+node[8] name='stairs_step2' mesh=8('stairs_step2')
+node[9] name='stairs_step3' mesh=9('stairs_step3')
+node[10] name='stairs_step4' mesh=10('stairs_step4')
+node[11] name='stairs_step5' mesh=11('stairs_step5')
+node[12] name='stairs_step6' mesh=12('stairs_step6')
+node[13] name='stairs_step7' mesh=13('stairs_step7')
+node[14] name='stairs_step8' mesh=14('stairs_step8')
+node[15] name='stairs_step9' mesh=15('stairs_step9')
+node[16] name='stairs_step10' mesh=16('stairs_step10')
+node[17] name='stairs_step11' mesh=17('stairs_step11')
+node[18] name='stairs_step12' mesh=18('stairs_step12')
+node[19] name='stairs_step13' mesh=19('stairs_step13')
+node[20] name='stairs_step14' mesh=20('stairs_step14')
+node[21] name='stairs_step15' mesh=21('stairs_step15')
+node[22] name='stairs_step16' mesh=22('stairs_step16')
+node[23] name='stairs_step17' mesh=23('stairs_step17')
+node[24] name='stairs_step18' mesh=24('stairs_step18')
+node[25] name='stairs_step19' mesh=25('stairs_step19')
+node[26] name='stairs_step20' mesh=26('stairs_step20')
+node[27] name='stairs_step21' mesh=27('stairs_step21')
+node[28] name='stairs_step22' mesh=28('stairs_step22')
+node[29] name='stairs_step23' mesh=29('stairs_step23')
+node[30] name='stairs_step24' mesh=30('stairs_step24')
+node[31] name='stairs_step25' mesh=31('stairs_step25')
+node[32] name='stairs_step26' mesh=32('stairs_step26')
+node[33] name='stairs_step27' mesh=33('stairs_step27')
+node[34] name='stairs_step28' mesh=34('stairs_step28')
+node[35] name='stairs_step29' mesh=35('stairs_step29')
+node[36] name='stairs_step30' mesh=36('stairs_step30')
+node[37] name='stairs_step31' mesh=37('stairs_step31')
+node[38] name='stairs_step32' mesh=38('stairs_step32')
+node[39] name='stairs_step33' mesh=39('stairs_step33')
+node[40] name='stairs_step34' mesh=40('stairs_step34')
+node[41] name='stairs_step35' mesh=41('stairs_step35')
+node[42] name='stairs_step36' mesh=42('stairs_step36')
+node[43] name='stairs_step37' mesh=43('stairs_step37')
+node[44] name='stairs_step38' mesh=44('stairs_step38')
+node[45] name='stairs_pole' mesh=45('stairs_pole')
+node[46] name='stairs_handrail' mesh=46('stairs_handrail')
+node[47] name='stairs_landing_0.15' mesh=47('stairs_landing_0.15')
+node[48] name='stairs_landing_1.2' mesh=48('stairs_landing_1.2')
+node[49] name='stairs_landing_2.4' mesh=49('stairs_landing_2.4')
+node[50] name='stairs_landing_3.6' mesh=50('stairs_landing_3.6')
+node[51] name='door_handle' mesh=51('door_handle')
+node[52] name='kitchen_cabinets_cabinets' mesh=52('kitchen_cabinets_cabinets')
+node[53] name='kitchen_cabinets_cabinets.001' mesh=53('kitchen_cabinets_cabinets.001')
+node[54] name='kitchen_cabinets_cabinets.002' mesh=54('kitchen_cabinets_cabinets.002')
+node[55] name='kitchen_cabinets_cabinets.003' mesh=55('kitchen_cabinets_cabinets.003')
+node[56] name='kitchen_cabinets_cabinets.004' mesh=56('kitchen_cabinets_cabinets.004')
+node[57] name='kitchen_cabinets_cabinets.005' mesh=57('kitchen_cabinets_cabinets.005')
+node[58] name='kitchen_cabinets_cabinets.006' mesh=58('kitchen_cabinets_cabinets.006')
+node[59] name='kitchen_cabinets_cabinets.007' mesh=59('kitchen_cabinets_cabinets.007')
+node[60] name='kitchen_cabinets_cabinets.008' mesh=60('kitchen_cabinets_cabinets.008')
+node[61] name='kitchen_cabinets_cabinets.009' mesh=61('kitchen_cabinets_cabinets.009')
+node[62] name='kitchen_cabinets_cabinets.010' mesh=62('kitchen_cabinets_cabinets.010')
+node[63] name='kitchen_cabinets_cabinets.011' mesh=63('kitchen_cabinets_cabinets.011')
+node[64] name='kitchen_cabinets_cabinets.012' mesh=64('kitchen_cabinets_cabinets.012')
+node[65] name='kitchen_cabinets_cabinets.013' mesh=65('kitchen_cabinets_cabinets.013')
+node[66] name='kitchen_cabinets_cabinets.014' mesh=66('kitchen_cabinets_cabinets.014')
+node[67] name='kitchen_stove_stove' mesh=67('kitchen_stove_stove')
+node[68] name='kitchen_stove_stove.001' mesh=68('kitchen_stove_stove.001')
+node[69] name='kitchen_stove_stove.002' mesh=69('kitchen_stove_stove.002')
+node[70] name='kitchen_stove_stove.003' mesh=70('kitchen_stove_stove.003')
+node[71] name='kitchen_stove_stove.004' mesh=71('kitchen_stove_stove.004')
+node[72] name='kitchen_stove_stove.005' mesh=72('kitchen_stove_stove.005')
+node[73] name='kitchen_stove_stove.006' mesh=73('kitchen_stove_stove.006')
+node[74] name='kitchen_stove_stove.007' mesh=74('kitchen_stove_stove.007')
+node[75] name='kitchen_stove_stove.008' mesh=75('kitchen_stove_stove.008')
+node[76] name='kitchen_stove_stove.009' mesh=76('kitchen_stove_stove.009')
+node[77] name='kitchen_stove_stove.010' mesh=77('kitchen_stove_stove.010')
+node[78] name='kitchen_stove_stove.011' mesh=78('kitchen_stove_stove.011')
+node[79] name='kitchen_stove_stove.012' mesh=79('kitchen_stove_stove.012')
+node[80] name='kitchen_stove_stove.013' mesh=80('kitchen_stove_stove.013')
+node[81] name='kitchen_stove_stove.014' mesh=81('kitchen_stove_stove.014')
+node[82] name='kitchen_stove_stove.015' mesh=82('kitchen_stove_stove.015')
+node[83] name='kitchen_sink_sink-kitchen' mesh=83('kitchen_sink_sink-kitchen')
+node[84] name='kitchen_sink_sink-kitchen.001' mesh=84('kitchen_sink_sink-kitchen.001')
+node[85] name='kitchen_sink_sink-kitchen.002' mesh=85('kitchen_sink_sink-kitchen.002')
+node[86] name='kitchen_sink_sink-kitchen.003' mesh=86('kitchen_sink_sink-kitchen.003')
+node[87] name='kitchen_sink_sink-kitchen.004' mesh=87('kitchen_sink_sink-kitchen.004')
+node[88] name='kitchen_sink_sink-kitchen.005' mesh=88('kitchen_sink_sink-kitchen.005')
+node[89] name='kitchen_sink_sink-kitchen.006' mesh=89('kitchen_sink_sink-kitchen.006')
+node[90] name='kitchen_sink_sink-kitchen.007' mesh=90('kitchen_sink_sink-kitchen.007')
+node[91] name='kitchen_fridge_fridge' mesh=91('kitchen_fridge_fridge')
+node[92] name='kitchen_fridge_fridge.001' mesh=92('kitchen_fridge_fridge.001')
+node[93] name='kitchen_fridge_fridge.002' mesh=93('kitchen_fridge_fridge.002')
+node[94] name='kitchen_fridge_fridge.003' mesh=94('kitchen_fridge_fridge.003')
+node[95] name='kitchen_fridge_fridge.004' mesh=95('kitchen_fridge_fridge.004')
+node[96] name='kitchen_fridge_fridge.005' mesh=96('kitchen_fridge_fridge.005')
+node[97] name='kitchen_dining-table_dining-table' mesh=97('kitchen_dining-table_dining-table')
+node[98] name='kitchen_dining-table_dining-table.001' mesh=98('kitchen_dining-table_dining-table.001')
+node[99] name='kitchen_dining-table_dining-table.002' mesh=99('kitchen_dining-table_dining-table.002')
+node[100] name='kitchen_dining-table_dining-table.003' mesh=100('kitchen_dining-table_dining-table.003')
+node[101] name='kitchen_dining-table_dining-table.004' mesh=101('kitchen_dining-table_dining-table.004')
+node[102] name='kitchen_dining-table_dining-table.005' mesh=102('kitchen_dining-table_dining-table.005')
+node[103] name='kitchen_dining-table_dining-table.006' mesh=103('kitchen_dining-table_dining-table.006')
+node[104] name='kitchen_dining-table_dining-table.007' mesh=104('kitchen_dining-table_dining-table.007')
+node[105] name='kitchen_dining-table_dining-table.008' mesh=105('kitchen_dining-table_dining-table.008')
+node[106] name='kitchen_dining-table_dining-table.009' mesh=106('kitchen_dining-table_dining-table.009')
+node[107] name='kitchen_dining-table_dining-table.010' mesh=107('kitchen_dining-table_dining-table.010')
+node[108] name='kitchen_dining-table_dining-table.011' mesh=108('kitchen_dining-table_dining-table.011')
+node[109] name='kitchen_dining-table_dining-table.012' mesh=109('kitchen_dining-table_dining-table.012')
+node[110] name='kitchen_dining-table_dining-table.013' mesh=110('kitchen_dining-table_dining-table.013')
+node[111] name='kitchen_dining-table_dining-table.014' mesh=111('kitchen_dining-table_dining-table.014')
+node[112] name='kitchen_dining-table_dining-table.015' mesh=112('kitchen_dining-table_dining-table.015')
+node[113] name='kitchen_dining-table_dining-table.016' mesh=113('kitchen_dining-table_dining-table.016')
+node[114] name='kitchen_dining-table_dining-table.017' mesh=114('kitchen_dining-table_dining-table.017')
+node[115] name='kitchen_dining-table_dining-table.018' mesh=115('kitchen_dining-table_dining-table.018')
+node[116] name='kitchen_dining-table_dining-table.019' mesh=116('kitchen_dining-table_dining-table.019')
+node[117] name='kitchen_dining-table_dining-table.020' mesh=117('kitchen_dining-table_dining-table.020')
+node[118] name='kitchen_dining-table_dining-table.021' mesh=118('kitchen_dining-table_dining-table.021')
+node[119] name='kitchen_dining-table_dining-table.022' mesh=119('kitchen_dining-table_dining-table.022')
+node[120] name='kitchen_stool_stool' mesh=120('kitchen_stool_stool')
+node[121] name='kitchen_stool_stool.001' mesh=121('kitchen_stool_stool.001')
+node[122] name='kitchen_stool_stool.002' mesh=122('kitchen_stool_stool.002')
+node[123] name='kitchen_stool_stool.003' mesh=123('kitchen_stool_stool.003')
+node[124] name='kitchen_stool_stool.004' mesh=124('kitchen_stool_stool.004')
+node[125] name='kitchen_stool_stool.005' mesh=125('kitchen_stool_stool.005')
+node[126] name='kitchen_stool_stool.006' mesh=126('kitchen_stool_stool.006')
+node[127] name='kitchen_stool_stool.007' mesh=127('kitchen_stool_stool.007')
+node[128] name='kitchen_stool_stool.008' mesh=128('kitchen_stool_stool.008')
+node[129] name='kitchen_stool_stool.009' mesh=129('kitchen_stool_stool.009')
+node[130] name='kitchen_stool_stool.010' mesh=130('kitchen_stool_stool.010')
+node[131] name='kitchen_stool_stool.011' mesh=131('kitchen_stool_stool.011')
+node[132] name='kitchen_statue-L_entrance-statue' mesh=132('kitchen_statue-L_entrance-statue')
+node[133] name='kitchen_statue-L_entrance-statue.001' mesh=133('kitchen_statue-L_entrance-statue.001')
+node[134] name='kitchen_statue-L_entrance-statue.002' mesh=134('kitchen_statue-L_entrance-statue.002')
+node[135] name='kitchen_statue-L_entrance-statue.003' mesh=135('kitchen_statue-L_entrance-statue.003')
+node[136] name='kitchen_statue-L_entrance-statue.004' mesh=136('kitchen_statue-L_entrance-statue.004')
+node[137] name='kitchen_statue-R_entrance-statue' mesh=137('kitchen_statue-R_entrance-statue')
+node[138] name='kitchen_statue-R_entrance-statue.001' mesh=138('kitchen_statue-R_entrance-statue.001')
+node[139] name='kitchen_statue-R_entrance-statue.002' mesh=139('kitchen_statue-R_entrance-statue.002')
+node[140] name='kitchen_statue-R_entrance-statue.003' mesh=140('kitchen_statue-R_entrance-statue.003')
+node[141] name='kitchen_statue-R_entrance-statue.004' mesh=141('kitchen_statue-R_entrance-statue.004')
+node[142] name='living_rug_squid_rug' mesh=142('living_rug_squid_rug')
+node[143] name='living_sofa_squid_sofa' mesh=143('living_sofa_squid_sofa')
+node[144] name='living_sofa_squid_sofa.001' mesh=144('living_sofa_squid_sofa.001')
+node[145] name='living_sofa_squid_sofa.002' mesh=145('living_sofa_squid_sofa.002')
+node[146] name='living_sofa_squid_sofa.003' mesh=146('living_sofa_squid_sofa.003')
+node[147] name='living_sofa_squid_sofa.004' mesh=147('living_sofa_squid_sofa.004')
+node[148] name='living_sofa_squid_sofa.005' mesh=148('living_sofa_squid_sofa.005')
+node[149] name='living_sofa_squid_sofa.006' mesh=149('living_sofa_squid_sofa.006')
+node[150] name='living_sofa_squid_sofa.007' mesh=150('living_sofa_squid_sofa.007')
+node[151] name='living_sofa_squid_sofa.008' mesh=151('living_sofa_squid_sofa.008')
+node[152] name='living_sofa_squid_sofa.009' mesh=152('living_sofa_squid_sofa.009')
+node[153] name='living_sofa_squid_sofa.010' mesh=153('living_sofa_squid_sofa.010')
+node[154] name='living_sofa_squid_sofa.011' mesh=154('living_sofa_squid_sofa.011')
+node[155] name='living_armchair_squid_armchair' mesh=155('living_armchair_squid_armchair')
+node[156] name='living_armchair_squid_armchair.001' mesh=156('living_armchair_squid_armchair.001')
+node[157] name='living_armchair_squid_armchair.002' mesh=157('living_armchair_squid_armchair.002')
+node[158] name='living_armchair_squid_armchair.003' mesh=158('living_armchair_squid_armchair.003')
+node[159] name='living_armchair_squid_armchair.004' mesh=159('living_armchair_squid_armchair.004')
+node[160] name='living_armchair_squid_armchair.005' mesh=160('living_armchair_squid_armchair.005')
+node[161] name='living_armchair_squid_armchair.006' mesh=161('living_armchair_squid_armchair.006')
+node[162] name='living_armchair_squid_armchair.007' mesh=162('living_armchair_squid_armchair.007')
+node[163] name='living_armchair_squid_armchair.008' mesh=163('living_armchair_squid_armchair.008')
+node[164] name='living_coffee-table_squid_coffee-table' mesh=164('living_coffee-table_squid_coffee-table')
+node[165] name='living_old-tv_squid_old-tv' mesh=165('living_old-tv_squid_old-tv')
+node[166] name='living_old-tv_squid_old-tv.001' mesh=166('living_old-tv_squid_old-tv.001')
+node[167] name='living_old-tv_squid_old-tv.002' mesh=167('living_old-tv_squid_old-tv.002')
+node[168] name='living_old-tv_squid_old-tv.003' mesh=168('living_old-tv_squid_old-tv.003')
+node[169] name='living_old-tv_squid_old-tv.004' mesh=169('living_old-tv_squid_old-tv.004')
+node[170] name='living_old-tv_squid_old-tv.005' mesh=170('living_old-tv_squid_old-tv.005')
+node[171] name='living_old-tv_squid_old-tv.006' mesh=171('living_old-tv_squid_old-tv.006')
+node[172] name='living_bookshelf_squid_bookshelf' mesh=172('living_bookshelf_squid_bookshelf')
+node[173] name='living_bookshelf_squid_bookshelf.001' mesh=173('living_bookshelf_squid_bookshelf.001')
+node[174] name='living_bookshelf_squid_bookshelf.002' mesh=174('living_bookshelf_squid_bookshelf.002')
+node[175] name='living_bookshelf_squid_bookshelf.003' mesh=175('living_bookshelf_squid_bookshelf.003')
+node[176] name='living_bookshelf_squid_bookshelf.004' mesh=176('living_bookshelf_squid_bookshelf.004')
+node[177] name='living_bookshelf_squid_bookshelf.005' mesh=177('living_bookshelf_squid_bookshelf.005')
+node[178] name='living_bookshelf_squid_bookshelf.006' mesh=178('living_bookshelf_squid_bookshelf.006')
+node[179] name='living_bookshelf_squid_bookshelf.007' mesh=179('living_bookshelf_squid_bookshelf.007')
+node[180] name='living_bookshelf_squid_bookshelf.008' mesh=180('living_bookshelf_squid_bookshelf.008')
+node[181] name='living_bookshelf_squid_bookshelf.009' mesh=181('living_bookshelf_squid_bookshelf.009')
+node[182] name='living_bookshelf_squid_bookshelf.010' mesh=182('living_bookshelf_squid_bookshelf.010')
+node[183] name='living_bookshelf_squid_bookshelf.011' mesh=183('living_bookshelf_squid_bookshelf.011')
+node[184] name='living_bookshelf_squid_bookshelf.012' mesh=184('living_bookshelf_squid_bookshelf.012')
+node[185] name='living_bookshelf_squid_bookshelf.013' mesh=185('living_bookshelf_squid_bookshelf.013')
+node[186] name='living_bookshelf_squid_bookshelf.014' mesh=186('living_bookshelf_squid_bookshelf.014')
+node[187] name='living_bookshelf_squid_bookshelf.015' mesh=187('living_bookshelf_squid_bookshelf.015')
+node[188] name='living_bookshelf_squid_bookshelf.016' mesh=188('living_bookshelf_squid_bookshelf.016')
+node[189] name='living_bookshelf_squid_bookshelf.017' mesh=189('living_bookshelf_squid_bookshelf.017')
+node[190] name='living_bookshelf_squid_bookshelf.018' mesh=190('living_bookshelf_squid_bookshelf.018')
+node[191] name='living_bookshelf_squid_bookshelf.019' mesh=191('living_bookshelf_squid_bookshelf.019')
+node[192] name='living_bookshelf_squid_bookshelf.020' mesh=192('living_bookshelf_squid_bookshelf.020')
+node[193] name='living_bookshelf_squid_bookshelf.021' mesh=193('living_bookshelf_squid_bookshelf.021')
+node[194] name='living_bookshelf_squid_bookshelf.022' mesh=194('living_bookshelf_squid_bookshelf.022')
+node[195] name='living_bookshelf_squid_bookshelf.023' mesh=195('living_bookshelf_squid_bookshelf.023')
+node[196] name='living_bookshelf_squid_bookshelf.024' mesh=196('living_bookshelf_squid_bookshelf.024')
+node[197] name='living_bookshelf_squid_bookshelf.025' mesh=197('living_bookshelf_squid_bookshelf.025')
+node[198] name='living_bookshelf_squid_bookshelf.026' mesh=198('living_bookshelf_squid_bookshelf.026')
+node[199] name='living_bookshelf_squid_bookshelf.027' mesh=199('living_bookshelf_squid_bookshelf.027')
+node[200] name='living_bookshelf_squid_bookshelf.028' mesh=200('living_bookshelf_squid_bookshelf.028')
+node[201] name='living_bookshelf_squid_bookshelf.029' mesh=201('living_bookshelf_squid_bookshelf.029')
+node[202] name='living_bookshelf_squid_bookshelf.030' mesh=202('living_bookshelf_squid_bookshelf.030')
+node[203] name='living_bookshelf_squid_bookshelf.031' mesh=203('living_bookshelf_squid_bookshelf.031')
+node[204] name='living_bookshelf_squid_bookshelf.032' mesh=204('living_bookshelf_squid_bookshelf.032')
+node[205] name='living_bookshelf_squid_bookshelf.033' mesh=205('living_bookshelf_squid_bookshelf.033')
+node[206] name='living_bookshelf_squid_bookshelf.034' mesh=206('living_bookshelf_squid_bookshelf.034')
+node[207] name='living_bookshelf_squid_bookshelf.035' mesh=207('living_bookshelf_squid_bookshelf.035')
+node[208] name='living_bookshelf_squid_bookshelf.036' mesh=208('living_bookshelf_squid_bookshelf.036')
+node[209] name='living_bookshelf_squid_bookshelf.037' mesh=209('living_bookshelf_squid_bookshelf.037')
+node[210] name='living_bookshelf_squid_bookshelf.038' mesh=210('living_bookshelf_squid_bookshelf.038')
+node[211] name='living_bookshelf_squid_bookshelf.039' mesh=211('living_bookshelf_squid_bookshelf.039')
+node[212] name='living_bookshelf_squid_bookshelf.040' mesh=212('living_bookshelf_squid_bookshelf.040')
+node[213] name='living_bookshelf_squid_bookshelf.041' mesh=213('living_bookshelf_squid_bookshelf.041')
+node[214] name='living_bookshelf_squid_bookshelf.042' mesh=214('living_bookshelf_squid_bookshelf.042')
+node[215] name='living_bookshelf_squid_bookshelf.043' mesh=215('living_bookshelf_squid_bookshelf.043')
+node[216] name='living_bookshelf_squid_bookshelf.044' mesh=216('living_bookshelf_squid_bookshelf.044')
+node[217] name='living_bookshelf_squid_bookshelf.045' mesh=217('living_bookshelf_squid_bookshelf.045')
+node[218] name='living_bookshelf_squid_bookshelf.046' mesh=218('living_bookshelf_squid_bookshelf.046')
+node[219] name='living_plant_squid_plant' mesh=219('living_plant_squid_plant')
+node[220] name='living_plant_squid_plant.001' mesh=220('living_plant_squid_plant.001')
+node[221] name='living_plant_squid_plant.002' mesh=221('living_plant_squid_plant.002')
+node[222] name='living_plant_squid_plant.003' mesh=222('living_plant_squid_plant.003')
+node[223] name='living_plant_squid_plant.004' mesh=223('living_plant_squid_plant.004')
+node[224] name='living_plant_squid_plant.005' mesh=224('living_plant_squid_plant.005')
+node[225] name='living_plant_squid_plant.006' mesh=225('living_plant_squid_plant.006')
+node[226] name='living_plant_squid_plant.007' mesh=226('living_plant_squid_plant.007')
+node[227] name='living_plant_squid_plant.008' mesh=227('living_plant_squid_plant.008')
+node[228] name='living_plant_squid_plant.009' mesh=228('living_plant_squid_plant.009')
+node[229] name='living_plant_squid_plant.010' mesh=229('living_plant_squid_plant.010')
+node[230] name='living_wall-picture_squid_wall-picture' mesh=230('living_wall-picture_squid_wall-picture')
+node[231] name='living_wall-picture_squid_wall-picture.001' mesh=231('living_wall-picture_squid_wall-picture.001')
+node[232] name='living_wall-picture_squid_wall-picture.002' mesh=232('living_wall-picture_squid_wall-picture.002')
+node[233] name='living_wall-picture_squid_wall-picture.003' mesh=233('living_wall-picture_squid_wall-picture.003')
+node[234] name='living_wall-picture_squid_wall-picture.004' mesh=234('living_wall-picture_squid_wall-picture.004')
+node[235] name='living_wall-picture_squid_wall-picture.005' mesh=235('living_wall-picture_squid_wall-picture.005')
+node[236] name='bedroom_bed_bed' mesh=236('bedroom_bed_bed')
+node[237] name='bedroom_bed_bed.001' mesh=237('bedroom_bed_bed.001')
+node[238] name='bedroom_bed_bed.002' mesh=238('bedroom_bed_bed.002')
+node[239] name='bedroom_bed_bed.003' mesh=239('bedroom_bed_bed.003')
+node[240] name='bedroom_bed_bed.004' mesh=240('bedroom_bed_bed.004')
+node[241] name='bedroom_bed_bed.005' mesh=241('bedroom_bed_bed.005')
+node[242] name='bedroom_bed_bed.006' mesh=242('bedroom_bed_bed.006')
+node[243] name='bedroom_bed_bed.007' mesh=243('bedroom_bed_bed.007')
+node[244] name='bedroom_bed_bed.008' mesh=244('bedroom_bed_bed.008')
+node[245] name='bedroom_bed_bed.009' mesh=245('bedroom_bed_bed.009')
+node[246] name='bedroom_bed_bed.010' mesh=246('bedroom_bed_bed.010')
+node[247] name='bedroom_bed_bed.011' mesh=247('bedroom_bed_bed.011')
+node[248] name='bedroom_bed_bed.012' mesh=248('bedroom_bed_bed.012')
+node[249] name='bedroom_bed_bed.013' mesh=249('bedroom_bed_bed.013')
+node[250] name='bedroom_bed_bed.014' mesh=250('bedroom_bed_bed.014')
+node[251] name='bedroom_bed_bed.015' mesh=251('bedroom_bed_bed.015')
+node[252] name='bedroom_bed_bed.016' mesh=252('bedroom_bed_bed.016')
+node[253] name='bedroom_bed_bed.017' mesh=253('bedroom_bed_bed.017')
+node[254] name='bedroom_bed_bed.018' mesh=254('bedroom_bed_bed.018')
+node[255] name='bedroom_bed_bed.019' mesh=255('bedroom_bed_bed.019')
+node[256] name='bedroom_bed_bed.020' mesh=256('bedroom_bed_bed.020')
+node[257] name='bedroom_bed_bed.021' mesh=257('bedroom_bed_bed.021')
+node[258] name='bedroom_bed_bed.022' mesh=258('bedroom_bed_bed.022')
+node[259] name='bedroom_bed_bed.023' mesh=259('bedroom_bed_bed.023')
+node[260] name='bedroom_bed_bed.024' mesh=260('bedroom_bed_bed.024')
+node[261] name='bedroom_bed_bed.025' mesh=261('bedroom_bed_bed.025')
+node[262] name='bedroom_bed_bed.026' mesh=262('bedroom_bed_bed.026')
+node[263] name='bedroom_bed_bed.027' mesh=263('bedroom_bed_bed.027')
+node[264] name='bedroom_bed_bed.028' mesh=264('bedroom_bed_bed.028')
+node[265] name='bedroom_bed_bed.029' mesh=265('bedroom_bed_bed.029')
+node[266] name='bedroom_bed_bed.030' mesh=266('bedroom_bed_bed.030')
+node[267] name='bedroom_bed_bed.031' mesh=267('bedroom_bed_bed.031')
+node[268] name='bedroom_bed_bed.032' mesh=268('bedroom_bed_bed.032')
+node[269] name='bedroom_bed_bed.033' mesh=269('bedroom_bed_bed.033')
+node[270] name='bedroom_bed_bed.034' mesh=270('bedroom_bed_bed.034')
+node[271] name='bedroom_bed_bed.035' mesh=271('bedroom_bed_bed.035')
+node[272] name='bedroom_nightstand-L_nightstand' mesh=272('bedroom_nightstand-L_nightstand')
+node[273] name='bedroom_nightstand-L_nightstand.001' mesh=273('bedroom_nightstand-L_nightstand.001')
+node[274] name='bedroom_nightstand-L_nightstand.002' mesh=274('bedroom_nightstand-L_nightstand.002')
+node[275] name='bedroom_nightstand-L_nightstand.003' mesh=275('bedroom_nightstand-L_nightstand.003')
+node[276] name='bedroom_nightstand-L_nightstand.004' mesh=276('bedroom_nightstand-L_nightstand.004')
+node[277] name='bedroom_nightstand-L_nightstand.005' mesh=277('bedroom_nightstand-L_nightstand.005')
+node[278] name='bedroom_nightstand-R_nightstand' mesh=278('bedroom_nightstand-R_nightstand')
+node[279] name='bedroom_nightstand-R_nightstand.001' mesh=279('bedroom_nightstand-R_nightstand.001')
+node[280] name='bedroom_nightstand-R_nightstand.002' mesh=280('bedroom_nightstand-R_nightstand.002')
+node[281] name='bedroom_nightstand-R_nightstand.003' mesh=281('bedroom_nightstand-R_nightstand.003')
+node[282] name='bedroom_nightstand-R_nightstand.004' mesh=282('bedroom_nightstand-R_nightstand.004')
+node[283] name='bedroom_nightstand-R_nightstand.005' mesh=283('bedroom_nightstand-R_nightstand.005')
+node[284] name='bedroom_dresser_dresser' mesh=284('bedroom_dresser_dresser')
+node[285] name='bedroom_dresser_dresser.001' mesh=285('bedroom_dresser_dresser.001')
+node[286] name='bedroom_dresser_dresser.002' mesh=286('bedroom_dresser_dresser.002')
+node[287] name='bedroom_dresser_dresser.003' mesh=287('bedroom_dresser_dresser.003')
+node[288] name='bedroom_dresser_dresser.004' mesh=288('bedroom_dresser_dresser.004')
+node[289] name='bedroom_dresser_dresser.005' mesh=289('bedroom_dresser_dresser.005')
+node[290] name='bedroom_dresser_dresser.006' mesh=290('bedroom_dresser_dresser.006')
+node[291] name='bedroom_dresser_dresser.007' mesh=291('bedroom_dresser_dresser.007')
+node[292] name='bedroom_bed-rug_bed-rug' mesh=292('bedroom_bed-rug_bed-rug')
+node[293] name='bath_bathtub_bathtub' mesh=293('bath_bathtub_bathtub')
+node[294] name='bath_bathtub_bathtub.001' mesh=294('bath_bathtub_bathtub.001')
+node[295] name='bath_bathtub_bathtub.002' mesh=295('bath_bathtub_bathtub.002')
+node[296] name='bath_bathtub_bathtub.003' mesh=296('bath_bathtub_bathtub.003')
+node[297] name='bath_bathtub_bathtub.004' mesh=297('bath_bathtub_bathtub.004')
+node[298] name='bath_bathtub_bathtub.005' mesh=298('bath_bathtub_bathtub.005')
+node[299] name='bath_bathtub_bathtub.006' mesh=299('bath_bathtub_bathtub.006')
+node[300] name='bath_bathtub_bathtub.007' mesh=300('bath_bathtub_bathtub.007')
+node[301] name='bath_bathtub_bathtub.008' mesh=301('bath_bathtub_bathtub.008')
+node[302] name='bath_bathtub_bathtub.009' mesh=302('bath_bathtub_bathtub.009')
+node[303] name='bath_bathtub_bathtub.010' mesh=303('bath_bathtub_bathtub.010')
+node[304] name='bath_bathtub_bathtub.011' mesh=304('bath_bathtub_bathtub.011')
+node[305] name='bath_bathtub_bathtub.012' mesh=305('bath_bathtub_bathtub.012')
+node[306] name='bath_bathtub_bathtub.013' mesh=306('bath_bathtub_bathtub.013')
+node[307] name='bath_faucet_faucet' mesh=307('bath_faucet_faucet')
+node[308] name='bath_faucet_faucet.001' mesh=308('bath_faucet_faucet.001')
+node[309] name='bath_faucet_faucet.002' mesh=309('bath_faucet_faucet.002')
+node[310] name='bath_faucet_faucet.003' mesh=310('bath_faucet_faucet.003')
+node[311] name='bath_washbasin_washbasin' mesh=311('bath_washbasin_washbasin')
+node[312] name='bath_washbasin_washbasin.001' mesh=312('bath_washbasin_washbasin.001')
+node[313] name='bath_washbasin_washbasin.002' mesh=313('bath_washbasin_washbasin.002')
+node[314] name='bath_washbasin_washbasin.003' mesh=314('bath_washbasin_washbasin.003')
+node[315] name='bath_washbasin_washbasin.004' mesh=315('bath_washbasin_washbasin.004')
+node[316] name='bath_shower-curtain_shower-curtain' mesh=316('bath_shower-curtain_shower-curtain')
+node[317] name='bath_shower-curtain_shower-curtain.001' mesh=317('bath_shower-curtain_shower-curtain.001')
+node[318] name='art_plinth-1_art-plinth' mesh=318('art_plinth-1_art-plinth')
+node[319] name='art_plinth-1_art-plinth.001' mesh=319('art_plinth-1_art-plinth.001')
+node[320] name='art_plinth-1_art-plinth.002' mesh=320('art_plinth-1_art-plinth.002')
+node[321] name='art_plinth-2_art-plinth' mesh=321('art_plinth-2_art-plinth')
+node[322] name='art_plinth-2_art-plinth.001' mesh=322('art_plinth-2_art-plinth.001')
+node[323] name='art_plinth-2_art-plinth.002' mesh=323('art_plinth-2_art-plinth.002')
+node[324] name='art_sculpture_art-sculpture' mesh=324('art_sculpture_art-sculpture')
+node[325] name='art_sculpture_art-sculpture.001' mesh=325('art_sculpture_art-sculpture.001')
+node[326] name='art_sculpture_art-sculpture.002' mesh=326('art_sculpture_art-sculpture.002')
+node[327] name='art_sculpture_art-sculpture.003' mesh=327('art_sculpture_art-sculpture.003')
+node[328] name='art_sculpture_art-sculpture.004' mesh=328('art_sculpture_art-sculpture.004')
+=== meshes (name, local bbox per prim) ===
+mesh[0] name='door_frame'
+  prim0 tris=52 min=[-0.525, 0.15, 1.47] max=[0.525, 2.025, 1.57]
+mesh[1] name='door_panel'
+  prim0 tris=52 min=[-0.46, 0.17, 1.53] max=[0.46, 1.95, 1.59]
+mesh[2] name='floor_1'
+  prim0 tris=292 min=[-1.341, 0, -1.341] max=[1.341, 0.15, 1.341]
+mesh[3] name='floor_2'
+  prim0 tris=292 min=[-1.279, 1.08, -1.279] max=[1.279, 1.2, 1.279]
+mesh[4] name='floor_3'
+  prim0 tris=292 min=[-1.208, 2.28, -1.208] max=[1.208, 2.4, 1.208]
+mesh[5] name='floor_4'
+  prim0 tris=292 min=[-1.137, 3.48, -1.138] max=[1.137, 3.6, 1.138]
+mesh[6] name='stairs_step0'
+  prim0 tris=12 min=[0.857, 0.155, -0.091] max=[1.189, 0.2, 0.208]
+mesh[7] name='stairs_step1'
+  prim0 tris=12 min=[0.875, 0.247, -0.119] max=[1.24, 0.292, 0.049]
+mesh[8] name='stairs_step2'
+  prim0 tris=12 min=[0.874, 0.34, -0.309] max=[1.239, 0.385, -0.124]
+mesh[9] name='stairs_step3'
+  prim0 tris=12 min=[0.855, 0.432, -0.462] max=[1.177, 0.477, -0.152]
+mesh[10] name='stairs_step4'
+  prim0 tris=12 min=[0.828, 0.524, -0.536] max=[1.034, 0.569, -0.172]
+mesh[11] name='stairs_step5'
+  prim0 tris=12 min=[0.678, 0.617, -0.539] max=[0.841, 0.662, -0.176]
+mesh[12] name='stairs_step6'
+  prim0 tris=12 min=[0.51, 0.709, -0.501] max=[0.795, 0.754, -0.161]
+mesh[13] name='stairs_step7'
+  prim0 tris=12 min=[0.414, 0.801, -0.376] max=[0.772, 0.846, -0.135]
+mesh[14] name='stairs_step8'
+  prim0 tris=12 min=[0.406, 0.893, -0.192] max=[0.762, 0.938, -0.026]
+mesh[15] name='stairs_step9'
+  prim0 tris=12 min=[0.42, 0.986, -0.102] max=[0.774, 1.031, 0.153]
+mesh[16] name='stairs_step10'
+  prim0 tris=12 min=[0.526, 1.078, -0.077] max=[0.798, 1.123, 0.27]
+mesh[17] name='stairs_step11'
+  prim0 tris=12 min=[0.699, 1.17, -0.063] max=[0.864, 1.215, 0.298]
+mesh[18] name='stairs_step12'
+  prim0 tris=12 min=[0.831, 1.263, -0.07] max=[1.053, 1.308, 0.292]
+mesh[19] name='stairs_step13'
+  prim0 tris=12 min=[0.857, 1.355, -0.091] max=[1.189, 1.4, 0.208]
+mesh[20] name='stairs_step14'
+  prim0 tris=12 min=[0.875, 1.447, -0.119] max=[1.24, 1.492, 0.049]
+mesh[21] name='stairs_step15'
+  prim0 tris=12 min=[0.874, 1.54, -0.309] max=[1.239, 1.585, -0.124]
+mesh[22] name='stairs_step16'
+  prim0 tris=12 min=[0.855, 1.632, -0.462] max=[1.177, 1.677, -0.152]
+mesh[23] name='stairs_step17'
+  prim0 tris=12 min=[0.828, 1.724, -0.536] max=[1.034, 1.769, -0.172]
+mesh[24] name='stairs_step18'
+  prim0 tris=12 min=[0.678, 1.817, -0.539] max=[0.841, 1.862, -0.176]
+mesh[25] name='stairs_step19'
+  prim0 tris=12 min=[0.51, 1.909, -0.501] max=[0.795, 1.954, -0.161]
+mesh[26] name='stairs_step20'
+  prim0 tris=12 min=[0.414, 2.001, -0.376] max=[0.772, 2.046, -0.135]
+mesh[27] name='stairs_step21'
+  prim0 tris=12 min=[0.406, 2.093, -0.192] max=[0.762, 2.138, -0.026]
+mesh[28] name='stairs_step22'
+  prim0 tris=12 min=[0.42, 2.186, -0.102] max=[0.774, 2.231, 0.153]
+mesh[29] name='stairs_step23'
+  prim0 tris=12 min=[0.526, 2.278, -0.077] max=[0.798, 2.323, 0.27]
+mesh[30] name='stairs_step24'
+  prim0 tris=12 min=[0.699, 2.37, -0.063] max=[0.864, 2.415, 0.298]
+mesh[31] name='stairs_step25'
+  prim0 tris=12 min=[0.831, 2.463, -0.07] max=[1.053, 2.508, 0.292]
+mesh[32] name='stairs_step26'
+  prim0 tris=12 min=[0.857, 2.555, -0.091] max=[1.189, 2.6, 0.208]
+mesh[33] name='stairs_step27'
+  prim0 tris=12 min=[0.875, 2.647, -0.119] max=[1.24, 2.692, 0.049]
+mesh[34] name='stairs_step28'
+  prim0 tris=12 min=[0.874, 2.74, -0.309] max=[1.239, 2.785, -0.124]
+mesh[35] name='stairs_step29'
+  prim0 tris=12 min=[0.855, 2.832, -0.462] max=[1.177, 2.877, -0.152]
+mesh[36] name='stairs_step30'
+  prim0 tris=12 min=[0.828, 2.924, -0.536] max=[1.034, 2.969, -0.172]
+mesh[37] name='stairs_step31'
+  prim0 tris=12 min=[0.678, 3.017, -0.539] max=[0.841, 3.062, -0.176]
+mesh[38] name='stairs_step32'
+  prim0 tris=12 min=[0.51, 3.109, -0.501] max=[0.795, 3.154, -0.161]
+mesh[39] name='stairs_step33'
+  prim0 tris=12 min=[0.414, 3.201, -0.376] max=[0.772, 3.246, -0.135]
+mesh[40] name='stairs_step34'
+  prim0 tris=12 min=[0.406, 3.293, -0.192] max=[0.762, 3.338, -0.026]
+mesh[41] name='stairs_step35'
+  prim0 tris=12 min=[0.42, 3.386, -0.102] max=[0.774, 3.431, 0.153]
+mesh[42] name='stairs_step36'
+  prim0 tris=12 min=[0.526, 3.478, -0.077] max=[0.798, 3.523, 0.27]
+mesh[43] name='stairs_step37'
+  prim0 tris=12 min=[0.699, 3.57, -0.063] max=[0.864, 3.615, 0.298]
+mesh[44] name='stairs_step38'
+  prim0 tris=12 min=[0.831, 3.663, -0.07] max=[1.053, 3.708, 0.292]
+mesh[45] name='stairs_pole'
+  prim0 tris=44 min=[0.77, 0.15, -0.17] max=[0.87, 3.6, -0.07]
+mesh[46] name='stairs_handrail'
+  prim0 tris=1264 min=[0.375, 0.875, -0.565] max=[1.265, 4.525, 0.325]
+mesh[47] name='stairs_landing_0.15'
+  prim0 tris=12 min=[0.57, 0.15, -0.37] max=[1.07, 0.2, 0.13]
+mesh[48] name='stairs_landing_1.2'
+  prim0 tris=12 min=[0.57, 1.2, -0.37] max=[1.07, 1.25, 0.13]
+mesh[49] name='stairs_landing_2.4'
+  prim0 tris=12 min=[0.57, 2.4, -0.37] max=[1.07, 2.45, 0.13]
+mesh[50] name='stairs_landing_3.6'
+  prim0 tris=12 min=[0.57, 3.6, -0.37] max=[1.07, 3.65, 0.13]
+mesh[51] name='door_handle'
+  prim0 tris=12 min=[0.34, 0.79, 1.575] max=[0.38, 0.91, 1.625]
+mesh[52] name='kitchen_cabinets_cabinets'
+  prim0 tris=188 min=[-1.25, 0.15, -1.42] max=[0.15, 0.23, -0.96]
+mesh[53] name='kitchen_cabinets_cabinets.001'
+  prim0 tris=188 min=[-1.3, 0.23, -1.425] max=[0.2, 1.01, -0.875]
+mesh[54] name='kitchen_cabinets_cabinets.002'
+  prim0 tris=188 min=[-1.33, 1.01, -1.45] max=[0.23, 1.05, -0.85]
+mesh[55] name='kitchen_cabinets_cabinets.003'
+  prim0 tris=188 min=[-1.273, 0.29, -0.879] max=[-0.938, 0.91, -0.855]
+mesh[56] name='kitchen_cabinets_cabinets.004'
+  prim0 tris=188 min=[-1.24, 0.35, -0.859] max=[-0.97, 0.85, -0.847]
+mesh[57] name='kitchen_cabinets_cabinets.005'
+  prim0 tris=44 min=[-0.999, 0.686, -0.85] max=[-0.971, 0.714, -0.82]
+mesh[58] name='kitchen_cabinets_cabinets.006'
+  prim0 tris=188 min=[-0.903, 0.29, -0.879] max=[-0.567, 0.91, -0.855]
+mesh[59] name='kitchen_cabinets_cabinets.007'
+  prim0 tris=188 min=[-0.87, 0.35, -0.859] max=[-0.6, 0.85, -0.847]
+mesh[60] name='kitchen_cabinets_cabinets.008'
+  prim0 tris=44 min=[-0.869, 0.686, -0.85] max=[-0.841, 0.714, -0.82]
+mesh[61] name='kitchen_cabinets_cabinets.009'
+  prim0 tris=188 min=[-0.533, 0.29, -0.879] max=[-0.197, 0.91, -0.855]
+mesh[62] name='kitchen_cabinets_cabinets.010'
+  prim0 tris=188 min=[-0.5, 0.35, -0.859] max=[-0.23, 0.85, -0.847]
+mesh[63] name='kitchen_cabinets_cabinets.011'
+  prim0 tris=44 min=[-0.259, 0.686, -0.85] max=[-0.231, 0.714, -0.82]
+mesh[64] name='kitchen_cabinets_cabinets.012'
+  prim0 tris=188 min=[-0.163, 0.29, -0.879] max=[0.173, 0.91, -0.855]
+mesh[65] name='kitchen_cabinets_cabinets.013'
+  prim0 tris=188 min=[-0.13, 0.35, -0.859] max=[0.14, 0.85, -0.847]
+mesh[66] name='kitchen_cabinets_cabinets.014'
+  prim0 tris=44 min=[-0.129, 0.686, -0.85] max=[-0.101, 0.714, -0.82]
+mesh[67] name='kitchen_stove_stove'
+  prim0 tris=188 min=[-1.075, 0.15, -1.425] max=[-0.625, 1.05, -0.875]
+mesh[68] name='kitchen_stove_stove.001'
+  prim0 tris=188 min=[-1.06, 1.033, -1.41] max=[-0.64, 1.058, -0.89]
+mesh[69] name='kitchen_stove_stove.002'
+  prim0 tris=76 min=[-1.035, 1.056, -1.045] max=[-0.925, 1.068, -0.935]
+mesh[70] name='kitchen_stove_stove.003'
+  prim0 tris=60 min=[-1.01, 1.062, -1.02] max=[-0.95, 1.074, -0.96]
+mesh[71] name='kitchen_stove_stove.004'
+  prim0 tris=76 min=[-1.035, 1.056, -1.365] max=[-0.925, 1.068, -1.255]
+mesh[72] name='kitchen_stove_stove.005'
+  prim0 tris=60 min=[-1.01, 1.062, -1.34] max=[-0.95, 1.074, -1.28]
+mesh[73] name='kitchen_stove_stove.006'
+  prim0 tris=76 min=[-0.775, 1.056, -1.045] max=[-0.665, 1.068, -0.935]
+mesh[74] name='kitchen_stove_stove.007'
+  prim0 tris=60 min=[-0.75, 1.062, -1.02] max=[-0.69, 1.074, -0.96]
+mesh[75] name='kitchen_stove_stove.008'
+  prim0 tris=76 min=[-0.775, 1.056, -1.365] max=[-0.665, 1.068, -1.255]
+mesh[76] name='kitchen_stove_stove.009'
+  prim0 tris=60 min=[-0.75, 1.062, -1.34] max=[-0.69, 1.074, -1.28]
+mesh[77] name='kitchen_stove_stove.010'
+  prim0 tris=188 min=[-1.03, 0.29, -0.883] max=[-0.67, 0.67, -0.859]
+mesh[78] name='kitchen_stove_stove.011'
+  prim0 tris=44 min=[-1, 0.656, -0.859] max=[-0.7, 0.684, -0.831]
+mesh[79] name='kitchen_stove_stove.012'
+  prim0 tris=44 min=[-1.02, 0.93, -0.88] max=[-0.98, 0.97, -0.855]
+mesh[80] name='kitchen_stove_stove.013'
+  prim0 tris=44 min=[-0.92, 0.93, -0.88] max=[-0.88, 0.97, -0.855]
+mesh[81] name='kitchen_stove_stove.014'
+  prim0 tris=44 min=[-0.82, 0.93, -0.88] max=[-0.78, 0.97, -0.855]
+mesh[82] name='kitchen_stove_stove.015'
+  prim0 tris=44 min=[-0.72, 0.93, -0.88] max=[-0.68, 0.97, -0.855]
+mesh[83] name='kitchen_sink_sink-kitchen'
+  prim0 tris=12 min=[-0.45, 0.15, -1.42] max=[-0.05, 0.23, -0.96]
+mesh[84] name='kitchen_sink_sink-kitchen.001'
+  prim0 tris=188 min=[-0.475, 0.23, -1.425] max=[-0.025, 1.01, -0.875]
+mesh[85] name='kitchen_sink_sink-kitchen.002'
+  prim0 tris=188 min=[-0.44, 0.29, -0.879] max=[-0.06, 0.91, -0.855]
+mesh[86] name='kitchen_sink_sink-kitchen.003'
+  prim0 tris=188 min=[-0.495, 1.01, -1.45] max=[-0.005, 1.05, -0.85]
+mesh[87] name='kitchen_sink_sink-kitchen.004'
+  prim0 tris=188 min=[-0.43, 1.045, -1.36] max=[-0.07, 1.065, -0.94]
+mesh[88] name='kitchen_sink_sink-kitchen.005'
+  prim0 tris=188 min=[-0.39, 1.02, -1.32] max=[-0.11, 1.07, -0.98]
+mesh[89] name='kitchen_sink_sink-kitchen.006'
+  prim0 tris=52 min=[-0.274, 1.06, -1.355] max=[-0.226, 1.12, -1.305]
+mesh[90] name='kitchen_sink_sink-kitchen.007'
+  prim0 tris=44 min=[-0.264, 1.156, -1.34] max=[-0.236, 1.184, -1.16]
+mesh[91] name='kitchen_fridge_fridge'
+  prim0 tris=188 min=[0.475, 0.15, -1.35] max=[1.025, 1.85, -0.75]
+mesh[92] name='kitchen_fridge_fridge.001'
+  prim0 tris=188 min=[0.495, 1.2, -0.763] max=[1.005, 1.82, -0.733]
+mesh[93] name='kitchen_fridge_fridge.002'
+  prim0 tris=188 min=[0.495, 0.22, -0.763] max=[1.005, 1.18, -0.733]
+mesh[94] name='kitchen_fridge_fridge.003'
+  prim0 tris=12 min=[0.495, 1.162, -0.736] max=[1.005, 1.178, -0.724]
+mesh[95] name='kitchen_fridge_fridge.004'
+  prim0 tris=44 min=[0.954, 1.3, -0.731] max=[0.986, 1.72, -0.699]
+mesh[96] name='kitchen_fridge_fridge.005'
+  prim0 tris=44 min=[0.954, 0.44, -0.731] max=[0.986, 1.1, -0.699]
+mesh[97] name='kitchen_dining-table_dining-table'
+  prim0 tris=188 min=[-0.65, 0.835, -0.65] max=[0.35, 0.905, 0.35]
+mesh[98] name='kitchen_dining-table_dining-table.001'
+  prim0 tris=12 min=[-0.456, 0.903, -0.63] max=[-0.444, 0.909, 0.33]
+mesh[99] name='kitchen_dining-table_dining-table.002'
+  prim0 tris=12 min=[-0.256, 0.903, -0.63] max=[-0.244, 0.909, 0.33]
+mesh[100] name='kitchen_dining-table_dining-table.003'
+  prim0 tris=12 min=[-0.056, 0.903, -0.63] max=[-0.044, 0.909, 0.33]
+mesh[101] name='kitchen_dining-table_dining-table.004'
+  prim0 tris=12 min=[0.144, 0.903, -0.63] max=[0.156, 0.909, 0.33]
+mesh[102] name='kitchen_dining-table_dining-table.005'
+  prim0 tris=60 min=[-0.605, 0.15, 0.235] max=[-0.535, 0.85, 0.305]
+mesh[103] name='kitchen_dining-table_dining-table.006'
+  prim0 tris=60 min=[-0.615, 0.315, 0.225] max=[-0.525, 0.345, 0.315]
+mesh[104] name='kitchen_dining-table_dining-table.007'
+  prim0 tris=60 min=[-0.615, 0.515, 0.225] max=[-0.525, 0.545, 0.315]
+mesh[105] name='kitchen_dining-table_dining-table.008'
+  prim0 tris=60 min=[-0.615, 0.715, 0.225] max=[-0.525, 0.745, 0.315]
+mesh[106] name='kitchen_dining-table_dining-table.009'
+  prim0 tris=60 min=[-0.605, 0.15, -0.605] max=[-0.535, 0.85, -0.535]
+mesh[107] name='kitchen_dining-table_dining-table.010'
+  prim0 tris=60 min=[-0.615, 0.315, -0.615] max=[-0.525, 0.345, -0.525]
+mesh[108] name='kitchen_dining-table_dining-table.011'
+  prim0 tris=60 min=[-0.615, 0.515, -0.615] max=[-0.525, 0.545, -0.525]
+mesh[109] name='kitchen_dining-table_dining-table.012'
+  prim0 tris=60 min=[-0.615, 0.715, -0.615] max=[-0.525, 0.745, -0.525]
+mesh[110] name='kitchen_dining-table_dining-table.013'
+  prim0 tris=60 min=[0.235, 0.15, 0.235] max=[0.305, 0.85, 0.305]
+mesh[111] name='kitchen_dining-table_dining-table.014'
+  prim0 tris=60 min=[0.225, 0.315, 0.225] max=[0.315, 0.345, 0.315]
+mesh[112] name='kitchen_dining-table_dining-table.015'
+  prim0 tris=60 min=[0.225, 0.515, 0.225] max=[0.315, 0.545, 0.315]
+mesh[113] name='kitchen_dining-table_dining-table.016'
+  prim0 tris=60 min=[0.225, 0.715, 0.225] max=[0.315, 0.745, 0.315]
+mesh[114] name='kitchen_dining-table_dining-table.017'
+  prim0 tris=60 min=[0.235, 0.15, -0.605] max=[0.305, 0.85, -0.535]
+mesh[115] name='kitchen_dining-table_dining-table.018'
+  prim0 tris=60 min=[0.225, 0.315, -0.615] max=[0.315, 0.345, -0.525]
+mesh[116] name='kitchen_dining-table_dining-table.019'
+  prim0 tris=60 min=[0.225, 0.515, -0.615] max=[0.315, 0.545, -0.525]
+mesh[117] name='kitchen_dining-table_dining-table.020'
+  prim0 tris=60 min=[0.225, 0.715, -0.615] max=[0.315, 0.745, -0.525]
+mesh[118] name='kitchen_dining-table_dining-table.021'
+  prim0 tris=44 min=[-0.57, 0.332, 0.252] max=[0.27, 0.368, 0.288]
+mesh[119] name='kitchen_dining-table_dining-table.022'
+  prim0 tris=44 min=[-0.57, 0.332, -0.588] max=[0.27, 0.368, -0.552]
+mesh[120] name='kitchen_stool_stool'
+  prim0 tris=284 min=[-0.81, 0.558, -0.31] max=[-0.49, 0.603, 0.01]
+mesh[121] name='kitchen_stool_stool.001'
+  prim0 tris=44 min=[-0.77, 0.15, -0.07] max=[-0.73, 0.55, -0.03]
+mesh[122] name='kitchen_stool_stool.002'
+  prim0 tris=44 min=[-0.57, 0.15, -0.07] max=[-0.53, 0.55, -0.03]
+mesh[123] name='kitchen_stool_stool.003'
+  prim0 tris=44 min=[-0.77, 0.15, -0.27] max=[-0.73, 0.55, -0.23]
+mesh[124] name='kitchen_stool_stool.004'
+  prim0 tris=44 min=[-0.57, 0.15, -0.27] max=[-0.53, 0.55, -0.23]
+mesh[125] name='kitchen_stool_stool.005'
+  prim0 tris=76 min=[-0.77, 0.323, -0.27] max=[-0.53, 0.338, -0.03]
+mesh[126] name='kitchen_stool_stool.006'
+  prim0 tris=284 min=[0.09, 0.558, -0.31] max=[0.41, 0.603, 0.01]
+mesh[127] name='kitchen_stool_stool.007'
+  prim0 tris=44 min=[0.13, 0.15, -0.07] max=[0.17, 0.55, -0.03]
+mesh[128] name='kitchen_stool_stool.008'
+  prim0 tris=44 min=[0.33, 0.15, -0.07] max=[0.37, 0.55, -0.03]
+mesh[129] name='kitchen_stool_stool.009'
+  prim0 tris=44 min=[0.13, 0.15, -0.27] max=[0.17, 0.55, -0.23]
+mesh[130] name='kitchen_stool_stool.010'
+  prim0 tris=44 min=[0.33, 0.15, -0.27] max=[0.37, 0.55, -0.23]
+mesh[131] name='kitchen_stool_stool.011'
+  prim0 tris=76 min=[0.13, 0.323, -0.27] max=[0.37, 0.338, -0.03]
+mesh[132] name='kitchen_statue-L_entrance-statue'
+  prim0 tris=188 min=[-0.79, 0.15, 1.31] max=[-0.51, 0.33, 1.59]
+mesh[133] name='kitchen_statue-L_entrance-statue.001'
+  prim0 tris=60 min=[-0.74, 0.37, 1.36] max=[-0.56, 0.57, 1.54]
+mesh[134] name='kitchen_statue-L_entrance-statue.002'
+  prim0 tris=720 min=[-0.78, 0.57, 1.34] max=[-0.52, 0.97, 1.56]
+mesh[135] name='kitchen_statue-L_entrance-statue.003'
+  prim0 tris=720 min=[-0.685, 0.71, 1.48] max=[-0.615, 0.79, 1.62]
+mesh[136] name='kitchen_statue-L_entrance-statue.004'
+  prim0 tris=188 min=[-0.73, 0.855, 1.54] max=[-0.57, 0.885, 1.57]
+mesh[137] name='kitchen_statue-R_entrance-statue'
+  prim0 tris=188 min=[0.51, 0.15, 1.31] max=[0.79, 0.33, 1.59]
+mesh[138] name='kitchen_statue-R_entrance-statue.001'
+  prim0 tris=60 min=[0.56, 0.37, 1.36] max=[0.74, 0.57, 1.54]
+mesh[139] name='kitchen_statue-R_entrance-statue.002'
+  prim0 tris=720 min=[0.52, 0.57, 1.34] max=[0.78, 0.97, 1.56]
+mesh[140] name='kitchen_statue-R_entrance-statue.003'
+  prim0 tris=720 min=[0.615, 0.71, 1.48] max=[0.685, 0.79, 1.62]
+mesh[141] name='kitchen_statue-R_entrance-statue.004'
+  prim0 tris=188 min=[0.57, 0.855, 1.54] max=[0.73, 0.885, 1.57]
+mesh[142] name='living_rug_squid_rug'
+  prim0 tris=29100 min=[-1.05, 1.205, -0.75] max=[0.35, 1.225, 0.45]
+mesh[143] name='living_sofa_squid_sofa'
+  prim0 tris=300 min=[-0.86, 1.36, -1] max=[-0.24, 1.42, -0.7]
+mesh[144] name='living_sofa_squid_sofa.001'
+  prim0 tris=300 min=[-1.062, 1.463, -0.985] max=[-0.858, 1.538, -0.715]
+mesh[145] name='living_sofa_squid_sofa.002'
+  prim0 tris=300 min=[-0.653, 1.463, -0.985] max=[-0.448, 1.538, -0.715]
+mesh[146] name='living_sofa_squid_sofa.003'
+  prim0 tris=300 min=[-0.243, 1.463, -0.985] max=[-0.038, 1.538, -0.715]
+mesh[147] name='living_sofa_squid_sofa.004'
+  prim0 tris=300 min=[-0.865, 1.63, -1.165] max=[-0.235, 1.93, -1.055]
+mesh[148] name='living_sofa_squid_sofa.005'
+  prim0 tris=300 min=[-1.205, 1.5, -1] max=[-1.135, 1.62, -0.7]
+mesh[149] name='living_sofa_squid_sofa.006'
+  prim0 tris=300 min=[0.035, 1.5, -1] max=[0.105, 1.62, -0.7]
+mesh[150] name='living_sofa_squid_sofa.007'
+  prim0 tris=300 min=[-0.215, 1.555, -1.065] max=[-0.085, 1.685, -0.995]
+mesh[151] name='living_sofa_squid_sofa.008'
+  prim0 tris=124 min=[-1.125, 1.2, -0.615] max=[-1.075, 1.36, -0.565]
+mesh[152] name='living_sofa_squid_sofa.009'
+  prim0 tris=124 min=[-1.125, 1.2, -1.135] max=[-1.075, 1.36, -1.085]
+mesh[153] name='living_sofa_squid_sofa.010'
+  prim0 tris=124 min=[-0.025, 1.2, -0.615] max=[0.025, 1.36, -0.565]
+mesh[154] name='living_sofa_squid_sofa.011'
+  prim0 tris=124 min=[-0.025, 1.2, -1.135] max=[0.025, 1.36, -1.085]
+mesh[155] name='living_armchair_squid_armchair'
+  prim0 tris=300 min=[-1.1, 1.37, 0] max=[-0.8, 1.43, 0.3]
+mesh[156] name='living_armchair_squid_armchair.001'
+  prim0 tris=300 min=[-1.085, 1.47, 0.02] max=[-0.815, 1.55, 0.28]
+mesh[157] name='living_armchair_squid_armchair.002'
+  prim0 tris=300 min=[-1.09, 1.65, -0.14] max=[-0.81, 1.95, -0.04]
+mesh[158] name='living_armchair_squid_armchair.003'
+  prim0 tris=300 min=[-1.275, 1.53, 0.01] max=[-1.225, 1.63, 0.29]
+mesh[159] name='living_armchair_squid_armchair.004'
+  prim0 tris=300 min=[-0.675, 1.53, 0.01] max=[-0.625, 1.63, 0.29]
+mesh[160] name='living_armchair_squid_armchair.005'
+  prim0 tris=124 min=[-1.232, 1.2, 0.368] max=[-1.188, 1.38, 0.412]
+mesh[161] name='living_armchair_squid_armchair.006'
+  prim0 tris=124 min=[-1.232, 1.2, -0.112] max=[-1.188, 1.38, -0.068]
+mesh[162] name='living_armchair_squid_armchair.007'
+  prim0 tris=124 min=[-0.712, 1.2, 0.368] max=[-0.668, 1.38, 0.412]
+mesh[163] name='living_armchair_squid_armchair.008'
+  prim0 tris=124 min=[-0.712, 1.2, -0.112] max=[-0.668, 1.38, -0.068]
+mesh[164] name='living_coffee-table_squid_coffee-table'
+  prim0 tris=16000 min=[-0.751, 1.2, -0.816] max=[0.451, 1.6, 0.516]
+mesh[165] name='living_old-tv_squid_old-tv'
+  prim0 tris=188 min=[0.42, 1.225, -1.06] max=[0.68, 1.275, -0.84]
+mesh[166] name='living_old-tv_squid_old-tv.001'
+  prim0 tris=188 min=[0.41, 1.42, -1.06] max=[0.69, 1.74, -0.84]
+mesh[167] name='living_old-tv_squid_old-tv.002'
+  prim0 tris=188 min=[0.41, 1.49, -0.735] max=[0.59, 1.71, -0.715]
+mesh[168] name='living_old-tv_squid_old-tv.003'
+  prim0 tris=124 min=[0.705, 1.515, -0.73] max=[0.755, 1.565, -0.71]
+mesh[169] name='living_old-tv_squid_old-tv.004'
+  prim0 tris=124 min=[0.705, 1.595, -0.73] max=[0.755, 1.645, -0.71]
+mesh[170] name='living_old-tv_squid_old-tv.005'
+  prim0 tris=124 min=[0.426, 1.808, -0.989] max=[0.434, 2.152, -0.911]
+mesh[171] name='living_old-tv_squid_old-tv.006'
+  prim0 tris=124 min=[0.666, 1.808, -0.989] max=[0.674, 2.152, -0.911]
+mesh[172] name='living_bookshelf_squid_bookshelf'
+  prim0 tris=12 min=[0.66, 1.2, -0.725] max=[0.68, 3.1, -0.375]
+mesh[173] name='living_bookshelf_squid_bookshelf.001'
+  prim0 tris=12 min=[1.42, 1.2, -0.725] max=[1.44, 3.1, -0.375]
+mesh[174] name='living_bookshelf_squid_bookshelf.002'
+  prim0 tris=12 min=[0.65, 3.06, -0.725] max=[1.45, 3.1, -0.375]
+mesh[175] name='living_bookshelf_squid_bookshelf.003'
+  prim0 tris=12 min=[0.65, 1.2, -0.725] max=[1.45, 1.24, -0.375]
+mesh[176] name='living_bookshelf_squid_bookshelf.004'
+  prim0 tris=12 min=[0.65, 1.2, -0.725] max=[1.45, 3.1, -0.705]
+mesh[177] name='living_bookshelf_squid_bookshelf.005'
+  prim0 tris=12 min=[0.67, 1.735, -0.715] max=[1.43, 1.765, -0.385]
+mesh[178] name='living_bookshelf_squid_bookshelf.006'
+  prim0 tris=12 min=[0.67, 2.235, -0.715] max=[1.43, 2.265, -0.385]
+mesh[179] name='living_bookshelf_squid_bookshelf.007'
+  prim0 tris=12 min=[0.67, 2.735, -0.715] max=[1.43, 2.765, -0.385]
+mesh[180] name='living_bookshelf_squid_bookshelf.008'
+  prim0 tris=12 min=[0.71, 1.24, -0.553] max=[0.748, 1.541, -0.377]
+mesh[181] name='living_bookshelf_squid_bookshelf.009'
+  prim0 tris=12 min=[0.754, 1.24, -0.553] max=[0.804, 1.533, -0.377]
+mesh[182] name='living_bookshelf_squid_bookshelf.010'
+  prim0 tris=12 min=[0.81, 1.24, -0.553] max=[0.853, 1.525, -0.377]
+mesh[183] name='living_bookshelf_squid_bookshelf.011'
+  prim0 tris=12 min=[0.864, 1.24, -0.553] max=[0.9, 1.597, -0.377]
+mesh[184] name='living_bookshelf_squid_bookshelf.012'
+  prim0 tris=12 min=[0.918, 1.24, -0.553] max=[0.951, 1.551, -0.377]
+mesh[185] name='living_bookshelf_squid_bookshelf.013'
+  prim0 tris=12 min=[0.964, 1.24, -0.553] max=[0.996, 1.602, -0.377]
+mesh[186] name='living_bookshelf_squid_bookshelf.014'
+  prim0 tris=12 min=[1.016, 1.24, -0.553] max=[1.047, 1.64, -0.377]
+mesh[187] name='living_bookshelf_squid_bookshelf.015'
+  prim0 tris=12 min=[1.058, 1.24, -0.553] max=[1.102, 1.6, -0.377]
+mesh[188] name='living_bookshelf_squid_bookshelf.016'
+  prim0 tris=12 min=[1.119, 1.24, -0.553] max=[1.153, 1.601, -0.377]
+mesh[189] name='living_bookshelf_squid_bookshelf.017'
+  prim0 tris=12 min=[1.161, 1.24, -0.553] max=[1.194, 1.62, -0.377]
+mesh[190] name='living_bookshelf_squid_bookshelf.018'
+  prim0 tris=12 min=[1.2, 1.24, -0.553] max=[1.235, 1.615, -0.377]
+mesh[191] name='living_bookshelf_squid_bookshelf.019'
+  prim0 tris=12 min=[1.251, 1.24, -0.553] max=[1.293, 1.649, -0.377]
+mesh[192] name='living_bookshelf_squid_bookshelf.020'
+  prim0 tris=12 min=[1.302, 1.24, -0.553] max=[1.352, 1.618, -0.377]
+mesh[193] name='living_bookshelf_squid_bookshelf.021'
+  prim0 tris=12 min=[1.359, 1.24, -0.553] max=[1.396, 1.589, -0.377]
+mesh[194] name='living_bookshelf_squid_bookshelf.022'
+  prim0 tris=12 min=[0.71, 1.765, -0.553] max=[0.747, 2.182, -0.377]
+mesh[195] name='living_bookshelf_squid_bookshelf.023'
+  prim0 tris=12 min=[0.76, 1.765, -0.553] max=[0.794, 2.093, -0.377]
+mesh[196] name='living_bookshelf_squid_bookshelf.024'
+  prim0 tris=12 min=[0.805, 1.765, -0.553] max=[0.859, 2.056, -0.377]
+mesh[197] name='living_bookshelf_squid_bookshelf.025'
+  prim0 tris=12 min=[0.873, 1.765, -0.553] max=[0.925, 2.089, -0.377]
+mesh[198] name='living_bookshelf_squid_bookshelf.026'
+  prim0 tris=12 min=[0.935, 1.765, -0.553] max=[0.978, 2.157, -0.377]
+mesh[199] name='living_bookshelf_squid_bookshelf.027'
+  prim0 tris=12 min=[0.995, 1.765, -0.553] max=[1.049, 2.111, -0.377]
+mesh[200] name='living_bookshelf_squid_bookshelf.028'
+  prim0 tris=12 min=[1.055, 1.765, -0.553] max=[1.103, 2.088, -0.377]
+mesh[201] name='living_bookshelf_squid_bookshelf.029'
+  prim0 tris=12 min=[1.123, 1.765, -0.553] max=[1.173, 2.085, -0.377]
+mesh[202] name='living_bookshelf_squid_bookshelf.030'
+  prim0 tris=12 min=[1.192, 1.765, -0.553] max=[1.23, 2.177, -0.377]
+mesh[203] name='living_bookshelf_squid_bookshelf.031'
+  prim0 tris=12 min=[1.238, 1.765, -0.553] max=[1.271, 2.053, -0.377]
+mesh[204] name='living_bookshelf_squid_bookshelf.032'
+  prim0 tris=12 min=[1.278, 1.765, -0.553] max=[1.314, 2.1, -0.377]
+mesh[205] name='living_bookshelf_squid_bookshelf.033'
+  prim0 tris=12 min=[1.32, 1.765, -0.553] max=[1.361, 2.122, -0.377]
+mesh[206] name='living_bookshelf_squid_bookshelf.034'
+  prim0 tris=12 min=[0.71, 2.265, -0.553] max=[0.762, 2.584, -0.377]
+mesh[207] name='living_bookshelf_squid_bookshelf.035'
+  prim0 tris=12 min=[0.781, 2.265, -0.553] max=[0.828, 2.598, -0.377]
+mesh[208] name='living_bookshelf_squid_bookshelf.036'
+  prim0 tris=12 min=[0.836, 2.265, -0.553] max=[0.87, 2.577, -0.377]
+mesh[209] name='living_bookshelf_squid_bookshelf.037'
+  prim0 tris=12 min=[0.875, 2.265, -0.553] max=[0.926, 2.571, -0.377]
+mesh[210] name='living_bookshelf_squid_bookshelf.038'
+  prim0 tris=12 min=[0.931, 2.265, -0.553] max=[0.972, 2.597, -0.377]
+mesh[211] name='living_bookshelf_squid_bookshelf.039'
+  prim0 tris=12 min=[0.981, 2.265, -0.553] max=[1.015, 2.665, -0.377]
+mesh[212] name='living_bookshelf_squid_bookshelf.040'
+  prim0 tris=12 min=[1.029, 2.265, -0.553] max=[1.078, 2.609, -0.377]
+mesh[213] name='living_bookshelf_squid_bookshelf.041'
+  prim0 tris=12 min=[1.095, 2.265, -0.553] max=[1.135, 2.601, -0.377]
+mesh[214] name='living_bookshelf_squid_bookshelf.042'
+  prim0 tris=12 min=[1.147, 2.265, -0.553] max=[1.187, 2.572, -0.377]
+mesh[215] name='living_bookshelf_squid_bookshelf.043'
+  prim0 tris=12 min=[1.198, 2.265, -0.553] max=[1.231, 2.629, -0.377]
+mesh[216] name='living_bookshelf_squid_bookshelf.044'
+  prim0 tris=12 min=[1.236, 2.265, -0.553] max=[1.27, 2.559, -0.377]
+mesh[217] name='living_bookshelf_squid_bookshelf.045'
+  prim0 tris=12 min=[1.284, 2.265, -0.553] max=[1.316, 2.574, -0.377]
+mesh[218] name='living_bookshelf_squid_bookshelf.046'
+  prim0 tris=12 min=[1.323, 2.265, -0.553] max=[1.36, 2.594, -0.377]
+mesh[219] name='living_plant_squid_plant'
+  prim0 tris=124 min=[0.22, 1.2, -0.68] max=[0.48, 1.46, -0.42]
+mesh[220] name='living_plant_squid_plant.001'
+  prim0 tris=124 min=[0.235, 1.455, -0.665] max=[0.465, 1.475, -0.435]
+mesh[221] name='living_plant_squid_plant.002'
+  prim0 tris=80 min=[0.312, 1.496, -0.927] max=[0.382, 2.252, -0.591]
+mesh[222] name='living_plant_squid_plant.003'
+  prim0 tris=80 min=[0.34, 1.489, -0.743] max=[0.616, 2.158, -0.668]
+mesh[223] name='living_plant_squid_plant.004'
+  prim0 tris=80 min=[0.469, 1.49, -0.727] max=[0.62, 2.169, -0.48]
+mesh[224] name='living_plant_squid_plant.005'
+  prim0 tris=80 min=[0.381, 1.472, -0.509] max=[0.547, 2.089, -0.431]
+mesh[225] name='living_plant_squid_plant.006'
+  prim0 tris=80 min=[0.321, 1.505, -0.439] max=[0.603, 2.174, -0.222]
+mesh[226] name='living_plant_squid_plant.007'
+  prim0 tris=80 min=[0.202, 1.52, -0.483] max=[0.384, 2.239, -0.084]
+mesh[227] name='living_plant_squid_plant.008'
+  prim0 tris=80 min=[0.054, 1.487, -0.526] max=[0.26, 2.03, -0.375]
+mesh[228] name='living_plant_squid_plant.009'
+  prim0 tris=80 min=[0.132, 1.483, -0.669] max=[0.16, 2.005, -0.442]
+mesh[229] name='living_plant_squid_plant.010'
+  prim0 tris=80 min=[0.147, 1.474, -0.688] max=[0.324, 2.005, -0.639]
+mesh[230] name='living_wall-picture_squid_wall-picture'
+  prim0 tris=12 min=[-0.5, 1.155, -1.298] max=[-0.1, 1.2, -1.262]
+mesh[231] name='living_wall-picture_squid_wall-picture.001'
+  prim0 tris=12 min=[-0.5, 0.65, -1.298] max=[-0.1, 0.695, -1.262]
+mesh[232] name='living_wall-picture_squid_wall-picture.002'
+  prim0 tris=12 min=[-0.5, 0.65, -1.298] max=[-0.455, 1.2, -1.262]
+mesh[233] name='living_wall-picture_squid_wall-picture.003'
+  prim0 tris=12 min=[-0.145, 0.65, -1.298] max=[-0.1, 1.2, -1.262]
+mesh[234] name='living_wall-picture_squid_wall-picture.004'
+  prim0 tris=12 min=[-0.455, 0.695, -1.284] max=[-0.145, 1.155, -1.272]
+mesh[235] name='living_wall-picture_squid_wall-picture.005'
+  prim0 tris=12 min=[-0.44, 0.745, -1.271] max=[-0.16, 1.145, -1.265]
+mesh[236] name='bedroom_bed_bed'
+  prim0 tris=60 min=[-0.885, 2.4, -0.025] max=[-0.815, 4.3, 0.045]
+mesh[237] name='bedroom_bed_bed.001'
+  prim0 tris=60 min=[-0.895, 2.633, -0.035] max=[-0.805, 2.668, 0.055]
+mesh[238] name='bedroom_bed_bed.002'
+  prim0 tris=60 min=[-0.895, 2.933, -0.035] max=[-0.805, 2.968, 0.055]
+mesh[239] name='bedroom_bed_bed.003'
+  prim0 tris=60 min=[-0.895, 3.233, -0.035] max=[-0.805, 3.268, 0.055]
+mesh[240] name='bedroom_bed_bed.004'
+  prim0 tris=60 min=[-0.895, 3.533, -0.035] max=[-0.805, 3.568, 0.055]
+mesh[241] name='bedroom_bed_bed.005'
+  prim0 tris=60 min=[-0.895, 3.832, -0.035] max=[-0.805, 3.868, 0.055]
+mesh[242] name='bedroom_bed_bed.006'
+  prim0 tris=60 min=[-0.895, 4.133, -0.035] max=[-0.805, 4.168, 0.055]
+mesh[243] name='bedroom_bed_bed.007'
+  prim0 tris=60 min=[-0.885, 2.4, -1.545] max=[-0.815, 4.3, -1.475]
+mesh[244] name='bedroom_bed_bed.008'
+  prim0 tris=60 min=[-0.895, 2.633, -1.555] max=[-0.805, 2.668, -1.465]
+mesh[245] name='bedroom_bed_bed.009'
+  prim0 tris=60 min=[-0.895, 2.933, -1.555] max=[-0.805, 2.968, -1.465]
+mesh[246] name='bedroom_bed_bed.010'
+  prim0 tris=60 min=[-0.895, 3.233, -1.555] max=[-0.805, 3.268, -1.465]
+mesh[247] name='bedroom_bed_bed.011'
+  prim0 tris=60 min=[-0.895, 3.533, -1.555] max=[-0.805, 3.568, -1.465]
+mesh[248] name='bedroom_bed_bed.012'
+  prim0 tris=60 min=[-0.895, 3.832, -1.555] max=[-0.805, 3.868, -1.465]
+mesh[249] name='bedroom_bed_bed.013'
+  prim0 tris=60 min=[-0.895, 4.133, -1.555] max=[-0.805, 4.168, -1.465]
+mesh[250] name='bedroom_bed_bed.014'
+  prim0 tris=60 min=[0.115, 2.4, -0.025] max=[0.185, 4.3, 0.045]
+mesh[251] name='bedroom_bed_bed.015'
+  prim0 tris=60 min=[0.105, 2.633, -0.035] max=[0.195, 2.668, 0.055]
+mesh[252] name='bedroom_bed_bed.016'
+  prim0 tris=60 min=[0.105, 2.933, -0.035] max=[0.195, 2.968, 0.055]
+mesh[253] name='bedroom_bed_bed.017'
+  prim0 tris=60 min=[0.105, 3.233, -0.035] max=[0.195, 3.268, 0.055]
+mesh[254] name='bedroom_bed_bed.018'
+  prim0 tris=60 min=[0.105, 3.533, -0.035] max=[0.195, 3.568, 0.055]
+mesh[255] name='bedroom_bed_bed.019'
+  prim0 tris=60 min=[0.105, 3.832, -0.035] max=[0.195, 3.868, 0.055]
+mesh[256] name='bedroom_bed_bed.020'
+  prim0 tris=60 min=[0.105, 4.133, -0.035] max=[0.195, 4.168, 0.055]
+mesh[257] name='bedroom_bed_bed.021'
+  prim0 tris=60 min=[0.115, 2.4, -1.545] max=[0.185, 4.3, -1.475]
+mesh[258] name='bedroom_bed_bed.022'
+  prim0 tris=60 min=[0.105, 2.633, -1.555] max=[0.195, 2.668, -1.465]
+mesh[259] name='bedroom_bed_bed.023'
+  prim0 tris=60 min=[0.105, 2.933, -1.555] max=[0.195, 2.968, -1.465]
+mesh[260] name='bedroom_bed_bed.024'
+  prim0 tris=60 min=[0.105, 3.233, -1.555] max=[0.195, 3.268, -1.465]
+mesh[261] name='bedroom_bed_bed.025'
+  prim0 tris=60 min=[0.105, 3.533, -1.555] max=[0.195, 3.568, -1.465]
+mesh[262] name='bedroom_bed_bed.026'
+  prim0 tris=60 min=[0.105, 3.832, -1.555] max=[0.195, 3.868, -1.465]
+mesh[263] name='bedroom_bed_bed.027'
+  prim0 tris=60 min=[0.105, 4.133, -1.555] max=[0.195, 4.168, -1.465]
+mesh[264] name='bedroom_bed_bed.028'
+  prim0 tris=188 min=[-0.91, 4.17, -1.56] max=[0.21, 4.23, 0.06]
+mesh[265] name='bedroom_bed_bed.029'
+  prim0 tris=188 min=[-0.88, 4.24, -1.53] max=[0.18, 4.28, 0.03]
+mesh[266] name='bedroom_bed_bed.030'
+  prim0 tris=188 min=[-0.85, 3.05, -1.54] max=[0.15, 3.95, -1.48]
+mesh[267] name='bedroom_bed_bed.031'
+  prim0 tris=188 min=[-0.85, 2.54, -1.5] max=[0.15, 2.7, 0]
+mesh[268] name='bedroom_bed_bed.032'
+  prim0 tris=188 min=[-0.84, 2.67, -1.48] max=[0.14, 2.85, -0.02]
+mesh[269] name='bedroom_bed_bed.033'
+  prim0 tris=188 min=[-0.85, 2.82, -1.075] max=[0.15, 2.92, -0.025]
+mesh[270] name='bedroom_bed_bed.034'
+  prim0 tris=188 min=[-0.8, 2.943, -1.266] max=[-0.38, 3.098, -1.053]
+mesh[271] name='bedroom_bed_bed.035'
+  prim0 tris=188 min=[-0.32, 2.943, -1.266] max=[0.1, 3.098, -1.053]
+mesh[272] name='bedroom_nightstand-L_nightstand'
+  prim0 tris=188 min=[-1.25, 2.4, -0.95] max=[-0.85, 2.96, -0.55]
+mesh[273] name='bedroom_nightstand-L_nightstand.001'
+  prim0 tris=188 min=[-1.21, 2.7, -0.555] max=[-0.89, 2.86, -0.535]
+mesh[274] name='bedroom_nightstand-L_nightstand.002'
+  prim0 tris=44 min=[-1.065, 2.765, -0.54] max=[-1.035, 2.795, -0.51]
+mesh[275] name='bedroom_nightstand-L_nightstand.003'
+  prim0 tris=60 min=[-1.11, 2.985, -0.81] max=[-0.99, 3.015, -0.69]
+mesh[276] name='bedroom_nightstand-L_nightstand.004'
+  prim0 tris=36 min=[-1.061, 3.01, -0.762] max=[-1.039, 3.23, -0.738]
+mesh[277] name='bedroom_nightstand-L_nightstand.005'
+  prim0 tris=76 min=[-1.14, 3.18, -0.84] max=[-0.96, 3.34, -0.66]
+mesh[278] name='bedroom_nightstand-R_nightstand'
+  prim0 tris=188 min=[0.15, 2.4, -0.95] max=[0.55, 2.96, -0.55]
+mesh[279] name='bedroom_nightstand-R_nightstand.001'
+  prim0 tris=188 min=[0.19, 2.7, -0.555] max=[0.51, 2.86, -0.535]
+mesh[280] name='bedroom_nightstand-R_nightstand.002'
+  prim0 tris=44 min=[0.335, 2.765, -0.54] max=[0.365, 2.795, -0.51]
+mesh[281] name='bedroom_nightstand-R_nightstand.003'
+  prim0 tris=60 min=[0.29, 2.985, -0.81] max=[0.41, 3.015, -0.69]
+mesh[282] name='bedroom_nightstand-R_nightstand.004'
+  prim0 tris=36 min=[0.339, 3.01, -0.762] max=[0.361, 3.23, -0.738]
+mesh[283] name='bedroom_nightstand-R_nightstand.005'
+  prim0 tris=76 min=[0.26, 3.18, -0.84] max=[0.44, 3.34, -0.66]
+mesh[284] name='bedroom_dresser_dresser'
+  prim0 tris=188 min=[0.7, 2.4, -1.1] max=[1.2, 3.25, -0.7]
+mesh[285] name='bedroom_dresser_dresser.001'
+  prim0 tris=188 min=[0.69, 3.24, -1.11] max=[1.21, 3.27, -0.69]
+mesh[286] name='bedroom_dresser_dresser.002'
+  prim0 tris=188 min=[0.74, 2.53, -0.705] max=[1.16, 2.71, -0.685]
+mesh[287] name='bedroom_dresser_dresser.003'
+  prim0 tris=44 min=[0.935, 2.605, -0.687] max=[0.965, 2.635, -0.657]
+mesh[288] name='bedroom_dresser_dresser.004'
+  prim0 tris=188 min=[0.74, 2.76, -0.705] max=[1.16, 2.94, -0.685]
+mesh[289] name='bedroom_dresser_dresser.005'
+  prim0 tris=44 min=[0.935, 2.835, -0.687] max=[0.965, 2.865, -0.657]
+mesh[290] name='bedroom_dresser_dresser.006'
+  prim0 tris=188 min=[0.74, 2.99, -0.705] max=[1.16, 3.17, -0.685]
+mesh[291] name='bedroom_dresser_dresser.007'
+  prim0 tris=44 min=[0.935, 3.065, -0.687] max=[0.965, 3.095, -0.657]
+mesh[292] name='bedroom_bed-rug_bed-rug'
+  prim0 tris=188 min=[-1, 2.405, -0.8] max=[0.6, 2.425, 0.6]
+mesh[293] name='bath_bathtub_bathtub'
+  prim0 tris=300 min=[-1, 3.69, -1.35] max=[-0.2, 4.19, 0.15]
+mesh[294] name='bath_bathtub_bathtub.001'
+  prim0 tris=300 min=[-0.9, 3.78, -1.25] max=[-0.3, 3.82, 0.05]
+mesh[295] name='bath_bathtub_bathtub.002'
+  prim0 tris=300 min=[-1, 4.12, 0.05] max=[-0.2, 4.18, 0.15]
+mesh[296] name='bath_bathtub_bathtub.003'
+  prim0 tris=300 min=[-1, 4.12, -1.35] max=[-0.2, 4.18, -1.25]
+mesh[297] name='bath_bathtub_bathtub.004'
+  prim0 tris=300 min=[-1, 4.12, -1.25] max=[-0.9, 4.18, 0.05]
+mesh[298] name='bath_bathtub_bathtub.005'
+  prim0 tris=300 min=[-0.3, 4.12, -1.25] max=[-0.2, 4.18, 0.05]
+mesh[299] name='bath_bathtub_bathtub.006'
+  prim0 tris=44 min=[-0.935, 3.6, -0.015] max=[-0.865, 3.7, 0.055]
+mesh[300] name='bath_bathtub_bathtub.007'
+  prim0 tris=440 min=[-0.94, 3.6, -0.02] max=[-0.86, 3.67, 0.06]
+mesh[301] name='bath_bathtub_bathtub.008'
+  prim0 tris=44 min=[-0.935, 3.6, -1.255] max=[-0.865, 3.7, -1.185]
+mesh[302] name='bath_bathtub_bathtub.009'
+  prim0 tris=440 min=[-0.94, 3.6, -1.26] max=[-0.86, 3.67, -1.18]
+mesh[303] name='bath_bathtub_bathtub.010'
+  prim0 tris=44 min=[-0.335, 3.6, -0.015] max=[-0.265, 3.7, 0.055]
+mesh[304] name='bath_bathtub_bathtub.011'
+  prim0 tris=440 min=[-0.34, 3.6, -0.02] max=[-0.26, 3.67, 0.06]
+mesh[305] name='bath_bathtub_bathtub.012'
+  prim0 tris=44 min=[-0.335, 3.6, -1.255] max=[-0.265, 3.7, -1.185]
+mesh[306] name='bath_bathtub_bathtub.013'
+  prim0 tris=440 min=[-0.34, 3.6, -1.26] max=[-0.26, 3.67, -1.18]
+mesh[307] name='bath_faucet_faucet'
+  prim0 tris=52 min=[-0.618, 3.6, -1.268] max=[-0.582, 4.195, -1.232]
+mesh[308] name='bath_faucet_faucet.001'
+  prim0 tris=60 min=[-0.66, 3.6, -1.31] max=[-0.54, 3.621, -1.19]
+mesh[309] name='bath_faucet_faucet.002'
+  prim0 tris=44 min=[-0.614, 4.176, -1.25] max=[-0.586, 4.186, -1.01]
+mesh[310] name='bath_faucet_faucet.003'
+  prim0 tris=76 min=[-0.69, 4.155, -1.1] max=[-0.51, 4.165, -0.92]
+mesh[311] name='bath_washbasin_washbasin'
+  prim0 tris=300 min=[0.79, 3.6, -0.86] max=[1.01, 4.3, -0.64]
+mesh[312] name='bath_washbasin_washbasin.001'
+  prim0 tris=300 min=[0.65, 4.28, -0.925] max=[1.15, 4.48, -0.475]
+mesh[313] name='bath_washbasin_washbasin.002'
+  prim0 tris=300 min=[0.72, 4.4, -0.855] max=[1.08, 4.46, -0.545]
+mesh[314] name='bath_washbasin_washbasin.003'
+  prim0 tris=44 min=[0.88, 4.495, -0.88] max=[0.92, 4.545, -0.84]
+mesh[315] name='bath_washbasin_washbasin.004'
+  prim0 tris=36 min=[0.889, 4.568, -0.86] max=[0.911, 4.592, -0.7]
+mesh[316] name='bath_shower-curtain_shower-curtain'
+  prim0 tris=320 min=[0.065, 3.6, -1.4] max=[0.135, 4.303, 0.2]
+mesh[317] name='bath_shower-curtain_shower-curtain.001'
+  prim0 tris=44 min=[-0.72, 4.334, -0.615] max=[0.92, 4.346, -0.585]
+mesh[318] name='art_plinth-1_art-plinth'
+  prim0 tris=188 min=[0.875, 1.2, -0.075] max=[1.225, 1.26, 0.275]
+mesh[319] name='art_plinth-1_art-plinth.001'
+  prim0 tris=188 min=[0.9, 1.26, -0.05] max=[1.2, 1.58, 0.25]
+mesh[320] name='art_plinth-1_art-plinth.002'
+  prim0 tris=188 min=[0.875, 1.58, -0.075] max=[1.225, 1.6, 0.275]
+mesh[321] name='art_plinth-2_art-plinth'
+  prim0 tris=188 min=[0.875, 2.4, -0.075] max=[1.225, 2.46, 0.275]
+mesh[322] name='art_plinth-2_art-plinth.001'
+  prim0 tris=188 min=[0.9, 2.46, -0.05] max=[1.2, 2.78, 0.25]
+mesh[323] name='art_plinth-2_art-plinth.002'
+  prim0 tris=188 min=[0.875, 2.78, -0.075] max=[1.225, 2.8, 0.275]
+mesh[324] name='art_sculpture_art-sculpture'
+  prim0 tris=76 min=[0.93, 1.6, -0.02] max=[1.17, 1.66, 0.22]
+mesh[325] name='art_sculpture_art-sculpture.001'
+  prim0 tris=720 min=[0.96, 1.68, 0.03] max=[1.14, 1.96, 0.17]
+mesh[326] name='art_sculpture_art-sculpture.002'
+  prim0 tris=44 min=[1.04, 1.9, 0.07] max=[1.1, 2.02, 0.13]
+mesh[327] name='art_sculpture_art-sculpture.003'
+  prim0 tris=720 min=[0.97, 1.97, 0.04] max=[1.13, 2.15, 0.16]
+mesh[328] name='art_sculpture_art-sculpture.004'
+  prim0 tris=720 min=[1, 2.015, 0.11] max=[1.06, 2.085, 0.23]

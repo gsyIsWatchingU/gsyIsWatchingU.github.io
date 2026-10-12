@@ -1,0 +1,195 @@
+{
+  "initial": {
+    "house": "squidward",
+    "view": "exterior",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "switchToPatrick": {
+    "house": "patrick",
+    "view": "exterior",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "switchBackSquid": {
+    "house": "squidward",
+    "view": "exterior",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "afterRotateZoom": {
+    "house": "squidward",
+    "view": "exterior",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "afterReset": {
+    "house": "squidward",
+    "view": "exterior",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "enterInterior": null,
+  "chipLiving": {
+    "house": "squidward",
+    "view": "room",
+    "roomId": "living",
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "escBackToCutaway": {
+    "house": "squidward",
+    "view": "cutaway",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "exitToExterior": {
+    "house": "squidward",
+    "view": "exterior",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "kitchen": {
+    "house": "squidward",
+    "view": "room",
+    "roomId": "kitchen",
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 81504,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "cutawayForFps": {
+    "house": "squidward",
+    "view": "cutaway",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 81504,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "fpsDesktop": {
+    "frames": 90,
+    "ms": 20227,
+    "fps": 4.4
+  },
+  "overflowDesktop": {
+    "iw": 1440,
+    "sw": 1440,
+    "oh": 900,
+    "ih": 900
+  },
+  "overflowAfterResize": {
+    "iw": 1100,
+    "sw": 1100,
+    "oh": 760,
+    "ih": 760
+  },
+  "mobileCutaway": {
+    "house": "squidward",
+    "view": "cutaway",
+    "roomId": null,
+    "tier": "mobile",
+    "extTris": 90200,
+    "intTris": 81504,
+    "shift": [
+      0,
+      0,
+      -0.03
+    ]
+  },
+  "fpsMobile": {
+    "frames": 188,
+    "ms": 20063,
+    "fps": 9.4
+  },
+  "overflowMobile": {
+    "iw": 390,
+    "sw": 390,
+    "oh": 844,
+    "ih": 844
+  },
+  "patrickUrl": {
+    "house": "patrick",
+    "view": "exterior",
+    "roomId": null,
+    "tier": "mobile",
+    "extTris": 40000,
+    "intTris": 0,
+    "shift": [
+      0,
+      0,
+      0.01
+    ]
+  },
+  "_errors": [
+    "THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead."
+  ],
+  "_failed": [],
+  "_consoleTail": [
+    "[warning] THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead.",
+    "[log] [neighborhood] exterior loaded 40000 tris"
+  ]
+}

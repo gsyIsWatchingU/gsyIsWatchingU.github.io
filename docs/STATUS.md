@@ -1,6 +1,34 @@
 # 项目状态
 
-最后更新：2026-10-10
+最后更新：2026-10-12
+
+## 章鱼哥人像屋最终重建 · 完整验收（2026-10-12，review 待审）
+
+- 对最终 v4-final（缓存 `?v=20261012-squidward-v4-final`）做了视觉＋运行＋构建完整验收，证据存 `docs/neighborhood-review/acceptance/`，中文审查记录见 `docs/neighborhood-review/verification.md`、README 已同步。
+- 资产核对：整屋 90,200 索引三角面（SHA `4d3249fc…daaa7`）、室内 81,504（SHA `f7f1d974…285e`），web 档与桌面同几何同哈希；四张 check_glb 全部 ok、Y-up 落地、无悬空；参考图哈希与 asset-index 一致；旧模型已归档 `assets/models/neighborhood/archive/`，派大星屋未动。
+- 几何：四层行走面 y=0.15/1.20/2.40/3.60，39 级螺旋踏步从 0.155 连续升到 3.71、平台对接各层，家具全部贴对应层行走面，艺术品台座落二/三层。
+- 视觉（无头 Chrome 真实截图，非 Blender 渲染）：外观正/侧/背与四张房间近景、移动 390×844 外观/剖切均已截取；`cmp-exterior.png`、`cmp-interior.png` 左参考右浏览器对照，摩艾轮廓与四层布局/右侧楼梯/艺术品区与参考一致。
+- 运行：房屋切换（章鱼哥↔派大星，含 `?house=patrick` 直达 40K）、房间 chip、Esc/返回外部、重置、1440→1100 与移动视口均无横向溢出；控制台零 error、零资源失败（仅 three r186 弃用警告）。
+- 性能：无头 SwiftShader 软件光栅 20 秒采样 桌面≈4.4fps / 移动≈9.4fps——非真实独显、非手机实机，≥50/≥30 目标需实机复核。
+- 自动检查：`npm run build`、`npm run check`、`git diff --check` 通过。
+- 已知问题（未改预览逻辑，仅登记，待用户决策）：① 厨房近景被门框/墙面大平面遮挡，家具不可读；② 门探针热区偏到左侧剖切开口（屏幕 x≈680–760），点击可视木门（x≈905）不触发进入。建议分别调整厨房近景镜头与 `door.exteriorProbe` 坐标。
+
+## 派大星石头屋 · 两层结构与家具占位构图预览（2026-10-12，review 待审）
+
+- 新增 Three.js 独立场景 `src/patrick-house.html`（构建生成根目录 `patrick-house.html`，覆盖旧 model-viewer 临时页），脚本 `scripts/patrick-house.js`、样式 `styles/patrick-house.css`、镜头与房间配置 `src/data/patrick-house.json`；`scripts/build.mjs` 已注册页面入口与打包。
+- 结构全部程序化积木占位（未接 GPU 图生模型）：紫红半球壳 + 橄榄绿内壁 + 木质楼板（前开 120°）+ 地下客厅坑（前开壳）+ 6 级木楼梯 + 金色骨头风向标 + 小木拱门。上层左厨房（冰箱/炉灶/水槽/吊柜）、右卧室（紫床/海星枕/床头柜灯）、前中健身区（红卧推凳+杠铃）；下层坑内客厅（沙发/茶几/老电视/落地灯/少量收藏）；粉色派大星五角星占位。
+- 交互：默认剖面全屋，点房间浮层/模型区域进近景，返回按钮与 Esc 回全屋，右上角剖面/外观切换，拖拽缩放与触控；暖色主光/冷色补光/软阴影，浅海蓝背景+沙地。
+- 验收：`npm run build`/`npm run check`/`git diff --check` 通过；1440×900 剖面全屋/外观/四间近景与 390×844 剖面全屋截图见 `docs/patrick-house-review/screenshots/`，浏览器控制台零错误。
+- 下一步（待用户确认构图后）：逐件 GPU 图生 3D 家具替换占位、派大星独立 GLB+骨骼待机/招手、电视/风扇/灯/风向标交互、与菠萝屋并排精修。不接简历、无声音、无屋顶掀开动画。
+
+## 邻里房屋 3D 模型 v2（2026-10-11，review 待审）
+
+- 在 gsy013（L20）用自托管 Z-Image-Turbo 生成参考图，走 Forge3D Hunyuan3D Shape + Paint 管线。v1 因形状/颜色偏差已废弃，v2 按网图对比修正。
+- v2 章鱼哥屋 job `aa194d37`、派大星屋 job `5f31b906`，seed 均为 1234；精细版各约 40K 三角面，网页版约 7.5K 三角面、贴图 1024px。
+- v2 修正：章鱼哥屋改为深蓝灰火山岩块状平顶、圆形舷窗眼（蓝框）、长鼻与侧耳块；派大星屋改为深红褐色圆顶巨石、顶部黄色风向标箭头。
+- 预览页 `docs/neighborhood-review/index.html`：Three.js 独立场景，支持切换房屋、拖拽旋转、滚轮缩放、重置镜头；URL `?house=patrick` 可直达派大星屋。
+- 桌面 1440×900 与手机 390×844 视口截图见 `docs/neighborhood-review/screenshots/`；模型加载、切换、旋转、缩放均正常，无资源失败或脚本错误。
+- `npm run build`、`npm run check`、`git diff --check` 通过。模型状态为 review，用户确认后才标记 approved 并接入首页。
 
 ## 暹罗幼猫已采用（2026-10-10）
 

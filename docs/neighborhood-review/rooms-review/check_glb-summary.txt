@@ -1,0 +1,17 @@
+﻿cabinets           tris=2244   sizeXYZ=1.56x0.9x0.63          flags=[] ok=True
+dining-table       tris=1284   sizeXYZ=1.0x0.759x1.0          flags=[] ok=True
+entrance-statue    tris=1876   sizeXYZ=0.28x0.82x0.31         flags=[] ok=True
+fridge             tris=664    sizeXYZ=0.55x1.7x0.651         flags=[] ok=True
+sink-kitchen       tris=1048   sizeXYZ=0.49x1.034x0.6         flags=[] ok=True
+stool              tris=536    sizeXYZ=0.32x0.4525x0.32       flags=[] ok=True
+stove              tris=1328   sizeXYZ=0.45x0.924x0.594       flags=[] ok=True
+bed-rug            tris=188    sizeXYZ=1.6x0.02x1.4           flags=[orientation_suspect: Y 高度 / 最长边 = 0.01 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）] ok=True
+bed                tris=3184   sizeXYZ=1.12x1.9x1.62          flags=[] ok=True
+dresser            tris=1072   sizeXYZ=0.52x0.87x0.453        flags=[] ok=True
+nightstand         tris=592    sizeXYZ=0.4x0.94x0.44          flags=[] ok=True
+bathtub            tris=3736   sizeXYZ=0.8x0.59x1.5           flags=[orientation_suspect: Y 高度 / 最长边 = 0.39 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）] ok=True
+faucet             tris=232    sizeXYZ=0.18x1.7x0.39          flags=[] ok=True
+shower-curtain     tris=364    sizeXYZ=1.64x2.015x1.6         flags=[] ok=True
+washbasin          tris=980    sizeXYZ=0.5x0.992x0.45         flags=[] ok=True
+art-plinth         tris=564    sizeXYZ=0.35x0.4x0.35          flags=[] ok=True
+art-sculpture      tris=2280   sizeXYZ=0.24x0.55x0.25         flags=[] ok=True

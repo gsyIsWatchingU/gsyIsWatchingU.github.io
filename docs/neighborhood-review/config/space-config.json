@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "name": "squidward-house-space-config",
+  "description": "章鱼哥屋统一空间配置（唯一权威）。后续家具/装配/预览子代理一律读本文件，不要自行推断坐标。",
+  "updated": "2026-10-12",
+
+  "coordinate_system": {
+    "source": "Blender 源工程 Z-up",
+    "axes_source": {
+      "X": "右为正（+X = 建筑右侧，螺旋楼梯所在侧）",
+      "Y": "+Y 为后，-Y 为前（摩艾脸/正门朝向 -Y）",
+      "Z": "上为正，地面 Z=0"
+    },
+    "glb_export": "GLB 导出 Y-up、+Z 朝前",
+    "axis_conversion": {
+      "rule": "Blender(X,Y,Z) -> glTF(X, -Z, Y)，由 Blender glTF 导出器自动完成（旋转 -90° about X）",
+      "glTF_X": "= Blender X（右）",
+      "glTF_Y": "= Blender Z（上）",
+      "glTF_Z": "= -Blender Y（前）",
+      "note": "只做一次转换。模型正面在 Blender 中朝 -Y，导出后在 glTF 中朝 +Z（朝前），符合约定。"
+    },
+    "units": "米",
+    "origin": "建筑平面中心 (X=0,Y=0)，地面 Z=0"
+  },
+
+  "overall": {
+    "bounding_box_blender": {
+      "min": [-1.6, -1.55, 0.0],
+      "max": [1.6, 1.55, 4.65],
+      "note": "含壳厚与圆弧顶；基础板底对齐 z=0（落地）；剖切开口在 -Y 前侧"
+    },
+    "shell": {
+      "base_outer_radius": 1.55,
+      "body_top_outer_radius": 1.32,
+      "body_top_z": 3.9,
+      "cap": "Z=3.9 以上为椭圆圆弧石壳帽，收至 Z=4.65 apex，非球形穹顶",
+      "apex_z": 4.65,
+      "wall_thickness": 0.20,
+      "inner_radius_base": 1.35
+    },
+    "default_camera": {
+      "view": "从剖切开口前侧（偏左前）竖直看向建筑，保证完整看到四层",
+      "blender_camera_location": [-3.2, -4.6, 2.6],
+      "blender_camera_target": [0.0, 0.0, 2.25],
+      "frustum_z_bounds": [-0.2, 4.8],
+      "glTF_camera_location": [-3.2, 2.6, 4.6],
+      "glTF_camera_target": [0.0, 2.25, 0.0],
+      "note": "目标点 Z=2.25 为四层中点；相机高度略俯视以同时看到地面与顶层浴室。"
+    }
+  },
+
+  "cutaway": {
+    "plane": "竖直剖切（过 Z 轴的扇形剖切），把前侧一块壳体切掉以暴露室内",
+    "removed_plan_angle_deg": [-165, -95],
+    "angle_convention": "plan 角 θ 自 +X 轴逆时针度量（Blender）；-90°=正前(-Y)",
+    "kept_shell_deg_range": [-95, 195],
+    "cut_edge_thickness": 0.20,
+    "cut_edge_finish": "切口为真实厚度封边（内外壁之间的截面），不是薄面片",
+    "door_location_note": "正门在 θ=-90° 正前，恰在剖切右缘外侧保留，与剖面图一致"
+  },
+
+  "floors": [
+    {
+      "level": 1,
+      "id": "kitchen",
+      "name": "一层 入口与厨房",
+      "slab_top_z": 0.15,
+      "slab_thickness": 0.15,
+      "slab_bottom_z": 0.0,
+      "clear_height": 1.08,
+      "ceiling_z": 1.08,
+      "room_bounds": {"x": [-1.25, 1.25], "y": [-1.25, 1.25]},
+      "features": ["拱形入口木门", "绿色整体橱柜", "灶台烤箱", "水槽", "冰箱", "竹木餐桌与凳子", "入口两侧雕像"]
+    },
+    {
+      "level": 2,
+      "id": "living",
+      "name": "二层 客厅",
+      "slab_top_z": 1.20,
+      "slab_thickness": 0.12,
+      "slab_bottom_z": 1.08,
+      "clear_height": 1.08,
+      "ceiling_z": 2.28,
+      "room_bounds": {"x": [-1.25, 1.25], "y": [-1.25, 1.25]},
+      "features": ["扶手椅", "沙发", "圆茶几", "旧电视", "书柜", "植物", "地毯", "画框"]
+    },
+    {
+      "level": 3,
+      "id": "bedroom",
+      "name": "三层 卧室",
+      "slab_top_z": 2.40,
+      "slab_thickness": 0.12,
+      "slab_bottom_z": 2.28,
+      "clear_height": 1.08,
+      "ceiling_z": 3.48,
+      "room_bounds": {"x": [-1.25, 1.25], "y": [-1.25, 1.25]},
+      "features": ["竹节四柱床", "蓝色床品", "枕头", "两侧床头柜与台灯", "梳妆台", "地毯"]
+    },
+    {
+      "level": 4,
+      "id": "bathroom",
+      "name": "四层 浴室",
+      "slab_top_z": 3.60,
+      "slab_thickness": 0.12,
+      "slab_bottom_z": 3.48,
+      "clear_height": 0.85,
+      "ceiling_z": 4.40,
+      "room_bounds": {"x": [-1.20, 1.20], "y": [-1.20, 1.20]},
+      "features": ["有内腔浴缸", "水龙头/花洒", "洗手盆", "浴帘", "瓷砖", "拱形浴室门"]
+    }
+  ],
+
+  "doorways": [
+    {
+      "id": "entrance-arch",
+      "type": "exterior_arch",
+      "location_blender": [0.0, -1.42, 0.15],
+      "plan_angle_deg": -90,
+      "width": 0.95,
+      "straight_height": 1.35,
+      "arch_radius": 0.475,
+      "overall_height": 1.825,
+      "hinge_side": "right",
+      "note": "正前拱形木门，通向一层厨房；两侧入口雕像"
+    },
+    {
+      "id": "bathroom-arch",
+      "type": "interior_arch",
+      "location_blender": [0.55, 0.95, 3.60],
+      "width": 0.85,
+      "straight_height": 1.25,
+      "arch_radius": 0.425,
+      "overall_height": 1.675,
+      "hinge_side": "right",
+      "note": "四层浴室拱形木门（参考剖面图）"
+    }
+  ],
+
+  "staircase": {
+    "id": "spiral-staircase",
+    "style": "右侧连续螺旋楼梯，扶手上连续，踏步与楼板相接",
+    "center_blender": [0.82, 0.12],
+    "outer_radius": 0.42,
+    "pole_radius": 0.05,
+    "step_thickness": 0.05,
+    "steps_per_revolution": 13,
+    "rise": "自 Z=0.00 连续螺旋上升至 Z=3.60，约 3 圈",
+    "handrail": "外缘连续扶手，高 0.85",
+    "landings": [
+      {"z": 0.15, "level": 1, "note": "一层落脚平台（基础板行走面）"},
+      {"z": 1.20, "level": 2, "note": "二层客厅平台"},
+      {"z": 2.40, "level": 3, "note": "三层卧室平台"},
+      {"z": 3.60, "level": 4, "note": "四层浴室平台"}
+    ],
+    "art_platforms": "右侧楼梯旁逐层小平台放艺术品/雕塑（章鱼哥自傲的艺术品展示区）"
+  },
+
+  "furniture_anchors": {
+    "_comment": "每件家具落点：room -> item id -> {anchor:[X,Y,Z], facing_deg, footprint:[dx,dy], h, note}。anchor 为落地接触点（Z=楼板顶）。facing_deg 为家具正面朝向的 plan 角（自 +X 逆时针），-90=朝向前(-Y)。",
+
+    "kitchen": {
+      "cabinets": {"anchor": [-0.55, 1.15, 0.15], "facing_deg": -90, "footprint": [1.5, 0.55], "h": 0.9, "note": "绿色整体橱柜沿后墙(+Y)"},
+      "stove": {"anchor": [-0.85, 1.15, 0.15], "facing_deg": -90, "footprint": [0.45, 0.55], "h": 0.9, "note": "灶台烤箱嵌在橱柜左段"},
+      "sink-kitchen": {"anchor": [-0.25, 1.15, 0.15], "facing_deg": -90, "footprint": [0.45, 0.55], "h": 0.9, "note": "水槽嵌在橱柜中段"},
+      "fridge": {"anchor": [0.75, 1.05, 0.15], "facing_deg": -90, "footprint": [0.55, 0.6], "h": 1.7, "note": "银色冰箱靠后墙右侧"},
+      "dining-table": {"anchor": [-0.15, 0.15, 0.15], "facing_deg": 0, "footprint": [1.0, 1.0], "h": 0.75, "note": "竹木方餐桌居中"},
+      "stool": {"anchor": [-0.65, 0.15, 0.15], "facing_deg": -90, "footprint": [0.32, 0.32], "h": 0.45, "note": "圆凳（餐桌周围放 2-3 个）"},
+      "entrance-statue-L": {"anchor": [-0.65, -1.45, 0.15], "facing_deg": -90, "footprint": [0.3, 0.3], "h": 0.9, "note": "入口左侧章鱼雕像"},
+      "entrance-statue-R": {"anchor": [0.65, -1.45, 0.15], "facing_deg": -90, "footprint": [0.3, 0.3], "h": 0.9, "note": "入口右侧章鱼雕像"}
+    },
+
+    "living": {
+      "sofa": {"anchor": [-0.55, 0.85, 1.20], "facing_deg": -90, "footprint": [1.3, 0.7], "h": 0.85, "note": "橄榄绿三人沙发沿后墙，面朝剖切开口"},
+      "armchair": {"anchor": [-0.95, -0.15, 1.20], "facing_deg": 20, "footprint": [0.65, 0.7], "h": 0.9, "note": "红棕单人扶手椅"},
+      "coffee-table": {"anchor": [-0.15, 0.15, 1.20], "facing_deg": 0, "footprint": [0.7, 0.7], "h": 0.4, "note": "圆茶几居中"},
+      "old-tv": {"anchor": [0.55, 0.95, 1.20], "facing_deg": -90, "footprint": [0.6, 0.5], "h": 0.7, "note": "旧 CRT 电视靠后墙右侧"},
+      "bookshelf": {"anchor": [1.05, 0.55, 1.20], "facing_deg": 180, "footprint": [0.35, 0.8], "h": 1.9, "note": "书柜靠右墙"},
+      "plant": {"anchor": [0.35, 0.55, 1.20], "facing_deg": 0, "footprint": [0.4, 0.4], "h": 1.1, "note": "盆栽"},
+      "rug-living": {"anchor": [-0.35, 0.15, 1.205], "facing_deg": 0, "footprint": [1.4, 1.2], "h": 0.02, "note": "客厅小地毯"},
+      "wall-picture": {"anchor": [-0.3, 1.28, 1.20], "facing_deg": -90, "footprint": [0.4, 0.55], "h": 0.55, "note": "后墙画框"}
+    },
+
+    "bedroom": {
+      "bed": {"anchor": [-0.35, 0.75, 2.40], "facing_deg": -90, "footprint": [1.1, 1.6], "h": 1.9, "note": "竹节四柱床靠后墙，蓝色床品"},
+      "nightstand-L": {"anchor": [-1.05, 0.75, 2.40], "facing_deg": -90, "footprint": [0.4, 0.4], "h": 0.6, "note": "床头左侧柜+台灯"},
+      "nightstand-R": {"anchor": [0.35, 0.75, 2.40], "facing_deg": -90, "footprint": [0.4, 0.4], "h": 0.6, "note": "床头右侧柜+台灯"},
+      "dresser": {"anchor": [0.95, 0.9, 2.40], "facing_deg": -90, "footprint": [0.5, 0.4], "h": 0.85, "note": "梳妆台/斗柜靠右墙"},
+      "bed-rug": {"anchor": [-0.2, 0.1, 2.405], "facing_deg": 0, "footprint": [1.6, 1.4], "h": 0.02, "note": "卧室地毯"}
+    },
+
+    "bathroom": {
+      "bathtub": {"anchor": [-0.6, 0.6, 3.60], "facing_deg": -90, "footprint": [0.8, 1.5], "h": 0.6, "note": "有内腔白色爪足浴缸"},
+      "faucet": {"anchor": [-0.6, 1.25, 3.60], "facing_deg": -90, "footprint": [0.3, 0.3], "h": 1.7, "note": "淋浴花洒"},
+      "washbasin": {"anchor": [0.9, 0.7, 3.60], "facing_deg": -90, "footprint": [0.5, 0.45], "h": 0.85, "note": "洗手盆靠右墙"},
+      "shower-curtain": {"anchor": [0.1, 0.6, 3.60], "facing_deg": 0, "footprint": [0.05, 1.6], "h": 2.0, "note": "蓝白浴帘分隔"}
+    },
+
+    "art": {
+      "art-plinth-1": {"anchor": [1.05, -0.1, 1.20], "facing_deg": -90, "footprint": [0.35, 0.35], "h": 0.4, "note": "楼梯旁艺术品台（二层）"},
+      "art-plinth-2": {"anchor": [1.05, -0.1, 2.40], "facing_deg": -90, "footprint": [0.35, 0.35], "h": 0.4, "note": "楼梯旁艺术品台（三层）"},
+      "art-sculpture": {"anchor": [1.05, -0.1, 1.6], "facing_deg": -90, "footprint": [0.3, 0.3], "h": 0.55, "note": "章鱼哥自傲雕塑"}
+    }
+  },
+
+  "gray_model": {
+    "purpose": "本阶段只做空间灰模：石壳+四层楼板/隔墙/门洞+真实剖切+右侧螺旋楼梯。不做家具成品、不做最终材质。",
+    "deliverables": {
+      "blend": "tmp/neighborhood-production/structure/squidward-structure.blend",
+      "glb": "tmp/neighborhood-production/structure/squidward-structure.glb"
+    }
+  }
+}

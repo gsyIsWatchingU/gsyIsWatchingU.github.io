@@ -1,0 +1,143 @@
+{
+  "locked": true,
+  "lockedAt": "2026-10-12",
+  "style": "比奇堡海绵宝宝卡通，曲面圆润、克制做旧（细微石纹/木纹/污渍/磨损，非密集条纹），无纯色积木感",
+  "colors": {
+    "exterior-cool-blue": {
+      "rgb": [
+        86,
+        132,
+        170
+      ],
+      "usage": "外墙石壳/舷窗",
+      "roughness": 0.85
+    },
+    "interior-green-gray": {
+      "rgb": [
+        122,
+        138,
+        116
+      ],
+      "usage": "室内绿灰墙砖主色",
+      "roughness": 0.9
+    },
+    "wood-warm-brown": {
+      "rgb": [
+        150,
+        104,
+        58
+      ],
+      "usage": "家具木作/门框/桌腿",
+      "roughness": 0.7
+    },
+    "bedding-deep-blue": {
+      "rgb": [
+        52,
+        78,
+        128
+      ],
+      "usage": "三层卧室床品",
+      "roughness": 0.9
+    },
+    "olive-fabric": {
+      "rgb": [
+        108,
+        122,
+        84
+      ],
+      "usage": "沙发软包",
+      "roughness": 0.95
+    },
+    "red-brown-fabric": {
+      "rgb": [
+        140,
+        86,
+        60
+      ],
+      "usage": "单人扶手椅",
+      "roughness": 0.95
+    },
+    "floor-warm-gray": {
+      "rgb": [
+        150,
+        138,
+        116
+      ],
+      "usage": "二层及各层地坪",
+      "roughness": 0.9
+    },
+    "terracotta-pot": {
+      "rgb": [
+        150,
+        96,
+        64
+      ],
+      "usage": "花盆",
+      "roughness": 0.85
+    },
+    "leaf-deep-green": {
+      "rgb": [
+        58,
+        110,
+        58
+      ],
+      "usage": "植物叶片",
+      "roughness": 0.8
+    },
+    "crt-dark-gray": {
+      "rgb": [
+        58,
+        58,
+        62
+      ],
+      "usage": "旧电视机身",
+      "roughness": 0.6
+    },
+    "frame-wood": {
+      "rgb": [
+        110,
+        84,
+        54
+      ],
+      "usage": "画框",
+      "roughness": 0.7
+    },
+    "aged-metal": {
+      "rgb": [
+        120,
+        120,
+        124
+      ],
+      "usage": "做旧金属件",
+      "roughness": 0.5,
+      "metallic": 0.6
+    }
+  },
+  "materials": {
+    "wall-green-tile": {
+      "file": "wall-green-tile.png",
+      "tiling": true,
+      "note": "绿灰墙砖，淡砖缝"
+    },
+    "floor-living": {
+      "file": "floor-living.png",
+      "tiling": true,
+      "note": "暖灰褐做旧地坪"
+    },
+    "wood-warm": {
+      "file": "wood-warm.png",
+      "tiling": true,
+      "note": "暖棕木纹家具通用"
+    },
+    "fabric-olive": {
+      "file": "fabric-olive.png",
+      "tiling": true,
+      "note": "橄榄绿布艺"
+    },
+    "fabric-red": {
+      "file": "fabric-red.png",
+      "tiling": true,
+      "note": "红棕布艺"
+    }
+  }
+}

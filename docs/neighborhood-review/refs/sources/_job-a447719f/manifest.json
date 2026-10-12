@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "job_id": "a447719f191447f3af9fd0d5e0043bd2",
+  "asset_name": "squidward-sofa",
+  "asset_kind": "prop",
+  "profile": "xhs_mobile",
+  "state": "failed",
+  "source_file": "/workspace/3d-assets/jobs/a447719f191447f3af9fd0d5e0043bd2/source.png",
+  "source_sha256": "4432b25cf3a755c7d97faef57f673ab0ff8a6dbe3f839689279a009081a66971",
+  "material_source_file": null,
+  "material_source_sha256": null,
+  "prompt": "卡通动画风格三人沙发，橄榄绿色布艺靠背与坐垫，深棕色木质扶手与椅腿，座位右侧放一个米色靠垫，圆润饱满曲面，柔软织物纹理，比奇堡海绵宝宝卡通风格",
+  "seed": 20261012,
+  "created_at": "2026-10-12T02:25:16.761707+00:00",
+  "updated_at": "2026-10-12T02:26:07.130712+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-12T02:25:16.764957+00:00",
+      "completed_at": "2026-10-12T02:25:16.766620+00:00",
+      "details": {
+        "fingerprint": "17b6bb9fa61bb97e",
+        "work_dir": "/workspace/3d-assets/jobs/a447719f191447f3af9fd0d5e0043bd2/work",
+        "profile": "xhs_mobile",
+        "elapsed_seconds": 0.001,
+        "execution_job_id": "a447719f191447f3af9fd0d5e0043bd2"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "running",
+      "started_at": "2026-10-12T02:25:16.767106+00:00",
+      "completed_at": null,
+      "details": {
+        "fingerprint": "f1d872f97dc7ef9a",
+        "elapsed_seconds": 50.362,
+        "execution_job_id": "a447719f191447f3af9fd0d5e0043bd2"
+      }
+    },
+    {
+      "name": "draft_preview",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "generate_material",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "export",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "render_preview",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "validate",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    }
+  ],
+  "outputs": {},
+  "metrics": {},
+  "provenance": {
+    "source_filename": "sofa.png",
+    "material_source_filename": null,
+    "mesh_backend": "single",
+    "views": {},
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu"
+  },
+  "quality_gates": {},
+  "error": "阶段命令失败，退出码 1: /workspace/projects/forge3d/scripts/run-hunyuan.sh /workspace/3d-assets/jobs/a447719f191447f3af9fd0d5e0043bd2/source.png /workspace/3d-assets/jobs/a447719f191447f3af9fd0d5e0043bd2/work/generated.glb",
+  "stop_after": null
+}

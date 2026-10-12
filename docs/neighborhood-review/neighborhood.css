@@ -1,0 +1,101 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: #a8d4e6;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+#canvas-wrap { position: relative; width: 100%; height: 100%; cursor: grab; }
+#canvas-wrap:active { cursor: grabbing; }
+#canvas-wrap.pointer-hover { cursor: pointer; }
+canvas { display: block; touch-action: none; }
+
+.top-bar {
+  position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+  background: rgba(255,255,255,0.85); border-radius: 24px; padding: 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12); backdrop-filter: blur(8px);
+  flex-wrap: wrap; justify-content: center; max-width: 95vw;
+}
+.top-bar button {
+  border: none; background: transparent; padding: 8px 14px; border-radius: 18px;
+  font-size: 13px; cursor: pointer; color: #3a6b7d;
+  transition: all .2s; font-weight: 500; white-space: nowrap;
+}
+.top-bar button.active { background: #f4c542; color: #5a4a10; }
+.top-bar button:hover:not(.active) { background: rgba(0,0,0,0.06); }
+
+.info-panel {
+  position: absolute; bottom: 20px; left: 20px; z-index: 10;
+  background: rgba(255,255,255,0.88); border-radius: 12px; padding: 14px 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1); max-width: 300px; backdrop-filter: blur(8px);
+}
+.info-panel h2 { font-size: 16px; color: #2c5a6e; margin-bottom: 6px; }
+.info-panel p { font-size: 12px; color: #5a7a8a; line-height: 1.6; }
+.info-panel .meta { margin-top: 8px; font-size: 11px; color: #8aa; border-top: 1px solid #dde; padding-top: 6px; }
+
+.controls-hint {
+  position: absolute; bottom: 20px; right: 20px; z-index: 10;
+  background: rgba(255,255,255,0.7); border-radius: 10px; padding: 8px 14px;
+  font-size: 11px; color: #6a8a9a; backdrop-filter: blur(6px);
+}
+
+.reset-btn {
+  position: absolute; top: 16px; right: 16px; z-index: 10;
+  background: rgba(255,255,255,0.85); border: none; border-radius: 20px;
+  padding: 8px 16px; font-size: 13px; cursor: pointer; color: #3a6b7d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.reset-btn:hover { background: #fff; }
+
+.loading {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 20; text-align: center; color: #2c5a6e; background: rgba(255,255,255,0.85);
+  padding: 20px 28px; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+.loading .spinner {
+  width: 36px; height: 36px; margin: 0 auto 12px;
+  border: 3px solid #cce; border-top-color: #5ac; border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-panel {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 20; background: rgba(255,255,255,0.95); border-radius: 14px;
+  padding: 20px 24px; box-shadow: 0 4px 18px rgba(0,0,0,0.18); text-align: center;
+  max-width: 320px;
+}
+.error-panel h2 { font-size: 15px; color: #a04a3a; margin-bottom: 8px; }
+.error-panel p { font-size: 12px; color: #6a7a8a; line-height: 1.6; margin-bottom: 12px; }
+.error-panel button {
+  border: none; background: #f4c542; color: #5a4a10; border-radius: 16px;
+  padding: 8px 20px; font-size: 13px; cursor: pointer; font-weight: 600;
+}
+
+.room-chips { position: absolute; inset: 0; pointer-events: none; z-index: 9; }
+.room-chip {
+  position: absolute; transform: translate(-50%, -50%);
+  white-space: nowrap; font-size: 11px; padding: 4px 9px;
+  border: 1px solid rgba(59,80,78,.18); border-radius: 6px;
+  background: rgba(255,255,255,0.85); color: #3a5a6a;
+  pointer-events: auto; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(28,68,78,.08);
+}
+.room-chip::before {
+  content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+  background: #c98a3a; margin-right: 6px; vertical-align: 1px;
+}
+.room-chip:hover { background: #fff7e0; }
+
+[hidden] { display: none !important; }
+
+@media (max-width: 600px) {
+  .top-bar { top: 10px; gap: 4px; padding: 4px; max-width: 96vw; }
+  .top-bar button { padding: 6px 10px; font-size: 12px; }
+  .reset-btn { top: 10px; right: 10px; padding: 6px 12px; font-size: 12px; }
+  .info-panel { bottom: 12px; left: 12px; right: 12px; max-width: none; padding: 10px 14px; }
+  .info-panel h2 { font-size: 14px; }
+  .info-panel p { font-size: 11px; }
+  .controls-hint { bottom: 96px; right: 12px; font-size: 10px; padding: 6px 10px; }
+  .room-chip { font-size: 10px; padding: 3px 7px; }
+}

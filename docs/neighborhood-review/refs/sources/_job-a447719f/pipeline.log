@@ -1,0 +1,38 @@
+2026-10-12 02:25:21,707 - hy3dgen.shapgen - INFO - Try to load model from local path: /workspace/models/forge3d/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1
+2026-10-12 02:25:21,714 - hy3dgen.shapgen - INFO - Loading model from /workspace/models/forge3d/hy3dgen/tencent/Hunyuan3D-2.1/hunyuan3d-dit-v2-1/model.fp16.ckpt
+using moe
+using moe
+using moe
+using moe
+using moe
+using moe
+PointCrossAttentionEncoder INFO: pc_sharpedge_size is zero
+Traceback (most recent call last):
+  File "/workspace/projects/forge3d/scripts/hunyuan_generate.py", line 82, in <module>
+    main()
+  File "/workspace/projects/forge3d/scripts/hunyuan_generate.py", line 41, in main
+    pipeline = Hunyuan3DDiTFlowMatchingPipeline.from_pretrained(
+  File "/workspace/projects/forge3d/vendor/Hunyuan3D-2.1/hy3dshape/hy3dshape/pipelines.py", line 220, in from_pretrained
+    return cls.from_single_file(
+  File "/workspace/projects/forge3d/vendor/Hunyuan3D-2.1/hy3dshape/hy3dshape/utils/utils.py", line 83, in wrapper
+    result = func(*args, **kwargs)
+  File "/workspace/projects/forge3d/vendor/Hunyuan3D-2.1/hy3dshape/hy3dshape/pipelines.py", line 191, in from_single_file
+    return cls(
+  File "/workspace/projects/forge3d/vendor/Hunyuan3D-2.1/hy3dshape/hy3dshape/pipelines.py", line 246, in __init__
+    self.to(device, dtype)
+  File "/workspace/projects/forge3d/vendor/Hunyuan3D-2.1/hy3dshape/hy3dshape/pipelines.py", line 304, in to
+    self.model.to(device)
+  File "/workspace/.envs/hunyuan3d/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1340, in to
+    return self._apply(convert)
+  File "/workspace/.envs/hunyuan3d/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  File "/workspace/.envs/hunyuan3d/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  File "/workspace/.envs/hunyuan3d/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  [Previous line repeated 5 more times]
+  File "/workspace/.envs/hunyuan3d/lib/python3.10/site-packages/torch/nn/modules/module.py", line 927, in _apply
+    param_applied = fn(param)
+  File "/workspace/.envs/hunyuan3d/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1326, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 44.52 GiB of which 5.88 MiB is free. Process 28749 has 39.53 GiB memory in use. Process 29633 has 4.98 GiB memory in use. Of the allocated memory 4.59 GiB is allocated by PyTorch, and 112.88 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

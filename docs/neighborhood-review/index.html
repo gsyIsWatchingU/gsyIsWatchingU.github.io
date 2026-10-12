@@ -4,31 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>比奇堡邻里 · 3D 模型审查</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 100%; height: 100%; overflow: hidden; background: #a8d4e6; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
-  #canvas-wrap { width: 100%; height: 100%; position: relative; cursor: grab; }
-  #canvas-wrap:active { cursor: grabbing; }
-  canvas { display: block; }
-  .top-bar { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; background: rgba(255,255,255,0.85); border-radius: 24px; padding: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.12); backdrop-filter: blur(8px); flex-wrap: wrap; justify-content: center; max-width: 95vw; }
-  .top-bar button { border: none; background: transparent; padding: 8px 14px; border-radius: 18px; font-size: 13px; cursor: pointer; color: #3a6b7d; transition: all .2s; font-weight: 500; white-space: nowrap; }
-  .top-bar button.active { background: #f4c542; color: #5a4a10; }
-  .top-bar button:hover:not(.active) { background: rgba(0,0,0,0.06); }
-  .info-panel { position: absolute; bottom: 20px; left: 20px; z-index: 10; background: rgba(255,255,255,0.88); border-radius: 12px; padding: 14px 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); max-width: 300px; backdrop-filter: blur(8px); }
-  .info-panel h2 { font-size: 16px; color: #2c5a6e; margin-bottom: 6px; }
-  .info-panel p { font-size: 12px; color: #5a7a8a; line-height: 1.6; }
-  .info-panel .meta { margin-top: 8px; font-size: 11px; color: #8aa; border-top: 1px solid #dde; padding-top: 6px; }
-  .controls-hint { position: absolute; bottom: 20px; right: 20px; z-index: 10; background: rgba(255,255,255,0.7); border-radius: 10px; padding: 8px 14px; font-size: 11px; color: #6a8a9a; backdrop-filter: blur(6px); }
-  .reset-btn { position: absolute; top: 16px; right: 16px; z-index: 10; background: rgba(255,255,255,0.85); border: none; border-radius: 20px; padding: 8px 16px; font-size: 13px; cursor: pointer; color: #3a6b7d; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-  .reset-btn:hover { background: #fff; }
-  .floor-bar { position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); z-index: 10; display: none; gap: 6px; background: rgba(255,255,255,0.85); border-radius: 20px; padding: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-  .floor-bar.visible { display: flex; }
-  .floor-bar button { border: none; background: transparent; padding: 6px 14px; border-radius: 14px; font-size: 12px; cursor: pointer; color: #3a6b7d; }
-  .floor-bar button.active { background: #5ac8e0; color: #fff; }
-  .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 20; text-align: center; color: #2c5a6e; }
-  .loading .spinner { width: 36px; height: 36px; border: 3px solid #cce; border-top-color: #5ac; border-radius: 50%; margin: 0 auto 12px; animation: spin 0.8s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-</style>
+<link rel="stylesheet" href="./neighborhood.css" />
 </head>
 <body>
 <div id="canvas-wrap">
@@ -40,11 +16,17 @@
   <button class="reset-btn" id="btn-reset">重置镜头</button>
   <div class="info-panel" id="info-panel">
     <h2 id="info-title">章鱼哥的人像屋</h2>
-    <p id="info-desc">深蓝灰火山岩摩艾造型，块状平顶，圆形舷窗眼、长鼻与木门。点击门进入。</p>
+    <p id="info-desc">正在加载…</p>
     <div class="meta" id="info-meta"></div>
   </div>
   <div class="controls-hint">拖拽旋转 · 滚轮/双指缩放 · 点击门进入</div>
+  <div class="room-chips" id="room-chips" hidden></div>
   <div class="loading" id="loading"><div class="spinner"></div><p>正在加载模型…</p></div>
+  <div class="error-panel" id="error-panel" hidden>
+    <h2>加载失败</h2>
+    <p>模型资源未能载入，请检查网络后重试。</p>
+    <button id="btn-retry">重试</button>
+  </div>
 </div>
 
 <script type="importmap">
@@ -55,227 +37,6 @@
   }
 }
 </script>
-<script type="module">
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-
-const MODELS = {
-  squidward: {
-    url: '../../assets/models/neighborhood/squidward-house-web.glb',
-    interiorUrl: '../../assets/models/neighborhood/squidward-interior.glb',
-    title: '章鱼哥的人像屋',
-    desc: '深蓝灰火山岩摩艾造型，块状平顶，圆形舷窗眼、长鼻与木门。',
-    jobId: 'aa194d37ac404e24a72fd388bdaca86c',
-    seed: 1234,
-    hasInterior: true,
-  },
-  patrick: {
-    url: '../../assets/models/neighborhood/patrick-house-web.glb',
-    title: '派大星的石头屋',
-    desc: '深红褐色圆顶巨石，顶部黄色风向标，粗石纹理。',
-    jobId: '5f31b9067879422ca8acbbe22aa9e6f6',
-    seed: 1234,
-    hasInterior: false,
-  },
-};
-
-const FLOOR_INFO = [
-  { name: "一层 厨房入口", y: 0.55, desc: "绿色橱柜、灶台、水槽、冰箱、圆餐桌与凳子" },
-  { name: "二层 客厅", y: 1.75, desc: "棕色沙发、扶手椅、茶几、旧电视、书架、盆栽" },
-  { name: "三层 卧室浴室", y: 2.9, desc: "竹四柱床、床头柜台灯、梳妆台、浴缸与洗手台" },
-  { name: "四层 艺术品展示", y: 3.95, desc: "摩艾头雕塑、画廊画框、穹顶" },
-];
-
-const wrap = document.getElementById('canvas-wrap');
-const loadingEl = document.getElementById('loading');
-const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xa8d4e6);
-scene.fog = new THREE.Fog(0xa8d4e6, 12, 30);
-const camera = new THREE.PerspectiveCamera(45, wrap.clientWidth / wrap.clientHeight, 0.1, 100);
-camera.position.set(0, 1.5, 6);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(wrap.clientWidth, wrap.clientHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-wrap.appendChild(renderer.domElement);
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.08;
-controls.target.set(0, 1.0, 0);
-controls.minDistance = 0.5;
-controls.maxDistance = 12;
-controls.maxPolarAngle = Math.PI / 2 + 0.1;
-scene.add(new THREE.HemisphereLight(0xd0eef5, 0x8a7a5a, 0.8));
-const key = new THREE.DirectionalLight(0xffffff, 1.8);
-key.position.set(3, 5, 4);
-key.castShadow = true;
-key.shadow.mapSize.set(1024, 1024);
-scene.add(key);
-const fill = new THREE.DirectionalLight(0xb0d0e0, 0.5);
-fill.position.set(-3, 2, -2);
-scene.add(fill);
-const ground = new THREE.Mesh(
-  new THREE.CircleGeometry(10, 64),
-  new THREE.MeshStandardMaterial({ color: 0xd4c89a, roughness: 0.95 })
-);
-ground.rotation.x = -Math.PI / 2;
-ground.receiveShadow = true;
-scene.add(ground);
-
-const loader = new GLTFLoader();
-const raycaster = new THREE.Raycaster();
-const pointer = new THREE.Vector2();
-const extGroup = new THREE.Group();
-const intGroup = new THREE.Group();
-scene.add(extGroup, intGroup);
-intGroup.visible = false;
-
-const state = {
-  current: 'squidward',
-  inside: false,
-  doorAnim: null,
-  camAnim: null,
-  extMesh: null,
-  intMesh: null,
-  doorObj: null,
-  tris: 0,
-  intTris: 0,
-};
-
-function countTris(root) {
-  let t = 0;
-  root.traverse(o => { if (o.isMesh && o.geometry && o.geometry.attributes.position) t += o.geometry.attributes.position.count / 3; });
-  return Math.round(t);
-}
-
-function setCam(pos, tgt, dur) {
-  state.camAnim = { fromPos: camera.position.clone(), fromTgt: controls.target.clone(), toPos: pos, toTgt: tgt, start: performance.now(), dur: dur || 800 };
-}
-
-function loadExterior(key) {
-  loadingEl.style.display = 'block';
-  const cfg = MODELS[key];
-  loader.load(cfg.url, (gltf) => {
-    state.extMesh = gltf.scene;
-    state.extMesh.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
-    const box = new THREE.Box3().setFromObject(state.extMesh);
-    const c = box.getCenter(new THREE.Vector3());
-    state.extMesh.position.x -= c.x; state.extMesh.position.z -= c.z; state.extMesh.position.y -= box.min.y;
-    state.tris = countTris(state.extMesh);
-    extGroup.add(state.extMesh);
-    loadingEl.style.display = 'none';
-    showExterior();
-  }, undefined, () => { loadingEl.textContent = '加载失败'; });
-}
-
-function loadInterior(cb) {
-  if (state.intMesh) { cb(); return; }
-  loadingEl.style.display = 'block';
-  const cfg = MODELS[state.current];
-  loader.load(cfg.interiorUrl, (gltf) => {
-    state.intMesh = gltf.scene;
-    state.intMesh.traverse(o => {
-      if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; }
-      if (o.name === 'door' || o.name === 'door_panel') state.doorObj = o;
-    });
-    state.intTris = countTris(state.intMesh);
-    intGroup.add(state.intMesh);
-    loadingEl.style.display = 'none';
-    cb();
-  });
-}
-
-function showExterior() {
-  state.inside = false;
-  intGroup.visible = false;
-  extGroup.visible = true;
-  document.getElementById('btn-exit').style.display = 'none';
-  const box = new THREE.Box3().setFromObject(state.extMesh);
-  const s = box.getSize(new THREE.Vector3());
-  const m = Math.max(s.x, s.y, s.z);
-  setCam(new THREE.Vector3(m*0.4, s.y*0.7, m*1.6), new THREE.Vector3(0, s.y*0.4, 0), 600);
-  const cfg = MODELS[state.current];
-  document.getElementById('info-title').textContent = cfg.title;
-  document.getElementById('info-desc').textContent = cfg.desc + ' 点击门进入。';
-  document.getElementById('info-meta').innerHTML = '三角面: ' + state.tris.toLocaleString() + '<br>任务: ' + cfg.jobId.slice(0,8) + '…<br>状态: review';
-  document.querySelectorAll('.top-bar > button').forEach(b => b.classList.remove('active'));
-  document.getElementById('btn-' + state.current).classList.add('active');
-}
-
-function enterInterior() {
-  loadInterior(() => {
-    state.inside = true;
-    if (state.doorObj) {
-      state.doorAnim = { start: performance.now(), from: 0, to: -Math.PI/2.5, dur: 900 };
-    }
-    setTimeout(() => {
-      extGroup.visible = false;
-      intGroup.visible = true;
-      document.getElementById('btn-exit').style.display = '';
-      const cfg = MODELS[state.current];
-      document.getElementById('info-title').textContent = cfg.title + ' · 内部剖切';
-      document.getElementById('info-desc').textContent = '前半切开：四层空间同时可见。';
-      document.getElementById('info-meta').innerHTML = '内部三角面: ' + state.intTris.toLocaleString() + '<br>任务: ' + cfg.jobId.slice(0,8) + '…<br>状态: review';
-      setCam(new THREE.Vector3(0, 2.2, 5.2), new THREE.Vector3(0, 2.2, 0), 900);
-    }, 900);
-  });
-}
-
-let downPos = null;
-wrap.addEventListener('pointerdown', e => { downPos = { x: e.clientX, y: e.clientY }; });
-wrap.addEventListener('pointerup', e => {
-  if (!downPos) return;
-  const dx = e.clientX - downPos.x, dy = e.clientY - downPos.y;
-  downPos = null;
-  if (Math.hypot(dx, dy) > 6 || state.inside) return;
-  pointer.set((e.clientX - wrap.getBoundingClientRect().left) / wrap.clientWidth * 2 - 1, -(e.clientY - wrap.getBoundingClientRect().top) / wrap.clientHeight * 2 + 1);
-  raycaster.setFromCamera(pointer, camera);
-  const hits = raycaster.intersectObject(state.extMesh, true);
-  if (hits.length && hits[0].distance < 4 && MODELS[state.current].hasInterior) enterInterior();
-});
-
-document.getElementById('btn-squidward').addEventListener('click', () => { state.current = 'squidward'; resetToExterior(); });
-document.getElementById('btn-patrick').addEventListener('click', () => { state.current = 'patrick'; resetToExterior(); });
-document.getElementById('btn-exit').addEventListener('click', showExterior);
-document.getElementById('btn-reset').addEventListener('click', () => { if (state.inside) setCam(new THREE.Vector3(0, 2.2, 5.2), new THREE.Vector3(0, 2.2, 0), 600); else showExterior(); });
-
-function resetToExterior() {
-  extGroup.clear(); intGroup.clear();
-  state.extMesh = null; state.intMesh = null; state.doorObj = null;
-  state.inside = false;
-  loadExterior(state.current);
-}
-
-window.addEventListener('resize', () => {
-  camera.aspect = wrap.clientWidth / wrap.clientHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(wrap.clientWidth, wrap.clientHeight);
-});
-
-function animate() {
-  requestAnimationFrame(animate);
-  if (state.camAnim) {
-    const a = state.camAnim;
-    const t = Math.min(1, (performance.now() - a.start) / a.dur);
-    const e = 1 - Math.pow(1 - t, 3);
-    camera.position.lerpVectors(a.fromPos, a.toPos, e);
-    controls.target.lerpVectors(a.fromTgt, a.toTgt, e);
-    if (t >= 1) state.camAnim = null;
-  }
-  if (state.doorAnim && state.doorObj) {
-    const a = state.doorAnim;
-    const t = Math.min(1, (performance.now() - a.start) / a.dur);
-    const e = 1 - Math.pow(1 - t, 3);
-    state.doorObj.rotation.y = a.from + (a.to - a.from) * e;
-    if (t >= 1) state.doorAnim = null;
-  }
-  controls.update();
-  renderer.render(scene, camera);
-}
-animate();
-loadExterior('squidward');
-</script>
+<script type="module" src="./neighborhood.js"></script>
 </body>
 </html>

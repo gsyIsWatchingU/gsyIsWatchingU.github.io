@@ -1,0 +1,1124 @@
+[
+  {
+    "id": "shell",
+    "room": "exterior",
+    "note": "石壳整体轮廓（摩艾造型，略收窄顶部）",
+    "source": "docs/neighborhood-review/refs/squidward-exterior-ref.png",
+    "sourceSha256": "2ad29e2c1be300aca31ac13d5121c5a90f9123b2d8b387c35a575335a92607b2",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          145,
+          115
+        ],
+        [
+          430,
+          110
+        ],
+        [
+          445,
+          300
+        ],
+        [
+          440,
+          630
+        ],
+        [
+          300,
+          645
+        ],
+        [
+          150,
+          635
+        ],
+        [
+          140,
+          300
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/shell.png",
+    "referenceSha256": "cae283dfa3a5afb5a459eaf0c9cadfc6246ab23168c35ed56a0ef04d568094c3",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "eyebrow",
+    "room": "exterior",
+    "note": "眉梁（横贯眼部上方）",
+    "source": "docs/neighborhood-review/refs/squidward-exterior-ref.png",
+    "sourceSha256": "2ad29e2c1be300aca31ac13d5121c5a90f9123b2d8b387c35a575335a92607b2",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          185,
+          255
+        ],
+        [
+          400,
+          250
+        ],
+        [
+          405,
+          288
+        ],
+        [
+          180,
+          292
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/eyebrow.png",
+    "referenceSha256": "b212e1ad4b04f95de32127e4f84f28a3484e0b1b1bbcc0e277293877cb2a7619",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "porthole",
+    "room": "exterior",
+    "note": "圆形舷窗（左眼）",
+    "source": "docs/neighborhood-review/refs/squidward-exterior-ref.png",
+    "sourceSha256": "2ad29e2c1be300aca31ac13d5121c5a90f9123b2d8b387c35a575335a92607b2",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          205,
+          295
+        ],
+        [
+          275,
+          290
+        ],
+        [
+          285,
+          335
+        ],
+        [
+          270,
+          370
+        ],
+        [
+          210,
+          368
+        ],
+        [
+          198,
+          330
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/porthole.png",
+    "referenceSha256": "491442cdb2f7880ce5404248e32650c64f2b13e5f6b55c9aefcd0b810bb2821b",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "nose",
+    "room": "exterior",
+    "note": "楔形长鼻",
+    "source": "docs/neighborhood-review/refs/squidward-exterior-ref.png",
+    "sourceSha256": "2ad29e2c1be300aca31ac13d5121c5a90f9123b2d8b387c35a575335a92607b2",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          295,
+          295
+        ],
+        [
+          360,
+          300
+        ],
+        [
+          350,
+          450
+        ],
+        [
+          300,
+          455
+        ],
+        [
+          288,
+          360
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/nose.png",
+    "referenceSha256": "47e0cbf72ea2e7f161999d5fd93ddcc3548ba6bdf4e65bbe13dc2b8d1de6f7a2",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "ear",
+    "room": "exterior",
+    "note": "侧耳（左侧矩形凸块）",
+    "source": "docs/neighborhood-review/refs/squidward-exterior-ref.png",
+    "sourceSha256": "2ad29e2c1be300aca31ac13d5121c5a90f9123b2d8b387c35a575335a92607b2",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          150,
+          335
+        ],
+        [
+          198,
+          332
+        ],
+        [
+          200,
+          420
+        ],
+        [
+          148,
+          422
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/ear.png",
+    "referenceSha256": "da478e656f7be24db4a2374ddf31ffc7d3c226f040f04d6d3eabc14c745b477b",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "door-arch",
+    "room": "exterior",
+    "note": "拱形木门",
+    "source": "docs/neighborhood-review/refs/squidward-exterior-ref.png",
+    "sourceSha256": "2ad29e2c1be300aca31ac13d5121c5a90f9123b2d8b387c35a575335a92607b2",
+    "preprocessing": {
+      "size": [
+        1080,
+        1440
+      ],
+      "polygon": [
+        [
+          235,
+          495
+        ],
+        [
+          355,
+          492
+        ],
+        [
+          360,
+          635
+        ],
+        [
+          230,
+          638
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/door-arch.png",
+    "referenceSha256": "7387a613cb900d2065e98467c4a6cbe4bca763ca0ca70c5bcd67672fd2f748b4",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "cutaway",
+    "room": "interior",
+    "note": "四层剖面（去文字干净版，布局依据）",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          465,
+          35
+        ],
+        [
+          950,
+          30
+        ],
+        [
+          955,
+          1050
+        ],
+        [
+          460,
+          1055
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/cutaway.png",
+    "referenceSha256": "bf60cd1ace724dfd1e002b03f737a65f506a073cdcc188f1e0c0f115b1c641a6",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "armchair",
+    "room": "interior",
+    "note": "红棕色单人扶手椅",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          535,
+          595
+        ],
+        [
+          595,
+          590
+        ],
+        [
+          605,
+          655
+        ],
+        [
+          560,
+          668
+        ],
+        [
+          530,
+          650
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/armchair.png",
+    "referenceSha256": "cd6714617c9c36b9fcf2b8d8ba4d50fc4f7813930d087a2c0c2bafa1479f24a7",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "sofa",
+    "room": "interior",
+    "note": "橄榄绿布艺三人沙发+木扶手+米色靠垫",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          588,
+          562
+        ],
+        [
+          658,
+          557
+        ],
+        [
+          670,
+          563
+        ],
+        [
+          675,
+          595
+        ],
+        [
+          658,
+          605
+        ],
+        [
+          625,
+          612
+        ],
+        [
+          602,
+          613
+        ],
+        [
+          585,
+          615
+        ],
+        [
+          582,
+          595
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/sofa.png",
+    "referenceSha256": "4432b25cf3a755c7d97faef57f673ab0ff8a6dbe3f839689279a009081a66971",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "coffee-table",
+    "room": "interior",
+    "note": "圆形木质茶几",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          635,
+          612
+        ],
+        [
+          705,
+          608
+        ],
+        [
+          730,
+          635
+        ],
+        [
+          715,
+          668
+        ],
+        [
+          650,
+          672
+        ],
+        [
+          625,
+          645
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/coffee-table.png",
+    "referenceSha256": "19c72fef65e7b12ddb076737081b6d37fca6f6507f363e98ae7d8a9bc267c192",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "old-tv",
+    "room": "interior",
+    "note": "旧 CRT 电视",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          725,
+          622
+        ],
+        [
+          785,
+          618
+        ],
+        [
+          795,
+          672
+        ],
+        [
+          745,
+          682
+        ],
+        [
+          718,
+          660
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/old-tv.png",
+    "referenceSha256": "82a42ed67f4a9c0927110add3bb2fb264992cb9295d99db38c78229586f2c5c5",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "bookshelf",
+    "room": "interior",
+    "note": "木质书柜",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          765,
+          532
+        ],
+        [
+          818,
+          528
+        ],
+        [
+          822,
+          598
+        ],
+        [
+          762,
+          602
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/bookshelf.png",
+    "referenceSha256": "97fd11e6befc1357bf95017a386f7134e044c15fa0396f6f4e0ea58138a2125e",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "plant",
+    "room": "interior",
+    "note": "盆栽植物",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          690,
+          522
+        ],
+        [
+          735,
+          518
+        ],
+        [
+          745,
+          575
+        ],
+        [
+          700,
+          582
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/plant.png",
+    "referenceSha256": "89597444aec916cdd92bb57035835324d78449da7f09ef37645e3761bb8a6c02",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "rug-living",
+    "room": "interior",
+    "note": "客厅小地毯",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          595,
+          662
+        ],
+        [
+          655,
+          658
+        ],
+        [
+          662,
+          695
+        ],
+        [
+          590,
+          700
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/rug-living.png",
+    "referenceSha256": "9960678a325c7057d022a3d22479512b301b073fd2e01fac27cc0d1619b8062e",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "bed",
+    "room": "interior",
+    "note": "竹节四柱床+蓝色床品+枕头",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          700,
+          300
+        ],
+        [
+          850,
+          295
+        ],
+        [
+          855,
+          470
+        ],
+        [
+          710,
+          482
+        ],
+        [
+          695,
+          400
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/bed.png",
+    "referenceSha256": "db24419494aed8611dc55ce756eb08fc48a658966c003dc3f4344cf5ad7d2baf",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "nightstand",
+    "room": "interior",
+    "note": "床头柜+台灯",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          572,
+          392
+        ],
+        [
+          648,
+          388
+        ],
+        [
+          652,
+          458
+        ],
+        [
+          568,
+          462
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/nightstand.png",
+    "referenceSha256": "64695cb820a41dec3e90cde90331d29e2d6de0194f9eb86432391596f744166c",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "dresser",
+    "room": "interior",
+    "note": "梳妆台/斗柜",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          632,
+          400
+        ],
+        [
+          708,
+          396
+        ],
+        [
+          712,
+          455
+        ],
+        [
+          628,
+          460
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/dresser.png",
+    "referenceSha256": "f0caec9b5cfb3a881981f74af34edb483b335f4ba89c5b722178dd62defd3878",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "bed-rug",
+    "room": "interior",
+    "note": "卧室地毯",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          672,
+          442
+        ],
+        [
+          778,
+          438
+        ],
+        [
+          782,
+          478
+        ],
+        [
+          668,
+          482
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/bed-rug.png",
+    "referenceSha256": "ff0593e673cb07742ac3a81351d51517bb07a1011a8914ba9c1a3f0de4ab1d4d",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "bathtub",
+    "room": "interior",
+    "note": "有内腔白色爪足浴缸",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          585,
+          172
+        ],
+        [
+          735,
+          168
+        ],
+        [
+          745,
+          225
+        ],
+        [
+          700,
+          252
+        ],
+        [
+          600,
+          248
+        ],
+        [
+          575,
+          215
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/bathtub.png",
+    "referenceSha256": "de0b135eb00696db99f273f7e1fa41e7792917f03f2eb5b7ffdf7bd1b8c667fe",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "faucet",
+    "room": "interior",
+    "note": "淋浴龙头/花洒",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          602,
+          102
+        ],
+        [
+          678,
+          98
+        ],
+        [
+          682,
+          175
+        ],
+        [
+          600,
+          180
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/faucet.png",
+    "referenceSha256": "4e2f480e333c3e5d50dfce638cacf53d9eb9f9417d93e57ad39b1ecd7a86f534",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "shower-curtain",
+    "room": "interior",
+    "note": "蓝白浴帘",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          815,
+          82
+        ],
+        [
+          895,
+          78
+        ],
+        [
+          900,
+          235
+        ],
+        [
+          820,
+          240
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/shower-curtain.png",
+    "referenceSha256": "aa8e35447739dfc4faf01f314cdb924e865e75c1549134b685684419765b5e9e",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "washbasin",
+    "room": "interior",
+    "note": "洗手盆",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          862,
+          202
+        ],
+        [
+          918,
+          198
+        ],
+        [
+          922,
+          248
+        ],
+        [
+          860,
+          252
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/washbasin.png",
+    "referenceSha256": "a7a921d26eb8cf186dd428c5b5e73e8a5df21d400825cf085ed852146d6091e2",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "stove",
+    "room": "interior",
+    "note": "灶台烤箱（黑灶面+烤箱）",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          592,
+          792
+        ],
+        [
+          668,
+          788
+        ],
+        [
+          672,
+          888
+        ],
+        [
+          588,
+          892
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/stove.png",
+    "referenceSha256": "a7b581d3ffbb5d4bd1c20923b92bbe5f76d75d729a9f48d8a64e85d3834bac46",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "sink-kitchen",
+    "room": "interior",
+    "note": "厨房水槽",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          732,
+          792
+        ],
+        [
+          788,
+          788
+        ],
+        [
+          792,
+          828
+        ],
+        [
+          728,
+          832
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/sink-kitchen.png",
+    "referenceSha256": "30364172d63bf18ab7a50533454c74429a553548e76cb2affb425474a3853854",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "fridge",
+    "room": "interior",
+    "note": "银色冰箱",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          782,
+          742
+        ],
+        [
+          838,
+          738
+        ],
+        [
+          842,
+          858
+        ],
+        [
+          778,
+          862
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/fridge.png",
+    "referenceSha256": "8f22a10604dd35fe6c67161af39d3758e29e12ed2b43a7bfea51d6cb65ed37bb",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "dining-table",
+    "room": "interior",
+    "note": "竹木方餐桌",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          632,
+          882
+        ],
+        [
+          768,
+          878
+        ],
+        [
+          772,
+          978
+        ],
+        [
+          628,
+          982
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/dining-table.png",
+    "referenceSha256": "1deb6fbd5b3836ad7e05d6ff8b33b567cc1766284b32cf65413fb7a9981306cf",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "stool",
+    "room": "interior",
+    "note": "小圆凳",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          562,
+          902
+        ],
+        [
+          608,
+          898
+        ],
+        [
+          612,
+          948
+        ],
+        [
+          558,
+          952
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/stool.png",
+    "referenceSha256": "d708380ca6df0e372f1d0f6ad153388e5a797759850a231e1a1c1d10b47e8a87",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "cabinets",
+    "room": "interior",
+    "note": "绿色整体橱柜",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          522,
+          812
+        ],
+        [
+          808,
+          808
+        ],
+        [
+          812,
+          908
+        ],
+        [
+          518,
+          912
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/cabinets.png",
+    "referenceSha256": "0cce711ed19f9191b99c1c45a2710d592eea6b4fcafb2d1c9bac051379b94a07",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "entrance-arch",
+    "room": "interior",
+    "note": "入口拱门/木门",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          832,
+          932
+        ],
+        [
+          898,
+          928
+        ],
+        [
+          902,
+          998
+        ],
+        [
+          828,
+          1002
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/entrance-arch.png",
+    "referenceSha256": "87e020af34889ff9ea83a1d236a5eec16c49ff44bda97198f93dcb0ac89f3dcb",
+    "seed": null,
+    "status": "prepared"
+  },
+  {
+    "id": "staircase",
+    "room": "interior",
+    "note": "连续螺旋楼梯+扶手+落脚平台",
+    "source": "docs/neighborhood-review/refs/squidward-interior-ref.png",
+    "sourceSha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "preprocessing": {
+      "size": [
+        1440,
+        1080
+      ],
+      "polygon": [
+        [
+          820,
+          480
+        ],
+        [
+          900,
+          470
+        ],
+        [
+          905,
+          920
+        ],
+        [
+          815,
+          930
+        ]
+      ]
+    },
+    "reference": "docs/neighborhood-review/refs/sources/staircase.png",
+    "referenceSha256": "e0fbe7ae77ef124551d9be270b1926876a57105f1e8b752da48c2e06cea443de",
+    "seed": null,
+    "status": "prepared"
+  }
+]

@@ -4,29 +4,35 @@
 
 状态：`review`，等待视觉确认；首页未接入，未推送发布。
 
-## 模型清单
+## 章鱼哥人像屋（本轮最终重建 v4-final）
 
-| 房屋 | 任务 ID | Seed | 三角面（网页版） | 精细版大小 | 网页版大小 |
-| --- | --- | --- | --- | --- | --- |
-| 章鱼哥的人像屋 | `6374e2f2e7c44c75ac2c43fbca8226d4` | 1234 | 7,235 | 3.2 MB | 1.4 MB |
-| 派大星的石头屋 | `d3c8b3a93370432c894153514c231551` | 1234 | 7,026 | 3.2 MB | 1.5 MB |
+- 深蓝灰摩艾造型石屋，块状平顶、圆形舷窗眼、长鼻与木门嘴、两侧耳块；内部按参考插画剖切重建为四层。
+- 四层（行走面 y=0.15/1.20/2.40/3.60）：一层厨房、二层客厅、三层卧室、四层浴室（顶层）；右侧连续螺旋楼梯（39 级）贯通四层，艺术品台座/雕塑位于楼梯旁。
+- 缓存版本：`?v=20261012-squidward-v4-final`。
 
-- 生产主机：`gsy013`（NVIDIA L20），Forge3D 0.1.0，Hunyuan3D-2.1 Shape + Paint。
-- 参考图由 GPU 自托管 Z-Image-Turbo 生成，存于 `refs/`。
-- 精细版为 steam_desktop 档（40K 三角面、2048 贴图），网页版贴图缩放至 1024px。
-- 模型统一底部中心原点、Y 轴向上。
+## 模型清单（本轮）
+
+| 模型 | 路径 | 索引三角面 | SHA256 |
+| --- | --- | --- | --- |
+| 桌面整屋 | `assets/models/neighborhood/squidward-house.glb` | 90,200 | `4d3249fc…e9daaa7` |
+| 移动整屋 | `assets/models/neighborhood/squidward-house-web.glb` | 90,200 | 同上（同几何） |
+| 桌面室内 | `assets/models/neighborhood/squidward-interior.glb` | 81,504 | `f7f1d974…dd2e285e` |
+| 移动室内 | `assets/models/neighborhood/squidward-interior-web.glb` | 81,504 | 同上（同几何） |
+
+- 旧模型已归档至 `assets/models/neighborhood/archive/`；派大星屋两件未改动。
+- 生产主机 `gsy013`（L20），Blender 4.5.13 程序化建模导出。
 
 ## 文件说明
 
-- `index.html`：独立 Three.js 预览，支持切换房屋、拖拽旋转、滚轮缩放、重置镜头。
-- `refs/`：参考图（Z-Image-Turbo 生成）、Forge3D manifest、转台预览。
-- `screenshots/`：桌面 1440×900 与手机 390×844 验证截图。
-- 模型文件：`assets/models/neighborhood/squidward-house.glb`（精细版）、`squidward-house-web.glb`（网页版）；派大星屋同理。
+- `index.html` / `neighborhood.js` / `neighborhood.css`：独立 Three.js 预览，支持切换房屋、拖拽旋转、滚轮缩放、重置镜头、房间近景。
+- `config/house-config.json`：镜头/房屋/房间配置（缓存 `v=20261012-squidward-v4-final`）；`config/space-config.json`：权威空间布局。
+- `refs/`：参考图、Forge3D manifest、转台预览与建模源图。
+- `acceptance/`：本轮验收截图、参考对照图与运行结果（见 `verification.md`）。
+- `preview-dev/final/`：开发期交互自测截图。
 
 ## 验证
 
+- 验收记录（对照表、截图索引、已知问题、限制）见 `verification.md`。
 - `npm run build`、`npm run check`、`git diff --check` 通过。
-- 桌面 1440×900 与手机 390×844 视口实际加载、切换、旋转、缩放正常。
-- 轮廓辨识度：章鱼哥屋还原摩艾头像、长鼻、矩形窗眼与木门；派大星屋还原圆顶巨石、拱形门洞与顶部天线。
-- 背面完整、无悬空碎片、模型接地。
-- 自动检查通过不等于视觉批准。用户确认后才标记 `approved` 并接入首页。
+- 已知问题（待用户决策）：厨房近景被门框遮挡、点击木门本体当前不触发进入（详见 `verification.md`）。
+- 自动检查通过不等于视觉批准；用户确认后才标记 `approved` 并接入首页。

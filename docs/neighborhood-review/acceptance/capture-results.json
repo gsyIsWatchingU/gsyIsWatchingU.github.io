@@ -1,0 +1,70 @@
+{
+  "cutaway": {
+    "house": "squidward",
+    "view": "cutaway",
+    "roomId": null,
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 81504
+  },
+  "room_kitchen": {
+    "house": "squidward",
+    "view": "room",
+    "roomId": "kitchen",
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 81504
+  },
+  "room_living": {
+    "house": "squidward",
+    "view": "room",
+    "roomId": "living",
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 81504
+  },
+  "room_bedroom": {
+    "house": "squidward",
+    "view": "room",
+    "roomId": "bedroom",
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 81504
+  },
+  "room_bathroom": {
+    "house": "squidward",
+    "view": "room",
+    "roomId": "bathroom",
+    "tier": "desktop",
+    "extTris": 90200,
+    "intTris": 81504
+  },
+  "mobile_cutaway": {
+    "house": "squidward",
+    "view": "cutaway",
+    "roomId": null,
+    "tier": "mobile",
+    "extTris": 90200,
+    "intTris": 81504
+  },
+  "mobile_kitchen": {
+    "house": "squidward",
+    "view": "room",
+    "roomId": "kitchen",
+    "tier": "mobile",
+    "extTris": 90200,
+    "intTris": 81504
+  },
+  "mobile_exterior": {
+    "house": "squidward",
+    "view": "exterior",
+    "roomId": null,
+    "tier": "mobile",
+    "extTris": 90200,
+    "intTris": 0
+  },
+  "_errors": [
+    "THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead."
+  ],
+  "_failed": []
+}
