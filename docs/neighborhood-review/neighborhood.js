@@ -176,7 +176,7 @@ function setInfo(title, desc, extraMeta) {
   const tris = state.view === 'exterior' ? state.extTris : (state.intTris || state.extTris);
   infoMeta.innerHTML =
     `三角面(索引): ${tris.toLocaleString()}<br>` +
-    `任务: ${cfg.jobId.slice(0, 8)}…<br>状态: review` +
+    `任务: ${cfg.jobId}<br>状态: review` +
     (extraMeta ? `<br>${extraMeta}` : '');
 }
 

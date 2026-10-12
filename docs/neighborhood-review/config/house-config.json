@@ -1,8 +1,8 @@
 {
-  "version": "20261012-squidward-v5",
+  "version": "20261012-squidward-v5-final2",
   "status": "review",
   "note": "章鱼哥屋最终预览配置。坐标按新 GLB 实测包围盒 + space-config.json 权威布局（glTF Y-up，地面 y=0，正门朝 +Z，四层楼板 y=0.15/1.20/2.40/3.60）。门点击改为射线直接对 door_* 网格求交；房间近景隐藏整个门组。",
-  "cacheBust": "v=20261012-squidward-v5",
+  "cacheBust": "v=20261012-squidward-v5-final2",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,
@@ -19,8 +19,8 @@
   "houses": {
     "squidward": {
       "title": "章鱼哥的人像屋",
-      "desc": "深蓝灰火山岩摩艾造型，块状平顶，圆形舷窗眼、长鼻与木门。",
-      "jobId": "aa194d37ac404e24a72fd388bdaca86c",
+      "desc": "蓝色石质摩艾造型·圆弧石壳；四层自下而上：入口与厨房、客厅、卧室、浴室；右侧连续螺旋楼梯与艺术品平台。",
+      "jobId": "本轮生产：石壳 a68d1b3f / 沙发 0afbebe8 / 茶几 bd384769 / 地毯 c1edfa3d；其余 Blender 精修",
       "hasInterior": true,
       "models": {
         "desktop": {
