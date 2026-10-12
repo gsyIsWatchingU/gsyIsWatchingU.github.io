@@ -38,12 +38,6 @@
     <button id="btn-exit" style="display:none">返回外部</button>
   </div>
   <button class="reset-btn" id="btn-reset">重置镜头</button>
-  <div class="floor-bar" id="floor-bar">
-    <button data-floor="0" class="active">一层 厨房</button>
-    <button data-floor="1">二层 客厅</button>
-    <button data-floor="2">三层 卧室</button>
-    <button data-floor="3">四层 展示</button>
-  </div>
   <div class="info-panel" id="info-panel">
     <h2 id="info-title">章鱼哥的人像屋</h2>
     <p id="info-desc">深蓝灰火山岩摩艾造型，块状平顶，圆形舷窗眼、长鼻与木门。点击门进入。</p>
@@ -197,7 +191,6 @@ function showExterior() {
   state.inside = false;
   intGroup.visible = false;
   extGroup.visible = true;
-  document.getElementById('floor-bar').classList.remove('visible');
   document.getElementById('btn-exit').style.display = 'none';
   const box = new THREE.Box3().setFromObject(state.extMesh);
   const s = box.getSize(new THREE.Vector3());
@@ -220,23 +213,14 @@ function enterInterior() {
     setTimeout(() => {
       extGroup.visible = false;
       intGroup.visible = true;
-      document.getElementById('floor-bar').classList.add('visible');
       document.getElementById('btn-exit').style.display = '';
       const cfg = MODELS[state.current];
-      document.getElementById('info-title').textContent = cfg.title + ' · 内部';
-      document.getElementById('info-desc').textContent = '前半切开：四层空间可见。';
+      document.getElementById('info-title').textContent = cfg.title + ' · 内部剖切';
+      document.getElementById('info-desc').textContent = '前半切开：四层空间同时可见。';
       document.getElementById('info-meta').innerHTML = '内部三角面: ' + state.intTris.toLocaleString() + '<br>任务: ' + cfg.jobId.slice(0,8) + '…<br>状态: review';
-      setFloor(0);
+      setCam(new THREE.Vector3(0, 2.2, 5.2), new THREE.Vector3(0, 2.2, 0), 900);
     }, 900);
   });
-}
-
-function setFloor(f) {
-  const info = FLOOR_INFO[f];
-  setCam(new THREE.Vector3(0.9, info.y + 0.4, 2.6), new THREE.Vector3(0, info.y, 0), 600);
-  document.querySelectorAll('#floor-bar button').forEach(b => b.classList.remove('active'));
-  document.querySelector('#floor-bar button[data-floor="' + f + '"]').classList.add('active');
-  document.getElementById('info-desc').textContent = info.name + '：' + info.desc;
 }
 
 let downPos = null;
@@ -255,8 +239,7 @@ wrap.addEventListener('pointerup', e => {
 document.getElementById('btn-squidward').addEventListener('click', () => { state.current = 'squidward'; resetToExterior(); });
 document.getElementById('btn-patrick').addEventListener('click', () => { state.current = 'patrick'; resetToExterior(); });
 document.getElementById('btn-exit').addEventListener('click', showExterior);
-document.querySelectorAll('#floor-bar button').forEach(b => b.addEventListener('click', () => setFloor(parseInt(b.dataset.floor))));
-document.getElementById('btn-reset').addEventListener('click', () => state.inside ? setFloor(0) : showExterior());
+document.getElementById('btn-reset').addEventListener('click', () => { if (state.inside) setCam(new THREE.Vector3(0, 2.2, 5.2), new THREE.Vector3(0, 2.2, 0), 600); else showExterior(); });
 
 function resetToExterior() {
   extGroup.clear(); intGroup.clear();
