@@ -1,0 +1,212 @@
+[
+  {
+    "k": "live-built6-bundle",
+    "ok": true,
+    "msg": "https://gsyiswatchingu.github.io/assets/patrick-house.js?v=20261012-built6"
+  },
+  {
+    "k": "live-ready",
+    "ok": true,
+    "msg": "{\"view\":\"whole\",\"mode\":\"cutaway\",\"state\":\"ready\",\"waveState\":\"idle\",\"interact\":{\"tvOn\":false,\"fanSpinning\":false,\"bedLampOn\":false,\"floorLampOn\":false},\"camPos\":[0,3.9433469769135323,18.694558140946114],\"target\":[0,1.7,0],\"fov\":34,\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "live-stat",
+    "ok": true,
+    "msg": "{\"meshes\":191,\"triangles\":89542}"
+  },
+  {
+    "k": "live-no-errors",
+    "ok": true,
+    "msg": "[]"
+  },
+  {
+    "k": "live-no-failed-req",
+    "ok": true,
+    "msg": "[]"
+  },
+  {
+    "k": "desktop-labels-in-view",
+    "ok": true,
+    "msg": "[{\"text\":\"厨房\",\"left\":531,\"top\":349,\"right\":578,\"bottom\":373,\"hidden\":false},{\"text\":\"卧室\",\"left\":816,\"top\":377,\"right\":863,\"bottom\":401,\"hidden\":false},{\"text\":\"健身区\",\"left\":606,\"top\":426,\"right\":664,\"bottom\":450,\"hidden\":false},{\"text\":\"地下客厅\",\"left\":638,\"top\":606,\"right\":707,\"bottom\":630,\"hidden\":false}]"
+  },
+  {
+    "k": "interactors",
+    "ok": true,
+    "msg": "{\"fan\":[0,3.91,0],\"lampBed\":[2.9,0.7399999993294477,-2.3],\"tv\":[0.9776432942501241,-1.8260000055283305,-1.8823675432486722],\"lampFloor\":[-1.85,-1.5649999972060322,-1.55],\"patrick\":[0.1782874645988587,-1.4287499984353778,0.7]}"
+  },
+  {
+    "k": "patrick-proj-whole",
+    "ok": true,
+    "msg": "{\"x\":734.1798430050443,\"y\":703.7014359266053,\"z\":0.9904369741302791}"
+  },
+  {
+    "k": "wave-sequence",
+    "ok": true,
+    "msg": "raise->wave->wave->wave->wave->wave->wave->lower->lower->idle->idle->idle->idle->idle->idle->idle->idle->idle->idle->idle->idle->idle"
+  },
+  {
+    "k": "wave-no-restart",
+    "ok": true,
+    "msg": "[{\"state\":\"wave\",\"t\":0.46690000000596044,\"armRz\":2.380012105944597,\"elbowRz\":0.8464575620064939,\"bodyScale\":[1.0082275621864782,1.0115185870610695,1.0026310893398782],\"patrickPos\":[0.15,-2.3,0.7]},{\"state\":\"wave\",\"t\":0.96680000000447,\"armRz\":2.4296779681774954,\"elbowRz\":0.7523831973029675,\"bodyScale\":[1.00016432528313,1.000230055396382,0.9936843758793484],\"patrickPos\":[0.15,-2.3,0.7]}]"
+  },
+  {
+    "k": "wave-back-idle",
+    "ok": true,
+    "msg": "{\"state\":\"idle\",\"t\":0,\"armRz\":0.12186290394638138,\"elbowRz\":0.16184304050091874,\"bodyScale\":[1.0097774487861297,1.0136884283005816,1.006126653306825],\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "living-view",
+    "ok": true,
+    "msg": "{\"view\":\"living\",\"camPos\":[0.4755315421514313,-0.20000000000000018,5.240209113084025]}"
+  },
+  {
+    "k": "click-tv",
+    "ok": true,
+    "msg": "at 970,379 z=0.974"
+  },
+  {
+    "k": "tv-on-screen-only",
+    "ok": true,
+    "msg": "{\"screenOn\":true,\"frameGlow\":false,\"on\":true}"
+  },
+  {
+    "k": "click-tv-off",
+    "ok": true,
+    "msg": "at 970,379 z=0.974"
+  },
+  {
+    "k": "tv-off",
+    "ok": true,
+    "msg": "{\"screenOn\":false,\"frameGlow\":false,\"on\":false}"
+  },
+  {
+    "k": "click-floor-lamp",
+    "ok": true,
+    "msg": "at 383,329 z=0.973"
+  },
+  {
+    "k": "floor-lamp-shade-only",
+    "ok": true,
+    "msg": "{\"shades\":[true,true],\"otherGlow\":false}"
+  },
+  {
+    "k": "click-patrick-living",
+    "ok": true,
+    "msg": "at 761,433 z=0.959"
+  },
+  {
+    "k": "patrick-click-living",
+    "ok": true,
+    "msg": "{\"state\":\"raise\",\"t\":0.3,\"armRz\":1.6404,\"elbowRz\":0.7226400000000001,\"bodyScale\":[1.0082928040222585,1.011609925631162,1.0099427856233585],\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "click-bed-lamp",
+    "ok": true,
+    "msg": "at 887,390 z=0.967"
+  },
+  {
+    "k": "bed-lamp-shade-only",
+    "ok": true,
+    "msg": "{\"shades\":[true],\"otherGlow\":false}"
+  },
+  {
+    "k": "click-fan-on",
+    "ok": true,
+    "msg": "at 720,276 z=0.990"
+  },
+  {
+    "k": "fan-blades-spin",
+    "ok": true,
+    "msg": "[{\"bladesY\":3.2519999999925497,\"groupY\":0,\"spinning\":true},{\"bladesY\":5.333499999977646,\"groupY\":0,\"spinning\":true}]"
+  },
+  {
+    "k": "fan-frame-still",
+    "ok": true,
+    "msg": "0"
+  },
+  {
+    "k": "click-fan-off",
+    "ok": true,
+    "msg": "at 720,276 z=0.990"
+  },
+  {
+    "k": "fan-off",
+    "ok": true,
+    "msg": "{\"bladesY\":5.584499999992547,\"groupY\":0,\"spinning\":false}"
+  },
+  {
+    "k": "exterior-mode",
+    "ok": true,
+    "msg": "{\"view\":\"whole\",\"mode\":\"exterior\",\"state\":\"ready\",\"waveState\":\"idle\",\"interact\":{\"tvOn\":false,\"fanSpinning\":false,\"bedLampOn\":true,\"floorLampOn\":true},\"camPos\":[0,7.073639535236525,18.694558140946107],\"target\":[0,2.4,0],\"fov\":34,\"patrickPos\":[0,0.02,5.9]}"
+  },
+  {
+    "k": "wave-idle-after-ext",
+    "ok": true,
+    "msg": "{\"state\":\"idle\",\"t\":0,\"armRz\":0.15565949205243235,\"elbowRz\":0.07301092907595433,\"bodyScale\":[1.0061894722727833,1.0086652611818967,1.0097938650806193],\"patrickPos\":[0,0.02,5.9]}"
+  },
+  {
+    "k": "drag-camera-moved",
+    "ok": true,
+    "msg": "[[0,3.9433469769135323,18.694558140946114],[-17.528785554878894,-1.2454541475648744,6.211689510890282]]"
+  },
+  {
+    "k": "drag-no-trigger",
+    "ok": true,
+    "msg": "{\"w\":\"idle\",\"t\":false,\"f\":false}"
+  },
+  {
+    "k": "bg-no-trigger",
+    "ok": true,
+    "msg": "{\"w\":\"idle\",\"v\":\"whole\"}"
+  },
+  {
+    "k": "resize-390-fit",
+    "ok": true,
+    "msg": "{\"fov\":50,\"view\":\"whole\"}"
+  },
+  {
+    "k": "resize-tween-adapted",
+    "ok": true,
+    "msg": "{\"view\":\"kitchen\",\"fov\":50}"
+  },
+  {
+    "k": "exterior-narrow-mode",
+    "ok": true,
+    "msg": "{\"mode\":\"exterior\",\"fov\":50}"
+  },
+  {
+    "k": "mobile-first-load",
+    "ok": true,
+    "msg": "{\"view\":\"whole\",\"mode\":\"cutaway\",\"state\":\"ready\",\"waveState\":\"idle\",\"interact\":{\"tvOn\":false,\"fanSpinning\":false,\"bedLampOn\":false,\"floorLampOn\":false},\"camPos\":[0,5.733156349498685,33.609636245822394],\"target\":[0,1.7,0],\"fov\":50,\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "mobile-labels-in-view",
+    "ok": true,
+    "msg": "[{\"text\":\"厨房\",\"left\":84,\"top\":371,\"right\":125,\"bottom\":392,\"hidden\":false},{\"text\":\"卧室\",\"left\":186,\"top\":381,\"right\":227,\"bottom\":402,\"hidden\":false},{\"text\":\"健身区\",\"left\":109,\"top\":399,\"right\":160,\"bottom\":420,\"hidden\":false},{\"text\":\"地下客厅\",\"left\":117,\"top\":460,\"right\":178,\"bottom\":481,\"hidden\":false}]"
+  },
+  {
+    "k": "pineapple-ready",
+    "ok": true,
+    "msg": "{\"state\":\"ready\",\"loaded\":15,\"failed\":[]}"
+  },
+  {
+    "k": "pineapple-no-errors",
+    "ok": true,
+    "msg": "[]"
+  },
+  {
+    "k": "pineapple-no-failed-req",
+    "ok": true,
+    "msg": "[]"
+  },
+  {
+    "k": "pineapple-mobile-ready",
+    "ok": true,
+    "msg": "{\"state\":\"ready\",\"loaded\":15}"
+  },
+  {
+    "k": "fps-sample",
+    "ok": true,
+    "msg": "{\"fps\":60.5,\"calls\":373,\"triangles\":170868}"
+  }
+]
