@@ -117,3 +117,45 @@
 - `house-config.json`：squidward 描述改为「蓝色石质摩艾造型·圆弧石壳；四层自下而上：入口与厨房、客厅、卧室、浴室；右侧连续螺旋楼梯与艺术品平台」，任务号改为「本轮生产：石壳 a68d1b3f / 沙发 0afbebe8 / 茶几 bd384769 / 地毯 c1edfa3d；其余 Blender 精修」。
 - `neighborhood.js`：信息卡不再对 jobId 做 `slice(0,8)…` 截断，完整显示。
 - 公网冒烟确认：信息卡含「圆弧石壳」「四层」、四个任务号齐全、无省略号；模型加载与门点击进入正常、零资源失败、零脚本错误。
+
+---
+
+## v6 复验（2026-10-12，缓存 `?v=20261012-squidward-v6`）
+
+针对独立验收（2026-10-12，45 项检查 42 过 3 败）9 项问题的修复复验。运行证据存 `tmp/cdp-v6/`（本地服务 + 无头 Chrome CDP 原生输入，双视口）。
+
+### 修复对照（9 项）
+
+| 验收问题 | 修复 | 复验结果 | 证据 |
+| --- | --- | --- | --- |
+| P1 外观剖切缺口 | 新增 `shell_cutaway_cover` 补片网格（2,200 三角：外壁 1,192 + 内壁 1,008），填充 θ∈(95°,165°)（glTF xz，70° 缺口），边界顶点与 `shell_main` 0 误差贴合；外观显示完整壳体，剖切视图随整屋隐藏 | **通过**：整屋 90,200→92,400 三角；补片加载 2,200 三角、外观有效可见、剖切有效隐藏；正面/侧面/背面渲染为闭合圆柱壳（像素对照 v5「左侧剖开露内部」→ v6「闭合圆柱+斑点纹理」） | `desktop-shell-cover-loaded`、`desktop-cutaway-cover-hidden`、`desktop-exterior/side/back.png`、diff-v5-vs-v6-exterior.png |
+| P2 材质与舷窗细节 | 运行时画布石材纹理（圆柱/平面 UV）应用于外壳/面部；舷窗加框环+玻璃（MeshPhysicalMaterial）；不改 GLB 贴图 | **通过**：右壳局部标准差 11.3→15.3（斑点纹理可见）；舷窗呈深色框+玻璃眼眶 | `applyExteriorMaterials`、texstat、`crop-v6-front2.png` |
+| P2 房间近景 | 厨房近景改侧向镜头 `camera=[-1.7,0.9,1.0]/target=[-0.5,0.55,-1.15]`；客厅/卧室近景隐藏上方楼板（`hideFloors`） | **通过**：厨房可见橄榄绿橱柜+黑色把手/旋钮（灶台）+吧台凳；客厅沙发/茶几/置物架/绿植无楼板遮挡（floor_3 隐藏）；卧室四柱床/台灯无楼板遮挡（floor_4 隐藏）；返回剖切后楼板恢复 | `desktop/mobile-kitchen.png`、`desktop-living.png`、`desktop-bedroom.png`、floor-visible 断言 |
+| P2 来源文档 | asset-index/README 分列「最终采用」与「候选任务」；jobId 卡片同步 | **通过**：最终=Blender 程序石壳+精修家具、采用候选茶几/地毯；未采用=石壳 a68d1b3f/沙发 0afbebe8；候选不作来源证明 | asset-index.json `provenance`、README、信息卡文本 |
+| P2 贴图记录 | 按最终 GLB 实测更新：4 图像/4 纹理；2 张 Forge3D ORM 用于地毯/茶几，2 张未被引用；外壳无图像纹理 | **通过**：登记数量/尺寸/引用与解析一致 | asset-index.json `textureRecord`、README「材质与贴图说明」 |
+| P1 桌面返回失效 | 场景拾取仅绑定渲染 canvas（`pointerdown/up/move` 移出 wrap），UI 控件事件不再触发场景点击 | **通过**：从房间连点两次「返回外部」依次回到剖切、外观（roomId null）；所有 UI 点击不触发背后场景拾取 | `desktop-return-1/2`、desktop-input.json（106 条全 trusted） |
+| P2 手机重置误入浴室 | 同上（canvas 限定）；双指缩放后的重置保持剖切 | **通过**：pinch+重置后 view=cutaway、roomId=null | `mobile-pinch-reset-keeps-cutaway`、mobile-input.json |
+| P2 直达切换后标签缺失 | `switchHouse` 内重建 `buildChips()` | **通过**：`?house=patrick` 切回章鱼哥并进门后 4 个房间标签齐全且可点击 | `direct-route-chips-after-switch`、`direct-squidward-chips.png` |
+| P2 手机文案重叠 | 移动端操作提示按信息卡实际高度排在其上方（`layoutHint`）；落入信息卡/提示区域的房间标签自动上移（`projectChips`） | **通过**：390×844 外观与全部房间近景提示均位于信息卡上方（gap≈-12px），说明文字完整可读、标签可点击 | `mobile-*-no-overlap`、`mobile-exterior/kitchen.png` |
+
+### 模型变更（v6）
+
+| 模型 | 索引三角面 | SHA256 | 备注 |
+| --- | --- | --- | --- |
+| 桌面整屋 `squidward-house.glb` | 92,400 | `4d797fd3…40f6cb` | 原 90,200 + 补片 2,200（外壳补写，Blender 结构未动） |
+| 移动整屋 `squidward-house-web.glb` | 92,400 | 同上 | 与桌面同几何同哈希 |
+| 桌面/移动室内 | 81,504 | `f7f1d974…dd2e285e` | 未变 |
+
+- 补片由 `tmp/nh-close-shell.mjs` 从 `shell_main` 实际顶点生成（29 层 y 环 0–4.62，外半径 1.55→0.37、内半径 1.35→0.17），与 `build_structure.py` 参数化一致；边界贴合 0 误差（θ=95°/165° 双侧最大偏差 0.0000）。
+- v5-final2 整屋两件备份于 `tmp/backup-v5-final2/`；原 SHA `4d3249fc…e9daaa7` 对应备份。
+
+### 运行复验（CDP 原生输入，双视口）
+
+- 桌面 1440×900：加载（92,400）→ 门 hover/点击进入 → 四房间近景+Esc 返回 → 连点两次返回（剖切→外观）→ 重置 → 拖拽/滚轮 → 派大星↔章鱼哥切换（切回进门后 4 标签）→ 1100 宽无溢出。21 项全部 PASS。
+- 移动 390×844（touch 仿真）：加载无溢出 → 提示/信息卡无重叠 → 门进入 → 双指缩放+重置保持剖切 → 四房间近景+返回 → 直达 `?house=patrick` 切章鱼哥进门 4 标签 → 标签可点击。20 项全部 PASS。
+- 合计 41 项断言 0 失败；输入事件全部 isTrusted=true；页面零脚本错误、零非取消资源失败（各一条 three r186 `PCFSoftShadowMap` 弃用警告，非错误）。
+
+### 限制（沿用）
+
+- 无头 Chrome + SwiftShader 软件光栅（ANGLE/SwiftShader），**真实 GPU 帧率与物理触屏未测**；桌面 ≥50fps / 移动 ≥30fps 目标需用户实机复核。
+- 视觉满意度（外壳闭合观感、石材/舷窗细节、房间近景构图）最终由用户视觉审查决定；当前仍 `review`，不接首页、不推送发布。
