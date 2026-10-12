@@ -1,0 +1,22 @@
+{
+  "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/index.html",
+  "ext": {
+    "extTris": 90200,
+    "doors": 3
+  },
+  "infoText": "章鱼哥的人像屋\n\n蓝色石质摩艾造型·圆弧石壳；四层自下而上：入口与厨房、客厅、卧室、浴室；右侧连续螺旋楼梯与艺术品平台。 点击木门进入。\n\n三角面(索引): 90,200\n任务: 本轮生产：石壳 a68d1b3f / 沙发 0afbebe8 / 茶几 bd384769 / 地毯 c1edfa3d；其余 Blender 精修\n状态: review",
+  "doorCenter": [
+    720,
+    662
+  ],
+  "enter": {
+    "view": "cutaway",
+    "intTris": 81504,
+    "doorAnim": true
+  },
+  "infoTextAfter": "章鱼哥的人像屋\n\n蓝色石质摩艾造型·圆弧石壳；四层自下而上：入口与厨房、客厅、卧室、浴室；右侧连续螺旋楼梯与艺术品平台。 点击木门进入。\n\n三角面(索引): 90,200\n任务: 本轮生产：石壳 a68d1b3f / 沙发 0afbebe8 / 茶几 bd384769 / 地毯 c1edfa3d；其余 Blender 精修\n状态: review",
+  "errors": [
+    "THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead."
+  ],
+  "failed": []
+}
