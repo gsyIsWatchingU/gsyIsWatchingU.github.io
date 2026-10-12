@@ -1,0 +1,147 @@
+[
+  {
+    "k": "live-desktop-ready",
+    "ok": true,
+    "msg": "{\"state\":\"ready\",\"mode\":\"cutaway\",\"view\":\"whole\"}"
+  },
+  {
+    "k": "live-stat",
+    "ok": true,
+    "msg": "{\"meshes\":162,\"triangles\":68830}"
+  },
+  {
+    "k": "live-no-errors",
+    "ok": true,
+    "msg": "[]"
+  },
+  {
+    "k": "live-no-failed-req",
+    "ok": true,
+    "msg": "[]"
+  },
+  {
+    "k": "live-interactors",
+    "ok": true,
+    "msg": "{\"fan\":[0,3.91,0],\"lampBed\":[2.9,0.7399999993294477,-2.3],\"tv\":[1.0175883118836095,-1.8260000055283305,-1.9223552406990434],\"lampFloor\":[-1.85,-1.5649999972060322,-1.55],\"patrick\":[0.15806395318460498,-1.8171855357184705,0.7]}"
+  },
+  {
+    "k": "live-patrick-project",
+    "ok": true,
+    "msg": "{\"x\":734.1887332160507,\"y\":771.685102411752,\"z\":0.9890457529365354}"
+  },
+  {
+    "k": "live-wave-start",
+    "ok": true,
+    "msg": "{\"state\":\"wave\",\"t\":0.0165,\"armRz\":2.364860481506457,\"elbowRx\":-1.568632815517907,\"bodyScale\":[1.0090534961156907,1.0120713281542544,1.001850521443165],\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "live-wave-mid",
+    "ok": true,
+    "msg": "{\"state\":\"wave\",\"t\":1.033599999994039,\"armRz\":2.275959138385815,\"elbowRx\":-2.576192182749921,\"bodyScale\":[0.989429758597093,0.985906344796124,0.9882558462044487],\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "live-wave-no-restart",
+    "ok": true,
+    "msg": "{\"state\":\"lower\",\"t\":0,\"armRz\":2.3899901498536633,\"elbowRx\":-2.284051804847522,\"bodyScale\":[0.989066326832653,0.9854217691102041,0.9948232369997021],\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "live-wave-back-idle",
+    "ok": true,
+    "msg": "{\"state\":\"idle\",\"t\":0,\"armRz\":0.1852263866121793,\"elbowRx\":0.15,\"bodyScale\":[1.0066147235720864,1.0088196314294486,1.0115092972566284],\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "click-fan",
+    "ok": true,
+    "msg": "at 720,252 z=0.989"
+  },
+  {
+    "k": "live-fan-spinning",
+    "ok": true,
+    "msg": "{\"bladesY\":3.583500000014902,\"groupY\":0,\"spinning\":true}"
+  },
+  {
+    "k": "click-fan-off",
+    "ok": true,
+    "msg": "at 720,252 z=0.989"
+  },
+  {
+    "k": "click-tv",
+    "ok": true,
+    "msg": "at 949,306 z=0.976"
+  },
+  {
+    "k": "live-tv-only-screen",
+    "ok": true,
+    "msg": "{\"screenOn\":true,\"frameGlow\":false,\"on\":true}"
+  },
+  {
+    "k": "click-tv-off",
+    "ok": true,
+    "msg": "at 949,306 z=0.976"
+  },
+  {
+    "k": "click-floor-lamp",
+    "ok": true,
+    "msg": "at 393,275 z=0.975"
+  },
+  {
+    "k": "live-floor-lamp",
+    "ok": true,
+    "msg": "{\"shades\":[true,true],\"otherGlow\":false}"
+  },
+  {
+    "k": "click-bed-lamp",
+    "ok": true,
+    "msg": "at 859,400 z=0.972"
+  },
+  {
+    "k": "live-bed-lamp",
+    "ok": true,
+    "msg": "{\"shades\":[true],\"otherGlow\":false}"
+  },
+  {
+    "k": "live-room-kitchen",
+    "ok": true,
+    "msg": "{\"view\":\"kitchen\",\"camPos\":[-1.35,1.8500000000000012,3.8500000000000134]}"
+  },
+  {
+    "k": "live-room-bedroom",
+    "ok": true,
+    "msg": "{\"view\":\"bedroom\",\"camPos\":[0.6000000000000005,1.6999999999999993,4.199999999999998]}"
+  },
+  {
+    "k": "live-room-gym",
+    "ok": true,
+    "msg": "{\"view\":\"gym\",\"camPos\":[-0.7382531975099598,1.9192026881723097,4.24729156762948]}"
+  },
+  {
+    "k": "live-room-living",
+    "ok": true,
+    "msg": "{\"view\":\"living\",\"camPos\":[0.3,1.6000000000000003,5.199999999999999]}"
+  },
+  {
+    "k": "live-exterior",
+    "ok": true,
+    "msg": "{\"view\":\"whole\",\"mode\":\"exterior\",\"state\":\"ready\",\"waveState\":\"idle\",\"interact\":{\"tvOn\":false,\"fanSpinning\":false,\"bedLampOn\":true,\"floorLampOn\":true},\"camPos\":[0,3.3999999999999986,17.5],\"target\":[0,2.4,0],\"fov\":34,\"patrickPos\":[0,0.02,5.9]}"
+  },
+  {
+    "k": "live-mobile-ready",
+    "ok": true,
+    "msg": "{\"view\":\"whole\",\"mode\":\"cutaway\",\"state\":\"ready\",\"waveState\":\"idle\",\"interact\":{\"tvOn\":false,\"fanSpinning\":false,\"bedLampOn\":false,\"floorLampOn\":false},\"camPos\":[0,6.2444015205618895,28.402509503511826],\"target\":[0,1.7,0],\"fov\":50,\"patrickPos\":[0.15,-2.3,0.7]}"
+  },
+  {
+    "k": "live-mobile-labels",
+    "ok": true,
+    "msg": "[{\"text\":\"厨房\",\"left\":77,\"top\":364,\"right\":118,\"bottom\":385,\"hidden\":false},{\"text\":\"卧室\",\"left\":196,\"top\":377,\"right\":237,\"bottom\":398,\"hidden\":false},{\"text\":\"健身区\",\"left\":107,\"top\":400,\"right\":158,\"bottom\":421,\"hidden\":false},{\"text\":\"地下客厅\",\"left\":117,\"top\":471,\"right\":178,\"bottom\":492,\"hidden\":false}]"
+  },
+  {
+    "k": "live-pineapple-ready",
+    "ok": true,
+    "msg": "{\"state\":\"ready\",\"loaded\":15}"
+  },
+  {
+    "k": "live-pineapple-no-errors",
+    "ok": true,
+    "msg": "[]"
+  }
+]

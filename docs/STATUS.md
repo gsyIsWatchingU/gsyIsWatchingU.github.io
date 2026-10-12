@@ -20,6 +20,13 @@
   - 新资产均为本地程序化重建，状态为 **review，不标记 approved**，待用户确认。
 - **交付**：公网链接与部署提交号见提交推送小节；桌面/手机全景、四房间近景、招手连续帧截图、与菠萝屋同尺寸对照（p01/p02）均在 `docs/patrick-house-review/`。
 
+### 提交推送与公网复测（2026-10-12 完成）
+
+- 提交 `9154ad2`（仅本任务文件：scripts/patrick-build.js、scripts/patrick-house.js、src/patrick-house.html、src/data/patrick-house.json、构建产物 patrick-house.html / assets/patrick-house.js、原 GLB 移入 archive、docs/patrick-house-review/、docs/STATUS.md）已推送到 `codex/pineapple-house-preview` 与 `main`（origin/main = `9154ad2f877ff77a470f4f8cafbc66f5b31621e7`）；他人未提交改动（index.html、pineapple-house.html、assets/projects/*、src/data/house-project-collection.json、projects.json、quote-page/ 等）未并入。
+- **公网复测 29/29 全绿**（真实 GPU 无头 Chrome 直连 https://gsyiswatchingu.github.io/patrick-house.html）：ready/stat/零错误/零资源失败；派大星招手（点击→raise→wave→连续点击不叠加→回 idle）、风扇只转叶、电视只换屏、两盏灯只亮灯罩、四房间近景、外观切换、手机 390×844 全屋与三房间近景、手机标签全部在视口内；菠萝屋线上回归 15 件模型全部加载、零错误。
+- 公网证据与同尺寸对照：`docs/patrick-house-review/live-final/`（l01-whole、l02-exterior、l-wave-a..d、l-tv-on、l-lamps-on、l-room-{kitchen,bedroom,gym,living}、l-m01-whole、l-m-room-*、l-wave-close-01..12 + `l-wave-close.gif` 连续帧 GIF、`cmp-pineapple-vs-patrick-desktop.png` / `cmp-pineapple-vs-patrick-mobile.png` 与菠萝屋同尺寸并排、live-results.json）。
+- 缓存版本 `?v=20261012-built4` 已在线上生效（bundle 哈希 AA8D04E1…）。
+
 ## 章鱼哥人像屋 v5 复验 · 门进入+厨房近景修复（2026-10-12，review 待审）
 
 - 针对 v4 两处问题修复后复验：①门点击由探针盒改为对 door_frame/panel/handle 网格射线求交；②厨房近景隐藏 door_* 并改镜头看岛台/灶台/冰箱。缓存 ?v=20261012-squidward-v5。
