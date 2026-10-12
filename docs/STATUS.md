@@ -2,6 +2,15 @@
 
 最后更新：2026-10-12
 
+## 海绵宝宝入住菠萝屋（2026-10-12，独立预览，review 待审）
+
+- 新增 `pineapple-companion.html`：2 分钟作息、六房间快速入场与陪伴、点击角色聊天、翻页、睡觉、吹泡泡、静音与重播。正式首页未启用角色。
+- 自有 gsy013 的 Z-Image → Hunyuan Shape/Paint job `a41edcc3ac8044cc9492d6b5742f2866`；通用 UniRig 失败后，以原 GPU 网格/UV 对称修复缺失手臂并制作专用骨架：28,999 三角面、14 骨骼、11 动作，状态 review。
+- mygpu 已部署 FastAPI `house-companion`，公网 `/house-api/health` 返回 200、GPU Qwen3-TTS ready；现有 Funnel 路由保留。DeepSeek 密钥尚未配置，聊天明确返回 503，未声称真实模型回复已验证。
+- 验证：作息状态机、蒙皮/动作检查、后端 8 项测试通过；真实 Chrome 完整循环与六房间通过，聊天动作/重播/静音/过期响应采用明确标记的接口夹具。证据与试听见 `docs/house-companion-review/`。
+- `npm run build`、`npm run check`、`git diff --check` 通过。已有项目资料、派大星和章鱼哥并行修改保留，未纳入本任务提交；生成预览用 HEAD 数据单独构建，避免携带并行资料变动。
+- 下一步：用户审看角色、试听音色；通过后接入正式首页。配置服务器 `DEEPSEEK_API_KEY` 后，复测真实自由聊天与实时播报，再核验正式公网。手机实机性能与双指手势未验证。
+
 ## 派大星石头屋 · 修复到菠萝屋同级质量（2026-10-12，review 待审，已推公网待复测）
 
 - **目标**：线上 https://gsyiswatchingu.github.io/patrick-house.html 从"结构构图预览·家具为占位块"修复为可交互成品，与菠萝屋视觉/交互同级。本轮完成修复→本地全量验收→提交推送，公网复测结果见下文对应小节。

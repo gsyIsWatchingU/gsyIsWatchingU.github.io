@@ -1,0 +1,11 @@
+{
+  "assetId": "spongebob-companion",
+  "host": "gsy013",
+  "backend": "Z-Image-Turbo",
+  "modelRevision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+  "seed": 2026101207,
+  "prompt": "海绵宝宝 SpongeBob SquarePants 的单角色全身三维游戏角色参考图。经典黄色长方形海绵身体，身体表面圆润起伏和大小海绵孔，蓝色大眼睛，长鼻子，两个门牙，快乐微笑。白色短袖衬衫，红色小领带，棕色短裤，两条纤细黄色腿，白袜带蓝红条纹，圆润黑色皮鞋。两只细黄色手臂向两侧伸开，A pose，手臂与身体分离，完整四根手指，双脚分开站立。正面，左右对称，纯白背景，只有一个角色，完整入画，不裁掉鞋子，无地面无家具无文字无水印。柔和均匀光线，动画片手绘纹理，精致圆润曲面，清晰五官，保留原作的可爱比例。",
+  "sourceSHA256": "154bdc572542e1626533424dc673b114590eb916f71a1e0d28d44bd88c6e2f6e",
+  "humanReview": "pending",
+  "status": "review"
+}

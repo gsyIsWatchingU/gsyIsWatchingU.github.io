@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="郭书羽的履历小屋：AI 全栈开发、Agent 工程、实习、项目、教育与真实荣誉证书。" />
+    <meta name="theme-color" content="#b9dce3" />
+    <link rel="canonical" href="https://gsyiswatchingu.github.io/" />
+    <title>海绵宝宝入住菠萝屋 · 独立预览</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./styles/house-music.css?v=20261010-release1" />
+    <link rel="stylesheet" href="./styles/pineapple-house.css?v=20261010-release1" />
+    <link rel="stylesheet" href="./styles/house-profile.css?v=20261010-release1" />
+    <link rel="stylesheet" href="./styles/house-toilet-projects.css?v=20261010-brands2" />
+    <link rel="stylesheet" href="./styles/house-controls.css?v=20261010-release1" />
+  </head>
+  <body class="portfolio">
+    <!-- @house-profile -->
+    <main data-house-companion-preview class="house" data-house-state="loading" aria-label="海绵宝宝的三层菠萝屋">
+      <canvas data-house-canvas aria-label="拖动旋转菠萝屋，滚轮或双指缩放，点击房间进入近景" tabindex="0"></canvas>
+      <span class="review-note" hidden>海绵宝宝的菠萝屋</span>
+      <div class="room-caption" data-house-caption hidden>
+        <span data-house-floor></span><h2 data-house-room-name></h2>
+        <button type="button" data-house-back aria-label="返回全屋剖面">← 返回全屋</button>
+      </div>
+      <div class="room-labels" data-house-labels aria-label="选择房间"></div>
+      <div class="object-labels" data-house-objects aria-label="房间里的履历物品" hidden></div>
+      <div class="house-tooltip" data-house-tooltip hidden role="tooltip"></div>
+      <section class="house-loading" data-house-loading role="status" aria-live="polite">
+        <p data-house-load-text>欢迎进入</p>
+        <progress data-house-progress max="100" value="0" aria-label="模型加载进度"></progress>
+      </section>
+      <section class="house-error" data-house-error hidden role="alert">
+        <h2>部分模型未能载入</h2>
+        <p data-house-error-message></p>
+        <ul data-house-error-list></ul>
+        <button type="button" data-house-retry>重新载入</button>
+      </section>
+      <noscript><p class="house-error">请开启 JavaScript，才能浏览三维菠萝屋。</p></noscript>
+    </main>
+    <!-- @house-toilet-projects -->
+    <script defer src="./assets/house-profile.js?v=20261010-release1"></script>
+    <script defer src="./assets/pineapple-house.js?v=20261012-companion-review2"></script>
+    <script defer src="./assets/house-toilet-projects.js?v=20261010-brands2"></script>
+  </body>
+</html>

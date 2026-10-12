@@ -1,0 +1,11 @@
+{
+  "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "speaker": "Dylan",
+  "text": "嗨！我是海绵宝宝，我准备好啦！一起逛逛菠萝屋，看看今天有什么好玩的吧！",
+  "host": "mygpu",
+  "cudaDevice": 0,
+  "secondsIncludingLoad": 17.6,
+  "sha256": "973e7cf0eed9e42096c15b8457d18d98137a448549184906791a5590cfd7f94d",
+  "status": "review",
+  "humanListening": "pending"
+}

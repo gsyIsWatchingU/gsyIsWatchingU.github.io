@@ -1,0 +1,91 @@
+{
+  "status": "review",
+  "runtimeSHA256": "e857cc53ad7e0ecf2459169e171dab247353ec43a6f9a39e10a3b0aea943057e",
+  "bones": [
+    "comp_root",
+    "comp_head",
+    "comp_arm_l",
+    "comp_forearm_l",
+    "comp_hand_l",
+    "comp_leg_l",
+    "comp_shin_l",
+    "comp_foot_l",
+    "comp_arm_r",
+    "comp_forearm_r",
+    "comp_hand_r",
+    "comp_leg_r",
+    "comp_shin_r",
+    "comp_foot_r"
+  ],
+  "clips": [
+    "bubble",
+    "idle",
+    "lie",
+    "pet",
+    "read",
+    "sit",
+    "tidy",
+    "wake",
+    "walk",
+    "wash",
+    "wave"
+  ],
+  "maxWeightError": 2.9802322387695312e-8,
+  "deformation": [
+    {
+      "clip": "bubble",
+      "p99": 1.1764382885015017,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "idle",
+      "p99": 1.22376468605172,
+      "max": 1.9749269910941192
+    },
+    {
+      "clip": "lie",
+      "p99": 1.22376468605172,
+      "max": 1.9749269910941192
+    },
+    {
+      "clip": "pet",
+      "p99": 1.1764382885015017,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "read",
+      "p99": 1.1764382885015017,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "sit",
+      "p99": 1.3010299175027826,
+      "max": 15.729627340115542
+    },
+    {
+      "clip": "tidy",
+      "p99": 1.1764382885015017,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "wake",
+      "p99": 1.132577359734148,
+      "max": 1.6323510053795565
+    },
+    {
+      "clip": "walk",
+      "p99": 1.22376468605172,
+      "max": 1.9749269910941192
+    },
+    {
+      "clip": "wash",
+      "p99": 1.1764382885015017,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "wave",
+      "p99": 1.1766426340432001,
+      "max": 1.5654069830363146
+    }
+  ]
+}
