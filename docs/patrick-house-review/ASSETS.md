@@ -3,7 +3,7 @@
 > 状态：**review（未 approved）**。本页所有新资产均为引擎内程序化重建，尚未经用户验收确认，任何人不得将其标记为 approved。
 > 生成方式：本地程序化（Three.js 几何体 + Canvas 贴图），**非 GPU/Forge3D 生成**。GPU 管线（Tailscale gsy-gpu / ssh 3d-gen）因授权与超时被放弃（第二轮再次确认不可达：Tailscale SSH 需浏览器授权被跳过、ssh 3d-gen 超时），用户已确认接受本地程序化来源。不虚构任务号、资产或授权记录。
 
-## 交付资产（第二轮 built5 提交内容）
+## 交付资产（built6 提交内容；built5→built6 仅含正脸朝向修复与缓存版本）
 
 | 文件 | 说明 | 三角面数 / 纹理 | SHA-256 |
 |---|---|---|---|
@@ -30,6 +30,14 @@
 - **互动隔离**：电视只替换屏幕贴图与屏幕 emissive（外壳不发光）；吊扇只旋转叶片组（吊杆/电机静止，驱动前后 rotation 对比验证）；两灯只改灯罩/bulb emissive 与 PointLight 强度（bedLight/floorLampOn 状态验证）；风向标保留缓慢旋转。
 - **家具与材质（第二轮）**：冰箱浅蓝金属（0x9fc8dd 双门+门缝+银把手）、炉灶奶白箱体+黑玻璃灶台+4 火环+4 烤网+玻璃视窗炉门+金把手 4 旋钮、水槽石英台面+陶瓷盆+镀铬 L 龙头双把手+柜门竖纹、吊柜竖纹 4 门、床 4 腿+蓝垫紫被双层+带眼睛海星枕贴床+床头板竖纹、床头柜双抽屉、沙发圆角底座+后倾靠背+双坐垫+弧形扶手+4 腿、卧推凳+杠铃架/片/卡扣、茶几桌面+圆台支撑+汉堡小物；woodTex 增加 dir 参数（竖纹/横纹按件区分）；外壳保持圆润低矮穹顶。
 - 证据目录：`docs/patrick-house-review/round2-diag/`（r2-* 修复前诊断、r2b-* 招手/特写、r2c-* 正脸微距与手臂 debug、r2d-* 尺寸变化、r2f-* 四区域+全屋+外观、r2g-* 招手连续帧正面/侧面）。
+
+## built6 第三轮 · 正脸朝向修复（2026-10-13）
+
+- **缺陷事实（公网 built5 复测确认）**：默认全屋全景、外观模式、地下客厅近景三个 +z 观察镜头均看不到派大星五官；五官实际渲染在角色局部 -z 侧（房屋侧）。逐像素聚类：外观模式 +z（yaw≈0）头部暗色五官像素 = 0、−z（yaw≈π）= 687；固定相机 R=4 探针：正面 minLum=104（无五官）、背面 minLum=14 且放大可见眼睛/眉毛/微笑嘴。本地 r2 证据复核：round2-diag 中"面部特写"类截图（r2b-front-full/r2-face-full/r2-face-v2/r2b-face-macro）头部 dark<70 全部 = 0、minLum 106–221，实为纯粉色——第二轮"五官可见"的视觉证据本身是误判，缺陷自 built5 起即存在。
+- **根因定位（多路运行时探针，未假设镜头朝向）**：①排除陈旧构建（线上/本地 bundle SHA 字节一致）；②排除贴图参数偏移（map offset/repeat/center/rotation 全默认、flipY=true、ClampToEdge）；③排除组/网格局部旋转或负 scale（剖切+外观两模式 patrick 组 rotation 全 0、scale 全 1、局部 +z→世界 +z；patrick-body 局部 rotation 0）；④排除重复渲染网格（仅 patrick-body 使用皮肤贴图）；⑤源码 UV 数学自洽（starBodyGeo u=0.5+atan2(x,z)/2π，+z 顶点 u=0.5，探针确认；五官绘制在贴图上部中央 u≈0.45–0.55）；⑥页面内射线求交：正面屏幕中心射线命中头部 +z 表面 UV≈(0.5,0.865)，贴图采样为粉色——映射数学无误但渲染结果相反。**关键反证**：把 patrick 组 rotation.y 设为 π 后，+z 特写 dark<70 由 0 → 129、minLum 17（正脸出现），−z 侧变为素面（dark<70=0）——证实五官贴图在渲染管线中实际落在网格局部 −z 侧（机制未在静态层解析，但方向与修复方式被逐像素实证）。
+- **修复**：uildPatrick() 中 ody.rotation.y = Math.PI（仅旋转身体网格，不旋转组：短裤/腿/手臂/招手侧/拾取/遮挡均不受影响；不整体旋转角色掩盖问题）。外观模式与剖切模式下正脸均面向 +z 观察镜头。
+- **本地 built6 验证**：默认全屋、地下客厅近景（角色面带微笑、眉眼嘴可见）、外观模式构图正常；真实 CDP 鼠标点击派大星招手全周期（idle→raise armRz≈2.5→wave→lower→idle）、TV 只亮屏不亮外壳、两盏灯只亮灯罩不整体发光、吊扇只转叶片吊杆静止，全部通过。
+- **证据**：docs/patrick-house-review/round3-local/（l6-whole / l6-living / l6c-exterior / l6c-wave-mid 等）；公网 built5 诊断探针图存 docs/patrick-house-review/live-built5/（probe-h3-front/back、probe-rotpi-front/back、zoom-*、tex-body.png 等）。
 
 ## 备份与修整记录（第一轮）
 

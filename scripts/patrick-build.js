@@ -928,6 +928,8 @@ export function buildPatrick() {
   // 身体（躯干+头部一体）：原点底边 y=0.5，网格自带高度
   const body = new THREE.Mesh(starBodyGeo(), skin);
   body.name = "patrick-body";
+  // 正面朝向修正：公网逐像素验证五官贴图在网格局部 -z 侧渲染（UV 数学与渲染相反），绕 Y 转 π 使正脸面向世界 +z（观察镜头侧）
+  body.rotation.y = Math.PI;
   // 少量自发光抬升：避免被阴影+ACES 压到与肤色不可分，五官始终可读
   body.material.emissive = new THREE.Color(0xffffff);
   body.material.emissiveMap = body.material.map;
