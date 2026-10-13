@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "commit": "adc6c77dafc11d81f3466874bf53645f650c466b",
+  "records": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "expected": "079248b9b393c9d97ba8aa48ae5251753674f0b4e11f3b199ef41193f1379e78",
+      "actual": "079248b9b393c9d97ba8aa48ae5251753674f0b4e11f3b199ef41193f1379e78",
+      "match": true
+    },
+    {
+      "path": "pineapple-house.html",
+      "status": 200,
+      "expected": "079248b9b393c9d97ba8aa48ae5251753674f0b4e11f3b199ef41193f1379e78",
+      "actual": "079248b9b393c9d97ba8aa48ae5251753674f0b4e11f3b199ef41193f1379e78",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "expected": "70320ae751b66f787c3751f69edc916d02e0f306ed939b994c854eb901ba52b7",
+      "actual": "70320ae751b66f787c3751f69edc916d02e0f306ed939b994c854eb901ba52b7",
+      "match": true
+    },
+    {
+      "path": "src/data/pineapple-house.json",
+      "status": 200,
+      "expected": "47a4963438055c8dc433848c829d3b1bc8aed63ac561b32971f4ddf38c5602f9",
+      "actual": "47a4963438055c8dc433848c829d3b1bc8aed63ac561b32971f4ddf38c5602f9",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "expected": "6408ac6fca0fe8a56f49e84c5040d4b68f8ef2aa2e7c664e3b7ee27faffaace9",
+      "actual": "6408ac6fca0fe8a56f49e84c5040d4b68f8ef2aa2e7c664e3b7ee27faffaace9",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-seated-anatomy.glb",
+      "status": 200,
+      "expected": "81096fb16cc221b2335d1bd6d6b7c123d3179c79125fe3a0a70392199f4e455f",
+      "actual": "81096fb16cc221b2335d1bd6d6b7c123d3179c79125fe3a0a70392199f4e455f",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/index.html",
+      "status": 200,
+      "expected": "8ac53c1e55a82a4f295bdae32cfc92a76e1de3a8e2b7d1293e2ea3c9290d2f2a",
+      "actual": "8ac53c1e55a82a4f295bdae32cfc92a76e1de3a8e2b7d1293e2ea3c9290d2f2a",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/viewer.js",
+      "status": 200,
+      "expected": "9fd6d5a86c5ecd5f44766c928947c1b5a091249871c49cfed869dd89144ce335",
+      "actual": "9fd6d5a86c5ecd5f44766c928947c1b5a091249871c49cfed869dd89144ce335",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/runtime.json",
+      "status": 200,
+      "expected": "e083d56b3608112245f0076d43a99eaa9868216fd477a3cbe22792834f43e61d",
+      "actual": "e083d56b3608112245f0076d43a99eaa9868216fd477a3cbe22792834f43e61d",
+      "match": true
+    }
+  ]
+}
