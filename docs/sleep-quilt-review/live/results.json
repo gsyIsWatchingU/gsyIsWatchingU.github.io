@@ -1,0 +1,139 @@
+{
+  "records": [
+    {
+      "test": "immediate",
+      "value": {
+        "sleep": {
+          "phase": "idle",
+          "contactGap": null,
+          "active": false
+        },
+        "activity": null,
+        "arrival": "activity",
+        "originalVisible": true,
+        "failed": []
+      }
+    },
+    {
+      "test": "pull",
+      "value": {
+        "sleep": {
+          "phase": "pull",
+          "surface": 6.751006484031677,
+          "contactGap": null,
+          "active": true
+        },
+        "activity": "sleep",
+        "arrival": "activity",
+        "originalVisible": false,
+        "coverVisible": true,
+        "vertices": 1225,
+        "failed": []
+      }
+    },
+    {
+      "test": "climb",
+      "value": {
+        "sleep": {
+          "phase": "climb",
+          "surface": 6.751006484031677,
+          "contactGap": null,
+          "active": true
+        },
+        "activity": "sleep",
+        "arrival": "activity",
+        "originalVisible": false,
+        "coverVisible": true,
+        "vertices": 1225,
+        "failed": []
+      }
+    },
+    {
+      "test": "lie",
+      "value": {
+        "sleep": {
+          "phase": "lie",
+          "surface": 6.751006484031677,
+          "contactGap": null,
+          "active": true
+        },
+        "activity": "sleep",
+        "arrival": "activity",
+        "originalVisible": false,
+        "coverVisible": true,
+        "vertices": 1225,
+        "failed": []
+      }
+    },
+    {
+      "test": "cover",
+      "value": {
+        "sleep": {
+          "phase": "cover",
+          "surface": 6.751006484031677,
+          "contactGap": 0.006999999999999673,
+          "active": true
+        },
+        "activity": "sleep",
+        "arrival": "activity",
+        "originalVisible": false,
+        "coverVisible": true,
+        "vertices": 1225,
+        "failed": []
+      }
+    },
+    {
+      "test": "sleep",
+      "value": {
+        "sleep": {
+          "phase": "sleep",
+          "surface": 6.751006484031677,
+          "contactGap": 0.006999999999999673,
+          "active": true
+        },
+        "activity": "sleep",
+        "arrival": "activity",
+        "originalVisible": false,
+        "coverVisible": true,
+        "vertices": 1225,
+        "failed": []
+      }
+    },
+    {
+      "test": "reset",
+      "value": {
+        "sleep": {
+          "phase": "idle",
+          "surface": 6.751006484031677,
+          "contactGap": 0.006999999999999673,
+          "active": false
+        },
+        "activity": "rest",
+        "arrival": "activity",
+        "originalVisible": true,
+        "coverVisible": false,
+        "vertices": 1225,
+        "failed": []
+      }
+    },
+    {
+      "test": "mobile-sleep",
+      "value": {
+        "sleep": {
+          "phase": "sleep",
+          "surface": 6.751006484031677,
+          "contactGap": 0.006999999999999673,
+          "active": true
+        },
+        "activity": "sleep",
+        "arrival": "activity",
+        "originalVisible": false,
+        "coverVisible": true,
+        "vertices": 1225,
+        "failed": []
+      }
+    }
+  ],
+  "errors": [],
+  "physicalPhoneTested": false
+}
