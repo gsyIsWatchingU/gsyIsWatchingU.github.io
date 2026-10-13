@@ -334,10 +334,10 @@ if (renderer) {
     houseGroup.traverse((node) => {if(!node.isMesh)return;let parent=node;while(parent){if(!parent.visible)return;parent=parent.parent;}meshes.push(node);});
     const hits=raycaster.intersectObjects(meshes,false);
     for(const hit of hits) {
-      const passage=passages.pick(hit.object);
-      if(passage)return {passage,roomId:activeRoom};
       const material=Array.isArray(hit.object.material)?hit.object.material[hit.face.materialIndex]:hit.object.material;
       if(material.clippingPlanes?.some(plane=>plane.distanceToPoint(hit.point)<0)) continue;
+      const passage=passages.pick(hit.object,hit.point);
+      if(passage)return {passage,roomId:activeRoom};
       let node=hit.object;
       while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.contentId) node=node.parent;
       if(node?.userData.companionId) return {companionId:node.userData.companionId,roomId:node.userData.roomId};

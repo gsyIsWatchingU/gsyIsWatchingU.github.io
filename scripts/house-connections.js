@@ -34,7 +34,11 @@ export function createHouseConnections({root,camera,rooms,getRoom,focusRoom}) {
         placed.push({x,y,half});button.style.left=`${x}px`;button.style.top=`${y}px`;
       }
     },
-    pick:node=>connections.find(link=>link.from===getRoom() && link.meshes?.some(prefix=>node.name.startsWith(prefix))),
+    // 结构按材质合批，门没有独立 mesh；仅门所在区域可通行。
+    pick:(node,point)=>connections.find(link=>link.from===getRoom() && (
+      link.meshes?.some(prefix=>node.name.startsWith(prefix)) ||
+      link.bounds && node.userData.roomId===link.from && point.toArray().every((value,i)=>value>=link.bounds[0][i] && value<=link.bounds[1][i])
+    )),
     label:link=>`${words[link.kind]} → ${rooms.get(link.to).name}`,
   };
 }

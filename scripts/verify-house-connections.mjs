@@ -26,7 +26,7 @@ try {
   const base=process.argv.includes('--live')?'https://gsyiswatchingu.github.io':'http://127.0.0.1:18843';
   const settled=()=>wait('document.querySelector(".house").dataset.cameraTransition==="idle"');
   const view=()=>evaluate('window.__pineappleHouse.snapshot().view');
-  const key=async(key,code,n)=>{await call('Input.dispatchKeyEvent',{type:'keyDown',key,code,windowsVirtualKeyCode:n});await call('Input.dispatchKeyEvent',{type:'keyUp',key,code,windowsVirtualKeyCode:n});};
+  const key=async(key,code,n)=>{await call('Input.dispatchKeyEvent',{type:'keyDown',key,code,windowsVirtualKeyCode:n,nativeVirtualKeyCode:n,...(key==='Enter'?{text:'\r'}:{})});await call('Input.dispatchKeyEvent',{type:'keyUp',key,code,windowsVirtualKeyCode:n});};
   await viewport(1440,900);await call('Page.navigate',{url:base+'/?t='+Date.now()});
   await wait('document.querySelector(".house").dataset.houseState==="ready"');await settled();
   assert.equal(await evaluate('document.querySelector(".house-connections").hidden'),true);
@@ -36,7 +36,7 @@ try {
     for(let i=1;i<route.length;i++){
       const from=route[i-1],to=route[i];
       const rects=await evaluate('(()=>{return [...document.querySelectorAll("[data-house-passage]:not([hidden])")].map(b=>{const r=b.getBoundingClientRect();return {id:b.dataset.housePassage,x:r.x,y:r.y,w:r.width,h:r.height,hit:document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===b}})})()');
-      for(const r of rects){assert(r.x>=0 && r.y>=0 && r.x+r.w<=width && r.y+r.h<=height);assert(r.hit,JSON.stringify(r));}
+      for(const r of rects){assert(r.x>=0 && r.y>=0 && r.x+r.w<=width && r.y+r.h<=height);assert(r.hit,JSON.stringify(r));if(width<600||height<500)assert(r.h>=44);}
       await click(`[data-house-passage="${from}-${to}"]`);await settled();assert.equal(await view(),to);
       assert.equal(await evaluate('document.querySelector("[data-house-room-name]").textContent'),({living:'客厅',storage:'储藏室',bathroom:'浴室',library:'图书馆',bedroom:'卧室',roof:'屋顶花园'})[to]);
       records.push({test:`${width}x${height}:${from}->${to}`,rects});
@@ -48,7 +48,7 @@ try {
   // 真实模型楼梯的射线点击，不使用 focusRoom 代替输入。
   await viewport(1440,900);await delay(500);await settled();await click('[data-house-room="living"]');await settled();
   for(const pair of ['living-bathroom','bathroom-library','library-bedroom','bedroom-roof']){await click(`[data-house-passage="${pair}"]`);await settled();}
-  const points=await evaluate(`(()=>{const h=window.__pineappleHouse,c=document.querySelector('canvas'),r=c.getBoundingClientRect(),points=[];h.scene.traverse(n=>{if(!n.isMesh||!(n.name.startsWith('stair_')||n.name.startsWith('roof_access_')||n.name.startsWith('roof_landing')))return;let parent=n;while(parent){if(!parent.visible)return;parent=parent.parent;}n.geometry.computeBoundingBox();const p=n.geometry.boundingBox.getCenter(n.position.clone()).applyMatrix4(n.matrixWorld).project(h.camera);const x=r.x+(p.x*.5+.5)*r.width,y=r.y+(-p.y*.5+.5)*r.height;if(x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&document.elementFromPoint(x,y)===c)points.push({x,y,name:n.name});});return points;})()`);
+  const points=await evaluate(`(()=>{const h=window.__pineappleHouse,c=document.querySelector('canvas'),r=c.getBoundingClientRect(),points=[];h.scene.traverse(n=>{if(!n.isMesh||!(n.name.startsWith('stairs_')||n.name.startsWith('roof_access_')||n.name.startsWith('roof_landing')))return;let parent=n;while(parent){if(!parent.visible)return;parent=parent.parent;}n.geometry.computeBoundingBox();const p=n.geometry.boundingBox.getCenter(n.position.clone()).applyMatrix4(n.matrixWorld).project(h.camera);const x=r.x+(p.x*.5+.5)*r.width,y=r.y+(-p.y*.5+.5)*r.height;if(x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&document.elementFromPoint(x,y)===c)points.push({x,y,name:n.name});});return points;})()`);
   let hit;
   for(const p of points){
     await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:p.x,y:p.y});await delay(50);
@@ -59,7 +59,7 @@ try {
   await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',buttons:0,clickCount:1,x:hit.x,y:hit.y});
   await settled();assert.equal(await view(),'bedroom');records.push({test:'physical-stair-click',hit});
   for(let i=0;i<20;i++){await key('Tab','Tab',9);if(await evaluate('document.activeElement.dataset.housePassage!==undefined'))break;}
-  const destination=await evaluate('document.activeElement.dataset.housePassage?.split("-")[1]');assert(destination);
+  const destination=await evaluate('document.activeElement.dataset.housePassage?.split("-")[1]');assert(destination);await wait('!document.activeElement.disabled');
   await key('Enter','Enter',13);await settled();assert.equal(await view(),destination);records.push({test:'keyboard-passage',destination});
   await shot('desktop-final');
   assert.equal(errors.length,0);assert.equal(failures.length,0);
