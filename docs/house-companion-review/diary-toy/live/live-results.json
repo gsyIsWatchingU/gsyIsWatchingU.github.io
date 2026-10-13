@@ -1,0 +1,3101 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "test": "autonomous-bedroom",
+      "seen": [
+        "null:idle",
+        "journal:approach",
+        "journal:reach",
+        "journal:lift",
+        "journal:read",
+        "steady-read",
+        "journal:return",
+        "journal:release",
+        "journal:done",
+        "toy:approach",
+        "toy:open",
+        "toy:play",
+        "toy:close",
+        "toy:done"
+      ],
+      "samples": [
+        {
+          "activity": null,
+          "room": "bedroom",
+          "day": 0.15000000000000002,
+          "position": [
+            0.172746875,
+            6,
+            1.89038125
+          ],
+          "book": {
+            "kind": null,
+            "phase": "idle",
+            "opening": 0,
+            "handGap": null,
+            "reach": null,
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": false,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 0
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 0.5834000000000016,
+          "position": [
+            -0.17107954941070855,
+            6,
+            1.6866485788079917
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": null,
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": false,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 2
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 1.0667000000000009,
+          "position": [
+            -1.0758134302094757,
+            6,
+            1.1505529294728325
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": null,
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": false,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 4
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 1.300100000000001,
+          "position": [
+            -1.5723627195569405,
+            6,
+            0.8563250693813973
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": null,
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": false,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 4
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 1.5334000000000023,
+          "position": [
+            -2.0337400796297462,
+            6,
+            0.5829381644736249
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": null,
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": false,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 4
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 1.7502000000000018,
+          "position": [
+            -2.383588137344853,
+            6,
+            0.3756374038302419
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": null,
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": false,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 4
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 1.9835000000000012,
+          "position": [
+            -2.6239784733539575,
+            6,
+            0.23319528243768373
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": null,
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 2.2001000000000013,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "reach",
+            "opening": 0,
+            "handGap": 2.2137542457385084e-9,
+            "reach": {
+              "shoulder": [
+                -2.5693884644361775,
+                6.475905555342704,
+                0.4972079321134063
+              ],
+              "target": [
+                -2.6566890150157696,
+                6.638919449634854,
+                0.6346361947243062
+              ],
+              "length": 0.2402140499033237,
+              "distance": 0.2303941041520868
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 2.766800000000002,
+          "position": [
+            -2.6799999999999997,
+            6.170391824413009,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "reach",
+            "opening": 0,
+            "handGap": 5.314051188079333e-9,
+            "reach": {
+              "shoulder": [
+                -2.570194277713752,
+                6.636711244658004,
+                0.49660945444427673
+              ],
+              "target": [
+                -2.4981870790664207,
+                6.844234590866538,
+                0.46801194058887347
+              ],
+              "length": 0.24021407860804705,
+              "distance": 0.22151477078816492
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 3.0002000000000018,
+          "position": [
+            -2.6799999999999997,
+            6.287366366163582,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "reach",
+            "opening": 0,
+            "handGap": 6.931085486532292e-9,
+            "reach": {
+              "shoulder": [
+                -2.57002931748063,
+                6.753856413728336,
+                0.4962360886218496
+              ],
+              "target": [
+                -2.435299422839226,
+                6.879458926253918,
+                0.3856120402797396
+              ],
+              "length": 0.24021407860804642,
+              "distance": 0.21486231808863152
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 3.2336000000000005,
+          "position": [
+            -2.6799999999999997,
+            6.351703305042501,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "reach",
+            "opening": 0,
+            "handGap": 0.004866169225941911,
+            "reach": {
+              "shoulder": [
+                -2.5695820074764897,
+                6.81842201134938,
+                0.4958083897885837
+              ],
+              "target": [
+                -2.3942340078653745,
+                6.867438526996463,
+                0.33190054278132364
+              ],
+              "length": 0.24021407860804606,
+              "distance": 0.24498024835556798
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 3.466999999999999,
+          "position": [
+            -2.6799999999999997,
+            6.351617885986406,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "lift",
+            "opening": 0,
+            "handGap": 0.011200037649506542,
+            "reach": {
+              "shoulder": [
+                -2.5689174501008756,
+                6.818656303870689,
+                0.49534285546384427
+              ],
+              "target": [
+                -2.390820211073368,
+                6.8607311887186215,
+                0.32619511619999997
+              ],
+              "length": 0.24021408680458428,
+              "distance": 0.24919847548140706
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32243404352,
+              6.839625215929795,
+              0.10609511619999998
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 4.000299999999999,
+          "position": [
+            -2.6799999999999997,
+            6.129860873749186,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "lift",
+            "opening": 0.1404178651675141,
+            "handGap": 0.00945747690404243,
+            "reach": {
+              "shoulder": [
+                -2.567144810211249,
+                6.598595101914091,
+                0.49423552758124
+              ],
+              "target": [
+                -2.444392270373382,
+                6.687849073240573,
+                0.367295016180041
+              ],
+              "length": 0.2402140793402816,
+              "distance": 0.1978594219869084
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.3733168861512266,
+              6.679457425150183,
+              0.15198326538225326
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 4.233700000000001,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "lift",
+            "opening": 0.5153507966521481,
+            "handGap": 6.574984274929159e-9,
+            "reach": {
+              "shoulder": [
+                -2.566532310158566,
+                6.4696978806646275,
+                0.49377647685624465
+              ],
+              "target": [
+                -2.4723317680360757,
+                6.499139720845164,
+                0.37927366771858295
+              ],
+              "length": 0.24021407860088034,
+              "distance": 0.1511669851184546
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.4007761723255348,
+              6.497751656542048,
+              0.17674712988442123
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 4.450400000000005,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "lift",
+            "opening": 0.8604710504734433,
+            "handGap": 5.580071579487261e-9,
+            "reach": {
+              "shoulder": [
+                -2.566178374818434,
+                6.470486530195466,
+                0.49338747207800315
+              ],
+              "target": [
+                -2.4912798967998553,
+                6.413619793495312,
+                0.3846572085819051
+              ],
+              "length": 0.24021407860088034,
+              "distance": 0.14375631447819995
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.419795237884588,
+              6.417094493448968,
+              0.19389927140304952
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 4.6836000000000055,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 6.327385943140268e-9,
+            "reach": {
+              "shoulder": [
+                -2.5699954954398727,
+                6.471189561990585,
+                0.4945160109914272
+              ],
+              "target": [
+                -2.5004335046335933,
+                6.383385951163981,
+                0.38840858905782294
+              ],
+              "length": 0.24021407860087965,
+              "distance": 0.15429559173391344
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.426582484865883,
+              6.388587547862842,
+              0.20337588851261762
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 5.217000000000012,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 7.141043968591745e-9,
+            "reach": {
+              "shoulder": [
+                -2.9578922297491665,
+                6.472133227059091,
+                0.3452622270888077
+              ],
+              "target": [
+                -2.8443133462049084,
+                6.383428040128654,
+                0.40184906972259976
+              ],
+              "length": 0.2402140786008797,
+              "distance": 0.15482520380992734
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.651457930889384,
+              6.388629636827515,
+              0.45182768690293923
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 5.450400000000016,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 7.040363295965868e-9,
+            "reach": {
+              "shoulder": [
+                -2.959721495496378,
+                6.472206693368357,
+                0.3409523301758789
+              ],
+              "target": [
+                -2.846895081222619,
+                6.38319008620435,
+                0.39971968994725754
+              ],
+              "length": 0.24021407860087984,
+              "distance": 0.15526544587693614
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.6546982188850277,
+              6.388391682903212,
+              0.4521738556480628
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 5.683800000000016,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 7.053499618745446e-9,
+            "reach": {
+              "shoulder": [
+                -2.9598085612341727,
+                6.472078159331935,
+                0.3401817548990064
+              ],
+              "target": [
+                -2.846895081222619,
+                6.382852750944534,
+                0.39971968994725754
+              ],
+              "length": 0.24021407860087973,
+              "distance": 0.15574143051875391
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.6546982188850277,
+              6.388054347643395,
+              0.4521738556480628
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 6.2171000000000225,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 7.122174376399881e-9,
+            "reach": {
+              "shoulder": [
+                -2.9603206560291944,
+                6.4711548360019435,
+                0.33887581890601115
+              ],
+              "target": [
+                -2.846895081222619,
+                6.382002670899049,
+                0.39971968994725754
+              ],
+              "length": 0.24021407860088007,
+              "distance": 0.1565740917457918
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.6546982188850277,
+              6.387204267597911,
+              0.4521738556480628
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 6.433800000000023,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 7.0657881226770395e-9,
+            "reach": {
+              "shoulder": [
+                -2.960620093376653,
+                6.470586810113017,
+                0.33871637137005983
+              ],
+              "target": [
+                -2.846895081222619,
+                6.381718577577119,
+                0.39971968994725754
+              ],
+              "length": 0.24021407860087943,
+              "distance": 0.15669188243467091
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.6546982188850277,
+              6.38692017427598,
+              0.4521738556480628
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 6.667200000000027,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 7.066727500813711e-9,
+            "reach": {
+              "shoulder": [
+                -2.9609808249500746,
+                6.469869762387832,
+                0.3388404989515062
+              ],
+              "target": [
+                -2.846895081222619,
+                6.381469497970289,
+                0.39971968994725754
+              ],
+              "length": 0.24021407860088034,
+              "distance": 0.15664111710287124
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.6546982188850277,
+              6.3866710946691505,
+              0.4521738556480628
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 6.9005000000000285,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 7.168008413949386e-9,
+            "reach": {
+              "shoulder": [
+                -2.9613683212518485,
+                6.469071498889077,
+                0.3392516718266487
+              ],
+              "target": [
+                -2.846895081222619,
+                6.381286053590138,
+                0.39971968994725754
+              ],
+              "length": 0.24021407860087987,
+              "distance": 0.15641863157743377
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.6546982188850277,
+              6.386487650288999,
+              0.4521738556480628
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 7.1172000000000315,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "read",
+            "opening": 1,
+            "handGap": 6.110828320833542e-9,
+            "reach": {
+              "shoulder": [
+                -2.9617429745327755,
+                6.468336227550149,
+                0.33983541646243076
+              ],
+              "target": [
+                -2.846895081222619,
+                6.381222666075837,
+                0.39971968994725754
+              ],
+              "length": 0.24021407860804667,
+              "distance": 0.15609272052637618
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.6546982188850277,
+              6.386424262774699,
+              0.4521738556480628
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 7.3506000000000355,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "return",
+            "opening": 0.6979584578932243,
+            "handGap": 3.4063346544808365e-9,
+            "reach": {
+              "shoulder": [
+                -2.854933444673363,
+                6.467519380107229,
+                0.46224945097347026
+              ],
+              "target": [
+                -2.7166258087845074,
+                6.414165612924821,
+                0.45483162133355615
+              ],
+              "length": 0.24021407860087995,
+              "distance": 0.14842725765264816
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.519058232227279,
+              6.4155924645517795,
+              0.3868559914395533
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 7.8839000000000405,
+          "position": [
+            -2.6799999999999997,
+            6.180326385129878,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "return",
+            "opening": 0,
+            "handGap": 0.024026979862763507,
+            "reach": {
+              "shoulder": [
+                -2.5667817303038998,
+                6.647453159705075,
+                0.4958649459036036
+              ],
+              "target": [
+                -2.4337400805184317,
+                6.742413701224337,
+                0.36279844728902233
+              ],
+              "length": 0.2402140786008805,
+              "distance": 0.2107706765107873
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.3630214624674113,
+              6.731413380276571,
+              0.1426984472890224
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 8.11730000000004,
+          "position": [
+            -2.6799999999999997,
+            6.294074128111502,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "return",
+            "opening": 0,
+            "handGap": 0.013722535920655886,
+            "reach": {
+              "shoulder": [
+                -2.56642492532249,
+                6.761058740635332,
+                0.4962866431289867
+              ],
+              "target": [
+                -2.406780110429726,
+                6.833405804248034,
+                0.3396610009064178
+              ],
+              "length": 0.24021407860804678,
+              "distance": 0.23505777233939174
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.337365621816731,
+              6.815977127574335,
+              0.11956100090641786
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 8.334000000000037,
+          "position": [
+            -2.6799999999999997,
+            6.351760010866839,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "return",
+            "opening": 0,
+            "handGap": 0.008213850122133748,
+            "reach": {
+              "shoulder": [
+                -2.5663431002769737,
+                6.818598541329678,
+                0.4966281009333828
+              ],
+              "target": [
+                -2.3907770595895736,
+                6.860831084398924,
+                0.3261589303726886
+              ],
+              "length": 0.2402140786008799,
+              "distance": 0.24832792925564498
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.322393919048009,
+              6.839715306182798,
+              0.10605893037268865
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 8.567300000000031,
+          "position": [
+            -2.6799999999999997,
+            6.351575014342973,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "release",
+            "opening": 0,
+            "handGap": 3.955483685355641e-9,
+            "reach": {
+              "shoulder": [
+                -2.5665376971960576,
+                6.818266718973466,
+                0.49692857094990023
+              ],
+              "target": [
+                -2.4035167456287763,
+                6.870621824607837,
+                0.3421188696186358
+              ],
+              "length": 0.24021406155935637,
+              "distance": 0.2308309584136481
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 9.100600000000027,
+          "position": [
+            -2.6799999999999997,
+            6.12967470775721,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "release",
+            "opening": 0,
+            "handGap": 1.0449523244649762e-9,
+            "reach": {
+              "shoulder": [
+                -2.5678609062583813,
+                6.5960368677808034,
+                0.49729912054972475
+              ],
+              "target": [
+                -2.593007487204097,
+                6.789926685209576,
+                0.5982066781610564
+              ],
+              "length": 0.24021407860804622,
+              "distance": 0.22001806066526966
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 9.317400000000024,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "done",
+            "opening": 0,
+            "handGap": 9.922385210782085e-10,
+            "reach": {
+              "shoulder": [
+                -2.568564297382014,
+                6.466255553441073,
+                0.49731091660449184
+              ],
+              "target": [
+                -2.6149091622880993,
+                6.652565152065261,
+                0.6258776666946585
+              ],
+              "length": 0.24021407860804672,
+              "distance": 0.23105956433659425
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 9.867400000000018,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "done",
+            "opening": 0,
+            "handGap": 9.929581508461407e-10,
+            "reach": {
+              "shoulder": [
+                -2.569975576811453,
+                6.4661880397897935,
+                0.49697781160086935
+              ],
+              "target": [
+                -2.6174206020099384,
+                6.652393752602776,
+                0.6252935330505065
+              ],
+              "length": 0.2402140786080464,
+              "distance": 0.2310595643365939
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "journal",
+          "room": "bedroom",
+          "day": 10.100800000000014,
+          "position": [
+            -2.6799999999999997,
+            6,
+            0.19999999999999996
+          ],
+          "book": {
+            "kind": "journal",
+            "phase": "done",
+            "opening": 0,
+            "handGap": 9.931165181037269e-10,
+            "reach": {
+              "shoulder": [
+                -2.570187944007141,
+                6.466285791286247,
+                0.49669206388334386
+              ],
+              "target": [
+                -2.617802659895038,
+                6.652596330570188,
+                0.6247925871221602
+              ],
+              "length": 0.24021407860804633,
+              "distance": 0.23105956433659378
+            },
+            "source": "content-work-journal",
+            "sourceId": "5a7e4353-7ca8-4fc7-bc69-a1c5e0173e3e",
+            "position": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "home": [
+              -2.32,
+              6.842,
+              0.1039
+            ],
+            "visible": true
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 10.317500000000011,
+          "position": [
+            -2.621862773537419,
+            6,
+            0.22059529371820602
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": {
+              "shoulder": [
+                -2.570193891004908,
+                6.466304599709305,
+                0.49664529463443435
+              ],
+              "target": [
+                -2.6178141072918906,
+                6.652637937447698,
+                0.6247106081251215
+              ],
+              "length": 0.24021407860804675,
+              "distance": 0.23105956433659425
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 10.834200000000006,
+          "position": [
+            -1.988795273991839,
+            6,
+            0.4448614290314098
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": {
+              "shoulder": [
+                -2.570193891004908,
+                6.466304599709305,
+                0.49664529463443435
+              ],
+              "target": [
+                -2.6178141072918906,
+                6.652637937447698,
+                0.6247106081251215
+              ],
+              "length": 0.24021407860804675,
+              "distance": 0.23105956433659425
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 11.067600000000004,
+          "position": [
+            -1.575899781953394,
+            6,
+            0.5911309442950642
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": {
+              "shoulder": [
+                -2.570193891004908,
+                6.466304599709305,
+                0.49664529463443435
+              ],
+              "target": [
+                -2.6178141072918906,
+                6.652637937447698,
+                0.6247106081251215
+              ],
+              "length": 0.24021407860804675,
+              "distance": 0.23105956433659425
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 11.300900000000002,
+          "position": [
+            -1.149878725604088,
+            6,
+            0.742050231635021
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": {
+              "shoulder": [
+                -2.570193891004908,
+                6.466304599709305,
+                0.49664529463443435
+              ],
+              "target": [
+                -2.6178141072918906,
+                6.652637937447698,
+                0.6247106081251215
+              ],
+              "length": 0.24021407860804675,
+              "distance": 0.23105956433659425
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 11.534199999999998,
+          "position": [
+            -0.7572702084373901,
+            6,
+            0.8811330228053543
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": {
+              "shoulder": [
+                -2.570193891004908,
+                6.466304599709305,
+                0.49664529463443435
+              ],
+              "target": [
+                -2.6178141072918906,
+                6.652637937447698,
+                0.6247106081251215
+              ],
+              "length": 0.24021407860804675,
+              "distance": 0.23105956433659425
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 11.750899999999994,
+          "position": [
+            -0.4633745267141598,
+            6,
+            0.9852464842808203
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": {
+              "shoulder": [
+                -2.570193891004908,
+                6.466304599709305,
+                0.49664529463443435
+              ],
+              "target": [
+                -2.6178141072918906,
+                6.652637937447698,
+                0.6247106081251215
+              ],
+              "length": 0.24021407860804675,
+              "distance": 0.23105956433659425
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 11.984299999999987,
+          "position": [
+            -0.26708932153361253,
+            6,
+            1.054781130138645
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "approach",
+            "opening": 0,
+            "handGap": null,
+            "reach": {
+              "shoulder": [
+                -2.570193891004908,
+                6.466304599709305,
+                0.49664529463443435
+              ],
+              "target": [
+                -2.6178141072918906,
+                6.652637937447698,
+                0.6247106081251215
+              ],
+              "length": 0.24021407860804675,
+              "distance": 0.23105956433659425
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 12.217599999999987,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "open",
+            "opening": 0,
+            "handGap": 1.6730785074146765e-9,
+            "reach": {
+              "shoulder": [
+                0.0649054592444121,
+                6.4749659150841055,
+                0.968394723168432
+              ],
+              "target": [
+                0.19217872330904898,
+                6.61865604431356,
+                1.0483216770826718
+              ],
+              "length": 0.24021404998497717,
+              "distance": 0.2079270423625869
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 12.734299999999976,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "open",
+            "opening": 0,
+            "handGap": 0.012960640723863508,
+            "reach": {
+              "shoulder": [
+                0.0644918876462634,
+                6.470394013125322,
+                0.9695930899933065
+              ],
+              "target": [
+                0.032067424103168096,
+                6.32,
+                0.7686525293523251
+              ],
+              "length": 0.2402140786080464,
+              "distance": 0.25307472005458953
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 12.900999999999978,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "open",
+            "opening": 0,
+            "handGap": 0.013430009463905025,
+            "reach": {
+              "shoulder": [
+                0.06445644612758034,
+                6.470453992337038,
+                0.9701448428649385
+              ],
+              "target": [
+                0.032067424103168096,
+                6.32,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804656,
+              "distance": 0.25354408879427
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 0.36846379052543976,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 13.20089999999998,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 7.837559773751023e-10,
+            "reach": {
+              "shoulder": [
+                0.06451829329925396,
+                6.470311449613852,
+                0.9711318056898834
+              ],
+              "target": [
+                0.032067424103168096,
+                6.348226179733108,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804636,
+              "distance": 0.23865399510508267
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 0.8279207237630574,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 13.70099999999997,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.154612718358401e-10,
+            "reach": {
+              "shoulder": [
+                0.06496362414040358,
+                6.469409817745922,
+                0.972182834639398
+              ],
+              "target": [
+                0.032067424103168096,
+                6.399658142271701,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804644,
+              "distance": 0.21765119199903327
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 0.9914378161611035,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 13.93439999999997,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.27663908736672e-10,
+            "reach": {
+              "shoulder": [
+                0.06529900930843768,
+                6.468750361397355,
+                0.9722361120994099
+              ],
+              "target": [
+                0.032067424103168096,
+                6.379400003507491,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804658,
+              "distance": 0.2247979089636756
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 0.9978894358551438,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 14.167699999999964,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 0.0006820612389870222,
+            "reach": {
+              "shoulder": [
+                0.06569796618735596,
+                6.467974041949743,
+                0.9719825711810691
+              ],
+              "target": [
+                0.032067424103168096,
+                6.343440263226248,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804633,
+              "distance": 0.24079614057145426
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 14.400999999999962,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 0.012224158747714408,
+            "reach": {
+              "shoulder": [
+                0.06614466629667742,
+                6.467108033159159,
+                0.971463239779172
+              ],
+              "target": [
+                0.032067424103168096,
+                6.320885108498361,
+                0.7686525293523251
+              ],
+              "length": 0.240214078608047,
+              "distance": 0.2523382380768217
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 14.634399999999959,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 0.0060281382589565105,
+            "reach": {
+              "shoulder": [
+                0.06662155514470197,
+                6.4661811624631405,
+                0.9707600732739986
+              ],
+              "target": [
+                0.032067424103168096,
+                6.33000280883097,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804642,
+              "distance": 0.24614221758986257
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 14.851099999999958,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.286334691752514e-10,
+            "reach": {
+              "shoulder": [
+                0.06707471315653635,
+                6.465517758055713,
+                0.9700390340584253
+              ],
+              "target": [
+                0.032067424103168096,
+                6.360753718529117,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804636,
+              "distance": 0.22969009239089153
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 15.084399999999956,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.002041184140735e-10,
+            "reach": {
+              "shoulder": [
+                0.0675557367836851,
+                6.4653338864249115,
+                0.9693030710350765
+              ],
+              "target": [
+                0.032067424103168096,
+                6.392584112420281,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804603,
+              "distance": 0.2163621728311501
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 15.317899999999952,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 7.937954907886487e-10,
+            "reach": {
+              "shoulder": [
+                0.06801173647791703,
+                6.465224749107729,
+                0.9687190716401857
+              ],
+              "target": [
+                0.032067424103168096,
+                6.398028783687498,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804664,
+              "distance": 0.21408856275819751
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 15.551199999999952,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.107529220412003e-10,
+            "reach": {
+              "shoulder": [
+                0.06842427898789094,
+                6.465113388368185,
+                0.9683771483842684
+              ],
+              "target": [
+                0.032067424103168096,
+                6.3726718016686865,
+                0.7686525293523251
+              ],
+              "length": 0.2402140786080461,
+              "distance": 0.22306320022828646
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 15.784499999999948,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 7.383718171729972e-10,
+            "reach": {
+              "shoulder": [
+                0.06877789979839061,
+                6.4649739902361585,
+                0.9683281064983938
+              ],
+              "target": [
+                0.032067424103168096,
+                6.337057395156733,
+                0.7686525293523251
+              ],
+              "length": 0.2402140786080462,
+              "distance": 0.23995968501208473
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 16.017899999999948,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 0.009496012676607076,
+            "reach": {
+              "shoulder": [
+                0.06905917912743453,
+                6.4648117466894695,
+                0.9685784805771969
+              ],
+              "target": [
+                0.032067424103168096,
+                6.320013880274314,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804705,
+              "distance": 0.24961009200616527
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 16.23459999999994,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 0.0023489515758641504,
+            "reach": {
+              "shoulder": [
+                0.06924601104898931,
+                6.464649681382159,
+                0.9690453619510212
+              ],
+              "target": [
+                0.032067424103168096,
+                6.333315045156769,
+                0.7686525293523251
+              ],
+              "length": 0.2402140786080464,
+              "distance": 0.24246303090713164
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 16.46789999999994,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.222149649125707e-10,
+            "reach": {
+              "shoulder": [
+                0.06935997524705995,
+                6.464576282150352,
+                0.9697272367782361
+              ],
+              "target": [
+                0.032067424103168096,
+                6.368058812053857,
+                0.7686525293523251
+              ],
+              "length": 0.2402140786080467,
+              "distance": 0.22613578746201013
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 16.701199999999936,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.065703471466826e-10,
+            "reach": {
+              "shoulder": [
+                0.06937939550232292,
+                6.464553684165788,
+                0.9704921070040029
+              ],
+              "target": [
+                0.032067424103168096,
+                6.396279224316133,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804628,
+              "distance": 0.21631643530730893
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 16.934599999999936,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.118024518089084e-10,
+            "reach": {
+              "shoulder": [
+                0.0693034853128095,
+                6.4645680897621025,
+                0.9712225900481731
+              ],
+              "target": [
+                0.032067424103168096,
+                6.395125094685088,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804664,
+              "distance": 0.21735566086484595
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 17.15129999999993,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 8.301420573464066e-10,
+            "reach": {
+              "shoulder": [
+                0.06915009229094915,
+                6.464617078913534,
+                0.9717708766405854
+              ],
+              "target": [
+                0.032067424103168096,
+                6.368147929480972,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804644,
+              "distance": 0.2279001625214019
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 17.384599999999935,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "play",
+            "opening": 0,
+            "handGap": 0.004852734198977996,
+            "reach": {
+              "shoulder": [
+                0.06890159242280103,
+                6.464710104033082,
+                0.9721350869803238
+              ],
+              "target": [
+                0.032067424103168096,
+                6.333382907628156,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804672,
+              "distance": 0.24496681352829985
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 17.617999999999927,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "close",
+            "opening": 0,
+            "handGap": 0.012370119911729312,
+            "reach": {
+              "shoulder": [
+                0.06857578037316597,
+                6.464844264852083,
+                0.9722097687894882
+              ],
+              "target": [
+                0.032067424103168096,
+                6.32,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804653,
+              "distance": 0.2524841992389937
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": true,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 18.134699999999906,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "close",
+            "opening": 0,
+            "handGap": 0.011782826795063487,
+            "reach": {
+              "shoulder": [
+                0.06764580748811305,
+                6.465255655509889,
+                0.9713518744244756
+              ],
+              "target": [
+                0.032067424103168096,
+                6.32,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804656,
+              "distance": 0.2518969061234622
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 1,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 18.368099999999902,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "close",
+            "opening": 0,
+            "handGap": 0.01126243556363161,
+            "reach": {
+              "shoulder": [
+                0.06716802450361237,
+                6.465467994438138,
+                0.970635604597066
+              ],
+              "target": [
+                0.032067424103168096,
+                6.32,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804667,
+              "distance": 0.25137651489279683
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0.24649834488115474,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 18.601399999999895,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "close",
+            "opening": 0,
+            "handGap": 0.010928150519385027,
+            "reach": {
+              "shoulder": [
+                0.066680147221026,
+                6.466082803874702,
+                0.9698588289012616
+              ],
+              "target": [
+                0.032067424103168096,
+                6.32,
+                0.7686525293523251
+              ],
+              "length": 0.24021407860804725,
+              "distance": 0.25104222984929137
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0.060797901828812846,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        },
+        {
+          "activity": "toy",
+          "room": "bedroom",
+          "day": 18.81809999999989,
+          "position": [
+            -0.22793257589683202,
+            6,
+            1.068652529352325
+          ],
+          "book": {
+            "kind": "toy",
+            "phase": "done",
+            "opening": 0,
+            "handGap": 8.285847000894717e-10,
+            "reach": {
+              "shoulder": [
+                0.06623449128402875,
+                6.466982003171629,
+                0.9691884366305844
+              ],
+              "target": [
+                0.19243903179288957,
+                6.652396903388867,
+                1.024706460765053
+              ],
+              "length": 0.24021407860804642,
+              "distance": 0.23105956433659383
+            },
+            "source": null,
+            "sourceId": null,
+            "position": null,
+            "home": null,
+            "visible": false
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0.016566047657237678,
+            "ready": true,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 5
+          }
+        }
+      ]
+    },
+    {
+      "test": "visitor-diary-gallery-and-mobile",
+      "value": true
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

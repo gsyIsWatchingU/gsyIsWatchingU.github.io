@@ -1,0 +1,23 @@
+{
+  "verifiedAt": "2026-10-13T09:28:58.961Z",
+  "checks": [
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "match": true,
+      "sha": "70320ae751b66f787c3751f69edc916d02e0f306ed939b994c854eb901ba52b7"
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "match": true,
+      "sha": "6a3d039ac4355fccba3e8dfc9d810c3dec254b1ead11c74a574f1076d9c56ad9"
+    },
+    {
+      "path": "src/data/house-companion.json",
+      "status": 200,
+      "match": true,
+      "sha": "4395fec1935987944d729d2050ff98713d63411ff09461df6e5d64cd1b562bfe"
+    }
+  ]
+}
