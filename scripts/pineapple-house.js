@@ -71,6 +71,12 @@ if (renderer) {
   renderer.toneMappingExposure = 1.14;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
+  renderer.localClippingEnabled = true;
+  // 一层共用墙面与地板，近景按储藏室隔墙裁切；全景移除裁切。
+  const firstFloorClips = {
+    living: [new THREE.Plane(new THREE.Vector3(1,0,0),2.55)],
+    storage: [new THREE.Plane(new THREE.Vector3(-1,0,0),-2.55)]
+  };
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(34, viewWidth / viewHeight, 0.1, 120);
   const controls = new OrbitControls(camera, canvas);
@@ -226,24 +232,21 @@ if (renderer) {
       group.traverse((node) => {
         const d=node.userData;
         if(!node.isMesh) return;
-        if(!activeRoom) { node.visible=!d.roomViewOnly;return; }
-        const room=rooms.get(activeRoom);
-        const roof = activeRoom === "roof";
-        let visible = true;
-        if (group.userData.assetId && group.userData.assetId !== "structure") {
-          visible = group.userData.roomId === activeRoom;
-        } else if (activeRoom === "library") {
-          visible = d.roomId === "library";
-        } else if(roof) {
-          visible = d.roomId === "roof" || (d.roomId === "stairs" && (d.level === 3 || d.roofAccess === true));
-        } else {
-          visible = d.level === room.level && d.roomId !== "library";
-          if(d.occluder && d.roomId !== activeRoom) visible=false;
-          if(d.roomId === "stairs") visible=activeRoom === "bedroom" && d.level === 2;
-          if(node.name.startsWith("cut_arch")) visible=false;
-          if(activeRoom === "storage" && d.roomId === "living") visible=Boolean(d.occluder) || node.name === "living_L0_sand";
-          if(activeRoom === "living" && d.roomId === "storage") visible=false;
+        const structure=group.userData.assetId === "structure";
+        const sharedSurface=structure && d.roomId === "living" && (d.occluder || node.name === "living_L0_sand");
+        if(sharedSurface) {
+          const materials=Array.isArray(node.material)?node.material:[node.material];
+          materials.forEach(material=>{material.clippingPlanes=firstFloorClips[activeRoom]??null;});
         }
+        if(!activeRoom) { node.visible=!d.roomViewOnly;return; }
+        let visible = d.roomId === activeRoom;
+        if(!structure) visible=group.userData.roomId === activeRoom;
+        else if(activeRoom === "storage" && sharedSurface) visible=true;
+        else if(d.roomId === "stairs") {
+          visible=activeRoom === "bedroom" && d.level === 2 || activeRoom === "roof" && (d.level === 3 || d.roofAccess === true);
+        }
+        // 菠萝顶冠用于整屋轮廓，天台近景聚焦平台与躺椅。
+        if(structure && node.name === "roof_L3_leaf") visible=false;
         node.visible=d.roomViewOnly?d.roomViewOnly===activeRoom:visible;
       });
     }
@@ -329,6 +332,8 @@ if (renderer) {
     houseGroup.traverse((node) => {if(!node.isMesh)return;let parent=node;while(parent){if(!parent.visible)return;parent=parent.parent;}meshes.push(node);});
     const hits=raycaster.intersectObjects(meshes,false);
     for(const hit of hits) {
+      const material=Array.isArray(hit.object.material)?hit.object.material[hit.face.materialIndex]:hit.object.material;
+      if(material.clippingPlanes?.some(plane=>plane.distanceToPoint(hit.point)<0)) continue;
       let node=hit.object;
       while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.contentId) node=node.parent;
       if(node?.userData.companionId) return {companionId:node.userData.companionId,roomId:node.userData.roomId};
@@ -415,6 +420,11 @@ if (renderer) {
           node.castShadow=true;
           node.receiveShadow=true;
           if(spec.room) node.userData.roomId=spec.room;
+          // 裁切材质独立，避免共用材质把其它区域的物件一并裁掉。
+          if(spec.id==='structure' && node.userData.roomId==='living' && (node.userData.occluder || node.name==='living_L0_sand')) {
+            node.material=Array.isArray(node.material)?node.material.map(material=>material.clone()):node.material.clone();
+            (Array.isArray(node.material)?node.material:[node.material]).forEach(material=>{material.clipShadows=true;});
+          }
           const interaction=config.interactions.find(item=>item.asset===spec.id);
           if(interaction){
             node.userData.contentId=interaction.id;
