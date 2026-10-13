@@ -3,12 +3,15 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { addReferenceDetails, artReady } from "./patrick-reference.js";
+import { createPatrickCharacter } from "./patrick-character.js";
+import { createPatrickStairs } from "./patrick-stairs.js";
+import { createPatrickRelics } from "./patrick-relics.js";
 import config from "../src/data/patrick-house.json";
 import {
   mat, texMat, rockTex, greenWallTex, woodTex, sandTex, tvScreenTex,
   buildFridge, buildStove, buildSink, buildWallCabinet, buildBed, buildStarPillow,
   buildNightstand, buildBedLamp, buildBenchPress, buildSofa, buildCoffeeTable,
-  buildOldTv, buildFloorLamp, buildCeilingFan, buildWeatherVane, buildPatrick, buildArch,
+  buildOldTv, buildFloorLamp, buildCeilingFan, buildWeatherVane, buildArch,
 } from "./patrick-build.js";
 
 const root = document.querySelector(".house");
@@ -181,7 +184,7 @@ if (renderer) {
   floorShape.absarc(0, 0, 4.25, -floorAngle, Math.PI+floorAngle, false);
   floorShape.closePath();
   const stairHole=new THREE.Path();
-  stairHole.moveTo(2.82,.5);stairHole.lineTo(2.82,-1.25);stairHole.lineTo(3.66,-1.25);stairHole.lineTo(3.66,.5);stairHole.closePath();
+  stairHole.moveTo(2.68,.95);stairHole.lineTo(2.68,-1.75);stairHole.lineTo(3.72,-1.75);stairHole.lineTo(3.72,.95);stairHole.closePath();
   floorShape.holes.push(stairHole);
   const floorGeo = new THREE.ExtrudeGeometry(floorShape, { depth: 0.12, bevelEnabled: false });
   floorGeo.rotateX(-Math.PI / 2);
@@ -191,11 +194,13 @@ if (renderer) {
   structureGroup.add(floor);
 
   // 地下客厅坑壁（与外壳同样保留后方 240°），坑底沙质
-  const pitWall = new THREE.Mesh(
-    new THREE.CylinderGeometry(3.3, 3.3, 2.3, 48, 1, true, Math.PI / 3, (4 * Math.PI) / 3),
-    texMat(caveTex, 0.95, { side: THREE.DoubleSide }),
-  );
-  pitWall.position.y = -1.15;
+  const wallSection = new THREE.Shape();
+  wallSection.absarc(0,0,4.1,0,Math.PI,false);
+  wallSection.absarc(0,0,4.0,Math.PI,0,true);wallSection.closePath();
+  const wallGeometry = new THREE.ExtrudeGeometry(wallSection,{depth:2.3,bevelEnabled:false,curveSegments:48});
+  wallGeometry.rotateX(-Math.PI/2);
+  const pitWall = new THREE.Mesh(wallGeometry,texMat(caveTex,.95));
+  pitWall.position.y = -2.3;
   pitWall.receiveShadow = true;
   structureGroup.add(pitWall);
   const pitFloor = new THREE.Mesh(new THREE.CircleGeometry(4.08, 64), texMat(sandBase, 1));
@@ -209,7 +214,7 @@ if (renderer) {
   // 前侧沙地围挡（剖面态“切开”的断面，保留外围沙地与地下空间厚度）
   const collarShape = new THREE.Shape();
   collarShape.absarc(0, 0, 4.35, (-8 * Math.PI) / 9, (-Math.PI) / 9, false);
-  collarShape.absarc(0, 0, 3.35, (-Math.PI) / 9, (-8 * Math.PI) / 9, true);
+  collarShape.absarc(0, 0, 4.1, (-Math.PI) / 9, (-8 * Math.PI) / 9, true);
   collarShape.closePath();
   const collarGeo = new THREE.ExtrudeGeometry(collarShape, { depth: 2.55, bevelEnabled: false });
   collarGeo.rotateX(Math.PI / 2); // 断面向下：沙层厚度位于地下（0.25 → -2.3），不做地面以上沙墙
@@ -218,26 +223,15 @@ if (renderer) {
   collar.receiveShadow = true;
   structureGroup.add(collar);
 
-  // 右侧连续木台阶，从上层到地下地面；每级侧板连接，不堆叠悬空扶手。
-  const stairGroup = new THREE.Group();
-  const stepMat = texMat(darkWoodTex, 0.85);
-  for (let i = 0; i < 8; i++) {
-    const step = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.09, 0.34), stepMat);
-    step.position.set(3.22, .01 - i * .33, -.3 + i * .18);
-    step.castShadow = true;
-    step.receiveShadow = true;
-    stairGroup.add(step);
-    if (i < 7) {
-      const riser = new THREE.Mesh(new THREE.BoxGeometry(.78, .33, .04), texMat(darkWoodTex, 0.85));
-      riser.position.set(3.22,.01-i*.33-.165,-.3+i*.18+.15);
-      riser.castShadow = true;
-      stairGroup.add(riser);
-    }
-  }
-  const railPath=new THREE.CatmullRomCurve3([new THREE.Vector3(3.6,.76,-.4),new THREE.Vector3(3.6,-.42,.24),new THREE.Vector3(3.6,-1.55,1.02)]);
-  const rail=new THREE.Mesh(new THREE.TubeGeometry(railPath,24,.028,8,false),stepMat);rail.castShadow=true;stairGroup.add(rail);
-  for(const i of [0,3,7]){const post=new THREE.Mesh(new THREE.CylinderGeometry(.025,.025,.7,10),stepMat);post.position.set(3.6,.36-i*.33,-.3+i*.18);post.castShadow=true;stairGroup.add(post);}
+  const stairGroup = createPatrickStairs(texMat(darkWoodTex, .85));
   structureGroup.add(stairGroup);
+  // 地下客厅下方的沙层断面；露出收藏物，保留客厅视线。
+  const apronGeo = new THREE.ExtrudeGeometry(collarShape, {depth:1.15,bevelEnabled:false});
+  apronGeo.rotateX(-Math.PI/2);
+  const apron = new THREE.Mesh(apronGeo, texMat(sandBase,1));
+  apron.position.y = -3.45; apron.receiveShadow = true; structureGroup.add(apron);
+  const relics = createPatrickRelics(() => collectPickables());
+  structureGroup.add(relics.group);
 
   // 金色骨头风向标（穹顶顶）
   const vane = buildWeatherVane();
@@ -336,20 +330,33 @@ if (renderer) {
   floorLamp.position.set(-2.3, -2.3, -1.33);
   floorLamp.userData.interaction = "lamp";
   roomGroups.living.add(floorLamp);
-  addReferenceDetails(roomGroups);
+  const referenceDetails = addReferenceDetails(roomGroups);
+  referenceDetails.collection.position.y=-2.62;
+  for(const [i,item] of referenceDetails.collection.children.entries()){
+    item.name='reference-relic-'+i;
+    item.position.z=Math.sqrt(4.38**2-item.position.x**2);
+    item.position.y=-.04+Math.sin(i*2)*.04;
+    item.userData.interaction='relic';item.userData.label='派大星的收藏';
+    item.userData.story='这个也要留下，派大星说每一件都是宝贝。';
+    item.userData.home=item.position.clone();relics.items.push(item);
+  }
 
   /* ---------- 派大星（挂在 houseGroup，独立拾取） ---------- */
-  const patrick = buildPatrick();
-  patrick.userData.interaction = "patrick";
-  patrick.position.set(0.15, -2.3, 0.7);
+  const character = createPatrickCharacter();
+  const patrick = character.actor;
+  patrick.position.set(.15, -2.3, .7);
   houseGroup.add(patrick);
-
-  let patrickBody = patrick.getObjectByName("patrick-body");
-  let armL = patrick.userData.patrickArms.armL;
-  let armR = patrick.userData.patrickArms.armR;
-  let elbowL = armL.userData.elbow;
-  let elbowR = armR.userData.elbow;
-  let patrickMixer, idleAction, waveAction;
+  const actionPanel = document.querySelector('[data-patrick-actions]');
+  document.querySelector("[data-patrick-close]").addEventListener("click",()=>actionPanel.hidden=true);
+  const say = message => {
+    const bubble = document.querySelector('[data-patrick-message]');
+    bubble.textContent=message; bubble.hidden=false;
+    clearTimeout(say.timer);say.timer=setTimeout(()=>bubble.hidden=true,4500);
+  };
+  document.querySelectorAll('[data-patrick-action]').forEach(button=>button.addEventListener('click',()=>{
+    character.start(button.dataset.patrickAction);
+    say({wave:'嗨！欢迎来我的石头屋！',cheer:'今天也是快乐的一天！',icecream:'冰淇淋，要一起吃吗？',hula:'和我一起跳草裙舞吧！'}[button.dataset.patrickAction]);
+  }));
 
   /* ---------- 交互状态 ---------- */
   const tvOnTex = tvScreenTex(true);
@@ -391,54 +398,7 @@ if (renderer) {
     else floorLight.intensity = on ? 2.2 : 0;
   }
 
-  /* ---------- 派大星招手（时间驱动、可连续验证） ---------- */
-  let waveState = "idle";
-  let waveT = 0;
-  const WAVE = { raise: 0.5, wave: 1.5, lower: 0.6 };
-  // 新臂链：肩球埋入躯干，肘为子节点；右臂自然抬-摆-放
-  const REST = { rz: 0.15, el: 0.12 };
-  const UP = { rz: 2.45, el: 1.05 };
-  const ease = (t) => t * t * (3 - 2 * t);
-
-  function startWave() {
-    if (waveState !== "idle") return; // 连续点击不叠加
-    waveState = "raise";
-    waveT = 0;
-    if (waveAction) {
-      waveAction.reset().setLoop(THREE.LoopOnce,1);
-      waveAction.clampWhenFinished=true;
-      idleAction.fadeOut(.18);waveAction.fadeIn(.18).play();
-    }
-  }
-
-  function updateWave(dt) {
-    if (waveState === "idle") return;
-    waveT += dt;
-    if (patrickMixer) {
-      if (waveState==='raise'&&waveT>=WAVE.raise) {waveState='wave';waveT=0;}
-      else if(waveState==='wave'&&waveT>=WAVE.wave) {waveState='lower';waveT=0;}
-      else if(waveState==='lower'&&waveT>=WAVE.lower) {
-        waveState='idle';waveT=0;waveAction.fadeOut(.18);idleAction.reset().fadeIn(.18).play();
-      }
-      return;
-    }
-    if (waveState === "raise") {
-      const k = ease(Math.min(waveT / WAVE.raise, 1));
-      armR.rotation.z = REST.rz + (UP.rz - REST.rz) * k;
-      elbowR.rotation.z = REST.el + (UP.el - REST.el) * k;
-      if (waveT >= WAVE.raise) { waveState = "wave"; waveT = 0; }
-    } else if (waveState === "wave") {
-      const w = waveT * Math.PI * 2 * 1.6;
-      armR.rotation.z = UP.rz + Math.sin(w) * 0.07;
-      elbowR.rotation.z = UP.el + Math.sin(w + 0.9) * 0.32;
-      if (waveT >= WAVE.wave) { waveState = "lower"; waveT = 0; }
-    } else if (waveState === "lower") {
-      const k = ease(Math.min(waveT / WAVE.lower, 1));
-      armR.rotation.z = REST.rz + (UP.rz - REST.rz) * (1 - k);
-      elbowR.rotation.z = REST.el + (UP.el - REST.el) * (1 - k);
-      if (waveT >= WAVE.lower) { waveState = "idle"; waveT = 0; }
-    }
-  }
+  function startWave() { character.start('wave'); actionPanel.hidden=false; }
 
   /* ---------- 视图 ---------- */
   let mode = "cutaway";
@@ -446,7 +406,7 @@ if (renderer) {
   let cameraAnim = null;
   let ready = false;
 
-  const WHOLE_MIN = new THREE.Vector3(-5.35, -3.2, -5.1);
+  const WHOLE_MIN = new THREE.Vector3(-5.35, -3.5, -5.1);
   const WHOLE_MAX = new THREE.Vector3(5.1, 5.7, 5.1);
 
   function applyFov() {
@@ -556,6 +516,8 @@ if (renderer) {
     stairGroup.visible = !ext;
     sandSector.visible = !ext;
     collar.visible = !ext;
+    apron.visible = !ext; relics.group.visible = !ext;
+    character.reset(); actionPanel.hidden=true;
     arch.visible = !ext;
     furnitureGroup.visible = !ext;
     vane.visible = true;
@@ -574,6 +536,7 @@ if (renderer) {
 
   function applyRoomVisibility() {
     if (mode !== "cutaway") return;
+    apron.visible = relics.group.visible = !activeRoom;
     roomGroups.kitchen.visible = !activeRoom || activeRoom === "kitchen";
     roomGroups.bedroom.visible = !activeRoom || activeRoom === "bedroom";
     roomGroups.gym.visible = !activeRoom || activeRoom === "gym";
@@ -622,7 +585,7 @@ if (renderer) {
 
   /* ---------- 拾取集合（仅派大星 + 交互家具 + 房间家具） ---------- */
   const pickables = [];
-  const occluders = [shell, extShell, inner, floor];
+  const occluders = [shell, extShell, inner, floor, apron];
   const raycaster = new THREE.Raycaster();
   const pointerNdc = new THREE.Vector2();
   let pointerDown = null;
@@ -700,6 +663,7 @@ if (renderer) {
     furnitureGroup.traverse((n) => {
       if (n.isMesh) pickables.push(n);
     });
+    relics.group.traverse(n=>{if(n.isMesh)pickables.push(n);});
     patrick.traverse((n) => {
       if (n.isMesh) pickables.push(n);
     });
@@ -727,7 +691,8 @@ if (renderer) {
       if (kind === "tv") toggleTv(result.node);
       else if (kind === "fan") toggleFan();
       else if (kind === "lamp") toggleLamp(result.node);
-      else if (kind === "patrick") startWave();
+      else if (kind === "patrick") {if(mode==='cutaway'&&!activeRoom)focusRoom('living');startWave();say("嗨！点下面的动作，陪我玩一会儿。");}
+      else if(kind==='relic')say(relics.activate(result.node));
       return;
     }
     if (result.kind === "room" && !activeRoom) focusRoom(result.id);
@@ -742,7 +707,7 @@ if (renderer) {
     canvas.style.cursor = result ? "pointer" : "grab";
     tooltip.hidden = !result;
     if (result) {
-      const label = result.kind === "interact" ? "点击互动" : rooms.get(result.id).name;
+      const label=result.kind==="interact"?(result.node.userData.label||"点击互动"):rooms.get(result.id).name;
       tooltip.textContent = label;
       const rect = canvas.getBoundingClientRect();
       tooltip.style.left = `${Math.min(event.clientX - rect.left + 14, viewWidth - 120)}px`;
@@ -832,18 +797,9 @@ if (renderer) {
         secondScreen.position.copy(screen.position);secondScreen.scale.copy(screen.scale);upperTv.add(secondScreen);upperTv.userData.tvScreenMesh=secondScreen;
       }
       if(spec.id==='bed')pillow.visible=false;
-      if(spec.id==='patrick'){
-        patrickBody=gltf.scene;
-        armL=gltf.scene.getObjectByName('patrick_arm_L');armR=gltf.scene.getObjectByName('patrick_arm_R');
-        elbowL=gltf.scene.getObjectByName('patrick_forearm_L');elbowR=gltf.scene.getObjectByName('patrick_forearm_R');
-        if(!armL||!armR||!elbowL||!elbowR)throw new Error('派大星骨架缺失');
-        patrickMixer=new THREE.AnimationMixer(gltf.scene);
-        const idle=gltf.animations.find(a=>a.name==='idle');const wave=gltf.animations.find(a=>a.name==='wave');
-        if(!idle||!wave)throw new Error('派大星待机或招手片段缺失');
-        idleAction=patrickMixer.clipAction(idle);waveAction=patrickMixer.clipAction(wave);idleAction.play();
-      }
     }
-    await Promise.all(artReady);
+    await Promise.all([character.loaded,relics.loaded,...artReady]);
+
     collectPickables();
     applyModeVisibility();
     applyRoomVisibility();
@@ -883,22 +839,7 @@ if (renderer) {
         root.dataset.cameraTransition = "idle";
       }
     }
-    // 待机呼吸 + 手臂轻摆（不做行走，脚底始终接地）
-    if (patrickMixer) patrickMixer.update(delta);
-    else { patrickBody.scale.set(
-      1 + Math.sin(elapsed * 1.9) * 0.01,
-      1 + Math.sin(elapsed * 1.9) * 0.014,
-      1 + Math.sin(elapsed * 1.9 + 0.7) * 0.01,
-    );
-    patrickBody.rotation.z = Math.sin(elapsed * 2.2) * 0.01;
-    if (waveState === "idle") {
-      armL.rotation.z = -REST.rz + Math.sin(elapsed * 1.6) * 0.045;
-      armR.rotation.z = REST.rz + Math.sin(elapsed * 1.6 + 0.8) * 0.045;
-      elbowL.rotation.z = -REST.el + Math.sin(elapsed * 1.3) * 0.05;
-      elbowR.rotation.z = REST.el + Math.sin(elapsed * 1.3 + 0.6) * 0.05;
-    }
-    }
-    updateWave(delta);
+    character.update(delta);relics.update(delta);
     if (interactState.fanSpinning) fan.userData.fanBlades.rotation.y += delta * 5;
     vaneTop.rotation.y += delta * 0.35;
     controls.update();
@@ -929,21 +870,16 @@ if (renderer) {
       view: activeRoom ?? "whole",
       mode,
       state: root.dataset.houseState,
-      waveState,
+      waveState:character.snapshot().action,
+      character:character.snapshot(),collection:relics.snapshot(),stair:stairGroup.userData.dimensions,
       interact: { ...interactState },
       camPos: camera.position.toArray(),
       target: controls.target.toArray(),
       fov: camera.fov,
       patrickPos: patrick.position.toArray(),
     }),
-    wavePose: () => ({
-      state: waveState,
-      t: waveT,
-      armRz: armR.rotation.z,
-      elbowRz: elbowR.rotation.z,
-      bodyScale: patrickBody.scale.toArray(),
-      patrickPos: patrick.position.toArray(),
-    }),
+    character,relics,
+    wavePose:()=>character.snapshot(),
     stat: () => {
       let tris = 0, meshes = 0;
       scene.traverse((o) => {

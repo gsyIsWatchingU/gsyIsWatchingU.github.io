@@ -1,5 +1,5 @@
 {
-  "version": "20261013-reference2",
+  "version": "20261013-reference-v4",
   "status": "review",
   "rooms": [
     {
@@ -136,10 +136,6 @@
     }
   ],
   "assets": [
-    {
-      "id": "patrick",
-      "url": "assets/patrick-reference/models/patrick.glb"
-    },
     {
       "id": "armchair",
       "url": "assets/patrick-reference/models/armchair.glb"

@@ -13,3 +13,10 @@
 .house[data-house-view="room"] .house-title{display:none}
 @media(max-width:600px){.house-title{top:20px;left:20px}.house-title p{font-size:10px;margin-bottom:6px}.house-title h1{font-size:21px}.room-caption{top:20px;left:20px}.room-caption h2{font-size:24px}.room-label{font-size:10px;padding:3px 5px}.review-note{font-size:9px}.mode-toggle{top:18px;right:18px;padding:7px 10px;font-size:11px}.house-loading{bottom:70px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+
+.patrick-actions{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:5px;padding:7px;border:1px solid var(--line);border-radius:12px;background:rgba(247,244,232,.95);box-shadow:0 5px 20px rgba(28,68,78,.12);z-index:5;white-space:nowrap}
+.patrick-actions[hidden],.patrick-message[hidden]{display:none}
+.patrick-actions button{padding:7px 10px;border:0;border-radius:7px;background:#e4ebd8;color:#3b5147;font-size:12px}
+.patrick-actions button:hover{background:#ccddb5}
+.patrick-message{position:absolute;bottom:88px;left:50%;transform:translateX(-50%);margin:0;max-width:min(380px,85vw);padding:10px 15px;border:1px solid var(--line);border-radius:14px;background:rgba(255,251,235,.96);font-size:13px;line-height:1.6;z-index:5;pointer-events:none;text-align:center}
+@media(max-width:600px){.patrick-actions{bottom:18px;gap:3px;padding:5px}.patrick-actions button{font-size:11px;padding:7px 8px}.patrick-message{bottom:80px;font-size:12px}}

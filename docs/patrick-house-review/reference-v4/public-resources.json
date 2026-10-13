@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-10-13T02:58:13.856Z",
+  "records": [
+    {
+      "path": "patrick-house.html",
+      "status": 200,
+      "bytes": 2868,
+      "sha256": "a9768112780240dcaf62e708d6297dd0eae40b9e175fc2285a9776bb13dba53b",
+      "match": true
+    },
+    {
+      "path": "assets/patrick-house.js",
+      "status": 200,
+      "bytes": 729159,
+      "sha256": "976df733aa34eef8a6b58ce5abe940643ad31d196873d13a8136a26d0afb5696",
+      "match": true
+    },
+    {
+      "path": "styles/patrick-house.css",
+      "status": 200,
+      "bytes": 4825,
+      "sha256": "482d65ec4726000ac1a5f14b09eb004e4512b34d4f7d43897d8632ab6a3e6ede",
+      "match": true
+    },
+    {
+      "path": "assets/models/patrick-house/patrick-reference-v4.glb",
+      "status": 200,
+      "bytes": 4134172,
+      "sha256": "e9f4de2b1a0b056ac71ba7de8f1cfb1031b123772b8dbf0ae024dd7841bfbdd2",
+      "match": true
+    }
+  ]
+}

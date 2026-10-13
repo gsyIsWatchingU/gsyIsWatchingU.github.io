@@ -1,0 +1,81 @@
+{
+  "status": "review",
+  "human_review": "pending",
+  "date": "2026-10-13",
+  "reference": {
+    "original": "docs/patrick-house-review/reference-v4/user-character-reference.png",
+    "original_sha256": "a7b74ba86c9750f271b094d9b7957e97a4df3903ab144b79a543bf25bef96646",
+    "prepared": "docs/patrick-house-review/reference-v4/character-reference.png",
+    "prepared_sha256": "41906db448a638f9791fb5f25a78a41f072f212c1cd98c398f9bef7ea403ae7a",
+    "backend": "built-in imagegen",
+    "prompt": "Use case: identity-preserve. Asset type: single-character image-to-3D reference. Extract/recreate ONE Patrick Star from the reference, fully visible, standing front view, arms angled outward down 35 degrees for rigging, happy gentle smile. Preserve recognizable Patrick silhouette: coral salmon pink, one long softly rounded triangular head seamlessly blending into very wide rounded belly, thick tapering starfish arms without human hands/fingers or elbows, two very short stubby starfish feet. Huge close-set oval white eyes with small black pupils, two short dark eyebrows, curved wide smile, belly button. Lime green fabric SHORTS, clearly two distinct pant legs, purple large five-petal flowers. Compact chunky proportions like top-left Patrick reference, no skinny humanoid torso, no stacked rings, no head sphere, no neck. Smooth polished stylized 3D cartoon render, matte soft skin with tiny subtle coral freckles, fabric slight weave, clear readable face, soft even studio lighting. Full body centered with generous transparent margin. Only one isolated Patrick, no SpongeBob, no chair, no props, no text, no cast shadow, no backdrop."
+  },
+  "model": {
+    "host": "gsy013",
+    "job_id": "90ecf43f68c748158ecf586df44efd6c",
+    "seed": 131004,
+    "backend": "Hunyuan3D Shape + Paint",
+    "source_stage": "normalize_mesh",
+    "path": "assets/models/patrick-house/patrick-reference-v4.glb",
+    "sha256": "e9f4de2b1a0b056ac71ba7de8f1cfb1031b123772b8dbf0ae024dd7841bfbdd2",
+    "triangles": 29100,
+    "textures": 2048,
+    "height": 0.98,
+    "customization": "运行时海星专用五骨渐变权重、眨眼 morph 和动作；未使用失败的通用人形骨架",
+    "forge_status": "failed",
+    "failed_stage": "rig",
+    "reason": "rig_depth_asymmetry, rig_length_asymmetry"
+  },
+  "collection": {
+    "count": 26,
+    "reused": [
+      {
+        "path": "assets/house-review/props/treasure.glb",
+        "sha256": "ff8e998420b543d01a3f0468577239906da34033e47eb6046a7152cfae21f355"
+      },
+      {
+        "path": "assets/house-review/props/barrel.glb",
+        "sha256": "1b62a531273965f7ad314db93e5c504c72ae29e7094ebfa4f4784d428158d399"
+      },
+      {
+        "path": "assets/house-review/props/chest.glb",
+        "sha256": "82db4c5f6f07030aa43eeb1bd9c078aecedf4b4eeb0e93c9210f2d8b91fcf551"
+      }
+    ],
+    "other": "延续既有场景的纹理曲面、相框和小锚/船舵修整，不宣称 GPU 生成",
+    "preserved_from_remote": 14
+  },
+  "gpu_inventory": {
+    "gsy013": {
+      "free_MiB": 45586,
+      "utilization": 0,
+      "assigned": "Shape/Paint/规范化",
+      "job_id": "90ecf43f68c748158ecf586df44efd6c"
+    },
+    "mygpu": [
+      {
+        "card": 0,
+        "free_MiB": 38177,
+        "assigned": false,
+        "reason": "保留常驻服务，当前单角色任务无额外阶段"
+      },
+      {
+        "card": 1,
+        "free_MiB": 45586,
+        "assigned": false,
+        "reason": "无额外就绪输入"
+      }
+    ],
+    "gsy0930": {
+      "cards": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "verified": false,
+      "reason": "独立信任文件不存在，未绕过主机校验；未分配"
+    }
+  },
+  "merged_remote": "0039180e1493d858b095666bd22f181ad6887dd9"
+}
