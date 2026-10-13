@@ -1,0 +1,24 @@
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+import {createHousePet} from './house-pet.js';
+import {addSiameseFur} from './house-pet-fur.js';
+import runtime from "../docs/cat-anatomy-review/runtime.json";
+import config from '../src/data/pineapple-house.json';
+const root=document.querySelector('main'),canvas=document.querySelector('canvas'),renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#eee9dd');const camera=new THREE.PerspectiveCamera(32,1,.05,30),controls=new OrbitControls(camera,canvas);controls.target.set(0,.32,0);controls.enableDamping=true;
+scene.add(new THREE.HemisphereLight(0xfff8ed,0x8d8172,2));const key=new THREE.DirectionalLight(0xfff5df,2.6);key.position.set(-2,4,3);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.bias=-.0002;scene.add(key);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(15,15),new THREE.MeshStandardMaterial({color:'#e5dfd1',roughness:1}));floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;scene.add(floor);
+const views={front:[.2,.62,1.95],side:[1.95,.60,.05],rear:[-1.1,.6,-1.7]};
+function view(id){camera.position.fromArray(views[id]);camera.lookAt(controls.target);controls.update();}view('side');
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>view(b.dataset.view));
+function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();}resize();addEventListener('resize',resize);
+let pet,model,paused=false,last=performance.now();
+let coat,furry=true;const furButton=document.createElement('button');furButton.id='fur';furButton.textContent='显示/隐藏毛发';document.querySelector('nav').append(furButton);furButton.onclick=()=>{furry=!furry;coat?.setVisible(furry);};
+const enabled=runtime.status!=='rejected';
+const sitButton=document.querySelector('[data-pose="sit"]');if(!enabled){sitButton.disabled=true;sitButton.textContent='坐姿重做中';}
+const source={...config.assets.find(a=>a.id==='siamese-cat'),url:enabled?runtime.output:'assets/house-review/props/siamese-kitten-compact.glb'},spec={...source,position:[0,0,0],rotation:0,pet:{...source.pet,sitEnabled:enabled,poseSitV2:false,poseSitV3:enabled,sitCorrectives:enabled,route:[[0,.8],[.4,.8],[.4,-.3],[0,-.3]]}};
+new GLTFLoader().load('../../'+source.url+'?v='+config.version,gltf=>{model=gltf.scene;model.traverse(n=>{if(n.isMesh){n.castShadow=true;n.receiveShadow=true;n.material.roughness=.9;n.material.metalness=0;n.material.roughnessMap=null;n.material.metalnessMap=null;}});scene.add(model);coat=addSiameseFur(model,{bodyScale:spec.pet.bodyScale,limbRatio:spec.pet.limbRatio});pet=createHousePet(model,spec,{root,canvas,camera,reducedMotion:false});pet.setRestPose('idle');root.dataset.loaded='true';window.__catReview={snapshot:()=>pet.snapshot(),bones:()=>{const b={};model.traverse(n=>{if(n.isBone)b[n.name]=n.getWorldPosition(new THREE.Vector3()).toArray();});return b;}};});
+document.querySelectorAll('[data-pose]').forEach(b=>b.onclick=()=>{paused=false;pet?.setRestPose(b.dataset.pose);});document.querySelector('#greet').onclick=()=>pet?.react();document.querySelector('#pause').onclick=()=>{paused=!paused;};
+function frame(time){const dt=Math.min(.05,(time-last)/1000);last=time;controls.update();pet?.update(dt,!paused);renderer.render(scene,camera);requestAnimationFrame(frame);}requestAnimationFrame(frame);

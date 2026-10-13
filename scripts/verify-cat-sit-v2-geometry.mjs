@@ -5,7 +5,8 @@ import {loadGeometry} from './geometry-test-utils.mjs';
 import {createHousePet} from './house-pet.js';
 
 globalThis.document={createElement:()=>({style:{},setAttribute(){}})};
-const source=JSON.parse(readFileSync('docs/cat-sit-v2-review/pet-spec.json'));
+const source=JSON.parse(readFileSync(process.argv[2]??'docs/cat-sit-v2-review/pet-spec.json'));
+const output=process.argv[3]??'docs/cat-sit-v2-review';
 const spec={...source,position:[0,0,0],pet:{...source.pet,route:[[0,.8],[.4,.8],[.4,-.3],[0,-.3]]}};
 const model=(await loadGeometry(source.url)).scene;model.updateMatrixWorld(true);
 const camera=new THREE.PerspectiveCamera();camera.position.set(0,1,3);
@@ -42,5 +43,5 @@ assert(maximumJump<.012,'坐下中间帧不能跳变');
 assert(mesh.morphTargetInfluences[3]>.999);
 pet.react();for(let i=0;i<240;i++)pet.update(1/60,true);
 assert(pet.snapshot().sit<.001&&mesh.morphTargetInfluences.every(v=>v===0),'起身后必须清除坐姿修正');
-writeFileSync('docs/cat-sit-v2-review/contact-checks.json',JSON.stringify({status:'passed',contactCount:contact.length,contactWidth:size.x,contactDepth:size.z,maximumJump,frontDrift,rise:true},null,2)+'\n');
+writeFileSync(output+'/contact-checks.json',JSON.stringify({status:'passed',contactCount:contact.length,contactWidth:size.x,contactDepth:size.z,maximumJump,frontDrift,rise:true},null,2)+'\n');
 console.log('rump contact surface / anchored front paws / continuous sit / clean rise: PASS');

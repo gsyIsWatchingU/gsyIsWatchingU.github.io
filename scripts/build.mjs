@@ -44,6 +44,7 @@ bundle(join(projectRoot, "scripts", "house-toilet-projects.js"), join(projectRoo
 bundle(join(projectRoot, "scripts", "cat-fur-review.js"), join(projectRoot, "docs", "cat-fur-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-crouch-review.js"), join(projectRoot, "docs", "cat-crouch-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-sit-v2-review.js"), join(projectRoot, "docs", "cat-sit-v2-review", "viewer.js"));
+bundle(join(projectRoot, "scripts", "cat-anatomy-review.js"), join(projectRoot, "docs", "cat-anatomy-review", "viewer.js"));
 
 const escapeHtml = (value) =>
   String(value)

@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import {felineSitPoint} from './house-pet-sit-v2.js';
+import {seatedTrunk} from './house-pet-anatomy.js';
 
 // 四拍猫步：支撑脚固定在世界地面，摆动脚抬起后落地；关节由双骨 IK 求解。
 export function createHousePet(model, spec, { root, canvas, camera, reducedMotion }) {
@@ -91,11 +92,12 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
   function solve(leg) {
     const hip=worldPosition(leg.upper), axis=leg.target.clone().sub(hip);
     const requested=axis.length();axis.normalize();
-    const d=Math.max(Math.abs(leg.a-leg.b)+.00001,Math.min(leg.a+leg.b-.00001,requested));
+    const a=leg.a*(leg.stretch??1),b=leg.b*(leg.stretch??1);
+    const d=Math.max(Math.abs(a-b)+.00001,Math.min(a+b-.00001,requested));
     const pole=leg.pole.clone().applyQuaternion(model.getWorldQuaternion(new THREE.Quaternion()));
     pole.addScaledVector(axis,-pole.dot(axis)).normalize();
-    const cos=THREE.MathUtils.clamp((leg.a*leg.a+d*d-leg.b*leg.b)/(2*leg.a*d),-1,1);
-    const knee=hip.clone().addScaledVector(axis,leg.a*cos).addScaledVector(pole,leg.a*Math.sqrt(1-cos*cos));
+    const cos=THREE.MathUtils.clamp((a*a+d*d-b*b)/(2*a*d),-1,1);
+    const knee=hip.clone().addScaledVector(axis,a*cos).addScaledVector(pole,a*Math.sqrt(1-cos*cos));
     aim(leg.upper,knee);aim(leg.lower,hip.clone().addScaledVector(axis,d));
     const desired=leg.targetQuaternion;
     leg.paw.quaternion.copy(leg.paw.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(desired));
@@ -180,7 +182,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         sideLie=approach(sideLie,!attention&&resting&&sit<.001&&(requestedRest??state)==="lie"?1:0,dt/2.3);
         const sitting=ease(sit),lying=ease(sideLie),roll=lying*Math.PI*.5;
         model.quaternion.setFromAxisAngle(up,yaw).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),roll));
-        const centerShift=.32*unit*Math.sin(roll),seatForward=spec.pet.poseSitV2?0:.12*unit*sitting;
+        const centerShift=.32*unit*Math.sin(roll),seatForward=spec.pet.poseSitV2||spec.pet.poseSitV3?0:.12*unit*sitting;
         // 侧躺围绕身体中心翻转，避免根节点在脚底造成大幅横移。
         const ground=curvePoint(distance);model.position.x=ground.x+centerShift*Math.cos(yaw)+seatForward*Math.sin(yaw);model.position.z=ground.z-centerShift*Math.sin(yaw)+seatForward*Math.cos(yaw);
         model.position.y=originY+(sideHeight+.008)*Math.sin(roll);
@@ -188,11 +190,11 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         const chest=bones.get("pet_chest")?.node;
         const rootBone=bones.get('pet_root')?.node;
         if(chest&&rootBone){
-          const chestWorld=worldPosition(chest).add(new THREE.Vector3(-seatForward*Math.sin(yaw),spec.pet.poseSitV2 ? .030*sitting : spec.pet.sitCorrectives ? .018*sitting : 0,-seatForward*Math.cos(yaw)));
+          const chestWorld=worldPosition(chest).add(new THREE.Vector3(-seatForward*Math.sin(yaw),spec.pet.poseSitV3 ? .064*sitting : spec.pet.poseSitV2 ? .030*sitting : spec.pet.sitCorrectives ? .018*sitting : 0,-seatForward*Math.cos(yaw)));
           const chestRotation=chest.getWorldQuaternion(new THREE.Quaternion());
           const parent=rootBone.parent.getWorldQuaternion(new THREE.Quaternion());
           const axis=new THREE.Vector3(1,0,0).applyAxisAngle(up,yaw);
-          const tilt=new THREE.Quaternion().setFromAxisAngle(axis,spec.pet.poseSitV2?0:-.45*sitting);
+          const tilt=new THREE.Quaternion().setFromAxisAngle(axis,spec.pet.poseSitV2||spec.pet.poseSitV3?0:-.45*sitting);
           rootBone.quaternion.copy(parent.clone().invert().multiply(tilt).multiply(parent).multiply(rootBone.quaternion));
           model.updateMatrixWorld(true);
           chest.position.copy(chestWorld.applyMatrix4(chest.parent.matrixWorld.clone().invert()));
@@ -200,8 +202,8 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
           model.updateMatrixWorld(true);
         }
         const haunch=bones.get('pet_haunch')?.node;
-        if(spec.pet.poseSitV2){
-          for(const name of ['pet_haunch','pet_back_l_upper','pet_back_r_upper']){const joint=bones.get(name)?.node;if(!joint)continue;const target=felineSitPoint(sittingBind.get(name),sitting).applyMatrix4(model.matrixWorld);joint.position.copy(target.applyMatrix4(joint.parent.matrixWorld.clone().invert()));joint.updateWorldMatrix(false,true);}
+        if(spec.pet.poseSitV2||spec.pet.poseSitV3){
+          for(const name of ['pet_haunch','pet_back_l_upper','pet_back_r_upper']){const joint=bones.get(name)?.node;if(!joint)continue;const target=(spec.pet.poseSitV3?seatedTrunk:felineSitPoint)(sittingBind.get(name),sitting).applyMatrix4(model.matrixWorld);joint.position.copy(target.applyMatrix4(joint.parent.matrixWorld.clone().invert()));joint.updateWorldMatrix(false,true);}
         }else if(haunch){const offset=spec.pet.sitCorrectives?new THREE.Vector3(0,.010*sitting,.055*sitting).applyAxisAngle(up,yaw):new THREE.Vector3(0,-.02*unit*sitting,0);haunch.position.add(offset.applyQuaternion(haunch.parent.getWorldQuaternion(new THREE.Quaternion()).invert()));}
       }
       // 点击即回应，头尾动作不等待四足收步，脚掌仍由原有 IK 保持接地。
@@ -265,11 +267,14 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         }
         if(naturalRest&&sit>0&&!stepping){
           const rest=leg.rest.clone();
-          if(leg.name.startsWith("back")){rest.z+=(spec.pet.poseSitV2 ? .155 : .10*unit)*ease(sit);rest.x+=Math.sign(rest.x)*(spec.pet.poseSitV2?-.012:.015*unit)*ease(sit);}
+          if(leg.name.startsWith("back")){rest.z+=(spec.pet.poseSitV3 ? .13 : spec.pet.poseSitV2 ? .155 : .10*unit)*ease(sit);rest.x+=Math.sign(rest.x)*(spec.pet.poseSitV2?-.012:spec.pet.poseSitV3?0:.015*unit)*ease(sit);}
           leg.target.copy(rest.applyAxisAngle(up,yaw).add(curvePoint(distance)));leg.target.y=originY+leg.rest.y;
           if(spec.pet.poseSitV2&&leg.name.startsWith('back'))leg.target.y=originY+leg.rest.y*(1-.55*ease(sit))+.008*Math.sin(Math.PI*sit);
+          if(spec.pet.poseSitV3&&leg.name.startsWith('back'))leg.target.y=originY+leg.rest.y+(.002+leg.rest.y*.60-leg.rest.y)*ease(sit);
           leg.anchor.copy(leg.target);
         }
+        leg.stretch=spec.pet.poseSitV3&&leg.name.startsWith('front')?1+.30*ease(sit):1;
+        if(leg.stretch!==1){leg.lower.position.copy(bones.get(leg.lower.name).position).multiplyScalar(leg.stretch);leg.paw.position.copy(bones.get(leg.paw.name).position).multiplyScalar(leg.stretch);model.updateMatrixWorld(true);}
         leg.swing=swing;solve(leg);
       }
       model.updateMatrixWorld(true);
