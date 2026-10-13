@@ -477,6 +477,7 @@ function setRoomFurnitureVisible(roomId) {
 
 function enterExterior() {
   ground.visible = true;
+  ssaoPass.enabled = config.tiers[state.tier].ssao;
   state.view = 'exterior';
   state.roomId = null;
   setShellVisible(true);
@@ -522,6 +523,7 @@ function cutawayPose() {
 
 function enterCutaway() {
   ground.visible = true;
+  ssaoPass.enabled = config.tiers[state.tier].ssao;
   state.view = 'cutaway';
   state.roomId = null;
   // 隐藏整个外壳组（外壳+结构），内部组（结构+家具）接管显示
@@ -541,6 +543,7 @@ function enterRoom(roomId) {
   const room = cfg.rooms.find(r => r.id === roomId);
   if (!room) return;
   ground.visible = false;
+  ssaoPass.enabled = false;
   state.view = 'room';
   state.roomId = roomId;
   setRoomFurnitureVisible(roomId);
