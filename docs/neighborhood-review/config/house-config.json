@@ -1,8 +1,8 @@
 {
-  "version": "20261012-squidward-v6",
+  "version": "20261013-squidward-resident-v1",
   "status": "review",
   "note": "章鱼哥屋最终预览配置（v6）。坐标按新 GLB 实测包围盒 + space-config.json 权威布局（glTF Y-up，地面 y=0，正门朝 +Z，四层楼板 y=0.15/1.20/2.40/3.60）。v6：外观补齐闭合石壳（shell_cutaway_cover 补片）；场景拾取仅绑定渲染 canvas，排除 UI 控件误触；切换房屋时重建房间标签；厨房近景改侧向镜头、客厅/卧室近景隐藏上方楼板（hideFloors）；移动端操作提示按信息卡高度排在其上方；外壳/面部加运行时石材画布纹理与舷窗框/玻璃。",
-  "cacheBust": "v=20261012-squidward-v6",
+  "cacheBust": "v=20261013-squidward-resident-v1",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,
@@ -22,6 +22,16 @@
       "desc": "蓝色石质摩艾造型·完整闭合圆弧石壳；四层自下而上：入口与厨房、客厅、卧室、浴室；右侧连续螺旋楼梯与艺术品平台。",
       "jobId": "最终：Blender 程序石壳(8,464 三角)+精修家具；采用候选：茶几 bd384769/地毯 c1edfa3d；未采用候选：石壳 a68d1b3f/沙发 0afbebe8",
       "hasInterior": true,
+      "resident": {
+        "id": "squidward-bunny",
+        "url": "../../assets/models/squidward-bunny/squidward-bunny.glb",
+        "roomId": "living",
+        "height": 0.62,
+        "position": [0.72, 1.20, 0.60],
+        "rotationY": 0,
+        "approval": "用户于2026-10-13要求将当前模型接入章鱼哥家，尺寸尽量小。",
+        "scope": "静态角色入住；不含动作绑定"
+      },
       "models": {
         "desktop": {
           "url": "../../assets/models/neighborhood/squidward-house.glb",

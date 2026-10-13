@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-13T06:12:16.068Z",
+  "placement": {
+    "contacts": [
+      {
+        "floorY": 1.2000000476837158,
+        "gap": -4.768371586472142e-8,
+        "x": 0.72,
+        "z": 0.6
+      },
+      {
+        "floorY": 1.2000000476837158,
+        "gap": -4.768371586472142e-8,
+        "x": 0.5771941089141631,
+        "z": 0.438848018497705
+      },
+      {
+        "floorY": 1.2000000476837158,
+        "gap": -4.768371586472142e-8,
+        "x": 0.8628058910858368,
+        "z": 0.7611519815022949
+      }
+    ],
+    "height": 0.6199999999999999,
+    "id": "squidward-bunny",
+    "max": [
+      0.8828058910858368,
+      1.82,
+      0.7811519815022949
+    ],
+    "min": [
+      0.5571941089141631,
+      1.2,
+      0.418848018497705
+    ],
+    "roomId": "living"
+  },
+  "checks": {
+    "realFloorContact": true,
+    "coarseFurnitureBoundsNoOverlap": true,
+    "desktopVisible": true,
+    "mobilePortraitVisible": true,
+    "bedroomHidden": true,
+    "patrickNoResident": true,
+    "cachedReentry": true,
+    "realDoorClick": true
+  },
+  "finalConsoleIssues": [],
+  "sourceScale": 0.3121538616453529,
+  "staticOnly": true,
+  "unverified": [
+    "手机实机",
+    "骨骼与动作"
+  ]
+}

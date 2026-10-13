@@ -42,7 +42,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.12;
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.type = THREE.PCFShadowMap;
 wrap.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -385,14 +385,28 @@ function loadInterior(gen, done) {
     state.doorMeshes = cached.doorMeshes || [];
     state.intTris = cached.intTris;
     intGroup.add(state.intMesh);
+    const anchor = cfg.resident && state.intMesh.getObjectByName(cfg.rooms.find(room => room.id === cfg.resident.roomId).prefix + cfg.resident.id);
+    if (anchor) wrap.dataset.resident = JSON.stringify(anchor.userData.resident);
     done(true);
     return;
   }
   showLoading(true);
   const url = cfg.models[state.tier].interiorUrl + '?' + config.cacheBust;
-  loader.load(url, gltf => {
+  loader.load(url, async gltf => {
     if (gen !== loadGen) return;
     const sceneObj = gltf.scene;
+    let residentResult;
+    try {
+      residentResult = await attachResident(sceneObj, cfg);
+    } catch (error) {
+      if (gen !== loadGen) return;
+      console.error('[neighborhood] resident load failed', error);
+      showError(cfg.resident.url);
+      done(false);
+      return;
+    }
+    if (gen !== loadGen) return;
+    if (residentResult) wrap.dataset.resident = JSON.stringify(residentResult);
     sceneObj.traverse(o => {
       if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; }
     });
@@ -413,6 +427,52 @@ function loadInterior(gen, done) {
     showLoading(url);
     done(false);
   });
+}
+
+async function attachResident(interior, cfg) {
+  if (!cfg.resident) return;
+  const resident = cfg.resident;
+  const room = cfg.rooms.find(item => item.id === resident.roomId);
+  if (!room) throw new Error('角色房间不存在：' + resident.roomId);
+  const gltf = await new Promise((resolve, reject) => loader.load(resident.url + '?' + config.cacheBust, resolve, undefined, reject));
+  const root = gltf.scene;
+  const box = new THREE.Box3().setFromObject(root);
+  const center = box.getCenter(new THREE.Vector3());
+  const height = box.max.y - box.min.y;
+  if (!(height > 0)) throw new Error('角色尺寸无效');
+  const scale = resident.height / height;
+  root.scale.setScalar(scale);
+  // 将模型中心、脚底校准到自己的放置组，再按房间坐标摆放。
+  root.position.set(-center.x * scale, -box.min.y * scale, -center.z * scale);
+  const anchor = new THREE.Group();
+  anchor.name = room.prefix + resident.id;
+  anchor.position.fromArray(resident.position);
+  anchor.rotation.y = resident.rotationY;
+  anchor.add(root);
+  let index = 0;
+  root.traverse(object => {
+    if (!object.isMesh) return;
+    object.name = room.prefix + resident.id + '_' + index++;
+    object.castShadow = object.receiveShadow = true;
+  });
+  interior.add(anchor);
+  interior.updateMatrixWorld(true);
+  const placed = new THREE.Box3().setFromObject(anchor);
+  // 对实际楼板做向下射线，避免按包围盒摆到剖切掉的区域。
+  const level = cfg.rooms.indexOf(room) + 1;
+  const floor = interior.getObjectByName('floor_' + level);
+  if (!floor) throw new Error('角色楼板不存在');
+  const down = new THREE.Vector3(0, -1, 0);
+  const samples = [[resident.position[0],resident.position[2]], [placed.min.x + .02,placed.min.z + .02], [placed.max.x - .02,placed.max.z - .02]];
+  const contacts = samples.map(([x,z]) => {
+    const probe = new THREE.Raycaster(new THREE.Vector3(x, placed.max.y + 1, z), down);
+    const hit = probe.intersectObject(floor, true)[0];
+    if (!hit) throw new Error('角色脚下没有楼板');
+    return { x, z, floorY: hit.point.y, gap: placed.min.y - hit.point.y };
+  });
+  if (contacts.some(contact => Math.abs(contact.gap) > .002)) throw new Error('角色未贴合楼板');
+  anchor.userData.resident = { id: resident.id, roomId: room.id, height: placed.max.y - placed.min.y, min: placed.min.toArray(), max: placed.max.toArray(), contacts };
+  return anchor.userData.resident;
 }
 
 // ========== Views ==========
@@ -510,6 +570,9 @@ function enterRoom(roomId) {
   setRoomFurnitureVisible(roomId);
   const target = new THREE.Vector3(...room.target).add(state.shift);
   const position = new THREE.Vector3(...room.camera).add(state.shift);
+  if (cfg.resident && cfg.resident.roomId === roomId && camera.aspect < 1) {
+    position.sub(target).multiplyScalar(1 / camera.aspect).add(target);
+  }
   setCam(position, target, 800);
   setInfo(cfg.title + ' · ' + room.name, '近景镜头。Esc 或「返回外部」回到全屋剖切。', '');
   chipsHost.hidden = true;
@@ -542,6 +605,7 @@ function switchHouse(house) {
   intGroup.clear();
   state.intMesh = null; state.doorMeshes = []; state.intTris = 0;
   state.extMesh = null;
+  delete wrap.dataset.resident;
   buildChips(); // 切换房屋后按新房屋重建房间标签（直达 URL 场景）
   loadExterior(gen);
 }
@@ -692,6 +756,8 @@ window.addEventListener('resize', () => {
   renderer.setSize(wrap.clientWidth, wrap.clientHeight);
   composer.setSize(wrap.clientWidth, wrap.clientHeight);
   layoutHint();
+  const cfg = config && config.houses[state.house];
+  if (cfg && cfg.resident && state.view === 'room' && state.roomId === cfg.resident.roomId) enterRoom(state.roomId);
 });
 
 // ========== Loop ==========
