@@ -1,0 +1,36 @@
+{
+  "id": "patrick",
+  "rawSHA256": "4c5b3919c5a526d1ea88da35e5c5052428eb8565b47ea3a4b8a1ade0ec6bf11e",
+  "runtimeSHA256": "66676f1e6eba5d15bc5cb719ad8ee54e2b60e2fab1601403bf27dd61c2c91614",
+  "originalZUp": [
+    0.9612460136413574,
+    0.6315910816192627,
+    1.2681660652160645
+  ],
+  "scale": [
+    1.3405184745788574,
+    1.3405184745788574,
+    1.3405184745788574
+  ],
+  "removedBackdropFaces": 5375,
+  "triangles": 28232,
+  "bones": 9,
+  "animations": [
+    "idle",
+    "wave"
+  ],
+  "status": "review",
+  "humanReview": "pending",
+  "repairs": [
+    "remove generated neutral backdrop",
+    "weld UV seam positions preserving loop UV",
+    "normalize bottom-center and scale",
+    "matte material",
+    "1024px embedded texture",
+    "retain GPU textured shorts; Blender continuous body, shoulder-arm and feet retopology",
+    "ray-project GPU eyebrows and mouth; rebake skin; retopologize eyes and pupils; transfer GPU skin and cloth swatches",
+    "independent shoulder/elbow skin with rigid head and torso",
+    "warm pink skin correction",
+    "baked idle and wave"
+  ]
+}

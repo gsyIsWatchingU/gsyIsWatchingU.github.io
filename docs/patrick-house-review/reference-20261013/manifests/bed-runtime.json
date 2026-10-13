@@ -1,0 +1,28 @@
+{
+  "id": "bed",
+  "rawSHA256": "8bb73f58bdea591d88593e3433fb0b03cb7358fb55f5f8ef83864b47c35e86e5",
+  "runtimeSHA256": "5354ad2f74e2b3d8272bebd22c96a95430e065784cd7aff754d4072704afce67",
+  "originalZUp": [
+    1.3213369846343994,
+    1.9941961765289307,
+    1.0443964004516602
+  ],
+  "scale": [
+    1.233599066734314,
+    0.9928812384605408,
+    0.8425919413566589
+  ],
+  "removedBackdropFaces": 3177,
+  "triangles": 22823,
+  "bones": 0,
+  "animations": [],
+  "status": "review",
+  "humanReview": "pending",
+  "repairs": [
+    "remove generated neutral backdrop",
+    "weld UV seam positions preserving loop UV",
+    "normalize bottom-center and scale",
+    "matte material",
+    "1024px embedded texture"
+  ]
+}

@@ -1,10 +1,10 @@
-// 派大星石头屋 · 程序化资产构建（几何 + 手绘画布材质）
-// 说明：GPU Forge3D/Blender 管线在本次会话不可达（Tailscale SSH 未授权），
-// 全部资产改为引擎内程序化重建，技法与菠萝屋手绘画布材质一致。
+// 场景结构和交互件的参考修整。主要家具/角色由 patrick-house.js 加载自有 GPU GLB。
 import * as THREE from "three";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 
 /* ---------------- 基础工具 ---------------- */
+let paletteSeed=20261013;
+const random=()=>{paletteSeed=(Math.imul(paletteSeed,1664525)+1013904223)>>>0;return paletteSeed/4294967296;};
 export const makeCanvas = (w, h) => {
   const c = document.createElement("canvas");
   c.width = w;
@@ -51,53 +51,55 @@ export function rockTex(size = 512, base = "#7c4b66") {
   const dark = "#523047";
   if (base !== "#7c4b66") {
     blobs.length = 0;
-    blobs.push("#9a7f68", "#7d6350", "#a88d74", "#6a5444", "#8e745f", "#7a624f");
+    blobs.push("#909997", "#777f7d", "#a8adaa", "#626d6c", "#8e9691", "#818b87");
   }
-  const lc = base !== "#7c4b66" ? "#b39a80" : light;
-  const dc = base !== "#7c4b66" ? "#5c4634" : dark;
+  const lc = base !== "#7c4b66" ? "#bdc5bd" : light;
+  const dc = base !== "#7c4b66" ? "#485856" : dark;
   for (let i = 0; i < 70; i++) {
-    g.fillStyle = blobs[(Math.random() * blobs.length) | 0];
-    g.globalAlpha = 0.12 + Math.random() * 0.2;
-    const r = size * (0.04 + Math.random() * 0.16);
+    g.fillStyle = blobs[(random() * blobs.length) | 0];
+    g.globalAlpha = 0.12 + random() * 0.2;
+    const r = size * (0.04 + random() * 0.16);
     g.beginPath();
-    g.arc(Math.random() * size, Math.random() * size, r, 0, Math.PI * 2);
+    g.arc(random() * size, random() * size, r, 0, Math.PI * 2);
     g.fill();
   }
   g.globalAlpha = 1;
   // 噪点颗粒
   for (let i = 0; i < 2600; i++) {
-    g.fillStyle = Math.random() > 0.5 ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.08)";
-    g.fillRect(Math.random() * size, Math.random() * size, 1.5, 1.5);
+    g.fillStyle = random() > 0.5 ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.08)";
+    g.fillRect(random() * size, random() * size, 1.5, 1.5);
   }
   // 竖向冲刷纹
   g.globalAlpha = 0.14;
   for (let i = 0; i < 26; i++) {
-    const x = Math.random() * size;
-    const len = size * (0.2 + Math.random() * 0.5);
-    g.strokeStyle = Math.random() > 0.5 ? lc : dc;
-    g.lineWidth = 2 + Math.random() * 5;
+    const x = random() * size;
+    const len = size * (0.2 + random() * 0.5);
+    g.strokeStyle = random() > 0.5 ? lc : dc;
+    g.lineWidth = 2 + random() * 5;
     g.beginPath();
-    g.moveTo(x, Math.random() * size * 0.3);
-    g.lineTo(x + (Math.random() - 0.5) * 20, Math.random() * size * 0.3 + len);
+    g.moveTo(x, random() * size * 0.3);
+    g.lineTo(x + (random() - 0.5) * 20, random() * size * 0.3 + len);
     g.stroke();
   }
   g.globalAlpha = 1;
   return srgb(new THREE.CanvasTexture(c));
 }
 // 绿色内壁：柔和石膏感
-export function greenWallTex(size = 256) {
+export function greenWallTex(size = 512) {
   const [c, g] = makeCanvas(size, size);
-  g.fillStyle = "#6d8a3d";
+  g.fillStyle = "#83934a";
   g.fillRect(0, 0, size, size);
   for (let i = 0; i < 900; i++) {
-    g.fillStyle = Math.random() > 0.5 ? "rgba(255,255,220,0.05)" : "rgba(30,60,20,0.07)";
-    g.fillRect(Math.random() * size, Math.random() * size, 2, 2);
+    g.fillStyle = random() > 0.5 ? "rgba(255,255,220,0.05)" : "rgba(30,60,20,0.07)";
+    g.fillRect(random() * size, random() * size, 2, 2);
   }
-  g.strokeStyle = "rgba(50,80,30,0.15)";
-  g.lineWidth = 1;
-  for (let i = 0; i < 14; i++) {
+  g.strokeStyle = "rgba(56,70,28,0.19)";
+  g.lineWidth = 1.25;
+  for (let i = 0; i < 32; i++) {
     g.beginPath();
-    g.arc(Math.random() * size, Math.random() * size, size * (0.05 + Math.random() * 0.12), 0, Math.PI * 2);
+    const x=(i+.5)*size/32, y=random()*size;
+    g.moveTo(x,y);
+    g.bezierCurveTo(x-8,y+24,x+12,y+58,x+5,y+95);
     g.stroke();
   }
   return srgb(new THREE.CanvasTexture(c));
@@ -112,32 +114,32 @@ export function woodTex(size = 512, variant = "plank", dir = "h") {
   g.fillStyle = "rgba(60,38,18,0.55)";
   if (dir === "h") {
     for (let y = 0; y < size; y += size / 8) {
-      g.fillRect(0, y, size, 2 + (Math.random() * 2));
+      g.fillRect(0, y, size, 2 + (random() * 2));
     }
   } else {
     for (let x = 0; x < size; x += size / 6) {
-      g.fillRect(x, 0, 2 + (Math.random() * 2), size);
+      g.fillRect(x, 0, 2 + (random() * 2), size);
     }
   }
   // 木纹（顺板方向）
   for (let i = 0; i < 70; i++) {
-    const off = Math.random() * size;
-    g.strokeStyle = `rgba(${variant === "dark" ? "70,42,22" : "120,82,48"},${0.15 + Math.random() * 0.2})`;
-    g.lineWidth = 1 + Math.random() * 2;
+    const off = random() * size;
+    g.strokeStyle = `rgba(${variant === "dark" ? "70,42,22" : "120,82,48"},${0.15 + random() * 0.2})`;
+    g.lineWidth = 1 + random() * 2;
     g.beginPath();
     if (dir === "h") {
       g.moveTo(0, off);
       let x = 0;
       while (x < size) {
-        x += 8 + Math.random() * 30;
-        g.lineTo(x, off + (Math.random() - 0.5) * 8);
+        x += 8 + random() * 30;
+        g.lineTo(x, off + (random() - 0.5) * 8);
       }
     } else {
       g.moveTo(off, 0);
       let y = 0;
       while (y < size) {
-        y += 8 + Math.random() * 30;
-        g.lineTo(off + (Math.random() - 0.5) * 8, y);
+        y += 8 + random() * 30;
+        g.lineTo(off + (random() - 0.5) * 8, y);
       }
     }
     g.stroke();
@@ -146,7 +148,7 @@ export function woodTex(size = 512, variant = "plank", dir = "h") {
   for (let i = 0; i < 8; i++) {
     g.fillStyle = "rgba(70,45,22,0.35)";
     g.beginPath();
-    g.ellipse(Math.random() * size, Math.random() * size, 5 + Math.random() * 8, 3 + Math.random() * 5, Math.random() * 3, 0, Math.PI * 2);
+    g.ellipse(random() * size, random() * size, 5 + random() * 8, 3 + random() * 5, random() * 3, 0, Math.PI * 2);
     g.fill();
   }
   return srgb(new THREE.CanvasTexture(c));
@@ -157,14 +159,14 @@ export function sandTex(size = 512) {
   g.fillStyle = "#e0c99a";
   g.fillRect(0, 0, size, size);
   for (let i = 0; i < 3200; i++) {
-    g.fillStyle = Math.random() > 0.5 ? "rgba(255,244,205,0.16)" : "rgba(150,120,70,0.16)";
-    g.fillRect(Math.random() * size, Math.random() * size, 1.4, 1.4);
+    g.fillStyle = random() > 0.5 ? "rgba(255,244,205,0.16)" : "rgba(150,120,70,0.16)";
+    g.fillRect(random() * size, random() * size, 1.4, 1.4);
   }
   g.globalAlpha = 0.18;
   for (let i = 0; i < 40; i++) {
     g.fillStyle = "#c8a86e";
     g.beginPath();
-    g.ellipse(Math.random() * size, Math.random() * size, 4 + Math.random() * 14, 3 + Math.random() * 8, Math.random() * 3, 0, Math.PI * 2);
+    g.ellipse(random() * size, random() * size, 4 + random() * 14, 3 + random() * 8, random() * 3, 0, Math.PI * 2);
     g.fill();
   }
   g.globalAlpha = 1;
@@ -176,23 +178,23 @@ export function fabricTex(base, dark, light, hot = null, count = 90) {
   g.fillStyle = base;
   g.fillRect(0, 0, 256, 256);
   for (let i = 0; i < count; i++) {
-    const x = Math.random() * 256;
-    const y = Math.random() * 256;
-    g.strokeStyle = Math.random() > 0.5 ? dark : light;
+    const x = random() * 256;
+    const y = random() * 256;
+    g.strokeStyle = random() > 0.5 ? dark : light;
     g.globalAlpha = 0.25;
     g.lineWidth = 3;
     g.beginPath();
     g.moveTo(x, y);
-    g.lineTo(x + (Math.random() - 0.5) * 42, y + (Math.random() - 0.5) * 42);
+    g.lineTo(x + (random() - 0.5) * 42, y + (random() - 0.5) * 42);
     g.stroke();
   }
   g.globalAlpha = 0.2;
   g.lineWidth = 2;
   for (let i = 0; i < 60; i++) {
-    g.strokeStyle = Math.random() > 0.5 ? dark : light;
+    g.strokeStyle = random() > 0.5 ? dark : light;
     g.beginPath();
-    g.moveTo(Math.random() * 256, 0);
-    g.lineTo(Math.random() * 256, 256);
+    g.moveTo(random() * 256, 0);
+    g.lineTo(random() * 256, 256);
     g.stroke();
   }
   g.globalAlpha = 1;
@@ -269,8 +271,8 @@ export function patrickBodyTex(sizeW = 512, sizeH = 1024) {
   g.fillRect(0, 0, sizeW, sizeH);
   // 噪点颗粒
   for (let i = 0; i < 1500; i++) {
-    g.fillStyle = Math.random() > 0.5 ? "rgba(255,192,208,0.12)" : "rgba(214,104,148,0.1)";
-    g.fillRect(Math.random() * sizeW, Math.random() * sizeH, 2, 2);
+    g.fillStyle = random() > 0.5 ? "rgba(255,192,208,0.12)" : "rgba(214,104,148,0.1)";
+    g.fillRect(random() * sizeW, random() * sizeH, 2, 2);
   }
   // 正面头部（canvas 中心 x=256，头部带 y≈0..360）五官
   // 眉毛
@@ -313,8 +315,8 @@ export function skinPlainTex(size = 128) {
   g.fillStyle = "#ffa6c6";
   g.fillRect(0, 0, size, size);
   for (let i = 0; i < 220; i++) {
-    g.fillStyle = Math.random() > 0.5 ? "rgba(255,190,205,0.14)" : "rgba(220,110,150,0.1)";
-    g.fillRect(Math.random() * size, Math.random() * size, 2, 2);
+    g.fillStyle = random() > 0.5 ? "rgba(255,190,205,0.14)" : "rgba(220,110,150,0.1)";
+    g.fillRect(random() * size, random() * size, 2, 2);
   }
   return srgb(new THREE.CanvasTexture(c));
 }
@@ -369,12 +371,12 @@ export function shortsTex(size = 256) {
   g.fillRect(0, 0, size, size);
   // 紫花
   for (let i = 0; i < 34; i++) {
-    const x = Math.random() * size;
-    const y = Math.random() * size;
-    const r = 4 + Math.random() * 6;
+    const x = random() * size;
+    const y = random() * size;
+    const r = 4 + random() * 6;
     g.fillStyle = "#9a4fae";
     for (let p = 0; p < 5; p++) {
-      const a = (p / 5) * Math.PI * 2 + Math.random() * 0.4;
+      const a = (p / 5) * Math.PI * 2 + random() * 0.4;
       g.beginPath();
       g.arc(x + Math.cos(a) * r * 0.7, y + Math.sin(a) * r * 0.7, r * 0.45, 0, Math.PI * 2);
       g.fill();
@@ -387,7 +389,7 @@ export function shortsTex(size = 256) {
   // 明暗
   g.fillStyle = "rgba(255,255,255,0.08)";
   for (let i = 0; i < 40; i++) {
-    g.fillRect(Math.random() * size, Math.random() * size, 3, 3);
+    g.fillRect(random() * size, random() * size, 3, 3);
   }
   return srgb(new THREE.CanvasTexture(c));
 }
@@ -479,30 +481,22 @@ export function buildSink() {
   counter.position.y = 0.31;
   g.add(counter);
   // 台面（浅石英）
-  const top = new THREE.Mesh(rbox(1.02, 0.05, 0.57, 0.02), mat(0xdbe4e0, 0.5, { metalness: 0.1 }));
-  top.position.y = 0.635;
+  const topShape=new THREE.Shape();topShape.moveTo(-.51,-.285);topShape.lineTo(.51,-.285);topShape.lineTo(.51,.285);topShape.lineTo(-.51,.285);topShape.closePath();
+  const hole=new THREE.Path();hole.absellipse(-.16,0,.218,.158,0,Math.PI*2,true);topShape.holes.push(hole);
+  const topGeo=new THREE.ExtrudeGeometry(topShape,{depth:.045,bevelEnabled:true,bevelSize:.005,bevelThickness:.005,bevelSegments:2});topGeo.rotateX(-Math.PI/2);
+  const top = new THREE.Mesh(topGeo, mat(0xdbe4e0, 0.5, { metalness: 0.1 }));
+  top.position.y = .625;
   g.add(top);
   // 盆腔（方形陶瓷盆 + 内侧深色）
-  const basinOuter = new THREE.Mesh(rbox(0.4, 0.16, 0.3, 0.05), mat(0xf2f6f6, 0.25, { metalness: 0.2 }));
-  basinOuter.position.set(-0.16, 0.57, 0);
-  g.add(basinOuter);
-  const basinInner = new THREE.Mesh(rbox(0.32, 0.06, 0.22, 0.04), mat(0xbfd4d6, 0.35, { metalness: 0.2 }));
-  basinInner.position.set(-0.16, 0.52, 0);
-  g.add(basinInner);
-  const basinRim = new THREE.Mesh(rbox(0.42, 0.02, 0.32, 0.01), mat(0xf6fafb, 0.3, { metalness: 0.25 }));
-  basinRim.position.set(-0.16, 0.655, 0);
-  g.add(basinRim);
+  const basinProfile=[[0,.53],[.14,.54],[.19,.60],[.225,.665],[.23,.68],[.21,.69],[.19,.64],[.14,.57],[0,.56]];
+  const basin=new THREE.Mesh(new THREE.LatheGeometry(basinProfile.map(p=>new THREE.Vector2(...p)),40),mat(0xcadadc,.4));basin.scale.z=.72;basin.position.x=-.16;g.add(basin);
   // 镀铬龙头（L 形管 + 立管 + 双把手）
   const chrome = mat(0xd9e0e4, 0.2, { metalness: 0.75 });
-  const spout = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.024, 8, 16, Math.PI), chrome);
-  spout.position.set(0.22, 0.68, 0);
-  g.add(spout);
-  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 0.1, 10), chrome);
-  stem.position.set(0.22, 0.65, 0);
-  g.add(stem);
-  for (const kx of [0.15, 0.29]) {
+  const faucet=new THREE.CatmullRomCurve3([new THREE.Vector3(-.16,.66,-.22),new THREE.Vector3(-.16,.86,-.22),new THREE.Vector3(-.16,.88,-.10),new THREE.Vector3(-.16,.79,-.02)]);
+  g.add(new THREE.Mesh(new THREE.TubeGeometry(faucet,28,.022,10,false),chrome));
+  for (const kx of [-.31,.01]) {
     const knob = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 0.05, 10), chrome);
-    knob.position.set(kx, 0.68, 0);
+    knob.position.set(kx, .685, -.20);
     g.add(knob);
   }
   // 下方柜门（竖向木纹）
@@ -795,19 +789,19 @@ export function buildFloorLamp() {
 export function buildCeilingFan() {
   const g = new THREE.Group();
   // 原点 = 天花板挂点：底座贴顶，吊杆向下，电机+叶片在底部
-  const mount = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.12, 0.05, 12), mat(0x9c7448, 0.7));
+  const mount = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.12, 0.05, 12), mat(0x627d89, 0.7));
   mount.position.y = -0.025;
   g.add(mount);
-  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.025, 0.52, 8), mat(0x9c7448, 0.7));
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.025, 0.52, 8), mat(0x627d89, 0.7));
   pole.position.y = -0.31;
   g.add(pole);
-  const motor = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.09, 14), mat(0x8a5a33, 0.7));
+  const motor = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.09, 14), mat(0x627d89, 0.7));
   motor.position.y = -0.575;
   g.add(motor);
   // 叶片组（只转叶片）
   const blades = new THREE.Group();
   blades.position.y = -0.62;
-  const bladeMat = mat(0xc8a050, 0.75);
+  const bladeMat = mat(0x9eb4bf, 0.65);
   for (let i = 0; i < 4; i++) {
     const blade = new THREE.Mesh(rbox(0.5, 0.02, 0.16, 0.008), bladeMat);
     blade.position.x = 0.31;
@@ -834,17 +828,22 @@ export function buildWeatherVane() {
   const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 1.1, 8), gold);
   bar.rotation.z = Math.PI / 2;
   top.add(bar);
-  // 两端箭头（锥尖向外）
-  for (const s of [-1, 1]) {
-    const arrow = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.22, 14), gold);
-    arrow.rotation.z = s === 1 ? -Math.PI / 2 : Math.PI / 2;
-    arrow.position.set(s * 0.65, 0, 0);
-    top.add(arrow);
-    const ferrule = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 0.08, 10), gold);
-    ferrule.rotation.z = Math.PI / 2;
-    ferrule.position.set(s * 0.52, 0, 0);
-    top.add(ferrule);
-  }
+  // 单片连续骨头轮廓：每端上下两个圆瓣，避免普通尖锥箭头。
+  const boneShape=new THREE.Shape();
+  boneShape.moveTo(-.40,.035);boneShape.lineTo(.40,.035);
+  boneShape.bezierCurveTo(.43,.08,.43,.145,.50,.145);
+  boneShape.bezierCurveTo(.60,.15,.64,.04,.59,0);
+  boneShape.bezierCurveTo(.64,-.04,.60,-.15,.50,-.145);
+  boneShape.bezierCurveTo(.43,-.145,.43,-.08,.40,-.035);
+  boneShape.lineTo(-.40,-.035);
+  boneShape.bezierCurveTo(-.43,-.08,-.43,-.145,-.50,-.145);
+  boneShape.bezierCurveTo(-.60,-.15,-.64,-.04,-.59,0);
+  boneShape.bezierCurveTo(-.64,.04,-.60,.15,-.50,.145);
+  boneShape.bezierCurveTo(-.43,.145,-.43,.08,-.40,.035);
+  const boneGeo=new THREE.ExtrudeGeometry(boneShape,{depth:.045,bevelEnabled:true,bevelThickness:.017,bevelSize:.017,bevelSegments:3,curveSegments:14});boneGeo.translate(0,0,-.0225);
+  top.add(new THREE.Mesh(boneGeo,gold));
+  const base=new THREE.Mesh(new THREE.CylinderGeometry(.095,.15,.085,24),gold);base.position.y=.045;g.add(base);
+  for(const y of [.16,.51,.96]){const ring=new THREE.Mesh(new THREE.TorusGeometry(.043,.012,8,24),gold);ring.rotation.x=Math.PI/2;ring.position.y=y;g.add(ring);}
   // 中央球
   const mid = new THREE.Mesh(new THREE.SphereGeometry(0.07, 12, 10), gold);
   top.add(mid);

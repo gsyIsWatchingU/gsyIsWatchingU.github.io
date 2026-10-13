@@ -1,0 +1,28 @@
+{
+  "id": "stove",
+  "rawSHA256": "f5b9bccd62f148ce4b46a89e9659c963e15d11567b5dee77715df6e1c6a30d19",
+  "runtimeSHA256": "02b49e893100b1aafe84f1fdb01cf8b5f895df5093095ae7a5cdf4a0849459dd",
+  "originalZUp": [
+    0.7517319917678833,
+    0.7246680855751038,
+    0.706493079662323
+  ],
+  "scale": [
+    1.0775116682052612,
+    0.9659594893455505,
+    1.3305155038833618
+  ],
+  "removedBackdropFaces": 5920,
+  "triangles": 20080,
+  "bones": 0,
+  "animations": [],
+  "status": "review",
+  "humanReview": "pending",
+  "repairs": [
+    "remove generated neutral backdrop",
+    "weld UV seam positions preserving loop UV",
+    "normalize bottom-center and scale",
+    "matte material",
+    "1024px embedded texture"
+  ]
+}

@@ -1,10 +1,164 @@
 {
-  "version": "20261012-built3",
+  "version": "20261013-reference1",
   "status": "review",
   "rooms": [
-    {"id": "kitchen", "name": "厨房", "floor": "上层", "level": 0, "label": [-1.7, 2.5, -2.5], "bounds": [[-3.2, 0, -3.4], [-0.2, 3.2, -2.1]], "target": [-1.55, 1.0, -2.65], "camera": [-1.35, 1.85, 3.85]},
-    {"id": "bedroom", "name": "卧室", "floor": "上层", "level": 0, "label": [2.3, 2.2, -1.4], "bounds": [[0.9, 0, -2.7], [3.4, 2.9, -0.5]], "target": [2.1, 0.62, -1.8], "camera": [0.6, 1.7, 4.2]},
-    {"id": "gym", "name": "健身区", "floor": "上层", "level": 0, "label": [-0.45, 1.8, 0.9], "bounds": [[-1.8, 0, -0.2], [0.3, 1.6, 1.2]], "target": [-0.45, 0.55, 0.5], "camera": [-0.65, 1.5, 3.1]},
-    {"id": "living", "name": "地下客厅", "floor": "下层", "level": -1, "label": [0.0, -0.5, 0.7], "bounds": [[-2.8, -2.3, -2.3], [2.6, -0.8, 1.4]], "target": [-0.1, -1.8, -0.4], "camera": [0.4, -0.2, 4.5]}
+    {
+      "id": "kitchen",
+      "name": "厨房",
+      "floor": "上层",
+      "level": 0,
+      "label": [
+        -1.7,
+        2.5,
+        -2.5
+      ],
+      "bounds": [
+        [
+          -3.2,
+          0,
+          -3.4
+        ],
+        [
+          -0.2,
+          3.2,
+          -2.1
+        ]
+      ],
+      "target": [
+        -1.55,
+        1.0,
+        -2.65
+      ],
+      "camera": [
+        -1.35,
+        1.85,
+        3.85
+      ]
+    },
+    {
+      "id": "bedroom",
+      "name": "卧室",
+      "floor": "上层",
+      "level": 0,
+      "label": [
+        2.3,
+        2.2,
+        -1.4
+      ],
+      "bounds": [
+        [
+          0.9,
+          0,
+          -2.7
+        ],
+        [
+          3.4,
+          2.9,
+          -0.5
+        ]
+      ],
+      "target": [
+        2.1,
+        0.62,
+        -1.8
+      ],
+      "camera": [
+        0.6,
+        1.7,
+        4.2
+      ]
+    },
+    {
+      "id": "gym",
+      "name": "健身区",
+      "floor": "上层",
+      "level": 0,
+      "label": [
+        -0.45,
+        1.8,
+        0.9
+      ],
+      "bounds": [
+        [
+          -1.8,
+          0,
+          -0.2
+        ],
+        [
+          0.3,
+          1.6,
+          1.2
+        ]
+      ],
+      "target": [
+        -0.45,
+        0.55,
+        0.5
+      ],
+      "camera": [
+        -0.65,
+        1.5,
+        3.1
+      ]
+    },
+    {
+      "id": "living",
+      "name": "地下客厅",
+      "floor": "下层",
+      "level": -1,
+      "label": [
+        0.0,
+        -0.5,
+        0.7
+      ],
+      "bounds": [
+        [
+          -2.8,
+          -2.3,
+          -2.3
+        ],
+        [
+          2.6,
+          -0.8,
+          1.4
+        ]
+      ],
+      "target": [
+        -0.1,
+        -1.8,
+        -0.4
+      ],
+      "camera": [
+        0.4,
+        -0.2,
+        4.5
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "patrick",
+      "url": "assets/patrick-reference/models/patrick.glb"
+    },
+    {
+      "id": "armchair",
+      "url": "assets/patrick-reference/models/armchair.glb"
+    },
+    {
+      "id": "bed",
+      "url": "assets/patrick-reference/models/bed.glb"
+    },
+    {
+      "id": "fridge",
+      "url": "assets/patrick-reference/models/fridge.glb"
+    },
+    {
+      "id": "stove",
+      "url": "assets/patrick-reference/models/stove.glb"
+    },
+    {
+      "id": "old-tv",
+      "url": "assets/patrick-reference/models/old-tv.glb"
+    }
   ]
 }
