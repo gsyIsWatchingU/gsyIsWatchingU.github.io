@@ -1,0 +1,17 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "source": "/workspace/projects/companion-actions-20261013/siamese-kitten-fur.glb",
+  "sourceSHA256": "65d49dce8376db33a30d3d10a28cf30c4db24215fb8ad3527c1d16b6646b6ad9",
+  "runtimeSHA256": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+  "meshBackend": "existing Hunyuan3D-2.1 mesh and UV; Blender proportion repair",
+  "bodyScale": 0.8,
+  "limbRatio": 0.78,
+  "heightShift": 0.066,
+  "dimensionsYUp": [
+    0.3721311092376709,
+    0.6272001217548855,
+    0.8618299961090088
+  ],
+  "rigidFacePreserved": true
+}

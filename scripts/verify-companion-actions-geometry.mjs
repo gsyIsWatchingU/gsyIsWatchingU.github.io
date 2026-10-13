@@ -1,0 +1,33 @@
+import * as THREE from 'three';
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {loadGeometry} from './geometry-test-utils.mjs';
+import {createCompanionSlide} from './house-companion-slide.js';
+import {companionSlide} from './house-companion-motion.js';
+import {createHousePet} from './house-pet.js';
+import {createCompanionBook} from './house-companion-book.js';
+const houseGroup=new THREE.Group(),actor=new THREE.Group(),avatar=new THREE.Group();houseGroup.add(actor);actor.add(avatar);avatar.scale.setScalar(.88/1.25);
+const gltf=await loadGeometry('assets/house-companion/spongebob.glb'),model=gltf.scene;avatar.add(model);houseGroup.updateMatrixWorld(true);
+const bounds=new THREE.Box3(),inverse=avatar.matrixWorld.clone().invert();model.traverse(n=>{if(!n.isMesh)return;if(n.isSkinnedMesh)n.computeBoundingBox();else n.geometry.computeBoundingBox();bounds.union((n.isSkinnedMesh?n.boundingBox:n.geometry.boundingBox).clone().applyMatrix4(n.matrixWorld).applyMatrix4(inverse));});
+model.scale.setScalar(1.25/bounds.getSize(new THREE.Vector3()).y);model.position.set(0,-bounds.min.y*model.scale.x,-(bounds.min.z+bounds.max.z)*.5*model.scale.x);houseGroup.updateMatrixWorld(true);
+const bones=new Map(),rest=new Map(),seat=[];model.traverse(n=>{if(n.isBone){bones.set(n.name,n);rest.set(n,n.quaternion.clone());}if(n.isMesh&&!n.name.includes('eyelid'))for(let i=0;i<n.geometry.attributes.position.count;i++){const p=n.getVertexPosition(i,new THREE.Vector3()).applyMatrix4(n.matrixWorld).applyMatrix4(inverse);if(p.y>.26&&p.y<.43&&Math.abs(p.x)<.32)seat.push({n,i});}});
+const motion=createCompanionSlide({actor,avatar,model,bones,houseGroup}),mixer=new THREE.AnimationMixer(model);mixer.clipAction(gltf.animations.find(c=>c.name==='slide')).play();
+const slides=[];
+for(const t of [0,.15,.3,.5,.7,.9,1]){
+  for(const [b,q] of rest)b.quaternion.copy(q);mixer.setTime(t*3.2);motion.update(t,0,[2.85,3.2,1.7]);
+  const slide=companionSlide(t),origin=new THREE.Vector3(...slide.position),tangent=new THREE.Vector3(...slide.direction).normalize(),lateral=new THREE.Vector3(tangent.z,0,-tangent.x).normalize(),normal=new THREE.Vector3().crossVectors(tangent,lateral).normalize();
+  const contact=Math.min(...seat.map(({n,i})=>n.getVertexPosition(i,new THREE.Vector3()).applyMatrix4(n.matrixWorld).sub(origin).dot(normal)));
+  assert(Math.abs(contact-.012)<1e-5,'真实蒙皮坐部应贴住滑道');
+  const legs=['l','r'].map(s=>{const hip=bones.get('comp_leg_'+s).getWorldPosition(new THREE.Vector3()),knee=bones.get('comp_shin_'+s).getWorldPosition(new THREE.Vector3()),foot=bones.get('comp_foot_'+s).getWorldPosition(new THREE.Vector3());return{thigh:knee.sub(hip).normalize().dot(tangent),shin:foot.sub(bones.get('comp_shin_'+s).getWorldPosition(new THREE.Vector3())).normalize().dot(tangent)};});
+  assert(legs.every(l=>l.thigh>.9&&l.shin>.95),'脚和膝盖必须向下滑方向');slides.push({t,contact,legs});
+}
+globalThis.document={createElement:()=>({style:{},setAttribute(){}})};
+const book=createCompanionBook();book.update(3.2,false);const size=new THREE.Box3().setFromObject(book.group).getSize(new THREE.Vector3());assert(size.x>.55&&size.y>.3&&size.z>.09,'展开书必须有双页、厚度及书脊');
+const config=JSON.parse(readFileSync('src/data/pineapple-house.json')),spec=config.assets.find(a=>a.id==='siamese-cat'),cat=(await loadGeometry(spec.url)).scene;cat.position.fromArray(spec.position);cat.updateMatrixWorld(true);
+const camera=new THREE.PerspectiveCamera();camera.position.set(0,2,8);camera.updateMatrixWorld();
+const pet=createHousePet(cat,spec,{root:{dataset:{},append(){},getBoundingClientRect:()=>({left:0,top:0})},canvas:{getBoundingClientRect:()=>({left:0,top:0,width:1280,height:720})},camera,reducedMotion:false});
+const tip=()=>cat.getObjectByName('pet_tail_tip').getWorldPosition(new THREE.Vector3()).y;
+pet.setRestPose('idle');for(let i=0;i<120;i++)pet.update(1/60,true);const relaxed={tip:tip(),...pet.snapshot()};
+pet.react();for(let i=0;i<100;i++)pet.update(1/60,true);const greeting={tip:tip(),...pet.snapshot()};
+assert(greeting.tailLift>.95&&relaxed.tailLift<.15);assert(greeting.tip-relaxed.tip>.08,'真实尾骨打招呼时应抬高');
+writeFileSync('docs/companion-actions-review/geometry.json',JSON.stringify({status:'passed',slides,bookBounds:size.toArray(),tail:{relaxed,greeting}},null,2)+'\n');console.log('actual seated skin / feet forward / thick open book / greeting tail lift: PASS');

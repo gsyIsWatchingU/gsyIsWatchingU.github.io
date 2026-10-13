@@ -1,6 +1,6 @@
 {
   "status": "review",
-  "version": "20261013-bedtime-v4",
+  "version": "20261013-actions-v5",
   "model": "assets/house-companion/spongebob.glb",
   "api": "https://gsy-gpu.tail660bdf.ts.net/house-api",
   "height": 0.88,
@@ -25,12 +25,12 @@
   "actions": {
     "wave":{"room":null,"label":"向你打招呼"},
     "journal":{"room":"bedroom","label":"翻实习日记"},
-    "read":{"room":"library","label":"一起读书"},
+    "read":{"room":"library","label":"一起读书","duration":20},
     "rest":{"room":null,"label":"歇一小会儿"},
     "sleep":{"room":"bedroom","label":"准备睡觉","duration":30},
     "wash":{"room":"bathroom","label":"洗漱"},
     "listen":{"room":"living","label":"听音乐"},
-    "pet":{"room":"living","label":"陪陪小猫"},
+    "pet":{"room":"living","label":"陪陪小猫","duration":16},
     "bubble":{"room":"roof","label":"吹泡泡"},
     "tidy":{"room":"storage","label":"整理收藏"},
     "wake":{"room":"bedroom","label":"起床伸个懒腰"}
