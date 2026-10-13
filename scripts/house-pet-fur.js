@@ -11,7 +11,9 @@ const coatColor = `
 `;
 
 // 短绒毛与原网格共用骨架、UV 和贴图；每层随蒙皮运动，脸部不覆盖眼鼻。
-export function addSiameseFur(model, { layers = 5, length = .005 } = {}) {
+export function addSiameseFur(model, { layers = 8, length = .009, strands = 24000, bodyScale = 1, limbRatio = 1 } = {}) {
+  const originalPoint=p=>new THREE.Vector3(p.x/bodyScale,p.y/bodyScale<.30*limbRatio?p.y/bodyScale/limbRatio:p.y/bodyScale+.30*(1-limbRatio),p.z/bodyScale);
+  const restCode=`vFurRest = position / ${bodyScale.toFixed(4)}; vFurRest.y = vFurRest.y < ${(.30*limbRatio).toFixed(4)} ? vFurRest.y / ${limbRatio.toFixed(4)} : vFurRest.y + ${(.30*(1-limbRatio)).toFixed(4)};`;
   const meshes = [];
   model.traverse(node => { if (node.isSkinnedMesh) meshes.push(node); });
   const shells = [];
@@ -22,7 +24,7 @@ export function addSiameseFur(model, { layers = 5, length = .005 } = {}) {
     if(mesh.material.isMeshPhysicalMaterial){mesh.material.sheen=.25;mesh.material.sheenColor.set('#9b8c77');mesh.material.sheenRoughness=1;}
     mesh.material.onBeforeCompile = shader => {
       shader.vertexShader = "varying vec3 vFurRest;\n" + shader.vertexShader;
-      shader.vertexShader = shader.vertexShader.replace("#include <begin_vertex>","#include <begin_vertex>\nvFurRest = position;");
+      shader.vertexShader = shader.vertexShader.replace("#include <begin_vertex>","#include <begin_vertex>\n"+restCode);
       shader.fragmentShader = "varying vec3 vFurRest;\n" + shader.fragmentShader;
       shader.fragmentShader = shader.fragmentShader.replace("#include <map_fragment>","#include <map_fragment>\n"+coatColor);
     };
@@ -32,7 +34,7 @@ export function addSiameseFur(model, { layers = 5, length = .005 } = {}) {
     const position = geometry.attributes.position;
     const lengths = new Float32Array(position.count);
     for (let i = 0; i < position.count; i++) {
-      const y = position.getY(i), z = position.getZ(i);
+      const rest=originalPoint(new THREE.Vector3().fromBufferAttribute(position,i)),y=rest.y,z=rest.z;
       const face = y > .47 && z > .19;
       lengths[i] = y < .32 ? .38 : face ? .22 : 1;
     }
@@ -53,7 +55,7 @@ export function addSiameseFur(model, { layers = 5, length = .005 } = {}) {
         shader.vertexShader = "attribute float furLength; varying vec3 vFurRest; varying float vFurLength; uniform float furDepth; uniform float furLengthScale;\n" + shader.vertexShader;
         shader.vertexShader = shader.vertexShader.replace("#include <begin_vertex>", `
           #include <begin_vertex>
-          vFurRest = position; vFurLength = furLength;
+          ${restCode} vFurLength = furLength;
           transformed += normal * furLengthScale * furDepth * furLength;
         `);
         shader.fragmentShader = "varying vec3 vFurRest; varying float vFurLength; uniform float furDepth;\n" + shader.fragmentShader;
@@ -69,7 +71,7 @@ export function addSiameseFur(model, { layers = 5, length = .005 } = {}) {
           #include <alphatest_fragment>
         `);
       };
-      material.customProgramCacheKey = () => "siamese-short-fur-v2";
+      material.customProgramCacheKey = () => `siamese-plush-fur-v3-${bodyScale}-${limbRatio}`;
       const shell = new THREE.SkinnedMesh(geometry, material);
       shell.name = `siamese_short_fur_${layer}`;
       shell.position.copy(mesh.position); shell.quaternion.copy(mesh.quaternion); shell.scale.copy(mesh.scale);
@@ -91,17 +93,17 @@ export function addSiameseFur(model, { layers = 5, length = .005 } = {}) {
     let seed=1040;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
     const coordinates=[],normals=[],texcoords=[],joints=[],weights=[],triangles=[];
     const point=new THREE.Vector3(),n=new THREE.Vector3(),side=new THREE.Vector3(),direction=new THREE.Vector3(),tangent=new THREE.Vector3();
-    for(let strand=0;strand<14000;strand++){
+    for(let strand=0;strand<strands;strand++){
       const sample=random()*area;let low=0,high=cumulative.length-1;
       while(low<high){const middle=(low+high)>>1;if(cumulative[middle]<sample)low=middle+1;else high=middle;}
       const ids=[0,1,2].map(k=>indices.getX(low*3+k));
       const r=Math.sqrt(random()),s=random(),factors=[1-r,r*(1-s),r*s];point.set(0,0,0);n.set(0,0,0);
       const texture=new THREE.Vector2();ids.forEach((id,k)=>{point.addScaledVector(a.fromBufferAttribute(position,id),factors[k]);n.addScaledVector(a.fromBufferAttribute(normal,id),factors[k]);texture.x+=uv.getX(id)*factors[k];texture.y+=uv.getY(id)*factors[k];});n.normalize();
-      const face=point.y>.45&&point.z>.22&&point.y<.69;
-      if(face&&Math.abs(point.x)<.11)continue;
-      if(point.y<.30)continue;
+      const rest=originalPoint(point),face=rest.y>.45&&rest.z>.22&&rest.y<.69;
+      if(face&&Math.abs(rest.x)<.11)continue;
+      if(rest.y<.18)continue;
       if(point.y<.025&&n.y<-.15)continue;
-      const hairLength=(point.y<.14?.003:face||point.y>.69?.0028:length)*( .7+random()*.65);
+      const hairLength=(rest.y<.22?.004:face||rest.y>.69?.0032:length)*( .7+random()*.65);
       tangent.set(0,-1,0).addScaledVector(n,n.y).normalize();direction.copy(n).multiplyScalar(.86).addScaledVector(tangent,.35).normalize();
       side.crossVectors(n,new THREE.Vector3(random()-.5,random()-.5,random()-.5)).normalize();
       const sampleWeights=new Map();
@@ -112,7 +114,7 @@ export function addSiameseFur(model, { layers = 5, length = .005 } = {}) {
       for(let card=0;card<2;card++){
         if(card)side.crossVectors(direction,side).normalize();
         for(let corner=0;corner<4;corner++){
-          const tip=corner>1,width=tip?.00004:.00032,sign=corner%2?1:-1;
+          const tip=corner>1,width=tip?.00006:.00045,sign=corner%2?1:-1;
           const p=point.clone().addScaledVector(n,.00035).addScaledVector(direction,tip?hairLength:0).addScaledVector(side,sign*width);
           coordinates.push(p.x,p.y,p.z);normals.push(n.x,n.y,n.z);texcoords.push(texture.x,texture.y);
           for(let k=0;k<4;k++){joints.push(binding[k][0]);weights.push(binding[k][1]/total);}

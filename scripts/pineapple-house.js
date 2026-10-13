@@ -357,7 +357,7 @@ if (renderer) {
     if(!activeRoom){if(hit){focusRoom(hit.roomId);if(hit.companionId)companion?.react();if(hit.petId)pet?.react();}return;}
     if(!hit || hit.roomId!==activeRoom)return;
     if(hit.companionId)companion?.react();
-    else if(hit.petId)pet?.react();
+    else if(hit.petId){pet?.react();window.dispatchEvent(new CustomEvent('house:pet-greet'));}
     else if(hit.contentId)activateObject(hit.contentId);
     else if(hit?.awardId)window.dispatchEvent(new CustomEvent('house:award',{detail:{id:hit.awardId}}));
   });
@@ -439,7 +439,7 @@ if (renderer) {
         });
         houseGroup.add(model);
         if(spec.id==='chest')toyChest=createToyChest(model,{root,version:config.version,reducedMotion});
-        if(spec.pet){if(spec.pet.fur)addSiameseFur(model);pet=createHousePet(model,spec,{root,canvas,camera,reducedMotion});}
+        if(spec.pet){if(spec.pet.fur)addSiameseFur(model,{bodyScale:spec.pet.bodyScale??1,limbRatio:spec.pet.limbRatio??1,layers:viewWidth<600?6:8,strands:viewWidth<600?18000:24000});pet=createHousePet(model,spec,{root,canvas,camera,reducedMotion});}
         loaded.set(spec.id,model);
         failures.delete(spec.id);
         applyVisibility();
