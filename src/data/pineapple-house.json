@@ -48,7 +48,7 @@
     {"id":"skills-book","room":"library","section":"skills","label":"专业技能书 · 全栈与 Agent 工程","button":"专业技能","anchor":[1.45,4.37,1.47]},
     {"id":"work-journal","room":"bedroom","section":"internship","label":"床上日记本 · 实习经历","button":"实习日记","anchor":[-2.07,7.14,0.20]},
     {"id":"education-clock","room":"bedroom","section":"education","label":"教育经历","button":"教育经历","asset":"barrel","localBounds":[[-0.14,0.615,-0.12],[0.14,0.91,0.13]],"anchor":[-3.0,7.10,-0.45]},
-    {"id":"toy-chest","room":"bedroom","action":"toy","label":"玩具箱 · 点击打开或收起玩偶","button":"玩具箱","asset":"chest","anchor":[0.05,7.10,0.65]},
+    {"id":"toy-chest","room":"bedroom","action":"toy","label":"玩具箱 · 打开私藏画廊","button":"玩具箱","asset":"chest","anchor":[0.05,7.10,0.65]},
     {"id":"honor-trophies","room":"storage","section":"honors","label":"奖杯与证书 · 个人荣誉","button":"荣誉奖杯","asset":"treasure","anchor":[-3.3,1.05,-0.1]}
   ]
 }
