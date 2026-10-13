@@ -182,9 +182,20 @@ def toilet():
 def barrel():
     lathe("bulging stave barrel",(0,0,0),[(0,.015),(.215,.015),(.24,.075),(.27,.28),(.268,.42),(.235,.60),(.216,.63),(0,.63)],wood)
     for z,r in [(.09,.242),(.47,.260)]:torus("barrel iron hoop",(0,0,z),r,.022,[metal])
-    soft("alarm clock base",(0,0,.72),(.21,.15,.17),red,e=.5)
-    sphere("clock face",(0,-.082,.75),.082,white,scale=(1,.15,1))
-    tube("clock hands",[(0,-.099,.80),(0,-.10,.75),(.034,-.10,.75)],.006,metal)
+    # 表盘完整嵌入外壳轮廓，双铃与脚架均连接主体。
+    soft("alarm clock base",(0,0,.75),(.235,.155,.22),red,e=.65)
+    torus("clock dial rim",(0,-.079,.75),.079,.009,[gold],vertical=True)
+    sphere("clock face",(0,-.084,.75),.071,white,scale=(1,.10,1))
+    tube("clock minute hand",[(0,-.097,.75),(0,-.097,.798)],.004,metal)
+    tube("clock hour hand",[(0,-.098,.75),(.028,-.098,.764)],.005,metal)
+    sphere("clock hand hub",(0,-.102,.75),.009,metal)
+    for side in (-1,1):
+        tube("clock foot",[(side*.068,0,.63),(side*.061,0,.671)],.012,gold)
+        tube("clock bell stem",[(side*.062,0,.827),(side*.078,0,.858)],.008,gold)
+        sphere("clock alarm bell",(side*.078,0,.867),.029,red,scale=(1,1,.60))
+    for i in range(12):
+        a=i*math.tau/12
+        sphere("clock dial marker",(.059*math.sin(a),-.096,.75+.059*math.cos(a)),.0035,gold)
 
 def chest():
     soft("olive chest body",(0,0,.19),(.83,.48,.35),chestmat,e=.22)
@@ -238,7 +249,9 @@ for o in list(bpy.context.scene.objects):
 # 合并材质相同的连续件，单件家具保留部件级材质而非融合背景。
 buckets={}
 for o in list(bpy.context.scene.objects):
-    if o.type=="MESH":buckets.setdefault(o.data.materials[0].name,[]).append(o)
+    if o.type=="MESH":
+        part="__lid" if name=="chest" and o.name.startswith(("arched chest lid","chest lid iron strap")) else ""
+        buckets.setdefault(o.data.materials[0].name+part,[]).append(o)
 for label,objects in buckets.items():
     bpy.ops.object.select_all(action="DESELECT")
     for o in objects:o.select_set(True)

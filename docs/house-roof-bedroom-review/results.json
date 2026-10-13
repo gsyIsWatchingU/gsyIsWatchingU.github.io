@@ -1,0 +1,39 @@
+{
+  "status": "review",
+  "assets": [
+    {
+      "path": "assets/house-review/structure.glb",
+      "sha256": "867fbcd633be09f5cd18e54f56bf41aaf4dbe8a47ca37c7330463bb1d4b680a0"
+    },
+    {
+      "path": "assets/house-review/props/barrel.glb",
+      "sha256": "1b62a531273965f7ad314db93e5c504c72ae29e7094ebfa4f4784d428158d399"
+    },
+    {
+      "path": "assets/house-review/props/chest.glb",
+      "sha256": "82db4c5f6f07030aa43eeb1bd9c078aecedf4b4eeb0e93c9210f2d8b91fcf551"
+    },
+    {
+      "path": "assets/house-review/props/spongebob-toy.glb",
+      "sha256": "55045947ae10126f1350777b34bfeffbd78f7638f6a5f0ef156d0b0d933bc7d4"
+    },
+    {
+      "path": "assets/house-companion/spongebob.glb",
+      "sha256": "55045947ae10126f1350777b34bfeffbd78f7638f6a5f0ef156d0b0d933bc7d4"
+    }
+  ],
+  "date": "2026-10-13",
+  "tests": [
+    "build",
+    "check",
+    "diff-check",
+    "companion-asset",
+    "companion-state",
+    "sleep-geometry",
+    "real-browser-toy-toggle",
+    "real-browser-education",
+    "real-browser-five-sleep-phases",
+    "roof-visibility"
+  ],
+  "humanReview": "pending"
+}

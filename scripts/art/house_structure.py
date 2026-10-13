@@ -227,14 +227,20 @@ for level,(cx,cy) in enumerate(STAIRS):
         faces=[tuple(range(6))+tuple(range(11,5,-1)),tuple(range(12,18))+tuple(range(23,17,-1))]
         for j in range(5):faces.extend([(j,j+1,j+13,j+12),(j+6,j+18,j+19,j+7)])
         faces.extend([(0,12,18,6),(5,11,23,17)])
-        mesh("stair_tread",vs,faces,wood,"stairs",level)
-        if i%2==0:tube("stair_baluster",[(cx+RAIL_R*math.cos(a),cy+RAIL_R*math.sin(a),z),(cx+RAIL_R*math.cos(a),cy+RAIL_R*math.sin(a),z+.72)],.017,metal,"stairs",level)
+        tread=mesh("stair_tread",vs,faces,wood,"stairs",level)
+        if level==2 and i>=17:tread["roofAccess"]=True
+        if i%2==0:
+            baluster=tube("stair_baluster",[(cx+RAIL_R*math.cos(a),cy+RAIL_R*math.sin(a),z),(cx+RAIL_R*math.cos(a),cy+RAIL_R*math.sin(a),z+.72)],.017,metal,"stairs",level)
+            if level==2 and i>=18:baluster["roofAccess"]=True
     pts=[]
     for i in range(121):
         z=level*3+i/40;a=i/120*math.tau
         pts.append((cx+RAIL_R*math.cos(a),cy+RAIL_R*math.sin(a),z+.73))
-    tube("stair_handrail",pts,.025,metal,"stairs",level)
-    tube("stair_spine",[(cx,cy,level*3),(cx,cy,(level+1)*3)],.085,metal,"stairs",level)
+    tube("stair_handrail",pts[:103] if level==2 else pts,.025,metal,"stairs",level)
+    tube("stair_spine",[(cx,cy,level*3),(cx,cy,8.55 if level==2 else (level+1)*3)],.085,metal,"stairs",level)
+    if level==2:
+        tube("roof_access_handrail",pts[102:],.025,metal,"stairs",level)["roofAccess"]=True
+        tube("roof_access_spine",[(cx,cy,8.55),(cx,cy,9)],.085,metal,"stairs",level)["roofAccess"]=True
     if level<2:
         nx,ny=STAIRS[level+1];z=(level+1)*3
         # 平台沿两段的东侧落脚点连接，横向扶手与踏步末端接齐。
@@ -245,7 +251,8 @@ for level,(cx,cy) in enumerate(STAIRS):
         for x,y in [(x0,y1),(x1,y1)]:tube("landing_post",[(x,y,z),(x,y,z+.73)],.02,metal,"stairs",level+1)
         tube("landing_back_guard",[(x0,y1,z+.73),(x1,y1,z+.73)],.025,metal,"stairs",level+1)
 box("bed_landing",(1.73,1.15,5.945),(1.38,.55,.11),wood,"stairs",2)
-box("roof_landing",(1.91,.6,8.945),(.42,.52,.11),wood,"stairs",3)
+# 平台顶面高于地面 18mm，避免两种材质共面产生闪烁。
+box("roof_landing",(1.91,.6,8.963),(.42,.52,.11),wood,"stairs",3)
 
 # 图书馆弧形书架：真实逐本书脊、上下封面与书页，按材质合批。
 for row in range(12):
@@ -308,12 +315,13 @@ for o in list(bpy.context.scene.objects):
 buckets={}
 for o in list(bpy.context.scene.objects):
     if o.type!="MESH" or o.get("occluder") or len(o.data.materials)!=1:continue
-    key=(o.get("roomId","structure"),o.get("level",0),o.data.materials[0].name)
+    key=(o.get("roomId","structure"),o.get("level",0),o.data.materials[0].name,o.get("roofAccess",False))
     buckets.setdefault(key,[]).append(o)
-for (room,level,mat),objects in buckets.items():
+for (room,level,mat,roof_access),objects in buckets.items():
     bpy.ops.object.select_all(action="DESELECT")
     for o in objects:o.select_set(True)
-    bpy.context.view_layer.objects.active=objects[0];bpy.ops.object.join();o=bpy.context.object;o.name=f"{room}_L{level}_{mat}";o["roomId"]=room;o["level"]=level
+    bpy.context.view_layer.objects.active=objects[0];bpy.ops.object.join();o=bpy.context.object;o.name=f"{room}_L{level}_{mat}"+("_roof_access" if roof_access else "");o["roomId"]=room;o["level"]=level
+    if roof_access:o["roofAccess"]=True
 
 for o in bpy.context.scene.objects:
     if o.type=="MESH":
@@ -322,5 +330,5 @@ path=OUT/"structure.glb"
 bpy.ops.export_scene.gltf(filepath=str(path),export_format="GLB",export_yup=True,export_extras=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/"structure.blend"))
 triangles=sum(sum(len(f.vertices)-2 for f in o.data.polygons) for o in bpy.context.scene.objects if o.type=="MESH")
-(OUT/"structure-manifest.json").write_text(json.dumps({"backend":"Blender 4.5.13","source":"scripts/art/house_structure.py","coordinates":"glTF Y-up; +Z is front","floors":[0,3,6,9],"bodyHeight":9,"leafHeight":13.55,"triangles":triangles,"sha256":hashlib.sha256(path.read_bytes()).hexdigest(),"status":"review","humanReview":"pending","revision":6,"previousSha256":"56869e8b5c7e0af9107bb9907ff051f0a2947f42cfdc67b09a386b477fa11a7d","floorBoundaryX":.25,"bedroomWallBoundaryX":1.12,"libraryCloseupWallBoundaryX":.25,"libraryCloseupWall":"shell_2_library_back_fill","stairFlightCenters":STAIRS,"stairAxis":"vertical per floor with transfer landings","sourceSHA256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+"\n")
+(OUT/"structure-manifest.json").write_text(json.dumps({"backend":"Blender 4.5.13","source":"scripts/art/house_structure.py","coordinates":"glTF Y-up; +Z is front","floors":[0,3,6,9],"bodyHeight":9,"leafHeight":13.55,"triangles":triangles,"sha256":hashlib.sha256(path.read_bytes()).hexdigest(),"status":"review","humanReview":"pending","revision":7,"previousSha256":"fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2","roofLandingTop":9.018,"floorBoundaryX":.25,"bedroomWallBoundaryX":1.12,"libraryCloseupWallBoundaryX":.25,"libraryCloseupWall":"shell_2_library_back_fill","stairFlightCenters":STAIRS,"stairAxis":"vertical per floor with transfer landings","sourceSHA256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2)+"\n")
 print(f"STRUCTURE EXPORTED {triangles} triangles")

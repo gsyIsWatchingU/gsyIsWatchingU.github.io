@@ -1,0 +1,135 @@
+{
+  "status": "review",
+  "runtimeSHA256": "55045947ae10126f1350777b34bfeffbd78f7638f6a5f0ef156d0b0d933bc7d4",
+  "bones": [
+    "comp_root",
+    "comp_head",
+    "comp_arm_l",
+    "comp_forearm_l",
+    "comp_hand_l",
+    "comp_leg_l",
+    "comp_shin_l",
+    "comp_foot_l",
+    "comp_arm_r",
+    "comp_forearm_r",
+    "comp_hand_r",
+    "comp_leg_r",
+    "comp_shin_r",
+    "comp_foot_r"
+  ],
+  "clips": [
+    "bubble",
+    "idle",
+    "lie",
+    "pet",
+    "read",
+    "sit",
+    "slide",
+    "tidy",
+    "wake",
+    "walk",
+    "wash",
+    "wave"
+  ],
+  "maxWeightError": 2.9802322387695312e-8,
+  "facial": {
+    "blink": {
+      "maxDisplacement": 0.13002002239227295,
+      "movedVertices": 1312
+    },
+    "talk": {
+      "maxDisplacement": 0.02499997615814209,
+      "movedVertices": 864
+    },
+    "lookRight": {
+      "maxDisplacement": 0.024000003933906555,
+      "movedVertices": 601
+    },
+    "lookLeft": {
+      "maxDisplacement": 0.024000003933906555,
+      "movedVertices": 601
+    },
+    "lookUp": {
+      "maxDisplacement": 0.028000056743621826,
+      "movedVertices": 604
+    },
+    "lookDown": {
+      "maxDisplacement": 0.03400003910064697,
+      "movedVertices": 604
+    },
+    "smile": {
+      "maxDisplacement": 0.02799999713897705,
+      "movedVertices": 1310
+    },
+    "calm": {
+      "maxDisplacement": 0.055826663970947266,
+      "movedVertices": 1234
+    },
+    "browRaise": {
+      "maxDisplacement": 0.013867497444152832,
+      "movedVertices": 820
+    }
+  },
+  "deformation": [
+    {
+      "clip": "bubble",
+      "p99": 1.0000071942672353,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "idle",
+      "p99": 1.0000009942913852,
+      "max": 1.9749269910941192
+    },
+    {
+      "clip": "lie",
+      "p99": 1.0000009942913852,
+      "max": 1.9749269910941192
+    },
+    {
+      "clip": "pet",
+      "p99": 1.0000071942672353,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "read",
+      "p99": 1.0000071942672353,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "sit",
+      "p99": 1.0050735299456237,
+      "max": 1.9749269910941192
+    },
+    {
+      "clip": "slide",
+      "p99": 1.0076416747991168,
+      "max": 2.0175349830602824
+    },
+    {
+      "clip": "tidy",
+      "p99": 1.0000071942672353,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "wake",
+      "p99": 1.0000012723433647,
+      "max": 1.6323510053795565
+    },
+    {
+      "clip": "walk",
+      "p99": 1.0000009942913852,
+      "max": 1.9749269910941192
+    },
+    {
+      "clip": "wash",
+      "p99": 1.0000071942672353,
+      "max": 1.7773446751564592
+    },
+    {
+      "clip": "wave",
+      "p99": 1.0000012723433647,
+      "max": 1.5654069830363146
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "test": "no-chat-shortcut-or-voice-controls",
+      "value": true
+    },
+    {
+      "test": "real-character-click-opens-nonmodal-chat",
+      "value": true
+    },
+    {
+      "test": "desktop-right-chat",
+      "value": {
+        "x": 1124,
+        "y": 512,
+        "width": 300,
+        "height": 372,
+        "right": 16,
+        "bottom": 16,
+        "overflow": false
+      }
+    },
+    {
+      "test": "real-deepseek-text-reply-without-speech",
+      "value": "嗨！你正站在卧室，这里能看郭书羽的实习和学历哦。要听听字节的 TraceAgent 故事吗？"
+    },
+    {
+      "test": "room-controls-work-while-chat-open",
+      "value": true
+    },
+    {
+      "test": "chat-818x804",
+      "value": {
+        "x": 502,
+        "y": 416,
+        "width": 300,
+        "height": 372,
+        "right": 16,
+        "bottom": 16,
+        "overflow": false
+      }
+    },
+    {
+      "test": "chat-390x844",
+      "value": {
+        "x": 110,
+        "y": 516,
+        "width": 270,
+        "height": 318,
+        "right": 10,
+        "bottom": 10,
+        "overflow": false
+      }
+    },
+    {
+      "test": "chat-844x390",
+      "value": {
+        "x": 528,
+        "y": 78.40625,
+        "width": 300,
+        "height": 295.59375,
+        "right": 16,
+        "bottom": 16,
+        "overflow": false
+      }
+    },
+    {
+      "test": "diary-1440x900-page-0",
+      "value": {
+        "width": 900,
+        "height": 580,
+        "x": 270,
+        "y": 160,
+        "visible": [
+          "Agent Harness",
+          "浏览器调试平台",
+          "平台稳定性治理",
+          "Smart Video"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "1 / 1",
+        "nextDisabled": true
+      }
+    },
+    {
+      "test": "diary-1094x846-page-0",
+      "value": {
+        "width": 900,
+        "height": 580,
+        "x": 97,
+        "y": 133,
+        "visible": [
+          "Agent Harness",
+          "浏览器调试平台",
+          "平台稳定性治理",
+          "Smart Video"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "1 / 1",
+        "nextDisabled": true
+      }
+    },
+    {
+      "test": "diary-818x804-page-0",
+      "value": {
+        "width": 786,
+        "height": 580,
+        "x": 16,
+        "y": 112,
+        "visible": [
+          "Agent Harness",
+          "浏览器调试平台",
+          "平台稳定性治理",
+          "Smart Video"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "1 / 1",
+        "nextDisabled": true
+      }
+    },
+    {
+      "test": "diary-390x844-page-0",
+      "value": {
+        "width": 370,
+        "height": 620,
+        "x": 10,
+        "y": 112,
+        "visible": [
+          "Agent Harness",
+          "浏览器调试平台",
+          "平台稳定性治理"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "1 / 2",
+        "nextDisabled": false
+      }
+    },
+    {
+      "test": "diary-390x844-page-1",
+      "value": {
+        "width": 370,
+        "height": 620,
+        "x": 10,
+        "y": 112,
+        "visible": [
+          "Smart Video"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "2 / 2",
+        "nextDisabled": true
+      }
+    },
+    {
+      "test": "diary-844x390-page-0",
+      "value": {
+        "width": 812,
+        "height": 358,
+        "x": 16,
+        "y": 16,
+        "visible": [
+          "Agent Harness",
+          "浏览器调试平台"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "1 / 2",
+        "nextDisabled": false
+      }
+    },
+    {
+      "test": "diary-844x390-page-1",
+      "value": {
+        "width": 812,
+        "height": 358,
+        "x": 16,
+        "y": 16,
+        "visible": [
+          "平台稳定性治理",
+          "Smart Video"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "2 / 2",
+        "nextDisabled": true
+      }
+    },
+    {
+      "test": "diary-320x568-page-0",
+      "value": {
+        "width": 300,
+        "height": 548,
+        "x": 10,
+        "y": 10,
+        "visible": [
+          "Agent Harness",
+          "浏览器调试平台"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "1 / 2",
+        "nextDisabled": false
+      }
+    },
+    {
+      "test": "diary-320x568-page-1",
+      "value": {
+        "width": 300,
+        "height": 548,
+        "x": 10,
+        "y": 10,
+        "visible": [
+          "平台稳定性治理",
+          "Smart Video"
+        ],
+        "overflow": false,
+        "dialogOverflow": false,
+        "page": "2 / 2",
+        "nextDisabled": true
+      }
+    },
+    {
+      "test": "homepage-keeps-existing-character-policy",
+      "value": true
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "speechRequests": 0,
+  "limitations": [
+    "Chrome viewport simulation; physical phone not tested"
+  ]
+}

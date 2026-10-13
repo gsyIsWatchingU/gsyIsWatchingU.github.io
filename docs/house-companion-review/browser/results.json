@@ -1,0 +1,661 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "test": "ready",
+      "value": {
+        "room": "bedroom",
+        "action": "wake",
+        "day": 0.25009999999999993,
+        "phase": 0,
+        "revision": 0,
+        "following": false,
+        "commanded": false,
+        "loaded": true,
+        "activity": "wake",
+        "entryTime": 0.25009999999999993,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-bedroom",
+      "value": {
+        "room": "bedroom",
+        "action": "journal",
+        "day": 5.4504000000000135,
+        "phase": 0,
+        "revision": 2,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "journal",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-bathroom",
+      "value": {
+        "room": "bathroom",
+        "action": "wash",
+        "day": 9.317400000000017,
+        "phase": 0,
+        "revision": 6,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "wash",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-living",
+      "value": {
+        "room": "living",
+        "action": "listen",
+        "day": 13.234299999999983,
+        "phase": 0,
+        "revision": 10,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "listen",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-storage",
+      "value": {
+        "room": "storage",
+        "action": "tidy",
+        "day": 17.117999999999924,
+        "phase": 0,
+        "revision": 14,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "tidy",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-library",
+      "value": {
+        "room": "library",
+        "action": "read",
+        "day": 21.018299999999886,
+        "phase": 1,
+        "revision": 18,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "read",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-roof",
+      "value": {
+        "room": "roof",
+        "action": "bubble",
+        "day": 24.868499999999838,
+        "phase": 1,
+        "revision": 22,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "bubble",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "missing-key-visible",
+      "value": "聊天尚未配置：需要服务器 DEEPSEEK_API_KEY"
+    },
+    {
+      "test": "real-gpu-voice-playback",
+      "value": {
+        "paused": false,
+        "time": 1.529573,
+        "duration": 7.04,
+        "src": "http://127.0.0.1:8769/docs/house-companion-review/welcome.wav",
+        "status": "正在播报"
+      }
+    },
+    {
+      "test": "sleep-preview",
+      "value": {
+        "room": "bedroom",
+        "action": "sleep",
+        "day": 33.33589999999975,
+        "phase": 1,
+        "revision": 30,
+        "following": true,
+        "commanded": true,
+        "loaded": true,
+        "activity": "sleep",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 0,
+      "room": "bedroom",
+      "action": "wash",
+      "day": 38.16960000000004,
+      "phase": 1
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 4,
+      "room": "living",
+      "action": "listen",
+      "day": 42.169900000000304,
+      "phase": 2
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 8,
+      "room": "living",
+      "action": "listen",
+      "day": 46.18680000000051,
+      "phase": 2
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 12,
+      "room": "living",
+      "action": "listen",
+      "day": 50.20370000000077,
+      "phase": 2
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 16,
+      "room": "living",
+      "action": "listen",
+      "day": 54.220800000000985,
+      "phase": 2
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 20,
+      "room": "living",
+      "action": "listen",
+      "day": 58.22100000000119,
+      "phase": 2
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 24,
+      "room": "library",
+      "action": "read",
+      "day": 62.22130000000139,
+      "phase": 3
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 28,
+      "room": "library",
+      "action": "read",
+      "day": 66.23830000000194,
+      "phase": 3
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 32,
+      "room": "library",
+      "action": "read",
+      "day": 70.23860000000265,
+      "phase": 3
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 36,
+      "room": "library",
+      "action": "read",
+      "day": 74.25560000000343,
+      "phase": 3
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 40,
+      "room": "library",
+      "action": "read",
+      "day": 78.27260000000413,
+      "phase": 3
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 44,
+      "room": "roof",
+      "action": "bubble",
+      "day": 82.27290000000495,
+      "phase": 4
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 48,
+      "room": "roof",
+      "action": "bubble",
+      "day": 86.28980000000564,
+      "phase": 4
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 52,
+      "room": "roof",
+      "action": "bubble",
+      "day": 90.29010000000642,
+      "phase": 4
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 56,
+      "room": "roof",
+      "action": "bubble",
+      "day": 94.29060000000726,
+      "phase": 4
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 60,
+      "room": "roof",
+      "action": "bubble",
+      "day": 98.30730000000808,
+      "phase": 4
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 64,
+      "room": "bedroom",
+      "action": "sleep",
+      "day": 102.30760000000879,
+      "phase": 5
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 68,
+      "room": "bedroom",
+      "action": "sleep",
+      "day": 106.32470000000961,
+      "phase": 5
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 72,
+      "room": "bedroom",
+      "action": "sleep",
+      "day": 110.34150000001038,
+      "phase": 5
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 76,
+      "room": "bedroom",
+      "action": "sleep",
+      "day": 114.34200000001117,
+      "phase": 5
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 80,
+      "room": "bedroom",
+      "action": "sleep",
+      "day": 118.34210000001192,
+      "phase": 5
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 84,
+      "room": "bedroom",
+      "action": "wake",
+      "day": 2.3592000000123003,
+      "phase": 0
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 88,
+      "room": "bedroom",
+      "action": "wake",
+      "day": 6.359500000012276,
+      "phase": 0
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 92,
+      "room": "bedroom",
+      "action": "wake",
+      "day": 10.359700000012248,
+      "phase": 0
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 96,
+      "room": "bedroom",
+      "action": "wake",
+      "day": 14.360100000012183,
+      "phase": 0
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 100,
+      "room": "bedroom",
+      "action": "wake",
+      "day": 18.37710000001219,
+      "phase": 0
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 104,
+      "room": "bathroom",
+      "action": "wash",
+      "day": 22.377300000012248,
+      "phase": 1
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 108,
+      "room": "bathroom",
+      "action": "wash",
+      "day": 26.394300000012294,
+      "phase": 1
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 112,
+      "room": "bathroom",
+      "action": "wash",
+      "day": 30.41130000001235,
+      "phase": 1
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 116,
+      "room": "bathroom",
+      "action": "wash",
+      "day": 34.411500000012516,
+      "phase": 1
+    },
+    {
+      "test": "real-time-cycle",
+      "seconds": 120,
+      "room": "bathroom",
+      "action": "wash",
+      "day": 38.41180000001279,
+      "phase": 1
+    },
+    {
+      "test": "homepage-default-isolation",
+      "value": true
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "limitations": [
+    "mobile viewport simulation; real phone not tested",
+    "DeepSeek real reply not tested: server key absent"
+  ]
+}

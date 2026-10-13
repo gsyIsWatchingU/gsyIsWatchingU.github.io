@@ -1,0 +1,61 @@
+{
+  "commit": "5d2bdab963817a68b064f38c50a763ff1565cdcc",
+  "results": [
+    {
+      "path": "index.html",
+      "http": 200,
+      "bytes": 40196,
+      "sha256": "e3288dfbf7851d457627a978397628e6fcbbf6681b5da1d2d9e92c9984e3a2c4",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "http": 200,
+      "bytes": 40226,
+      "sha256": "2f313130356541eeb034d103f0a8a94a4c9227b10ff61d512171fa4b405f3684",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "http": 200,
+      "bytes": 762733,
+      "sha256": "bba2ec8175c26701a8c11ce6c2c0c8f54767e4aef0792e06314c346245da11ad",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/structure.glb",
+      "http": 200,
+      "bytes": 12745672,
+      "sha256": "867fbcd633be09f5cd18e54f56bf41aaf4dbe8a47ca37c7330463bb1d4b680a0",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/barrel.glb",
+      "http": 200,
+      "bytes": 1537128,
+      "sha256": "1b62a531273965f7ad314db93e5c504c72ae29e7094ebfa4f4784d428158d399",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/chest.glb",
+      "http": 200,
+      "bytes": 631904,
+      "sha256": "82db4c5f6f07030aa43eeb1bd9c078aecedf4b4eeb0e93c9210f2d8b91fcf551",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/spongebob-toy.glb",
+      "http": 200,
+      "bytes": 3128488,
+      "sha256": "55045947ae10126f1350777b34bfeffbd78f7638f6a5f0ef156d0b0d933bc7d4",
+      "match": true
+    },
+    {
+      "path": "assets/house-companion/spongebob.glb",
+      "http": 200,
+      "bytes": 3128488,
+      "sha256": "55045947ae10126f1350777b34bfeffbd78f7638f6a5f0ef156d0b0d933bc7d4",
+      "match": true
+    }
+  ]
+}

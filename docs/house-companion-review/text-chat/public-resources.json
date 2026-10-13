@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "commit": "38bd44e1326c01be667726ca9509d5a84f0755e9",
+  "checks": [
+    {
+      "file": "assets/pineapple-house.js",
+      "status": 200,
+      "bytes": 751260,
+      "sha256LF": "d700f8e4eb376edb543e4ee1a03b8cc0829f65655b9583aef13782404d39a778",
+      "matchesVerifiedFile": true
+    },
+    {
+      "file": "assets/house-profile.js",
+      "status": 200,
+      "bytes": 9983,
+      "sha256LF": "e42978066b8c5666ec3dc376f6c49b0ea1f8f47ac9f5e73f5dbceb5fe4bda087",
+      "matchesVerifiedFile": true
+    },
+    {
+      "file": "styles/house-companion.css",
+      "status": 200,
+      "bytes": 4262,
+      "sha256LF": "4866468f31335fd118548b1728ecdbade7bd4761aa4750b42d696b04c9054322",
+      "matchesVerifiedFile": true
+    },
+    {
+      "file": "styles/house-profile.css",
+      "status": 200,
+      "bytes": 24049,
+      "sha256LF": "b04b80c0e176777cd01e005d90202627dd5b5f3c4fd32ef959f5dfa823578a30",
+      "matchesVerifiedFile": true
+    },
+    {
+      "file": "src/data/house-companion.json",
+      "status": 200,
+      "bytes": 1851,
+      "sha256LF": "1c4b31ee0bcab96352b7de93293abaee185478773cd200d4d203c9949b13b29e",
+      "matchesVerifiedFile": true
+    }
+  ],
+  "health": {
+    "status": "ready",
+    "chatConfigured": true,
+    "model": "deepseek-flash",
+    "ttsReady": false,
+    "ttsError": "语音已关闭，仅文字聊天",
+    "ttsQueue": 0,
+    "statusOfAssets": "review"
+  },
+  "browserVerification": "本地真实 Chrome 18 项通过；公网浏览器工具超时，仅核验公网资源哈希",
+  "limitations": [
+    "统一换行后对比文本内容",
+    "手机为视口模拟，实机未测"
+  ]
+}
