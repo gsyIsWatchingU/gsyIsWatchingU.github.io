@@ -1,9 +1,9 @@
 {
   "status": "passed",
-  "contactCount": 810,
-  "contactWidth": 0.2839212266531308,
-  "contactDepth": 0.20650121516627803,
-  "maximumJump": 0.004551424061637582,
+  "contactCount": 388,
+  "contactWidth": 0.2973425960856953,
+  "contactDepth": 0.16806253742446398,
+  "maximumJump": 0.0033621198312254134,
   "frontDrift": 8.513296703097718e-8,
   "rise": true
 }

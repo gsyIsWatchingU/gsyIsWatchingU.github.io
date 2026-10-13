@@ -5,6 +5,8 @@ export function seatedTrunk(point,amount){
   const r=(.22-point.z)/.5,radius=point.y-.268;
   const dy=.205,dz=.30,length=Math.hypot(dy,dz);
   const target=new THREE.Vector3(point.x*(1+.07*smooth(.35,.8,r)),.335-.205*r+radius*dz/length-.075*smooth(.35,.95,r),.22-.30*r-radius*dy/length);
+  const hip=new THREE.Vector3(point.x*1.10,.088+(point.y-.268)*.85,-.12+(point.z+.26)*.75);
+  target.lerp(hip,smooth(.40,.95,r));
   if(r>.6)target.y=Math.max(.003,target.y);
   return point.clone().lerp(target,amount);
 }
