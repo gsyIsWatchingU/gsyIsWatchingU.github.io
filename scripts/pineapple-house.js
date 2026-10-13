@@ -4,6 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { createSkillsBook } from "./house-skills-book.js";
 import { createHousePet } from "./house-pet.js";
 import { addSiameseFur } from "./house-pet-fur.js";
+import { createHouseCompanion } from "./house-companion.js";
 import config from "../src/data/pineapple-house.json";
 import awards from "../src/data/house-awards.json";
 import './house-music.js';
@@ -114,6 +115,8 @@ if (renderer) {
   let measuredFps = 0;
   let pet = null;
   let lastPetFrame = null;
+  const companion = root.hasAttribute('data-house-companion-preview')
+    ? createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom:()=>activeRoom,getAsset:id=>loaded.get(id),getPet:()=>pet,reducedMotion}) : null;
 
   // 实物证书作为墙面展示件；使用用户照片，不生成或改写证书内容。
   function displayPlane(name,width,height,material,position,normal,metadata) {
@@ -320,6 +323,7 @@ if (renderer) {
     for(const hit of hits) {
       let node=hit.object;
       while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.contentId) node=node.parent;
+      if(node?.userData.companionId) return {companionId:node.userData.companionId,roomId:node.userData.roomId};
       if(node?.userData.petId) return {petId:node.userData.petId,roomId:node.userData.roomId};
       if(node?.userData.contentId && (!node.userData.contentBounds || node.userData.contentBounds.containsPoint(node.worldToLocal(hit.point.clone())))) return {contentId:node.userData.contentId,roomId:node.userData.roomId};
       if(node?.userData.awardId) return {awardId:node.userData.awardId,roomId:'storage'};
@@ -337,20 +341,21 @@ if (renderer) {
     const start=pointerDown;pointerDown=null;
     if(!start || start.id!==event.pointerId || Math.hypot(event.clientX-start.x,event.clientY-start.y)>7 || performance.now()-start.time>650 || !ready) return;
     const hit=pick(event.clientX,event.clientY);
-    if(!activeRoom){if(hit){focusRoom(hit.roomId);if(hit.petId)pet?.react();}return;}
+    if(!activeRoom){if(hit){focusRoom(hit.roomId);if(hit.companionId)companion?.react();if(hit.petId)pet?.react();}return;}
     if(!hit || hit.roomId!==activeRoom)return;
-    if(hit.petId)pet?.react();
+    if(hit.companionId)companion?.react();
+    else if(hit.petId)pet?.react();
     else if(hit.contentId)activateObject(hit.contentId);
     else if(hit?.awardId)window.dispatchEvent(new CustomEvent('house:award',{detail:{id:hit.awardId}}));
   });
   canvas.addEventListener("pointermove",event => {
     if(event.pointerType!=="mouse" || rotating || !ready) {tooltip.hidden=true;return;}
     const hit=pick(event.clientX,event.clientY);
-    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.petId || hit.awardId || hit.contentId));
+    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.companionId || hit.petId || hit.awardId || hit.contentId));
     canvas.style.cursor=interactive?"pointer":"grab";
     tooltip.hidden=!interactive;
     if(interactive) {
-      tooltip.textContent=!activeRoom?rooms.get(hit.roomId).name:hit.petId?'暹罗猫 · 打个招呼':hit.contentId?interactions.get(hit.contentId).label:awards.find(a=>a.id===hit.awardId).title;
+      tooltip.textContent=hit.companionId?'海绵宝宝 · 点击聊聊天':!activeRoom?rooms.get(hit.roomId).name:hit.petId?'暹罗猫 · 打个招呼':hit.contentId?interactions.get(hit.contentId).label:awards.find(a=>a.id===hit.awardId)?.title??'';
       const rect=canvas.getBoundingClientRect();
       tooltip.style.left=`${Math.min(event.clientX-rect.left+14,viewWidth-120)}px`;
       tooltip.style.top=`${Math.min(event.clientY-rect.top+14,viewHeight-40)}px`;
@@ -475,9 +480,11 @@ if (renderer) {
     }
     controls.update();
     camera.updateMatrixWorld();
+    const companionDt=lastPetFrame===null?0:Math.min((now-lastPetFrame)/1000,1);
     const petDt=lastPetFrame===null?0:Math.min((now-lastPetFrame)/1000,.06);
     lastPetFrame=now;
     pet?.update(petDt,ready && !document.hidden && (!activeRoom || activeRoom==='living') && !document.querySelector('dialog[open]'));
+    companion?.update(companionDt,ready);
     if(!activeRoom) {
       for(const room of config.rooms) {
         const point=new THREE.Vector3(...room.label).project(camera);
@@ -498,7 +505,7 @@ if (renderer) {
   }
   requestAnimationFrame(frame);
   // 验收接口只报告真实载入状态，不将候选标为 approved。
-  window.__pineappleHouse={focusRoom,resetView,scene,camera,controls,config,
+  window.__pineappleHouse={focusRoom,resetView,scene,camera,controls,config,companion,
     snapshot:() => ({state:root.dataset.houseState,view:activeRoom??"whole",loaded:[...loaded.keys()],failed:[...failures.keys()],fps:Number(measuredFps.toFixed(1)),renderer:renderer.info.render,camera:camera.position.toArray(),target:controls.target.toArray(),pet:pet?.snapshot()??null,status:"review",structureOnly}),
     projectRoom:id => {
       const room=rooms.get(id);if(!room) return null;

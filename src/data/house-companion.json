@@ -1,0 +1,38 @@
+{
+  "status": "review",
+  "version": "20261013-text-chat-v1",
+  "model": "assets/house-companion/spongebob.glb",
+  "api": "https://gsy-gpu.tail660bdf.ts.net/house-api",
+  "height": 1.25,
+  "daySeconds": 120,
+  "activitySeconds": 10,
+  "schedule": [
+    {"room":"bedroom","action":"wake","label":"起床啦"},
+    {"room":"bathroom","action":"wash","label":"洗漱时间"},
+    {"room":"living","action":"listen","label":"听听音乐"},
+    {"room":"library","action":"read","label":"读一本书"},
+    {"room":"roof","action":"bubble","label":"吹泡泡"},
+    {"room":"bedroom","action":"sleep","label":"晚安，好梦"}
+  ],
+  "rooms": {
+    "living":{"entry":[-0.6,0,2.25],"position":[0.25,0,1.25],"activities":["listen","pet","rest"]},
+    "storage":{"entry":[-3.45,0,1.65],"position":[-3.4,0,0.8],"activities":["tidy","rest"]},
+    "bathroom":{"entry":[-0.65,3,2.05],"position":[-0.45,3,0.9],"activities":["wash","rest"]},
+    "bedroom":{"entry":[0.2,6,1.9],"position":[-1.5,6,1.3],"activities":["journal","rest","sleep"],"bed":[-1.65,6.85,-0.2]},
+    "library":{"entry":[3.55,3,1.6],"position":[2.75,3,1.4],"activities":["read","rest"]},
+    "roof":{"entry":[1.8,9,0.9],"position":[0.65,9,0.85],"activities":["bubble","rest"]}
+  },
+  "actions": {
+    "wave":{"room":null,"label":"向你打招呼"},
+    "journal":{"room":"bedroom","label":"翻实习日记"},
+    "read":{"room":"library","label":"一起读书"},
+    "rest":{"room":null,"label":"歇一小会儿"},
+    "sleep":{"room":"bedroom","label":"准备睡觉"},
+    "wash":{"room":"bathroom","label":"洗漱"},
+    "listen":{"room":"living","label":"听音乐"},
+    "pet":{"room":"living","label":"陪陪小猫"},
+    "bubble":{"room":"roof","label":"吹泡泡"},
+    "tidy":{"room":"storage","label":"整理收藏"},
+    "wake":{"room":"bedroom","label":"起床伸个懒腰"}
+  }
+}

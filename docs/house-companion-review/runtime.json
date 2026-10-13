@@ -1,0 +1,53 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "jobId": "a41edcc3ac8044cc9492d6b5742f2866",
+  "sourceMeshSHA256": "600ff41b294d46aabb026f305f8ba0e8f0f3c8d4725dddcca8fac2b526bd7339",
+  "runtimeSHA256": "e857cc53ad7e0ecf2459169e171dab247353ec43a6f9a39e10a3b0aea943057e",
+  "meshBackend": "Hunyuan3D-2.1",
+  "textureBackend": "Hunyuan3D Paint 2.1",
+  "rigBackend": "Blender character-specific symmetric skeleton; UniRig candidate rejected by structural QC",
+  "bones": 14,
+  "triangles": 28999,
+  "dimensionsYUp": [
+    1.4257423877716064,
+    1.25,
+    0.5178692191839218
+  ],
+  "clips": [
+    "idle",
+    "walk",
+    "wave",
+    "read",
+    "sit",
+    "lie",
+    "wash",
+    "bubble",
+    "wake",
+    "pet",
+    "tidy"
+  ],
+  "weights": {
+    "comp_root": 13792,
+    "comp_head": 0,
+    "comp_arm_l": 499,
+    "comp_forearm_l": 491,
+    "comp_hand_l": 892,
+    "comp_leg_l": 849,
+    "comp_shin_l": 680,
+    "comp_foot_l": 834,
+    "comp_arm_r": 499,
+    "comp_forearm_r": 491,
+    "comp_hand_r": 892,
+    "comp_leg_r": 846,
+    "comp_shin_r": 680,
+    "comp_foot_r": 834
+  },
+  "repairs": [
+    "mirror complete GPU mesh half to restore missing arm; preserve source UV",
+    "mobile triangle reduction",
+    "body stays rigid; symmetric limbs skin independently"
+  ],
+  "sleep": "engine places lie clip on calibrated bed surface",
+  "mouth": "small lower-mouth morph; no cloned voice"
+}
