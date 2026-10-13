@@ -1,0 +1,41 @@
+{
+  "commit": "6a064cbd7c956ae54abc96a8d938dc570f6b83f1",
+  "status": "passed",
+  "results": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 40678,
+      "sha256": "1dcb8ce5d8b4664864af39cff7e4aa86b38b9d8838bea35e0b0b38ee10ff32bd",
+      "matches": true
+    },
+    {
+      "file": "pineapple-house.html",
+      "status": 200,
+      "bytes": 40678,
+      "sha256": "1dcb8ce5d8b4664864af39cff7e4aa86b38b9d8838bea35e0b0b38ee10ff32bd",
+      "matches": true
+    },
+    {
+      "file": "pineapple-companion.html",
+      "status": 200,
+      "bytes": 40708,
+      "sha256": "f380ea93de5fcdf9e82f7e0c46eecdc75c2d221400487ad360af365e042600c8",
+      "matches": true
+    },
+    {
+      "file": "assets/pineapple-house.js",
+      "status": 200,
+      "bytes": 777121,
+      "sha256": "93e9c6d1834ab6d3aaa30604a21116b5319f8b06a95bd0080a574912d41d79c9",
+      "matches": true
+    },
+    {
+      "file": "styles/pineapple-house.css",
+      "status": 200,
+      "bytes": 5058,
+      "sha256": "7120dacbfad95cbbe4bee994c71a80668c045c2513ea46223e87370501b35bc2",
+      "matches": true
+    }
+  ]
+}
