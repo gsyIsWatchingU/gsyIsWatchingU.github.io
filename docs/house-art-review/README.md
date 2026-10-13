@@ -6,3 +6,5 @@
 - 手机为浏览器视口模拟，实机未测。
 - 复测：`node scripts/verify-house-art-browser.mjs`；公网：追加 `--live`。
 - 截图与记录：本目录 `local-*.png`、`local-results.json`。
+
+- 公网复测：18 项通过；8 个文件返回 200 且内容哈希一致，五张图与用户原附件哈希一致。见 live-results.json、public-files.json 和 live-*.png。

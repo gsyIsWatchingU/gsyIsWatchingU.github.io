@@ -1,0 +1,457 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "test": "1440x900-painting-1",
+      "value": {
+        "index": "0",
+        "src": "assets/house-art/pearl.png",
+        "width": 620,
+        "height": 708,
+        "x": 410,
+        "y": 96,
+        "image": {
+          "x": 532.796875,
+          "y": 202,
+          "width": 374.390625,
+          "height": 468
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "1440x900-painting-2",
+      "value": {
+        "index": "1",
+        "src": "assets/house-art/mona-lisa.png",
+        "width": 620,
+        "height": 708,
+        "x": 410,
+        "y": 96,
+        "image": {
+          "x": 532.796875,
+          "y": 202,
+          "width": 374.390625,
+          "height": 468
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "1440x900-painting-3",
+      "value": {
+        "index": "2",
+        "src": "assets/house-art/starry-portrait.png",
+        "width": 620,
+        "height": 708,
+        "x": 410,
+        "y": 96,
+        "image": {
+          "x": 532.796875,
+          "y": 202,
+          "width": 374.390625,
+          "height": 468
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "1440x900-painting-4",
+      "value": {
+        "index": "3",
+        "src": "assets/house-art/scream.png",
+        "width": 620,
+        "height": 708,
+        "x": 410,
+        "y": 96,
+        "image": {
+          "x": 532.796875,
+          "y": 202,
+          "width": 374.390625,
+          "height": 468
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "1440x900-painting-5",
+      "value": {
+        "index": "4",
+        "src": "assets/house-art/cubist.png",
+        "width": 620,
+        "height": 708,
+        "x": 410,
+        "y": 96,
+        "image": {
+          "x": 532.796875,
+          "y": 202,
+          "width": 374.390625,
+          "height": 468
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "1440x900-navigation-close-focus-and-reopen",
+      "value": true
+    },
+    {
+      "test": "390x844-painting-1",
+      "value": {
+        "index": "0",
+        "src": "assets/house-art/pearl.png",
+        "width": 352,
+        "height": 538.875,
+        "x": 19,
+        "y": 152.5625,
+        "image": {
+          "x": 68.25,
+          "y": 249.5625,
+          "width": 253.5,
+          "height": 316.875
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "390x844-painting-2",
+      "value": {
+        "index": "1",
+        "src": "assets/house-art/mona-lisa.png",
+        "width": 352,
+        "height": 538.875,
+        "x": 19,
+        "y": 152.5625,
+        "image": {
+          "x": 68.25,
+          "y": 249.5625,
+          "width": 253.5,
+          "height": 316.875
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "390x844-painting-3",
+      "value": {
+        "index": "2",
+        "src": "assets/house-art/starry-portrait.png",
+        "width": 352,
+        "height": 538.875,
+        "x": 19,
+        "y": 152.5625,
+        "image": {
+          "x": 68.25,
+          "y": 249.5625,
+          "width": 253.5,
+          "height": 316.875
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "390x844-painting-4",
+      "value": {
+        "index": "3",
+        "src": "assets/house-art/scream.png",
+        "width": 352,
+        "height": 538.875,
+        "x": 19,
+        "y": 152.5625,
+        "image": {
+          "x": 68.25,
+          "y": 249.5625,
+          "width": 253.5,
+          "height": 316.875
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "390x844-painting-5",
+      "value": {
+        "index": "4",
+        "src": "assets/house-art/cubist.png",
+        "width": 352,
+        "height": 538.875,
+        "x": 19,
+        "y": 152.5625,
+        "image": {
+          "x": 68.25,
+          "y": 249.5625,
+          "width": 253.5,
+          "height": 316.875
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "390x844-navigation-close-focus-and-reopen",
+      "value": true
+    },
+    {
+      "test": "844x390-painting-1",
+      "value": {
+        "index": "0",
+        "src": "assets/house-art/pearl.png",
+        "width": 620,
+        "height": 334,
+        "x": 112,
+        "y": 28,
+        "image": {
+          "x": 359.59375,
+          "y": 110,
+          "width": 124.796875,
+          "height": 156
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "844x390-painting-2",
+      "value": {
+        "index": "1",
+        "src": "assets/house-art/mona-lisa.png",
+        "width": 620,
+        "height": 334,
+        "x": 112,
+        "y": 28,
+        "image": {
+          "x": 359.59375,
+          "y": 110,
+          "width": 124.796875,
+          "height": 156
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "844x390-painting-3",
+      "value": {
+        "index": "2",
+        "src": "assets/house-art/starry-portrait.png",
+        "width": 620,
+        "height": 334,
+        "x": 112,
+        "y": 28,
+        "image": {
+          "x": 359.59375,
+          "y": 110,
+          "width": 124.796875,
+          "height": 156
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "844x390-painting-4",
+      "value": {
+        "index": "3",
+        "src": "assets/house-art/scream.png",
+        "width": 620,
+        "height": 334,
+        "x": 112,
+        "y": 28,
+        "image": {
+          "x": 359.59375,
+          "y": 110,
+          "width": 124.796875,
+          "height": 156
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "844x390-painting-5",
+      "value": {
+        "index": "4",
+        "src": "assets/house-art/cubist.png",
+        "width": 620,
+        "height": 334,
+        "x": 112,
+        "y": 28,
+        "image": {
+          "x": 359.59375,
+          "y": 110,
+          "width": 124.796875,
+          "height": 156
+        },
+        "overflow": false,
+        "horizontalOverflow": false,
+        "selected": 1,
+        "modal": true,
+        "chest": {
+          "open": true,
+          "amount": 1,
+          "ready": true,
+          "lidParts": 2,
+          "paintings": 5,
+          "loaded": 5
+        }
+      }
+    },
+    {
+      "test": "844x390-navigation-close-focus-and-reopen",
+      "value": true
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "limitations": [
+    "手机为 Chrome 视口模拟，实机未测"
+  ]
+}
