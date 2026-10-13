@@ -26,5 +26,7 @@
     "lie_88",
     "lie_100"
   ],
-  "sideRestMethod": "关节弧线、脚掌接触、八段侧卧修正形态"
+  "sideRestMethod": "关节弧线、脚掌接触、八段侧卧修正形态",
+  "sideRestStatus": "rejected",
+  "sideRestRejection": "用户指出肩髋到四肢仍有扭曲"
 }

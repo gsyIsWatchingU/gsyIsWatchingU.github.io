@@ -118,7 +118,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
     return leg.rest.clone().applyAxisAngle(up,curveYaw(ahead)).add(curvePoint(ahead));
   }
   function settle(next="idle") { state="settling";elapsed=0;duration=Infinity;afterSettle=next;for(const leg of legs){leg.settled=false;leg.landingIsRest=false;} }
-  function idle(next="idle") {if(next==='sit'&&spec.pet.sitEnabled===false)next='idle';state=next;elapsed=0;duration=next==="curious"?Infinity:next==="lie"?7+(walkNumber%3):4.5+(walkNumber%3)*.7; }
+  function idle(next="idle") {if(next==='sit'&&spec.pet.sitEnabled===false||next==='lie'&&spec.pet.lieEnabled===false)next='idle';state=next;elapsed=0;duration=next==="curious"?Infinity:next==="lie"?7+(walkNumber%3):4.5+(walkNumber%3)*.7; }
   function beginSteps(next) {
     state=next;elapsed=0;duration=next==="walk"?5.5+(walkNumber%4)*1.1:Infinity;
     for(const leg of legs){leg.settled=false;leg.waitForStance=((gaitTime/cycle+leg.offset)%1+1)%1>=stance;}
@@ -188,7 +188,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
       if(naturalRest){
         const resting=state!=="settling"&&state!=="walk"&&state!=="turn";
         sit=approach(sit,spec.pet.sitEnabled!==false&&!attention&&resting&&sideLie<.001&&(requestedRest??state)==="sit"?1:0,dt/1.9);
-        sideLie=approach(sideLie,!attention&&resting&&sit<.001&&(requestedRest??state)==="lie"?1:0,dt/2.3);
+        sideLie=approach(sideLie,spec.pet.lieEnabled!==false&&!attention&&resting&&sit<.001&&(requestedRest??state)==="lie"?1:0,dt/2.3);
         const sitting=ease(sit),lying=ease(sideLie),roll=lying*(groundedSide?-Math.PI*.5:Math.PI*.5);
         model.quaternion.setFromAxisAngle(up,yaw).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),roll));
         const centerShift=(groundedSide?liePivot:.32*unit)*Math.sin(roll),seatForward=spec.pet.poseSitV2||spec.pet.poseSitV3?0:.12*unit*sitting;
@@ -325,6 +325,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
   for(const leg of legs){leg.anchor.copy(leg.rest).applyMatrix4(model.matrixWorld);leg.target.copy(leg.anchor);leg.anchorQuaternion.copy(model.getWorldQuaternion(new THREE.Quaternion()).multiply(leg.pawQuaternion));leg.targetQuaternion.copy(leg.anchorQuaternion);}
   function setRestPose(next){
     if(!naturalRest||!["idle","sit","lie","walk"].includes(next))return;
+    if(next==='lie'&&spec.pet.lieEnabled===false)next='idle';
     attention=false;requestedRest=next==="walk"?null:next;
     if(next==="walk"){walkNumber++;beginSteps("turn");}else settle(next);
   }

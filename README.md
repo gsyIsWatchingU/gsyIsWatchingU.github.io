@@ -10,7 +10,7 @@
 
 房间之间可沿门与楼梯直接切换，双向通路配置在 `src/data/house-connections.json`；窄屏显示底部通行入口。
 
-客厅默认宠物为已确认的短绒毛暹罗幼猫，可自动行走和侧躺；点击后正面看向镜头。坐姿正在重做，正式页暂时停用，见 [独立预览](docs/cat-anatomy-review/)。造型、来源与动作验证见 [猫咪记录](docs/cat-fur-review/README.md)，整屋脱敏截图见 [九图展示](docs/house-gallery-review/index.html)。
+客厅默认宠物为已确认的短绒毛暹罗幼猫，可自动行走；点击后正面看向镜头。坐姿与侧卧因变形正在重做，正式页暂时停用，见 [独立预览](docs/cat-anatomy-review/)。造型、来源与动作验证见 [猫咪记录](docs/cat-fur-review/README.md)，整屋脱敏截图见 [九图展示](docs/house-gallery-review/index.html)。
 
 履历内容在 `src/data/house-profile.json`，证书清单在 `src/data/house-awards.json`；构建时生成可直接阅读的 HTML，`scripts/house-profile.js` 独立控制阅读弹层与证书查看，提供 `openResume(sectionId)`、`closeResume()`；关闭内容保留原房间与镜头，Esc 优先关闭最上层内容。新增字体、简历、证书来源和浏览器截图见 [履历小屋记录](docs/house-profile-review/README.md)。
 

@@ -20,5 +20,7 @@
     "lie_75",
     "lie_88",
     "lie_100"
-  ]
+  ],
+  "sideRestStatus": "rejected",
+  "sideRestRejection": "用户指出肩髋到四肢仍有扭曲"
 }
