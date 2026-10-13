@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "commit": "2fd6088854df1b746773e436757964113a0aec84",
+  "records": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "expected": "853734610da4a9174f678b35200f7cafbdbfc96e7dbd13b669b2ffadcf62f8c0",
+      "actual": "853734610da4a9174f678b35200f7cafbdbfc96e7dbd13b669b2ffadcf62f8c0",
+      "match": true
+    },
+    {
+      "path": "pineapple-house.html",
+      "status": 200,
+      "expected": "853734610da4a9174f678b35200f7cafbdbfc96e7dbd13b669b2ffadcf62f8c0",
+      "actual": "853734610da4a9174f678b35200f7cafbdbfc96e7dbd13b669b2ffadcf62f8c0",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "expected": "460d6b1dc382610f86ecb6bfde0d4f29b230cba43d1c0d6800c002f574b5cffb",
+      "actual": "460d6b1dc382610f86ecb6bfde0d4f29b230cba43d1c0d6800c002f574b5cffb",
+      "match": true
+    },
+    {
+      "path": "src/data/pineapple-house.json",
+      "status": 200,
+      "expected": "3f608797e50f84570ccc8382c7dd28b0208affe3a13833ca9859e249d98b9d03",
+      "actual": "3f608797e50f84570ccc8382c7dd28b0208affe3a13833ca9859e249d98b9d03",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "expected": "5e4b7c961bb933a79542a1a85eb796b0623a304627bf566700b4a6e51a933494",
+      "actual": "5e4b7c961bb933a79542a1a85eb796b0623a304627bf566700b4a6e51a933494",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-seated-v2.glb",
+      "status": 200,
+      "expected": "54d73a28c7a3f1326da7d6092bfde99bf12d734adc5351778890721de4faf286",
+      "actual": "54d73a28c7a3f1326da7d6092bfde99bf12d734adc5351778890721de4faf286",
+      "match": true
+    },
+    {
+      "path": "docs/cat-sit-v2-review/index.html",
+      "status": 200,
+      "expected": "b89386dd84942d61ad7f8136367c8d119ace590e32b94ff8c93708afba344550",
+      "actual": "b89386dd84942d61ad7f8136367c8d119ace590e32b94ff8c93708afba344550",
+      "match": true
+    },
+    {
+      "path": "docs/cat-sit-v2-review/viewer.js",
+      "status": 200,
+      "expected": "fc62328c02f3adfe48c58f884efc76303a8f28b5c5d7de1e4d1e59759fdf0ee2",
+      "actual": "fc62328c02f3adfe48c58f884efc76303a8f28b5c5d7de1e4d1e59759fdf0ee2",
+      "match": true
+    },
+    {
+      "path": "docs/cat-sit-v2-review/runtime.json",
+      "status": 200,
+      "expected": "cf9dee49390880eb30cf4c8f84c1a9e6c3676349d38308018d40c253bda1f9f4",
+      "actual": "cf9dee49390880eb30cf4c8f84c1a9e6c3676349d38308018d40c253bda1f9f4",
+      "match": true
+    }
+  ]
+}
