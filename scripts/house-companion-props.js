@@ -16,7 +16,7 @@ export function createCompanionProps({actor,avatar,bones,houseGroup,getDisplay,g
       source=getDisplay('work-journal');if(!source){kind=null;return;}
       home={parent:source.parent,position:source.position.clone(),quaternion:source.quaternion.clone(),scale:source.scale.clone()};
       home.housePosition=source.position.clone();home.houseQuaternion=source.quaternion.clone();home.houseScale=source.scale.clone();
-      stand.copy(source.position).add(new THREE.Vector3(.155*source.scale.x,0,.32));stand.y=6;
+      stand.copy(source.position).add(new THREE.Vector3(-.36,0,.155*source.scale.x));stand.y=6;
     }else{
       const chest=getToyChest?.();if(!chest){kind=null;return;}
       stand.copy(houseGroup.worldToLocal(chest.touchPoint())).add(new THREE.Vector3(-.26,0,.30));stand.y=6;
@@ -27,7 +27,7 @@ export function createCompanionProps({actor,avatar,bones,houseGroup,getDisplay,g
     if(!kind)return null;
     actor.position.lerpVectors(from,stand,smooth(time/2));
     if(time<2){phase='approach';const delta=stand.clone().sub(from);yaw=Math.atan2(delta.x,delta.z);}
-    else {yaw=Math.PI;
+    else {yaw=kind==='journal'?Math.PI/2:Math.PI;
       phase=kind==='toy'?(time<3?'open':time<7.4?'play':time<8.6?'close':'done'):
         time<3.2?'reach':time<4.5?'lift':time<7?'read':time<8.3?'return':time<9.1?'release':'done';
     }
@@ -36,8 +36,8 @@ export function createCompanionProps({actor,avatar,bones,houseGroup,getDisplay,g
       // 小跳够到较高的床面，书仍留在原位，手接触后才拿起。
       const hop=(at,duration)=>{const t=(time-at)/duration;return t>0&&t<1?.36*Math.sin(Math.PI*t):0;};
       actor.position.y+=hop(2.35,1.7)+hop(7.45,1.7);
-      if(time>4.5&&time<7)yaw=THREE.MathUtils.lerp(Math.PI,.10,smooth((time-4.5)/.6));
-      if(time>=7&&time<7.5)yaw=THREE.MathUtils.lerp(.10,Math.PI,smooth((time-7)/.5));
+      if(time>4.5&&time<7)yaw=THREE.MathUtils.lerp(Math.PI/2,.10,smooth((time-4.5)/.6));
+      if(time>=7&&time<7.5)yaw=THREE.MathUtils.lerp(.10,Math.PI/2,smooth((time-7)/.5));
     }
     root.dataset.companionProp=kind+':'+phase;
     return {walking:phase==='approach',yaw,phase};
