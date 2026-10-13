@@ -1,6 +1,7 @@
 {
-  "status": "review",
-  "humanReview": "pending",
+  "status": "rejected",
+  "humanReview": "rejected",
+  "reason": "User rejected bulging forelegs and slab-like rear thighs",
   "source": "assets/house-review/props/siamese-kitten-compact.glb",
   "sourceSHA256": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
   "output": "assets/house-review/props/siamese-kitten-seated-v2.glb",
