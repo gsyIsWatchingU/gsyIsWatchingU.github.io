@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "commit": "9bbca49480454cd549635c7c80128765ba901034",
+  "result": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 40587,
+      "sha256": "2cdaf727b545a74b54df74a991e93f3eeb871c06e1b861aaa9abfa6826c486a4",
+      "expected": "2cdaf727b545a74b54df74a991e93f3eeb871c06e1b861aaa9abfa6826c486a4",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "bytes": 40617,
+      "sha256": "1522627cba401491e839f31f84938301bbcd12fd0ea01024f73fe6c50ec81b02",
+      "expected": "1522627cba401491e839f31f84938301bbcd12fd0ea01024f73fe6c50ec81b02",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "bytes": 770247,
+      "sha256": "ec147cfd7fa0b1b5dfc1924b77cb5b989ad57defabc5c39591e72f07ddaf2b08",
+      "expected": "ec147cfd7fa0b1b5dfc1924b77cb5b989ad57defabc5c39591e72f07ddaf2b08",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-sit.glb",
+      "status": 200,
+      "bytes": 3858516,
+      "sha256": "ac233b20189bb5fe86b9fd799f71e28f6d4256a09ecc37003620b714cd59d641",
+      "expected": "ac233b20189bb5fe86b9fd799f71e28f6d4256a09ecc37003620b714cd59d641",
+      "match": true
+    },
+    {
+      "path": "docs/cat-crouch-review/viewer.js",
+      "status": 200,
+      "bytes": 670083,
+      "sha256": "c7a9e70a11d032595364964652919bd499a2225fe49a2f502238e03249b4ffbb",
+      "expected": "c7a9e70a11d032595364964652919bd499a2225fe49a2f502238e03249b4ffbb",
+      "match": true
+    },
+    {
+      "path": "docs/cat-crouch-review/index.html",
+      "status": 200,
+      "bytes": 1053,
+      "sha256": "8eb436dc66a72c0bf0d52c8d1dbbf9f71a43f177e4eca25d2b8356f2264611f8",
+      "expected": "8eb436dc66a72c0bf0d52c8d1dbbf9f71a43f177e4eca25d2b8356f2264611f8",
+      "match": true
+    }
+  ]
+}
