@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "phase": "pull",
+      "surface": 6.751006484031677,
+      "contactGap": null,
+      "active": true
+    },
+    {
+      "phase": "climb",
+      "surface": 6.751006484031677,
+      "contactGap": null,
+      "active": true
+    },
+    {
+      "phase": "lie",
+      "surface": 6.751006484031677,
+      "contactGap": null,
+      "active": true
+    },
+    {
+      "phase": "cover",
+      "surface": 6.751006484031677,
+      "contactGap": 0.006999999999999673,
+      "active": true
+    },
+    {
+      "phase": "sleep",
+      "surface": 6.751006484031677,
+      "contactGap": 0.006999999999999673,
+      "active": true
+    }
+  ],
+  "actualBounds": {
+    "min": [
+      -1.999376688522736,
+      6.758006484031676,
+      -0.6710947355406947
+    ],
+    "max": [
+      -1.3006233114772632,
+      7.112276075394928,
+      -0.03570026831671097
+    ]
+  },
+  "originalVertices": 1225,
+  "uvPreserved": true,
+  "repeatedSleep": true,
+  "reset": true
+}

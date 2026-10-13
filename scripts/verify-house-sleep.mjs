@@ -18,11 +18,15 @@ const bounds=new THREE.Box3(),inverse=avatar.matrixWorld.clone().invert();model.
 model.scale.setScalar(1.25/bounds.getSize(new THREE.Vector3()).y);model.position.set(0,-bounds.min.y*model.scale.x,-(bounds.min.z+bounds.max.z)*.5*model.scale.x);houseGroup.updateMatrixWorld(true);
 const bones=new Map();model.traverse(n=>{if(n.isBone)bones.set(n.name,n);});
 const root={dataset:{}},motion=createCompanionSleep({actor,avatar,model,bones,houseGroup,getBed:()=>bed,root,height:.88});
-motion.begin();const results=[];
+motion.begin();const results=[];let original;bed.traverse(n=>{if(n.material?.name==='purple quilt'&&n.name!=='companion-sleep-quilt')original=n;});
+assert(original.visible,'到床边前原被子保持可见');
 for(const seconds of [.5,1.9,3.3,4.6,6]){avatar.position.set(0,0,0);avatar.rotation.set(0,0,0);motion.update(seconds);results.push(motion.snapshot());assert(actor.position.toArray().every(Number.isFinite));}
 assert.deepEqual(results.map(r=>r.phase),['pull','climb','lie','cover','sleep']);assert(Math.abs(results.at(-1).contactGap-.007)<1e-5);assert(results.at(-1).surface>6.7&&results.at(-1).surface<6.9);
 const cover=houseGroup.getObjectByName('companion-sleep-quilt');assert(cover.visible);assert(cover.geometry.attributes.position.array.every(Number.isFinite));
+assert.equal(cover.geometry.attributes.position.count,original.geometry.attributes.position.count,'使用原被子的厚度和圆角');
+assert.deepEqual(cover.geometry.attributes.uv.array,original.geometry.attributes.uv.array,'保留原被子纹理 UV');
 const actual=new THREE.Box3();model.traverse(n=>{if(n.isMesh)for(let i=0;i<n.geometry.attributes.position.count;i++)actual.expandByPoint(n.getVertexPosition(i,new THREE.Vector3()).applyMatrix4(n.matrixWorld));});
 assert(Math.abs(actual.min.y-results.at(-1).surface-.007)<.012,'真实蒙皮必须落在床垫上');assert(actual.min.x>bed.position.x-.7&&actual.max.x<bed.position.x+.7&&actual.min.z>bed.position.z-.86&&actual.max.z<bed.position.z+.86,'整个角色必须留在床垫范围内');
-motion.reset();assert(!cover.visible);assert.equal(motion.snapshot().phase,'idle');
-writeFileSync('docs/house-roof-bedroom-review/sleep-geometry.json',JSON.stringify({results,actualBounds:{min:actual.min.toArray(),max:actual.max.toArray()},reset:true},null,2)+'\n');console.log('sleep stages / actual skin contact / bed footprint / finite cloth / interruption cleanup: PASS');
+motion.reset();assert(!cover.visible&&original.visible);assert.equal(motion.snapshot().phase,'idle');
+motion.begin();motion.update(6);assert(cover.visible&&!original.visible,'再次睡觉不得误将动画被子识别成原被子');motion.reset();
+writeFileSync('docs/sleep-quilt-review/geometry.json',JSON.stringify({results,actualBounds:{min:actual.min.toArray(),max:actual.max.toArray()},originalVertices:original.geometry.attributes.position.count,uvPreserved:true,repeatedSleep:true,reset:true},null,2)+'\n');console.log('sleep stages / actual skin contact / bed footprint / quilt thickness and UV / repeated sleep / interruption cleanup: PASS');
