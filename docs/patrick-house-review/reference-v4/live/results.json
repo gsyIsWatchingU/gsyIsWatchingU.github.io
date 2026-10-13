@@ -1,0 +1,449 @@
+{
+  "records": [
+    {
+      "test": "ready",
+      "value": {
+        "view": "whole",
+        "mode": "cutaway",
+        "state": "ready",
+        "waveState": "idle",
+        "character": {
+          "loaded": true,
+          "action": "idle",
+          "time": 1.2508000000007453,
+          "counter": 0,
+          "height": 0.98,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "costume": "shorts",
+          "icecream": false,
+          "blink": 0
+        },
+        "collection": {
+          "count": 26,
+          "selected": null
+        },
+        "stair": {
+          "count": 10,
+          "rise": 0.22999999999999998,
+          "run": 0.255,
+          "slopeDegrees": 42.04922089099365,
+          "bottom": -2.3
+        },
+        "interact": {
+          "tvOn": false,
+          "upperTvOn": false,
+          "fanSpinning": false,
+          "bedLampOn": false,
+          "floorLampOn": false
+        },
+        "camPos": [
+          0,
+          6.249056477730055,
+          22.950256716954787
+        ],
+        "target": [
+          0,
+          1.2,
+          0
+        ],
+        "fov": 34,
+        "patrickPos": [
+          0.15,
+          -2.3,
+          0.7
+        ]
+      }
+    },
+    {
+      "test": "stairs-connected-and-landed",
+      "value": {
+        "count": 10,
+        "rise": 0.22999999999999998,
+        "run": 0.255,
+        "slopeDegrees": 42.04922089099365,
+        "bottom": -2.3
+      }
+    },
+    {
+      "test": "real-character-click",
+      "value": {
+        "view": "living",
+        "mode": "cutaway",
+        "state": "ready",
+        "waveState": "wave",
+        "character": {
+          "loaded": true,
+          "action": "wave",
+          "time": 0.8982999999988827,
+          "counter": 1,
+          "height": 0.98,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "costume": "shorts",
+          "icecream": false,
+          "blink": 0
+        },
+        "collection": {
+          "count": 26,
+          "selected": null
+        },
+        "stair": {
+          "count": 10,
+          "rise": 0.22999999999999998,
+          "run": 0.255,
+          "slopeDegrees": 42.04922089099365,
+          "bottom": -2.3
+        },
+        "interact": {
+          "tvOn": false,
+          "upperTvOn": false,
+          "fanSpinning": false,
+          "bedLampOn": false,
+          "floorLampOn": false
+        },
+        "camPos": [
+          0.4755315421514313,
+          -0.20000000000000018,
+          5.240209113084025
+        ],
+        "target": [
+          -0.09999999999999994,
+          -1.8,
+          -0.39999999999999974
+        ],
+        "fov": 34,
+        "patrickPos": [
+          0.15,
+          -2.3,
+          0.7
+        ]
+      }
+    },
+    {
+      "test": "actual-skin-deformation-wave",
+      "value": {
+        "p99": 1.4182967796525663,
+        "max": 3.6127745924295422,
+        "minimumY": -0.0026860729195079536,
+        "bones": 5,
+        "triangles": 29100
+      }
+    },
+    {
+      "test": "real-action-cheer",
+      "value": {
+        "loaded": true,
+        "action": "cheer",
+        "time": 0.7477999999988826,
+        "counter": 2,
+        "height": 0.98,
+        "offset": [
+          0,
+          0.18102261161550937,
+          0
+        ],
+        "costume": "shorts",
+        "icecream": false,
+        "blink": 0
+      }
+    },
+    {
+      "test": "actual-skin-deformation-cheer",
+      "value": {
+        "p99": 2.0360944697452315,
+        "max": 3.3793745386526908,
+        "minimumY": 0.17669744139332,
+        "bones": 5,
+        "triangles": 29100
+      }
+    },
+    {
+      "test": "real-action-icecream",
+      "value": {
+        "loaded": true,
+        "action": "icecream",
+        "time": 0.7989000000003726,
+        "counter": 3,
+        "height": 0.98,
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "costume": "shorts",
+        "icecream": true,
+        "blink": 0
+      }
+    },
+    {
+      "test": "actual-skin-deformation-icecream",
+      "value": {
+        "p99": 1.3745990358947786,
+        "max": 3.400867861272145,
+        "minimumY": -4.28408379882228e-8,
+        "bones": 5,
+        "triangles": 29100
+      }
+    },
+    {
+      "test": "real-action-hula",
+      "value": {
+        "loaded": true,
+        "action": "hula",
+        "time": 0.7215999999996274,
+        "counter": 4,
+        "height": 0.98,
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "costume": "hula",
+        "icecream": false,
+        "blink": 0.42
+      }
+    },
+    {
+      "test": "actual-skin-deformation-hula",
+      "value": {
+        "p99": 1.7820410527068906,
+        "max": 2.7932398748466523,
+        "minimumY": -0.0022453807663067593,
+        "bones": 5,
+        "triangles": 29100
+      }
+    },
+    {
+      "test": "real-buried-object-click",
+      "value": {
+        "count": 26,
+        "selected": "relic-4"
+      }
+    },
+    {
+      "test": "real-tv-isolation-tvOn",
+      "value": {
+        "tvOn": true,
+        "upperTvOn": false,
+        "fanSpinning": false,
+        "bedLampOn": false,
+        "floorLampOn": false
+      }
+    },
+    {
+      "test": "real-tv-isolation-upperTvOn",
+      "value": {
+        "tvOn": true,
+        "upperTvOn": true,
+        "fanSpinning": false,
+        "bedLampOn": false,
+        "floorLampOn": false
+      }
+    },
+    {
+      "test": "real-room-厨房",
+      "value": true
+    },
+    {
+      "test": "real-room-卧室",
+      "value": true
+    },
+    {
+      "test": "resize-390x844",
+      "value": {
+        "view": "whole",
+        "mode": "cutaway",
+        "state": "ready",
+        "waveState": "idle",
+        "character": {
+          "loaded": true,
+          "action": "idle",
+          "time": 11.566899999998448,
+          "counter": 4,
+          "height": 0.98,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "costume": "shorts",
+          "icecream": false,
+          "blink": 0
+        },
+        "collection": {
+          "count": 26,
+          "selected": null
+        },
+        "stair": {
+          "count": 10,
+          "rise": 0.22999999999999998,
+          "run": 0.255,
+          "slopeDegrees": 42.04922089099365,
+          "bottom": -2.3
+        },
+        "interact": {
+          "tvOn": true,
+          "upperTvOn": true,
+          "fanSpinning": false,
+          "bedLampOn": false,
+          "floorLampOn": false
+        },
+        "camPos": [
+          0,
+          8.079488714093166,
+          31.270403245878022
+        ],
+        "target": [
+          0,
+          1.2,
+          0
+        ],
+        "fov": 50,
+        "patrickPos": [
+          0.15,
+          -2.3,
+          0.7
+        ]
+      }
+    },
+    {
+      "test": "resize-844x390",
+      "value": {
+        "view": "whole",
+        "mode": "cutaway",
+        "state": "ready",
+        "waveState": "idle",
+        "character": {
+          "loaded": true,
+          "action": "idle",
+          "time": 12.566999999999924,
+          "counter": 4,
+          "height": 0.98,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "costume": "shorts",
+          "icecream": false,
+          "blink": 0
+        },
+        "collection": {
+          "count": 26,
+          "selected": null
+        },
+        "stair": {
+          "count": 10,
+          "rise": 0.22999999999999998,
+          "run": 0.255,
+          "slopeDegrees": 42.04922089099365,
+          "bottom": -2.3
+        },
+        "interact": {
+          "tvOn": true,
+          "upperTvOn": true,
+          "fanSpinning": false,
+          "bedLampOn": false,
+          "floorLampOn": false
+        },
+        "camPos": [
+          0,
+          6.249056477730055,
+          22.950256716954787
+        ],
+        "target": [
+          0,
+          1.2,
+          0
+        ],
+        "fov": 34,
+        "patrickPos": [
+          0.15,
+          -2.3,
+          0.7
+        ]
+      }
+    },
+    {
+      "test": "resize-1440x900",
+      "value": {
+        "view": "whole",
+        "mode": "cutaway",
+        "state": "ready",
+        "waveState": "idle",
+        "character": {
+          "loaded": true,
+          "action": "idle",
+          "time": 13.716999999999912,
+          "counter": 4,
+          "height": 0.98,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "costume": "shorts",
+          "icecream": false,
+          "blink": 0
+        },
+        "collection": {
+          "count": 26,
+          "selected": null
+        },
+        "stair": {
+          "count": 10,
+          "rise": 0.22999999999999998,
+          "run": 0.255,
+          "slopeDegrees": 42.04922089099365,
+          "bottom": -2.3
+        },
+        "interact": {
+          "tvOn": true,
+          "upperTvOn": true,
+          "fanSpinning": false,
+          "bedLampOn": false,
+          "floorLampOn": false
+        },
+        "camPos": [
+          0,
+          6.249056477730055,
+          22.950256716954787
+        ],
+        "target": [
+          0,
+          1.2,
+          0
+        ],
+        "fov": 34,
+        "patrickPos": [
+          0.15,
+          -2.3,
+          0.7
+        ]
+      }
+    },
+    {
+      "test": "render",
+      "value": {
+        "frameCount": 1537,
+        "lastRenderError": null,
+        "gl": {
+          "frame": 1537,
+          "calls": 21,
+          "triangles": 72096,
+          "points": 0,
+          "lines": 0
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "failures": []
+}
