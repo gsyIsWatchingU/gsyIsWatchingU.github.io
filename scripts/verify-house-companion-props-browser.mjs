@@ -2,7 +2,7 @@
 import { spawn } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
-const out='docs/house-companion-review/diary-toy';mkdirSync(out,{recursive:true});
+const out='docs/house-companion-review/diary-toy'+(process.argv.includes('--live')?'/live':'');mkdirSync(out,{recursive:true});
 const port=9500+(process.pid%1000),profile=`${process.cwd()}/tmp/companion-chrome-${Date.now()}`;
 const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',[`--remote-debugging-port=${port}`,`--user-data-dir=${profile}`,'--headless=new',...(process.argv.includes('--live')?[]:['--disable-web-security']),'--no-first-run','--no-default-browser-check','--enable-unsafe-swiftshader','--window-size=1440,900','--autoplay-policy=no-user-gesture-required','about:blank'],{stdio:'ignore'});
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
