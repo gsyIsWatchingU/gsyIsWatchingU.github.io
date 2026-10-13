@@ -40,6 +40,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
   let sideHeight=.165*unit;
   if(naturalRest)model.traverse(node=>{if(node.isSkinnedMesh&&!node.userData.petFur){const pos=node.geometry.attributes.position;for(let i=0;i<pos.count;i++)if(pos.getY(i)>.22&&pos.getY(i)<.55&&Math.abs(pos.getZ(i))<.2)sideHeight=Math.max(sideHeight,-pos.getX(i)+.004);}});
   let sit = 0, sideLie = 0, requestedRest = null, savedRest = "idle";
+  const sitShapes=[];model.traverse(node=>{if(node.isMesh&&node.morphTargetDictionary?.sit_100!==undefined)sitShapes.push(node);});
   const up = new THREE.Vector3(0,1,0), yAxis = new THREE.Vector3(0,1,0);
   const originY = spec.position[1];
   const ease = t => t*t*(3-2*t);
@@ -185,7 +186,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         const chest=bones.get("pet_chest")?.node;
         const rootBone=bones.get('pet_root')?.node;
         if(chest&&rootBone){
-          const chestWorld=worldPosition(chest).add(new THREE.Vector3(-seatForward*Math.sin(yaw),0,-seatForward*Math.cos(yaw)));
+          const chestWorld=worldPosition(chest).add(new THREE.Vector3(-seatForward*Math.sin(yaw),spec.pet.sitCorrectives ? .018*sitting : 0,-seatForward*Math.cos(yaw)));
           const chestRotation=chest.getWorldQuaternion(new THREE.Quaternion());
           const parent=rootBone.parent.getWorldQuaternion(new THREE.Quaternion());
           const axis=new THREE.Vector3(1,0,0).applyAxisAngle(up,yaw);
@@ -197,7 +198,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
           model.updateMatrixWorld(true);
         }
         const haunch=bones.get('pet_haunch')?.node;
-        if(haunch)haunch.position.add(up.clone().multiplyScalar(-.02*unit*sitting).applyQuaternion(haunch.parent.getWorldQuaternion(new THREE.Quaternion()).invert()));
+        if(haunch){const offset=spec.pet.sitCorrectives?new THREE.Vector3(0,.010*sitting,.055*sitting).applyAxisAngle(up,yaw):new THREE.Vector3(0,-.02*unit*sitting,0);haunch.position.add(offset.applyQuaternion(haunch.parent.getWorldQuaternion(new THREE.Quaternion()).invert()));}
       }
       // 点击即回应，头尾动作不等待四足收步，脚掌仍由原有 IK 保持接地。
       const greet=greetingTime>0?ease(Math.min(1,(greetingDuration-greetingTime)/.2))*ease(Math.min(1,greetingTime/.65)):0;
@@ -266,6 +267,8 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         leg.swing=swing;solve(leg);
       }
       model.updateMatrixWorld(true);
+      // 四个经实际蒙皮烘焙的修正姿态：后爪先收拢，后臀随后降低。
+      for(const mesh of sitShapes){const names=['sit_25','sit_50','sit_75','sit_100'],scaled=sit*4,low=Math.floor(scaled),fraction=scaled-low;for(const name of names)mesh.morphTargetInfluences[mesh.morphTargetDictionary[name]]=0;if(low>0)mesh.morphTargetInfluences[mesh.morphTargetDictionary[names[low-1]]]=1-fraction;if(low<4)mesh.morphTargetInfluences[mesh.morphTargetDictionary[names[low]]]=fraction;}
       if(state==="settling"&&legs.every(l=>l.settled)){
         if(afterSettle==="walk")beginSteps("walk");else idle(afterSettle);
       }

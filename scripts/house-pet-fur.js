@@ -77,6 +77,7 @@ export function addSiameseFur(model, { layers = 8, length = .009, strands = 2400
       shell.position.copy(mesh.position); shell.quaternion.copy(mesh.quaternion); shell.scale.copy(mesh.scale);
       shell.bindMode = mesh.bindMode;
       shell.bind(mesh.skeleton, mesh.bindMatrix);
+      if(mesh.morphTargetInfluences)shell.morphTargetInfluences=mesh.morphTargetInfluences;
       shell.frustumCulled = false;
       shell.userData = { ...mesh.userData, petFur: true };
       // 点击仍由原始网格判定，毛层不增加命中次数。
@@ -92,6 +93,7 @@ export function addSiameseFur(model, { layers = 8, length = .009, strands = 2400
     for(let i=0;i<indices.count;i+=3){a.fromBufferAttribute(position,indices.getX(i));b.fromBufferAttribute(position,indices.getX(i+1));c.fromBufferAttribute(position,indices.getX(i+2));area+=ab.subVectors(b,a).cross(ac.subVectors(c,a)).length()*.5;cumulative.push(area);}
     let seed=1040;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
     const coordinates=[],normals=[],texcoords=[],joints=[],weights=[],triangles=[];
+    const corrections=(geometry.morphAttributes.position??[]).map(()=>[]);
     const point=new THREE.Vector3(),n=new THREE.Vector3(),side=new THREE.Vector3(),direction=new THREE.Vector3(),tangent=new THREE.Vector3();
     for(let strand=0;strand<strands;strand++){
       const sample=random()*area;let low=0,high=cumulative.length-1;
@@ -117,16 +119,19 @@ export function addSiameseFur(model, { layers = 8, length = .009, strands = 2400
           const tip=corner>1,width=tip?.00006:.00045,sign=corner%2?1:-1;
           const p=point.clone().addScaledVector(n,.00035).addScaledVector(direction,tip?hairLength:0).addScaledVector(side,sign*width);
           coordinates.push(p.x,p.y,p.z);normals.push(n.x,n.y,n.z);texcoords.push(texture.x,texture.y);
+          corrections.forEach((values,index)=>{const delta=new THREE.Vector3();ids.forEach((id,k)=>delta.addScaledVector(a.fromBufferAttribute(geometry.morphAttributes.position[index],id),factors[k]));values.push(delta.x,delta.y,delta.z);});
           for(let k=0;k<4;k++){joints.push(binding[k][0]);weights.push(binding[k][1]/total);}
         }
         const start=baseIndex+card*4;triangles.push(start,start+1,start+2,start+2,start+1,start+3);
       }
     }
     const hairs=new THREE.BufferGeometry();hairs.setAttribute('position',new THREE.Float32BufferAttribute(coordinates,3));hairs.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));hairs.setAttribute('uv',new THREE.Float32BufferAttribute(texcoords,2));hairs.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(joints,4));hairs.setAttribute('skinWeight',new THREE.Float32BufferAttribute(weights,4));hairs.setIndex(triangles);
+    if(corrections.length){hairs.morphTargetsRelative=true;hairs.morphAttributes.position=corrections.map(values=>new THREE.Float32BufferAttribute(values,3));}
     fibers+=coordinates.length/24;
     const hairMaterial=mesh.material.clone();hairMaterial.side=THREE.DoubleSide;hairMaterial.roughness=1;
     hairMaterial.onBeforeCompile=shader=>{mesh.material.onBeforeCompile(shader);shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_begin>',THREE.ShaderChunk.normal_fragment_begin.replace('normal *= faceDirection;',''));};hairMaterial.customProgramCacheKey=()=>"siamese-fiber-coat-v1";
     const hairMesh=new THREE.SkinnedMesh(hairs,hairMaterial);hairMesh.name='siamese_fine_fibers';hairMesh.position.copy(mesh.position);hairMesh.quaternion.copy(mesh.quaternion);hairMesh.scale.copy(mesh.scale);hairMesh.bindMode=mesh.bindMode;hairMesh.bind(mesh.skeleton,mesh.bindMatrix);hairMesh.frustumCulled=false;hairMesh.userData={...mesh.userData,petFur:true};hairMesh.raycast=()=>{};mesh.parent.add(hairMesh);shells.push(hairMesh);
+    if(mesh.morphTargetInfluences)hairMesh.morphTargetInfluences=mesh.morphTargetInfluences;
   }
   return { layers, length, fibers, meshes: meshes.length, setVisible: value => shells.forEach(shell => shell.visible = value) };
 }

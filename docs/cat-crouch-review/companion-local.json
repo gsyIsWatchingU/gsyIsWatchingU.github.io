@@ -1,0 +1,3373 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 7.5,
+          "renderer": {
+            "frame": 99,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            3.240800797555128,
+            7.835762813641166,
+            19.452626302617585
+          ],
+          "target": [
+            1.4607967968747997,
+            5.745896414930563,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.97762,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 1.5000999999999993,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 0.3500000000000001,
+          "chatOpen": false,
+          "position": [
+            2.412864269919045,
+            7.501940536499024,
+            -0.17031249999999995
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.2462664573338538,
+            "lookLeft": 0,
+            "lookUp": 0.07175208155179144,
+            "lookDown": 0,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 0.10937500000000003,
+            "contact": 0.011999996940612503,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 59.5,
+          "renderer": {
+            "frame": 136,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 2.1167999999999996,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 0.9667000000000001,
+          "chatOpen": false,
+          "position": [
+            2.663024139428689,
+            6.677037016005576,
+            0.23439687499999995
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.31870688666655095,
+            "lookLeft": 0,
+            "lookUp": 0.09761868808504677,
+            "lookDown": 0,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 0.30209375,
+            "contact": 0.01199999999999865,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 59.5,
+          "renderer": {
+            "frame": 156,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 2.4501,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 1.3,
+          "chatOpen": false,
+          "position": [
+            2.761584098612455,
+            6.043447875976563,
+            0.453125
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.3470900155876708,
+            "lookLeft": 0,
+            "lookUp": 0.11017302740256846,
+            "lookDown": 0,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 0.40625,
+            "contact": 0.012000000000000483,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 59.5,
+          "renderer": {
+            "frame": 193,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 3.0668999999999995,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 1.9167999999999992,
+          "chatOpen": false,
+          "position": [
+            2.8487194600601367,
+            4.772810661100002,
+            0.8578999999999996
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.3768252965765399,
+            "lookLeft": 0,
+            "lookUp": 0.13021522343067632,
+            "lookDown": 0,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 0.5989999999999998,
+            "contact": 0.012000000000000524,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 59.5,
+          "renderer": {
+            "frame": 213,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 3.4003999999999994,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 2.2502999999999984,
+          "chatOpen": false,
+          "position": [
+            2.838443571662747,
+            4.143208089819043,
+            1.076759374999999
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.3798574511986576,
+            "lookLeft": 0,
+            "lookUp": 0.13911485223888523,
+            "lookDown": 0,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 0.7032187499999994,
+            "contact": 0.012000000000000108,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 59.5,
+          "renderer": {
+            "frame": 250,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 4.017,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 2.866899999999999,
+          "chatOpen": false,
+          "position": [
+            2.716218371653548,
+            3.3346156545211834,
+            1.481403124999999
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.36104349314945083,
+            "lookLeft": 0,
+            "lookUp": 0.15159720550298933,
+            "lookDown": 0,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 0.8959062499999996,
+            "contact": 0.011999998535790826,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": true,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 60,
+          "renderer": {
+            "frame": 270,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 4.350300000000001,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 3.200199999999999,
+          "chatOpen": false,
+          "position": [
+            2.602671150799796,
+            3.199900000000001,
+            1.7002599999999983
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.3381317912779329,
+            "lookLeft": 0,
+            "lookUp": 0.15606627995597802,
+            "lookDown": 0,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": 0.01208372106840816,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": true,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 60,
+          "renderer": {
+            "frame": 307,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 4.967300000000005,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 3.817199999999999,
+          "chatOpen": false,
+          "position": [
+            2.669617070356605,
+            3,
+            2.211944844291466
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0.18,
+            "lookRight": 0,
+            "lookLeft": 0.15435482617206686,
+            "lookUp": 0,
+            "lookDown": 0.95,
+            "smile": 0.25,
+            "calm": 0.65,
+            "browRaise": 0.2,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": -0.0025990376879536647,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": true,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 60,
+          "renderer": {
+            "frame": 328,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 5.317100000000009,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 4.167000000000001,
+          "chatOpen": false,
+          "position": [
+            3.001546239695368,
+            3,
+            2.1720067091499864
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0.18,
+            "lookRight": 0,
+            "lookLeft": 0.20966077744299608,
+            "lookUp": 0,
+            "lookDown": 0.95,
+            "smile": 0.25,
+            "calm": 0.65,
+            "browRaise": 0.2,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": -0.0025990376879536647,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": true,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "slide-frame",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 60,
+          "renderer": {
+            "frame": 367,
+            "calls": 84,
+            "triangles": 316348,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 5.967200000000015,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 4.817100000000007,
+          "chatOpen": false,
+          "position": [
+            3.6,
+            3,
+            1.7479896050766448
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0.18,
+            "lookRight": 0,
+            "lookLeft": 0.27217380339897296,
+            "lookUp": 0,
+            "lookDown": 0.95,
+            "smile": 0.25,
+            "calm": 0.65,
+            "browRaise": 0.2,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": -0.0025990376879536647,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "reading",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "library",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 60,
+          "renderer": {
+            "frame": 566,
+            "calls": 120,
+            "triangles": 316844,
+            "points": 0,
+            "lines": 645
+          },
+          "camera": [
+            4.700000000000001,
+            7.1000000000000005,
+            12.500000000000018
+          ],
+          "target": [
+            2.7,
+            5.7,
+            0
+          ],
+          "pet": {
+            "state": "paused",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.99841,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0612,
+            "interaction": false,
+            "head": [
+              0.015719327426688932,
+              0.045553598137641295,
+              0.01434137678142313,
+              0.9987352488792918
+            ],
+            "tail": [
+              -0.25220234990500134,
+              0.014696403160304815,
+              0.02285187932010074,
+              0.967293038269653
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "library",
+          "action": "read",
+          "day": 9.284000000000011,
+          "phase": 0,
+          "revision": 2,
+          "following": true,
+          "commanded": false,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 5.6,
+          "chatOpen": false,
+          "position": [
+            3.6,
+            3,
+            1.05
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0.18,
+            "lookRight": 0.17602169855644664,
+            "lookLeft": 0,
+            "lookUp": 0,
+            "lookDown": 0.95,
+            "smile": 0.25,
+            "calm": 0.65,
+            "browRaise": 0.2,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": -0.0025990376879536647,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": true,
+            "turning": true,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "petting",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "living",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 58.5,
+          "renderer": {
+            "frame": 985,
+            "calls": 93,
+            "triangles": 563332,
+            "points": 0,
+            "lines": 320
+          },
+          "camera": [
+            0,
+            2.25,
+            8.6
+          ],
+          "target": [
+            0,
+            1.25,
+            0
+          ],
+          "pet": {
+            "state": "sit",
+            "position": [
+              -1.59187,
+              0,
+              1.68639
+            ],
+            "yaw": -0.45128,
+            "steps": 4,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.86099,
+            "sit": 1,
+            "sideLie": 0,
+            "tailLift": 1,
+            "interaction": true,
+            "head": [
+              0.014831031364188051,
+              0.14942132099674652,
+              -0.002241488073637927,
+              0.9886598429548347
+            ],
+            "tail": [
+              0.07347147419096269,
+              -0.004911319463129416,
+              -0.004121755260848419,
+              0.9972767277336367
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0.0216,
+                "contacts": 1,
+                "target": [
+                  -1.369386173782707,
+                  0.04055995632554392,
+                  1.5301515079130776
+                ],
+                "actual": [
+                  -1.3693861624256805,
+                  0.04055995366708162,
+                  1.5301514879139888
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.7716,
+                "contacts": 1,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642468900702,
+                  0.04056005465139037,
+                  1.8430061448421557
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5216,
+                "contacts": 1,
+                "target": [
+                  -1.6121007370142282,
+                  0.04055988407135877,
+                  1.4253041145368943
+                ],
+                "actual": [
+                  -1.612100737439706,
+                  0.040559888825302357,
+                  1.425304115627101
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.2716,
+                "contacts": 1,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526190540295,
+                  0.04056000745963399,
+                  1.7563034449634065
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "living",
+          "action": "pet",
+          "day": 16.36789999999993,
+          "phase": 0,
+          "revision": 8,
+          "following": true,
+          "commanded": true,
+          "loaded": true,
+          "activity": "pet",
+          "entryTime": 2,
+          "chatOpen": false,
+          "position": [
+            -1.1918668844680833,
+            0,
+            2.066389605769075
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.37508145740814386,
+            "lookLeft": 0.55,
+            "lookUp": 0,
+            "lookDown": 0.7,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": -0.0025990376879536647,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": 0.07451525717975693,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "cat-sit",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "living",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 60,
+          "renderer": {
+            "frame": 1137,
+            "calls": 93,
+            "triangles": 563332,
+            "points": 0,
+            "lines": 320
+          },
+          "camera": [
+            0,
+            2.25,
+            8.6
+          ],
+          "target": [
+            0,
+            1.25,
+            0
+          ],
+          "pet": {
+            "state": "sit",
+            "position": [
+              -1.59187,
+              0,
+              1.68639
+            ],
+            "yaw": -0.45128,
+            "steps": 4,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.86099,
+            "sit": 1,
+            "sideLie": 0,
+            "tailLift": 1,
+            "interaction": true,
+            "head": [
+              0.014831031364188051,
+              0.14942132099674652,
+              -0.002241488073637927,
+              0.9886598429548347
+            ],
+            "tail": [
+              0.07346829622938979,
+              -0.008653336049834827,
+              -0.007262188248380393,
+              0.9972335879598911
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0.0216,
+                "contacts": 1,
+                "target": [
+                  -1.369386173782707,
+                  0.04055995632554392,
+                  1.5301515079130776
+                ],
+                "actual": [
+                  -1.3693861624256805,
+                  0.04055995366708162,
+                  1.5301514879139888
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.7716,
+                "contacts": 1,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642468900702,
+                  0.04056005465139037,
+                  1.8430061448421557
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5216,
+                "contacts": 1,
+                "target": [
+                  -1.6121007370142282,
+                  0.04055988407135877,
+                  1.4253041145368943
+                ],
+                "actual": [
+                  -1.612100737439706,
+                  0.040559888825302357,
+                  1.425304115627101
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.2716,
+                "contacts": 1,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526190540295,
+                  0.04056000745963399,
+                  1.7563034449634065
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "living",
+          "action": "pet",
+          "day": 18.90139999999989,
+          "phase": 0,
+          "revision": 8,
+          "following": true,
+          "commanded": true,
+          "loaded": true,
+          "activity": "pet",
+          "entryTime": 2,
+          "chatOpen": false,
+          "position": [
+            -1.1918668844680833,
+            0,
+            2.066389605769075
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0.19573658225175145,
+            "lookLeft": 0.55,
+            "lookUp": 0,
+            "lookDown": 0.7,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": -0.0025990376879536647,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": true,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": 0.07518148095991717,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "cat-greeting",
+      "value": {
+        "house": {
+          "state": "ready",
+          "view": "living",
+          "loaded": [
+            "chair",
+            "table",
+            "sink",
+            "toilet",
+            "treasure",
+            "bathtub",
+            "couch",
+            "bed",
+            "barrel",
+            "siamese-cat",
+            "chest",
+            "lounger",
+            "laptop",
+            "bluetooth-speaker",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 59,
+          "renderer": {
+            "frame": 1240,
+            "calls": 93,
+            "triangles": 563332,
+            "points": 0,
+            "lines": 320
+          },
+          "camera": [
+            0,
+            2.25,
+            8.6
+          ],
+          "target": [
+            0,
+            1.25,
+            0
+          ],
+          "pet": {
+            "state": "settling",
+            "position": [
+              -1.55074,
+              0,
+              1.60153
+            ],
+            "yaw": -0.45128,
+            "steps": 4,
+            "reactions": 1,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.71423,
+            "sit": 0.0789,
+            "sideLie": 0,
+            "tailLift": 1,
+            "interaction": true,
+            "head": [
+              0.014831031364188056,
+              0.14942132099674652,
+              -0.0022414880736379,
+              0.9886598429548347
+            ],
+            "tail": [
+              0.07346198850373133,
+              -0.016735650855386745,
+              -0.004383518353536266,
+              0.9971479720304284
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0.0216,
+                "contacts": 1,
+                "target": [
+                  -1.3457219867698353,
+                  0.04055995632554392,
+                  1.4542929911219487
+                ],
+                "actual": [
+                  -1.345721982399085,
+                  0.04055994900199812,
+                  1.4542929747051356
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.7716,
+                "contacts": 1,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642485822959,
+                  0.04056006824709539,
+                  1.8430061483339575
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5216,
+                "contacts": 1,
+                "target": [
+                  -1.5672212281218851,
+                  0.04055988407135877,
+                  1.3597271521315475
+                ],
+                "actual": [
+                  -1.567221220659729,
+                  0.04055988535694255,
+                  1.3597271303753105
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.2716,
+                "contacts": 1,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526238461149,
+                  0.040560017144957314,
+                  1.7563034548515664
+                ]
+              }
+            ]
+          },
+          "status": "review",
+          "structureOnly": false
+        },
+        "companion": {
+          "room": "living",
+          "action": "pet",
+          "day": 20.651499999999857,
+          "phase": 1,
+          "revision": 9,
+          "following": true,
+          "commanded": true,
+          "loaded": true,
+          "activity": "pet",
+          "entryTime": 2,
+          "chatOpen": false,
+          "position": [
+            -1.1507406669249547,
+            0,
+            1.9815283182511894
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0,
+            "lookRight": 0,
+            "lookLeft": 0.55,
+            "lookUp": 0.018960093911775434,
+            "lookDown": 0.7,
+            "smile": 0.85,
+            "calm": 0,
+            "browRaise": 0.1,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": -0.0025990376879536647,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": false,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": 0.01591264898574757,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        }
+      }
+    },
+    {
+      "test": "visitor-tail",
+      "relaxed": {
+        "pet": {
+          "state": "idle",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.96429,
+          "sit": 0,
+          "sideLie": 0,
+          "tailLift": 0.0647,
+          "interaction": false,
+          "head": [
+            0.017740958999390925,
+            0.055611620959569646,
+            0.015859392300750536,
+            0.99816886630664
+          ],
+          "tail": [
+            -0.25102348069728525,
+            0.012460216310129262,
+            0.01925400009069373,
+            0.967709294346971
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.345295804113772,
+                0.04055995632554392,
+                1.4529268092136716
+              ],
+              "actual": [
+                -1.3452957998949613,
+                0.04055994861636053,
+                1.4529267930286236
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.561064268310885,
+                0.04056009514456732,
+                1.8430062068137434
+              ],
+              "actual": [
+                -1.5610642486492305,
+                0.040560068463959764,
+                1.843006148472073
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.5664129659030244,
+                0.04055988407135877,
+                1.358546136954509
+              ],
+              "actual": [
+                -1.5664129583229298,
+                0.04055988576149082,
+                1.3585461148963047
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7324526361100017,
+                0.04056006654079784,
+                1.7563034992544209
+              ],
+              "actual": [
+                -1.7324526239594908,
+                0.04056001734161181,
+                1.7563034550855101
+              ]
+            }
+          ]
+        },
+        "tip": 0.31303424156995496
+      },
+      "raised": {
+        "pet": {
+          "state": "curious",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 1,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.99999,
+          "sit": 0,
+          "sideLie": 0,
+          "tailLift": 0.9998,
+          "interaction": false,
+          "head": [
+            0.013599934376166998,
+            -0.07750556712288188,
+            0.0010573482949482846,
+            0.9968985960791138
+          ],
+          "tail": [
+            0.07337498678598756,
+            0.0327846893064077,
+            0.008313352974321064,
+            0.9967307574251109
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.345295804113772,
+                0.04055995632554392,
+                1.4529268092136716
+              ],
+              "actual": [
+                -1.3452957998949613,
+                0.04055994861636053,
+                1.4529267930286236
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.561064268310885,
+                0.04056009514456732,
+                1.8430062068137434
+              ],
+              "actual": [
+                -1.5610642486492305,
+                0.040560068463959764,
+                1.843006148472073
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.5664129659030244,
+                0.04055988407135877,
+                1.358546136954509
+              ],
+              "actual": [
+                -1.5664129583229298,
+                0.04055988576149082,
+                1.3585461148963047
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7324526361100017,
+                0.04056006654079784,
+                1.7563034992544209
+              ],
+              "actual": [
+                -1.7324526239594908,
+                0.04056001734161181,
+                1.7563034550855101
+              ]
+            }
+          ]
+        },
+        "tip": 0.41119252498495773
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,16 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "source": "assets/house-review/props/siamese-kitten-compact.glb",
+  "sourceSHA256": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+  "output": "assets/house-review/props/siamese-kitten-sit.glb",
+  "runtimeSHA256": "ac233b20189bb5fe86b9fd799f71e28f6d4256a09ecc37003620b714cd59d641",
+  "method": "existing GPU mesh/UV/rig; four sampled skin-space sitting corrective shapes",
+  "targets": [
+    "sit_25",
+    "sit_50",
+    "sit_75",
+    "sit_100"
+  ],
+  "faceUnchanged": true
+}

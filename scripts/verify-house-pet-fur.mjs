@@ -38,14 +38,14 @@ for(const mesh of meshes){
   for(let i=0;i<pos.count;i++){let headWeight=0;for(let k=0;k<4;k++)if(mesh.skeleton.bones[indices.array[i*4+k]].name==='pet_head')headWeight+=weights.array[i*4+k];if(headWeight>.999&&pos.getY(i)>.44)face.push({mesh,index:i});}
 }
 assert(face.length>1000,'脸部需完整随头骨运动');
-const vertex=s=>{const value=new THREE.Vector3().fromBufferAttribute(s.mesh.geometry.attributes.position,s.index);s.mesh.applyBoneTransform(s.index,value);return value.applyMatrix4(s.mesh.matrixWorld);};
+const vertex=s=>s.mesh.getVertexPosition(s.index,new THREE.Vector3()).applyMatrix4(s.mesh.matrixWorld);
 for(const mesh of meshes)mesh.skeleton.update();
 const pairs=face.filter((_,i)=>i%17===0).slice(0,500).map((a,i)=>{const b=face[(i*97+29)%face.length];return{a,b,rest:vertex(a).distanceTo(vertex(b))};});
 function measure(){
   let floor=Infinity,stretch=0,ik=0;
   for(const mesh of meshes){mesh.skeleton.update();const pos=mesh.geometry.attributes.position,idx=mesh.geometry.index;
-    for(let i=0;i<pos.count;i+=4){v.fromBufferAttribute(pos,i);mesh.applyBoneTransform(i,v);v.applyMatrix4(mesh.matrixWorld);floor=Math.min(floor,v.y);if(v.y<(result.worstFloor?.y??0))result.worstFloor={y:v.y,index:i,rest:new THREE.Vector3().fromBufferAttribute(pos,i).toArray(),weights:[0,1,2,3].map(k=>[mesh.skeleton.bones[mesh.geometry.attributes.skinIndex.array[i*4+k]].name,mesh.geometry.attributes.skinWeight.array[i*4+k]]),state:pet.snapshot().state};}
-    for(let e=0;e+1<idx.count;e+=9){const a=idx.getX(e),b=idx.getX(e+1);v.fromBufferAttribute(pos,a);w.fromBufferAttribute(pos,b);const rest=v.distanceTo(w);if(rest<.003)continue;const original=[v.toArray(),w.toArray()];mesh.applyBoneTransform(a,v);mesh.applyBoneTransform(b,w);const ratio=v.distanceTo(w)/rest;stretch=Math.max(stretch,ratio);if(ratio>(result.worstEdge?.ratio??0))result.worstEdge={ratio,state:pet.snapshot().state,sit:pet.snapshot().sit,original,weights:[a,b].map(id=>[0,1,2,3].map(k=>[mesh.skeleton.bones[mesh.geometry.attributes.skinIndex.array[id*4+k]].name,mesh.geometry.attributes.skinWeight.array[id*4+k]]))};}
+    for(let i=0;i<pos.count;i+=4){mesh.getVertexPosition(i,v);v.applyMatrix4(mesh.matrixWorld);floor=Math.min(floor,v.y);if(v.y<(result.worstFloor?.y??0))result.worstFloor={y:v.y,index:i,rest:new THREE.Vector3().fromBufferAttribute(pos,i).toArray(),weights:[0,1,2,3].map(k=>[mesh.skeleton.bones[mesh.geometry.attributes.skinIndex.array[i*4+k]].name,mesh.geometry.attributes.skinWeight.array[i*4+k]]),state:pet.snapshot().state};}
+    for(let e=0;e+1<idx.count;e+=9){const a=idx.getX(e),b=idx.getX(e+1);v.fromBufferAttribute(pos,a);w.fromBufferAttribute(pos,b);const rest=v.distanceTo(w);if(rest<.003)continue;const original=[v.toArray(),w.toArray()];mesh.getVertexPosition(a,v);mesh.getVertexPosition(b,w);const ratio=v.distanceTo(w)/rest;stretch=Math.max(stretch,ratio);if(ratio>(result.worstEdge?.ratio??0))result.worstEdge={ratio,state:pet.snapshot().state,sit:pet.snapshot().sit,original,weights:[a,b].map(id=>[0,1,2,3].map(k=>[mesh.skeleton.bones[mesh.geometry.attributes.skinIndex.array[id*4+k]].name,mesh.geometry.attributes.skinWeight.array[id*4+k]]))};}
   }
   for(const p of pairs)result.faceDistanceError=Math.max(result.faceDistanceError,Math.abs(vertex(p.a).distanceTo(vertex(p.b))-p.rest));
   for(const f of pet.snapshot().feet)ik=Math.max(ik,new THREE.Vector3().fromArray(f.actual).distanceTo(new THREE.Vector3().fromArray(f.target)));
