@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 40674,
+      "sha256": "f7128b0d1456ea2b5885e947af305b610e653d882d7f40a3a59f0e381d3f1dfd",
+      "match": true
+    },
+    {
+      "file": "assets/pineapple-house.js",
+      "status": 200,
+      "bytes": 773233,
+      "sha256": "7ede890cf35b886a8231e21fcd0b148dbc971e0022a4540eb83a7d12da8d2c14",
+      "match": true
+    },
+    {
+      "file": "styles/house-art-gallery.css",
+      "status": 200,
+      "bytes": 3117,
+      "sha256": "b4814036e8905e11f0a1fc73b4df1b5bec85d24a9ca4196673aafd8c03942436",
+      "match": true
+    },
+    {
+      "file": "assets/house-art/pearl.png",
+      "status": 200,
+      "bytes": 2103590,
+      "sha256": "e3e26b518abc1b2d9124b6e15ffb566468512ffd552949d0f9e2229a974c76f4",
+      "match": true
+    },
+    {
+      "file": "assets/house-art/mona-lisa.png",
+      "status": 200,
+      "bytes": 2409360,
+      "sha256": "f8c47af4f5c798cd7967ce3dccba913ebc79f0dc8900702d59bbc688aca49669",
+      "match": true
+    },
+    {
+      "file": "assets/house-art/starry-portrait.png",
+      "status": 200,
+      "bytes": 3177953,
+      "sha256": "79b296f126a0a1b0fc966327b466f82e561f5572dbcd49a2228febf203235c8a",
+      "match": true
+    },
+    {
+      "file": "assets/house-art/scream.png",
+      "status": 200,
+      "bytes": 3268663,
+      "sha256": "76b3e76a6dc9e1bf66b3c8fdc5d1da9bd9c1524870a1dcd96a8908001f638558",
+      "match": true
+    },
+    {
+      "file": "assets/house-art/cubist.png",
+      "status": 200,
+      "bytes": 2479581,
+      "sha256": "a4bdbe113d5d5952179a13ad6cfcc72469062b2a484c90b477f9f180ac95618b",
+      "match": true
+    }
+  ]
+}
