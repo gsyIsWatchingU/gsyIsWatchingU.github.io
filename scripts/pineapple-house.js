@@ -10,6 +10,7 @@ import awards from "../src/data/house-awards.json";
 import { createCompanionBook } from './house-companion-book.js';
 import { createToyChest } from './house-toy-chest.js';
 import './house-music.js';
+import { createHouseConnections } from './house-connections.js';
 
 const root = document.querySelector(".house");
 const canvas = document.querySelector("[data-house-canvas]");
@@ -119,6 +120,7 @@ if (renderer) {
   let rotating = false;
   let ready = false;
   let contextLost = false;
+  const passages=createHouseConnections({root,camera,rooms,getRoom:()=>activeRoom,focusRoom});
   let frames = 0;
   let lastFrameTime = performance.now();
   let measuredFps = 0;
@@ -251,7 +253,7 @@ if (renderer) {
         if(!structure) visible=group.userData.roomId === activeRoom;
         else if(activeRoom === "storage" && sharedSurface) visible=true;
         else if(d.roomId === "stairs") {
-          visible=activeRoom === "bedroom" && d.level === 2 || activeRoom === "roof" && (d.level === 3 || d.roofAccess === true);
+          visible=activeRoom === "roof" ? d.level === 3 || d.roofAccess === true : activeRoom === "library" ? d.level === 1 || d.level === 2 : d.level === rooms.get(activeRoom).level;
         }
         // 菠萝顶冠用于整屋轮廓，天台近景聚焦平台与躺椅。
         if(structure && node.name === "roof_L3_leaf") visible=false;
@@ -342,6 +344,8 @@ if (renderer) {
     for(const hit of hits) {
       const material=Array.isArray(hit.object.material)?hit.object.material[hit.face.materialIndex]:hit.object.material;
       if(material.clippingPlanes?.some(plane=>plane.distanceToPoint(hit.point)<0)) continue;
+      const passage=passages.pick(hit.object,hit.point);
+      if(passage)return {passage,roomId:activeRoom};
       let node=hit.object;
       while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.contentId) node=node.parent;
       if(node?.userData.companionId) return {companionId:node.userData.companionId,roomId:node.userData.roomId};
@@ -364,7 +368,8 @@ if (renderer) {
     const hit=pick(event.clientX,event.clientY);
     if(!activeRoom){if(hit){focusRoom(hit.roomId);if(hit.companionId)companion?.react();if(hit.petId)pet?.react();}return;}
     if(!hit || hit.roomId!==activeRoom)return;
-    if(hit.companionId)companion?.react();
+    if(hit.passage){if(root.dataset.cameraTransition!=='moving')focusRoom(hit.passage.to);}
+    else if(hit.companionId)companion?.react();
     else if(hit.petId){pet?.react();window.dispatchEvent(new CustomEvent('house:pet-greet'));}
     else if(hit.contentId)activateObject(hit.contentId);
     else if(hit?.awardId)window.dispatchEvent(new CustomEvent('house:award',{detail:{id:hit.awardId}}));
@@ -372,11 +377,11 @@ if (renderer) {
   canvas.addEventListener("pointermove",event => {
     if(event.pointerType!=="mouse" || rotating || !ready) {tooltip.hidden=true;return;}
     const hit=pick(event.clientX,event.clientY);
-    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.companionId || hit.petId || hit.awardId || hit.contentId));
+    const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.passage || hit.companionId || hit.petId || hit.awardId || hit.contentId));
     canvas.style.cursor=interactive?"pointer":"grab";
     tooltip.hidden=!interactive;
     if(interactive) {
-      tooltip.textContent=hit.companionId?'海绵宝宝 · 点击聊聊天':!activeRoom?rooms.get(hit.roomId).name:hit.petId?'暹罗猫 · 打个招呼':hit.contentId?interactions.get(hit.contentId).label:awards.find(a=>a.id===hit.awardId)?.title??'';
+      tooltip.textContent=hit.passage?passages.label(hit.passage):hit.companionId?'海绵宝宝 · 点击聊聊天':!activeRoom?rooms.get(hit.roomId).name:hit.petId?'暹罗猫 · 打个招呼':hit.contentId?interactions.get(hit.contentId).label:awards.find(a=>a.id===hit.awardId)?.title??'';
       const rect=canvas.getBoundingClientRect();
       tooltip.style.left=`${Math.min(event.clientX-rect.left+14,viewWidth-120)}px`;
       tooltip.style.top=`${Math.min(event.clientY-rect.top+14,viewHeight-40)}px`;
@@ -527,6 +532,7 @@ if (renderer) {
       button.hidden=!ready || activeRoom!==item.room || point.z>1 || Math.abs(point.x)>1 || Math.abs(point.y)>1;
       button.style.left=`${(point.x*.5+.5)*viewWidth}px`;button.style.top=`${(-point.y*.5+.5)*viewHeight}px`;
     }
+    passages.update();
     renderer.render(scene,camera);
     frames++;
     if(now-lastFrameTime>2000) {measuredFps=frames*1000/(now-lastFrameTime);canvas.dataset.fps=measuredFps.toFixed(1);canvas.dataset.triangles=String(renderer.info.render.triangles);canvas.dataset.drawCalls=String(renderer.info.render.calls);frames=0;lastFrameTime=now;}

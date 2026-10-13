@@ -1,0 +1,604 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "test": "1440x900:living->storage",
+      "rects": [
+        {
+          "id": "living-storage",
+          "x": 237.9921875,
+          "y": 486.96875,
+          "w": 109.890625,
+          "h": 40,
+          "hit": true
+        },
+        {
+          "id": "living-bathroom",
+          "x": 1080.4765625,
+          "y": 414.359375,
+          "w": 102.890625,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:storage->living",
+      "rects": [
+        {
+          "id": "storage-living",
+          "x": 849.7109375,
+          "y": 483.609375,
+          "w": 95.546875,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:living->bathroom",
+      "rects": [
+        {
+          "id": "living-storage",
+          "x": 237.9921875,
+          "y": 486.96875,
+          "w": 109.890625,
+          "h": 40,
+          "hit": true
+        },
+        {
+          "id": "living-bathroom",
+          "x": 1080.4765625,
+          "y": 414.359375,
+          "w": 102.890625,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:bathroom->library",
+      "rects": [
+        {
+          "id": "bathroom-living",
+          "x": 857.8203125,
+          "y": 450.484375,
+          "w": 98.203125,
+          "h": 40,
+          "hit": true
+        },
+        {
+          "id": "bathroom-library",
+          "x": 1048.21875,
+          "y": 494.359375,
+          "w": 102.375,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:library->bedroom",
+      "rects": [
+        {
+          "id": "library-bathroom",
+          "x": 405.9296875,
+          "y": 662.640625,
+          "w": 98.640625,
+          "h": 40,
+          "hit": true
+        },
+        {
+          "id": "library-bedroom",
+          "x": 528.796875,
+          "y": 294.796875,
+          "w": 99.90625,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:bedroom->roof",
+      "rects": [
+        {
+          "id": "bedroom-library",
+          "x": 1023.578125,
+          "y": 509.546875,
+          "w": 102.375,
+          "h": 40,
+          "hit": true
+        },
+        {
+          "id": "bedroom-roof",
+          "x": 862.0390625,
+          "y": 367.484375,
+          "w": 122.265625,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:roof->bedroom",
+      "rects": [
+        {
+          "id": "roof-bedroom",
+          "x": 964.21875,
+          "y": 435.734375,
+          "w": 98.3125,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:bedroom->library",
+      "rects": [
+        {
+          "id": "bedroom-library",
+          "x": 1023.578125,
+          "y": 509.546875,
+          "w": 102.375,
+          "h": 40,
+          "hit": true
+        },
+        {
+          "id": "bedroom-roof",
+          "x": 862.0390625,
+          "y": 367.484375,
+          "w": 122.265625,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:library->bathroom",
+      "rects": [
+        {
+          "id": "library-bathroom",
+          "x": 405.9296875,
+          "y": 662.640625,
+          "w": 98.640625,
+          "h": 40,
+          "hit": true
+        },
+        {
+          "id": "library-bedroom",
+          "x": 528.796875,
+          "y": 294.796875,
+          "w": 99.90625,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "1440x900:bathroom->living",
+      "rects": [
+        {
+          "id": "bathroom-living",
+          "x": 857.8203125,
+          "y": 450.484375,
+          "w": 98.203125,
+          "h": 40,
+          "hit": true
+        },
+        {
+          "id": "bathroom-library",
+          "x": 1048.21875,
+          "y": 494.359375,
+          "w": 102.375,
+          "h": 40,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:living->storage",
+      "rects": [
+        {
+          "id": "living-storage",
+          "x": 92.09375,
+          "y": 728,
+          "w": 102.171875,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "living-bathroom",
+          "x": 202.265625,
+          "y": 728,
+          "w": 95.640625,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:storage->living",
+      "rects": [
+        {
+          "id": "storage-living",
+          "x": 150.609375,
+          "y": 728,
+          "w": 88.78125,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:living->bathroom",
+      "rects": [
+        {
+          "id": "living-storage",
+          "x": 92.09375,
+          "y": 728,
+          "w": 102.171875,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "living-bathroom",
+          "x": 202.265625,
+          "y": 728,
+          "w": 95.640625,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:bathroom->library",
+      "rects": [
+        {
+          "id": "bathroom-living",
+          "x": 97.796875,
+          "y": 728,
+          "w": 91.25,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "bathroom-library",
+          "x": 197.046875,
+          "y": 728,
+          "w": 95.140625,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:library->bedroom",
+      "rects": [
+        {
+          "id": "library-bathroom",
+          "x": 98.734375,
+          "y": 728,
+          "w": 91.671875,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "library-bedroom",
+          "x": 198.40625,
+          "y": 728,
+          "w": 92.84375,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:bedroom->roof",
+      "rects": [
+        {
+          "id": "bedroom-library",
+          "x": 86.5625,
+          "y": 728,
+          "w": 95.140625,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "bedroom-roof",
+          "x": 189.703125,
+          "y": 728,
+          "w": 113.71875,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:roof->bedroom",
+      "rects": [
+        {
+          "id": "roof-bedroom",
+          "x": 149.3125,
+          "y": 728,
+          "w": 91.359375,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:bedroom->library",
+      "rects": [
+        {
+          "id": "bedroom-library",
+          "x": 86.5625,
+          "y": 728,
+          "w": 95.140625,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "bedroom-roof",
+          "x": 189.703125,
+          "y": 728,
+          "w": 113.71875,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:library->bathroom",
+      "rects": [
+        {
+          "id": "library-bathroom",
+          "x": 98.734375,
+          "y": 728,
+          "w": 91.671875,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "library-bedroom",
+          "x": 198.40625,
+          "y": 728,
+          "w": 92.84375,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "390x844:bathroom->living",
+      "rects": [
+        {
+          "id": "bathroom-living",
+          "x": 97.796875,
+          "y": 728,
+          "w": 91.25,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "bathroom-library",
+          "x": 197.046875,
+          "y": 728,
+          "w": 95.140625,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:living->storage",
+      "rects": [
+        {
+          "id": "living-storage",
+          "x": 319.09375,
+          "y": 274,
+          "w": 102.171875,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "living-bathroom",
+          "x": 429.265625,
+          "y": 274,
+          "w": 95.640625,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:storage->living",
+      "rects": [
+        {
+          "id": "storage-living",
+          "x": 377.609375,
+          "y": 274,
+          "w": 88.78125,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:living->bathroom",
+      "rects": [
+        {
+          "id": "living-storage",
+          "x": 319.09375,
+          "y": 274,
+          "w": 102.171875,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "living-bathroom",
+          "x": 429.265625,
+          "y": 274,
+          "w": 95.640625,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:bathroom->library",
+      "rects": [
+        {
+          "id": "bathroom-living",
+          "x": 324.796875,
+          "y": 274,
+          "w": 91.25,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "bathroom-library",
+          "x": 424.046875,
+          "y": 274,
+          "w": 95.140625,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:library->bedroom",
+      "rects": [
+        {
+          "id": "library-bathroom",
+          "x": 325.734375,
+          "y": 274,
+          "w": 91.671875,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "library-bedroom",
+          "x": 425.40625,
+          "y": 274,
+          "w": 92.84375,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:bedroom->roof",
+      "rects": [
+        {
+          "id": "bedroom-library",
+          "x": 313.5625,
+          "y": 274,
+          "w": 95.140625,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "bedroom-roof",
+          "x": 416.703125,
+          "y": 274,
+          "w": 113.71875,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:roof->bedroom",
+      "rects": [
+        {
+          "id": "roof-bedroom",
+          "x": 376.3125,
+          "y": 274,
+          "w": 91.359375,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:bedroom->library",
+      "rects": [
+        {
+          "id": "bedroom-library",
+          "x": 313.5625,
+          "y": 274,
+          "w": 95.140625,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "bedroom-roof",
+          "x": 416.703125,
+          "y": 274,
+          "w": 113.71875,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:library->bathroom",
+      "rects": [
+        {
+          "id": "library-bathroom",
+          "x": 325.734375,
+          "y": 274,
+          "w": 91.671875,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "library-bedroom",
+          "x": 425.40625,
+          "y": 274,
+          "w": 92.84375,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "844x390:bathroom->living",
+      "rects": [
+        {
+          "id": "bathroom-living",
+          "x": 324.796875,
+          "y": 274,
+          "w": 91.25,
+          "h": 44,
+          "hit": true
+        },
+        {
+          "id": "bathroom-library",
+          "x": 424.046875,
+          "y": 274,
+          "w": 95.140625,
+          "h": 44,
+          "hit": true
+        }
+      ]
+    },
+    {
+      "test": "physical-stair-click",
+      "hit": {
+        "x": 1026.9149978601845,
+        "y": 514.269386067238,
+        "name": "stairs_L3_wood"
+      }
+    },
+    {
+      "test": "keyboard-passage",
+      "destination": "library"
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "limitations": [
+    "手机为视口模拟，实机未测"
+  ]
+}
