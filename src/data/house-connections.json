@@ -1,0 +1,12 @@
+[
+  {"from":"living","to":"storage","kind":"door","anchor":[-2.45,0.95,0.25]},
+  {"from":"storage","to":"living","kind":"door","anchor":[-2.65,0.95,0.25]},
+  {"from":"living","to":"bathroom","kind":"up","anchor":[2.8,1.2,-1.35],"meshes":["living_door","stair_"]},
+  {"from":"bathroom","to":"living","kind":"down","anchor":[-0.4,3.95,-1.4],"meshes":["bath_door"]},
+  {"from":"bathroom","to":"library","kind":"door","anchor":[0.15,3.95,0.5]},
+  {"from":"library","to":"bathroom","kind":"door","anchor":[0.45,3.95,0.5]},
+  {"from":"library","to":"bedroom","kind":"up","anchor":[1.3,6.85,-0.6]},
+  {"from":"bedroom","to":"library","kind":"door","anchor":[1.0,6.9,-0.6]},
+  {"from":"bedroom","to":"roof","kind":"up","anchor":[0.3,7.4,-1.4],"meshes":["bed_metal_door","ladder_","stair_"]},
+  {"from":"roof","to":"bedroom","kind":"down","anchor":[1.8,9.35,-0.6],"meshes":["roof_landing","roof_access_","stair_"]}
+]
