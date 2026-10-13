@@ -1,0 +1,112 @@
+{
+  "revision": "v7",
+  "status": "review",
+  "humanReview": "pending",
+  "primaryReference": "docs/neighborhood-review/refs/v7/primary-reference.png",
+  "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+  "baseRuntimeGitRef": "b926910:assets/models/neighborhood/squidward-house.glb",
+  "baseRuntimeSHA256": "4d797fd3894319a598e200c46bf688b3dac29ebcfb0547e7898c80e63f40f6cb",
+  "assemblyScript": "scripts/art/squidward-v7-assemble.py",
+  "assemblyScriptSHA256": "efbea03330e7c22221ac01d9a4cbec7a5835b3cf2d7814890da4323b30184575",
+  "sourceBlendLocal": "tmp/v7-production/squidward-reference-v7.blend",
+  "sourceBlendSHA256": "7fc276bef689d55983c7e952c682772a9226739c4a93e8de3c3226ccb8ba9374",
+  "sourceRemote": "gsy013:/workspace/projects/squidward-reference-v7-20261013",
+  "assets": [
+    {
+      "asset": "armchair",
+      "host": "gsy013",
+      "jobId": "9841e667186e4f92a3b1aa6d500793f9",
+      "pipelineState": "review",
+      "sourceSHA256": "e47baa32554b794b44cf2457f899c7be57e84b3d91209ca9393e4ccfc56b2ddd",
+      "candidateSHA256": "dcb6ca790c793efd4d0519341c7e49cbc33e84515939149048c41d9aa220200b",
+      "adopted": true,
+      "exception": null,
+      "manifest": "docs/neighborhood-review/acceptance/v7/production/armchair/manifest.json"
+    },
+    {
+      "asset": "bathtub",
+      "host": "mygpu",
+      "jobId": "d84ca85345044a4093acf1679b0f0f00",
+      "pipelineState": "failed",
+      "sourceSHA256": "b6ccdd6ffdc1a8d055fc98661a4d3c3c75805500ccf38fd3e0f232635f9f4928",
+      "candidateSHA256": "fc0cddf1c45c99202847b209ffc409b476f401e64c7455b8520d166727f52208",
+      "adopted": true,
+      "exception": "白色搪瓷触发 render_white_patch_risk；原始状态仍 failed。UV/baseColor 引用齐全，内腔经浏览器目检；作为 Blender 精修输入进入 review，未宣称流水线通过。",
+      "manifest": "docs/neighborhood-review/acceptance/v7/production/bathtub/manifest.json"
+    },
+    {
+      "asset": "bed",
+      "host": "gsy013",
+      "jobId": "5935250665b245adb4ccd592c4856f8b",
+      "pipelineState": "review",
+      "sourceSHA256": "81cd58a95068448559b8c46087ebf60a13a06c15142b0a3c1e6c2e6f5e8cc10d",
+      "candidateSHA256": "a1625e0f61c62ae177b576300d48740066a8ca0cc1121c209d3f03beec94c17f",
+      "adopted": true,
+      "exception": null,
+      "manifest": "docs/neighborhood-review/acceptance/v7/production/bed/manifest.json"
+    },
+    {
+      "asset": "bookshelf",
+      "host": "gsy013",
+      "jobId": "3d80f102032244919e68ab83bda5cddf",
+      "pipelineState": "review",
+      "sourceSHA256": "6aadd9327122645b95c5af1849ae80874f4e5942be53f1710b4560715a1045ca",
+      "candidateSHA256": "1c830fc7980addfd43c5ec4ef8651ee8386c1f579c0246ca1dbe415fd110208d",
+      "adopted": true,
+      "exception": null,
+      "manifest": "docs/neighborhood-review/acceptance/v7/production/bookshelf/manifest.json"
+    },
+    {
+      "asset": "old-tv",
+      "host": "gsy013",
+      "jobId": "77b9ac8abbfc4879804fe8c67dd5dcf7",
+      "pipelineState": "review",
+      "sourceSHA256": "6f3aec15539f685b15d58d0040b5771692ae5499d13a2baee9015baa806dd5a4",
+      "candidateSHA256": "5f47d6f83dd330fd6798bd28a564a6942366486cdc05251b5bf2cd267ce99684",
+      "adopted": true,
+      "exception": null,
+      "manifest": "docs/neighborhood-review/acceptance/v7/production/old-tv/manifest.json"
+    },
+    {
+      "asset": "old-tv-failed",
+      "host": "mygpu",
+      "jobId": "9e5b28f403f347f9a9967a4cdc54df58",
+      "pipelineState": "failed",
+      "sourceSHA256": "6f3aec15539f685b15d58d0040b5771692ae5499d13a2baee9015baa806dd5a4",
+      "candidateSHA256": "44c2dff001e914b626220ff795d1f876f5f15dc0a5668751714c58a6ebd7320b",
+      "adopted": false,
+      "exception": null,
+      "manifest": "docs/neighborhood-review/acceptance/v7/production/old-tv-failed/manifest.json"
+    },
+    {
+      "asset": "plant",
+      "host": "mygpu",
+      "jobId": "767f6d4092c0453bb08c85a89f83db39",
+      "pipelineState": "review",
+      "sourceSHA256": "3ecb6c25edceb52ee3b7c64b49efa7259aa82a254633c3efa6a2697c0342372d",
+      "candidateSHA256": "eafaed46947b07f2750310392c02ed4bf634e548b70737eacafcf90e4d638e42",
+      "adopted": true,
+      "exception": null,
+      "manifest": "docs/neighborhood-review/acceptance/v7/production/plant/manifest.json"
+    },
+    {
+      "asset": "sofa",
+      "host": "mygpu",
+      "jobId": "270e7eef51da43dd9d38fda1e942eb23",
+      "pipelineState": "review",
+      "sourceSHA256": "4aa0ce3ecb789860b01a6bd9aad72c8fd79d65697e3425c99723d7abb6ba2f83",
+      "candidateSHA256": "3cb4c9bad67d3fd0ef4f5a9768d95ec0c981284dac653c745b173ccf78063dd0",
+      "adopted": true,
+      "exception": null,
+      "manifest": "docs/neighborhood-review/acceptance/v7/production/sofa/manifest.json"
+    }
+  ],
+  "refinement": [
+    "Blender 结构法线、圆柱 UV、保留厚壁剖切、完整楼板与梯洞",
+    "39 级弧形梯与平台、扶手、栏杆",
+    "家具比例/落点、床罩色彩、书柜白底清理与书脊配色",
+    "连续石雕曲面、开口洗手盆、后墙木门和画框",
+    "纹理缩至 512，室内同材质合批；门使用真实枢轴"
+  ],
+  "deviceReview": "pending"
+}

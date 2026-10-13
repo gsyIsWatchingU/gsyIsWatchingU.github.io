@@ -1,0 +1,42 @@
+{
+  "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\tmp\\v7-production\\jobs\\old-tv-failed\\candidate.glb",
+  "triangles": 1196956,
+  "bbox_min": [
+    -0.8712,
+    -0.9999,
+    -0.6859
+  ],
+  "bbox_max": [
+    0.8616,
+    0.9943,
+    0.677
+  ],
+  "size_xyz": [
+    1.7328,
+    1.9942,
+    1.3629
+  ],
+  "flags": [
+    "below_floor: y_min=-0.9999 < -0.001（穿地）"
+  ],
+  "warnings": [],
+  "materials": [],
+  "primitive_count": 1,
+  "primitives": [
+    {
+      "mesh": 0,
+      "prim": 0,
+      "tris": 1196956,
+      "material": null,
+      "has_baseColorTexture": false
+    }
+  ],
+  "uv_missing_on_textured_meshes": [],
+  "normal_missing_meshes": [
+    "mesh0.prim0"
+  ],
+  "ok": false,
+  "fatal": [
+    "模型穿地（y_min < 0）"
+  ]
+}

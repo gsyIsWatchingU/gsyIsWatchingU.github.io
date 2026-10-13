@@ -1,0 +1,2892 @@
+[
+  {
+    "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\assets\\models\\neighborhood\\squidward-house.glb",
+    "triangles": 100626,
+    "bbox_min": [
+      -1.69,
+      0,
+      -1.55
+    ],
+    "bbox_max": [
+      1.69,
+      4.62,
+      1.625
+    ],
+    "size_xyz": [
+      3.38,
+      4.62,
+      3.175
+    ],
+    "flags": [],
+    "warnings": [],
+    "materials": [
+      {
+        "index": 0,
+        "name": "v7_blue_volcanic_stone",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 1,
+        "name": "v7_emerald_glazed_tiles",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 2,
+        "name": "v7_worn_oak",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 3,
+        "name": "v7_green_painted_wood",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 4,
+        "name": "steel",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.75,
+          1
+        ]
+      },
+      {
+        "index": 5,
+        "name": "black-glass",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 6,
+        "name": "aged-metal.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 7,
+        "name": "kitchen-green-dark.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.2800000011920929,
+          0.36000001430511475,
+          0.25,
+          1
+        ]
+      },
+      {
+        "index": 8,
+        "name": "kitchen-green.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.36000001430511475,
+          0.44999998807907104,
+          0.3199999928474426,
+          1
+        ]
+      },
+      {
+        "index": 9,
+        "name": "counter-stone.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.6000000238418579,
+          0.5899999737739563,
+          0.550000011920929,
+          1
+        ]
+      },
+      {
+        "index": 10,
+        "name": "steel.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.75,
+          1
+        ]
+      },
+      {
+        "index": 11,
+        "name": "black-glass.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 12,
+        "name": "aged-metal.002",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 13,
+        "name": "fridge-silver",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.800000011920929,
+          0.8100000023841858,
+          0.8299999833106995,
+          1
+        ]
+      },
+      {
+        "index": 14,
+        "name": "black-glass.002",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 15,
+        "name": "aged-metal.003",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 16,
+        "name": "v7_olive_woven_rug",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 17,
+        "name": "aged-metal.004",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 18,
+        "name": "lamp-shade",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.9200000166893005,
+          0.8600000143051147,
+          0.6800000071525574,
+          1
+        ]
+      },
+      {
+        "index": 19,
+        "name": "aged-metal.005",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 20,
+        "name": "lamp-shade.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.9200000166893005,
+          0.8600000143051147,
+          0.6800000071525574,
+          1
+        ]
+      },
+      {
+        "index": 21,
+        "name": "aged-metal.006",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 22,
+        "name": "chrome",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.8199999928474426,
+          0.8399999737739563,
+          0.8600000143051147,
+          1
+        ]
+      },
+      {
+        "index": 23,
+        "name": "v7_blue_white_striped_curtain",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 24,
+        "name": "Material",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 25,
+        "name": "Material.003",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 26,
+        "name": "Material.004",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 27,
+        "name": "v7_blue_woven_cover",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 28,
+        "name": "Material.005",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 29,
+        "name": "Material.006",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 30,
+        "name": "Material.007",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 31,
+        "name": "Material.008",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 32,
+        "name": "v7_grey_green_floor_tiles",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 33,
+        "name": "v7_artist_portrait",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 34,
+        "name": "v7_brushed_faucet_chrome",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.3199999928474426,
+          0.3799999952316284,
+          0.38999998569488525,
+          1
+        ]
+      }
+    ],
+    "primitive_count": 58,
+    "primitives": [
+      {
+        "mesh": 0,
+        "prim": 0,
+        "tris": 4432,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 0,
+        "prim": 1,
+        "tris": 4032,
+        "material": 1,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 1,
+        "prim": 0,
+        "tris": 52,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 2,
+        "prim": 0,
+        "tris": 52,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 3,
+        "prim": 0,
+        "tris": 188,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 4,
+        "prim": 0,
+        "tris": 92,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 5,
+        "prim": 0,
+        "tris": 92,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 6,
+        "prim": 0,
+        "tris": 188,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 7,
+        "prim": 0,
+        "tris": 188,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 8,
+        "prim": 0,
+        "tris": 188,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 9,
+        "prim": 0,
+        "tris": 12,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 10,
+        "prim": 0,
+        "tris": 2244,
+        "material": 3,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 11,
+        "prim": 0,
+        "tris": 188,
+        "material": 4,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 12,
+        "prim": 0,
+        "tris": 616,
+        "material": 5,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 13,
+        "prim": 0,
+        "tris": 524,
+        "material": 6,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 14,
+        "prim": 0,
+        "tris": 200,
+        "material": 7,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 15,
+        "prim": 0,
+        "tris": 188,
+        "material": 8,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 16,
+        "prim": 0,
+        "tris": 188,
+        "material": 9,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 17,
+        "prim": 0,
+        "tris": 188,
+        "material": 10,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 18,
+        "prim": 0,
+        "tris": 188,
+        "material": 11,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 19,
+        "prim": 0,
+        "tris": 96,
+        "material": 12,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 20,
+        "prim": 0,
+        "tris": 564,
+        "material": 13,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 21,
+        "prim": 0,
+        "tris": 12,
+        "material": 14,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 22,
+        "prim": 0,
+        "tris": 88,
+        "material": 15,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 23,
+        "prim": 0,
+        "tris": 2356,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 24,
+        "prim": 0,
+        "tris": 5000,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 25,
+        "prim": 0,
+        "tris": 2182,
+        "material": 16,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 26,
+        "prim": 0,
+        "tris": 5872,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 27,
+        "prim": 0,
+        "tris": 2240,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 28,
+        "prim": 0,
+        "tris": 140,
+        "material": 17,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 29,
+        "prim": 0,
+        "tris": 76,
+        "material": 18,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 30,
+        "prim": 0,
+        "tris": 140,
+        "material": 19,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 31,
+        "prim": 0,
+        "tris": 76,
+        "material": 20,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 32,
+        "prim": 0,
+        "tris": 132,
+        "material": 21,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 33,
+        "prim": 0,
+        "tris": 188,
+        "material": 16,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 34,
+        "prim": 0,
+        "tris": 232,
+        "material": 22,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 35,
+        "prim": 0,
+        "tris": 364,
+        "material": 23,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 36,
+        "prim": 0,
+        "tris": 1128,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 37,
+        "prim": 0,
+        "tris": 5000,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 38,
+        "prim": 0,
+        "tris": 1192,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 38,
+        "prim": 1,
+        "tris": 1008,
+        "material": 1,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 39,
+        "prim": 0,
+        "tris": 5500,
+        "material": 24,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 40,
+        "prim": 0,
+        "tris": 5499,
+        "material": 25,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 41,
+        "prim": 0,
+        "tris": 5130,
+        "material": 26,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 41,
+        "prim": 1,
+        "tris": 370,
+        "material": 27,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 42,
+        "prim": 0,
+        "tris": 7291,
+        "material": 28,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 43,
+        "prim": 0,
+        "tris": 5500,
+        "material": 29,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 44,
+        "prim": 0,
+        "tris": 5500,
+        "material": 30,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 45,
+        "prim": 0,
+        "tris": 5500,
+        "material": 31,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 46,
+        "prim": 0,
+        "tris": 646,
+        "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 47,
+        "prim": 0,
+        "tris": 652,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 48,
+        "prim": 0,
+        "tris": 660,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 49,
+        "prim": 0,
+        "tris": 628,
+        "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 50,
+        "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 51,
+        "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 52,
+        "prim": 0,
+        "tris": 116,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 53,
+        "prim": 0,
+        "tris": 15444,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 54,
+        "prim": 0,
+        "tris": 60,
+        "material": 34,
+        "has_baseColorTexture": false
+      }
+    ],
+    "uv_missing_on_textured_meshes": [],
+    "normal_missing_meshes": [],
+    "ok": true
+  },
+  {
+    "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\assets\\models\\neighborhood\\squidward-house-web.glb",
+    "triangles": 100626,
+    "bbox_min": [
+      -1.69,
+      0,
+      -1.55
+    ],
+    "bbox_max": [
+      1.69,
+      4.62,
+      1.625
+    ],
+    "size_xyz": [
+      3.38,
+      4.62,
+      3.175
+    ],
+    "flags": [],
+    "warnings": [],
+    "materials": [
+      {
+        "index": 0,
+        "name": "v7_blue_volcanic_stone",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 1,
+        "name": "v7_emerald_glazed_tiles",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 2,
+        "name": "v7_worn_oak",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 3,
+        "name": "v7_green_painted_wood",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 4,
+        "name": "steel",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.75,
+          1
+        ]
+      },
+      {
+        "index": 5,
+        "name": "black-glass",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 6,
+        "name": "aged-metal.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 7,
+        "name": "kitchen-green-dark.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.2800000011920929,
+          0.36000001430511475,
+          0.25,
+          1
+        ]
+      },
+      {
+        "index": 8,
+        "name": "kitchen-green.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.36000001430511475,
+          0.44999998807907104,
+          0.3199999928474426,
+          1
+        ]
+      },
+      {
+        "index": 9,
+        "name": "counter-stone.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.6000000238418579,
+          0.5899999737739563,
+          0.550000011920929,
+          1
+        ]
+      },
+      {
+        "index": 10,
+        "name": "steel.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.75,
+          1
+        ]
+      },
+      {
+        "index": 11,
+        "name": "black-glass.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 12,
+        "name": "aged-metal.002",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 13,
+        "name": "fridge-silver",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.800000011920929,
+          0.8100000023841858,
+          0.8299999833106995,
+          1
+        ]
+      },
+      {
+        "index": 14,
+        "name": "black-glass.002",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 15,
+        "name": "aged-metal.003",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 16,
+        "name": "v7_olive_woven_rug",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 17,
+        "name": "aged-metal.004",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 18,
+        "name": "lamp-shade",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.9200000166893005,
+          0.8600000143051147,
+          0.6800000071525574,
+          1
+        ]
+      },
+      {
+        "index": 19,
+        "name": "aged-metal.005",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 20,
+        "name": "lamp-shade.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.9200000166893005,
+          0.8600000143051147,
+          0.6800000071525574,
+          1
+        ]
+      },
+      {
+        "index": 21,
+        "name": "aged-metal.006",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 22,
+        "name": "chrome",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.8199999928474426,
+          0.8399999737739563,
+          0.8600000143051147,
+          1
+        ]
+      },
+      {
+        "index": 23,
+        "name": "v7_blue_white_striped_curtain",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 24,
+        "name": "Material",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 25,
+        "name": "Material.003",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 26,
+        "name": "Material.004",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 27,
+        "name": "v7_blue_woven_cover",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 28,
+        "name": "Material.005",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 29,
+        "name": "Material.006",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 30,
+        "name": "Material.007",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 31,
+        "name": "Material.008",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 32,
+        "name": "v7_grey_green_floor_tiles",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 33,
+        "name": "v7_artist_portrait",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 34,
+        "name": "v7_brushed_faucet_chrome",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.3199999928474426,
+          0.3799999952316284,
+          0.38999998569488525,
+          1
+        ]
+      }
+    ],
+    "primitive_count": 58,
+    "primitives": [
+      {
+        "mesh": 0,
+        "prim": 0,
+        "tris": 4432,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 0,
+        "prim": 1,
+        "tris": 4032,
+        "material": 1,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 1,
+        "prim": 0,
+        "tris": 52,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 2,
+        "prim": 0,
+        "tris": 52,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 3,
+        "prim": 0,
+        "tris": 188,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 4,
+        "prim": 0,
+        "tris": 92,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 5,
+        "prim": 0,
+        "tris": 92,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 6,
+        "prim": 0,
+        "tris": 188,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 7,
+        "prim": 0,
+        "tris": 188,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 8,
+        "prim": 0,
+        "tris": 188,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 9,
+        "prim": 0,
+        "tris": 12,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 10,
+        "prim": 0,
+        "tris": 2244,
+        "material": 3,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 11,
+        "prim": 0,
+        "tris": 188,
+        "material": 4,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 12,
+        "prim": 0,
+        "tris": 616,
+        "material": 5,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 13,
+        "prim": 0,
+        "tris": 524,
+        "material": 6,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 14,
+        "prim": 0,
+        "tris": 200,
+        "material": 7,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 15,
+        "prim": 0,
+        "tris": 188,
+        "material": 8,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 16,
+        "prim": 0,
+        "tris": 188,
+        "material": 9,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 17,
+        "prim": 0,
+        "tris": 188,
+        "material": 10,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 18,
+        "prim": 0,
+        "tris": 188,
+        "material": 11,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 19,
+        "prim": 0,
+        "tris": 96,
+        "material": 12,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 20,
+        "prim": 0,
+        "tris": 564,
+        "material": 13,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 21,
+        "prim": 0,
+        "tris": 12,
+        "material": 14,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 22,
+        "prim": 0,
+        "tris": 88,
+        "material": 15,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 23,
+        "prim": 0,
+        "tris": 2356,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 24,
+        "prim": 0,
+        "tris": 5000,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 25,
+        "prim": 0,
+        "tris": 2182,
+        "material": 16,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 26,
+        "prim": 0,
+        "tris": 5872,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 27,
+        "prim": 0,
+        "tris": 2240,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 28,
+        "prim": 0,
+        "tris": 140,
+        "material": 17,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 29,
+        "prim": 0,
+        "tris": 76,
+        "material": 18,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 30,
+        "prim": 0,
+        "tris": 140,
+        "material": 19,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 31,
+        "prim": 0,
+        "tris": 76,
+        "material": 20,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 32,
+        "prim": 0,
+        "tris": 132,
+        "material": 21,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 33,
+        "prim": 0,
+        "tris": 188,
+        "material": 16,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 34,
+        "prim": 0,
+        "tris": 232,
+        "material": 22,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 35,
+        "prim": 0,
+        "tris": 364,
+        "material": 23,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 36,
+        "prim": 0,
+        "tris": 1128,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 37,
+        "prim": 0,
+        "tris": 5000,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 38,
+        "prim": 0,
+        "tris": 1192,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 38,
+        "prim": 1,
+        "tris": 1008,
+        "material": 1,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 39,
+        "prim": 0,
+        "tris": 5500,
+        "material": 24,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 40,
+        "prim": 0,
+        "tris": 5499,
+        "material": 25,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 41,
+        "prim": 0,
+        "tris": 5130,
+        "material": 26,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 41,
+        "prim": 1,
+        "tris": 370,
+        "material": 27,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 42,
+        "prim": 0,
+        "tris": 7291,
+        "material": 28,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 43,
+        "prim": 0,
+        "tris": 5500,
+        "material": 29,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 44,
+        "prim": 0,
+        "tris": 5500,
+        "material": 30,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 45,
+        "prim": 0,
+        "tris": 5500,
+        "material": 31,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 46,
+        "prim": 0,
+        "tris": 646,
+        "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 47,
+        "prim": 0,
+        "tris": 652,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 48,
+        "prim": 0,
+        "tris": 660,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 49,
+        "prim": 0,
+        "tris": 628,
+        "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 50,
+        "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 51,
+        "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 52,
+        "prim": 0,
+        "tris": 116,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 53,
+        "prim": 0,
+        "tris": 15444,
+        "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 54,
+        "prim": 0,
+        "tris": 60,
+        "material": 34,
+        "has_baseColorTexture": false
+      }
+    ],
+    "uv_missing_on_textured_meshes": [],
+    "normal_missing_meshes": [],
+    "ok": true
+  },
+  {
+    "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\assets\\models\\neighborhood\\squidward-interior.glb",
+    "triangles": 95158,
+    "bbox_min": [
+      -1.69,
+      0,
+      -1.55
+    ],
+    "bbox_max": [
+      1.69,
+      4.62,
+      1.625
+    ],
+    "size_xyz": [
+      3.38,
+      4.62,
+      3.175
+    ],
+    "flags": [],
+    "warnings": [],
+    "materials": [
+      {
+        "index": 0,
+        "name": "v7_worn_oak",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 1,
+        "name": "v7_green_painted_wood",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 2,
+        "name": "steel",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.75,
+          1
+        ]
+      },
+      {
+        "index": 3,
+        "name": "black-glass",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 4,
+        "name": "aged-metal.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 5,
+        "name": "kitchen-green-dark.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.2800000011920929,
+          0.36000001430511475,
+          0.25,
+          1
+        ]
+      },
+      {
+        "index": 6,
+        "name": "kitchen-green.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.36000001430511475,
+          0.44999998807907104,
+          0.3199999928474426,
+          1
+        ]
+      },
+      {
+        "index": 7,
+        "name": "counter-stone.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.6000000238418579,
+          0.5899999737739563,
+          0.550000011920929,
+          1
+        ]
+      },
+      {
+        "index": 8,
+        "name": "steel.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.75,
+          1
+        ]
+      },
+      {
+        "index": 9,
+        "name": "black-glass.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 10,
+        "name": "aged-metal.002",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 11,
+        "name": "fridge-silver",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.800000011920929,
+          0.8100000023841858,
+          0.8299999833106995,
+          1
+        ]
+      },
+      {
+        "index": 12,
+        "name": "black-glass.002",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 13,
+        "name": "aged-metal.003",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 14,
+        "name": "v7_blue_volcanic_stone",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 15,
+        "name": "v7_olive_woven_rug",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 16,
+        "name": "aged-metal.004",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 17,
+        "name": "lamp-shade",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.9200000166893005,
+          0.8600000143051147,
+          0.6800000071525574,
+          1
+        ]
+      },
+      {
+        "index": 18,
+        "name": "aged-metal.005",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 19,
+        "name": "lamp-shade.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.9200000166893005,
+          0.8600000143051147,
+          0.6800000071525574,
+          1
+        ]
+      },
+      {
+        "index": 20,
+        "name": "aged-metal.006",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 21,
+        "name": "chrome",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.8199999928474426,
+          0.8399999737739563,
+          0.8600000143051147,
+          1
+        ]
+      },
+      {
+        "index": 22,
+        "name": "v7_blue_white_striped_curtain",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 23,
+        "name": "v7_emerald_glazed_tiles",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 24,
+        "name": "Material",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 25,
+        "name": "Material.003",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 26,
+        "name": "Material.004",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 27,
+        "name": "v7_blue_woven_cover",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 28,
+        "name": "Material.005",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 29,
+        "name": "Material.006",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 30,
+        "name": "Material.007",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 31,
+        "name": "Material.008",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 32,
+        "name": "v7_grey_green_floor_tiles",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 33,
+        "name": "v7_artist_portrait",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 34,
+        "name": "v7_brushed_faucet_chrome",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.3199999928474426,
+          0.3799999952316284,
+          0.38999998569488525,
+          1
+        ]
+      }
+    ],
+    "primitive_count": 53,
+    "primitives": [
+      {
+        "mesh": 0,
+        "prim": 0,
+        "tris": 52,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 1,
+        "prim": 0,
+        "tris": 52,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 2,
+        "prim": 0,
+        "tris": 12,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 3,
+        "prim": 0,
+        "tris": 2244,
+        "material": 1,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 4,
+        "prim": 0,
+        "tris": 188,
+        "material": 2,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 5,
+        "prim": 0,
+        "tris": 616,
+        "material": 3,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 6,
+        "prim": 0,
+        "tris": 524,
+        "material": 4,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 7,
+        "prim": 0,
+        "tris": 200,
+        "material": 5,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 8,
+        "prim": 0,
+        "tris": 188,
+        "material": 6,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 9,
+        "prim": 0,
+        "tris": 188,
+        "material": 7,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 10,
+        "prim": 0,
+        "tris": 188,
+        "material": 8,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 11,
+        "prim": 0,
+        "tris": 188,
+        "material": 9,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 12,
+        "prim": 0,
+        "tris": 96,
+        "material": 10,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 13,
+        "prim": 0,
+        "tris": 564,
+        "material": 11,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 14,
+        "prim": 0,
+        "tris": 12,
+        "material": 12,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 15,
+        "prim": 0,
+        "tris": 88,
+        "material": 13,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 16,
+        "prim": 0,
+        "tris": 2356,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 17,
+        "prim": 0,
+        "tris": 5000,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 18,
+        "prim": 0,
+        "tris": 2182,
+        "material": 15,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 19,
+        "prim": 0,
+        "tris": 5872,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 20,
+        "prim": 0,
+        "tris": 2240,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 21,
+        "prim": 0,
+        "tris": 140,
+        "material": 16,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 22,
+        "prim": 0,
+        "tris": 76,
+        "material": 17,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 23,
+        "prim": 0,
+        "tris": 140,
+        "material": 18,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 24,
+        "prim": 0,
+        "tris": 76,
+        "material": 19,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 25,
+        "prim": 0,
+        "tris": 132,
+        "material": 20,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 26,
+        "prim": 0,
+        "tris": 188,
+        "material": 15,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 27,
+        "prim": 0,
+        "tris": 232,
+        "material": 21,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 28,
+        "prim": 0,
+        "tris": 364,
+        "material": 22,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 29,
+        "prim": 0,
+        "tris": 1128,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 30,
+        "prim": 0,
+        "tris": 5000,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 31,
+        "prim": 0,
+        "tris": 2880,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 31,
+        "prim": 1,
+        "tris": 2688,
+        "material": 23,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 32,
+        "prim": 0,
+        "tris": 5500,
+        "material": 24,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 33,
+        "prim": 0,
+        "tris": 5499,
+        "material": 25,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 34,
+        "prim": 0,
+        "tris": 5130,
+        "material": 26,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 34,
+        "prim": 1,
+        "tris": 370,
+        "material": 27,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 35,
+        "prim": 0,
+        "tris": 7291,
+        "material": 28,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 36,
+        "prim": 0,
+        "tris": 5500,
+        "material": 29,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 37,
+        "prim": 0,
+        "tris": 5500,
+        "material": 30,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 38,
+        "prim": 0,
+        "tris": 5500,
+        "material": 31,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 39,
+        "prim": 0,
+        "tris": 646,
+        "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 40,
+        "prim": 0,
+        "tris": 652,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 41,
+        "prim": 0,
+        "tris": 660,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 42,
+        "prim": 0,
+        "tris": 628,
+        "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 43,
+        "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 44,
+        "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 45,
+        "prim": 0,
+        "tris": 116,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 46,
+        "prim": 0,
+        "tris": 15444,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 47,
+        "prim": 0,
+        "tris": 60,
+        "material": 34,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 48,
+        "prim": 0,
+        "tris": 188,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 49,
+        "prim": 0,
+        "tris": 188,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 50,
+        "prim": 0,
+        "tris": 188,
+        "material": 14,
+        "has_baseColorTexture": true
+      }
+    ],
+    "uv_missing_on_textured_meshes": [],
+    "normal_missing_meshes": [],
+    "ok": true
+  },
+  {
+    "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\assets\\models\\neighborhood\\squidward-interior-web.glb",
+    "triangles": 95158,
+    "bbox_min": [
+      -1.69,
+      0,
+      -1.55
+    ],
+    "bbox_max": [
+      1.69,
+      4.62,
+      1.625
+    ],
+    "size_xyz": [
+      3.38,
+      4.62,
+      3.175
+    ],
+    "flags": [],
+    "warnings": [],
+    "materials": [
+      {
+        "index": 0,
+        "name": "v7_worn_oak",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 1,
+        "name": "v7_green_painted_wood",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 2,
+        "name": "steel",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.75,
+          1
+        ]
+      },
+      {
+        "index": 3,
+        "name": "black-glass",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 4,
+        "name": "aged-metal.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 5,
+        "name": "kitchen-green-dark.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.2800000011920929,
+          0.36000001430511475,
+          0.25,
+          1
+        ]
+      },
+      {
+        "index": 6,
+        "name": "kitchen-green.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.36000001430511475,
+          0.44999998807907104,
+          0.3199999928474426,
+          1
+        ]
+      },
+      {
+        "index": 7,
+        "name": "counter-stone.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.6000000238418579,
+          0.5899999737739563,
+          0.550000011920929,
+          1
+        ]
+      },
+      {
+        "index": 8,
+        "name": "steel.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.7200000286102295,
+          0.7300000190734863,
+          0.75,
+          1
+        ]
+      },
+      {
+        "index": 9,
+        "name": "black-glass.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 10,
+        "name": "aged-metal.002",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 11,
+        "name": "fridge-silver",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.800000011920929,
+          0.8100000023841858,
+          0.8299999833106995,
+          1
+        ]
+      },
+      {
+        "index": 12,
+        "name": "black-glass.002",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07999999821186066,
+          1
+        ]
+      },
+      {
+        "index": 13,
+        "name": "aged-metal.003",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 14,
+        "name": "v7_blue_volcanic_stone",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 15,
+        "name": "v7_olive_woven_rug",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 16,
+        "name": "aged-metal.004",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 17,
+        "name": "lamp-shade",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.9200000166893005,
+          0.8600000143051147,
+          0.6800000071525574,
+          1
+        ]
+      },
+      {
+        "index": 18,
+        "name": "aged-metal.005",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 19,
+        "name": "lamp-shade.001",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.9200000166893005,
+          0.8600000143051147,
+          0.6800000071525574,
+          1
+        ]
+      },
+      {
+        "index": 20,
+        "name": "aged-metal.006",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.4699999988079071,
+          0.4699999988079071,
+          0.49000000953674316,
+          1
+        ]
+      },
+      {
+        "index": 21,
+        "name": "chrome",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.8199999928474426,
+          0.8399999737739563,
+          0.8600000143051147,
+          1
+        ]
+      },
+      {
+        "index": 22,
+        "name": "v7_blue_white_striped_curtain",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 23,
+        "name": "v7_emerald_glazed_tiles",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 24,
+        "name": "Material",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 25,
+        "name": "Material.003",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 26,
+        "name": "Material.004",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 27,
+        "name": "v7_blue_woven_cover",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 28,
+        "name": "Material.005",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 29,
+        "name": "Material.006",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 30,
+        "name": "Material.007",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 31,
+        "name": "Material.008",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 32,
+        "name": "v7_grey_green_floor_tiles",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 33,
+        "name": "v7_artist_portrait",
+        "has_baseColorTexture": true,
+        "baseColorFactor": null
+      },
+      {
+        "index": 34,
+        "name": "v7_brushed_faucet_chrome",
+        "has_baseColorTexture": false,
+        "baseColorFactor": [
+          0.3199999928474426,
+          0.3799999952316284,
+          0.38999998569488525,
+          1
+        ]
+      }
+    ],
+    "primitive_count": 53,
+    "primitives": [
+      {
+        "mesh": 0,
+        "prim": 0,
+        "tris": 52,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 1,
+        "prim": 0,
+        "tris": 52,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 2,
+        "prim": 0,
+        "tris": 12,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 3,
+        "prim": 0,
+        "tris": 2244,
+        "material": 1,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 4,
+        "prim": 0,
+        "tris": 188,
+        "material": 2,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 5,
+        "prim": 0,
+        "tris": 616,
+        "material": 3,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 6,
+        "prim": 0,
+        "tris": 524,
+        "material": 4,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 7,
+        "prim": 0,
+        "tris": 200,
+        "material": 5,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 8,
+        "prim": 0,
+        "tris": 188,
+        "material": 6,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 9,
+        "prim": 0,
+        "tris": 188,
+        "material": 7,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 10,
+        "prim": 0,
+        "tris": 188,
+        "material": 8,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 11,
+        "prim": 0,
+        "tris": 188,
+        "material": 9,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 12,
+        "prim": 0,
+        "tris": 96,
+        "material": 10,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 13,
+        "prim": 0,
+        "tris": 564,
+        "material": 11,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 14,
+        "prim": 0,
+        "tris": 12,
+        "material": 12,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 15,
+        "prim": 0,
+        "tris": 88,
+        "material": 13,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 16,
+        "prim": 0,
+        "tris": 2356,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 17,
+        "prim": 0,
+        "tris": 5000,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 18,
+        "prim": 0,
+        "tris": 2182,
+        "material": 15,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 19,
+        "prim": 0,
+        "tris": 5872,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 20,
+        "prim": 0,
+        "tris": 2240,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 21,
+        "prim": 0,
+        "tris": 140,
+        "material": 16,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 22,
+        "prim": 0,
+        "tris": 76,
+        "material": 17,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 23,
+        "prim": 0,
+        "tris": 140,
+        "material": 18,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 24,
+        "prim": 0,
+        "tris": 76,
+        "material": 19,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 25,
+        "prim": 0,
+        "tris": 132,
+        "material": 20,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 26,
+        "prim": 0,
+        "tris": 188,
+        "material": 15,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 27,
+        "prim": 0,
+        "tris": 232,
+        "material": 21,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 28,
+        "prim": 0,
+        "tris": 364,
+        "material": 22,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 29,
+        "prim": 0,
+        "tris": 1128,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 30,
+        "prim": 0,
+        "tris": 5000,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 31,
+        "prim": 0,
+        "tris": 2880,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 31,
+        "prim": 1,
+        "tris": 2688,
+        "material": 23,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 32,
+        "prim": 0,
+        "tris": 5500,
+        "material": 24,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 33,
+        "prim": 0,
+        "tris": 5499,
+        "material": 25,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 34,
+        "prim": 0,
+        "tris": 5130,
+        "material": 26,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 34,
+        "prim": 1,
+        "tris": 370,
+        "material": 27,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 35,
+        "prim": 0,
+        "tris": 7291,
+        "material": 28,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 36,
+        "prim": 0,
+        "tris": 5500,
+        "material": 29,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 37,
+        "prim": 0,
+        "tris": 5500,
+        "material": 30,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 38,
+        "prim": 0,
+        "tris": 5500,
+        "material": 31,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 39,
+        "prim": 0,
+        "tris": 646,
+        "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 40,
+        "prim": 0,
+        "tris": 652,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 41,
+        "prim": 0,
+        "tris": 660,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 42,
+        "prim": 0,
+        "tris": 628,
+        "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 43,
+        "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 44,
+        "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 45,
+        "prim": 0,
+        "tris": 116,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 46,
+        "prim": 0,
+        "tris": 15444,
+        "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 47,
+        "prim": 0,
+        "tris": 60,
+        "material": 34,
+        "has_baseColorTexture": false
+      },
+      {
+        "mesh": 48,
+        "prim": 0,
+        "tris": 188,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 49,
+        "prim": 0,
+        "tris": 188,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 50,
+        "prim": 0,
+        "tris": 188,
+        "material": 14,
+        "has_baseColorTexture": true
+      }
+    ],
+    "uv_missing_on_textured_meshes": [],
+    "normal_missing_meshes": [],
+    "ok": true
+  }
+]

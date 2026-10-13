@@ -1,0 +1,8 @@
+{
+  "reference": "docs/neighborhood-review/refs/v7/primary-reference.png",
+  "referenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+  "browserScreenshot": "docs/neighborhood-review/acceptance/v7/local/desktop-cutaway.png",
+  "screenshotSHA256": "2488f5467199fc6336bb1ac64c0ea14011303677250f8af2b50b3848b42f8fd4",
+  "operations": "crop, proportional resize, side-by-side; no retouching or overlay in the model view",
+  "modelSHA256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884"
+}

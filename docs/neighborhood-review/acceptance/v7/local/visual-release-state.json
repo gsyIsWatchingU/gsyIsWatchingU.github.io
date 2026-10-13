@@ -1,0 +1,18 @@
+{
+  "state": {
+    "house": "squidward",
+    "view": "cutaway",
+    "roomId": null,
+    "tier": "mobile",
+    "extTris": 100626,
+    "intTris": 95158,
+    "camAnimating": false,
+    "doorAnimating": false,
+    "doorY": -1.427996660722633,
+    "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+    "width": 390,
+    "scrollWidth": 390,
+    "roomChips": false
+  },
+  "events": []
+}

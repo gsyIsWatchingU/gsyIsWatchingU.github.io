@@ -1,0 +1,8 @@
+{
+  "sourceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+  "style": "",
+  "items": [
+    {"id":"rug-green","kind":"texture","seed":2026101421,"prompt":"Orthographic top down flat albedo texture of a rectangular dark olive green vintage woven rug, thin beige double border, subtle woven thread fibers and a very restrained small dark geometric medallion in the center, rustic hand painted storybook style, muted colors, no perspective, no room, no furniture, entire image is textile."},
+    {"id":"portrait","kind":"texture","seed":2026101422,"prompt":"A small whimsical hand painted oil portrait of a proud turquoise squid artist with a long downward nose, bald dome shaped head, droopy yellow eyes, wearing a brown short sleeved shirt, holding a tiny clarinet. Dark olive green background, old fashioned muted brown gold and teal colors, expressive brush strokes. Full painting canvas image only, no frame, no text."}
+  ]
+}

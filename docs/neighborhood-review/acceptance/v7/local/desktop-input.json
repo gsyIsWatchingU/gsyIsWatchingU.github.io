@@ -1,0 +1,222 @@
+[
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "wheel",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "keydown",
+    "trusted": true,
+    "target": "BODY"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "keydown",
+    "trusted": true,
+    "target": "BODY"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "keydown",
+    "trusted": true,
+    "target": "BODY"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "keydown",
+    "trusted": true,
+    "target": "BODY"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-cutaway"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-cutaway"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-cutaway"
+  }
+]
