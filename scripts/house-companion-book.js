@@ -38,7 +38,10 @@ export function createCompanionBook() {
   group.traverse(n=>{if(n.isMesh){n.castShadow=true;n.receiveShadow=true;}});
   return {group,
     grip:side=>new THREE.Vector3(side*.30,-.11,.03),
-    update(time,reducedMotion){const phase=time%4.8;turner.visible=!reducedMotion&&phase>2.4&&phase<4.2;const t=THREE.MathUtils.clamp((phase-2.4)/1.8,0,1);turner.rotation.y=-Math.PI*(t*t*(3-2*t));},
+    update(time,reducedMotion){const phase=time%4.8;turner.visible=!reducedMotion&&phase>2.4&&phase<4.2;const t=THREE.MathUtils.clamp((phase-2.4)/1.8,0,1),fold=t*t*(3-2*t);turner.rotation.y=-Math.PI*fold;
+      // 翻页时纸面收拢，避免整张刚性纸页竖起后再次碰到嘴部。
+      turner.scale.x=1-.72*Math.sin(Math.PI*fold);
+    },
     snapshot:()=>({open:true,visible:group.visible,turning:turner.visible,coverThickness:.016,pageThickness:.025,spread:.64})
   };
 }

@@ -126,8 +126,9 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   }
   function poseBone(name,x=0,y=0,z=0){const b=bone(name);if(b){b.rotateX(x);b.rotateY(y);b.rotateZ(z);}}
   function holdBook() {
-    // 书页朝向角色的眼睛；从访客位置看到的是封面与页边。
-    book.position.set(0,.70,.30);book.rotation.set(-1.20,0,0);
+    // 放在胸前，留出完整嘴部；页内侧向上朝向视线，握点随书一起变换。
+    book.scale.setScalar(.88);
+    book.position.set(0,.53,.36);book.rotation.set(-1.95,0,0);
     actor.updateMatrixWorld(true);
     for(const [side,x] of [['l',1],['r',-1]]) {
       const upper=bones.get('comp_arm_'+side),lower=bones.get('comp_forearm_'+side),hand=bones.get('comp_hand_'+side);
