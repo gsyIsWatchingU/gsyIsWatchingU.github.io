@@ -1,0 +1,219 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "bottomGap": 22,
+      "clipped": false,
+      "height": 511,
+      "inBounds": true,
+      "nextDisabled": true,
+      "overflow": false,
+      "page": "1 / 1",
+      "previousDisabled": true,
+      "titles": [
+        "Agent Harness",
+        "浏览器调试平台",
+        "平台稳定性治理",
+        "Smart Video"
+      ],
+      "viewport": [
+        1280,
+        720
+      ],
+      "width": 840
+    },
+    {
+      "bottomGap": 22,
+      "clipped": false,
+      "height": 511,
+      "inBounds": true,
+      "nextDisabled": true,
+      "overflow": false,
+      "page": "1 / 1",
+      "previousDisabled": true,
+      "titles": [
+        "Agent Harness",
+        "浏览器调试平台",
+        "平台稳定性治理",
+        "Smart Video"
+      ],
+      "viewport": [
+        1022,
+        648
+      ],
+      "width": 840
+    },
+    {
+      "bottomGap": 22,
+      "clipped": false,
+      "height": 511,
+      "inBounds": true,
+      "nextDisabled": true,
+      "overflow": false,
+      "page": "1 / 1",
+      "previousDisabled": true,
+      "titles": [
+        "Agent Harness",
+        "浏览器调试平台",
+        "平台稳定性治理",
+        "Smart Video"
+      ],
+      "viewport": [
+        818,
+        804
+      ],
+      "width": 778
+    },
+    {
+      "bottomGap": 67,
+      "clipped": false,
+      "height": 522,
+      "inBounds": true,
+      "nextDisabled": false,
+      "overflow": false,
+      "page": "1 / 2",
+      "previousDisabled": true,
+      "titles": [
+        "Agent Harness",
+        "浏览器调试平台"
+      ],
+      "viewport": [
+        390,
+        844
+      ],
+      "width": 366
+    },
+    {
+      "bottomGap": 67,
+      "clipped": false,
+      "height": 522,
+      "inBounds": true,
+      "nextDisabled": true,
+      "overflow": false,
+      "page": "2 / 2",
+      "previousDisabled": false,
+      "titles": [
+        "平台稳定性治理",
+        "Smart Video"
+      ],
+      "viewport": [
+        390,
+        844
+      ],
+      "width": 366
+    },
+    {
+      "bottomGap": 63,
+      "clipped": false,
+      "height": 311,
+      "inBounds": true,
+      "nextDisabled": false,
+      "overflow": false,
+      "page": "1 / 2",
+      "previousDisabled": true,
+      "titles": [
+        "Agent Harness",
+        "浏览器调试平台"
+      ],
+      "viewport": [
+        844,
+        390
+      ],
+      "width": 804
+    },
+    {
+      "bottomGap": 63,
+      "clipped": false,
+      "height": 311,
+      "inBounds": true,
+      "nextDisabled": true,
+      "overflow": false,
+      "page": "2 / 2",
+      "previousDisabled": false,
+      "titles": [
+        "平台稳定性治理",
+        "Smart Video"
+      ],
+      "viewport": [
+        844,
+        390
+      ],
+      "width": 804
+    },
+    {
+      "bottomGap": 67,
+      "clipped": false,
+      "height": 403,
+      "inBounds": true,
+      "nextDisabled": false,
+      "overflow": false,
+      "page": "1 / 4",
+      "previousDisabled": true,
+      "titles": [
+        "Agent Harness"
+      ],
+      "viewport": [
+        320,
+        569
+      ],
+      "width": 296
+    },
+    {
+      "bottomGap": 67,
+      "clipped": false,
+      "height": 384,
+      "inBounds": true,
+      "nextDisabled": false,
+      "overflow": false,
+      "page": "2 / 4",
+      "previousDisabled": false,
+      "titles": [
+        "浏览器调试平台"
+      ],
+      "viewport": [
+        320,
+        569
+      ],
+      "width": 296
+    },
+    {
+      "bottomGap": 67,
+      "clipped": false,
+      "height": 363,
+      "inBounds": true,
+      "nextDisabled": false,
+      "overflow": false,
+      "page": "3 / 4",
+      "previousDisabled": false,
+      "titles": [
+        "平台稳定性治理"
+      ],
+      "viewport": [
+        320,
+        569
+      ],
+      "width": 296
+    },
+    {
+      "bottomGap": 67,
+      "clipped": false,
+      "height": 363,
+      "inBounds": true,
+      "nextDisabled": true,
+      "overflow": false,
+      "page": "4 / 4",
+      "previousDisabled": false,
+      "titles": [
+        "Smart Video"
+      ],
+      "viewport": [
+        320,
+        569
+      ],
+      "width": 296
+    }
+  ],
+  "limitations": [
+    "手机为视口模拟，未测实机"
+  ]
+}
