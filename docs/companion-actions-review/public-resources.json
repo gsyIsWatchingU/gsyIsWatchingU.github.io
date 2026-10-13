@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "commit": "eabbc35d97db091149ed15a1c7da5d34298e9398",
+  "result": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 40584,
+      "sha256": "22762af9998d9660cc9aaec22695c3e5b5989251fcc3a295b80c47624b1a0e10",
+      "expected": "22762af9998d9660cc9aaec22695c3e5b5989251fcc3a295b80c47624b1a0e10",
+      "match": true
+    },
+    {
+      "path": "pineapple-house.html",
+      "status": 200,
+      "bytes": 40584,
+      "sha256": "22762af9998d9660cc9aaec22695c3e5b5989251fcc3a295b80c47624b1a0e10",
+      "expected": "22762af9998d9660cc9aaec22695c3e5b5989251fcc3a295b80c47624b1a0e10",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "bytes": 40614,
+      "sha256": "19e4272e6c7dae42a4016bc9bc45c91906664fe51db465b8fd4c1ad82849ac5c",
+      "expected": "19e4272e6c7dae42a4016bc9bc45c91906664fe51db465b8fd4c1ad82849ac5c",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "bytes": 768078,
+      "sha256": "6365f7eddc75b06e921cf76f8ea07208736436c2b936eb3b3dd38421fe4175bf",
+      "expected": "6365f7eddc75b06e921cf76f8ea07208736436c2b936eb3b3dd38421fe4175bf",
+      "match": true
+    },
+    {
+      "path": "assets/house-toilet-projects.js",
+      "status": 200,
+      "bytes": 38022,
+      "sha256": "80da49e2309e0a526a428b63a67b5dba7ba8be4cb3a635f357cca1e881d679f9",
+      "expected": "80da49e2309e0a526a428b63a67b5dba7ba8be4cb3a635f357cca1e881d679f9",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-compact.glb",
+      "status": 200,
+      "bytes": 2121092,
+      "sha256": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "expected": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "match": true
+    },
+    {
+      "path": "styles/house-companion.css",
+      "status": 200,
+      "bytes": 4361,
+      "sha256": "d1258ec77c0612797edcc23e6d500cf8288e6defc8f0deee705707ca6532b4f8",
+      "expected": "d1258ec77c0612797edcc23e6d500cf8288e6defc8f0deee705707ca6532b4f8",
+      "match": true
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import {spawn} from 'node:child_process';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
-const out='docs/companion-actions-review';mkdirSync(out,{recursive:true});
+const reviewRoot='docs/companion-actions-review',out=reviewRoot+(process.argv.includes('--live')?'/live':'');mkdirSync(out,{recursive:true});
 const port=9700+process.pid%200,profile=`${process.cwd()}/tmp/actions-chrome-${Date.now()}`;
 const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',[`--remote-debugging-port=${port}`,`--user-data-dir=${profile}`,'--headless=new','--no-first-run','--no-default-browser-check','--enable-unsafe-swiftshader','--window-size=1440,900','about:blank'],{stdio:'ignore',windowsHide:true});
 const delay=ms=>new Promise(r=>setTimeout(r,ms));const pending=new Map(),errors=[],records=[];let ws,id=0,sid;
@@ -44,6 +44,8 @@ try{
   await delay(1700);const raised=await catSample();await shot('tail-greeting');records.push({test:'visitor-tail',relaxed,raised});
   assert(raised.pet.reactions>relaxed.pet.reactions&&raised.pet.tailLift>.95);assert(raised.tip-relaxed.tip>.07,'访客点击后真实尾骨必须上翘');
   assert.equal(errors.length,0,'浏览器脚本应无异常');assert(records.some(r=>r.test==='slide-frame'&&r.value.companion.slide?.posture==='seated'));
-  writeFileSync(`${out}/${process.argv.includes('--live')?'live':'local'}-browser.json`,JSON.stringify({status:'passed',records,errors},null,2)+'\n');console.log(JSON.stringify({checks:records.length,errors}));
+  assert(records.find(r=>r.test==='reading').value.companion.book.visible,'读书时必须显示打开的书');
+  assert(records.filter(r=>r.value).every(r=>r.value.house.failed.length===0),'场景模型必须全部载入');
+  writeFileSync(`${reviewRoot}/${process.argv.includes('--live')?'live':'local'}-browser.json`,JSON.stringify({status:'passed',records,errors},null,2)+'\n');console.log(JSON.stringify({checks:records.length,errors}));
 }catch(error){writeFileSync(`${out}/browser-failure.json`,JSON.stringify({error:String(error),records,errors},null,2));throw error;}
 finally{ws?.close();chrome.kill();}

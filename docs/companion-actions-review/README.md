@@ -7,4 +7,4 @@
 
 来源及哈希见 `kitten-runtime.json`；蒙皮检查见 `kitten-poses.json`；实际坐部接触、腿朝向、书本厚度和尾骨变化见 `geometry.json`。
 
-本地 Chrome 原生点击/键盘验收见 `local-browser.json` 和截图；公网复测见 `live-browser.json`。构建、资源检查通过。截图来自无头 Chrome，物理手机和性能未验收，用户视觉确认待定。
+本地 Chrome 原生点击/键盘验收见 `local-browser.json` 和截图；公网复测见 `live-browser.json` 与 `live/`，15 条记录、脚本异常 0；7 个公网关键文件哈希一致，见 `public-resources.json`。构建、资源检查通过。截图来自无头 Chrome，物理手机和性能未验收，用户视觉确认待定。
