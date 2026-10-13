@@ -92,7 +92,9 @@ def validate_reply(raw):
 
 def load_tts():
     global tts,tts_error
-    if os.environ.get('TTS_ENABLED','1')!='1':return
+    if os.environ.get('TTS_ENABLED','0')!='1':
+        tts_error='语音已关闭，仅文字聊天'
+        return
     try:
         import torch
         from qwen_tts import Qwen3TTSModel

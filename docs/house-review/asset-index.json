@@ -13,12 +13,13 @@
     ],
     "bodyHeight": 9,
     "leafHeight": 13.55,
-    "triangles": 187208,
-    "sha256": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
+    "triangles": 187224,
+    "sha256": "867fbcd633be09f5cd18e54f56bf41aaf4dbe8a47ca37c7330463bb1d4b680a0",
     "status": "review",
     "humanReview": "pending",
-    "revision": 6,
-    "previousSha256": "56869e8b5c7e0af9107bb9907ff051f0a2947f42cfdc67b09a386b477fa11a7d",
+    "revision": 7,
+    "previousSha256": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
+    "roofLandingTop": 9.018,
     "floorBoundaryX": 0.25,
     "bedroomWallBoundaryX": 1.12,
     "libraryCloseupWallBoundaryX": 0.25,
@@ -38,12 +39,12 @@
       ]
     ],
     "stairAxis": "vertical per floor with transfer landings",
-    "sourceSHA256": "3d9518870e25367c1e559a50d430c55a98a169ac588a8981930e6b6601064508"
+    "sourceSHA256": "82fc8f596b369be52469791ed80684986763f6afc67f9c848e13b8be4046c2bd"
   },
   "primaryReference": "docs/refs/pineapple-house/01-cutaway-full.png",
   "primaryReferenceSha256": "e23941a429cc15655fba3e15a23fc0a490f9bd4486df9eafce299bbcb8fe8516",
   "runtimeModels": 13,
-  "runtimeTriangles": 413126,
+  "runtimeTriangles": 426858.0,
   "assets": [
     {
       "id": "chair",
@@ -193,8 +194,8 @@
       "id": "barrel",
       "room": "bedroom",
       "runtime": "assets/house-review/props/barrel.glb",
-      "sha256": "f1f1b8eaec76fe7b7210b0ae8c6fb94e3b6e621ada3b4a08ea32561a6efafad0",
-      "triangles": 8420,
+      "sha256": "1b62a531273965f7ad314db93e5c504c72ae29e7094ebfa4f4784d428158d399",
+      "triangles": 22136,
       "generationManifest": "docs/house-review/manifests/barrel.json",
       "repairManifest": "docs/house-review/props/barrel-runtime.json",
       "rawLocal": "tmp/house-production/raw/barrel/textured.glb",
@@ -209,7 +210,7 @@
       "id": "chest",
       "room": "bedroom",
       "runtime": "assets/house-review/props/chest.glb",
-      "sha256": "b118e39a50e0ac7ed5558815f00601db94370114b0d80b60834ce4efb170bf68",
+      "sha256": "82db4c5f6f07030aa43eeb1bd9c078aecedf4b4eeb0e93c9210f2d8b91fcf551",
       "triangles": 5126,
       "generationManifest": "docs/house-review/manifests/chest.json",
       "repairManifest": "docs/house-review/props/chest-runtime.json",
@@ -239,17 +240,17 @@
     }
   ],
   "scripts": {
-    "scripts/art/house_audit.py": "782e8fc736ae190f9f8455191167bcf095e8414d65d92e62e65e62c428162e30",
-    "scripts/art/house_compare.py": "0512c93e2e3cb09f2f3c411654c59fb200727ae97a0aee0db7833e3850e411de",
-    "scripts/art/house_prepare_refs.py": "64bd0a4b5583d065d8c210abc65441c45e24b1c695bd22a126fcf728b7f5e73f",
-    "scripts/art/house_production.py": "435621d33dd6ac2e62c1476818aff66b57bf2f7f2520b413dbbbe7abf7880549",
-    "scripts/art/house_reduce_shape.py": "999f6bc62be6678dbb45c8f0cc6a9110bccf8b91a5c51ed1a5dee9272ead0d17",
-    "scripts/art/house_refine_batch.py": "67e0f7ef65a6a28c479b76a8d0674052c0b6593fa4f0d72c5d18bbb321135b53",
-    "scripts/art/house_refine_prop.py": "d89772c163cf07c80d352d00f9cfaece6c623f6260c96eaf77399dd24351c5e1",
-    "scripts/art/house_repair_chair_ref.py": "f6528c3958330c6d4c660877370afaef909812884050370852bf50ea40d1ffa0",
-    "scripts/art/house_retopology.py": "c382751bfe2a9cc09314f7db889262f3196726eb2ac352fd695d3ebb12821f31",
-    "scripts/art/house_shape_batch.py": "358a1318ca14e334cf87c3902c05fb342b0ad620a03b40e780991f5c78aedc10",
-    "scripts/art/house_structure.py": "3d9518870e25367c1e559a50d430c55a98a169ac588a8981930e6b6601064508",
-    "scripts/art/house_textures.py": "e104f14d6fc74be3133dedae07945534a78f725dd8289d87b6e548220b85e719"
+    "scripts/art/house_audit.py": "9f385399b46c87577c8c0f9fb84ab698b9c971e756418bd86dbdd793a3f584f6",
+    "scripts/art/house_compare.py": "ebc3134ee535163a25515fda69782f44b55c2a25dc1046bd017981db46bae6a0",
+    "scripts/art/house_prepare_refs.py": "b0891c28805221544c53f3c7aed26658bb83dad6df2ec6b0c18f6ad1a7754cab",
+    "scripts/art/house_production.py": "f8de32a7d17afad5b986c712e7cdeb7df301119758818eecb3877f6a4af36a64",
+    "scripts/art/house_reduce_shape.py": "d35735fb770a8d792a20353be50142ec3adea4650495d88ecc3484794de50a80",
+    "scripts/art/house_refine_batch.py": "77424e751abd8a1dee38e1d2c53b92aa7b5ef79ca195f13518e4a2a665a55e8c",
+    "scripts/art/house_refine_prop.py": "597d6d94b513f855e393bb44d9acf9455ee34abb9139b5b4902c0bd952f2db75",
+    "scripts/art/house_repair_chair_ref.py": "b82e595ef15679f8afc1d370a45aecfcb56415a34e26821f01d9a247d247b2d2",
+    "scripts/art/house_retopology.py": "80ad9a6b682bd08612f76b9d08a15c75f28b9d6c8e04ac385f3f907a78595055",
+    "scripts/art/house_shape_batch.py": "a4ffb867a3017f61dffbb17e0a4ecab9eddaae39a0ca6d2da1f3d1ea302edf08",
+    "scripts/art/house_structure.py": "82fc8f596b369be52469791ed80684986763f6afc67f9c848e13b8be4046c2bd",
+    "scripts/art/house_textures.py": "a194c050e82ec8b4f2c2d174580ac7258bc074c0b5686f3d9f5157354c282798"
   }
 }

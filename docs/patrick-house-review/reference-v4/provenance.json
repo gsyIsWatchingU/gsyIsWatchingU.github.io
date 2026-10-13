@@ -27,7 +27,7 @@
     "reason": "rig_depth_asymmetry, rig_length_asymmetry"
   },
   "collection": {
-    "count": 12,
+    "count": 26,
     "reused": [
       {
         "path": "assets/house-review/props/treasure.glb",
@@ -35,14 +35,15 @@
       },
       {
         "path": "assets/house-review/props/barrel.glb",
-        "sha256": "f1f1b8eaec76fe7b7210b0ae8c6fb94e3b6e621ada3b4a08ea32561a6efafad0"
+        "sha256": "1b62a531273965f7ad314db93e5c504c72ae29e7094ebfa4f4784d428158d399"
       },
       {
         "path": "assets/house-review/props/chest.glb",
-        "sha256": "b118e39a50e0ac7ed5558815f00601db94370114b0d80b60834ce4efb170bf68"
+        "sha256": "82db4c5f6f07030aa43eeb1bd9c078aecedf4b4eeb0e93c9210f2d8b91fcf551"
       }
     ],
-    "other": "延续既有场景的纹理曲面、相框和小锚/船舵修整，不宣称 GPU 生成"
+    "other": "延续既有场景的纹理曲面、相框和小锚/船舵修整，不宣称 GPU 生成",
+    "preserved_from_remote": 14
   },
   "gpu_inventory": {
     "gsy013": {
@@ -75,5 +76,6 @@
       "verified": false,
       "reason": "独立信任文件不存在，未绕过主机校验；未分配"
     }
-  }
+  },
+  "merged_remote": "0039180e1493d858b095666bd22f181ad6887dd9"
 }

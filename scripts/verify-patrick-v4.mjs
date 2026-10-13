@@ -28,7 +28,7 @@ try{
     records.push({test:'mesh-bounds',value:await evaluate('(()=>{const h=window.__patrickHouse,m=h.character.meshes()[0],p=m.geometry.attributes.position;let mins=[Infinity,Infinity,Infinity],maxs=[-Infinity,-Infinity,-Infinity];for(let i=0;i<p.count;i++)for(let k=0;k<3;k++){mins[k]=Math.min(mins[k],p.array[i*3+k]);maxs[k]=Math.max(maxs[k],p.array[i*3+k]);}return {mins,maxs,vertices:p.count,triangles:m.geometry.index.count/3}})()')});
     await click('[data-house-back]');await delay(800);await click('[data-house-mode]');await delay(800);await shot('exterior');
   }else{
-    assert.equal((await state()).character.loaded,true);assert.equal((await state()).collection.count,12);
+    assert.equal((await state()).character.loaded,true);assert.equal((await state()).collection.count,26);
     const stair=(await state()).stair;assert.equal(stair.count,10);assert(stair.slopeDegrees<45);assert.equal(stair.bottom,-2.3);
     records.push({test:'stairs-connected-and-landed',value:stair});
     const point=await screenPoint('h.character.actor.position.clone().add({x:0,y:.52,z:.02})');assert.equal(await evaluate(`window.__patrickHouse.pick(${point.x},${point.y})?.interaction`),'patrick');await mouse(point.x,point.y);await delay(850);assert.equal((await state()).character.action,'wave');
@@ -43,7 +43,16 @@ try{
     const relic=await screenPoint('h.relics.items[4].getWorldPosition(h.camera.position.clone())');
     assert.equal(await evaluate(`window.__patrickHouse.pick(${relic.x},${relic.y})?.interaction`),'relic');await mouse(relic.x,relic.y);await delay(600);assert((await state()).collection.selected);await shot('relic');records.push({test:'real-buried-object-click',value:(await state()).collection});
     await click('[data-patrick-close]');await click('.room-label[aria-label^="下层"]');await delay(850);await shot('living');
+    for(const upper of [false,true]){
+      if(upper){await click('[data-house-back]');await delay(850);await click('.room-label[aria-label*="健身区"]');await delay(850);}
+      const point=await screenPoint(`(()=>{let tv;h.scene.traverse(n=>{if(n.userData.interaction==='tv' && (n.userData.tvKind==='upper')===${upper})tv=n;});return tv.userData.tvScreenMesh.getWorldPosition(h.camera.position.clone());})()`);
+      assert.equal(await evaluate(`window.__patrickHouse.pick(${point.x},${point.y})?.interaction`),'tv');
+      const before=(await state()).interact;await mouse(point.x,point.y);await delay(150);const after=(await state()).interact;
+      const key=upper?'upperTvOn':'tvOn';assert.equal(after[key],!before[key]);assert.equal(after[upper?'tvOn':'upperTvOn'],before[upper?'tvOn':'upperTvOn']);
+      records.push({test:'real-tv-isolation-'+key,value:after});
+    }
     await click('[data-house-back]');await delay(850);
+    for(const name of ['厨房','卧室']){await click(`.room-label[aria-label*="${name}"]`);await delay(850);await shot('room-'+name);assert.equal((await state()).view,name==='厨房'?'kitchen':'bedroom');await click('[data-house-back]');await delay(850);records.push({test:'real-room-'+name,value:true});}
     for(const [width,height] of [[390,844],[844,390],[1440,900]]){
       await viewport(width,height);await delay(850);assert.equal(await evaluate('document.documentElement.scrollWidth>innerWidth'),false);await shot('whole-'+width+'x'+height);
       records.push({test:'resize-'+width+'x'+height,value:await state()});

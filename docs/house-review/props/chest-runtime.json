@@ -1,6 +1,6 @@
 {
   "asset": "chest",
-  "revision": 3,
+  "revision": 4,
   "sourceBackend": "Hunyuan3D-2.1",
   "meshBackend": "Blender reference retopology",
   "rawSha256": "ed4b15ec928df8235ffd7340c0e598b954c9e5f5f7db799735ef09b60a1cdefe",
@@ -9,7 +9,7 @@
     1.9855733513832092,
     1.0577544119447424
   ],
-  "runtimeSha256": "b118e39a50e0ac7ed5558815f00601db94370114b0d80b60834ce4efb170bf68",
+  "runtimeSha256": "82db4c5f6f07030aa43eeb1bd9c078aecedf4b4eeb0e93c9210f2d8b91fcf551",
   "triangles": 5126,
   "dimensionsYUp": [
     0.8500000238418579,
@@ -24,5 +24,7 @@
     "new UV and painted material maps"
   ],
   "status": "review",
-  "humanReview": "pending"
+  "humanReview": "pending",
+  "repairSource": "scripts/art/house_retopology.py",
+  "repairSourceSHA256": "80ad9a6b682bd08612f76b9d08a15c75f28b9d6c8e04ac385f3f907a78595055"
 }

@@ -1,11 +1,11 @@
 {
-  "version": "20261012-squidward-v6",
+  "version": "20261013-squidward-v7-final",
   "status": "review",
-  "note": "章鱼哥屋最终预览配置（v6）。坐标按新 GLB 实测包围盒 + space-config.json 权威布局（glTF Y-up，地面 y=0，正门朝 +Z，四层楼板 y=0.15/1.20/2.40/3.60）。v6：外观补齐闭合石壳（shell_cutaway_cover 补片）；场景拾取仅绑定渲染 canvas，排除 UI 控件误触；切换房屋时重建房间标签；厨房近景改侧向镜头、客厅/卧室近景隐藏上方楼板（hideFloors）；移动端操作提示按信息卡高度排在其上方；外壳/面部加运行时石材画布纹理与舷窗框/玻璃。",
-  "cacheBust": "v=20261012-squidward-v6",
+  "note": "v7 参考图精修，glTF Y-up，+Z 朝前；石壳外观闭合，剖切保留有厚度的砖墙，四层行走面 y=0.15/1.20/2.40/3.60。近景镜头按视口适配；移动端关闭 SSAO。",
+  "cacheBust": "v=20261013-squidward-v7-final",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
-    "fov": 38,
+    "fov": 32,
     "wholePadding": 1.55,
     "pitch": 0.14,
     "minDistance": 0.5,
@@ -13,14 +13,22 @@
   },
   "tiers": {
     "mobileMaxWidth": 768,
-    "desktop": { "maxTriangles": 300000, "maxTexture": 2048, "ssao": true },
-    "mobile": { "maxTriangles": 150000, "maxTexture": 1024, "ssao": true }
+    "desktop": {
+      "maxTriangles": 300000,
+      "maxTexture": 2048,
+      "ssao": true
+    },
+    "mobile": {
+      "maxTriangles": 150000,
+      "maxTexture": 1024,
+      "ssao": false
+    }
   },
   "houses": {
     "squidward": {
       "title": "章鱼哥的人像屋",
-      "desc": "蓝色石质摩艾造型·完整闭合圆弧石壳；四层自下而上：入口与厨房、客厅、卧室、浴室；右侧连续螺旋楼梯与艺术品平台。",
-      "jobId": "最终：Blender 程序石壳(8,464 三角)+精修家具；采用候选：茶几 bd384769/地毯 c1edfa3d；未采用候选：石壳 a68d1b3f/沙发 0afbebe8",
+      "desc": "蓝灰石壳、墨绿砖墙与木质楼板；厨房、客厅、卧室、浴室四层相连，右侧木楼梯和艺术品平台。",
+      "jobId": "建筑/楼梯：Blender 精修；家具：自有 L20 Forge3D；石材/砖/木纹/画作：Z-Image。来源和候选状态见 asset-index.json。",
       "hasInterior": true,
       "models": {
         "desktop": {
@@ -33,8 +41,25 @@
         }
       },
       "door": {
-        "meshNames": ["door_frame", "door_panel", "door_handle"],
-        "exteriorProbe": { "x": [-0.55, 0.55], "y": [0.1, 2.1], "z": [1.4, 1.65] }
+        "meshNames": [
+          "door_frame",
+          "door_panel",
+          "door_handle"
+        ],
+        "exteriorProbe": {
+          "x": [
+            -0.55,
+            0.55
+          ],
+          "y": [
+            0.1,
+            2.1
+          ],
+          "z": [
+            1.4,
+            1.65
+          ]
+        }
       },
       "shellPrefix": "shell_",
       "rooms": [
@@ -42,39 +67,141 @@
           "id": "kitchen",
           "name": "一层 · 入口与厨房",
           "prefix": "kitchen_",
-          "bounds": [[-1.3, 0.0, -1.3], [1.3, 1.1, 1.3]],
-          "label": [0, 0.85, 0],
-          "target": [-0.5, 0.55, -1.15],
-          "camera": [-1.7, 0.9, 1.0]
+          "bounds": [
+            [
+              -1.3,
+              0.0,
+              -1.3
+            ],
+            [
+              1.3,
+              1.1,
+              1.3
+            ]
+          ],
+          "label": [
+            0,
+            0.85,
+            0
+          ],
+          "target": [
+            -0.2,
+            0.65,
+            0
+          ],
+          "camera": [
+            -1.2,
+            1.35,
+            3
+          ],
+          "hideFloors": [
+            "floor_2",
+            "floor_3",
+            "floor_4"
+          ]
         },
         {
           "id": "living",
           "name": "二层 · 客厅",
           "prefix": "living_",
-          "bounds": [[-1.3, 1.1, -1.3], [1.3, 2.3, 1.3]],
-          "label": [0, 1.95, 0],
-          "target": [0, 1.55, -0.35],
-          "camera": [0, 2.2, 2.9],
-          "hideFloors": ["floor_3"]
+          "bounds": [
+            [
+              -1.3,
+              1.1,
+              -1.3
+            ],
+            [
+              1.3,
+              2.3,
+              1.3
+            ]
+          ],
+          "label": [
+            0,
+            1.95,
+            0
+          ],
+          "target": [
+            -0.2,
+            1.75,
+            0
+          ],
+          "camera": [
+            -0.8,
+            2.4,
+            3
+          ],
+          "hideFloors": [
+            "floor_3",
+            "floor_4"
+          ]
         },
         {
           "id": "bedroom",
           "name": "三层 · 卧室",
           "prefix": "bedroom_",
-          "bounds": [[-1.3, 2.3, -1.3], [1.3, 3.5, 1.3]],
-          "label": [0, 3.15, 0],
-          "target": [-0.3, 2.85, -0.55],
-          "camera": [0, 3.25, 2.6],
-          "hideFloors": ["floor_4"]
+          "bounds": [
+            [
+              -1.3,
+              2.3,
+              -1.3
+            ],
+            [
+              1.3,
+              3.5,
+              1.3
+            ]
+          ],
+          "label": [
+            0,
+            3.15,
+            0
+          ],
+          "target": [
+            -0.2,
+            2.9,
+            0
+          ],
+          "camera": [
+            -0.8,
+            3.5,
+            3
+          ],
+          "hideFloors": [
+            "floor_4"
+          ]
         },
         {
           "id": "bathroom",
           "name": "四层 · 浴室",
           "prefix": "bath_",
-          "bounds": [[-1.2, 3.5, -1.2], [1.2, 4.5, 1.2]],
-          "label": [0, 4.15, 0],
-          "target": [0, 3.9, -0.5],
-          "camera": [0, 4.8, 2.6]
+          "bounds": [
+            [
+              -1.2,
+              3.5,
+              -1.2
+            ],
+            [
+              1.2,
+              4.5,
+              1.2
+            ]
+          ],
+          "label": [
+            0,
+            4.15,
+            0
+          ],
+          "target": [
+            0,
+            4.02,
+            0
+          ],
+          "camera": [
+            -0.9,
+            4.85,
+            3
+          ]
         }
       ]
     },
@@ -84,10 +211,19 @@
       "jobId": "5f31b9067879422ca8acbbe22aa9e6f6",
       "hasInterior": false,
       "models": {
-        "desktop": { "url": "../../assets/models/neighborhood/patrick-house.glb", "interiorUrl": null },
-        "mobile": { "url": "../../assets/models/neighborhood/patrick-house-web.glb", "interiorUrl": null }
+        "desktop": {
+          "url": "../../assets/models/neighborhood/patrick-house.glb",
+          "interiorUrl": null
+        },
+        "mobile": {
+          "url": "../../assets/models/neighborhood/patrick-house-web.glb",
+          "interiorUrl": null
+        }
       },
-      "door": { "meshNames": [], "exteriorProbe": null },
+      "door": {
+        "meshNames": [],
+        "exteriorProbe": null
+      },
       "shellPrefix": "shell_",
       "rooms": []
     }

@@ -1,0 +1,118 @@
+{
+  "commit": "8e54fde6145fb6c2c2b320167f57fdeddc7e107e",
+  "version": "20261013-reference2",
+  "files": [
+    {
+      "path": "patrick-house.html",
+      "status": 200,
+      "sha256": "ed6396e1610439a6e893bccc4071cad1f7aeb35c5cbf08e0947394a641f87f7a",
+      "expected": "ed6396e1610439a6e893bccc4071cad1f7aeb35c5cbf08e0947394a641f87f7a",
+      "matched": true,
+      "bytes": 2279
+    },
+    {
+      "path": "assets/patrick-house.js",
+      "status": 200,
+      "sha256": "fe650c916c9b9be52db03d8ed39c3e1f1db38b7edb21bffef9943c5b3fe7f547",
+      "expected": "fe650c916c9b9be52db03d8ed39c3e1f1db38b7edb21bffef9943c5b3fe7f547",
+      "matched": true,
+      "bytes": 738701
+    },
+    {
+      "path": "styles/patrick-house.css",
+      "status": 200,
+      "sha256": "b7fb8c7eb6c5a0e5dea3ecc4714078df07829c63165fce5d885c151cfb81c3c1",
+      "expected": "b7fb8c7eb6c5a0e5dea3ecc4714078df07829c63165fce5d885c151cfb81c3c1",
+      "matched": true,
+      "bytes": 3854
+    },
+    {
+      "path": "assets/patrick-reference/art/portrait-a.png",
+      "status": 200,
+      "sha256": "a3c36939ea34af5990d44da1906104e14cb8ed623d338975a1322c0cc7e3ac05",
+      "expected": "a3c36939ea34af5990d44da1906104e14cb8ed623d338975a1322c0cc7e3ac05",
+      "matched": true,
+      "bytes": 35458
+    },
+    {
+      "path": "assets/patrick-reference/art/portrait-b.png",
+      "status": 200,
+      "sha256": "f58b92a4c9c5e7620667a632dff1aedc547547b51f808ce3aed5be8b290c336d",
+      "expected": "f58b92a4c9c5e7620667a632dff1aedc547547b51f808ce3aed5be8b290c336d",
+      "matched": true,
+      "bytes": 38936
+    },
+    {
+      "path": "assets/patrick-reference/art/portrait-c.png",
+      "status": 200,
+      "sha256": "fef68ac8d0c682d231964d5ceb7d221b52213839f4dd33f00bfbb3332eec3e27",
+      "expected": "fef68ac8d0c682d231964d5ceb7d221b52213839f4dd33f00bfbb3332eec3e27",
+      "matched": true,
+      "bytes": 39201
+    },
+    {
+      "path": "assets/patrick-reference/art/poster-band.png",
+      "status": 200,
+      "sha256": "40455b261c134551b2c3b85391ef67b0a5bd827bbd2e74322f7b0243e91220ca",
+      "expected": "40455b261c134551b2c3b85391ef67b0a5bd827bbd2e74322f7b0243e91220ca",
+      "matched": true,
+      "bytes": 110429
+    },
+    {
+      "path": "assets/patrick-reference/art/poster-ocean.png",
+      "status": 200,
+      "sha256": "6b8a2c78049a8be00d41c2d60becdd7c9049aeebfdcf6a4fbbb9f46fb846b216",
+      "expected": "6b8a2c78049a8be00d41c2d60becdd7c9049aeebfdcf6a4fbbb9f46fb846b216",
+      "matched": true,
+      "bytes": 116977
+    },
+    {
+      "path": "assets/patrick-reference/models/armchair.glb",
+      "status": 200,
+      "sha256": "9719220e43b4fcd89c3ae72883945283791c93a765369e04e95190b6c79287ea",
+      "expected": "9719220e43b4fcd89c3ae72883945283791c93a765369e04e95190b6c79287ea",
+      "matched": true,
+      "bytes": 1084152
+    },
+    {
+      "path": "assets/patrick-reference/models/bed.glb",
+      "status": 200,
+      "sha256": "7e68325037d8645c6eda106c6fe843eb990fff1686d9d11c07b2550e1def2f08",
+      "expected": "7e68325037d8645c6eda106c6fe843eb990fff1686d9d11c07b2550e1def2f08",
+      "matched": true,
+      "bytes": 1397456
+    },
+    {
+      "path": "assets/patrick-reference/models/fridge.glb",
+      "status": 200,
+      "sha256": "aa41605c13857d140daf67038d218aa0c0a01f6508d1ef17f8eac7faaf986b5b",
+      "expected": "aa41605c13857d140daf67038d218aa0c0a01f6508d1ef17f8eac7faaf986b5b",
+      "matched": true,
+      "bytes": 1153024
+    },
+    {
+      "path": "assets/patrick-reference/models/old-tv.glb",
+      "status": 200,
+      "sha256": "07f361da3b5f3c356bdfff6a9be18188d95a7bfb5f59305f7a702e553846630f",
+      "expected": "07f361da3b5f3c356bdfff6a9be18188d95a7bfb5f59305f7a702e553846630f",
+      "matched": true,
+      "bytes": 1209336
+    },
+    {
+      "path": "assets/patrick-reference/models/patrick.glb",
+      "status": 200,
+      "sha256": "66676f1e6eba5d15bc5cb719ad8ee54e2b60e2fab1601403bf27dd61c2c91614",
+      "expected": "66676f1e6eba5d15bc5cb719ad8ee54e2b60e2fab1601403bf27dd61c2c91614",
+      "matched": true,
+      "bytes": 1762908
+    },
+    {
+      "path": "assets/patrick-reference/models/stove.glb",
+      "status": 200,
+      "sha256": "742358eff3df92a7448c4e77c183115627ccc1927af58f7a415c29badaf0c4e4",
+      "expected": "742358eff3df92a7448c4e77c183115627ccc1927af58f7a415c29badaf0c4e4",
+      "matched": true,
+      "bytes": 1418388
+    }
+  ]
+}

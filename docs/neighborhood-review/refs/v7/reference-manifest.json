@@ -1,0 +1,205 @@
+[
+  {
+    "id": "sofa",
+    "room": "living",
+    "seed": 2026101401,
+    "size": [
+      1.18,
+      0.64,
+      0.62
+    ],
+    "position": [
+      -0.5,
+      0.75,
+      1.2
+    ],
+    "prompt": "An olive green upholstered two seat sofa with curved walnut wooden armrests, thick fabric back cushions and seat cushions with seams, four short wooden feet, plain unpatterned fabric. A single isolated three-dimensional furniture product on a seamless plain white background, three-quarter front view showing its side depth, realistic thick solid volume, complete object uncropped, subtly hand-painted material and weathered wood grain, no illustration of houses, no buildings, no diorama, no book, no figurines, no extra objects, no text, no scenery, no motif or printed graphics.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/sofa.png",
+    "referenceSHA256": "4aa0ce3ecb789860b01a6bd9aad72c8fd79d65697e3425c99723d7abb6ba2f83",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "armchair",
+    "room": "living",
+    "seed": 2026101402,
+    "size": [
+      0.54,
+      0.56,
+      0.78
+    ],
+    "position": [
+      -0.84,
+      -0.25,
+      1.2
+    ],
+    "rotation": 20,
+    "prompt": "A reddish brown upholstered vintage reading armchair with a thick tall cushioned back, a deep empty cushioned seat, curved walnut armrests and four wooden legs. The seat is completely empty. A single isolated three-dimensional furniture product on a seamless plain white background, three-quarter front view showing its side depth, realistic thick solid volume, complete object uncropped, subtly hand-painted material and weathered wood grain, no illustration of houses, no buildings, no diorama, no book, no figurines, no extra objects, no text, no scenery, no motif or printed graphics.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/armchair.png",
+    "referenceSHA256": "e47baa32554b794b44cf2457f899c7be57e84b3d91209ca9393e4ccfc56b2ddd",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "bed",
+    "room": "bedroom",
+    "seed": 2026101403,
+    "size": [
+      1.1,
+      1.05,
+      0.88
+    ],
+    "position": [
+      -0.35,
+      0.35,
+      2.4
+    ],
+    "prompt": "A rustic four-poster oak canopy bed with four connected bedposts, blue bedding and two plain white pillows, detailed oak wood grain. A single isolated three-dimensional furniture product on a seamless plain white background, three-quarter front view showing its side depth, realistic thick solid volume, complete object uncropped, subtly hand-painted material and weathered wood grain, no illustration of houses, no buildings, no diorama, no book, no figurines, no extra objects, no text, no scenery, no motif or printed graphics.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/bed.png",
+    "referenceSHA256": "81cd58a95068448559b8c46087ebf60a13a06c15142b0a3c1e6c2e6f5e8cc10d",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "bathtub",
+    "room": "bath",
+    "seed": 2026101404,
+    "size": [
+      0.95,
+      0.62,
+      0.48
+    ],
+    "position": [
+      -0.6,
+      0.5,
+      3.6
+    ],
+    "prompt": "A single white enamel oval clawfoot bathtub with a visibly open deep concave interior basin and four short claw feet. Only the bathtub, absolutely no backdrop or shelving. A single isolated three-dimensional furniture product on a seamless plain white background, three-quarter front view showing its side depth, realistic thick solid volume, complete object uncropped, subtly hand-painted material and weathered wood grain, no illustration of houses, no buildings, no diorama, no book, no figurines, no extra objects, no text, no scenery, no motif or printed graphics.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/bathtub.png",
+    "referenceSHA256": "b6ccdd6ffdc1a8d055fc98661a4d3c3c75805500ccf38fd3e0f232635f9f4928",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "old-tv",
+    "room": "living",
+    "seed": 2026101405,
+    "size": [
+      0.43,
+      0.34,
+      0.52
+    ],
+    "position": [
+      0.1,
+      -0.44,
+      1.2
+    ],
+    "rotation": -20,
+    "prompt": "A vintage wooden CRT television with a convex blue grey glass screen, two round control knobs, woodgrain cabinet and four short feet. A single isolated three-dimensional furniture product on a seamless plain white background, three-quarter front view showing its side depth, realistic thick solid volume, complete object uncropped, subtly hand-painted material and weathered wood grain, no illustration of houses, no buildings, no diorama, no book, no figurines, no extra objects, no text, no scenery, no motif or printed graphics.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/old-tv.png",
+    "referenceSHA256": "6f3aec15539f685b15d58d0040b5771692ae5499d13a2baee9015baa806dd5a4",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "bookshelf",
+    "room": "living",
+    "seed": 2026101406,
+    "size": [
+      0.58,
+      0.28,
+      0.85
+    ],
+    "position": [
+      0.72,
+      0.5,
+      1.2
+    ],
+    "rotation": -25,
+    "prompt": "A simple rustic oak bookcase with three shelves filled only with rows of plain colored books, wooden side panels and short feet. No ornaments or house models. A single isolated three-dimensional furniture product on a seamless plain white background, three-quarter front view showing its side depth, realistic thick solid volume, complete object uncropped, subtly hand-painted material and weathered wood grain, no illustration of houses, no buildings, no diorama, no book, no figurines, no extra objects, no text, no scenery, no motif or printed graphics.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/bookshelf.png",
+    "referenceSHA256": "6aadd9327122645b95c5af1849ae80874f4e5942be53f1710b4560715a1045ca",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "plant",
+    "room": "living",
+    "seed": 2026101407,
+    "size": [
+      0.35,
+      0.32,
+      0.6
+    ],
+    "position": [
+      0.2,
+      0.73,
+      1.2
+    ],
+    "prompt": "A dense dark green leafy houseplant in a terracotta pot, broad curved leaves and visible soil. A single isolated three-dimensional furniture product on a seamless plain white background, three-quarter front view showing its side depth, realistic thick solid volume, complete object uncropped, subtly hand-painted material and weathered wood grain, no illustration of houses, no buildings, no diorama, no book, no figurines, no extra objects, no text, no scenery, no motif or printed graphics.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/plant.png",
+    "referenceSHA256": "3ecb6c25edceb52ee3b7c64b49efa7259aa82a254633c3efa6a2697c0342372d",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "stone-blue",
+    "kind": "texture",
+    "seed": 2026101411,
+    "prompt": "Seamless PBR albedo texture of dark blue grey volcanic stone, fine irregular mineral speckles, worn stone grain and tiny cracks, matte stone, orthographic uniform lighting, no objects, no artwork, no houses, no symbols.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/stone-blue.png",
+    "referenceSHA256": "b753f2604916641c2ace6c7bf2e0c4f31790e1926369dae8a894c624bdaabc28",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "tile-green",
+    "kind": "texture",
+    "seed": 2026101412,
+    "prompt": "Seamless PBR albedo texture of plain dark emerald green square ceramic tiles in a regular straight grid with thin grey grout lines, subtly varied glazed green tile colors, tiny cracks and scratches, no patterns, no motifs, no printed artwork, no houses, orthographic uniform lighting.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/tile-green.png",
+    "referenceSHA256": "28ae9b279ccdbba0ba135e5a21ac621883a0c0c5ca710c59fc1a2cbf3e900afa",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  },
+  {
+    "id": "wood-planks",
+    "kind": "texture",
+    "seed": 2026101413,
+    "prompt": "Seamless PBR albedo texture of rustic medium brown oak floorboards, fine flowing wood grain, narrow parallel planks and seams, subtle wear, orthographic uniform lighting, no objects, no motifs.",
+    "backend": "Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "host": "gsy013",
+    "reference": "/workspace/projects/squidward-reference-v7-20261013/refs/wood-planks.png",
+    "referenceSHA256": "869b2fbe714505bc8e09dc4f759668227569161ae9d7f57b60ed0e54cda767c4",
+    "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "status": "review"
+  }
+]

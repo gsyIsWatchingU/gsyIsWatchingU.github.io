@@ -1,0 +1,731 @@
+{
+  "url": "http://127.0.0.1:8797/docs/neighborhood-review/?v=20261013-squidward-v7",
+  "checks": [
+    {
+      "name": "desktop-closed-exterior",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "exterior",
+        "roomId": null,
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 0,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "info": "章鱼哥的人像屋\n\n蓝灰石壳、墨绿砖墙与木质楼板；厨房、客厅、卧室、浴室四层相连，右侧木楼梯和艺术品平台。 点击木门或「查看剖面」进入。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "desktop-tier",
+      "ok": true,
+      "actual": "desktop"
+    },
+    {
+      "name": "desktop-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "desktop-orbit",
+      "ok": true
+    },
+    {
+      "name": "desktop-native-door-entry",
+      "ok": true,
+      "actual": {
+        "point": {
+          "x": 733.9010639934265,
+          "y": 705.4610251518743
+        },
+        "state": {
+          "house": "squidward",
+          "view": "cutaway",
+          "roomId": null,
+          "tier": "desktop",
+          "extTris": 100626,
+          "intTris": 95158,
+          "camAnimating": false,
+          "doorAnimating": false,
+          "doorY": -1.427996660722633,
+          "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+          "width": 1440,
+          "scrollWidth": 1440,
+          "roomChips": false
+        }
+      }
+    },
+    {
+      "name": "desktop-four-chips",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 4
+      }
+    },
+    {
+      "name": "desktop-wheel",
+      "ok": true
+    },
+    {
+      "name": "desktop-kitchen-entry",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "kitchen",
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 一层 · 入口与厨房\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "desktop-kitchen-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "desktop-kitchen-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "desktop-living-entry",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "living",
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 二层 · 客厅\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "desktop-living-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "desktop-living-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "desktop-bedroom-entry",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "bedroom",
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 三层 · 卧室\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "desktop-bedroom-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "desktop-bedroom-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "desktop-bathroom-entry",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "bathroom",
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 四层 · 浴室\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "desktop-bathroom-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "desktop-bathroom-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "desktop-double-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "exterior",
+        "roomId": null,
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋\n\n蓝灰石壳、墨绿砖墙与木质楼板；厨房、客厅、卧室、浴室四层相连，右侧木楼梯和艺术品平台。 点击木门或「查看剖面」进入。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "desktop-resize-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 4
+      }
+    },
+    {
+      "name": "desktop-trusted-input",
+      "ok": true,
+      "actual": {
+        "count": 44
+      }
+    },
+    {
+      "name": "desktop-direct-patrick",
+      "ok": true,
+      "actual": {
+        "house": "patrick",
+        "view": "exterior",
+        "roomId": null,
+        "tier": "desktop",
+        "extTris": 40000,
+        "intTris": 0,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "info": "派大星的石头屋\n\n深红褐色圆顶巨石，顶部黄色风向标，粗石纹理。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "desktop-switch-rebuild-chips",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 4
+      }
+    },
+    {
+      "name": "desktop-switch-chip-click",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "bathroom",
+        "tier": "desktop",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 四层 · 浴室\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "mobile-closed-exterior",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "exterior",
+        "roomId": null,
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 0,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "info": "章鱼哥的人像屋\n\n蓝灰石壳、墨绿砖墙与木质楼板；厨房、客厅、卧室、浴室四层相连，右侧木楼梯和艺术品平台。 点击木门或「查看剖面」进入。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "mobile-tier",
+      "ok": true,
+      "actual": "mobile"
+    },
+    {
+      "name": "mobile-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "mobile-native-door-entry",
+      "ok": true,
+      "actual": {
+        "point": {
+          "x": 195,
+          "y": 567.3437212977392
+        },
+        "state": {
+          "house": "squidward",
+          "view": "cutaway",
+          "roomId": null,
+          "tier": "mobile",
+          "extTris": 100626,
+          "intTris": 95158,
+          "camAnimating": false,
+          "doorAnimating": false,
+          "doorY": -1.427996660722633,
+          "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+          "width": 390,
+          "scrollWidth": 390,
+          "roomChips": false
+        }
+      }
+    },
+    {
+      "name": "mobile-four-chips",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 4
+      }
+    },
+    {
+      "name": "mobile-native-pinch",
+      "ok": true
+    },
+    {
+      "name": "mobile-pinch-reset",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "mobile-kitchen-entry",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "kitchen",
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 一层 · 入口与厨房\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "mobile-kitchen-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "mobile-kitchen-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "mobile-living-entry",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "living",
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 二层 · 客厅\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "mobile-living-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "mobile-living-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "mobile-bedroom-entry",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "bedroom",
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 三层 · 卧室\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "mobile-bedroom-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "mobile-bedroom-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "mobile-bathroom-entry",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "bathroom",
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 四层 · 浴室\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "mobile-bathroom-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 0
+      }
+    },
+    {
+      "name": "mobile-bathroom-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "cutaway",
+        "roomId": null,
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 内部剖切\n\n前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": false
+      }
+    },
+    {
+      "name": "mobile-double-return",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "exterior",
+        "roomId": null,
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋\n\n蓝灰石壳、墨绿砖墙与木质楼板；厨房、客厅、卧室、浴室四层相连，右侧木楼梯和艺术品平台。 点击木门或「查看剖面」进入。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "mobile-resize-layout",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 4
+      }
+    },
+    {
+      "name": "mobile-trusted-input",
+      "ok": true,
+      "actual": {
+        "count": 86
+      }
+    },
+    {
+      "name": "mobile-direct-patrick",
+      "ok": true,
+      "actual": {
+        "house": "patrick",
+        "view": "exterior",
+        "roomId": null,
+        "tier": "mobile",
+        "extTris": 40000,
+        "intTris": 0,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "info": "派大星的石头屋\n\n深红褐色圆顶巨石，顶部黄色风向标，粗石纹理。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "mobile-switch-rebuild-chips",
+      "ok": true,
+      "actual": {
+        "overflow": false,
+        "infoHint": false,
+        "topReset": false,
+        "chipCount": 4
+      }
+    },
+    {
+      "name": "mobile-switch-chip-click",
+      "ok": true,
+      "actual": {
+        "house": "squidward",
+        "view": "room",
+        "roomId": "bathroom",
+        "tier": "mobile",
+        "extTris": 100626,
+        "intTris": 95158,
+        "camAnimating": false,
+        "doorAnimating": false,
+        "doorY": -1.427996660722633,
+        "info": "章鱼哥的人像屋 · 四层 · 浴室\n\n近景镜头。Esc 或「返回外部」回到全屋剖切。\n\n制作与审查记录",
+        "width": 390,
+        "scrollWidth": 390,
+        "roomChips": true
+      }
+    },
+    {
+      "name": "no-script-or-resource-errors",
+      "ok": true,
+      "actual": []
+    }
+  ],
+  "passed": 51,
+  "failed": 0,
+  "events": [],
+  "environment": "Headless Chrome / ANGLE SwiftShader; mobile touch emulation; physical device and hardware FPS unverified"
+}

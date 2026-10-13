@@ -8,7 +8,7 @@ export function createPatrickRelics(onChange) {
   const items = [], loader = new GLTFLoader(), rust = texMat(woodTex(256, 'dark'), .95);
   const glass = mat(0x468b81, .4), brass = mat(0xc09248, .7, { metalness: .32 });
   const relic = (mesh, x, y, label, story, tilt = 0) => {
-    const holder = new THREE.Group(); holder.add(mesh); holder.position.set(x, y, Math.sqrt(4.36 ** 2 - x ** 2));
+    const holder = new THREE.Group(); holder.add(mesh); holder.position.set(x, y-.22, Math.sqrt(4.36 ** 2 - x ** 2));
     holder.rotation.set(.08, Math.asin(x / 4.36), tilt); holder.userData.interaction = 'relic';
     holder.userData.label = label; holder.userData.story = story; holder.userData.home = holder.position.clone();
     holder.name = 'relic-' + items.length; mesh.traverse(n => { if(n.isMesh) n.castShadow = n.receiveShadow = true; });
@@ -51,7 +51,7 @@ export function createPatrickRelics(onChange) {
   }));
   let selected=null,time=0;
   return {group,items,loaded,
-    activate(item){ selected=item;time=0;return item.userData.story; },
+    activate(item){ if(selected)selected.position.copy(selected.userData.home);selected=item;time=0;return item.userData.story; },
     update(dt){if(!selected)return;time+=dt;const k=time<.6?Math.sin(time/.6*Math.PI/2):time<2.4?1:Math.max(0,1-(time-2.4)/.6);selected.position.copy(selected.userData.home).add(new THREE.Vector3(0,k*.24,k*.23));if(time>=3)selected=null;},
     snapshot:()=>({count:items.length,selected:selected?.name??null}),
   };

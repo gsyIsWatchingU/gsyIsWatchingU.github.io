@@ -7,6 +7,7 @@ import { addSiameseFur } from "./house-pet-fur.js";
 import { createHouseCompanion } from "./house-companion.js";
 import config from "../src/data/pineapple-house.json";
 import awards from "../src/data/house-awards.json";
+import { createToyChest } from './house-toy-chest.js';
 import './house-music.js';
 
 const root = document.querySelector(".house");
@@ -22,6 +23,7 @@ const rooms = new Map(config.rooms.map((room) => [room.id, room]));
 const interactions = new Map(config.interactions.map(item=>[item.id,item]));
 function activateObject(id) {
   const item=interactions.get(id);if(!item)return;
+  if(item.action==='toy'){window.dispatchEvent(new CustomEvent('house:toy-chest'));return;}
   window.dispatchEvent(new CustomEvent(item.action==='music'?'house:music':'house:content',{detail:{id,section:item.section}}));
 }
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -69,6 +71,12 @@ if (renderer) {
   renderer.toneMappingExposure = 1.14;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
+  renderer.localClippingEnabled = true;
+  // 一层共用墙面与地板，近景按储藏室隔墙裁切；全景移除裁切。
+  const firstFloorClips = {
+    living: [new THREE.Plane(new THREE.Vector3(1,0,0),2.55)],
+    storage: [new THREE.Plane(new THREE.Vector3(-1,0,0),-2.55)]
+  };
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(34, viewWidth / viewHeight, 0.1, 120);
   const controls = new OrbitControls(camera, canvas);
@@ -114,6 +122,8 @@ if (renderer) {
   let lastFrameTime = performance.now();
   let measuredFps = 0;
   let pet = null;
+  let toyChest = null;
+  window.addEventListener('house:toy-chest',()=>toyChest?.toggle());
   let lastPetFrame = null;
   const companion = root.hasAttribute('data-house-companion-preview')
     ? createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom:()=>activeRoom,getAsset:id=>loaded.get(id),getPet:()=>pet,reducedMotion}) : null;
@@ -222,26 +232,27 @@ if (renderer) {
       group.traverse((node) => {
         const d=node.userData;
         if(!node.isMesh) return;
-        if(!activeRoom) { node.visible=!d.roomViewOnly;return; }
-        const room=rooms.get(activeRoom);
-        const roof = activeRoom === "roof";
-        let visible = true;
-        if (group.userData.assetId && group.userData.assetId !== "structure") {
-          visible = group.userData.roomId === activeRoom;
-        } else if (activeRoom === "library") {
-          visible = d.roomId === "library";
-        } else if(roof) {
-          visible = d.roomId === "roof" || (d.roomId === "stairs" && d.level === 3);
-        } else {
-          visible = d.level === room.level && d.roomId !== "library";
-          if(d.occluder && d.roomId !== activeRoom) visible=false;
-          if(d.roomId === "stairs") visible=activeRoom === "bedroom" && d.level === 2;
-          if(node.name.startsWith("cut_arch")) visible=false;
-          if(activeRoom === "storage" && d.roomId === "living") visible=Boolean(d.occluder) || node.name === "living_L0_sand";
-          if(activeRoom === "living" && d.roomId === "storage") visible=false;
+        const structure=group.userData.assetId === "structure";
+        const sharedSurface=structure && d.roomId === "living" && (d.occluder || node.name === "living_L0_sand");
+        if(sharedSurface) {
+          const materials=Array.isArray(node.material)?node.material:[node.material];
+          materials.forEach(material=>{material.clippingPlanes=firstFloorClips[activeRoom]??null;});
         }
+        if(!activeRoom) { node.visible=!d.roomViewOnly;return; }
+        let visible = d.roomId === activeRoom;
+        if(!structure) visible=group.userData.roomId === activeRoom;
+        else if(activeRoom === "storage" && sharedSurface) visible=true;
+        else if(d.roomId === "stairs") {
+          visible=activeRoom === "bedroom" && d.level === 2 || activeRoom === "roof" && (d.level === 3 || d.roofAccess === true);
+        }
+        // 菠萝顶冠用于整屋轮廓，天台近景聚焦平台与躺椅。
+        if(structure && node.name === "roof_L3_leaf") visible=false;
         node.visible=d.roomViewOnly?d.roomViewOnly===activeRoom:visible;
       });
+    }
+    if(activeRoom==='roof'){
+      const entries=[];loaded.get('structure')?.traverse(n=>{if(n.isMesh&&n.userData.roomId==='stairs'&&n.userData.level>=2)entries.push({name:n.name,level:n.userData.level,roofAccess:!!n.userData.roofAccess,visible:n.visible});});
+      root.dataset.roofMeshes=JSON.stringify(entries);
     }
   }
 
@@ -321,6 +332,8 @@ if (renderer) {
     houseGroup.traverse((node) => {if(!node.isMesh)return;let parent=node;while(parent){if(!parent.visible)return;parent=parent.parent;}meshes.push(node);});
     const hits=raycaster.intersectObjects(meshes,false);
     for(const hit of hits) {
+      const material=Array.isArray(hit.object.material)?hit.object.material[hit.face.materialIndex]:hit.object.material;
+      if(material.clippingPlanes?.some(plane=>plane.distanceToPoint(hit.point)<0)) continue;
       let node=hit.object;
       while(node && !node.userData.roomId && !node.userData.awardId && !node.userData.contentId) node=node.parent;
       if(node?.userData.companionId) return {companionId:node.userData.companionId,roomId:node.userData.roomId};
@@ -398,7 +411,7 @@ if (renderer) {
           // 多材质 GLB 壳体会变为 Group，extras 位于父节点，需继承到实际网格。
           let parent=node.parent;
           while(parent && parent!==model.parent) {
-            for(const key of ["roomId","level","occluder","roomViewOnly"]) {
+            for(const key of ["roomId","level","occluder","roomViewOnly","roofAccess"]) {
               if(node.userData[key]===undefined && parent.userData[key]!==undefined) node.userData[key]=parent.userData[key];
             }
             if(parent===model) break;
@@ -407,6 +420,11 @@ if (renderer) {
           node.castShadow=true;
           node.receiveShadow=true;
           if(spec.room) node.userData.roomId=spec.room;
+          // 裁切材质独立，避免共用材质把其它区域的物件一并裁掉。
+          if(spec.id==='structure' && node.userData.roomId==='living' && (node.userData.occluder || node.name==='living_L0_sand')) {
+            node.material=Array.isArray(node.material)?node.material.map(material=>material.clone()):node.material.clone();
+            (Array.isArray(node.material)?node.material:[node.material]).forEach(material=>{material.clipShadows=true;});
+          }
           const interaction=config.interactions.find(item=>item.asset===spec.id);
           if(interaction){
             node.userData.contentId=interaction.id;
@@ -420,6 +438,7 @@ if (renderer) {
           });
         });
         houseGroup.add(model);
+        if(spec.id==='chest')toyChest=createToyChest(model,{root,version:config.version,reducedMotion});
         if(spec.pet){if(spec.pet.fur)addSiameseFur(model);pet=createHousePet(model,spec,{root,canvas,camera,reducedMotion});}
         loaded.set(spec.id,model);
         failures.delete(spec.id);
@@ -483,6 +502,7 @@ if (renderer) {
     const companionDt=lastPetFrame===null?0:Math.min((now-lastPetFrame)/1000,1);
     const petDt=lastPetFrame===null?0:Math.min((now-lastPetFrame)/1000,.06);
     lastPetFrame=now;
+    toyChest?.update(petDt);
     pet?.update(petDt,ready && !document.hidden && (!activeRoom || activeRoom==='living') && !document.querySelector('dialog[open]'));
     companion?.update(companionDt,ready);
     if(!activeRoom) {
@@ -505,7 +525,7 @@ if (renderer) {
   }
   requestAnimationFrame(frame);
   // 验收接口只报告真实载入状态，不将候选标为 approved。
-  window.__pineappleHouse={focusRoom,resetView,scene,camera,controls,config,companion,
+  window.__pineappleHouse={focusRoom,resetView,scene,camera,controls,config,companion,toyChest:()=>toyChest?.snapshot(),
     snapshot:() => ({state:root.dataset.houseState,view:activeRoom??"whole",loaded:[...loaded.keys()],failed:[...failures.keys()],fps:Number(measuredFps.toFixed(1)),renderer:renderer.info.render,camera:camera.position.toArray(),target:controls.target.toArray(),pet:pet?.snapshot()??null,status:"review",structureOnly}),
     projectRoom:id => {
       const room=rooms.get(id);if(!room) return null;

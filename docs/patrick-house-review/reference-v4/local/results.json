@@ -10,7 +10,7 @@
         "character": {
           "loaded": true,
           "action": "idle",
-          "time": 1.323400000000373,
+          "time": 1.2751999999992552,
           "counter": 0,
           "height": 0.98,
           "offset": [
@@ -23,7 +23,7 @@
           "blink": 0
         },
         "collection": {
-          "count": 12,
+          "count": 26,
           "selected": null
         },
         "stair": {
@@ -35,18 +35,19 @@
         },
         "interact": {
           "tvOn": false,
+          "upperTvOn": false,
           "fanSpinning": false,
           "bedLampOn": false,
           "floorLampOn": false
         },
         "camPos": [
           0,
-          3.613825116472607,
-          21.365209303938407
+          6.249056477730055,
+          22.950256716954787
         ],
         "target": [
           0,
-          1.05,
+          1.2,
           0
         ],
         "fov": 34,
@@ -77,7 +78,7 @@
         "character": {
           "loaded": true,
           "action": "wave",
-          "time": 0.872,
+          "time": 0.876800000000745,
           "counter": 1,
           "height": 0.98,
           "offset": [
@@ -90,7 +91,7 @@
           "blink": 0
         },
         "collection": {
-          "count": 12,
+          "count": 26,
           "selected": null
         },
         "stair": {
@@ -102,6 +103,7 @@
         },
         "interact": {
           "tvOn": false,
+          "upperTvOn": false,
           "fanSpinning": false,
           "bedLampOn": false,
           "floorLampOn": false
@@ -127,9 +129,9 @@
     {
       "test": "actual-skin-deformation-wave",
       "value": {
-        "p99": 1.4202809163163295,
-        "max": 3.628217006869934,
-        "minimumY": -0.0027041623281296445,
+        "p99": 1.394828145123517,
+        "max": 3.4864433756213473,
+        "minimumY": -0.0023821636797656254,
         "bones": 5,
         "triangles": 29100
       }
@@ -139,12 +141,12 @@
       "value": {
         "loaded": true,
         "action": "cheer",
-        "time": 0.8003000000007451,
+        "time": 0.7546999999992551,
         "counter": 2,
         "height": 0.98,
         "offset": [
           0,
-          0.17185609540334762,
+          0.17999460409367776,
           0
         ],
         "costume": "shorts",
@@ -155,9 +157,9 @@
     {
       "test": "actual-skin-deformation-cheer",
       "value": {
-        "p99": 2.0360944524809654,
+        "p99": 2.036094467849883,
         "max": 3.3793745386526908,
-        "minimumY": 0.16743626374420462,
+        "minimumY": 0.17563207727478947,
         "bones": 5,
         "triangles": 29100
       }
@@ -167,7 +169,7 @@
       "value": {
         "loaded": true,
         "action": "icecream",
-        "time": 0.8106999999992549,
+        "time": 0.7221000000014903,
         "counter": 3,
         "height": 0.98,
         "offset": [
@@ -183,9 +185,9 @@
     {
       "test": "actual-skin-deformation-icecream",
       "value": {
-        "p99": 1.3737804797667759,
-        "max": 3.3943993054608654,
-        "minimumY": -4.284083887640122e-8,
+        "p99": 1.3791969837675622,
+        "max": 3.437380126073396,
+        "minimumY": -4.284083843231201e-8,
         "bones": 5,
         "triangles": 29100
       }
@@ -195,7 +197,7 @@
       "value": {
         "loaded": true,
         "action": "hula",
-        "time": 0.7475999999996273,
+        "time": 0.709699999999255,
         "counter": 4,
         "height": 0.98,
         "offset": [
@@ -211,9 +213,9 @@
     {
       "test": "actual-skin-deformation-hula",
       "value": {
-        "p99": 1.7820410681633534,
-        "max": 2.7932398748466833,
-        "minimumY": -0.002804477688233664,
+        "p99": 1.782041045272387,
+        "max": 2.7932398748466483,
+        "minimumY": -0.001976232499806052,
         "bones": 5,
         "triangles": 29100
       }
@@ -221,9 +223,37 @@
     {
       "test": "real-buried-object-click",
       "value": {
-        "count": 12,
+        "count": 26,
         "selected": "relic-4"
       }
+    },
+    {
+      "test": "real-tv-isolation-tvOn",
+      "value": {
+        "tvOn": true,
+        "upperTvOn": false,
+        "fanSpinning": false,
+        "bedLampOn": false,
+        "floorLampOn": false
+      }
+    },
+    {
+      "test": "real-tv-isolation-upperTvOn",
+      "value": {
+        "tvOn": true,
+        "upperTvOn": true,
+        "fanSpinning": false,
+        "bedLampOn": false,
+        "floorLampOn": false
+      }
+    },
+    {
+      "test": "real-room-厨房",
+      "value": true
+    },
+    {
+      "test": "real-room-卧室",
+      "value": true
     },
     {
       "test": "resize-390x844",
@@ -235,7 +265,7 @@
         "character": {
           "loaded": true,
           "action": "idle",
-          "time": 5.350599999999627,
+          "time": 11.267499999999966,
           "counter": 4,
           "height": 0.98,
           "offset": [
@@ -248,7 +278,7 @@
           "blink": 0
         },
         "collection": {
-          "count": 12,
+          "count": 26,
           "selected": null
         },
         "stair": {
@@ -259,19 +289,20 @@
           "bottom": -2.3
         },
         "interact": {
-          "tvOn": false,
+          "tvOn": true,
+          "upperTvOn": true,
           "fanSpinning": false,
           "bedLampOn": false,
           "floorLampOn": false
         },
         "camPos": [
           0,
-          5.083156349498685,
-          33.609636245822394
+          8.079488714093166,
+          31.270403245878022
         ],
         "target": [
           0,
-          1.05,
+          1.2,
           0
         ],
         "fov": 50,
@@ -292,7 +323,7 @@
         "character": {
           "loaded": true,
           "action": "idle",
-          "time": 6.317099999999623,
+          "time": 12.250599999999583,
           "counter": 4,
           "height": 0.98,
           "offset": [
@@ -305,7 +336,7 @@
           "blink": 0
         },
         "collection": {
-          "count": 12,
+          "count": 26,
           "selected": null
         },
         "stair": {
@@ -316,19 +347,20 @@
           "bottom": -2.3
         },
         "interact": {
-          "tvOn": false,
+          "tvOn": true,
+          "upperTvOn": true,
           "fanSpinning": false,
           "bedLampOn": false,
           "floorLampOn": false
         },
         "camPos": [
           0,
-          3.613825116472607,
-          21.365209303938407
+          6.249056477730055,
+          22.950256716954787
         ],
         "target": [
           0,
-          1.05,
+          1.2,
           0
         ],
         "fov": 34,
@@ -349,7 +381,7 @@
         "character": {
           "loaded": true,
           "action": "idle",
-          "time": 7.366999999999992,
+          "time": 13.317499999999942,
           "counter": 4,
           "height": 0.98,
           "offset": [
@@ -362,7 +394,7 @@
           "blink": 0
         },
         "collection": {
-          "count": 12,
+          "count": 26,
           "selected": null
         },
         "stair": {
@@ -373,19 +405,20 @@
           "bottom": -2.3
         },
         "interact": {
-          "tvOn": false,
+          "tvOn": true,
+          "upperTvOn": true,
           "fanSpinning": false,
           "bedLampOn": false,
           "floorLampOn": false
         },
         "camPos": [
           0,
-          3.613825116472607,
-          21.365209303938407
+          6.249056477730055,
+          22.950256716954787
         ],
         "target": [
           0,
-          1.05,
+          1.2,
           0
         ],
         "fov": 34,
@@ -399,12 +432,12 @@
     {
       "test": "render",
       "value": {
-        "frameCount": 1097,
+        "frameCount": 1450,
         "lastRenderError": null,
         "gl": {
-          "frame": 1097,
-          "calls": 19,
-          "triangles": 66232,
+          "frame": 1450,
+          "calls": 21,
+          "triangles": 72096,
           "points": 0,
           "lines": 0
         }

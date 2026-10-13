@@ -22,17 +22,17 @@ const infoPanel = document.getElementById('info-panel');
 // ========== Config ==========
 let config = null;
 async function loadConfig() {
-  const res = await fetch('./config/house-config.json');
+  const res = await fetch('./config/house-config.json?v=20261013-squidward-v7-final');
   if (!res.ok) throw new Error('config load ' + res.status);
   config = await res.json();
 }
 
 // ========== Renderer / Scene ==========
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xa8d4e6);
-scene.fog = new THREE.Fog(0xa8d4e6, 14, 34);
+scene.background = new THREE.Color(0xffeed0);
+scene.fog = new THREE.Fog(0xffeed0, 18, 42);
 
-const camera = new THREE.PerspectiveCamera(38, wrap.clientWidth / wrap.clientHeight, 0.1, 120);
+const camera = new THREE.PerspectiveCamera(32, wrap.clientWidth / wrap.clientHeight, 0.1, 120);
 camera.position.set(0, 2, 6);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -40,9 +40,10 @@ renderer.setSize(wrap.clientWidth, wrap.clientHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.12;
+renderer.toneMappingExposure = 1.15;
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.type = THREE.PCFShadowMap;
+renderer.localClippingEnabled = true;
 wrap.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -52,9 +53,9 @@ controls.enablePan = false;
 controls.maxPolarAngle = Math.PI / 2 + 0.12;
 
 // Lights (菠萝屋色彩管理/柔和主光补光为起点)
-scene.add(new THREE.HemisphereLight(0xf2f6e8, 0x8a7a5a, 1.05));
+scene.add(new THREE.HemisphereLight(0xf2f0df, 0x455144, 1.25));
 const key = new THREE.DirectionalLight(0xfff2d2, 2.2);
-key.position.set(4, 8, 6);
+key.position.set(-4, 8, 7);
 key.castShadow = true;
 key.shadow.mapSize.set(2048, 2048);
 key.shadow.bias = -0.0004;
@@ -63,10 +64,13 @@ scene.add(key, key.target);
 const fill = new THREE.DirectionalLight(0xd1edff, 0.55);
 fill.position.set(-5, 4, -4);
 scene.add(fill);
+const frontFill = new THREE.DirectionalLight(0xe3eadf, 1.2);
+frontFill.position.set(1, 4, 8);
+scene.add(frontFill);
 
 const ground = new THREE.Mesh(
-  new THREE.CircleGeometry(12, 64),
-  new THREE.MeshStandardMaterial({ color: 0xd4c89a, roughness: 0.95 })
+  new THREE.CircleGeometry(2.25, 80),
+  new THREE.MeshStandardMaterial({ color: 0xbcb08a, roughness: 0.98 })
 );
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
@@ -192,6 +196,7 @@ function setInfo(title, desc, extraMeta) {
     (extraMeta ? `<br>${extraMeta}` : '');
   layoutHint();
 }
+document.querySelector('.production-record').addEventListener('toggle', layoutHint);
 
 // ========== 外观材质增强（运行时画布纹理 + 舷窗框/玻璃，不改 GLB） ==========
 function makeStoneTexture() {
@@ -271,7 +276,7 @@ function applyExteriorMaterials(root) {
     }
     const mats = Array.isArray(o.material) ? o.material : [o.material];
     for (const m of mats) {
-      if (!m || m.userData.stonePatched) continue;
+      if (!m || m.userData.stonePatched || m.map) continue;
       m.userData.stonePatched = true;
       m.map = stoneTex;
       m.needsUpdate = true;
@@ -285,10 +290,21 @@ function addPortholeDetails(root) {
   root.userData.portholeDetails = true;
   const group = new THREE.Group();
   group.name = 'porthole_details';
-  const frameMat = new THREE.MeshStandardMaterial({ color: 0x2f5a6b, roughness: 0.35, metalness: 0.25 });
+  const frameMat = new THREE.MeshStandardMaterial({ color: 0x617e9b, roughness: 0.78, metalness: 0 });
+  const glassCanvas = document.createElement('canvas');
+  glassCanvas.width = glassCanvas.height = 128;
+  const context = glassCanvas.getContext('2d');
+  const gradient = context.createRadialGradient(46, 38, 4, 64, 64, 88);
+  gradient.addColorStop(0, '#cfdfdb');
+  gradient.addColorStop(0.45, '#739ab7');
+  gradient.addColorStop(1, '#345172');
+  context.fillStyle = gradient; context.fillRect(0, 0, 128, 128);
+  context.strokeStyle = 'rgba(240,250,248,0.3)'; context.lineWidth = 8;
+  context.beginPath(); context.moveTo(18, 22); context.lineTo(91, 101); context.stroke();
+  const glassTexture = new THREE.CanvasTexture(glassCanvas); glassTexture.colorSpace = THREE.SRGBColorSpace;
   const glassMat = new THREE.MeshPhysicalMaterial({
-    color: 0x3a8aa0, metalness: 0.5, roughness: 0.12,
-    transparent: true, opacity: 0.45, clearcoat: 0.9, clearcoatRoughness: 0.15,
+    map: glassTexture, metalness: 0.08, roughness: 0.22,
+    transparent: false, clearcoat: 0.9, clearcoatRoughness: 0.15,
   });
   root.traverse(o => {
     if (!o.isMesh || !/^shell_porthole_[LR]$/.test(o.name)) return;
@@ -296,14 +312,14 @@ function addPortholeDetails(root) {
     const c = box.getCenter(new THREE.Vector3());
     const size = box.getSize(new THREE.Vector3());
     const radius = Math.max(size.x, size.z) / 2;
-    const dir = c.clone().setY(0).normalize();
+    const dir = new THREE.Vector3(0, 0, 1);
     const frame = new THREE.Mesh(new THREE.TorusGeometry(radius, radius * 0.3, 12, 28), frameMat);
-    frame.position.copy(c);
-    frame.lookAt(c.clone().add(dir));
+    frame.position.copy(root.worldToLocal(new THREE.Vector3(c.x, c.y, box.max.z + 0.012)));
+    frame.lookAt(frame.position.clone().add(dir));
     group.add(frame);
     const glass = new THREE.Mesh(new THREE.CircleGeometry(radius * 0.66, 28), glassMat);
-    glass.position.copy(c).addScaledVector(dir, radius * 0.16);
-    glass.lookAt(c.clone().add(dir));
+    glass.position.copy(root.worldToLocal(new THREE.Vector3(c.x, c.y, box.max.z + 0.025)));
+    glass.lookAt(glass.position.clone().add(dir));
     group.add(glass);
   });
   if (group.children.length) root.add(group);
@@ -329,6 +345,7 @@ function loadExterior(gen) {
   hideError();
   showLoading(true);
   const cfg = config.houses[state.house];
+  document.getElementById('btn-cutaway').hidden = !cfg.hasInterior;
   const model = cfg.models[state.tier];
   extGroup.clear();
   state.extMesh = null;
@@ -410,7 +427,7 @@ function loadInterior(gen, done) {
     done(true);
   }, undefined, () => {
     if (gen !== loadGen) return;
-    showLoading(url);
+    showError(url);
     done(false);
   });
 }
@@ -431,10 +448,23 @@ function setRoomFurnitureVisible(roomId) {
   if (!state.intMesh) return;
   const room = roomId ? cfg.rooms.find(r => r.id === roomId) : null;
   const hideFloors = room && Array.isArray(room.hideFloors) ? room.hideFloors : [];
+  const level = room ? cfg.rooms.indexOf(room) : -1;
+  const section = level >= 0 ? [
+    new THREE.Plane(new THREE.Vector3(0, 1, 0), -[0, 1.08, 2.28, 3.48][level] - state.shift.y),
+    new THREE.Plane(new THREE.Vector3(0, -1, 0), [1.2, 2.4, 3.6, 4.62][level] + state.shift.y),
+  ] : [];
   state.intMesh.traverse(o => {
     if (!o.isMesh) return;
+    for (const material of (Array.isArray(o.material) ? o.material : [o.material])) {
+      if (!material) continue;
+      const changed = (material.clippingPlanes?.length || 0) !== section.length;
+      material.clippingPlanes = section;
+      material.clipShadows = !!room;
+      if (changed) material.needsUpdate = true;
+    }
     // 楼梯始终可见
     if (o.name.startsWith('stairs_')) { o.visible = true; return; }
+    if (o.name.startsWith('wall_')) { o.visible = true; return; }
     // 楼板：房间近景按配置隐藏当前层上方的遮挡楼板
     if (o.name.startsWith('floor_')) { o.visible = !hideFloors.includes(o.name); return; }
     // 门组：房间近景时整体隐藏（frame/panel/handle 都不挡视线）；剖切全局时显示
@@ -446,6 +476,8 @@ function setRoomFurnitureVisible(roomId) {
 }
 
 function enterExterior() {
+  ground.visible = true;
+  ssaoPass.enabled = config.tiers[state.tier].ssao;
   state.view = 'exterior';
   state.roomId = null;
   setShellVisible(true);
@@ -457,7 +489,7 @@ function enterExterior() {
   const box = new THREE.Box3().setFromObject(state.extMesh);
   const f = frameWhole(box);
   setCam(f.position, f.target, 700);
-  setInfo(cfg.title, cfg.desc + ' 点击木门进入。', '');
+  setInfo(cfg.title, cfg.desc + (cfg.hasInterior ? ' 点击木门或「查看剖面」进入。' : ''), '');
   document.querySelectorAll('.top-bar > button').forEach(b => b.classList.remove('active'));
   document.getElementById('btn-' + state.house).classList.add('active');
   chipsHost.hidden = true;
@@ -480,13 +512,18 @@ function maybeAutotest() {
 }
 
 function cutawayPose() {
-  // 新 GLB：垂直堆叠四层，正门朝 +Z。从正前偏上看，四层同时可读
+  const box = new THREE.Box3().setFromObject(state.extMesh);
+  const size = box.getSize(new THREE.Vector3());
   const target = new THREE.Vector3(0, 2.3, 0).add(state.shift);
-  const position = new THREE.Vector3(0, 3.6, 6.8).add(state.shift);
+  const vfov = THREE.MathUtils.degToRad(camera.fov);
+  const distance = Math.max(size.y / (2 * Math.tan(vfov / 2)), size.x / (2 * Math.tan(vfov / 2) * camera.aspect)) * 1.38;
+  const position = target.clone().add(new THREE.Vector3(-0.5, 0.55, 0.8).normalize().multiplyScalar(distance));
   return { position, target };
 }
 
 function enterCutaway() {
+  ground.visible = true;
+  ssaoPass.enabled = config.tiers[state.tier].ssao;
   state.view = 'cutaway';
   state.roomId = null;
   // 隐藏整个外壳组（外壳+结构），内部组（结构+家具）接管显示
@@ -505,11 +542,17 @@ function enterRoom(roomId) {
   const cfg = config.houses[state.house];
   const room = cfg.rooms.find(r => r.id === roomId);
   if (!room) return;
+  ground.visible = false;
+  ssaoPass.enabled = false;
   state.view = 'room';
   state.roomId = roomId;
   setRoomFurnitureVisible(roomId);
   const target = new THREE.Vector3(...room.target).add(state.shift);
-  const position = new THREE.Vector3(...room.camera).add(state.shift);
+  const basePosition = new THREE.Vector3(...room.camera).add(state.shift);
+  const direction = basePosition.sub(target).normalize();
+  const vfov = THREE.MathUtils.degToRad(camera.fov);
+  const distance = Math.max(1.05 / (2 * Math.tan(vfov / 2)), 2.3 / (2 * Math.tan(vfov / 2) * camera.aspect)) * 1.25;
+  const position = target.clone().add(direction.multiplyScalar(distance));
   setCam(position, target, 800);
   setInfo(cfg.title + ' · ' + room.name, '近景镜头。Esc 或「返回外部」回到全屋剖切。', '');
   chipsHost.hidden = true;
@@ -557,13 +600,18 @@ function pickAt(clientX, clientY) {
   return raycaster;
 }
 
+let pendingInteriorGen = null;
 function tryEnterInterior(done) {
+  if (!state.extMesh || pendingInteriorGen === loadGen) return;
   const gen = loadGen;
+  pendingInteriorGen = gen;
   loadInterior(gen, ok => {
+    if (pendingInteriorGen === gen) pendingInteriorGen = null;
     if (!ok) return;
     // 开门动画
     if (state.doorMeshes.length) {
       const panel = state.doorMeshes.find(m => m.name === 'door_panel') || state.doorMeshes[0];
+      panel.rotation.y = 0;
       state.doorAnim = { from: panel.rotation.y, to: -Math.PI / 2.2, start: performance.now(), dur: 900, mesh: panel };
     }
     enterCutaway();
@@ -635,6 +683,7 @@ canvasEl.addEventListener('pointermove', e => {
 // ========== UI bindings ==========
 document.getElementById('btn-squidward').addEventListener('click', () => switchHouse('squidward'));
 document.getElementById('btn-patrick').addEventListener('click', () => switchHouse('patrick'));
+document.getElementById('btn-cutaway').addEventListener('click', () => tryEnterInterior());
 btnExit.addEventListener('click', exitInterior);
 btnReset.addEventListener('click', resetView);
 errorEl.querySelector('button').addEventListener('click', () => {
@@ -687,11 +736,16 @@ function projectChips() {
 
 // ========== Resize ==========
 window.addEventListener('resize', () => {
+  if (config) {
+    state.tier = window.innerWidth < config.tiers.mobileMaxWidth ? 'mobile' : 'desktop';
+    ssaoPass.enabled = config.tiers[state.tier].ssao;
+  }
   camera.aspect = wrap.clientWidth / wrap.clientHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(wrap.clientWidth, wrap.clientHeight);
   composer.setSize(wrap.clientWidth, wrap.clientHeight);
   layoutHint();
+  if (state.extMesh) resetView();
 });
 
 // ========== Loop ==========
@@ -722,6 +776,7 @@ const loader = new GLTFLoader();
 (async function main() {
   await loadConfig();
   state.tier = window.innerWidth < config.tiers.mobileMaxWidth ? 'mobile' : 'desktop';
+  ssaoPass.enabled = config.tiers[state.tier].ssao;
   const params = new URLSearchParams(location.search);
   const startHouse = params.get('house') === 'patrick' ? 'patrick' : 'squidward';
   state.house = startHouse;

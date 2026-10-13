@@ -18,6 +18,10 @@ python -m http.server 8769 --bind 127.0.0.1
 # 浏览 http://127.0.0.1:8769/pineapple-house.html
 ```
 
+## 邻里房屋预览
+
+章鱼哥屋 v7 的[独立预览](https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7-final)已按参考精修四层剖面、材质与家具，状态为 `review`，尚未接入首页。入口、资产来源及验收证据见[预览说明](docs/neighborhood-review/README.md)。真实设备性能与用户视觉批准待完成。
+
 ## 旧互动小屋（保留源码）
 
 首页整体重做为「互动房间」式主页，参考 Sharky's Room 的探索形态：加载后进入一间可拖拽观察、滚轮/双指缩放的温馨浅色小屋，点击房间里的物件或底部 dock 进入对应近景。房间由 Three.js 实时渲染（透视相机、软阴影、环境反射、昼夜/天气/灯串联动），支持悬停高亮与点击转镜头。

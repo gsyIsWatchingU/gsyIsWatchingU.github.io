@@ -4,7 +4,7 @@ import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeom
 // 修复原阶梯：每阶踏面相接、侧梁连续，末阶落在客厅沙地。
 export function createPatrickStairs(material) {
   const group = new THREE.Group(); group.name = 'connected-staircase';
-  const count = 10, rise = 2.3 / count, run = .255, x = 2.12, start = -.48;
+  const count = 10, rise = 2.3 / count, run = .255, x = 3.2, start = -.65;
   const add = (geometry, position) => {
     const mesh = new THREE.Mesh(geometry, material); mesh.position.fromArray(position);
     mesh.castShadow = mesh.receiveShadow = true; group.add(mesh); return mesh;

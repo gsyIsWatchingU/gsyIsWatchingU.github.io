@@ -1,0 +1,28 @@
+{
+  "id": "armchair",
+  "rawSHA256": "b2d52ebe8924aabcd98641156d8ee415acc7742d4d0d66c9d8e96812eb7d1867",
+  "runtimeSHA256": "9719220e43b4fcd89c3ae72883945283791c93a765369e04e95190b6c79287ea",
+  "originalZUp": [
+    1.1763789653778076,
+    1.0192279815673828,
+    1.253324270248413
+  ],
+  "scale": [
+    1.1730914115905762,
+    1.0792481899261475,
+    1.1569232940673828
+  ],
+  "removedBackdropFaces": 4998,
+  "triangles": 21200,
+  "bones": 0,
+  "animations": [],
+  "status": "review",
+  "humanReview": "pending",
+  "repairs": [
+    "remove generated neutral backdrop",
+    "weld UV seam positions preserving loop UV",
+    "normalize bottom-center and scale",
+    "matte material",
+    "1024px embedded texture"
+  ]
+}

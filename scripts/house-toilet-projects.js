@@ -92,10 +92,10 @@ function sweep(animate=true,restore=true) {
 label.addEventListener('click',start);
 panel.querySelector('[data-toilet-close]').addEventListener('click',closeProjects);
 // 截图预览：点击图片在当前页弹出大图，不跳转新页面
-let viewerActive=false;
+let viewerActive=false,viewerOpener=null;
 function openScreenshotViewer(src,alt){
   if(viewerActive||!src)return;
-  viewerActive=true;
+  viewerActive=true;viewerOpener=document.activeElement;
   const viewer=document.createElement('div');
   viewer.className='toilet-screenshot-viewer';
   viewer.setAttribute('role','dialog');
@@ -103,14 +103,16 @@ function openScreenshotViewer(src,alt){
   viewer.setAttribute('aria-label',alt||'截图预览');
   const img=document.createElement('img');
   img.src=src;img.alt=alt||'';
-  viewer.append(img);
+  const close=document.createElement('button');close.type='button';close.dataset.screenshotClose='';close.setAttribute('aria-label','关闭截图预览');close.addEventListener('click',closeScreenshotViewer);
+  viewer.append(img,close);
   viewer.addEventListener('click',closeScreenshotViewer);
-  document.body.append(viewer);
+  document.body.append(viewer);close.focus({preventScroll:true});
 }
 function closeScreenshotViewer(){
   if(!viewerActive)return;
   viewerActive=false;
   document.querySelector('.toilet-screenshot-viewer')?.remove();
+  viewerOpener?.focus({preventScroll:true});viewerOpener=null;
 }
 panel.addEventListener('click',event=>{
   const filter=event.target.closest('[data-toilet-filter]');if(filter)filterProjects(filter.dataset.toiletFilter);

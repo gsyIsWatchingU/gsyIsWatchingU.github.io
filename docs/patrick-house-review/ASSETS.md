@@ -1,4 +1,13 @@
-# 派大星石头屋 · 资产清单（ASSETS.md）
+# 派大星石头屋 · 资产清单
+
+## 当前版本：20261013-reference2
+
+- 状态 review，用户视觉确认待定；没有标记 approved。
+- 六件新 GLB 来自自有 GPU 的 Z-Image 参考 / Hunyuan3D Shape + Paint，再经 Blender 修整。派大星包含明确的身体/眼睛/肩臂重拓扑和 GPU 眉嘴纹理重投影，9 骨蒙皮，两动作。
+- 来源参数、真实执行阶段、运行时 SHA-256、133,681 面及内嵌 1024 贴图审计见 [本轮记录](reference-20261013/README.md) 和 [资产审计](reference-20261013/asset-audit.json)。
+- 墙饰取自用户参考图；结构、交互屏幕、小装饰为 Three.js 修整。以下内容为 built6 及之前历史，非本轮来源。
+
+## 历史资产记录
 
 > 状态：**review（未 approved）**。本页所有新资产均为引擎内程序化重建，尚未经用户验收确认，任何人不得将其标记为 approved。
 > 生成方式：本地程序化（Three.js 几何体 + Canvas 贴图），**非 GPU/Forge3D 生成**。GPU 管线（Tailscale gsy-gpu / ssh 3d-gen）因授权与超时被放弃（第二轮再次确认不可达：Tailscale SSH 需浏览器授权被跳过、ssh 3d-gen 超时），用户已确认接受本地程序化来源。不虚构任务号、资产或授权记录。

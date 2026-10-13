@@ -1,120 +1,1604 @@
 {
   "status": "review",
   "humanReview": "pending",
+  "revision": "v7",
   "house": "squidward",
+  "primaryReference": "docs/neighborhood-review/refs/v7/primary-reference.png",
+  "primaryReferenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
   "structure": {
-    "backend": "Blender 4.5.13",
-    "source": "tmp/neighborhood-production/build_structure.py",
-    "assemblyScript": "tmp/neighborhood-production/assembly/assemble_final.py",
-    "blendLocal": "tmp/neighborhood-production/assembly/out/squidward-assembled.blend",
-    "coordinates": "glTF Y-up; +Z is front (Blender Z-up -> glTF export -90X)",
-    "floors": [0.15, 1.20, 2.40, 3.60],
-    "floorIds": ["kitchen", "living", "bedroom", "bathroom"],
-    "bodyHeight": 3.9,
-    "shellApex": 4.62,
-    "cutawayRemovedPlanDeg": [-165, -95],
-    "staircaseCenter": [0.82, 0.12],
-    "stairStyle": "right-side continuous spiral, 39 steps / 3 turns, landings at each floor",
-    "structureGlbLocal": "tmp/neighborhood-production/structure/squidward-structure.glb",
-    "structureTriangles": 11792,
-    "shellMainTriangles": 8464,
-    "shellCoverTriangles": 2200,
-    "shellCoverNote": "v6 GLB 级补写 shell_cutaway_cover（tmp/nh-close-shell.mjs），填充前侧剖切缺口 θ∈(95°,165°)（glTF xz），边界顶点与 shell_main 0 误差贴合；外观显示完整闭合石壳，剖切视图随 extGroup 整体隐藏",
-    "triangles": 92400,
-    "sha256": "4d797fd3894319a598e200c46bf688b3dac29ebcfb0547e7898c80e63f40f6cb",
-    "status": "review",
-    "humanReview": "pending",
-    "revision": 2
-  },
-  "primaryReference": "docs/neighborhood-review/refs/squidward-exterior-ref.png",
-  "primaryReferenceSha256": "2ad29e2c1be300aca31ac13d5121c5a90f9123b2d8b387c35a575335a92607b2",
-  "runtimeModels": 4,
-  "runtimeTriangles": 92400,
-  "provenance": {
-    "finalAdopted": [
-      "Blender 程序结构（build_structure.py：石壳 shell_main 8,464 三角 + 结构 + 精修家具）",
-      "Forge3D 候选采用：茶几 bd384769（living_coffee-table 16,000 三角，带 Forge3D_ORM_Material 贴图）、地毯 c1edfa3d（living_rug 29,100 三角，带 Forge3D_ORM_Material 贴图）"
+    "backend": "Blender 4.5.13 + 自有 L20 Forge3D/Hunyuan3D + Z-Image",
+    "assemblyScript": "scripts/art/squidward-v7-assemble.py",
+    "coordinates": "Blender(X,Y,Z) -> glTF(X,Z,-Y); glTF Y-up, +Z front",
+    "floors": [
+      0.15,
+      1.2,
+      2.4,
+      3.6
     ],
-    "candidatesNotUsed": [
-      "石壳 a68d1b3f（生成候选，未用于最终外壳；最终外壳为 Blender 程序结构）",
-      "沙发 0afbebe8（生成候选，未采用；最终沙发为 Blender 程序件）"
+    "stairStyle": "右侧三段连续弧形木梯，13+13+13 步，每段平台接行走面",
+    "staircaseCenterBlender": [
+      0.68,
+      0.03
     ],
-    "candidateNote": "候选任务不作为最终运行资产来源证明；最终资产均有可追踪输入（结构脚本/装配脚本/Forge3D manifest id）"
+    "cutawayRemovedPlanDeg": [
+      -193,
+      -27
+    ]
   },
-  "textureRecord": {
-    "perGlbImages": 4,
-    "perGlbTextures": 4,
-    "imageSize": "1024x1024 (bufferView)",
-    "used": {
-      "image1": "Forge3D_ORM_Material -> Material.001 -> living_rug_squid_rug（地毯）",
-      "image3": "Forge3D_ORM_Material -> Material.002 -> living_coffee-table_squid_coffee-table（茶几）"
-    },
-    "unused": { "image0": "textured（未被材质引用）", "image2": "textured（未被材质引用）" },
-    "shellTextured": false,
-    "note": "外壳与其余网格均为纯色 PBR，无图像纹理；登记数量/尺寸/引用关系与 GLB 解析一致"
-  },
-  "tierBudget": {
-    "houseDesktopTriangles": 92400,
-    "houseWebTriangles": 92400,
-    "interiorDesktopTriangles": 81504,
-    "interiorWebTriangles": 81504,
-    "textureMaxDesktopPx": 2048,
-    "textureMaxWebPx": 1024,
-    "textureNote": "GLB 内 4 张 1024×1024 图像 / 4 纹理对象：2 张供地毯/茶几（Forge3D ORM），2 张未被引用；外壳无图像纹理。运行时另叠加画布石材纹理与舷窗框/玻璃（neighborhood.js，不计入 GLB 三角面）。web 与桌面同几何（桌面 9.24 万已≤15万移动上限）"
-  },
+  "runtimeTriangles": 100626,
   "assets": [
     {
       "id": "squidward-house",
-      "room": "whole",
       "runtime": "assets/models/neighborhood/squidward-house.glb",
-      "sha256": "4d797fd3894319a598e200c46bf688b3dac29ebcfb0547e7898c80e63f40f6cb",
-      "triangles": 92400,
-      "tier": "desktop",
-      "note": "外壳+结构+全部家具整屋（含 shell_cutaway_cover 2,200 补片）；bbox y_min=0 落地, y_max=4.62；v5-final2 备份于 tmp/backup-v5-final2/",
+      "sha256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884",
+      "triangles": 100626,
+      "bytes": 10256476,
+      "images": [
+        {
+          "index": 0,
+          "name": "stone-weathered",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 448573,
+          "sha256": "5c760b48a218dde0158b40e5816867d677e2009b7befc5aaf4eafc86bd2b76e2",
+          "uses": [
+            {
+              "material": "v7_blue_volcanic_stone",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "tile-green",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 425516,
+          "sha256": "f2fcb179aa9d6fe2a2b10cce30bee8ec85efe437c430dab94184f29d31df3d95",
+          "uses": [
+            {
+              "material": "v7_emerald_glazed_tiles",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "wood-planks",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 377592,
+          "sha256": "4344639e11e7a85a073951575498ac4ffa85613f096007886dd72c2c3d4fff50",
+          "uses": [
+            {
+              "material": "v7_worn_oak",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "green-painted-wood",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 245940,
+          "sha256": "086714d6468174840db2b8ec1bd999eced52c0ab11182b8724dd3bdaa62ad31f",
+          "uses": [
+            {
+              "material": "v7_green_painted_wood",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "rug-surface",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 448078,
+          "sha256": "cc67e6664cb54640bb0e2d7c932a8477d8220028227f728cd9901037419a8249",
+          "uses": [
+            {
+              "material": "v7_olive_woven_rug",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "name": "blue-striped-curtain",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 205018,
+          "sha256": "16fda7759faa0e8692665c20825d0714dd26b81289c6b93f6acbde28062c13d2",
+          "uses": [
+            {
+              "material": "v7_blue_white_striped_curtain",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 163752,
+          "sha256": "40c1f3113624a745d6c860cf94574c21826c11f62164148477f7669836c340ca",
+          "uses": [
+            {
+              "material": "Material",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 235859,
+          "sha256": "e1d045baf31b90d6bda585778a88634fe78af98823519b5a198eff8904cdffa5",
+          "uses": [
+            {
+              "material": "Material",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 155323,
+          "sha256": "38e46d38ef3a96a7b8b34da9a24c8909dd228b174ccb98ee57fc6aec97d2a0c8",
+          "uses": [
+            {
+              "material": "Material.003",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 231352,
+          "sha256": "e67d643505c6b36f220413bd0031ca4cb9e254837687b0b22e6cd43f262945e4",
+          "uses": [
+            {
+              "material": "Material.003",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 296041,
+          "sha256": "c8cf0102da80062a212a92b4dc7fadf8f7bb137a1a1b892b70694fcd6c20f97e",
+          "uses": [
+            {
+              "material": "Material.004",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 258350,
+          "sha256": "37b839555784a21bb791c4f2038485861cd546c77baea365008ddb6d351a5c80",
+          "uses": [
+            {
+              "material": "Material.004",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "name": "blue-fabric",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 326819,
+          "sha256": "3c9af6d9f800f41e8327001582da5dcca96095357788c2e221619bba75fe3bf9",
+          "uses": [
+            {
+              "material": "v7_blue_woven_cover",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 74006,
+          "sha256": "48e3f3e3a6848e7801e337fe5562e458169728295f81f129e203326f72595c02",
+          "uses": [
+            {
+              "material": "Material.005",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 14,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 115763,
+          "sha256": "6df1296fc41c3c7e68ab7abec89ed729adb70ff291aa186ad04bf8b49b0c3ee1",
+          "uses": [
+            {
+              "material": "Material.005",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 15,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 297153,
+          "sha256": "05449d8f2e34c1f68b2328d143678a913796e9ddb20ba969c23a982cd6851dc8",
+          "uses": [
+            {
+              "material": "Material.006",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 16,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 123822,
+          "sha256": "96a539fda9d562da64588901aec0889dd052940f899fbc50a6c9d7361e2af04d",
+          "uses": [
+            {
+              "material": "Material.006",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 17,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 218724,
+          "sha256": "ef131927009fccaefd78d7fba2bfdf47a24a829c3f19d61b2df8cbbba3f38ca1",
+          "uses": [
+            {
+              "material": "Material.007",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 18,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 199294,
+          "sha256": "8f2b06db0b367e1c3680e73499a556dadcaba472ead7245c44be8b426caee141",
+          "uses": [
+            {
+              "material": "Material.007",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 402428,
+          "sha256": "2d601941487898e261d3799e1a3dffedb4eea1c93835a4f32ba94697cc375756",
+          "uses": [
+            {
+              "material": "Material.008",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 20,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 199804,
+          "sha256": "78e1a0ed8c29c091dfa3e8706424119d89e7574846983f1338cfb19f49abcae0",
+          "uses": [
+            {
+              "material": "Material.008",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 21,
+          "name": "floor-tile",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 308135,
+          "sha256": "ec110eebe7bdb3b3003319077e5de50f1a0da82f24de13ce4156589daeeec005",
+          "uses": [
+            {
+              "material": "v7_grey_green_floor_tiles",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 22,
+          "name": "portrait",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 407079,
+          "sha256": "81934c38b47644dc121a05be3518c5d8b0e619f8a46b86c05755205b8857c4c0",
+          "uses": [
+            {
+              "material": "v7_artist_portrait",
+              "channel": "baseColorTexture"
+            }
+          ]
+        }
+      ],
+      "imageCount": 23,
+      "textureCount": 23,
+      "meshCount": 55,
+      "bboxMin": [
+        -1.69,
+        0,
+        -1.55
+      ],
+      "bboxMax": [
+        1.69,
+        4.62,
+        1.625
+      ],
       "status": "review"
     },
     {
       "id": "squidward-house-web",
-      "room": "whole",
       "runtime": "assets/models/neighborhood/squidward-house-web.glb",
-      "sha256": "4d797fd3894319a598e200c46bf688b3dac29ebcfb0547e7898c80e63f40f6cb",
-      "triangles": 92400,
-      "tier": "mobile",
-      "note": "移动整屋，与桌面同几何同哈希（已≤15万）",
+      "sha256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884",
+      "triangles": 100626,
+      "bytes": 10256476,
+      "images": [
+        {
+          "index": 0,
+          "name": "stone-weathered",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 448573,
+          "sha256": "5c760b48a218dde0158b40e5816867d677e2009b7befc5aaf4eafc86bd2b76e2",
+          "uses": [
+            {
+              "material": "v7_blue_volcanic_stone",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "tile-green",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 425516,
+          "sha256": "f2fcb179aa9d6fe2a2b10cce30bee8ec85efe437c430dab94184f29d31df3d95",
+          "uses": [
+            {
+              "material": "v7_emerald_glazed_tiles",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "wood-planks",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 377592,
+          "sha256": "4344639e11e7a85a073951575498ac4ffa85613f096007886dd72c2c3d4fff50",
+          "uses": [
+            {
+              "material": "v7_worn_oak",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "green-painted-wood",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 245940,
+          "sha256": "086714d6468174840db2b8ec1bd999eced52c0ab11182b8724dd3bdaa62ad31f",
+          "uses": [
+            {
+              "material": "v7_green_painted_wood",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "rug-surface",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 448078,
+          "sha256": "cc67e6664cb54640bb0e2d7c932a8477d8220028227f728cd9901037419a8249",
+          "uses": [
+            {
+              "material": "v7_olive_woven_rug",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "name": "blue-striped-curtain",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 205018,
+          "sha256": "16fda7759faa0e8692665c20825d0714dd26b81289c6b93f6acbde28062c13d2",
+          "uses": [
+            {
+              "material": "v7_blue_white_striped_curtain",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 163752,
+          "sha256": "40c1f3113624a745d6c860cf94574c21826c11f62164148477f7669836c340ca",
+          "uses": [
+            {
+              "material": "Material",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 235859,
+          "sha256": "e1d045baf31b90d6bda585778a88634fe78af98823519b5a198eff8904cdffa5",
+          "uses": [
+            {
+              "material": "Material",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 155323,
+          "sha256": "38e46d38ef3a96a7b8b34da9a24c8909dd228b174ccb98ee57fc6aec97d2a0c8",
+          "uses": [
+            {
+              "material": "Material.003",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 231352,
+          "sha256": "e67d643505c6b36f220413bd0031ca4cb9e254837687b0b22e6cd43f262945e4",
+          "uses": [
+            {
+              "material": "Material.003",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 296041,
+          "sha256": "c8cf0102da80062a212a92b4dc7fadf8f7bb137a1a1b892b70694fcd6c20f97e",
+          "uses": [
+            {
+              "material": "Material.004",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 258350,
+          "sha256": "37b839555784a21bb791c4f2038485861cd546c77baea365008ddb6d351a5c80",
+          "uses": [
+            {
+              "material": "Material.004",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "name": "blue-fabric",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 326819,
+          "sha256": "3c9af6d9f800f41e8327001582da5dcca96095357788c2e221619bba75fe3bf9",
+          "uses": [
+            {
+              "material": "v7_blue_woven_cover",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 74006,
+          "sha256": "48e3f3e3a6848e7801e337fe5562e458169728295f81f129e203326f72595c02",
+          "uses": [
+            {
+              "material": "Material.005",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 14,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 115763,
+          "sha256": "6df1296fc41c3c7e68ab7abec89ed729adb70ff291aa186ad04bf8b49b0c3ee1",
+          "uses": [
+            {
+              "material": "Material.005",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 15,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 297153,
+          "sha256": "05449d8f2e34c1f68b2328d143678a913796e9ddb20ba969c23a982cd6851dc8",
+          "uses": [
+            {
+              "material": "Material.006",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 16,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 123822,
+          "sha256": "96a539fda9d562da64588901aec0889dd052940f899fbc50a6c9d7361e2af04d",
+          "uses": [
+            {
+              "material": "Material.006",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 17,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 218724,
+          "sha256": "ef131927009fccaefd78d7fba2bfdf47a24a829c3f19d61b2df8cbbba3f38ca1",
+          "uses": [
+            {
+              "material": "Material.007",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 18,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 199294,
+          "sha256": "8f2b06db0b367e1c3680e73499a556dadcaba472ead7245c44be8b426caee141",
+          "uses": [
+            {
+              "material": "Material.007",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 402428,
+          "sha256": "2d601941487898e261d3799e1a3dffedb4eea1c93835a4f32ba94697cc375756",
+          "uses": [
+            {
+              "material": "Material.008",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 20,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 199804,
+          "sha256": "78e1a0ed8c29c091dfa3e8706424119d89e7574846983f1338cfb19f49abcae0",
+          "uses": [
+            {
+              "material": "Material.008",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 21,
+          "name": "floor-tile",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 308135,
+          "sha256": "ec110eebe7bdb3b3003319077e5de50f1a0da82f24de13ce4156589daeeec005",
+          "uses": [
+            {
+              "material": "v7_grey_green_floor_tiles",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 22,
+          "name": "portrait",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 407079,
+          "sha256": "81934c38b47644dc121a05be3518c5d8b0e619f8a46b86c05755205b8857c4c0",
+          "uses": [
+            {
+              "material": "v7_artist_portrait",
+              "channel": "baseColorTexture"
+            }
+          ]
+        }
+      ],
+      "imageCount": 23,
+      "textureCount": 23,
+      "meshCount": 55,
+      "bboxMin": [
+        -1.69,
+        0,
+        -1.55
+      ],
+      "bboxMax": [
+        1.69,
+        4.62,
+        1.625
+      ],
       "status": "review"
     },
     {
       "id": "squidward-interior",
-      "room": "interior",
       "runtime": "assets/models/neighborhood/squidward-interior.glb",
-      "sha256": "f7f1d9745dbd0c3a62d9aae3b20d4a021c509b45e63775785dd95030dd2e285e",
-      "triangles": 81504,
-      "tier": "desktop",
-      "note": "删外壳+面部特征，留楼板/楼梯/门/家具，供房间近景与剖切",
+      "sha256": "21f65160c1fdeba1888d6dddf47ac1ecd0e5cb4d2cebddce9b53db28d53469cc",
+      "triangles": 95158,
+      "bytes": 9865632,
+      "images": [
+        {
+          "index": 0,
+          "name": "wood-planks",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 377592,
+          "sha256": "4344639e11e7a85a073951575498ac4ffa85613f096007886dd72c2c3d4fff50",
+          "uses": [
+            {
+              "material": "v7_worn_oak",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "green-painted-wood",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 245940,
+          "sha256": "086714d6468174840db2b8ec1bd999eced52c0ab11182b8724dd3bdaa62ad31f",
+          "uses": [
+            {
+              "material": "v7_green_painted_wood",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "stone-weathered",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 448573,
+          "sha256": "5c760b48a218dde0158b40e5816867d677e2009b7befc5aaf4eafc86bd2b76e2",
+          "uses": [
+            {
+              "material": "v7_blue_volcanic_stone",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "rug-surface",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 448078,
+          "sha256": "cc67e6664cb54640bb0e2d7c932a8477d8220028227f728cd9901037419a8249",
+          "uses": [
+            {
+              "material": "v7_olive_woven_rug",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "blue-striped-curtain",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 205018,
+          "sha256": "16fda7759faa0e8692665c20825d0714dd26b81289c6b93f6acbde28062c13d2",
+          "uses": [
+            {
+              "material": "v7_blue_white_striped_curtain",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "name": "tile-green",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 425516,
+          "sha256": "f2fcb179aa9d6fe2a2b10cce30bee8ec85efe437c430dab94184f29d31df3d95",
+          "uses": [
+            {
+              "material": "v7_emerald_glazed_tiles",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 163752,
+          "sha256": "40c1f3113624a745d6c860cf94574c21826c11f62164148477f7669836c340ca",
+          "uses": [
+            {
+              "material": "Material",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 235859,
+          "sha256": "e1d045baf31b90d6bda585778a88634fe78af98823519b5a198eff8904cdffa5",
+          "uses": [
+            {
+              "material": "Material",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 155323,
+          "sha256": "38e46d38ef3a96a7b8b34da9a24c8909dd228b174ccb98ee57fc6aec97d2a0c8",
+          "uses": [
+            {
+              "material": "Material.003",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 231352,
+          "sha256": "e67d643505c6b36f220413bd0031ca4cb9e254837687b0b22e6cd43f262945e4",
+          "uses": [
+            {
+              "material": "Material.003",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 296041,
+          "sha256": "c8cf0102da80062a212a92b4dc7fadf8f7bb137a1a1b892b70694fcd6c20f97e",
+          "uses": [
+            {
+              "material": "Material.004",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 258350,
+          "sha256": "37b839555784a21bb791c4f2038485861cd546c77baea365008ddb6d351a5c80",
+          "uses": [
+            {
+              "material": "Material.004",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "name": "blue-fabric",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 326819,
+          "sha256": "3c9af6d9f800f41e8327001582da5dcca96095357788c2e221619bba75fe3bf9",
+          "uses": [
+            {
+              "material": "v7_blue_woven_cover",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 74006,
+          "sha256": "48e3f3e3a6848e7801e337fe5562e458169728295f81f129e203326f72595c02",
+          "uses": [
+            {
+              "material": "Material.005",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 14,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 115763,
+          "sha256": "6df1296fc41c3c7e68ab7abec89ed729adb70ff291aa186ad04bf8b49b0c3ee1",
+          "uses": [
+            {
+              "material": "Material.005",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 15,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 297153,
+          "sha256": "05449d8f2e34c1f68b2328d143678a913796e9ddb20ba969c23a982cd6851dc8",
+          "uses": [
+            {
+              "material": "Material.006",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 16,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 123822,
+          "sha256": "96a539fda9d562da64588901aec0889dd052940f899fbc50a6c9d7361e2af04d",
+          "uses": [
+            {
+              "material": "Material.006",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 17,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 218724,
+          "sha256": "ef131927009fccaefd78d7fba2bfdf47a24a829c3f19d61b2df8cbbba3f38ca1",
+          "uses": [
+            {
+              "material": "Material.007",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 18,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 199294,
+          "sha256": "8f2b06db0b367e1c3680e73499a556dadcaba472ead7245c44be8b426caee141",
+          "uses": [
+            {
+              "material": "Material.007",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 402428,
+          "sha256": "2d601941487898e261d3799e1a3dffedb4eea1c93835a4f32ba94697cc375756",
+          "uses": [
+            {
+              "material": "Material.008",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 20,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 199804,
+          "sha256": "78e1a0ed8c29c091dfa3e8706424119d89e7574846983f1338cfb19f49abcae0",
+          "uses": [
+            {
+              "material": "Material.008",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 21,
+          "name": "floor-tile",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 308135,
+          "sha256": "ec110eebe7bdb3b3003319077e5de50f1a0da82f24de13ce4156589daeeec005",
+          "uses": [
+            {
+              "material": "v7_grey_green_floor_tiles",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 22,
+          "name": "portrait",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 407079,
+          "sha256": "81934c38b47644dc121a05be3518c5d8b0e619f8a46b86c05755205b8857c4c0",
+          "uses": [
+            {
+              "material": "v7_artist_portrait",
+              "channel": "baseColorTexture"
+            }
+          ]
+        }
+      ],
+      "imageCount": 23,
+      "textureCount": 23,
+      "meshCount": 51,
+      "bboxMin": [
+        -1.69,
+        0,
+        -1.55
+      ],
+      "bboxMax": [
+        1.69,
+        4.62,
+        1.625
+      ],
       "status": "review"
     },
     {
       "id": "squidward-interior-web",
-      "room": "interior",
       "runtime": "assets/models/neighborhood/squidward-interior-web.glb",
-      "sha256": "f7f1d9745dbd0c3a62d9aae3b20d4a021c509b45e63775785dd95030dd2e285e",
-      "triangles": 81504,
-      "tier": "mobile",
-      "note": "移动室内，与桌面同几何同哈希",
+      "sha256": "21f65160c1fdeba1888d6dddf47ac1ecd0e5cb4d2cebddce9b53db28d53469cc",
+      "triangles": 95158,
+      "bytes": 9865632,
+      "images": [
+        {
+          "index": 0,
+          "name": "wood-planks",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 377592,
+          "sha256": "4344639e11e7a85a073951575498ac4ffa85613f096007886dd72c2c3d4fff50",
+          "uses": [
+            {
+              "material": "v7_worn_oak",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "name": "green-painted-wood",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 245940,
+          "sha256": "086714d6468174840db2b8ec1bd999eced52c0ab11182b8724dd3bdaa62ad31f",
+          "uses": [
+            {
+              "material": "v7_green_painted_wood",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "name": "stone-weathered",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 448573,
+          "sha256": "5c760b48a218dde0158b40e5816867d677e2009b7befc5aaf4eafc86bd2b76e2",
+          "uses": [
+            {
+              "material": "v7_blue_volcanic_stone",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "name": "rug-surface",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 448078,
+          "sha256": "cc67e6664cb54640bb0e2d7c932a8477d8220028227f728cd9901037419a8249",
+          "uses": [
+            {
+              "material": "v7_olive_woven_rug",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "name": "blue-striped-curtain",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 205018,
+          "sha256": "16fda7759faa0e8692665c20825d0714dd26b81289c6b93f6acbde28062c13d2",
+          "uses": [
+            {
+              "material": "v7_blue_white_striped_curtain",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "name": "tile-green",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 425516,
+          "sha256": "f2fcb179aa9d6fe2a2b10cce30bee8ec85efe437c430dab94184f29d31df3d95",
+          "uses": [
+            {
+              "material": "v7_emerald_glazed_tiles",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 163752,
+          "sha256": "40c1f3113624a745d6c860cf94574c21826c11f62164148477f7669836c340ca",
+          "uses": [
+            {
+              "material": "Material",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 235859,
+          "sha256": "e1d045baf31b90d6bda585778a88634fe78af98823519b5a198eff8904cdffa5",
+          "uses": [
+            {
+              "material": "Material",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 155323,
+          "sha256": "38e46d38ef3a96a7b8b34da9a24c8909dd228b174ccb98ee57fc6aec97d2a0c8",
+          "uses": [
+            {
+              "material": "Material.003",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 231352,
+          "sha256": "e67d643505c6b36f220413bd0031ca4cb9e254837687b0b22e6cd43f262945e4",
+          "uses": [
+            {
+              "material": "Material.003",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 296041,
+          "sha256": "c8cf0102da80062a212a92b4dc7fadf8f7bb137a1a1b892b70694fcd6c20f97e",
+          "uses": [
+            {
+              "material": "Material.004",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 258350,
+          "sha256": "37b839555784a21bb791c4f2038485861cd546c77baea365008ddb6d351a5c80",
+          "uses": [
+            {
+              "material": "Material.004",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "name": "blue-fabric",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 326819,
+          "sha256": "3c9af6d9f800f41e8327001582da5dcca96095357788c2e221619bba75fe3bf9",
+          "uses": [
+            {
+              "material": "v7_blue_woven_cover",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 74006,
+          "sha256": "48e3f3e3a6848e7801e337fe5562e458169728295f81f129e203326f72595c02",
+          "uses": [
+            {
+              "material": "Material.005",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 14,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 115763,
+          "sha256": "6df1296fc41c3c7e68ab7abec89ed729adb70ff291aa186ad04bf8b49b0c3ee1",
+          "uses": [
+            {
+              "material": "Material.005",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 15,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 297153,
+          "sha256": "05449d8f2e34c1f68b2328d143678a913796e9ddb20ba969c23a982cd6851dc8",
+          "uses": [
+            {
+              "material": "Material.006",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 16,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 123822,
+          "sha256": "96a539fda9d562da64588901aec0889dd052940f899fbc50a6c9d7361e2af04d",
+          "uses": [
+            {
+              "material": "Material.006",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 17,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 218724,
+          "sha256": "ef131927009fccaefd78d7fba2bfdf47a24a829c3f19d61b2df8cbbba3f38ca1",
+          "uses": [
+            {
+              "material": "Material.007",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 18,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 199294,
+          "sha256": "8f2b06db0b367e1c3680e73499a556dadcaba472ead7245c44be8b426caee141",
+          "uses": [
+            {
+              "material": "Material.007",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "name": "textured",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 402428,
+          "sha256": "2d601941487898e261d3799e1a3dffedb4eea1c93835a4f32ba94697cc375756",
+          "uses": [
+            {
+              "material": "Material.008",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 20,
+          "name": "Forge3D_ORM_Material",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 199804,
+          "sha256": "78e1a0ed8c29c091dfa3e8706424119d89e7574846983f1338cfb19f49abcae0",
+          "uses": [
+            {
+              "material": "Material.008",
+              "channel": "metallicRoughnessTexture"
+            }
+          ]
+        },
+        {
+          "index": 21,
+          "name": "floor-tile",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 308135,
+          "sha256": "ec110eebe7bdb3b3003319077e5de50f1a0da82f24de13ce4156589daeeec005",
+          "uses": [
+            {
+              "material": "v7_grey_green_floor_tiles",
+              "channel": "baseColorTexture"
+            }
+          ]
+        },
+        {
+          "index": 22,
+          "name": "portrait",
+          "dimensions": [
+            512,
+            512
+          ],
+          "bytes": 407079,
+          "sha256": "81934c38b47644dc121a05be3518c5d8b0e619f8a46b86c05755205b8857c4c0",
+          "uses": [
+            {
+              "material": "v7_artist_portrait",
+              "channel": "baseColorTexture"
+            }
+          ]
+        }
+      ],
+      "imageCount": 23,
+      "textureCount": 23,
+      "meshCount": 51,
+      "bboxMin": [
+        -1.69,
+        0,
+        -1.55
+      ],
+      "bboxMax": [
+        1.69,
+        4.62,
+        1.625
+      ],
       "status": "review"
     }
   ],
-  "namingConvention": {
-    "door": ["door_frame", "door_panel", "door_handle"],
-    "floors": ["floor_1", "floor_2", "floor_3", "floor_4"],
-    "shell": ["shell_main", "shell_eyebrow", "shell_porthole_L", "shell_porthole_R", "shell_nose", "shell_ear_L", "shell_ear_R", "shell_cutaway_cover"],
-    "stairsPrefix": "stairs_",
-    "roomPrefixes": ["kitchen_", "living_", "bedroom_", "bath_", "art_"]
+  "provenanceFile": "docs/neighborhood-review/acceptance/v7/production/provenance.json",
+  "tierBudget": {
+    "desktopMaxTriangles": 300000,
+    "mobileMaxTriangles": 150000,
+    "textureMaxPx": 512,
+    "sameGeometryAndHash": true,
+    "mobileSSAO": false
   },
-  "archived": "assets/models/neighborhood/archive/ (旧 squidward-house.glb / squidward-house-web.glb / squidward-interior.glb 保留备份；派大星屋未动；v5-final2 整屋备份另存 tmp/backup-v5-final2/)",
-  "scripts": {
-    "tmp/neighborhood-production/assembly/assemble_final.py": "0e793f5a348f401edd412f8157f2fa36e174107f89d68e1521cfce4020d6a03a",
-    "tmp/neighborhood-production/structure/squidward-structure.glb": "e66b5888aeb2ccda73186905517da690323ecc4751dd6fdb3aff82e1cb0d54b2",
-    "tmp/nh-close-shell.mjs": "v6 外壳补片脚本（与 build_structure.py 参数化一致；边界 0 误差）"
-  }
+  "archived": "原 v6 基线保留在 Git b926910；更早版本在 assets/models/neighborhood/archive/；派大星模型未改"
 }

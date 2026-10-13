@@ -1,5 +1,8 @@
+// 派大星石头屋：参考图布局 + 自有 GPU 独立资产 + 手绘场景细节。
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { addReferenceDetails, artReady } from "./patrick-reference.js";
 import { createPatrickCharacter } from "./patrick-character.js";
 import { createPatrickStairs } from "./patrick-stairs.js";
 import { createPatrickRelics } from "./patrick-relics.js";
@@ -102,9 +105,11 @@ if (renderer) {
   const extShellTex = rockTex(512);
   const innerTex = greenWallTex(256);
   const floorTex = woodTex(512, "plank");
+  floorTex.wrapS=floorTex.wrapT=THREE.RepeatWrapping;
+  floorTex.repeat.set(.17,.17);
   const darkWoodTex = woodTex(512, "dark");
   const sandBase = sandTex(512);
-  const caveTex = rockTex(256, "#8a7258");
+  const caveTex = rockTex(512, "#939a96");
 
   function displace(geo, seed) {
     const pos = geo.attributes.position;
@@ -121,7 +126,7 @@ if (renderer) {
         0.25 * Math.cos(a + nx * 17.7 + nz * 13.1 + ny * 8.8);
       const f = ny < 0.12 ? Math.max(0, 1 - (0.12 - ny) * 4) : 1;
       // 温和低频起伏：保持圆润低矮岩石穹顶，不做尖山/破碎壳
-      const grow = 1 + Math.max(-0.08, Math.min(0.09, n * 0.028)) * f;
+      const grow = 1 + Math.max(-0.035, Math.min(0.035, n * 0.012)) * f;
       v.setLength(r * grow);
       pos.setXYZ(i, v.x, v.y, v.z);
     }
@@ -131,7 +136,7 @@ if (renderer) {
   }
 
   // 沙地：外观态整环 + 剖面态前方开口环带（内沿 4.1 收进地板下）
-  const sandFull = new THREE.Mesh(new THREE.RingGeometry(4.7, 30, 72), texMat(sandBase, 1));
+  const sandFull = new THREE.Mesh(new THREE.RingGeometry(4.4, 5.35, 72), texMat(sandBase, 1));
   sandFull.rotation.x = -Math.PI / 2;
   sandFull.position.y = -0.02;
   sandFull.receiveShadow = true;
@@ -139,7 +144,7 @@ if (renderer) {
   structureGroup.add(sandFull);
 
   const sandShape = new THREE.Shape();
-  sandShape.absarc(0, 0, 30, -Math.PI / 6, (7 * Math.PI) / 6, false);
+  sandShape.absarc(0, 0, 5.35, -Math.PI / 6, (7 * Math.PI) / 6, false);
   sandShape.absarc(0, 0, 4.1, (7 * Math.PI) / 6, -Math.PI / 6, true);
   sandShape.closePath();
   const sandGeo = new THREE.ExtrudeGeometry(sandShape, { depth: 0.08, bevelEnabled: false });
@@ -157,8 +162,8 @@ if (renderer) {
   structureGroup.add(shell);
 
   // 橄榄绿内壁（同心、同样剖面开口，起伏更柔和）
-  const innerGeo = new THREE.SphereGeometry(4.3, 56, 24, (5 * Math.PI) / 6, (4 * Math.PI) / 3, 0, Math.PI / 2);
-  displace(innerGeo, 2);
+  const innerGeo = new THREE.SphereGeometry(4.3, 64, 28, (5 * Math.PI) / 6, (4 * Math.PI) / 3, 0, Math.PI / 2);
+  displace(innerGeo, 1);
   const inner = new THREE.Mesh(innerGeo, texMat(innerTex, 0.95, { side: THREE.DoubleSide }));
   shade(inner);
   structureGroup.add(inner);
@@ -173,15 +178,13 @@ if (renderer) {
 
   // 木地板（厚 0.12）：后方 240° + 前方开口，带楼梯孔
   const floorShape = new THREE.Shape();
-  floorShape.moveTo(0, 0);
-  floorShape.absarc(0, 0, 4.25, -Math.PI / 6, (7 * Math.PI) / 6, false);
-  floorShape.lineTo(0, 0);
-  const stairHole = new THREE.Path();
-  stairHole.moveTo(1.59, -.62);
-  stairHole.lineTo(1.59, 2.01);
-  stairHole.lineTo(2.65, 2.01);
-  stairHole.lineTo(2.65, -.62);
-  stairHole.closePath();
+  // 完整的上层生活平台，前沿横向切开；不再是缺掉前方大扇区的两块三角板。
+  const floorAngle = Math.asin(1.65 / 4.25);
+  floorShape.moveTo(4.25 * Math.cos(floorAngle), -1.65);
+  floorShape.absarc(0, 0, 4.25, -floorAngle, Math.PI+floorAngle, false);
+  floorShape.closePath();
+  const stairHole=new THREE.Path();
+  stairHole.moveTo(2.68,.95);stairHole.lineTo(2.68,-1.75);stairHole.lineTo(3.72,-1.75);stairHole.lineTo(3.72,.95);stairHole.closePath();
   floorShape.holes.push(stairHole);
   const floorGeo = new THREE.ExtrudeGeometry(floorShape, { depth: 0.12, bevelEnabled: false });
   floorGeo.rotateX(-Math.PI / 2);
@@ -191,23 +194,27 @@ if (renderer) {
   structureGroup.add(floor);
 
   // 地下客厅坑壁（与外壳同样保留后方 240°），坑底沙质
-  const pitWall = new THREE.Mesh(
-    new THREE.CylinderGeometry(3.3, 3.3, 2.3, 48, 1, true, Math.PI / 3, (4 * Math.PI) / 3),
-    texMat(caveTex, 0.95, { side: THREE.DoubleSide }),
-  );
-  pitWall.position.y = -1.15;
+  const wallSection = new THREE.Shape();
+  wallSection.absarc(0,0,4.1,0,Math.PI,false);
+  wallSection.absarc(0,0,4.0,Math.PI,0,true);wallSection.closePath();
+  const wallGeometry = new THREE.ExtrudeGeometry(wallSection,{depth:2.3,bevelEnabled:false,curveSegments:48});
+  wallGeometry.rotateX(-Math.PI/2);
+  const pitWall = new THREE.Mesh(wallGeometry,texMat(caveTex,.95));
+  pitWall.position.y = -2.3;
   pitWall.receiveShadow = true;
   structureGroup.add(pitWall);
-  const pitFloor = new THREE.Mesh(new THREE.CircleGeometry(3.3, 48), texMat(sandBase, 1));
+  const pitFloor = new THREE.Mesh(new THREE.CircleGeometry(4.08, 64), texMat(sandBase, 1));
   pitFloor.rotation.x = -Math.PI / 2;
   pitFloor.position.y = -2.3;
   pitFloor.receiveShadow = true;
   structureGroup.add(pitFloor);
+  const foundation=new THREE.Mesh(new THREE.CylinderGeometry(4.08,4.18,.76,72),texMat(sandBase,1));
+  foundation.position.y=-2.7;foundation.receiveShadow=true;foundation.castShadow=true;structureGroup.add(foundation);
 
   // 前侧沙地围挡（剖面态“切开”的断面，保留外围沙地与地下空间厚度）
   const collarShape = new THREE.Shape();
   collarShape.absarc(0, 0, 4.35, (-8 * Math.PI) / 9, (-Math.PI) / 9, false);
-  collarShape.absarc(0, 0, 3.35, (-Math.PI) / 9, (-8 * Math.PI) / 9, true);
+  collarShape.absarc(0, 0, 4.1, (-Math.PI) / 9, (-8 * Math.PI) / 9, true);
   collarShape.closePath();
   const collarGeo = new THREE.ExtrudeGeometry(collarShape, { depth: 2.55, bevelEnabled: false });
   collarGeo.rotateX(Math.PI / 2); // 断面向下：沙层厚度位于地下（0.25 → -2.3），不做地面以上沙墙
@@ -234,7 +241,8 @@ if (renderer) {
 
   // 卧室小拱门
   const arch = buildArch();
-  arch.position.set(3.8, 0, -1.0);
+  arch.position.set(3.12, 0, 1.62);
+  arch.scale.setScalar(.66);
   structureGroup.add(arch);
 
   /* ---------- 房间分组与家具（包围盒校准、脚底接地） ---------- */
@@ -252,23 +260,25 @@ if (renderer) {
 
   // 上层：左厨房 → 右卧室 → 前健身区
   const fridge = buildFridge();
-  fridge.position.set(-2.45, 0, -2.65);
+  fridge.position.set(-2.05, 0, -2.55);
   roomGroups.kitchen.add(fridge);
   const stove = buildStove();
-  stove.position.set(-1.6, 0, -2.8);
+  stove.position.set(-.05, 0, -2.76);
   roomGroups.kitchen.add(stove);
   const connector = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.62, 0.55), texMat(woodTex(512, "plank"), 0.8));
-  connector.position.set(-1.08, 0.31, -2.85);
+  connector.position.set(.69, 0.36, -2.84);
   shade(connector);
   roomGroups.kitchen.add(connector);
   const sink = buildSink();
-  sink.position.set(-0.55, 0, -2.85);
+  sink.position.set(-.93, 0, -2.79);
+  sink.scale.set(.72,1.18,1);
   roomGroups.kitchen.add(sink);
   const cabinet = buildWallCabinet();
-  cabinet.position.set(-1.15, 1.32, -2.7);
+  cabinet.position.set(-.09, 2.03, -3.04);
   roomGroups.kitchen.add(cabinet);
   const fan = buildCeilingFan();
-  fan.position.set(0, 4.25, 0);
+  fan.position.set(0, 4.38, -.28);
+  fan.scale.setScalar(1.5);
   fan.userData.interaction = "fan";
   // 吊扇为细长剪影，整屋视角射线可能沿轴线穿过打不到表面：加不可见球形拾取体
   const fanPick = new THREE.Mesh(
@@ -280,10 +290,10 @@ if (renderer) {
   roomGroups.kitchen.add(fan);
 
   const bed = buildBed();
-  bed.position.set(2.0, 0, -1.6);
+  bed.position.set(2.0, 0, -.94);
   roomGroups.bedroom.add(bed);
   const pillow = buildStarPillow();
-  pillow.position.set(1.75, 0.5, -1.5); // 贴合紫被表面
+  pillow.position.set(1.75, 0.5, -1.5); // 独立候选床铺加载后改用其一体海星枕。
   roomGroups.bedroom.add(pillow);
   const nightstand = buildNightstand();
   nightstand.position.set(2.9, 0, -2.3);
@@ -294,26 +304,42 @@ if (renderer) {
   roomGroups.bedroom.add(bedLamp);
 
   const bench = buildBenchPress();
-  bench.position.set(-0.45, 0, 0.55);
+  bench.position.set(-1.22, 0, .45);
+  bench.rotation.y=.18;
   roomGroups.gym.add(bench);
+  // 参考图上层的小电视与低木架；地下仍保留独立客厅电视。
+  const upperTv=buildOldTv();upperTv.position.set(.48,.27,.72);upperTv.scale.setScalar(.78);
+  upperTv.userData.interaction='tv';upperTv.userData.tvKind='upper';roomGroups.gym.add(upperTv);
+  const upperStand=new THREE.Mesh(new THREE.BoxGeometry(.79,.08,.48),texMat(darkWoodTex,.88));upperStand.position.set(.48,.23,.72);shade(upperStand);roomGroups.gym.add(upperStand);
+  for(const [x,z]of[[.17,.54],[.79,.54],[.17,.91],[.79,.91]]){const leg=new THREE.Mesh(new THREE.BoxGeometry(.055,.22,.055),texMat(darkWoodTex,.88));leg.position.set(x,.11,z);shade(leg);roomGroups.gym.add(leg);}
 
   // 下层：客厅围合（沙发 ↔ 电视对视，茶几居中，落地灯靠后）
   const sofa = buildSofa();
-  sofa.position.set(-1.1, -2.3, -0.9);
-  sofa.rotation.y = 0.55;
+  sofa.position.set(-1.38, -2.3, -.7);
+  sofa.rotation.y = .20;
   roomGroups.living.add(sofa);
   const coffeeTable = buildCoffeeTable();
-  coffeeTable.position.set(-0.35, -2.3, -0.55);
+  coffeeTable.position.set(-.38, -2.3, .24);
   roomGroups.living.add(coffeeTable);
   const oldTv = buildOldTv();
-  oldTv.position.set(1.0, -2.3, -1.9);
-  oldTv.rotation.y = -1.126; // 屏幕朝向沙发/客厅中央，默认近景可见屏幕、旋钮与天线
+  oldTv.position.set(1.45, -2.3, -.97);
+  oldTv.rotation.y = -.30;
   oldTv.userData.interaction = "tv";
   roomGroups.living.add(oldTv);
   const floorLamp = buildFloorLamp();
-  floorLamp.position.set(-1.85, -2.3, -1.55);
+  floorLamp.position.set(-2.3, -2.3, -1.33);
   floorLamp.userData.interaction = "lamp";
   roomGroups.living.add(floorLamp);
+  const referenceDetails = addReferenceDetails(roomGroups);
+  referenceDetails.collection.position.y=-2.62;
+  for(const [i,item] of referenceDetails.collection.children.entries()){
+    item.name='reference-relic-'+i;
+    item.position.z=Math.sqrt(4.38**2-item.position.x**2);
+    item.position.y=-.04+Math.sin(i*2)*.04;
+    item.userData.interaction='relic';item.userData.label='派大星的收藏';
+    item.userData.story='这个也要留下，派大星说每一件都是宝贝。';
+    item.userData.home=item.position.clone();relics.items.push(item);
+  }
 
   /* ---------- 派大星（挂在 houseGroup，独立拾取） ---------- */
   const character = createPatrickCharacter();
@@ -337,15 +363,17 @@ if (renderer) {
   const tvOffTex = tvScreenTex(false);
   const interactState = {
     tvOn: false,
+    upperTvOn:false,
     fanSpinning: false,
     bedLampOn: false,
     floorLampOn: false,
   };
 
-  function toggleTv() {
-    const on = !interactState.tvOn;
-    interactState.tvOn = on;
-    const screen = oldTv.userData.tvScreenMesh;
+  function toggleTv(target=oldTv) {
+    const key=target.userData.tvKind==='upper'?'upperTvOn':'tvOn';
+    const on = !interactState[key];
+    interactState[key] = on;
+    const screen = target.userData.tvScreenMesh;
     screen.material.map = on ? tvOnTex : tvOffTex;
     screen.material.emissive = new THREE.Color(on ? 0x9fd0ff : 0x000000);
     screen.material.emissiveIntensity = on ? 0.55 : 0;
@@ -378,7 +406,7 @@ if (renderer) {
   let cameraAnim = null;
   let ready = false;
 
-  const WHOLE_MIN = new THREE.Vector3(-5.1, -3.5, -5.1);
+  const WHOLE_MIN = new THREE.Vector3(-5.35, -3.5, -5.1);
   const WHOLE_MAX = new THREE.Vector3(5.1, 5.7, 5.1);
 
   function applyFov() {
@@ -394,16 +422,18 @@ if (renderer) {
   function wholePose() {
     applyFov();
     const fov = THREE.MathUtils.degToRad(camera.fov / 2);
-    const halfW = (WHOLE_MAX.x - WHOLE_MIN.x) * 0.5;
-    const halfH = (WHOLE_MAX.y - WHOLE_MIN.y) * 0.5;
-    const margin = 1.42;
-    const target = new THREE.Vector3(0, mode === "exterior" ? 2.4 : 1.05, 0);
-    const dist = Math.max(
-      (halfH * margin) / Math.tan(fov),
-      (halfW * margin) / (Math.tan(fov) * camera.aspect),
-    );
-    const elev = mode === "exterior" ? 0.25 : 0.12;
-    return { target, position: new THREE.Vector3(0, target.y + dist * elev, dist) };
+    const margin = 1.05;
+    const target = new THREE.Vector3(0, mode === "exterior" ? 2.4 : 1.2, 0);
+    const elev = mode === "exterior" ? 0.25 : 0.22;
+    const direction=new THREE.Vector3(0,elev,1).normalize();
+    const up=new THREE.Vector3(0,1,-elev).normalize();
+    let dist=0;
+    // 投影八角点并计入前后深度，近处地下断面不能因“正面宽高够了”仍被裁掉。
+    for(const x of [WHOLE_MIN.x,WHOLE_MAX.x])for(const y of [mode==='exterior'?0:WHOLE_MIN.y,WHOLE_MAX.y])for(const z of [WHOLE_MIN.z,mode==='exterior'?6.9:WHOLE_MAX.z]){
+      const v=new THREE.Vector3(x,y,z).sub(target);const depth=v.dot(direction);
+      dist=Math.max(dist,depth+Math.abs(v.x)*margin/(Math.tan(fov)*camera.aspect),depth+Math.abs(v.dot(up))*margin/Math.tan(fov));
+    }
+    return {target,position:target.clone().addScaledVector(direction,dist)};
   }
 
   // 房间近景适配：默认视角方向 + 包围盒距离（focusRoom 用默认方向，resize 用当前方向）
@@ -482,6 +512,7 @@ if (renderer) {
     floor.visible = !ext;
     pitWall.visible = !ext;
     pitFloor.visible = !ext;
+    foundation.visible = !ext;
     stairGroup.visible = !ext;
     sandSector.visible = !ext;
     collar.visible = !ext;
@@ -505,7 +536,7 @@ if (renderer) {
 
   function applyRoomVisibility() {
     if (mode !== "cutaway") return;
-    relics.group.visible = apron.visible = !activeRoom;
+    apron.visible = relics.group.visible = !activeRoom;
     roomGroups.kitchen.visible = !activeRoom || activeRoom === "kitchen";
     roomGroups.bedroom.visible = !activeRoom || activeRoom === "bedroom";
     roomGroups.gym.visible = !activeRoom || activeRoom === "gym";
@@ -632,7 +663,7 @@ if (renderer) {
     furnitureGroup.traverse((n) => {
       if (n.isMesh) pickables.push(n);
     });
-    relics.group.traverse((n) => { if(n.isMesh) pickables.push(n); });
+    relics.group.traverse(n=>{if(n.isMesh)pickables.push(n);});
     patrick.traverse((n) => {
       if (n.isMesh) pickables.push(n);
     });
@@ -657,11 +688,11 @@ if (renderer) {
     if (!result) return;
     if (result.kind === "interact") {
       const kind = result.node.userData.interaction;
-      if (kind === "tv") toggleTv();
+      if (kind === "tv") toggleTv(result.node);
       else if (kind === "fan") toggleFan();
       else if (kind === "lamp") toggleLamp(result.node);
-      else if (kind === "patrick") { if(mode==='cutaway' && !activeRoom) focusRoom('living');startWave(); say("嗨！点下面的动作，陪我玩一会儿。"); }
-      else if (kind === "relic") say(relics.activate(result.node));
+      else if (kind === "patrick") {if(mode==='cutaway'&&!activeRoom)focusRoom('living');startWave();say("嗨！点下面的动作，陪我玩一会儿。");}
+      else if(kind==='relic')say(relics.activate(result.node));
       return;
     }
     if (result.kind === "room" && !activeRoom) focusRoom(result.id);
@@ -676,7 +707,7 @@ if (renderer) {
     canvas.style.cursor = result ? "pointer" : "grab";
     tooltip.hidden = !result;
     if (result) {
-      const label = result.kind === "interact" ? (result.node.userData.label || (result.node.userData.interaction === 'patrick' ? '点派大星，陪他玩' : '点击互动')) : rooms.get(result.id).name;
+      const label=result.kind==="interact"?(result.node.userData.label||"点击互动"):rooms.get(result.id).name;
       tooltip.textContent = label;
       const rect = canvas.getBoundingClientRect();
       tooltip.style.left = `${Math.min(event.clientX - rect.left + 14, viewWidth - 120)}px`;
@@ -732,8 +763,8 @@ if (renderer) {
       let y = (-p.y * 0.5 + 0.5) * viewHeight;
       x = Math.max(marginX + labelW / 2, Math.min(x, viewWidth - marginX - labelW / 2));
       y = Math.max(topSafe + labelH / 2, Math.min(y, viewHeight - marginX - labelH / 2));
-      button.style.left = `${x - labelW / 2}px`;
-      button.style.top = `${y - labelH / 2}px`;
+      button.style.left = `${x}px`;
+      button.style.top = `${y}px`;
     }
   }
 
@@ -746,13 +777,44 @@ if (renderer) {
   toggleBtn.addEventListener("click", switchMode);
   document.querySelector("[data-house-retry]").addEventListener("click", () => location.reload());
 
-  /* ---------- 模型与收藏资产全部实际加载后就绪 ---------- */
-  applyModeVisibility();
-  applyRoomVisibility();
-  const initialPose = wholePose();camera.position.copy(initialPose.position);controls.target.copy(initialPose.target);controls.update();
-  Promise.all([character.loaded,relics.loaded]).then(()=>{
-    collectPickables(); ready=true; root.dataset.houseState='ready';root.dataset.cameraTransition='idle';loading.hidden=true;
-  }).catch(err=>{console.error(err);fail('模型加载失败，请刷新重试。');});
+  /* ---------- 启动：GPU 网格、嵌入贴图、参考画作全部成功加载后才 ready ---------- */
+  (async () => { try {
+    const gltfLoader=new GLTFLoader();
+    const targets={fridge,stove,bed,armchair:sofa,'old-tv':oldTv,patrick};
+    const assets=config.assets??[];
+    const loaded=await Promise.all(assets.map(async spec=>({spec,gltf:await gltfLoader.loadAsync(spec.url)})));
+    for(const {spec,gltf}of loaded){
+      const group=targets[spec.id];if(!group)continue;
+      // 交互屏面独立于 GPU 机箱，不使木壳一起发光。
+      const screen=spec.id==='old-tv'?group.userData.tvScreenMesh:null;
+      group.clear();group.add(gltf.scene);
+      gltf.scene.traverse(n=>{if(n.isMesh){n.castShadow=true;n.receiveShadow=true;}});
+      group.userData.assetSource='Hunyuan3D Shape/Paint + Blender refinement';
+      if(screen){
+        screen.position.set(-.06,.38,.24);screen.scale.set(.91,1.3,1);group.add(screen);group.userData.tvScreenMesh=screen;
+        const secondScreen=upperTv.userData.tvScreenMesh;
+        upperTv.clear();upperTv.add(gltf.scene.clone(true));
+        secondScreen.position.copy(screen.position);secondScreen.scale.copy(screen.scale);upperTv.add(secondScreen);upperTv.userData.tvScreenMesh=secondScreen;
+      }
+      if(spec.id==='bed')pillow.visible=false;
+    }
+    await Promise.all([character.loaded,relics.loaded,...artReady]);
+
+    collectPickables();
+    applyModeVisibility();
+    applyRoomVisibility();
+    const pose = wholePose();
+    camera.position.copy(pose.position);
+    controls.target.copy(pose.target);
+    controls.update();
+    root.dataset.cameraTransition = "idle";
+    ready = true;
+    root.dataset.houseState = "ready";
+    loading.hidden = true;
+  } catch (err) {
+    console.error("派大星石头屋初始化失败：", err);
+    fail("场景初始化失败，请刷新重试。");
+  } })();
 
   /* ---------- 主循环 ---------- */
   let lastTick = performance.now();
@@ -777,8 +839,7 @@ if (renderer) {
         root.dataset.cameraTransition = "idle";
       }
     }
-    character.update(delta);
-    relics.update(delta);
+    character.update(delta);relics.update(delta);
     if (interactState.fanSpinning) fan.userData.fanBlades.rotation.y += delta * 5;
     vaneTop.rotation.y += delta * 0.35;
     controls.update();
@@ -809,18 +870,16 @@ if (renderer) {
       view: activeRoom ?? "whole",
       mode,
       state: root.dataset.houseState,
-      waveState: character.snapshot().action,
-      character: character.snapshot(),
-      collection: relics.snapshot(),
-      stair: stairGroup.userData.dimensions,
+      waveState:character.snapshot().action,
+      character:character.snapshot(),collection:relics.snapshot(),stair:stairGroup.userData.dimensions,
       interact: { ...interactState },
       camPos: camera.position.toArray(),
       target: controls.target.toArray(),
       fov: camera.fov,
       patrickPos: patrick.position.toArray(),
     }),
-    character, relics,
-    wavePose: () => character.snapshot(),
+    character,relics,
+    wavePose:()=>character.snapshot(),
     stat: () => {
       let tris = 0, meshes = 0;
       scene.traverse((o) => {

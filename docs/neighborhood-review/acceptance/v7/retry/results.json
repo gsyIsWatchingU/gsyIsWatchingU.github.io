@@ -1,0 +1,50 @@
+{
+  "checks": [
+    {
+      "name": "exterior-failure-retry-visible",
+      "ok": true
+    },
+    {
+      "name": "exterior-native-retry",
+      "ok": true
+    },
+    {
+      "name": "interior-error-stops-spinner",
+      "ok": true
+    },
+    {
+      "name": "interior-native-recovery",
+      "ok": true
+    },
+    {
+      "name": "double-enter-single-success-request",
+      "ok": true,
+      "actual": {
+        "totalRequests": 2,
+        "expected": "one deliberately blocked request + one recovered request"
+      }
+    }
+  ],
+  "events": [
+    {
+      "stage": "boot",
+      "type": "resourceFailure",
+      "url": "http://127.0.0.1:8797/assets/models/neighborhood/squidward-house.glb?v=20261013-squidward-v7",
+      "error": "",
+      "canceled": false
+    },
+    {
+      "stage": "boot",
+      "type": "error",
+      "text": "[neighborhood] exterior load failed ../../assets/models/neighborhood/squidward-house.glb Failed to fetch undefined"
+    },
+    {
+      "stage": "boot",
+      "type": "resourceFailure",
+      "url": "http://127.0.0.1:8797/assets/models/neighborhood/squidward-interior.glb?v=20261013-squidward-v7",
+      "error": "",
+      "canceled": false
+    }
+  ],
+  "expectedFailures": "Two Network.setBlockedURLs resource failures are intentional; separate from healthy smoke."
+}

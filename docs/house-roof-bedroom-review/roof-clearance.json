@@ -1,0 +1,24 @@
+[
+  {
+    "position": [
+      -0.85,
+      -0.15,
+      9
+    ],
+    "rotation": 0.4,
+    "leafIntersectionPairs": 186,
+    "footEllipseMax": 0.39142319696420524,
+    "stairHoleClearance": 0.9055664715521576
+  },
+  {
+    "position": [
+      -0.95,
+      -0.9,
+      9
+    ],
+    "rotation": 0.15,
+    "leafIntersectionPairs": 0,
+    "footEllipseMax": 0.9489271419007761,
+    "stairHoleClearance": 1.3240477086019766
+  }
+]

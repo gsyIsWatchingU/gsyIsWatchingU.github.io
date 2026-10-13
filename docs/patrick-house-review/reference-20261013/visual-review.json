@@ -1,0 +1,29 @@
+{
+  "version": "20261013-reference2",
+  "reviewer": "agent visual inspection",
+  "status": "review",
+  "humanReview": "pending",
+  "inspected": [
+    "01-whole.png",
+    "02-exterior.png",
+    "room-kitchen.png",
+    "room-bedroom.png",
+    "room-gym.png",
+    "room-living.png",
+    "mobile-whole.png",
+    "wave-03.png"
+  ],
+  "findings": [
+    "两层剖面与上层家具/地下客厅按参考排列",
+    "主要家具为有厚度曲面，水槽柜体避开盆腔，盆底闭合",
+    "骨头风向标、墙饰、镜子、台阶和收藏可见",
+    "派大星五官完整，肩臂连续，无前述腹部裁切接缝，脚底落地",
+    "窄屏全景与标签完整入画"
+  ],
+  "remaining": [
+    "插画笔触和二维透视没有逐像素复刻",
+    "真实手机触屏与实机性能未验证"
+  ],
+  "evidenceDirectory": "live",
+  "codeCommit": "8e54fde6145fb6c2c2b320167f57fdeddc7e107e"
+}

@@ -17,7 +17,7 @@ export function createCompanionState(config) {
       return current();
     },
     follow(room) {if(room && !config.rooms[room])return false; focused=room;local=0;command=null;revision++;return true;},
-    act(action) {const spec=config.actions[action];if(!spec)return false;command={action,room:spec.room??focused??scheduled().room,remaining:10};revision++;return true;},
+    act(action) {const spec=config.actions[action];if(!spec)return false;command={action,room:spec.room??focused??scheduled().room,remaining:spec.duration??10};revision++;return true;},
     cancel() {command=null;revision++;}
   };
 }
