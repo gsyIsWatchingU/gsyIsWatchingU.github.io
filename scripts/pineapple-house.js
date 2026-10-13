@@ -235,7 +235,7 @@ if (renderer) {
         } else if (activeRoom === "library") {
           visible = d.roomId === "library";
         } else if(roof) {
-          visible = d.roomId === "roof" || (d.roomId === "stairs" && (d.level === 3 || d.roofAccess));
+          visible = d.roomId === "roof" || (d.roomId === "stairs" && (d.level === 3 || d.roofAccess === true));
         } else {
           visible = d.level === room.level && d.roomId !== "library";
           if(d.occluder && d.roomId !== activeRoom) visible=false;
