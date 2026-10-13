@@ -1,7 +1,7 @@
 import {launch} from './verification/neighborhood-cdp-client.mjs';
 import {writeFileSync,mkdirSync} from 'node:fs';
 import assert from 'node:assert/strict';
-const live=process.argv.includes('--live'),base=live?'https://gsyiswatchingu.github.io':'http://127.0.0.1:8770',out='docs/cat-side-rest-review/'+(live?'live':'local');mkdirSync(out,{recursive:true});
+const live=process.argv.includes('--live'),rootArg=process.argv.indexOf('--out-root'),root=rootArg>=0?process.argv[rootArg+1]:'docs/cat-side-rest-review',base=live?'https://gsyiswatchingu.github.io':'http://127.0.0.1:8770',out=root+'/'+(live?'live':'local');mkdirSync(out,{recursive:true});
 const c=await launch('tmp/cat-side-rest-'+(live?'live':'local'),9898),records=[];
 async function shot(name){const r=await c.send('Page.captureScreenshot',{format:'png'});writeFileSync(out+'/'+name+'.png',Buffer.from(r.data,'base64'));}
 try{

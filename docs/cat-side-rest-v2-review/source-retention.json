@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "source": "assets/house-review/props/siamese-kitten-seated-anatomy.glb",
+  "output": "assets/house-review/props/siamese-kitten-anatomy-side-rest-v2.glb",
+  "runtimeSHA256": "437014547c1505ebbed90b147074c42b5965df2911aad2f56438dab2569ff024",
+  "originalBinaryRetained": true,
+  "originalMeshUVWeightsRetained": true,
+  "originalSitTargetsRetained": 4
+}

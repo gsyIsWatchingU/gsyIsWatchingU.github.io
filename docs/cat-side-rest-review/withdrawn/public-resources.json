@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "commit": "ff4ad914cb49da674c63f68748dd8d5ed93dc08c",
+  "records": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "match": true
+    },
+    {
+      "path": "pineapple-house.html",
+      "status": 200,
+      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "expected": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
+      "actual": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
+      "match": true
+    },
+    {
+      "path": "src/data/pineapple-house.json",
+      "status": 200,
+      "expected": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
+      "actual": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "expected": "1d532e46b9b82addde1e27ae95134a7d8015b02345f3b80fee7e215e99b8d60d",
+      "actual": "1d532e46b9b82addde1e27ae95134a7d8015b02345f3b80fee7e215e99b8d60d",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-anatomy-side-rest.glb",
+      "status": 200,
+      "expected": "2a87483510be23b231c4b3c51435b9e4e8937e94c536b75530a922e9d3e08f10",
+      "actual": "2a87483510be23b231c4b3c51435b9e4e8937e94c536b75530a922e9d3e08f10",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/index.html",
+      "status": 200,
+      "expected": "70c79c61da779c9dc37c11d3143384489e93eaca040ceff83523010e9b05f021",
+      "actual": "70c79c61da779c9dc37c11d3143384489e93eaca040ceff83523010e9b05f021",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/viewer.js",
+      "status": 200,
+      "expected": "528163ab62a349373271ccc6fe0a20239676cc69667952f55746b7f2c497c0ca",
+      "actual": "528163ab62a349373271ccc6fe0a20239676cc69667952f55746b7f2c497c0ca",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/runtime.json",
+      "status": 200,
+      "expected": "c31176fe62f1c9a7f92f0b5e38630fa4ae6a4d6a2611dff0dc4521bd4732aa4f",
+      "actual": "c31176fe62f1c9a7f92f0b5e38630fa4ae6a4d6a2611dff0dc4521bd4732aa4f",
+      "match": true
+    }
+  ]
+}

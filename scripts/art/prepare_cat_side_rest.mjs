@@ -7,7 +7,7 @@ const source=process.argv[2]??'assets/house-review/props/siamese-kitten-compact.
 const data=readFileSync(source),size=data.readUInt32LE(12),g=JSON.parse(data.subarray(20,20+size)),bin=data.subarray(28+size),model=(await loadGeometry(source)).scene;
 model.updateMatrixWorld(true);const mesh=model.getObjectByName('siamese_cat'),geometry=mesh.geometry,p=geometry.attributes.position,idx=geometry.index;
 globalThis.document={createElement:()=>({style:{},setAttribute(){}})};const camera=new THREE.PerspectiveCamera();camera.position.set(0,1,3);
-const original=JSON.parse(readFileSync('src/data/pineapple-house.json')).assets.find(a=>a.id==='siamese-cat'),spec={...original,position:[0,0,0],rotation:0,pet:{...original.pet,groundedSideLie:true,poseSitV3:source.includes('anatomy'),route:[[0,.8],[.4,.8],[.4,-.3],[0,-.3]]}};
+const original=JSON.parse(readFileSync('src/data/pineapple-house.json')).assets.find(a=>a.id==='siamese-cat'),spec={...original,position:[0,0,0],rotation:0,pet:{...original.pet,groundedSideLie:true,lieEnabled:true,poseSitV3:source.includes('anatomy'),route:[[0,.8],[.4,.8],[.4,-.3],[0,-.3]]}};
 const pet=createHousePet(model,spec,{root:{dataset:{},append(){},getBoundingClientRect:()=>({left:0,top:0})},canvas:{getBoundingClientRect:()=>({left:0,top:0,width:1000,height:800})},camera,reducedMotion:false});
 const bind=new Map(mesh.skeleton.bones.map(b=>[b.name,b.getWorldPosition(new THREE.Vector3()).applyMatrix4(mesh.matrixWorld.clone().invert())]));
 const groups=[],mapping=[],lookup=new Map();

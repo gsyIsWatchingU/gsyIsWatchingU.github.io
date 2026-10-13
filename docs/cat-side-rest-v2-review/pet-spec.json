@@ -1,0 +1,57 @@
+{
+  "id": "siamese-cat",
+  "name": "暹罗猫",
+  "room": "living",
+  "url": "assets/house-review/props/siamese-kitten-anatomy-side-rest-v2.glb",
+  "position": [
+    0,
+    0,
+    0
+  ],
+  "rotation": 0,
+  "pet": {
+    "route": [
+      [
+        0,
+        0.8
+      ],
+      [
+        0.4,
+        0.8
+      ],
+      [
+        0.4,
+        -0.3
+      ],
+      [
+        0,
+        -0.3
+      ]
+    ],
+    "fur": true,
+    "restPoses": true,
+    "groundedSideLie": true,
+    "lieEnabled": true,
+    "sitCorrectives": true,
+    "sitEnabled": true,
+    "poseSitV2": false,
+    "runtimeSha256": "437014547c1505ebbed90b147074c42b5965df2911aad2f56438dab2569ff024",
+    "faceForward": [
+      0.7452153247454482,
+      0,
+      0.6668239046139065
+    ],
+    "faceCenter": [
+      0.124894668,
+      0.46660155,
+      0.339340067
+    ],
+    "bodyScale": 0.8,
+    "limbRatio": 0.78,
+    "walkSpeed": 0.055,
+    "stepHeight": 0.011,
+    "gaitCycle": 0.62,
+    "poseSideArap": true,
+    "poseSitV3": true
+  }
+}

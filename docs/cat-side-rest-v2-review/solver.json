@@ -1,0 +1,133 @@
+{
+  "status": "review",
+  "stats": [
+    {
+      "level": 0.0625,
+      "iterations": 100,
+      "minimumFloor": 0.000020700529444959244,
+      "maximumEdgeRatio": 2.1432613777870895,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.125,
+      "iterations": 100,
+      "minimumFloor": 0.00005219035071381186,
+      "maximumEdgeRatio": 1.5581132719271789,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.1875,
+      "iterations": 100,
+      "minimumFloor": 0.00010095732426428604,
+      "maximumEdgeRatio": 1.4913494395687765,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.25,
+      "iterations": 100,
+      "minimumFloor": 0.0001640845000742512,
+      "maximumEdgeRatio": 1.44016709317161,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.3125,
+      "iterations": 100,
+      "minimumFloor": 0.00023977049339616273,
+      "maximumEdgeRatio": 1.4524293241495208,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.375,
+      "iterations": 100,
+      "minimumFloor": 0.00032330324646457145,
+      "maximumEdgeRatio": 1.4644763920357762,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.4375,
+      "iterations": 100,
+      "minimumFloor": 0.00041245458053396945,
+      "maximumEdgeRatio": 1.4772340028609383,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.5,
+      "iterations": 100,
+      "minimumFloor": 0.0005047822696198183,
+      "maximumEdgeRatio": 2.3200006442443035,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.5625,
+      "iterations": 100,
+      "minimumFloor": 0.0005978639080204198,
+      "maximumEdgeRatio": 1.6208395011819186,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.625,
+      "iterations": 100,
+      "minimumFloor": 0.0006871609600559436,
+      "maximumEdgeRatio": 1.720443227155196,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.6875,
+      "iterations": 100,
+      "minimumFloor": 0.0007704453512673709,
+      "maximumEdgeRatio": 1.8140168365067386,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.75,
+      "iterations": 100,
+      "minimumFloor": 0.0008452799883271883,
+      "maximumEdgeRatio": 1.8946784697960373,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.8125,
+      "iterations": 100,
+      "minimumFloor": 0.0009090835557297311,
+      "maximumEdgeRatio": 2.1254113680074385,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.875,
+      "iterations": 100,
+      "minimumFloor": 0.0009577552330107125,
+      "maximumEdgeRatio": 2.0826856184439717,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 0.9375,
+      "iterations": 100,
+      "minimumFloor": 0.0009889721332431434,
+      "maximumEdgeRatio": 2.152563376826917,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    },
+    {
+      "level": 1,
+      "iterations": 100,
+      "minimumFloor": 0.0010000823834016292,
+      "maximumEdgeRatio": 2.1822880168017695,
+      "fixedVertices": 10822,
+      "freeVertices": 4176
+    }
+  ]
+}

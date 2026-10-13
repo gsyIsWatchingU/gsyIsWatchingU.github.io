@@ -2,50 +2,40 @@
   "id": "siamese-cat",
   "name": "暹罗猫",
   "room": "living",
-  "url": "assets/house-review/props/siamese-kitten-anatomy-side-rest.glb",
+  "url": "assets/house-review/props/siamese-kitten-anatomy-side-rest-v2.glb",
   "position": [
-    -1.55,
     0,
-    1.6
+    0,
+    0
   ],
-  "rotation": 0.22,
+  "rotation": 0,
   "pet": {
     "route": [
       [
-        -1.4,
-        1.95
+        0,
+        0.8
       ],
       [
-        -0.65,
-        2.08
+        0.4,
+        0.8
       ],
       [
-        0.25,
-        2.05
-      ],
-      [
-        0.85,
-        1.88
-      ],
-      [
-        0.7,
-        1.48
+        0.4,
+        -0.3
       ],
       [
         0,
-        1.43
-      ],
-      [
-        -0.95,
-        1.44
+        -0.3
       ]
     ],
     "fur": true,
     "restPoses": true,
+    "groundedSideLie": true,
+    "lieEnabled": true,
     "sitCorrectives": true,
     "sitEnabled": true,
     "poseSitV2": false,
-    "runtimeSha256": "2a87483510be23b231c4b3c51435b9e4e8937e94c536b75530a922e9d3e08f10",
+    "runtimeSha256": "437014547c1505ebbed90b147074c42b5965df2911aad2f56438dab2569ff024",
     "faceForward": [
       0.7452153247454482,
       0,
@@ -61,7 +51,7 @@
     "walkSpeed": 0.055,
     "stepHeight": 0.011,
     "gaitCycle": 0.62,
-    "poseSitV3": true,
-    "groundedSideLie": true
+    "poseSideArap": true,
+    "poseSitV3": true
   }
 }
