@@ -1,0 +1,12 @@
+{
+  "file": "assets/models/neighborhood/squidward-interior-layout-v8.glb",
+  "passed": true,
+  "nodes": 128,
+  "obstacles": 93,
+  "paths": 40,
+  "samples": 2920,
+  "stairs": 51,
+  "walls": 4,
+  "initialPositionClear": true,
+  "alternateHomeClear": true
+}

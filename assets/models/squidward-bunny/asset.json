@@ -46,5 +46,15 @@
     "manifest": "docs/squidward-character-review/animation/animation.json",
     "scope": "四触足改形、骨骼动作与表情预览；原静态批准不延伸至此候选"
   },
-  "reviewPageScope": "当前页面展示animatedPreview，静态源文件留存"
+  "reviewPageScope": "当前页面展示 activePreview；静态与上一版动画留存",
+  "activePreview": {
+    "model": "assets/models/squidward-bunny/squidward-bunny-active.glb",
+    "sha256": "54a34d939c1a8ef48ea0beb2e01d1073ffa11216fcf41ceaeed2098df33fcd78",
+    "triangles": 33204,
+    "revision": "animation-v18",
+    "status": "review",
+    "humanReview": "pending",
+    "manifest": "docs/squidward-character-review/behavior-v18/animation.json",
+    "scope": "招手与烦躁修正，客厅导航及自主物件活动；保留静态与旧动画"
+  }
 }

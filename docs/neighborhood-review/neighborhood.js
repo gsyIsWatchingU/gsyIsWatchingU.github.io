@@ -5,7 +5,9 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { SSAOPass } from 'three/addons/postprocessing/SSAOPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-import { SquidwardResident, skinnedBounds } from '../../scripts/squidward-resident.js?v=20261013-motion-10';
+import { SquidwardResident, skinnedBounds } from '../../scripts/squidward-resident.js?v=20261013-motion-18';
+import { RoomNavigation } from '../../scripts/squidward-navigation.js?v=20261013-nav-1';
+import { livingProps } from '../../scripts/squidward-room-props.js?v=20261013-props-2';
 
 // ========== DOM ==========
 const wrap = document.getElementById('canvas-wrap');
@@ -192,7 +194,7 @@ function setInfo(title, desc, extraMeta) {
   infoDesc.textContent = desc;
   const cfg = config.houses[state.house];
   const tris = state.view === 'exterior' ? state.extTris : (state.intTris || state.extTris);
-  infoMeta.textContent = state.view === 'exterior' ? '点击木门进入房子' : (cfg.resident&&(state.view==='cutaway'||state.roomId==='living') ? '点击章鱼哥，它会向你招手' : '拖动查看家具与布局');
+  infoMeta.textContent = state.view === 'exterior' ? '点击木门进入房子' : (cfg.resident&&state.roomId==='living' ? '点击地板走过去 · 点击家具互动 · 点击章鱼哥招手' : '拖动查看本层家具与布局');
   layoutHint();
 }
 
@@ -488,7 +490,12 @@ async function attachResident(interior, cfg) {
   });
   if (contacts.some(contact => Math.abs(contact.gap) > .002)) throw new Error('角色未贴合楼板');
   anchor.userData.resident = { id: resident.id, roomId: room.id, height: placed.max.y - placed.min.y, min: placed.min.toArray(), max: placed.max.toArray(), contacts };
-  anchor.userData.controller=new SquidwardResident({model:root,actor:anchor,clips:gltf.animations,route:resident.walkRoute,floor,floorY:resident.position[1]});
+  const props=await livingProps(interior);
+  const navigation=new RoomNavigation({floor,parent:interior,floorY:resident.position[1],obstacles:props.obstacles});
+  if(!navigation.nodes.length)throw new Error('客厅没有可行走区域');
+  anchor.userData.controller=new SquidwardResident({model:root,actor:anchor,clips:gltf.animations,route:resident.walkRoute,floor,floorY:resident.position[1],navigation,interactions:props.interactions,onGoal:props.onGoal,speedMultiplier:resident.speedMultiplier||2.3});
+  anchor.userData.controller.props=props;
+  wrap.dataset.navigation=JSON.stringify({nodes:navigation.nodes.length,obstacles:props.obstacles.length});
   return anchor.userData.resident;
 }
 
@@ -509,6 +516,8 @@ function setRoomFurnitureVisible(roomId) {
   const room = roomId ? cfg.rooms.find(r => r.id === roomId) : null;
   state.intMesh.traverse(o => {
     if (!o.isMesh) return;
+    if(o.name.startsWith('stairs_whole_')){o.visible=!room;return;}
+    if(o.name.includes('_stairs_')&&!o.name.startsWith('stairs_')){o.visible=!!room&&o.name.startsWith(room.prefix);return;}
     // 近景仅保留本层楼梯，避免其他楼层叠在房间画面中。
     if (o.name.startsWith('stairs_') || o.name.startsWith('art_')) {
       const box = new THREE.Box3().setFromObject(o);
@@ -561,10 +570,8 @@ function maybeAutotest() {
 }
 
 function cutawayPose() {
-  // 新 GLB：垂直堆叠四层，正门朝 +Z。从正前偏上看，四层同时可读
-  const target = new THREE.Vector3(0, 2.3, 0).add(state.shift);
-  const position = new THREE.Vector3(0, 3.6, 6.8).add(state.shift);
-  return { position, target };
+  // 按当前整屋包围盒与窗口比例取景，避免固定距离裁掉顶层。
+  return frameWhole(new THREE.Box3().setFromObject(state.intMesh));
 }
 
 function enterCutaway() {
@@ -666,6 +673,14 @@ function onCanvasClick(e) {
   if(state.resident&&state.view!=='exterior'&&(state.view==='cutaway'||state.roomId==='living')){
     const hits=ray.intersectObject(state.resident.model,true);
     if(hits.length){state.resident.request('wave');return;}
+  }
+  if(state.resident&&state.view==='room'&&state.roomId==='living'){
+    const visibleHits=ray.intersectObject(state.intMesh,true).filter(hit=>{let o=hit.object;while(o){if(!o.visible)return false;o=o.parent;}return !hit.object.name.includes('destination_marker');});
+    const objectHit=visibleHits[0];
+    const activity=objectHit&&state.resident.interactions.find(item=>item.id===objectHit.object.userData.residentInteraction);
+    const point=objectHit?.point.clone()||ray.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0,1,0),-(1.2+state.shift.y)),new THREE.Vector3());
+    if(point){const local=state.intMesh.worldToLocal(point);state.resident.goTo(activity?.point||[local.x,local.z],activity||null,'click');wrap.dataset.clickDestination=JSON.stringify({point:[local.x,local.z],activity:activity?.id||null});}
+    return;
   }
   if (state.view === 'exterior') {
     const cfg = config.houses[state.house];
@@ -813,7 +828,8 @@ function animate() {
   if(state.resident){
     const active=state.view==='cutaway'||(state.view==='room'&&state.roomId==='living');
     state.resident.update(dt,active);
-    if(active&&now-lastResidentProbe>250){wrap.dataset.residentAnimation=JSON.stringify(state.resident.diagnostic());lastResidentProbe=now;}
+    if(active&&!state.resident.paused)state.resident.props?.update(dt);
+    if(active&&now-lastResidentProbe>250){wrap.dataset.residentAnimation=JSON.stringify({...state.resident.diagnostic(),tvOn:state.resident.props?.tvOn,tvTime:state.resident.props?.tvTime});lastResidentProbe=now;}
   }
   projectChips();
   composer.render();

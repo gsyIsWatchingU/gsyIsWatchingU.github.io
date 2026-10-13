@@ -83,6 +83,34 @@
   },
   "assets": [
     {
+      "id": "squidward-layout-v8-whole",
+      "room": "whole",
+      "runtime": "assets/models/neighborhood/squidward-house-layout-v8.glb",
+      "sha256": "5dce97a9ec746fd95e01655a17779002234074494585685b435f1328ed608b05",
+      "triangles": 95892,
+      "tier": "desktop_and_mobile",
+      "status": "review"
+    },
+    {
+      "id": "squidward-layout-v8-interior",
+      "room": "interior",
+      "runtime": "assets/models/neighborhood/squidward-interior-layout-v8.glb",
+      "sha256": "90a44ff412d0a135e08669a1fd803b45fb17be84a87604ece00e5d39313b2a85",
+      "triangles": 86927,
+      "tier": "desktop_and_mobile",
+      "status": "review"
+    },
+    {
+      "id": "squidward-bunny-active",
+      "room": "living",
+      "runtime": "assets/models/squidward-bunny/squidward-bunny-active.glb",
+      "sha256": "54a34d939c1a8ef48ea0beb2e01d1073ffa11216fcf41ceaeed2098df33fcd78",
+      "triangles": 33204,
+      "height": 0.62,
+      "status": "review",
+      "manifest": "docs/squidward-character-review/behavior-v18/animation.json"
+    },
+    {
       "id": "squidward-layout-v7-whole",
       "room": "whole",
       "runtime": "assets/models/neighborhood/squidward-house-layout-v7.glb",
@@ -189,6 +217,12 @@
       "status": "review"
     }
   ],
-  "currentRevision": "layout-v7 / animation-v10",
-  "layoutManifest": "docs/neighborhood-review/layout-v7/layout.json"
+  "currentRevision": "layout-v8 / animation-v18",
+  "layoutManifest": "docs/neighborhood-review/layout-v8/slices.json",
+  "runtimePortrait": "assets/images/squidward-house/asset.json",
+  "currentTierBudget": {
+    "wholeWithResident": 129096,
+    "interiorLoadedWithResident": 120131,
+    "runtimePortraitMaxPx": 1024
+  }
 }

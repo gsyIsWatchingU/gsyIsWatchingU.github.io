@@ -1,8 +1,8 @@
 {
-  "version": "20261013-layout-animation-v13",
+  "version": "20261013-behavior-v19",
   "status": "review",
-  "note": "布局 v7：修复家具半尺寸及独立旋转原点，层内缩放、缩窄楼梯、移除门旁两雕像；动画 v10：24 骨、四触足、8 动作与10表情形变。Y-up，各层行走面 0.15/1.20/2.40/3.60；当前独立预览待审。",
-  "cacheBust": "v=20261013-layout-animation-v13",
+  "note": "按层裁开楼梯与原石壳内墙；画像贴图；角色2.3倍步频和位移、点击导航、自主物件活动；修正招手腕姿与烦躁嘴角。",
+  "cacheBust": "v=20261013-behavior-v19",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,
@@ -32,7 +32,7 @@
       "hasInterior": true,
       "resident": {
         "id": "squidward-bunny",
-        "url": "../../assets/models/squidward-bunny/squidward-bunny-animated.glb",
+        "url": "../../assets/models/squidward-bunny/squidward-bunny-active.glb",
         "roomId": "living",
         "height": 0.62,
         "position": [
@@ -60,16 +60,17 @@
             0.68,
             0.74
           ]
-        ]
+        ],
+        "speedMultiplier": 2.3
       },
       "models": {
         "desktop": {
-          "url": "../../assets/models/neighborhood/squidward-house-layout-v7.glb",
-          "interiorUrl": "../../assets/models/neighborhood/squidward-interior-layout-v7.glb"
+          "url": "../../assets/models/neighborhood/squidward-house-layout-v8.glb",
+          "interiorUrl": "../../assets/models/neighborhood/squidward-interior-layout-v8.glb"
         },
         "mobile": {
-          "url": "../../assets/models/neighborhood/squidward-house-layout-v7.glb",
-          "interiorUrl": "../../assets/models/neighborhood/squidward-interior-layout-v7.glb"
+          "url": "../../assets/models/neighborhood/squidward-house-layout-v8.glb",
+          "interiorUrl": "../../assets/models/neighborhood/squidward-interior-layout-v8.glb"
         }
       },
       "door": {
@@ -117,14 +118,14 @@
             0
           ],
           "target": [
-            -0.5,
-            0.55,
-            -1.15
+            0,
+            0.6,
+            -0.35
           ],
           "camera": [
-            -1.7,
-            0.9,
-            1.0
+            0,
+            1.17,
+            3.2
           ]
         },
         {
@@ -156,7 +157,7 @@
           "camera": [
             0,
             2.2,
-            2.9
+            3.2
           ],
           "hideFloors": [
             "floor_3"
@@ -184,14 +185,14 @@
             0
           ],
           "target": [
-            -0.3,
-            2.85,
-            -0.55
+            0,
+            2.9,
+            -0.3
           ],
           "camera": [
             0,
-            3.25,
-            2.6
+            3.55,
+            3.2
           ],
           "hideFloors": [
             "floor_4"
@@ -220,13 +221,13 @@
           ],
           "target": [
             0,
-            3.9,
-            -0.5
+            4.05,
+            -0.3
           ],
           "camera": [
             0,
-            4.8,
-            2.6
+            4.65,
+            3.2
           ]
         }
       ]

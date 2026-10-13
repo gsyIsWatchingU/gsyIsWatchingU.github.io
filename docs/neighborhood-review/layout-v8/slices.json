@@ -1,0 +1,57 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "sourceSHA256": "22c9b99caf95ad23f438b0919a8228d3bd348559b6ed6acb3e910ec0ce7573d7",
+  "whole": {
+    "path": "squidward-house-layout-v8.glb",
+    "sha256": "5dce97a9ec746fd95e01655a17779002234074494585685b435f1328ed608b05",
+    "triangles": 95892
+  },
+  "interior": {
+    "path": "squidward-interior-layout-v8.glb",
+    "sha256": "90a44ff412d0a135e08669a1fd803b45fb17be84a87604ece00e5d39313b2a85",
+    "triangles": 86927
+  },
+  "layers": [
+    {
+      "room": "kitchen",
+      "wall": "kitchen_wall_back",
+      "height": [
+        0.15,
+        1.08
+      ],
+      "surfaceSource": "shell_main",
+      "frontOpening": "Blender Y < -0.12"
+    },
+    {
+      "room": "living",
+      "wall": "living_wall_back",
+      "height": [
+        1.2,
+        2.28
+      ],
+      "surfaceSource": "shell_main",
+      "frontOpening": "Blender Y < -0.12"
+    },
+    {
+      "room": "bedroom",
+      "wall": "bedroom_wall_back",
+      "height": [
+        2.4,
+        3.48
+      ],
+      "surfaceSource": "shell_main",
+      "frontOpening": "Blender Y < -0.12"
+    },
+    {
+      "room": "bath",
+      "wall": "bath_wall_back",
+      "height": [
+        3.6,
+        4.52
+      ],
+      "surfaceSource": "shell_main",
+      "frontOpening": "Blender Y < -0.12"
+    }
+  ]
+}

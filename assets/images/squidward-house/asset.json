@@ -1,0 +1,15 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "backend": "Codex ImageGen",
+  "date": "2026-10-13",
+  "purpose": "填充客厅原空白画框：章鱼哥古典自画像",
+  "file": "assets/images/squidward-house/self-portrait.png",
+  "sha256": "bfbf88b4573937ee16c22d8e44c75a645ab7604e2bd6879cafc937ed5fd79f6c",
+  "bytes": 2787986,
+  "runtimeTexture": [
+    768,
+    1024
+  ],
+  "outputSource": "01a1330a-3a08-77e1-8562-ae2de9a52dc6/exec-c59c5ed9-c7ee-4c2d-824f-19a962111bda.png"
+}

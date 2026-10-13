@@ -36,6 +36,25 @@ for p in original.data.polygons:
     votes=[tags[i] for i in p.vertices]
     kind=max(set(votes),key=votes.count)
     facegroups[kind].append(p)
+# 颜色分割会拾取裙腰上的浅色小块；只让连续的主体触手参与抬臂。
+# 其余原面归回身体，保留贴图，避免招手时把裙饰碎片带到肩旁。
+for kind in ['arm.L','arm.R']:
+    polys=facegroups[kind];byvertex={}
+    for face in polys:
+        for vi in face.vertices:byvertex.setdefault(vi,[]).append(face)
+    seen=set();parts=[]
+    for face in polys:
+        if face.index in seen:continue
+        stack=[face];seen.add(face.index);part=[]
+        while stack:
+            current=stack.pop();part.append(current)
+            for vi in current.vertices:
+                for other in byvertex[vi]:
+                    if other.index not in seen:seen.add(other.index);stack.append(other)
+        parts.append(part)
+    keep=max(parts,key=len)
+    facegroups[kind]=keep
+    facegroups['body'].extend(face for part in parts if part is not keep for face in part)
 objects=[];colorMaps={};originalCaps={}
 # 分离与腰部融合的触手，保留原表面及 UV；切口封边，不移动裙腰。
 for kind,polys in facegroups.items():
@@ -63,6 +82,9 @@ for obj in objects:
         face.smooth=True
         for loop in face.loops:
             if loop.vert in edgeUV:loop[layer].uv=edgeUV[loop.vert]
+    if obj['semanticPart'].startswith('arm.'):
+        cap=bpy.data.materials.new(obj.name+' cap skin');cap.use_nodes=True;cap.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=(.34,.58,.52,1);cap.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.85;obj.data.materials.append(cap)
+        for face in caps:face.material_index=1
     originalCaps[obj.name]=len(caps)
     bm.to_mesh(obj.data);bm.free()
 bpy.data.objects.remove(original,do_unlink=True)
@@ -188,7 +210,8 @@ for obj in objects:
             eye=(abs((x+.025)/.205)<1 and 1.545<z<1.745 and -.11<y<.085)
             pupil=eye and -.16<x<.14 and 1.59<z<1.71 and y<.04 and c[0]>c[1]*1.5 and c[0]>c[2]*1.3 and c[1]<.23
             eyeFall=max(0,1-abs((x+.025)/.22)**4)*smooth(-.14,-.085,y)*(1-smooth(.05,.10,y))
-            jaw=math.exp(-((x-.025)/.22)**4)*smooth(1.365,1.40,z)*(1-smooth(1.46,1.505,z))*smooth(-.41,-.34,y)*(1-smooth(-.14,-.09,y))
+            jaw=math.exp(-((x-.015)/.30)**6)*smooth(1.355,1.395,z)*(1-smooth(1.505,1.535,z))*smooth(-.18,-.13,y)*(1-smooth(.06,.105,y))
+            corner=smooth(.045,.225,abs(x-.015))
             if name=='blink' and eye:delta.z=-(z-1.555)*.94*eyeFall
             if name=='bored' and eye:delta.z=-.036*smooth(1.62,1.73,z)*eyeFall
             if name=='angry' and eye:delta.z=-.036*smooth(1.60,1.72,z)*eyeFall*(1-.8*abs(x)/.23)
@@ -196,10 +219,10 @@ for obj in objects:
             if name=='sad' and eye:delta.z=.018*eyeFall*(-x if x<0 else x)/.15
             if pupil and name in ['lookLeft','lookRight']:delta.x=(-1 if name=='lookLeft' else 1)*.022
             if pupil and name=='lookDown':delta.z=-.019
-            if name=='happy':delta.z=jaw*(-.046+.16*abs(x))
-            if name=='angry':delta.z-=jaw*.025*min(1,abs(x)/.16)
-            if name=='sad':delta.z-=jaw*.035*min(1,abs(x)/.16)
-            if name=='mouthOpen':delta.z-=jaw*.055
+            if name=='happy':delta.z=jaw*(.025*corner-.006)
+            if name=='angry':delta.z-=jaw*.080*corner
+            if name=='sad':delta.z-=jaw*.060*corner
+            if name=='mouthOpen':delta.z-=jaw*.035*(1-.35*corner)
             key.data[v.index].co+=delta
             if delta.length>1e-6:changed+=1
         morphCounts[obj.name+':'+name]=changed
@@ -241,7 +264,12 @@ for clip,duration in clips.items():
                 rig.pose.bones[f'DEF_upper_arm.{side[0]}'].rotation_euler.x=math.sin(phase+(math.pi if side[0]=='L' else 0))*.075
         if clip=='wave':
             control('DEF_upper_arm.L',(0,0,0),(0,1,0),.70*env)
-            control('DEF_forearm.L',(0,0,0),(0,1,0),-env*(2.0+.12*math.sin(t*10)))
+            control('DEF_forearm.L',(0,0,0),(0,1,0),-2.0*env)
+            # 手腕随抬臂转向上方，只在腕部小幅摆动，避免掌端朝下折成钩。
+            control('DEF_hand.L',(0,0,0),(0,1,0),-1.60*env)
+            rest=rig.data.bones['DEF_hand.L'].matrix_local.to_quaternion()
+            roll=rest.inverted()@Quaternion((1,0,0),env*.16*math.sin(t*9))@rest
+            rig.pose.bones['DEF_hand.L'].rotation_quaternion=rig.pose.bones['DEF_hand.L'].rotation_quaternion@roll
         if clip=='read':
             rig.pose.bones['DEF_upper_arm.R'].rotation_euler.x=-.12*env
             rig.pose.bones['DEF_forearm.R'].rotation_euler.x=.14*env
