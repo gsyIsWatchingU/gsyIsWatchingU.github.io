@@ -1,0 +1,549 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "test": "ready",
+      "value": {
+        "room": "bedroom",
+        "action": "wake",
+        "day": 0.2832000000000001,
+        "phase": 0,
+        "revision": 0,
+        "following": false,
+        "commanded": false,
+        "loaded": true,
+        "activity": "wake",
+        "entryTime": 0.2832000000000001,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "position": [
+          0.10739528560639994,
+          6,
+          1.8673159831552
+        ],
+        "bedHeight": null,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-bedroom",
+      "value": {
+        "room": "bedroom",
+        "action": "journal",
+        "day": 5.500400000000006,
+        "phase": 0,
+        "revision": 2,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "journal",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "position": [
+          -1.5,
+          6,
+          1.3
+        ],
+        "bedHeight": null,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-bathroom",
+      "value": {
+        "room": "bathroom",
+        "action": "wash",
+        "day": 9.400600000000008,
+        "phase": 0,
+        "revision": 6,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "wash",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "position": [
+          -0.45,
+          3,
+          0.8999999999999999
+        ],
+        "bedHeight": null,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-living",
+      "value": {
+        "room": "living",
+        "action": "listen",
+        "day": 13.317599999999986,
+        "phase": 0,
+        "revision": 10,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "listen",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "position": [
+          0.25,
+          0,
+          1.25
+        ],
+        "bedHeight": null,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-storage",
+      "value": {
+        "room": "storage",
+        "action": "tidy",
+        "day": 17.23459999999995,
+        "phase": 0,
+        "revision": 14,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "tidy",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "position": [
+          -3.4,
+          0,
+          0.8
+        ],
+        "bedHeight": null,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-library",
+      "value": {
+        "room": "library",
+        "action": "read",
+        "day": 21.134799999999906,
+        "phase": 1,
+        "revision": 18,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "read",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "position": [
+          2.75,
+          3,
+          1.4
+        ],
+        "bedHeight": null,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "room-roof",
+      "value": {
+        "room": "roof",
+        "action": "bubble",
+        "day": 24.968599999999842,
+        "phase": 1,
+        "revision": 22,
+        "following": true,
+        "commanded": false,
+        "loaded": true,
+        "activity": "bubble",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "position": [
+          0.6500000000000001,
+          9,
+          0.85
+        ],
+        "bedHeight": null,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "drag-not-click",
+      "value": true
+    },
+    {
+      "test": "actual-character-raycast-click",
+      "value": true
+    },
+    {
+      "test": "missing-key-visible",
+      "value": "聊天尚未配置：需要服务器 DEEPSEEK_API_KEY"
+    },
+    {
+      "test": "real-gpu-voice-playback",
+      "value": {
+        "paused": false,
+        "time": 1.457225,
+        "duration": 7.04,
+        "src": "http://127.0.0.1:8769/docs/house-companion-review/welcome.wav",
+        "status": "正在播报"
+      }
+    },
+    {
+      "test": "sleep-preview",
+      "value": {
+        "room": "bedroom",
+        "action": "sleep",
+        "day": 33.71899999999981,
+        "phase": 1,
+        "revision": 30,
+        "following": true,
+        "commanded": true,
+        "loaded": true,
+        "activity": "sleep",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": false,
+        "muted": false,
+        "position": [
+          -1.65,
+          6.797545714947281,
+          -0.2
+        ],
+        "bedHeight": 6.797545714947281,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "sleep-bed-contact",
+      "value": {
+        "minimumY": 6.7872171411881785,
+        "bedHeight": 6.797545714947281,
+        "gap": -0.010328573759102788
+      }
+    },
+    {
+      "test": "fixture-chat-drives-animation-while-open",
+      "value": {
+        "room": "bedroom",
+        "action": "sleep",
+        "day": 34.01899999999983,
+        "phase": 1,
+        "revision": 33,
+        "following": true,
+        "commanded": true,
+        "loaded": true,
+        "activity": "sleep",
+        "entryTime": 2,
+        "speaking": false,
+        "chatOpen": true,
+        "muted": false,
+        "position": [
+          -1.65,
+          6.797545714947281,
+          -0.2
+        ],
+        "bedHeight": 6.797545714947281,
+        "backOffset": 0.25769634177028666,
+        "bones": [
+          "comp_root",
+          "comp_head",
+          "comp_arm_l",
+          "comp_forearm_l",
+          "comp_hand_l",
+          "comp_leg_l",
+          "comp_shin_l",
+          "comp_foot_l",
+          "comp_arm_r",
+          "comp_forearm_r",
+          "comp_hand_r",
+          "comp_leg_r",
+          "comp_shin_r",
+          "comp_foot_r"
+        ],
+        "animations": [
+          "bubble",
+          "idle",
+          "lie",
+          "pet",
+          "read",
+          "sit",
+          "tidy",
+          "wake",
+          "walk",
+          "wash",
+          "wave"
+        ],
+        "status": "review"
+      }
+    },
+    {
+      "test": "fixture-replay-and-mute",
+      "value": true
+    },
+    {
+      "test": "fixture-stale-response-dropped",
+      "value": true
+    },
+    {
+      "test": "homepage-default-isolation",
+      "value": true
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "fixtures": true,
+  "limitations": [
+    "mobile viewport simulation; real phone not tested",
+    "DeepSeek real reply not tested: server key absent"
+  ]
+}

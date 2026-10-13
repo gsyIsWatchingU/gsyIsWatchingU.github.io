@@ -247,6 +247,10 @@ if (renderer) {
         node.visible=d.roomViewOnly?d.roomViewOnly===activeRoom:visible;
       });
     }
+    if(activeRoom==='roof'){
+      const entries=[];loaded.get('structure')?.traverse(n=>{if(n.isMesh&&n.userData.roomId==='stairs'&&n.userData.level>=2)entries.push({name:n.name,level:n.userData.level,roofAccess:!!n.userData.roofAccess,visible:n.visible});});
+      root.dataset.roofMeshes=JSON.stringify(entries);
+    }
   }
 
   function focusRoom(id) {

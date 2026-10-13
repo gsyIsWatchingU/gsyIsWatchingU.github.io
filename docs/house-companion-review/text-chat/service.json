@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "url": "https://gsy-gpu.tail660bdf.ts.net/house-api",
+  "health": {
+    "status": "ready",
+    "chatConfigured": true,
+    "model": "deepseek-flash",
+    "ttsReady": false,
+    "ttsError": "语音已关闭，仅文字聊天",
+    "ttsQueue": 0,
+    "statusOfAssets": "review"
+  },
+  "cors": "http://127.0.0.1:8769",
+  "unconfigured": null,
+  "unauthorizedSpeechStatus": 404,
+  "untrustedOriginAllowed": false,
+  "realDeepSeekReplyVerified": false
+}
