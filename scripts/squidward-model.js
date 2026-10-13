@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { SquidwardResident, skinnedBounds } from './squidward-resident.js';
 
 const stage = document.querySelector('#stage');
 const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -30,7 +31,7 @@ const fill = new THREE.DirectionalLight(0xe3eaff, 1.8);fill.position.set(-3, 2, 
 const rim = new THREE.DirectionalLight(0xffffff, 2);rim.position.set(1, 3, -3);scene.add(rim);
 const ground = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.ShadowMaterial({ opacity: .12 }));
 ground.rotation.x = -Math.PI / 2;ground.receiveShadow = true;scene.add(ground);
-let model, height = 1.6, width = 1, front = 0;
+let model, actor, resident, height = 1.6, width = 1, front = 0;
 const viewAngles = { front: 0, side: Math.PI / 2, back: Math.PI };
 function fit(angle = front) {
   const aspect = Math.max(stage.clientWidth / stage.clientHeight, .1);
@@ -42,19 +43,27 @@ function fit(angle = front) {
   camera.lookAt(controls.target);controls.update();
 }
 new ResizeObserver(() => { renderer.setSize(stage.clientWidth, stage.clientHeight);camera.aspect = stage.clientWidth / stage.clientHeight;camera.updateProjectionMatrix();if(model)fit(front); }).observe(stage);
-new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny.glb', gltf => {
-  model = gltf.scene;scene.add(model);
+new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-animated.glb?v=20261013-feet-10', gltf => {
+  model = gltf.scene;actor=new THREE.Group();actor.add(model);scene.add(actor);scene.updateMatrixWorld(true);
   model.traverse(o => { if(o.isMesh){o.castShadow = true;o.receiveShadow = true;} });
-  const box = new THREE.Box3().setFromObject(model);
+  const box = skinnedBounds(model);
   const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
   model.position.set(-center.x, -box.min.y, -center.z);
   height = size.y;width = Math.max(size.x, size.z);
+  scene.updateMatrixWorld(true);
+  resident=new SquidwardResident({model,actor,clips:gltf.animations,travel:false,onChange:updateActionUI});
   fit();document.querySelector('#loading').remove();
   stage.dataset.loaded = 'true';
+  document.querySelector('#action-select').disabled=false;document.querySelector('#action-select').value='idle';
+  document.querySelector('#pause-action').disabled=false;
   stage.dataset.dimensions = JSON.stringify(size.toArray());
   stage.dataset.view = 'front';
 }, undefined, error => { document.querySelector('#loading').textContent = '模型加载失败，请刷新重试';console.error(error); });
+function updateActionUI({action,label,paused}){document.querySelector('#action-select').value=action;document.querySelector('#action-state').textContent=paused?'已暂停':label;document.querySelector('#pause-action').textContent=paused?'继续':'暂停';}
+document.querySelector('#action-select').addEventListener('change',event=>resident?.request(event.target.value,true));
+document.querySelector('#pause-action').addEventListener('click',()=>resident?.setPaused(!resident.paused));
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {front = viewAngles[button.dataset.view];stage.dataset.view = button.dataset.view;fit(front);}));
 document.querySelector('#rotate').addEventListener('click', event => {controls.autoRotate = !controls.autoRotate;event.currentTarget.setAttribute('aria-pressed', String(controls.autoRotate));});
 document.querySelector('#reset').addEventListener('click', () => {front = 0;stage.dataset.view = 'front';controls.autoRotate = false;document.querySelector('#rotate').setAttribute('aria-pressed','false');fit();});
-renderer.setAnimationLoop(() => { controls.update();renderer.render(scene,camera); });
+let lastTick=performance.now(),lastProbe=0;
+renderer.setAnimationLoop(() => { const now=performance.now(),dt=Math.min(.05,(now-lastTick)/1000);lastTick=now;resident?.update(dt);if(resident&&now-lastProbe>150){stage.dataset.animation=JSON.stringify(resident.diagnostic());lastProbe=now;}controls.update();renderer.render(scene,camera); });

@@ -5,6 +5,7 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { SSAOPass } from 'three/addons/postprocessing/SSAOPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { SquidwardResident, skinnedBounds } from '../../scripts/squidward-resident.js?v=20261013-motion-10';
 
 // ========== DOM ==========
 const wrap = document.getElementById('canvas-wrap');
@@ -18,6 +19,9 @@ const btnReset = document.getElementById('btn-reset');
 const chipsHost = document.getElementById('room-chips');
 const hintEl = document.querySelector('.controls-hint');
 const infoPanel = document.getElementById('info-panel');
+const residentPanel = document.getElementById('resident-panel');
+const residentLabel = document.getElementById('resident-state');
+const residentPause = document.getElementById('resident-pause');
 
 // ========== Config ==========
 let config = null;
@@ -103,6 +107,7 @@ const state = {
   intTris: 0,
   camAnim: null,
   doorAnim: null,
+  resident: null,
 };
 let loadGen = 0;
 const cache = new Map(); // `${house}:${tier}` -> {ext, int, shift, doorMeshes, extTris, intTris}
@@ -124,6 +129,7 @@ function countTris(root) {
 }
 
 function setCam(pos, tgt, dur) {
+  wrap.dataset.cameraReady='false';
   state.camAnim = {
     fromPos: camera.position.clone(),
     fromTgt: controls.target.clone(),
@@ -186,12 +192,21 @@ function setInfo(title, desc, extraMeta) {
   infoDesc.textContent = desc;
   const cfg = config.houses[state.house];
   const tris = state.view === 'exterior' ? state.extTris : (state.intTris || state.extTris);
-  infoMeta.innerHTML =
-    `三角面(索引): ${tris.toLocaleString()}<br>` +
-    `任务: ${cfg.jobId}<br>状态: review` +
-    (extraMeta ? `<br>${extraMeta}` : '');
+  infoMeta.textContent = state.view === 'exterior' ? '点击木门进入房子' : (cfg.resident&&(state.view==='cutaway'||state.roomId==='living') ? '点击章鱼哥，它会向你招手' : '拖动查看家具与布局');
   layoutHint();
 }
+
+function updateResidentUI() {
+  const active=state.resident&&state.view==='room'&&state.roomId===config.houses[state.house].resident?.roomId;
+  residentPanel.hidden=!active;
+  if(!state.resident)return;
+  residentLabel.textContent='章鱼哥 · '+(state.resident.paused?'休息中':state.resident.diagnostic().label);
+  residentPause.textContent=state.resident.paused?'继续活动':'暂停活动';
+  document.getElementById('resident-mood').value=['idle','happy','annoyed','surprised','sad'].includes(state.resident.action)?state.resident.action:'';
+}
+document.querySelectorAll('[data-resident-action]').forEach(button=>button.addEventListener('click',()=>state.resident?.request(button.dataset.residentAction)));
+document.getElementById('resident-mood').addEventListener('change',event=>{if(event.target.value)state.resident?.request(event.target.value);});
+residentPause.addEventListener('click',()=>state.resident?.setPaused(!state.resident.paused));
 
 // ========== 外观材质增强（运行时画布纹理 + 舷窗框/玻璃，不改 GLB） ==========
 function makeStoneTexture() {
@@ -386,7 +401,7 @@ function loadInterior(gen, done) {
     state.intTris = cached.intTris;
     intGroup.add(state.intMesh);
     const anchor = cfg.resident && state.intMesh.getObjectByName(cfg.rooms.find(room => room.id === cfg.resident.roomId).prefix + cfg.resident.id);
-    if (anchor) wrap.dataset.resident = JSON.stringify(anchor.userData.resident);
+    if (anchor) {wrap.dataset.resident = JSON.stringify(anchor.userData.resident);state.resident=anchor.userData.controller;state.resident.onChange=updateResidentUI;}
     done(true);
     return;
   }
@@ -395,17 +410,19 @@ function loadInterior(gen, done) {
   loader.load(url, async gltf => {
     if (gen !== loadGen) return;
     const sceneObj = gltf.scene;
+    intGroup.add(sceneObj);
     let residentResult;
     try {
       residentResult = await attachResident(sceneObj, cfg);
     } catch (error) {
+      sceneObj.removeFromParent();
       if (gen !== loadGen) return;
       console.error('[neighborhood] resident load failed', error);
       showError(cfg.resident.url);
       done(false);
       return;
     }
-    if (gen !== loadGen) return;
+    if (gen !== loadGen) {sceneObj.removeFromParent();return;}
     if (residentResult) wrap.dataset.resident = JSON.stringify(residentResult);
     sceneObj.traverse(o => {
       if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; }
@@ -415,6 +432,8 @@ function loadInterior(gen, done) {
     const names = cfg.door.meshNames || [];
     sceneObj.traverse(o => { if (o.isMesh && names.includes(o.name)) state.doorMeshes.push(o); });
     state.intMesh = sceneObj;
+    const anchor=cfg.resident&&sceneObj.getObjectByName(cfg.rooms.find(room=>room.id===cfg.resident.roomId).prefix+cfg.resident.id);
+    if(anchor){state.resident=anchor.userData.controller;state.resident.onChange=updateResidentUI;}
     state.intTris = countTris(sceneObj);
     intGroup.add(sceneObj);
     const c = cache.get(keyFor(state.house, state.tier)) || {};
@@ -436,28 +455,25 @@ async function attachResident(interior, cfg) {
   if (!room) throw new Error('角色房间不存在：' + resident.roomId);
   const gltf = await new Promise((resolve, reject) => loader.load(resident.url + '?' + config.cacheBust, resolve, undefined, reject));
   const root = gltf.scene;
-  const box = new THREE.Box3().setFromObject(root);
-  const center = box.getCenter(new THREE.Vector3());
+  const anchor = new THREE.Group();anchor.name = room.prefix + resident.id;anchor.add(root);interior.add(anchor);interior.updateMatrixWorld(true);
+  const box = skinnedBounds(root);
   const height = box.max.y - box.min.y;
   if (!(height > 0)) throw new Error('角色尺寸无效');
   const scale = resident.height / height;
   root.scale.setScalar(scale);
-  // 将模型中心、脚底校准到自己的放置组，再按房间坐标摆放。
-  root.position.set(-center.x * scale, -box.min.y * scale, -center.z * scale);
-  const anchor = new THREE.Group();
-  anchor.name = room.prefix + resident.id;
+  interior.updateMatrixWorld(true);
+  const scaled=skinnedBounds(root),center=scaled.getCenter(new THREE.Vector3());
+  root.position.set(-center.x, -scaled.min.y, -center.z);
   anchor.position.fromArray(resident.position);
   anchor.rotation.y = resident.rotationY;
-  anchor.add(root);
   let index = 0;
   root.traverse(object => {
     if (!object.isMesh) return;
-    object.name = room.prefix + resident.id + '_' + index++;
+    object.name = room.prefix + resident.id + '_' + object.name + '_' + index++;
     object.castShadow = object.receiveShadow = true;
   });
-  interior.add(anchor);
   interior.updateMatrixWorld(true);
-  const placed = new THREE.Box3().setFromObject(anchor);
+  const placed = skinnedBounds(root);
   // 对实际楼板做向下射线，避免按包围盒摆到剖切掉的区域。
   const level = cfg.rooms.indexOf(room) + 1;
   const floor = interior.getObjectByName('floor_' + level);
@@ -472,6 +488,7 @@ async function attachResident(interior, cfg) {
   });
   if (contacts.some(contact => Math.abs(contact.gap) > .002)) throw new Error('角色未贴合楼板');
   anchor.userData.resident = { id: resident.id, roomId: room.id, height: placed.max.y - placed.min.y, min: placed.min.toArray(), max: placed.max.toArray(), contacts };
+  anchor.userData.controller=new SquidwardResident({model:root,actor:anchor,clips:gltf.animations,route:resident.walkRoute,floor,floorY:resident.position[1]});
   return anchor.userData.resident;
 }
 
@@ -490,15 +507,18 @@ function setRoomFurnitureVisible(roomId) {
   const cfg = config.houses[state.house];
   if (!state.intMesh) return;
   const room = roomId ? cfg.rooms.find(r => r.id === roomId) : null;
-  const hideFloors = room && Array.isArray(room.hideFloors) ? room.hideFloors : [];
   state.intMesh.traverse(o => {
     if (!o.isMesh) return;
-    // 楼梯始终可见
-    if (o.name.startsWith('stairs_')) { o.visible = true; return; }
+    // 近景仅保留本层楼梯，避免其他楼层叠在房间画面中。
+    if (o.name.startsWith('stairs_') || o.name.startsWith('art_')) {
+      const box = new THREE.Box3().setFromObject(o);
+      o.visible = !room || (box.max.y >= room.bounds[0][1] + .10 && box.min.y < room.bounds[1][1] - .05);
+      return;
+    }
     // 楼板：房间近景按配置隐藏当前层上方的遮挡楼板
-    if (o.name.startsWith('floor_')) { o.visible = !hideFloors.includes(o.name); return; }
+    if (o.name.startsWith('floor_')) { o.visible = !room || o.name === 'floor_' + (cfg.rooms.indexOf(room) + 1); return; }
     // 门组：房间近景时整体隐藏（frame/panel/handle 都不挡视线）；剖切全局时显示
-    if (o.name.startsWith('door_')) { o.visible = !roomId; return; }
+    if (o.name.startsWith('door_')) { o.visible = false; return; }
     if (!roomId) { o.visible = true; return; }
     const prefix = room && room.prefix;
     o.visible = !!prefix && (o.name.startsWith(prefix) || o.name.startsWith('art_'));
@@ -521,6 +541,7 @@ function enterExterior() {
   document.querySelectorAll('.top-bar > button').forEach(b => b.classList.remove('active'));
   document.getElementById('btn-' + state.house).classList.add('active');
   chipsHost.hidden = true;
+  updateResidentUI();
   maybeAutotest();
 }
 
@@ -559,6 +580,7 @@ function enterCutaway() {
   setCam(pose.position, pose.target, 900);
   setInfo(cfg.title + ' · 内部剖切', '前侧外壳已切去：四层空间同时可见。点击房间进入近景，Esc 返回。', '');
   chipsHost.hidden = false;
+  updateResidentUI();
 }
 
 function enterRoom(roomId) {
@@ -576,6 +598,7 @@ function enterRoom(roomId) {
   setCam(position, target, 800);
   setInfo(cfg.title + ' · ' + room.name, '近景镜头。Esc 或「返回外部」回到全屋剖切。', '');
   chipsHost.hidden = true;
+  updateResidentUI();
 }
 
 function exitInterior() {
@@ -605,7 +628,9 @@ function switchHouse(house) {
   intGroup.clear();
   state.intMesh = null; state.doorMeshes = []; state.intTris = 0;
   state.extMesh = null;
+  state.resident=null;residentPanel.hidden=true;
   delete wrap.dataset.resident;
+  delete wrap.dataset.residentAnimation;
   buildChips(); // 切换房屋后按新房屋重建房间标签（直达 URL 场景）
   loadExterior(gen);
 }
@@ -638,6 +663,10 @@ function tryEnterInterior(done) {
 function onCanvasClick(e) {
   if (!state.extMesh && !state.intMesh) return;
   const ray = pickAt(e.clientX, e.clientY);
+  if(state.resident&&state.view!=='exterior'&&(state.view==='cutaway'||state.roomId==='living')){
+    const hits=ray.intersectObject(state.resident.model,true);
+    if(hits.length){state.resident.request('wave');return;}
+  }
   if (state.view === 'exterior') {
     const cfg = config.houses[state.house];
     if (!cfg.hasInterior || !state.extDoorMeshes.length) return;
@@ -761,15 +790,17 @@ window.addEventListener('resize', () => {
 });
 
 // ========== Loop ==========
+let lastFrame=performance.now(),lastResidentProbe=0;
 function animate() {
   requestAnimationFrame(animate);
+  const now=performance.now(),dt=Math.min(.05,(now-lastFrame)/1000);lastFrame=now;
   if (state.camAnim) {
     const a = state.camAnim;
     const t = Math.min(1, (performance.now() - a.start) / a.dur);
     const e = 1 - Math.pow(1 - t, 3);
     camera.position.lerpVectors(a.fromPos, a.toPos, e);
     controls.target.lerpVectors(a.fromTgt, a.toTgt, e);
-    if (t >= 1) { state.camAnim = null; controls.enabled = true; }
+    if (t >= 1) { state.camAnim = null; controls.enabled = true;wrap.dataset.cameraReady='true'; }
   }
   if (state.doorAnim) {
     const a = state.doorAnim;
@@ -779,6 +810,11 @@ function animate() {
     if (t >= 1) state.doorAnim = null;
   }
   controls.update();
+  if(state.resident){
+    const active=state.view==='cutaway'||(state.view==='room'&&state.roomId==='living');
+    state.resident.update(dt,active);
+    if(active&&now-lastResidentProbe>250){wrap.dataset.residentAnimation=JSON.stringify(state.resident.diagnostic());lastResidentProbe=now;}
+  }
   projectChips();
   composer.render();
 }

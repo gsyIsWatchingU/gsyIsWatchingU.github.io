@@ -19,7 +19,11 @@
   "upAxis": "Y",
   "frontAxis": "+Z",
   "groundY": 0,
-  "dimensions": [1.0431, 1.9862, 1.1607],
+  "dimensions": [
+    1.0431,
+    1.9862,
+    1.1607
+  ],
   "productionHost": "gsy013",
   "jobId": "413330331cd042a58d2cdb1080863637",
   "seed": 2026101301,
@@ -33,5 +37,14 @@
   "sourceTexturedSHA256": "94874e9fd8d9a22c0b63fc8b953a4deb98f522dee1310c278d49e620d33bc7b7",
   "manifest": "docs/squidward-character-review/manifest.json",
   "reviewPage": "squidward-model.html",
-  "deliveryScope": "静态全身角色；帽子、头发、服装、夹板属于同一网格。后续动作需要分件与绑定。"
+  "deliveryScope": "静态全身角色；帽子、头发、服装、夹板属于同一网格。后续动作需要分件与绑定。",
+  "animatedPreview": {
+    "model": "assets/models/squidward-bunny/squidward-bunny-animated.glb",
+    "sha256": "7c5acaa35d8450822d103a2e37e024fe2a125ecb120f0757b875d3328f4a7224",
+    "status": "review",
+    "humanReview": "pending",
+    "manifest": "docs/squidward-character-review/animation/animation.json",
+    "scope": "四触足改形、骨骼动作与表情预览；原静态批准不延伸至此候选"
+  },
+  "reviewPageScope": "当前页面展示animatedPreview，静态源文件留存"
 }

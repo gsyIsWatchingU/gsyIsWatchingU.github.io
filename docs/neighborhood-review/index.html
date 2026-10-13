@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>比奇堡邻里 · 3D 模型审查</title>
-<link rel="stylesheet" href="./neighborhood.css" />
+<link rel="stylesheet" href="./neighborhood.css?v=20261013-layout-animation-14" />
 </head>
 <body>
 <div id="canvas-wrap">
@@ -21,6 +21,13 @@
   </div>
   <div class="controls-hint">拖拽旋转 · 滚轮/双指缩放 · 点击门进入</div>
   <div class="room-chips" id="room-chips" hidden></div>
+  <div class="resident-panel" id="resident-panel" hidden>
+    <span id="resident-state">章鱼哥 · 发呆</span>
+    <button data-resident-action="walk">走走</button><button data-resident-action="wave">招手</button><button data-resident-action="read">看夹板</button>
+    <select id="resident-mood" aria-label="章鱼哥的心情"><option value="">切换心情</option><option value="idle">慵懒</option><option value="happy">开心</option><option value="annoyed">烦躁</option><option value="surprised">惊讶</option><option value="sad">难过</option></select>
+    <button id="resident-pause">暂停活动</button>
+    <a href="../../squidward-model.html" target="_blank" rel="noreferrer">动作近景</a>
+  </div>
   <div class="loading" id="loading"><div class="spinner"></div><p>正在加载模型…</p></div>
   <div class="error-panel" id="error-panel" hidden>
     <h2>加载失败</h2>
@@ -37,6 +44,6 @@
   }
 }
 </script>
-<script type="module" src="./neighborhood.js?v=20261013-resident-1"></script>
+<script type="module" src="./neighborhood.js?v=20261013-layout-animation-14"></script>
 </body>
 </html>

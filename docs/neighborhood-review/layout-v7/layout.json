@@ -1,0 +1,597 @@
+{
+  "revision": 7,
+  "status": "review",
+  "humanReview": "pending",
+  "sourceHouseSHA256": "4d797fd3894319a598e200c46bf688b3dac29ebcfb0547e7898c80e63f40f6cb",
+  "whole": {
+    "path": "squidward-house-layout-v7.glb",
+    "sha256": "22c9b99caf95ad23f438b0919a8228d3bd348559b6ed6acb3e910ec0ce7573d7",
+    "triangles": 88084
+  },
+  "interior": {
+    "path": "squidward-interior-layout-v7.glb",
+    "sha256": "086d62daa8671badacc3481018aa1ab18804f3fd92269152910a109bd901d94d",
+    "triangles": 77188
+  },
+  "furniture": [
+    {
+      "room": "kitchen",
+      "item": "stove",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/kitchen/stove.glb",
+      "sourceSHA256": "c859f0d7b96d61b43ea5ab4c73ebcdda537772c1d4eb6f0d14627632cb42103f",
+      "bboxYUp": {
+        "min": [
+          -0.8047077655792236,
+          0.15000000596046448,
+          -0.7382143139839172
+        ],
+        "max": [
+          -0.5952922105789185,
+          0.5799999833106995,
+          -0.4617857336997986
+        ]
+      },
+      "floorY": 0.15,
+      "groundGap": 5.960464483090178e-09,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "kitchen",
+      "item": "sink",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/kitchen/sink-kitchen.glb",
+      "sourceSHA256": "d098919183c6f8e34a4281bbab3e1ab04e701c44bf1314fdb44e9034c8c84ce9",
+      "bboxYUp": {
+        "min": [
+          -0.3184719681739807,
+          0.15000000596046448,
+          -1.01506769657135
+        ],
+        "max": [
+          -0.08152805268764496,
+          0.6499999761581421,
+          -0.7249323129653931
+        ]
+      },
+      "floorY": 0.15,
+      "groundGap": 5.960464483090178e-09,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "kitchen",
+      "item": "cabinets",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/kitchen/cabinets.glb",
+      "sourceSHA256": "2f1efce9b7d51e7af0e5dc14c69d4da6e171a05f946ab7b8ebf426244f83d079",
+      "bboxYUp": {
+        "min": [
+          -0.013333350419998169,
+          0.15000000596046448,
+          -0.9225000143051147
+        ],
+        "max": [
+          0.59333336353302,
+          0.5,
+          -0.6775000095367432
+        ]
+      },
+      "floorY": 0.15,
+      "groundGap": 5.960464483090178e-09,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "kitchen",
+      "item": "fridge",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/kitchen/fridge.glb",
+      "sourceSHA256": "586c149426091d88bd563ac76a27d34cf85e7813fccded55304eecefa64cedb3",
+      "bboxYUp": {
+        "min": [
+          0.693823516368866,
+          0.15000000596046448,
+          -0.769347071647644
+        ],
+        "max": [
+          0.9461764693260193,
+          0.9299999475479126,
+          -0.4706529378890991
+        ]
+      },
+      "floorY": 0.15,
+      "groundGap": 5.960464483090178e-09,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "kitchen",
+      "item": "dining-table",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/kitchen/dining-table.glb",
+      "sourceSHA256": "23d83378edc7b84dc7c29604a2281e030e571c4009f3d947bca821eb79e379fe",
+      "bboxYUp": {
+        "min": [
+          -0.6276284456253052,
+          0.15000000596046448,
+          -0.3176284432411194
+        ],
+        "max": [
+          -0.23237155377864838,
+          0.44999998807907104,
+          0.07762845605611801
+        ]
+      },
+      "floorY": 0.15,
+      "groundGap": 5.960464483090178e-09,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "kitchen",
+      "item": "stool-L",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/kitchen/stool.glb",
+      "sourceSHA256": "a5fc87f177a1014856858a2cd8d9b105eb49248f466bfe13c3e13590e174e935",
+      "bboxYUp": {
+        "min": [
+          -0.8842541575431824,
+          0.15000000596046448,
+          -0.19425413012504578
+        ],
+        "max": [
+          -0.7357458472251892,
+          0.36000001430511475,
+          -0.0457458570599556
+        ]
+      },
+      "floorY": 0.15,
+      "groundGap": 5.960464483090178e-09,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "kitchen",
+      "item": "stool-R",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/kitchen/stool.glb",
+      "sourceSHA256": "a5fc87f177a1014856858a2cd8d9b105eb49248f466bfe13c3e13590e174e935",
+      "bboxYUp": {
+        "min": [
+          -0.15425413846969604,
+          0.15000000596046448,
+          -0.19425413012504578
+        ],
+        "max": [
+          -0.0057458579540252686,
+          0.36000001430511475,
+          -0.0457458570599556
+        ]
+      },
+      "floorY": 0.15,
+      "groundGap": 5.960464483090178e-09,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "living",
+      "item": "sofa",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/living/sofa.glb",
+      "sourceSHA256": "5d19a6d68e9ba036a70dd1f81b0dcb2dc454c6fef1a18e9cea1fe5a45ca781c3",
+      "bboxYUp": {
+        "min": [
+          -0.7802000045776367,
+          1.2000000476837158,
+          -0.9642999768257141
+        ],
+        "max": [
+          0.020200014114379883,
+          1.710400104522705,
+          -0.5756999850273132
+        ]
+      },
+      "floorY": 1.2,
+      "groundGap": 4.768371586472142e-08,
+      "mounted": false,
+      "boxRepairParts": 8
+    },
+    {
+      "room": "living",
+      "item": "armchair",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/living/armchair.glb",
+      "sourceSHA256": "2a682d283dd4bf22f0c6cc1c9033c519ed755cb71cca48d9145a9662aa933a7b",
+      "bboxYUp": {
+        "min": [
+          -1.0508129596710205,
+          1.2000000476837158,
+          -0.3622826337814331
+        ],
+        "max": [
+          -0.6220425367355347,
+          1.6700000762939453,
+          0.034711673855781555
+        ]
+      },
+      "floorY": 1.2,
+      "groundGap": 4.768371586472142e-08,
+      "mounted": false,
+      "boxRepairParts": 5
+    },
+    {
+      "room": "living",
+      "item": "coffee-table",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/living/coffee-table.glb",
+      "sourceSHA256": "167c7ff3838e034e74f3fa01656c49b4f80930f4a899f2a112148f3e67593b46",
+      "bboxYUp": {
+        "min": [
+          -0.6204947233200073,
+          1.2000000476837158,
+          -0.5698795318603516
+        ],
+        "max": [
+          -0.07950529456138611,
+          1.3799999952316284,
+          0.02987954020500183
+        ]
+      },
+      "floorY": 1.2,
+      "groundGap": 4.768371586472142e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "living",
+      "item": "rug",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/living/rug-living.glb",
+      "sourceSHA256": "245a0128665269066cdc01a1981fdc5b7c0ae57e64abe9e28217bc718f59cf01",
+      "bboxYUp": {
+        "min": [
+          -0.7709999680519104,
+          1.2000000476837158,
+          -0.6679999828338623
+        ],
+        "max": [
+          -0.029000043869018555,
+          1.2106000185012817,
+          -0.03200000524520874
+        ]
+      },
+      "floorY": 1.2,
+      "groundGap": 4.768371586472142e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "living",
+      "item": "old-tv",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/living/old-tv.glb",
+      "sourceSHA256": "71dd8d88aacafd9f144c3c503db3b72c8442eab175a2dbb0ec08ced9e3902d79",
+      "bboxYUp": {
+        "min": [
+          0.15357008576393127,
+          1.2000000476837158,
+          -0.9649819731712341
+        ],
+        "max": [
+          0.4064299166202545,
+          1.630000114440918,
+          -0.7550180554389954
+        ]
+      },
+      "floorY": 1.2,
+      "groundGap": 4.768371586472142e-08,
+      "mounted": false,
+      "boxRepairParts": 3
+    },
+    {
+      "room": "living",
+      "item": "bookshelf",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/living/bookshelf.glb",
+      "sourceSHA256": "11e3a063fa8e08765a893c54e00f141b803f8a6d88e63d53681e06be4094809b",
+      "bboxYUp": {
+        "min": [
+          0.8809210062026978,
+          1.2000000476837158,
+          -0.75789475440979
+        ],
+        "max": [
+          1.0190789699554443,
+          1.9500000476837158,
+          -0.4421052932739258
+        ]
+      },
+      "floorY": 1.2,
+      "groundGap": 4.768371586472142e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "living",
+      "item": "plant",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/living/plant.glb",
+      "sourceSHA256": "70f117a994438a57b3bffc6f1c925187112cfa3d2ddd683b10f34f5ef99b5cb8",
+      "bboxYUp": {
+        "min": [
+          0.45312201976776123,
+          1.2000000476837158,
+          -1.0442302227020264
+        ],
+        "max": [
+          0.6468780040740967,
+          1.5600000619888306,
+          -0.7557697892189026
+        ]
+      },
+      "floorY": 1.2,
+      "groundGap": 4.768371586472142e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "living",
+      "item": "wall-picture",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/living/wall-picture.glb",
+      "sourceSHA256": "c5e51ae3e8a841908fba2df78dd3ee5046829be12a37cbbd27c152cf17e69053",
+      "bboxYUp": {
+        "min": [
+          -0.5054545402526855,
+          1.75,
+          -1.139227271080017
+        ],
+        "max": [
+          -0.2945454716682434,
+          2.0399999618530273,
+          -1.1207727193832397
+        ]
+      },
+      "floorY": 1.2,
+      "groundGap": 0.55,
+      "mounted": true,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bedroom",
+      "item": "bed",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bedroom/bed.glb",
+      "sourceSHA256": "523738c51456f033b5156f92e0864a257377e2972804ec868ae4afddddbdee54",
+      "bboxYUp": {
+        "min": [
+          -0.5975789427757263,
+          2.4000000953674316,
+          -0.8881052732467651
+        ],
+        "max": [
+          -0.10242104530334473,
+          3.240000009536743,
+          -0.17189469933509827
+        ]
+      },
+      "floorY": 2.4,
+      "groundGap": 9.536743172944284e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bedroom",
+      "item": "nightstand-L",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bedroom/nightstand.glb",
+      "sourceSHA256": "15cb5adc2b01b1fa46ad804d43203f8e1414b5a10bfaf1ff500534e6bf5f622a",
+      "bboxYUp": {
+        "min": [
+          -0.8793617486953735,
+          2.4000000953674316,
+          -0.8582978844642639
+        ],
+        "max": [
+          -0.7006382942199707,
+          2.820000171661377,
+          -0.6617020964622498
+        ]
+      },
+      "floorY": 2.4,
+      "groundGap": 9.536743172944284e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bedroom",
+      "item": "nightstand-R",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bedroom/nightstand.glb",
+      "sourceSHA256": "15cb5adc2b01b1fa46ad804d43203f8e1414b5a10bfaf1ff500534e6bf5f622a",
+      "bboxYUp": {
+        "min": [
+          -0.029361706227064133,
+          2.4000000953674316,
+          -0.8582978844642639
+        ],
+        "max": [
+          0.14936169981956482,
+          2.820000171661377,
+          -0.6617020964622498
+        ]
+      },
+      "floorY": 2.4,
+      "groundGap": 9.536743172944284e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bedroom",
+      "item": "dresser",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bedroom/dresser.glb",
+      "sourceSHA256": "81b9198064ec3f256159335a0e48cceb34028a65127a0cdf9487b5ad3848be98",
+      "bboxYUp": {
+        "min": [
+          0.47252875566482544,
+          2.4000000953674316,
+          -0.7697585821151733
+        ],
+        "max": [
+          0.747471272945404,
+          2.8600001335144043,
+          -0.5302413702011108
+        ]
+      },
+      "floorY": 2.4,
+      "groundGap": 9.536743172944284e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bedroom",
+      "item": "bed-rug",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bedroom/bed-rug.glb",
+      "sourceSHA256": "7a5a64221f5bf4fa186c6b54e292a67176fae74002349eb0eea7ecb1bd178b9b",
+      "bboxYUp": {
+        "min": [
+          -0.7599999904632568,
+          2.4000000953674316,
+          -0.7150000333786011
+        ],
+        "max": [
+          -0.04000002145767212,
+          2.4090001583099365,
+          -0.08500000834465027
+        ]
+      },
+      "floorY": 2.4,
+      "groundGap": 9.536743172944284e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bath",
+      "item": "bathtub",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bathroom/bathtub.glb",
+      "sourceSHA256": "bbb8e01678e4a29f7176fadab6513d3a5a5b049664dbb18ab59f0ef0f5bb77ec",
+      "bboxYUp": {
+        "min": [
+          -0.6869491338729858,
+          3.5999999046325684,
+          -0.916779637336731
+        ],
+        "max": [
+          -0.25305086374282837,
+          3.919999837875366,
+          -0.1032203733921051
+        ]
+      },
+      "floorY": 3.6,
+      "groundGap": -9.536743172944284e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bath",
+      "item": "faucet",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bathroom/faucet.glb",
+      "sourceSHA256": "c238ed5700db807b9cc4fd96d85a5237cf197fdd9250ae9de732d5acf6db899e",
+      "bboxYUp": {
+        "min": [
+          -0.47688233852386475,
+          3.880000114440918,
+          -0.7649117708206177
+        ],
+        "max": [
+          -0.46311765909194946,
+          4.010000228881836,
+          -0.7350882291793823
+        ]
+      },
+      "floorY": 3.6,
+      "groundGap": 0.2800001144409179,
+      "mounted": true,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bath",
+      "item": "washbasin",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bathroom/washbasin.glb",
+      "sourceSHA256": "4d61ae89f4792f8c86730b4fd78d369bc76372b021443d2b96911948a4076680",
+      "bboxYUp": {
+        "min": [
+          0.4890322685241699,
+          3.5999999046325684,
+          -0.5988709926605225
+        ],
+        "max": [
+          0.7309677600860596,
+          4.079999923706055,
+          -0.38112905621528625
+        ]
+      },
+      "floorY": 3.6,
+      "groundGap": -9.536743172944284e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "bath",
+      "item": "shower-curtain",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/bathroom/shower-curtain.glb",
+      "sourceSHA256": "087518f2da6de321cf15d6669a0d3c3d1a48210808eca447474bb4b085ee69fd",
+      "bboxYUp": {
+        "min": [
+          -0.24585607647895813,
+          3.630000114440918,
+          -0.9730024337768555
+        ],
+        "max": [
+          0.3258560597896576,
+          4.349999904632568,
+          -0.3869975507259369
+        ]
+      },
+      "floorY": 3.6,
+      "groundGap": 0.03000011444091788,
+      "mounted": true,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "art",
+      "item": "plinth",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/art/art-plinth.glb",
+      "sourceSHA256": "ea4b3b540f2b2bcc282fec4e159077bfed425f385fa06aebdb9dfe4cada55866",
+      "bboxYUp": {
+        "min": [
+          0.778749942779541,
+          2.4000000953674316,
+          0.4787500202655792
+        ],
+        "max": [
+          0.9012500047683716,
+          2.5400002002716064,
+          0.6012500524520874
+        ]
+      },
+      "floorY": 2.4,
+      "groundGap": 9.536743172944284e-08,
+      "mounted": false,
+      "boxRepairParts": 0
+    },
+    {
+      "room": "art",
+      "item": "sculpture",
+      "source": "/workspace/projects/squidward-animation-20261013/layout-input/art/art-sculpture.glb",
+      "sourceSHA256": "856905463ac2c6c71c4706f5fece45c23fc6cfa329f918f3133339b4e70367dd",
+      "bboxYUp": {
+        "min": [
+          0.7898181676864624,
+          2.5399999618530273,
+          0.4877273142337799
+        ],
+        "max": [
+          0.8901817798614502,
+          2.7699999809265137,
+          0.5922727584838867
+        ]
+      },
+      "floorY": 2.4,
+      "groundGap": 0.13999996185302743,
+      "mounted": true,
+      "boxRepairParts": 0
+    }
+  ],
+  "repairs": [
+    "修正沙发/扶手椅/电视已有部件半尺寸错误",
+    "以整件家具共同坐标旋转装配",
+    "降低书柜、四柱床等物件至层内净高",
+    "收窄楼梯，保留前侧活动留白",
+    "移除两座门旁雕像；门高收进一层"
+  ]
+}

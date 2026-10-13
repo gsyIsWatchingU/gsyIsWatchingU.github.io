@@ -1,8 +1,8 @@
 {
-  "version": "20261013-squidward-resident-v1",
+  "version": "20261013-layout-animation-v13",
   "status": "review",
-  "note": "章鱼哥屋最终预览配置（v6）。坐标按新 GLB 实测包围盒 + space-config.json 权威布局（glTF Y-up，地面 y=0，正门朝 +Z，四层楼板 y=0.15/1.20/2.40/3.60）。v6：外观补齐闭合石壳（shell_cutaway_cover 补片）；场景拾取仅绑定渲染 canvas，排除 UI 控件误触；切换房屋时重建房间标签；厨房近景改侧向镜头、客厅/卧室近景隐藏上方楼板（hideFloors）；移动端操作提示按信息卡高度排在其上方；外壳/面部加运行时石材画布纹理与舷窗框/玻璃。",
-  "cacheBust": "v=20261013-squidward-resident-v1",
+  "note": "布局 v7：修复家具半尺寸及独立旋转原点，层内缩放、缩窄楼梯、移除门旁两雕像；动画 v10：24 骨、四触足、8 动作与10表情形变。Y-up，各层行走面 0.15/1.20/2.40/3.60；当前独立预览待审。",
+  "cacheBust": "v=20261013-layout-animation-v13",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,
@@ -13,8 +13,16 @@
   },
   "tiers": {
     "mobileMaxWidth": 768,
-    "desktop": { "maxTriangles": 300000, "maxTexture": 2048, "ssao": true },
-    "mobile": { "maxTriangles": 150000, "maxTexture": 1024, "ssao": true }
+    "desktop": {
+      "maxTriangles": 300000,
+      "maxTexture": 2048,
+      "ssao": true
+    },
+    "mobile": {
+      "maxTriangles": 150000,
+      "maxTexture": 1024,
+      "ssao": true
+    }
   },
   "houses": {
     "squidward": {
@@ -24,27 +32,66 @@
       "hasInterior": true,
       "resident": {
         "id": "squidward-bunny",
-        "url": "../../assets/models/squidward-bunny/squidward-bunny.glb",
+        "url": "../../assets/models/squidward-bunny/squidward-bunny-animated.glb",
         "roomId": "living",
         "height": 0.62,
-        "position": [0.72, 1.20, 0.60],
+        "position": [
+          0.72,
+          1.2,
+          0.6
+        ],
         "rotationY": 0,
         "approval": "用户于2026-10-13要求将当前模型接入章鱼哥家，尺寸尽量小。",
-        "scope": "静态角色入住；不含动作绑定"
+        "scope": "参考用户图片制作骨骼活动与面部形变，当前预览待审",
+        "walkRoute": [
+          [
+            0.7,
+            0.66
+          ],
+          [
+            0.32,
+            0.74
+          ],
+          [
+            0.32,
+            0.64
+          ],
+          [
+            0.68,
+            0.74
+          ]
+        ]
       },
       "models": {
         "desktop": {
-          "url": "../../assets/models/neighborhood/squidward-house.glb",
-          "interiorUrl": "../../assets/models/neighborhood/squidward-interior.glb"
+          "url": "../../assets/models/neighborhood/squidward-house-layout-v7.glb",
+          "interiorUrl": "../../assets/models/neighborhood/squidward-interior-layout-v7.glb"
         },
         "mobile": {
-          "url": "../../assets/models/neighborhood/squidward-house-web.glb",
-          "interiorUrl": "../../assets/models/neighborhood/squidward-interior-web.glb"
+          "url": "../../assets/models/neighborhood/squidward-house-layout-v7.glb",
+          "interiorUrl": "../../assets/models/neighborhood/squidward-interior-layout-v7.glb"
         }
       },
       "door": {
-        "meshNames": ["door_frame", "door_panel", "door_handle"],
-        "exteriorProbe": { "x": [-0.55, 0.55], "y": [0.1, 2.1], "z": [1.4, 1.65] }
+        "meshNames": [
+          "door_frame",
+          "door_panel",
+          "door_handle"
+        ],
+        "exteriorProbe": {
+          "x": [
+            -0.55,
+            0.55
+          ],
+          "y": [
+            0.1,
+            2.1
+          ],
+          "z": [
+            1.4,
+            1.65
+          ]
+        }
       },
       "shellPrefix": "shell_",
       "rooms": [
@@ -52,39 +99,135 @@
           "id": "kitchen",
           "name": "一层 · 入口与厨房",
           "prefix": "kitchen_",
-          "bounds": [[-1.3, 0.0, -1.3], [1.3, 1.1, 1.3]],
-          "label": [0, 0.85, 0],
-          "target": [-0.5, 0.55, -1.15],
-          "camera": [-1.7, 0.9, 1.0]
+          "bounds": [
+            [
+              -1.3,
+              0.0,
+              -1.3
+            ],
+            [
+              1.3,
+              1.1,
+              1.3
+            ]
+          ],
+          "label": [
+            0,
+            0.85,
+            0
+          ],
+          "target": [
+            -0.5,
+            0.55,
+            -1.15
+          ],
+          "camera": [
+            -1.7,
+            0.9,
+            1.0
+          ]
         },
         {
           "id": "living",
           "name": "二层 · 客厅",
           "prefix": "living_",
-          "bounds": [[-1.3, 1.1, -1.3], [1.3, 2.3, 1.3]],
-          "label": [0, 1.95, 0],
-          "target": [0, 1.55, -0.35],
-          "camera": [0, 2.2, 2.9],
-          "hideFloors": ["floor_3"]
+          "bounds": [
+            [
+              -1.3,
+              1.1,
+              -1.3
+            ],
+            [
+              1.3,
+              2.3,
+              1.3
+            ]
+          ],
+          "label": [
+            0,
+            1.95,
+            0
+          ],
+          "target": [
+            0,
+            1.55,
+            -0.35
+          ],
+          "camera": [
+            0,
+            2.2,
+            2.9
+          ],
+          "hideFloors": [
+            "floor_3"
+          ]
         },
         {
           "id": "bedroom",
           "name": "三层 · 卧室",
           "prefix": "bedroom_",
-          "bounds": [[-1.3, 2.3, -1.3], [1.3, 3.5, 1.3]],
-          "label": [0, 3.15, 0],
-          "target": [-0.3, 2.85, -0.55],
-          "camera": [0, 3.25, 2.6],
-          "hideFloors": ["floor_4"]
+          "bounds": [
+            [
+              -1.3,
+              2.3,
+              -1.3
+            ],
+            [
+              1.3,
+              3.5,
+              1.3
+            ]
+          ],
+          "label": [
+            0,
+            3.15,
+            0
+          ],
+          "target": [
+            -0.3,
+            2.85,
+            -0.55
+          ],
+          "camera": [
+            0,
+            3.25,
+            2.6
+          ],
+          "hideFloors": [
+            "floor_4"
+          ]
         },
         {
           "id": "bathroom",
           "name": "四层 · 浴室",
           "prefix": "bath_",
-          "bounds": [[-1.2, 3.5, -1.2], [1.2, 4.5, 1.2]],
-          "label": [0, 4.15, 0],
-          "target": [0, 3.9, -0.5],
-          "camera": [0, 4.8, 2.6]
+          "bounds": [
+            [
+              -1.2,
+              3.5,
+              -1.2
+            ],
+            [
+              1.2,
+              4.5,
+              1.2
+            ]
+          ],
+          "label": [
+            0,
+            4.15,
+            0
+          ],
+          "target": [
+            0,
+            3.9,
+            -0.5
+          ],
+          "camera": [
+            0,
+            4.8,
+            2.6
+          ]
         }
       ]
     },
@@ -94,10 +237,19 @@
       "jobId": "5f31b9067879422ca8acbbe22aa9e6f6",
       "hasInterior": false,
       "models": {
-        "desktop": { "url": "../../assets/models/neighborhood/patrick-house.glb", "interiorUrl": null },
-        "mobile": { "url": "../../assets/models/neighborhood/patrick-house-web.glb", "interiorUrl": null }
+        "desktop": {
+          "url": "../../assets/models/neighborhood/patrick-house.glb",
+          "interiorUrl": null
+        },
+        "mobile": {
+          "url": "../../assets/models/neighborhood/patrick-house-web.glb",
+          "interiorUrl": null
+        }
       },
-      "door": { "meshNames": [], "exteriorProbe": null },
+      "door": {
+        "meshNames": [],
+        "exteriorProbe": null
+      },
       "shellPrefix": "shell_",
       "rooms": []
     }

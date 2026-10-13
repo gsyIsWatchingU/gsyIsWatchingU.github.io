@@ -8,28 +8,44 @@
     "assemblyScript": "tmp/neighborhood-production/assembly/assemble_final.py",
     "blendLocal": "tmp/neighborhood-production/assembly/out/squidward-assembled.blend",
     "coordinates": "glTF Y-up; +Z is front (Blender Z-up -> glTF export -90X)",
-    "floors": [0.15, 1.20, 2.40, 3.60],
-    "floorIds": ["kitchen", "living", "bedroom", "bathroom"],
+    "floors": [
+      0.15,
+      1.2,
+      2.4,
+      3.6
+    ],
+    "floorIds": [
+      "kitchen",
+      "living",
+      "bedroom",
+      "bathroom"
+    ],
     "bodyHeight": 3.9,
     "shellApex": 4.62,
-    "cutawayRemovedPlanDeg": [-165, -95],
-    "staircaseCenter": [0.82, 0.12],
+    "cutawayRemovedPlanDeg": [
+      -165,
+      -95
+    ],
+    "staircaseCenter": [
+      0.88,
+      0
+    ],
     "stairStyle": "right-side continuous spiral, 39 steps / 3 turns, landings at each floor",
     "structureGlbLocal": "tmp/neighborhood-production/structure/squidward-structure.glb",
     "structureTriangles": 11792,
     "shellMainTriangles": 8464,
     "shellCoverTriangles": 2200,
     "shellCoverNote": "v6 GLB 级补写 shell_cutaway_cover（tmp/nh-close-shell.mjs），填充前侧剖切缺口 θ∈(95°,165°)（glTF xz），边界顶点与 shell_main 0 误差贴合；外观显示完整闭合石壳，剖切视图随 extGroup 整体隐藏",
-    "triangles": 92400,
-    "sha256": "4d797fd3894319a598e200c46bf688b3dac29ebcfb0547e7898c80e63f40f6cb",
+    "triangles": 88084,
+    "sha256": "22c9b99caf95ad23f438b0919a8228d3bd348559b6ed6acb3e910ec0ce7573d7",
     "status": "review",
     "humanReview": "pending",
     "revision": 2
   },
   "primaryReference": "docs/neighborhood-review/refs/squidward-exterior-ref.png",
   "primaryReferenceSha256": "2ad29e2c1be300aca31ac13d5121c5a90f9123b2d8b387c35a575335a92607b2",
-  "runtimeModels": 4,
-  "runtimeTriangles": 92400,
+  "runtimeModels": 3,
+  "runtimeTriangles": 121510,
   "provenance": {
     "finalAdopted": [
       "Blender 程序结构（build_structure.py：石壳 shell_main 8,464 三角 + 结构 + 精修家具）",
@@ -49,7 +65,10 @@
       "image1": "Forge3D_ORM_Material -> Material.001 -> living_rug_squid_rug（地毯）",
       "image3": "Forge3D_ORM_Material -> Material.002 -> living_coffee-table_squid_coffee-table（茶几）"
     },
-    "unused": { "image0": "textured（未被材质引用）", "image2": "textured（未被材质引用）" },
+    "unused": {
+      "image0": "textured（未被材质引用）",
+      "image2": "textured（未被材质引用）"
+    },
     "shellTextured": false,
     "note": "外壳与其余网格均为纯色 PBR，无图像纹理；登记数量/尺寸/引用关系与 GLB 解析一致"
   },
@@ -63,6 +82,72 @@
     "textureNote": "GLB 内 4 张 1024×1024 图像 / 4 纹理对象：2 张供地毯/茶几（Forge3D ORM），2 张未被引用；外壳无图像纹理。运行时另叠加画布石材纹理与舷窗框/玻璃（neighborhood.js，不计入 GLB 三角面）。web 与桌面同几何（桌面 9.24 万已≤15万移动上限）"
   },
   "assets": [
+    {
+      "id": "squidward-layout-v7-whole",
+      "room": "whole",
+      "runtime": "assets/models/neighborhood/squidward-house-layout-v7.glb",
+      "sha256": "22c9b99caf95ad23f438b0919a8228d3bd348559b6ed6acb3e910ec0ce7573d7",
+      "triangles": 88084,
+      "tier": "desktop_and_mobile",
+      "status": "review"
+    },
+    {
+      "id": "squidward-layout-v7-interior",
+      "room": "interior",
+      "runtime": "assets/models/neighborhood/squidward-interior-layout-v7.glb",
+      "sha256": "086d62daa8671badacc3481018aa1ab18804f3fd92269152910a109bd901d94d",
+      "triangles": 77188,
+      "tier": "desktop_and_mobile",
+      "status": "review"
+    },
+    {
+      "id": "squidward-bunny-animated",
+      "room": "living",
+      "runtime": "assets/models/squidward-bunny/squidward-bunny-animated.glb",
+      "sha256": "7c5acaa35d8450822d103a2e37e024fe2a125ecb120f0757b875d3328f4a7224",
+      "triangles": 33426,
+      "bones": 24,
+      "status": "review"
+    }
+  ],
+  "namingConvention": {
+    "door": [
+      "door_frame",
+      "door_panel",
+      "door_handle"
+    ],
+    "floors": [
+      "floor_1",
+      "floor_2",
+      "floor_3",
+      "floor_4"
+    ],
+    "shell": [
+      "shell_main",
+      "shell_eyebrow",
+      "shell_porthole_L",
+      "shell_porthole_R",
+      "shell_nose",
+      "shell_ear_L",
+      "shell_ear_R",
+      "shell_cutaway_cover"
+    ],
+    "stairsPrefix": "stairs_",
+    "roomPrefixes": [
+      "kitchen_",
+      "living_",
+      "bedroom_",
+      "bath_",
+      "art_"
+    ]
+  },
+  "archived": "assets/models/neighborhood/archive/ (旧 squidward-house.glb / squidward-house-web.glb / squidward-interior.glb 保留备份；派大星屋未动；v5-final2 整屋备份另存 tmp/backup-v5-final2/)",
+  "scripts": {
+    "tmp/neighborhood-production/assembly/assemble_final.py": "0e793f5a348f401edd412f8157f2fa36e174107f89d68e1521cfce4020d6a03a",
+    "tmp/neighborhood-production/structure/squidward-structure.glb": "e66b5888aeb2ccda73186905517da690323ecc4751dd6fdb3aff82e1cb0d54b2",
+    "tmp/nh-close-shell.mjs": "v6 外壳补片脚本（与 build_structure.py 参数化一致；边界 0 误差）"
+  },
+  "previousAssetsV6": [
     {
       "id": "squidward-house",
       "room": "whole",
@@ -104,17 +189,6 @@
       "status": "review"
     }
   ],
-  "namingConvention": {
-    "door": ["door_frame", "door_panel", "door_handle"],
-    "floors": ["floor_1", "floor_2", "floor_3", "floor_4"],
-    "shell": ["shell_main", "shell_eyebrow", "shell_porthole_L", "shell_porthole_R", "shell_nose", "shell_ear_L", "shell_ear_R", "shell_cutaway_cover"],
-    "stairsPrefix": "stairs_",
-    "roomPrefixes": ["kitchen_", "living_", "bedroom_", "bath_", "art_"]
-  },
-  "archived": "assets/models/neighborhood/archive/ (旧 squidward-house.glb / squidward-house-web.glb / squidward-interior.glb 保留备份；派大星屋未动；v5-final2 整屋备份另存 tmp/backup-v5-final2/)",
-  "scripts": {
-    "tmp/neighborhood-production/assembly/assemble_final.py": "0e793f5a348f401edd412f8157f2fa36e174107f89d68e1521cfce4020d6a03a",
-    "tmp/neighborhood-production/structure/squidward-structure.glb": "e66b5888aeb2ccda73186905517da690323ecc4751dd6fdb3aff82e1cb0d54b2",
-    "tmp/nh-close-shell.mjs": "v6 外壳补片脚本（与 build_structure.py 参数化一致；边界 0 误差）"
-  }
+  "currentRevision": "layout-v7 / animation-v10",
+  "layoutManifest": "docs/neighborhood-review/layout-v7/layout.json"
 }

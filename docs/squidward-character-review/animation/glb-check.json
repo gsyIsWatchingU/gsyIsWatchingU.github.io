@@ -1,0 +1,90 @@
+{
+  "sha256": "7c5acaa35d8450822d103a2e37e024fe2a125ecb120f0757b875d3328f4a7224",
+  "bones": 24,
+  "skinCount": 1,
+  "clips": [
+    [
+      "annoyed",
+      72
+    ],
+    [
+      "happy",
+      72
+    ],
+    [
+      "idle",
+      72
+    ],
+    [
+      "read",
+      72
+    ],
+    [
+      "sad",
+      72
+    ],
+    [
+      "surprised",
+      72
+    ],
+    [
+      "walk",
+      72
+    ],
+    [
+      "wave",
+      72
+    ]
+  ],
+  "legMeshes": [
+    "leg.L.001",
+    "leg.L",
+    "leg.R.001",
+    "leg.R"
+  ],
+  "mesh": [
+    {
+      "mesh": "arm.L",
+      "vertices": 870,
+      "weightSumError": 5.960464477539063e-08,
+      "targets": 10
+    },
+    {
+      "mesh": "arm.R",
+      "vertices": 759,
+      "weightSumError": 1.1920928955078125e-07,
+      "targets": 10
+    },
+    {
+      "mesh": "body",
+      "vertices": 17841,
+      "weightSumError": 1.1920928955078125e-07,
+      "targets": 10
+    },
+    {
+      "mesh": "leg.L.001",
+      "vertices": 1336,
+      "weightSumError": 0.0,
+      "targets": 10
+    },
+    {
+      "mesh": "leg.L",
+      "vertices": 1336,
+      "weightSumError": 0.0,
+      "targets": 10
+    },
+    {
+      "mesh": "leg.R.001",
+      "vertices": 1402,
+      "weightSumError": 0.0,
+      "targets": 10
+    },
+    {
+      "mesh": "leg.R",
+      "vertices": 1402,
+      "weightSumError": 0.0,
+      "targets": 10
+    }
+  ],
+  "passed": true
+}

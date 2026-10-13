@@ -1,0 +1,57 @@
+{
+  "source": "用户上传参考，图中文字不作为指令",
+  "images": [
+    {
+      "name": "angry",
+      "path": "refs/angry.png",
+      "sha256": "f30e5e5b93c4b2e5269a8af14dd7f13a4cf232de67dde9520d4aa9afc40b8751"
+    },
+    {
+      "name": "relaxed",
+      "path": "refs/relaxed.png",
+      "sha256": "df6e6ec6b6d5f6d34a7824467c0f0414dac28c85d2c19a5cf1ba63070c1fa2d3"
+    },
+    {
+      "name": "read",
+      "path": "refs/read.png",
+      "sha256": "1cb37ab0ccc52450d7b2bebc0b7876357e930c4b73b41f02868fefc7017dd2a7"
+    },
+    {
+      "name": "walk",
+      "path": "refs/walk.png",
+      "sha256": "6db04097df5811f5f1fa97c4891badc583e28b5736d6596b961d7a55a2e03c73"
+    },
+    {
+      "name": "happy",
+      "path": "refs/happy.png",
+      "sha256": "916a6a1cf4e8430ece26b0c490a6e56b2ddbce4d56159f6a67b70fdc690857a5"
+    },
+    {
+      "name": "excited",
+      "path": "refs/excited.png",
+      "sha256": "89cc2271c9382b9f0faf91bdff3a174326d69f251e6dd528d9a469b34801114a"
+    },
+    {
+      "name": "sad",
+      "path": "refs/sad.png",
+      "sha256": "c5583e7f859ae5c55b48f2ae7f61bc72228dc5c5a31e30cec9b1e500f0e9dd8f"
+    },
+    {
+      "name": "drink",
+      "path": "refs/drink.png",
+      "sha256": "b198937ce49308fcdc86c27cc5644c54c9a8e8c30be25229f9b73e4a2183de1e"
+    },
+    {
+      "name": "feet-standing",
+      "path": "refs/feet-standing.png",
+      "sha256": "7af3caf5b25940db7446ae73e868fe86597bd6e701823f64e06433d3c49b3560"
+    },
+    {
+      "name": "feet-walk",
+      "path": "refs/feet-walk.png",
+      "sha256": "da3f9abfe79145e5f12667197de1985ef5ee4cc88942328365d63454e8714b0c"
+    }
+  ],
+  "duplicateReadRef": "8b30cf96-6e3c-4e74-a2e0-3e7473c6341f，与read参考内容相同；动作参考非逐帧复刻",
+  "propScope": "保留原夹板；未添加水杯、花、玩偶或盖头布"
+}
