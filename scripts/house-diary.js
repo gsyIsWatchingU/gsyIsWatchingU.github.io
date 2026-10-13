@@ -23,7 +23,7 @@ export function createInternshipDiary() {
         if(reading.scrollHeight>reading.clientHeight+1){fits=false;break;}
       }
       if(fits)break;
-      perPage--;
+      perPage=Math.ceil(perPage/2);
     }
     page=Math.min(Math.floor(anchor/perPage),Math.ceil(articles.length/perPage)-1);
     render();
