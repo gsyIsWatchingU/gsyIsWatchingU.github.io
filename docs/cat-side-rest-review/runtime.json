@@ -1,0 +1,20 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "source": "assets/house-review/props/siamese-kitten-compact.glb",
+  "sourceSHA256": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+  "output": "assets/house-review/props/siamese-kitten-side-rest.glb",
+  "runtimeSHA256": "195a1298533fbe1f0a0cfc41a4b3685e233b39e0539065a6b5253af5641f214f",
+  "method": "side contact, relaxed FK paws, welded joint pose correctives; original GPU mesh and UV retained",
+  "referencePose": "User attachment: 01 side rest",
+  "targets": [
+    "lie_13",
+    "lie_25",
+    "lie_38",
+    "lie_50",
+    "lie_63",
+    "lie_75",
+    "lie_88",
+    "lie_100"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "source": "assets/house-review/props/siamese-kitten-seated-anatomy.glb",
+  "sourceSHA256": "81096fb16cc221b2335d1bd6d6b7c123d3179c79125fe3a0a70392199f4e455f",
+  "output": "assets/house-review/props/siamese-kitten-anatomy-side-rest.glb",
+  "runtimeSHA256": "2a87483510be23b231c4b3c51435b9e4e8937e94c536b75530a922e9d3e08f10",
+  "method": "side contact, relaxed FK paws, welded joint pose correctives; original GPU mesh and UV retained",
+  "referencePose": "User attachment: 01 side rest",
+  "targets": [
+    "sit_25",
+    "sit_50",
+    "sit_75",
+    "sit_100",
+    "lie_13",
+    "lie_25",
+    "lie_38",
+    "lie_50",
+    "lie_63",
+    "lie_75",
+    "lie_88",
+    "lie_100"
+  ]
+}

@@ -31,6 +31,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
       anchor: ankle.clone(), target: ankle.clone(), start: ankle.clone(), landing: ankle.clone(),
       swing: false, phase: 0, contacts: 0 };
   });
+  for(const leg of legs){leg.pawSurface=[];model.traverse(mesh=>{if(!mesh.isSkinnedMesh||mesh.userData.petFur)return;const p=mesh.geometry.attributes.position,indices=mesh.geometry.attributes.skinIndex,weights=mesh.geometry.attributes.skinWeight;for(let i=0;i<p.count;i++){let weight=0;for(let k=0;k<4;k++)if(mesh.skeleton.bones[indices.array[i*4+k]].name===leg.paw.name)weight+=weights.array[i*4+k];if(weight>.95)leg.pawSurface.push(new THREE.Vector3().fromBufferAttribute(p,i).applyMatrix4(mesh.matrixWorld).applyMatrix4(inverseModel).sub(leg.rest).applyQuaternion(leg.pawQuaternion.clone().invert()));}});}
   const curve = new THREE.CatmullRomCurve3([model.position.clone(), ...spec.pet.route.map(([x,z]) => new THREE.Vector3(x,spec.position[1],z))], true, "centripetal");
   const length = curve.getLength();
   const cycle = spec.pet.gaitCycle??.94, stance = .66, speed = spec.pet.walkSpeed??.13;
@@ -40,10 +41,14 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
   let tailLift=0,companionTarget=null,interactionRemaining=0,interactionRest=null;
   const unit=spec.pet.bodyScale??1;
   const naturalRest = !!spec.pet.restPoses;
+  const groundedSide=!!spec.pet.groundedSideLie,liePivot=.335*unit,bodyContact=[];
+  if(groundedSide)model.traverse(node=>{if(!node.isSkinnedMesh||node.userData.petFur)return;const p=node.geometry.attributes.position,indices=node.geometry.attributes.skinIndex,weights=node.geometry.attributes.skinWeight;for(let i=0;i<p.count;i++){let torso=0;for(let k=0;k<4;k++)if(['pet_root','pet_chest','pet_haunch'].includes(node.skeleton.bones[indices.array[i*4+k]].name))torso+=weights.array[i*4+k];if(torso>.55&&p.getY(i)>.16&&p.getY(i)<.44)bodyContact.push(new THREE.Vector3().fromBufferAttribute(p,i));}});
+  const lieSupport=angle=>{let minimum=Infinity;const sine=Math.sin(angle),cosine=Math.cos(angle);for(const p of bodyContact)minimum=Math.min(minimum,sine*p.x+cosine*(p.y-liePivot));return-minimum+.004;};
   let sideHeight=.165*unit;
   if(naturalRest)model.traverse(node=>{if(node.isSkinnedMesh&&!node.userData.petFur){const pos=node.geometry.attributes.position;for(let i=0;i<pos.count;i++)if(pos.getY(i)>.22&&pos.getY(i)<.55&&Math.abs(pos.getZ(i))<.2)sideHeight=Math.max(sideHeight,-pos.getX(i)+.004);}});
   let sit = 0, sideLie = 0, requestedRest = null, savedRest = "idle";
   const sitShapes=[];model.traverse(node=>{if(node.isMesh&&node.morphTargetDictionary?.sit_100!==undefined)sitShapes.push(node);});
+  const lieShapes=[];model.traverse(node=>{if(node.isMesh&&node.morphTargetDictionary?.lie_100!==undefined)lieShapes.push(node);});
   const up = new THREE.Vector3(0,1,0), yAxis = new THREE.Vector3(0,1,0);
   const originY = spec.position[1];
   const ease = t => t*t*(3-2*t);
@@ -90,16 +95,20 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
     bone.quaternion.copy(parent.multiply(delta.multiply(current)));bone.updateWorldMatrix(false,true);
   }
   function solve(leg) {
-    const hip=worldPosition(leg.upper), axis=leg.target.clone().sub(hip);
+    const hip=worldPosition(leg.upper);
+    if(leg.relaxedSide>0){const delta=leg.target.clone().sub(hip),reach=(leg.a+leg.b)*(leg.stretch??1)-.0001,horizontal=Math.hypot(delta.x,delta.z),limit=Math.sqrt(Math.max(.00001,reach*reach-delta.y*delta.y));if(horizontal>limit){leg.target.x=hip.x+delta.x*limit/horizontal;leg.target.z=hip.z+delta.z*limit/horizontal;}}
+    const axis=leg.target.clone().sub(hip);
     const requested=axis.length();axis.normalize();
     const a=leg.a*(leg.stretch??1),b=leg.b*(leg.stretch??1);
     const d=Math.max(Math.abs(a-b)+.00001,Math.min(a+b-.00001,requested));
     const pole=leg.pole.clone().applyQuaternion(model.getWorldQuaternion(new THREE.Quaternion()));
+    if(leg.relaxedSide>0)pole.lerp(new THREE.Vector3(-.2,.10,leg.name.startsWith('front')?-1:1).applyAxisAngle(up,yaw).normalize(),leg.relaxedSide).normalize();
     pole.addScaledVector(axis,-pole.dot(axis)).normalize();
     const cos=THREE.MathUtils.clamp((a*a+d*d-b*b)/(2*a*d),-1,1);
     const knee=hip.clone().addScaledVector(axis,a*cos).addScaledVector(pole,a*Math.sqrt(1-cos*cos));
     aim(leg.upper,knee);aim(leg.lower,hip.clone().addScaledVector(axis,d));
-    const desired=leg.targetQuaternion;
+    const desired=leg.targetQuaternion.clone();
+    if(leg.relaxedSide>0){const relaxed=new THREE.Quaternion().setFromAxisAngle(up,yaw).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),-.25)).multiply(leg.pawQuaternion).slerp(leg.lower.getWorldQuaternion(new THREE.Quaternion()).multiply(bones.get(leg.paw.name).quaternion),.40);desired.slerp(relaxed,leg.relaxedSide);}
     leg.paw.quaternion.copy(leg.paw.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(desired));
     leg.paw.updateWorldMatrix(false,true);
   }
@@ -180,12 +189,12 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         const resting=state!=="settling"&&state!=="walk"&&state!=="turn";
         sit=approach(sit,spec.pet.sitEnabled!==false&&!attention&&resting&&sideLie<.001&&(requestedRest??state)==="sit"?1:0,dt/1.9);
         sideLie=approach(sideLie,!attention&&resting&&sit<.001&&(requestedRest??state)==="lie"?1:0,dt/2.3);
-        const sitting=ease(sit),lying=ease(sideLie),roll=lying*Math.PI*.5;
+        const sitting=ease(sit),lying=ease(sideLie),roll=lying*(groundedSide?-Math.PI*.5:Math.PI*.5);
         model.quaternion.setFromAxisAngle(up,yaw).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),roll));
-        const centerShift=.32*unit*Math.sin(roll),seatForward=spec.pet.poseSitV2||spec.pet.poseSitV3?0:.12*unit*sitting;
+        const centerShift=(groundedSide?liePivot:.32*unit)*Math.sin(roll),seatForward=spec.pet.poseSitV2||spec.pet.poseSitV3?0:.12*unit*sitting;
         // 侧躺围绕身体中心翻转，避免根节点在脚底造成大幅横移。
         const ground=curvePoint(distance);model.position.x=ground.x+centerShift*Math.cos(yaw)+seatForward*Math.sin(yaw);model.position.z=ground.z-centerShift*Math.sin(yaw)+seatForward*Math.cos(yaw);
-        model.position.y=originY+(sideHeight+.008)*Math.sin(roll);
+        model.position.y=originY+(groundedSide?THREE.MathUtils.lerp(liePivot,lieSupport(roll),lying)-liePivot*Math.cos(roll):(sideHeight+.008)*Math.sin(roll));
         model.updateMatrixWorld(true);
         const chest=bones.get("pet_chest")?.node;
         const rootBone=bones.get('pet_root')?.node;
@@ -208,7 +217,8 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
       }
       // 点击即回应，头尾动作不等待四足收步，脚掌仍由原有 IK 保持接地。
       const greet=greetingTime>0?ease(Math.min(1,(greetingDuration-greetingTime)/.2))*ease(Math.min(1,greetingTime/.65)):0;
-      neckYaw=THREE.MathUtils.damp(neckYaw,looking?THREE.MathUtils.clamp(angleTo(yaw+faceYaw,cameraYaw()),-.30,.30):(walking?.025:.15)*Math.sin(clock*.65)*motion,7,dt);
+      const neckLimit=groundedSide?THREE.MathUtils.lerp(.30,.09,ease(sideLie)):.30;
+      neckYaw=THREE.MathUtils.damp(neckYaw,looking?THREE.MathUtils.clamp(angleTo(yaw+faceYaw,cameraYaw()),-neckLimit,neckLimit):(walking?.025:.15)*Math.sin(clock*.65)*motion,7,dt);
       // 在世界竖直轴上转头，避免把头骨自身纵轴误当成水平转向轴。
       model.updateMatrixWorld(true);
       const parentQuaternion=head.node.parent.getWorldQuaternion(new THREE.Quaternion());
@@ -218,7 +228,8 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
       head.node.rotateX(pitch);if(!looking)head.node.rotateZ((walking?.018:.035)*Math.sin(clock*.9)*motion);
       if(naturalRest&&sideLie>0){
         const axis=new THREE.Vector3(0,0,1).applyAxisAngle(up,yaw),parent=head.node.parent.getWorldQuaternion(new THREE.Quaternion());
-        const lift=new THREE.Quaternion().setFromAxisAngle(axis,-.25*ease(sideLie)*Math.PI*.5);
+        const lift=new THREE.Quaternion().setFromAxisAngle(axis,(groundedSide?Math.PI/9:-.25*Math.PI*.5)*ease(sideLie));
+        if(groundedSide){const restTurn=new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0).applyQuaternion(model.quaternion),-faceYaw*.5*ease(sideLie));head.node.quaternion.copy(parent.clone().invert().multiply(restTurn).multiply(parent).multiply(head.node.quaternion));}
         head.node.quaternion.copy(parent.clone().invert().multiply(lift).multiply(parent).multiply(head.node.quaternion));
       }
       tailLift=THREE.MathUtils.damp(tailLift,looking?1:state==='walk'?.30:.07,looking?5:1.8,dt);
@@ -227,10 +238,14 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         const rotation=new THREE.Quaternion().setFromAxisAngle(up,.055*Math.sin(clock*1.5)*motion+.12*Math.sin(clock*4)*greet).multiply(new THREE.Quaternion().setFromAxisAngle(axis,pitchDown*(1-tailLift)));
         joint.node.quaternion.copy(parent.clone().invert().multiply(rotation).multiply(parent).multiply(joint.node.quaternion));joint.node.updateWorldMatrix(false,true);
       }
+      if(groundedSide&&sideLie>0){
+        const amount=ease(sideLie),tail=bones.get('pet_tail').node,tip=bones.get('pet_tail_tip').node;
+        for(const joint of [tail,tip]){const saved=joint.quaternion.clone(),point=worldPosition(joint).add(new THREE.Vector3(.025*unit,0,-.16*unit).applyAxisAngle(up,yaw));point.y=originY+(joint===tail ? .095 : .090)*unit;aim(joint,point);const target=joint.quaternion.clone();joint.quaternion.copy(saved).slerp(target,amount);joint.updateWorldMatrix(false,true);}
+      }
       model.updateMatrixWorld(true);
       if(stepping)gaitTime+=dt;
       for(const leg of legs) {
-        if(naturalRest&&sideLie>.001){
+        if(naturalRest&&sideLie>.001&&!groundedSide){
           // 侧卧前爪伸到身体前侧，上侧腿放低，避免四爪僵直悬空。
           const amount=ease(sideLie);
           const parent=leg.upper.parent.getWorldQuaternion(new THREE.Quaternion());
@@ -273,13 +288,27 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
           if(spec.pet.poseSitV3&&leg.name.startsWith('back'))leg.target.y=originY+leg.rest.y+(.002+leg.rest.y*.60-leg.rest.y)*ease(sit);
           leg.anchor.copy(leg.target);
         }
+        if(groundedSide&&sideLie>0&&!stepping){
+          const amount=ease(sideLie),upper=leg.rest.x<0,front=leg.name.startsWith('front');
+          if(upper){const offset=new THREE.Vector3(0,-.075*amount,0).applyQuaternion(leg.upper.parent.getWorldQuaternion(new THREE.Quaternion()).invert());leg.upper.position.add(offset);model.updateMatrixWorld(true);}
+          const rest=leg.rest.clone(),lying=new THREE.Vector3((upper?-.18:-.24)*unit/.8,rest.y,front?(upper?.29:.31)*unit/.8:(upper?-.28:-.31)*unit/.8);
+          rest.lerp(lying,amount);leg.target.copy(rest.applyAxisAngle(up,yaw).add(curvePoint(distance)));leg.anchor.copy(leg.target);
+          leg.targetQuaternion.setFromAxisAngle(up,yaw).multiply(leg.pawQuaternion);leg.anchorQuaternion.copy(leg.targetQuaternion);
+        }
         leg.stretch=spec.pet.poseSitV3&&leg.name.startsWith('front')?1+.30*ease(sit):1;
         if(leg.stretch!==1){leg.lower.position.copy(bones.get(leg.lower.name).position).multiplyScalar(leg.stretch);leg.paw.position.copy(bones.get(leg.paw.name).position).multiplyScalar(leg.stretch);model.updateMatrixWorld(true);}
-        leg.swing=swing;solve(leg);
+        leg.relaxedSide=groundedSide?ease(sideLie):0;
+        leg.swing=swing;
+        if(leg.relaxedSide>0){
+          // 侧卧脚掌轻微侧转；按实际外形求支撑高度，避免手腕扭折。
+          for(let pass=0;pass<6;pass++){solve(leg);const vertical=up.clone().applyQuaternion(leg.paw.getWorldQuaternion(new THREE.Quaternion()).invert());let lowest=Infinity;for(const point of leg.pawSurface)lowest=Math.min(lowest,point.dot(vertical));leg.target.y=originY-lowest+.001;leg.anchor.copy(leg.target);}
+        }
+        solve(leg);
       }
       model.updateMatrixWorld(true);
       // 四个经实际蒙皮烘焙的修正姿态：后爪先收拢，后臀随后降低。
       for(const mesh of sitShapes){const names=['sit_25','sit_50','sit_75','sit_100'],scaled=sit*4,low=Math.floor(scaled),fraction=scaled-low;for(const name of names)mesh.morphTargetInfluences[mesh.morphTargetDictionary[name]]=0;if(low>0)mesh.morphTargetInfluences[mesh.morphTargetDictionary[names[low-1]]]=1-fraction;if(low<4)mesh.morphTargetInfluences[mesh.morphTargetDictionary[names[low]]]=fraction;}
+      for(const mesh of lieShapes){const names=Object.keys(mesh.morphTargetDictionary).filter(name=>name.startsWith('lie_')).sort((a,b)=>Number(a.slice(4))-Number(b.slice(4))),scaled=sideLie*names.length,low=Math.floor(scaled),fraction=scaled-low;for(const name of names)mesh.morphTargetInfluences[mesh.morphTargetDictionary[name]]=0;if(low>0)mesh.morphTargetInfluences[mesh.morphTargetDictionary[names[low-1]]]=1-fraction;if(low<names.length)mesh.morphTargetInfluences[mesh.morphTargetDictionary[names[low]]]=fraction;}
       if(state==="settling"&&legs.every(l=>l.settled)){
         if(afterSettle==="walk")beginSteps("walk");else idle(afterSettle);
       }

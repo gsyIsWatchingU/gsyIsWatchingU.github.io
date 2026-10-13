@@ -10,7 +10,7 @@ renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=
 const scene=new THREE.Scene();scene.background=new THREE.Color('#eee9dd');const camera=new THREE.PerspectiveCamera(32,1,.05,30),controls=new OrbitControls(camera,canvas);controls.target.set(0,.32,0);controls.enableDamping=true;
 scene.add(new THREE.HemisphereLight(0xfff8ed,0x8d8172,2));const key=new THREE.DirectionalLight(0xfff5df,2.6);key.position.set(-2,4,3);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.bias=-.0002;scene.add(key);
 const floor=new THREE.Mesh(new THREE.PlaneGeometry(15,15),new THREE.MeshStandardMaterial({color:'#e5dfd1',roughness:1}));floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;scene.add(floor);
-const views={front:[.2,.62,1.95],side:[1.95,.60,.05],rear:[-1.1,.6,-1.7]};
+const views={front:[.2,.62,1.95],side:[1.95,.60,.05],opposite:[-1.95,.50,.05],diagonal:[-1.4,.55,1.5],rear:[-1.1,.6,-1.7]};
 function view(id){camera.position.fromArray(views[id]);camera.lookAt(controls.target);controls.update();}view('side');
 document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>view(b.dataset.view));
 function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();}resize();addEventListener('resize',resize);

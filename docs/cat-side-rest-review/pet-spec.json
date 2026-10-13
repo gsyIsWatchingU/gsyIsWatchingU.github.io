@@ -1,0 +1,66 @@
+{
+  "id": "siamese-cat",
+  "name": "暹罗猫",
+  "room": "living",
+  "url": "assets/house-review/props/siamese-kitten-side-rest.glb",
+  "position": [
+    -1.55,
+    0,
+    1.6
+  ],
+  "rotation": 0.22,
+  "pet": {
+    "route": [
+      [
+        -1.4,
+        1.95
+      ],
+      [
+        -0.65,
+        2.08
+      ],
+      [
+        0.25,
+        2.05
+      ],
+      [
+        0.85,
+        1.88
+      ],
+      [
+        0.7,
+        1.48
+      ],
+      [
+        0,
+        1.43
+      ],
+      [
+        -0.95,
+        1.44
+      ]
+    ],
+    "fur": true,
+    "restPoses": true,
+    "groundedSideLie": true,
+    "sitCorrectives": false,
+    "sitEnabled": false,
+    "poseSitV2": false,
+    "runtimeSha256": "195a1298533fbe1f0a0cfc41a4b3685e233b39e0539065a6b5253af5641f214f",
+    "faceForward": [
+      0.7452153247454482,
+      0,
+      0.6668239046139065
+    ],
+    "faceCenter": [
+      0.124894668,
+      0.46660155,
+      0.339340067
+    ],
+    "bodyScale": 0.8,
+    "limbRatio": 0.78,
+    "walkSpeed": 0.055,
+    "stepHeight": 0.011,
+    "gaitCycle": 0.62
+  }
+}

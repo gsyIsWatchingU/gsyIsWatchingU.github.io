@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "source": "assets/house-review/props/siamese-kitten-compact.glb",
+      "output": "assets/house-review/props/siamese-kitten-side-rest.glb",
+      "sourceSHA256": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "runtimeSHA256": "195a1298533fbe1f0a0cfc41a4b3685e233b39e0539065a6b5253af5641f214f",
+      "originalBinaryRetained": true,
+      "originalAttributesRetained": true,
+      "originalSitTargetsRetained": 0
+    },
+    {
+      "source": "assets/house-review/props/siamese-kitten-seated-anatomy.glb",
+      "output": "assets/house-review/props/siamese-kitten-anatomy-side-rest.glb",
+      "sourceSHA256": "81096fb16cc221b2335d1bd6d6b7c123d3179c79125fe3a0a70392199f4e455f",
+      "runtimeSHA256": "2a87483510be23b231c4b3c51435b9e4e8937e94c536b75530a922e9d3e08f10",
+      "originalBinaryRetained": true,
+      "originalAttributesRetained": true,
+      "originalSitTargetsRetained": 4
+    }
+  ]
+}
