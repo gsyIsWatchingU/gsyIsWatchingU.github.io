@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="派大星的石头小屋：程序化构建的两层房屋、家具与角色互动。" />
+    <meta name="description" content="派大星的石头小屋：两层沙中小屋、收藏物与派大星动作互动。" />
     <meta name="theme-color" content="#b9dce3" />
     <title>gsyIsWatchingU · 派大星屋</title>
     <link rel="icon" href="./favicon.ico" />
-    <link rel="stylesheet" href="./styles/patrick-house.css?v=20261012-built6" />
+    <link rel="stylesheet" href="./styles/patrick-house.css?v=20261013-reference-v4" />
   </head>
   <body>
     <main class="house" data-house-state="loading" data-house-view="whole" aria-label="派大星的石头小屋">
@@ -22,6 +22,14 @@
         <button type="button" data-house-back aria-label="返回全屋剖面">← 返回全屋</button>
       </div>
       <div class="room-labels" data-house-labels aria-label="选择房间"></div>
+      <div class="patrick-actions" data-patrick-actions hidden aria-label="和派大星互动">
+        <button type="button" data-patrick-action="wave">招手</button>
+        <button type="button" data-patrick-action="cheer">开心跳</button>
+        <button type="button" data-patrick-action="icecream">吃冰淇淋</button>
+        <button type="button" data-patrick-action="hula">草裙舞</button>
+        <button type="button" data-patrick-close aria-label="收起动作">×</button>
+      </div>
+      <p class="patrick-message" data-patrick-message role="status" hidden></p>
       <div class="house-tooltip" data-house-tooltip hidden role="tooltip"></div>
       <section class="house-loading" data-house-loading role="status" aria-live="polite">
         <p>正在搭起石头小屋…</p>
@@ -34,6 +42,6 @@
       </section>
       <noscript><p class="house-error">请开启 JavaScript，才能浏览三维派大星屋。</p></noscript>
     </main>
-    <script defer src="./assets/patrick-house.js?v=20261012-built6"></script>
+    <script defer src="./assets/patrick-house.js?v=20261013-reference-v4"></script>
   </body>
 </html>

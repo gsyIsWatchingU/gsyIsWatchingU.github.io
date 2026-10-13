@@ -1,5 +1,5 @@
 {
-  "version": "20261012-built3",
+  "version": "20261013-reference-v4",
   "status": "review",
   "rooms": [
     {"id": "kitchen", "name": "厨房", "floor": "上层", "level": 0, "label": [-1.7, 2.5, -2.5], "bounds": [[-3.2, 0, -3.4], [-0.2, 3.2, -2.1]], "target": [-1.55, 1.0, -2.65], "camera": [-1.35, 1.85, 3.85]},

@@ -1,0 +1,79 @@
+{
+  "records": [
+    {
+      "test": "ready",
+      "value": {
+        "view": "whole",
+        "mode": "cutaway",
+        "state": "ready",
+        "waveState": "idle",
+        "character": {
+          "loaded": true,
+          "action": "idle",
+          "time": 1.29089999999851,
+          "counter": 0,
+          "height": 0.98,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "costume": "shorts",
+          "icecream": false
+        },
+        "collection": {
+          "count": 12,
+          "selected": null
+        },
+        "stair": {
+          "count": 10,
+          "rise": 0.22999999999999998,
+          "run": 0.255,
+          "slopeDegrees": 42.04922089099365,
+          "bottom": -2.3
+        },
+        "interact": {
+          "tvOn": false,
+          "fanSpinning": false,
+          "bedLampOn": false,
+          "floorLampOn": false
+        },
+        "camPos": [
+          0,
+          3.613825116472607,
+          21.365209303938407
+        ],
+        "target": [
+          0,
+          1.05,
+          0
+        ],
+        "fov": 34,
+        "patrickPos": [
+          0.15,
+          -2.3,
+          0.7
+        ]
+      }
+    },
+    {
+      "test": "mesh-bounds",
+      "value": {
+        "mins": [
+          -0.36570975184440613,
+          0,
+          -0.20184098184108734
+        ],
+        "maxs": [
+          0.36570975184440613,
+          0.9800000190734863,
+          0.20184098184108734
+        ],
+        "vertices": 17050,
+        "triangles": 29100
+      }
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

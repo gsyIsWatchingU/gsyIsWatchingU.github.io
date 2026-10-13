@@ -1,6 +1,6 @@
-// 派大星石头屋 · 程序化资产构建（几何 + 手绘画布材质）
-// 说明：GPU Forge3D/Blender 管线在本次会话不可达（Tailscale SSH 未授权），
-// 全部资产改为引擎内程序化重建，技法与菠萝屋手绘画布材质一致。
+// 既有房屋与家具构建器（几何 + 手绘画布材质）。
+// 2026-10-13 起角色使用 Hunyuan 资产及 patrick-character.js 的连续蒙皮；
+// 旧 buildPatrick 仅保留历史实现，当前预览不加载。
 import * as THREE from "three";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 

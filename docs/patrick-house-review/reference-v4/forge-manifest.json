@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "job_id": "90ecf43f68c748158ecf586df44efd6c",
+  "asset_name": "portfolio-patrick-reference-v4",
+  "asset_kind": "character",
+  "profile": "xhs_mobile",
+  "state": "failed",
+  "source_file": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/source.png",
+  "source_sha256": "41906db448a638f9791fb5f25a78a41f072f212c1cd98c398f9bef7ea403ae7a",
+  "material_source_file": null,
+  "material_source_sha256": null,
+  "prompt": "派大星，珊瑚粉红海星，连续圆润的尖头大肚和厚实星形手臂，短脚，青柠绿紫花两条裤腿短裤，大白眼黑瞳微笑，保持参考轮廓和服装，正面朝向相机，立体无薄片。",
+  "seed": 131004,
+  "created_at": "2026-10-13T02:16:14.696611+00:00",
+  "updated_at": "2026-10-13T02:21:50.963922+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-13T02:16:14.699988+00:00",
+      "completed_at": "2026-10-13T02:16:14.701585+00:00",
+      "details": {
+        "fingerprint": "17b6bb9fa61bb97e",
+        "work_dir": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work",
+        "profile": "xhs_mobile",
+        "elapsed_seconds": 0.001,
+        "execution_job_id": "90ecf43f68c748158ecf586df44efd6c"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "completed",
+      "started_at": "2026-10-13T02:16:14.702056+00:00",
+      "completed_at": "2026-10-13T02:17:55.869238+00:00",
+      "details": {
+        "fingerprint": "f4bbda2b0bd9c8d6",
+        "backend": "hunyuan3d-2.1",
+        "output": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/generated.glb",
+        "elapsed_seconds": 101.166,
+        "execution_job_id": "90ecf43f68c748158ecf586df44efd6c"
+      }
+    },
+    {
+      "name": "draft_preview",
+      "state": "completed",
+      "started_at": "2026-10-13T02:17:55.869844+00:00",
+      "completed_at": "2026-10-13T02:18:43.206187+00:00",
+      "details": {
+        "fingerprint": "b6ce4e0deccb3b5c",
+        "draft_preview": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/draft-preview.png",
+        "draft_gate": "passed",
+        "elapsed_seconds": 47.335,
+        "execution_job_id": "90ecf43f68c748158ecf586df44efd6c"
+      }
+    },
+    {
+      "name": "generate_material",
+      "state": "completed",
+      "started_at": "2026-10-13T02:18:43.206830+00:00",
+      "completed_at": "2026-10-13T02:21:15.741131+00:00",
+      "details": {
+        "fingerprint": "00507588e1922de1",
+        "backend": "hunyuan3d-paint-2.1",
+        "paint_source": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/paint-source.glb",
+        "output": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/textured.glb",
+        "material_source": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/source.png",
+        "elapsed_seconds": 152.533,
+        "execution_job_id": "90ecf43f68c748158ecf586df44efd6c"
+      }
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "completed",
+      "started_at": "2026-10-13T02:21:15.741816+00:00",
+      "completed_at": "2026-10-13T02:21:17.361375+00:00",
+      "details": {
+        "fingerprint": "db8861b6297dcfd3",
+        "output": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/normalized.glb",
+        "elapsed_seconds": 1.618,
+        "execution_job_id": "90ecf43f68c748158ecf586df44efd6c"
+      }
+    },
+    {
+      "name": "rig",
+      "state": "running",
+      "started_at": "2026-10-13T02:21:17.362034+00:00",
+      "completed_at": null,
+      "details": {
+        "fingerprint": "fdc40b864e92d200",
+        "elapsed_seconds": 33.6,
+        "execution_job_id": "90ecf43f68c748158ecf586df44efd6c"
+      }
+    },
+    {
+      "name": "retarget_animation",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "export",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "render_preview",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "validate",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    }
+  ],
+  "outputs": {
+    "shape_mesh": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/generated.glb",
+    "generated_mesh": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/textured.glb",
+    "draft_preview": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/draft-preview.png",
+    "draft_preview_manifest": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/draft-preview.json",
+    "paint_source": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/paint-source.glb",
+    "pbr_mesh": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/textured.glb",
+    "normalized_mesh": "/workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/normalized.glb"
+  },
+  "metrics": {},
+  "provenance": {
+    "source_filename": "character-reference.png",
+    "material_source_filename": null,
+    "mesh_backend": "single",
+    "views": {},
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu"
+  },
+  "quality_gates": {},
+  "error": "阶段命令失败，退出码 1: /workspace/projects/forge3d/scripts/run-unirig.sh /workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/normalized.glb /workspace/3d-assets/jobs/90ecf43f68c748158ecf586df44efd6c/work/rigged.glb",
+  "stop_after": null
+}
