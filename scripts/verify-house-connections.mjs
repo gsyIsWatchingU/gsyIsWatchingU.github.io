@@ -47,16 +47,17 @@ try {
   }
   // 真实模型楼梯的射线点击，不使用 focusRoom 代替输入。
   await viewport(1440,900);await delay(500);await settled();await click('[data-house-room="living"]');await settled();
-  const points=await evaluate(`(()=>{const h=window.__pineappleHouse,c=document.querySelector('canvas'),r=c.getBoundingClientRect(),points=[];h.scene.traverse(n=>{if(!n.isMesh||!n.name.startsWith('stair_'))return;let parent=n;while(parent){if(!parent.visible)return;parent=parent.parent;}n.geometry.computeBoundingBox();const p=n.geometry.boundingBox.getCenter(n.position.clone()).applyMatrix4(n.matrixWorld).project(h.camera);const x=r.x+(p.x*.5+.5)*r.width,y=r.y+(-p.y*.5+.5)*r.height;if(x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&document.elementFromPoint(x,y)===c)points.push({x,y,name:n.name});});return points;})()`);
+  for(const pair of ['living-bathroom','bathroom-library','library-bedroom','bedroom-roof']){await click(`[data-house-passage="${pair}"]`);await settled();}
+  const points=await evaluate(`(()=>{const h=window.__pineappleHouse,c=document.querySelector('canvas'),r=c.getBoundingClientRect(),points=[];h.scene.traverse(n=>{if(!n.isMesh||!(n.name.startsWith('stair_')||n.name.startsWith('roof_access_')||n.name.startsWith('roof_landing')))return;let parent=n;while(parent){if(!parent.visible)return;parent=parent.parent;}n.geometry.computeBoundingBox();const p=n.geometry.boundingBox.getCenter(n.position.clone()).applyMatrix4(n.matrixWorld).project(h.camera);const x=r.x+(p.x*.5+.5)*r.width,y=r.y+(-p.y*.5+.5)*r.height;if(x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&document.elementFromPoint(x,y)===c)points.push({x,y,name:n.name});});return points;})()`);
   let hit;
   for(const p of points){
     await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:p.x,y:p.y});await delay(50);
-    if(await evaluate('!document.querySelector("[data-house-tooltip]").hidden && document.querySelector("[data-house-tooltip]").textContent.includes("上楼")')){hit=p;break;}
+    if(await evaluate('!document.querySelector("[data-house-tooltip]").hidden && document.querySelector("[data-house-tooltip]").textContent.includes("下楼")')){hit=p;break;}
   }
   assert(hit,'楼梯至少有一个未被墙面遮挡的可点击点');
   await call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',buttons:1,clickCount:1,x:hit.x,y:hit.y});
   await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',buttons:0,clickCount:1,x:hit.x,y:hit.y});
-  await settled();assert.equal(await view(),'bathroom');records.push({test:'physical-stair-click',hit});
+  await settled();assert.equal(await view(),'bedroom');records.push({test:'physical-stair-click',hit});
   for(let i=0;i<20;i++){await key('Tab','Tab',9);if(await evaluate('document.activeElement.dataset.housePassage!==undefined'))break;}
   const destination=await evaluate('document.activeElement.dataset.housePassage?.split("-")[1]');assert(destination);
   await key('Enter','Enter',13);await settled();assert.equal(await view(),destination);records.push({test:'keyboard-passage',destination});
