@@ -1,0 +1,112 @@
+{
+  "results": [
+    {
+      "phase": "pull",
+      "surface": 6.751006484031677,
+      "contactGap": null,
+      "active": true,
+      "legs": [
+        {
+          "side": "l",
+          "thighDown": 1,
+          "shinDown": 1
+        },
+        {
+          "side": "r",
+          "thighDown": 1,
+          "shinDown": 1
+        }
+      ]
+    },
+    {
+      "phase": "climb",
+      "surface": 6.751006484031677,
+      "contactGap": null,
+      "active": true,
+      "legs": [
+        {
+          "side": "l",
+          "thighDown": 0.9476507264148157,
+          "shinDown": 0.9476507264148163
+        },
+        {
+          "side": "r",
+          "thighDown": 0.9476507264148157,
+          "shinDown": 0.9476507264148163
+        }
+      ]
+    },
+    {
+      "phase": "lie",
+      "surface": 6.751006484031677,
+      "contactGap": null,
+      "active": true,
+      "legs": [
+        {
+          "side": "l",
+          "thighDown": 0.9476507264148164,
+          "shinDown": 0.9476507264148155
+        },
+        {
+          "side": "r",
+          "thighDown": 0.9476507264148164,
+          "shinDown": 0.9476507264148154
+        }
+      ]
+    },
+    {
+      "phase": "cover",
+      "surface": 6.751006484031677,
+      "contactGap": 0.006999999999999673,
+      "active": true,
+      "legs": [
+        {
+          "side": "l",
+          "thighDown": 1,
+          "shinDown": 1
+        },
+        {
+          "side": "r",
+          "thighDown": 1,
+          "shinDown": 1
+        }
+      ]
+    },
+    {
+      "phase": "sleep",
+      "surface": 6.751006484031677,
+      "contactGap": 0.006999999999999673,
+      "active": true,
+      "legs": [
+        {
+          "side": "l",
+          "thighDown": 1,
+          "shinDown": 1
+        },
+        {
+          "side": "r",
+          "thighDown": 1,
+          "shinDown": 1
+        }
+      ]
+    }
+  ],
+  "actualBounds": {
+    "min": [
+      -2.151896746835231,
+      6.758006484031676,
+      -0.6710947355406947
+    ],
+    "max": [
+      -1.1481032531647684,
+      7.112276075394928,
+      0.21790117181570234
+    ]
+  },
+  "shoeClearance": 0.03316706429301419,
+  "shoeSamples": 441,
+  "originalVertices": 1225,
+  "uvPreserved": true,
+  "repeatedSleep": true,
+  "reset": true
+}
