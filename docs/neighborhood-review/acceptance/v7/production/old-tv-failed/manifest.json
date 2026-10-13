@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "job_id": "9e5b28f403f347f9a9967a4cdc54df58",
+  "asset_name": "squidward-v7-old-tv",
+  "asset_kind": "prop",
+  "profile": "xhs_mobile",
+  "state": "failed",
+  "source_file": "/workspace/3d-assets/jobs/9e5b28f403f347f9a9967a4cdc54df58/source.png",
+  "source_sha256": "6f3aec15539f685b15d58d0040b5771692ae5499d13a2baee9015baa806dd5a4",
+  "prompt": "依据上传的独立道具参考，保留完整厚实三维轮廓、材质配色、曲面、木纹与软包细节。不要增加背景、地板或其他物品。",
+  "seed": 2026101405,
+  "created_at": "2026-10-13T00:12:25.303915+00:00",
+  "updated_at": "2026-10-13T00:26:35.972680+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-13T00:23:58.869088+00:00",
+      "completed_at": "2026-10-13T00:23:58.870304+00:00",
+      "details": {
+        "work_dir": "/workspace/3d-assets/jobs/9e5b28f403f347f9a9967a4cdc54df58/work",
+        "profile": "xhs_mobile"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "completed",
+      "started_at": "2026-10-13T00:23:58.870978+00:00",
+      "completed_at": "2026-10-13T00:25:39.278068+00:00",
+      "details": {
+        "backend": "hunyuan3d-2.1",
+        "output": "/workspace/3d-assets/jobs/9e5b28f403f347f9a9967a4cdc54df58/work/generated.glb"
+      }
+    },
+    {
+      "name": "generate_material",
+      "state": "running",
+      "started_at": "2026-10-13T00:25:39.278980+00:00",
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "export",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "render_preview",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "validate",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    }
+  ],
+  "outputs": {
+    "shape_mesh": "/workspace/3d-assets/jobs/9e5b28f403f347f9a9967a4cdc54df58/work/generated.glb",
+    "generated_mesh": "/workspace/3d-assets/jobs/9e5b28f403f347f9a9967a4cdc54df58/work/generated.glb",
+    "paint_source": "/workspace/3d-assets/jobs/9e5b28f403f347f9a9967a4cdc54df58/work/paint-source.glb"
+  },
+  "metrics": {},
+  "provenance": {
+    "source_filename": "old-tv.png",
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu",
+    "skill_plan_sha256": null
+  },
+  "quality_gates": {},
+  "skill_plan": {},
+  "error": "阶段命令失败，退出码 1: /workspace/projects/forge3d/scripts/run-hunyuan-paint.sh /workspace/3d-assets/jobs/9e5b28f403f347f9a9967a4cdc54df58/work/paint-source.glb /workspace/3d-assets/jobs/9e5b28f403f347f9a9967a4cdc54df58/source.png"
+}

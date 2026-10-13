@@ -1,0 +1,139 @@
+{
+  "sourceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+  "style": " A single isolated three-dimensional furniture product on a seamless plain white background, three-quarter front view showing its side depth, realistic thick solid volume, complete object uncropped, subtly hand-painted material and weathered wood grain, no illustration of houses, no buildings, no diorama, no book, no figurines, no extra objects, no text, no scenery, no motif or printed graphics.",
+  "items": [
+    {
+      "id": "sofa",
+      "room": "living",
+      "seed": 2026101401,
+      "size": [
+        1.05,
+        0.52,
+        0.6
+      ],
+      "position": [
+        -0.5,
+        0.4,
+        1.2
+      ],
+      "prompt": "An olive green upholstered two seat sofa with curved walnut wooden armrests, thick fabric back cushions and seat cushions with seams, four short wooden feet, plain unpatterned fabric."
+    },
+    {
+      "id": "armchair",
+      "room": "living",
+      "seed": 2026101402,
+      "size": [
+        0.54,
+        0.56,
+        0.78
+      ],
+      "position": [
+        -0.85,
+        -0.35,
+        1.2
+      ],
+      "rotation": 20,
+      "prompt": "A reddish brown upholstered vintage reading armchair with a thick tall cushioned back, a deep empty cushioned seat, curved walnut armrests and four wooden legs. The seat is completely empty."
+    },
+    {
+      "id": "bed",
+      "room": "bedroom",
+      "seed": 2026101403,
+      "size": [
+        0.96,
+        0.95,
+        0.94
+      ],
+      "position": [
+        -0.35,
+        0.25,
+        2.4
+      ],
+      "prompt": "A rustic four-poster oak canopy bed with four connected bedposts, blue bedding and two plain white pillows, detailed oak wood grain."
+    },
+    {
+      "id": "bathtub",
+      "room": "bath",
+      "seed": 2026101404,
+      "size": [
+        0.8,
+        0.55,
+        0.43
+      ],
+      "position": [
+        -0.55,
+        0.25,
+        3.6
+      ],
+      "prompt": "A single white enamel oval clawfoot bathtub with a visibly open deep concave interior basin and four short claw feet. Only the bathtub, absolutely no backdrop or shelving."
+    },
+    {
+      "id": "old-tv",
+      "room": "living",
+      "seed": 2026101405,
+      "size": [
+        0.43,
+        0.34,
+        0.52
+      ],
+      "position": [
+        0.1,
+        -0.44,
+        1.2
+      ],
+      "rotation": -20,
+      "prompt": "A vintage wooden CRT television with a convex blue grey glass screen, two round control knobs, woodgrain cabinet and four short feet."
+    },
+    {
+      "id": "bookshelf",
+      "room": "living",
+      "seed": 2026101406,
+      "size": [
+        0.47,
+        0.23,
+        0.85
+      ],
+      "position": [
+        0.45,
+        0.76,
+        1.2
+      ],
+      "rotation": -25,
+      "prompt": "A simple rustic oak bookcase with three shelves filled only with rows of plain colored books, wooden side panels and short feet. No ornaments or house models."
+    },
+    {
+      "id": "plant",
+      "room": "living",
+      "seed": 2026101407,
+      "size": [
+        0.35,
+        0.32,
+        0.6
+      ],
+      "position": [
+        -0.95,
+        0.65,
+        1.2
+      ],
+      "prompt": "A dense dark green leafy houseplant in a terracotta pot, broad curved leaves and visible soil."
+    },
+    {
+      "id": "stone-blue",
+      "kind": "texture",
+      "seed": 2026101411,
+      "prompt": "Seamless PBR albedo texture of dark blue grey volcanic stone, fine irregular mineral speckles, worn stone grain and tiny cracks, matte stone, orthographic uniform lighting, no objects, no artwork, no houses, no symbols."
+    },
+    {
+      "id": "tile-green",
+      "kind": "texture",
+      "seed": 2026101412,
+      "prompt": "Seamless PBR albedo texture of plain dark emerald green square ceramic tiles in a regular straight grid with thin grey grout lines, subtly varied glazed green tile colors, tiny cracks and scratches, no patterns, no motifs, no printed artwork, no houses, orthographic uniform lighting."
+    },
+    {
+      "id": "wood-planks",
+      "kind": "texture",
+      "seed": 2026101413,
+      "prompt": "Seamless PBR albedo texture of rustic medium brown oak floorboards, fine flowing wood grain, narrow parallel planks and seams, subtle wear, orthographic uniform lighting, no objects, no motifs."
+    }
+  ]
+}

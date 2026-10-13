@@ -1,0 +1,44 @@
+{
+  "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\tmp\\v7-production\\jobs\\bathtub\\candidate.glb",
+  "triangles": 29100,
+  "bbox_min": [
+    -1.0009,
+    0.0,
+    -0.5086
+  ],
+  "bbox_max": [
+    0.9951,
+    0.8131,
+    0.5036
+  ],
+  "size_xyz": [
+    1.996,
+    0.813,
+    1.0122
+  ],
+  "flags": [
+    "orientation_suspect: Y 高度 / 最长边 = 0.41 < 0.5（模型疑似躺倒 / 旋转 90°，请核对朝向约定）"
+  ],
+  "warnings": [],
+  "materials": [
+    {
+      "index": 0,
+      "name": "Material",
+      "has_baseColorTexture": true,
+      "baseColorFactor": null
+    }
+  ],
+  "primitive_count": 1,
+  "primitives": [
+    {
+      "mesh": 0,
+      "prim": 0,
+      "tris": 29100,
+      "material": 0,
+      "has_baseColorTexture": true
+    }
+  ],
+  "uv_missing_on_textured_meshes": [],
+  "normal_missing_meshes": [],
+  "ok": true
+}

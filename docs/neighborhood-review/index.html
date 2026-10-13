@@ -4,20 +4,21 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>比奇堡邻里 · 3D 模型审查</title>
-<link rel="stylesheet" href="./neighborhood.css" />
+<link rel="stylesheet" href="./neighborhood.css?v=20261013-squidward-v7" />
 </head>
 <body>
 <div id="canvas-wrap">
   <div class="top-bar">
     <button id="btn-squidward" class="active">章鱼哥的人像屋</button>
     <button id="btn-patrick">派大星的石头屋</button>
+    <button id="btn-cutaway">查看剖面</button>
     <button id="btn-exit" style="display:none">返回外部</button>
   </div>
   <button class="reset-btn" id="btn-reset">重置镜头</button>
   <div class="info-panel" id="info-panel">
     <h2 id="info-title">章鱼哥的人像屋</h2>
     <p id="info-desc">正在加载…</p>
-    <div class="meta" id="info-meta"></div>
+    <details class="production-record"><summary>制作与审查记录</summary><div class="meta" id="info-meta"></div></details>
   </div>
   <div class="controls-hint">拖拽旋转 · 滚轮/双指缩放 · 点击门进入</div>
   <div class="room-chips" id="room-chips" hidden></div>
@@ -37,6 +38,6 @@
   }
 }
 </script>
-<script type="module" src="./neighborhood.js"></script>
+<script type="module" src="./neighborhood.js?v=20261013-squidward-v7"></script>
 </body>
 </html>

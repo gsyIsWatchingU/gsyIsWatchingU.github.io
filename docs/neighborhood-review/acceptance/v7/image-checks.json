@@ -1,0 +1,749 @@
+[
+  {
+    "file": "docs/neighborhood-review/refs/v7/armchair.png",
+    "sha256": "e47baa32554b794b44cf2457f899c7be57e84b3d91209ca9393e4ccfc56b2ddd",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\armchair.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 178.7,
+        "std_luma": 93.14,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 90.22,
+        "entropy_bits": 4.304,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": true,
+        "fg_ratio": 0.4216,
+        "bbox": [
+          120,
+          65,
+          906,
+          964
+        ],
+        "edges_touched": []
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/bathtub.png",
+    "sha256": "b6ccdd6ffdc1a8d055fc98661a4d3c3c75805500ccf38fd3e0f232635f9f4928",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\bathtub.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 242.88,
+        "std_luma": 22.23,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 22.272,
+        "entropy_bits": 3.405,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": true,
+        "fg_ratio": 0.2259,
+        "bbox": [
+          57,
+          392,
+          984,
+          915
+        ],
+        "edges_touched": []
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/bed.png",
+    "sha256": "81cd58a95068448559b8c46087ebf60a13a06c15142b0a3c1e6c2e6f5e8cc10d",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\bed.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 209.18,
+        "std_luma": 71.39,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 69.858,
+        "entropy_bits": 4.358,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": true,
+        "fg_ratio": 0.3224,
+        "bbox": [
+          63,
+          67,
+          958,
+          963
+        ],
+        "edges_touched": []
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/blue-fabric.png",
+    "sha256": "d40efa19aa892a057f360c8218d55f0f1f70a83b7e455ef7e6576060068cbd0b",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\blue-fabric.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          977,
+          977
+        ],
+        "mean_luma": 72.08,
+        "std_luma": 22.98,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 5.92,
+        "entropy_bits": 4.216,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.0051,
+        "bbox": [
+          19,
+          21,
+          962,
+          955
+        ],
+        "edges_touched": [
+          "left",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/blue-striped-curtain.png",
+    "sha256": "2623f457004266f53855be7b32d477e1add281f710434295deec161a3662cb7c",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\blue-striped-curtain.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          977,
+          977
+        ],
+        "mean_luma": 138.82,
+        "std_luma": 70.26,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 68.4,
+        "entropy_bits": 3.101,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 1.0,
+        "bbox": [
+          0,
+          0,
+          976,
+          976
+        ],
+        "edges_touched": [
+          "top",
+          "left",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/bookshelf.png",
+    "sha256": "6aadd9327122645b95c5af1849ae80874f4e5942be53f1710b4560715a1045ca",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\bookshelf.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 191.93,
+        "std_luma": 77.11,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 75.25,
+        "entropy_bits": 5.423,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": true,
+        "fg_ratio": 0.483,
+        "bbox": [
+          199,
+          93,
+          809,
+          984
+        ],
+        "edges_touched": []
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/floor-tile.png",
+    "sha256": "bb53021337e7200b1e3515ce7734d2dd92f472aa80e6795c8c4e03374db97e25",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\floor-tile.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 93.1,
+        "std_luma": 14.74,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 13.455,
+        "entropy_bits": 5.278,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.822,
+        "bbox": [
+          7,
+          2,
+          1017,
+          1023
+        ],
+        "edges_touched": [
+          "top",
+          "left",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/green-painted-wood.png",
+    "sha256": "ba990765052c998af475971515d0d2e66541466ab1e5ec2e60633ee89195cd67",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\green-painted-wood.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 54.21,
+        "std_luma": 13.85,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 1.875,
+        "entropy_bits": 2.936,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "reason": "未检测到前景主体",
+        "fg_ratio": 0.0
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/old-tv.png",
+    "sha256": "6f3aec15539f685b15d58d0040b5771692ae5499d13a2baee9015baa806dd5a4",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\old-tv.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 159.15,
+        "std_luma": 85.01,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 83.483,
+        "entropy_bits": 5.978,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": true,
+        "fg_ratio": 0.6036,
+        "bbox": [
+          84,
+          61,
+          925,
+          979
+        ],
+        "edges_touched": []
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/plant.png",
+    "sha256": "3ecb6c25edceb52ee3b7c64b49efa7259aa82a254633c3efa6a2697c0342372d",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\plant.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 195.86,
+        "std_luma": 85.81,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 84.24,
+        "entropy_bits": 4.431,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": true,
+        "fg_ratio": 0.3485,
+        "bbox": [
+          147,
+          73,
+          878,
+          972
+        ],
+        "edges_touched": []
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/portrait.png",
+    "sha256": "79d6c0eb76971a40180a2eb4ef5c258ecbaaddf0ad797e14f324991c169177a4",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\portrait.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 76.64,
+        "std_luma": 34.59,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 28.863,
+        "entropy_bits": 6.594,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.3434,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "edges_touched": [
+          "top",
+          "left",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/primary-reference.png",
+    "sha256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\primary-reference.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1440,
+          1080
+        ],
+        "mean_luma": 162.85,
+        "std_luma": 83.11,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 82.102,
+        "entropy_bits": 6.581,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.5165,
+        "bbox": [
+          29,
+          13,
+          1411,
+          1069
+        ],
+        "edges_touched": [
+          "top",
+          "bottom"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/rug-green.png",
+    "sha256": "3b9b4c1744efe51ef54ce0f3f27bff31d4e3c81f0ea664c310406e9f22f25712",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\rug-green.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 102.83,
+        "std_luma": 50.5,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 48.358,
+        "entropy_bits": 5.927,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.9169,
+        "bbox": [
+          21,
+          19,
+          1003,
+          1003
+        ],
+        "edges_touched": [
+          "top",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/rug-surface.png",
+    "sha256": "086ef71e11fa88408acbb962b3e694b83bdd2b92f82ed83d086dc7e52293808e",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\rug-surface.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          977,
+          977
+        ],
+        "mean_luma": 88.92,
+        "std_luma": 23.47,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 17.841,
+        "entropy_bits": 5.822,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.105,
+        "bbox": [
+          0,
+          0,
+          976,
+          976
+        ],
+        "edges_touched": [
+          "top",
+          "left",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/sofa.png",
+    "sha256": "4aa0ce3ecb789860b01a6bd9aad72c8fd79d65697e3425c99723d7abb6ba2f83",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\sofa.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 159.24,
+        "std_luma": 84.37,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 83.547,
+        "entropy_bits": 5.293,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": true,
+        "fg_ratio": 0.576,
+        "bbox": [
+          41,
+          76,
+          983,
+          977
+        ],
+        "edges_touched": []
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/stone-blue.png",
+    "sha256": "b753f2604916641c2ace6c7bf2e0c4f31790e1926369dae8a894c624bdaabc28",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\stone-blue.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 58.1,
+        "std_luma": 14.96,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 9.551,
+        "entropy_bits": 5.302,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.0091,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "edges_touched": [
+          "top",
+          "left",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/stone-weathered.png",
+    "sha256": "5d8a5050d7655232e429660613e862cf06dd6631304b0e3873ceb8e5d7ec1459",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\stone-weathered.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 78.0,
+        "std_luma": 27.09,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 21.08,
+        "entropy_bits": 5.157,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.2646,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "edges_touched": [
+          "top",
+          "left",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/tile-green.png",
+    "sha256": "28ae9b279ccdbba0ba135e5a21ac621883a0c0c5ca710c59fc1a2cbf3e900afa",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\tile-green.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 80.51,
+        "std_luma": 37.26,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 32.34,
+        "entropy_bits": 6.514,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.8926,
+        "bbox": [
+          0,
+          0,
+          1023,
+          1023
+        ],
+        "edges_touched": [
+          "top",
+          "left",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  },
+  {
+    "file": "docs/neighborhood-review/refs/v7/wood-planks.png",
+    "sha256": "869b2fbe714505bc8e09dc4f759668227569161ae9d7f57b60ed0e54cda767c4",
+    "exitCode": 0,
+    "result": {
+      "image": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\docs\\neighborhood-review\\refs\\v7\\wood-planks.png",
+      "readability": {
+        "ok": true,
+        "size": [
+          1024,
+          1024
+        ],
+        "mean_luma": 95.8,
+        "std_luma": 29.01,
+        "issues": []
+      },
+      "near_solid": {
+        "ok": true,
+        "std": 7.16,
+        "entropy_bits": 4.886,
+        "threshold_std": 6.0,
+        "threshold_entropy": 2.0
+      },
+      "subject": {
+        "ok": false,
+        "fg_ratio": 0.0012,
+        "bbox": [
+          4,
+          0,
+          1013,
+          1023
+        ],
+        "edges_touched": [
+          "top",
+          "left",
+          "bottom",
+          "right"
+        ]
+      },
+      "ok": true
+    }
+  }
+]

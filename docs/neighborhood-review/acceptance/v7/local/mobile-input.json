@@ -1,0 +1,432 @@
+[
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-reset"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-exit"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "btn-cutaway"
+  },
+  {
+    "type": "touchstart",
+    "trusted": true,
+    "target": "btn-cutaway"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "btn-cutaway"
+  },
+  {
+    "type": "touchend",
+    "trusted": true,
+    "target": "btn-cutaway"
+  },
+  {
+    "type": "click",
+    "trusted": true,
+    "target": "btn-cutaway"
+  }
+]

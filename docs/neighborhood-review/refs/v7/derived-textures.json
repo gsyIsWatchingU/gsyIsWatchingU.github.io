@@ -1,0 +1,90 @@
+[
+  {
+    "source": "wood-planks.png",
+    "output": "green-painted-wood.png",
+    "operation": "grayscale then colorize",
+    "black": [
+      12,
+      42,
+      35
+    ],
+    "white": [
+      76,
+      115,
+      86
+    ],
+    "sourceSHA256": "869b2fbe714505bc8e09dc4f759668227569161ae9d7f57b60ed0e54cda767c4",
+    "outputSHA256": "ba990765052c998af475971515d0d2e66541466ab1e5ec2e60633ee89195cd67"
+  },
+  {
+    "source": "rug-green.png",
+    "output": "rug-surface.png",
+    "operation": "crop",
+    "box": [
+      23,
+      23,
+      1000,
+      1000
+    ],
+    "sourceSHA256": "3b9b4c1744efe51ef54ce0f3f27bff31d4e3c81f0ea664c310406e9f22f25712",
+    "outputSHA256": "086ef71e11fa88408acbb962b3e694b83bdd2b92f82ed83d086dc7e52293808e"
+  },
+  {
+    "source": "tile-green.png",
+    "output": "floor-tile.png",
+    "operation": "grayscale then colorize",
+    "black": [
+      45,
+      63,
+      59
+    ],
+    "white": [
+      166,
+      174,
+      160
+    ],
+    "sourceSHA256": "28ae9b279ccdbba0ba135e5a21ac621883a0c0c5ca710c59fc1a2cbf3e900afa",
+    "outputSHA256": "bb53021337e7200b1e3515ce7734d2dd92f472aa80e6795c8c4e03374db97e25"
+  },
+  {
+    "source": "rug-surface.png",
+    "output": "blue-fabric.png",
+    "operation": "grayscale then colorize",
+    "black": [
+      20,
+      40,
+      65
+    ],
+    "white": [
+      88,
+      126,
+      158
+    ],
+    "sourceSHA256": "086ef71e11fa88408acbb962b3e694b83bdd2b92f82ed83d086dc7e52293808e",
+    "outputSHA256": "d40efa19aa892a057f360c8218d55f0f1f70a83b7e455ef7e6576060068cbd0b"
+  },
+  {
+    "source": "blue-fabric.png",
+    "output": "blue-striped-curtain.png",
+    "operation": "60px pale stripe every 128px",
+    "sourceSHA256": "d40efa19aa892a057f360c8218d55f0f1f70a83b7e455ef7e6576060068cbd0b",
+    "outputSHA256": "2623f457004266f53855be7b32d477e1add281f710434295deec161a3662cb7c"
+  },
+  {
+    "source": "stone-blue.png",
+    "output": "stone-weathered.png",
+    "operation": "grayscale, autocontrast cutoff2, colorize",
+    "black": [
+      19,
+      32,
+      48
+    ],
+    "white": [
+      95,
+      128,
+      148
+    ],
+    "sourceSHA256": "b753f2604916641c2ace6c7bf2e0c4f31790e1926369dae8a894c624bdaabc28",
+    "outputSHA256": "5d8a5050d7655232e429660613e862cf06dd6631304b0e3873ceb8e5d7ec1459"
+  }
+]

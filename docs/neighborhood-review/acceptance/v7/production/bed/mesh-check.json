@@ -1,0 +1,42 @@
+{
+  "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\tmp\\v7-production\\jobs\\bed\\candidate.glb",
+  "triangles": 29098,
+  "bbox_min": [
+    -0.9409,
+    0.0002,
+    -0.9065
+  ],
+  "bbox_max": [
+    0.941,
+    1.9921,
+    0.8793
+  ],
+  "size_xyz": [
+    1.8819,
+    1.9919,
+    1.7858
+  ],
+  "flags": [],
+  "warnings": [],
+  "materials": [
+    {
+      "index": 0,
+      "name": "Material",
+      "has_baseColorTexture": true,
+      "baseColorFactor": null
+    }
+  ],
+  "primitive_count": 1,
+  "primitives": [
+    {
+      "mesh": 0,
+      "prim": 0,
+      "tris": 29098,
+      "material": 0,
+      "has_baseColorTexture": true
+    }
+  ],
+  "uv_missing_on_textured_meshes": [],
+  "normal_missing_meshes": [],
+  "ok": true
+}
