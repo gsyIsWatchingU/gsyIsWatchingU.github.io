@@ -2,13 +2,15 @@ import * as THREE from 'three';
 
 export function createCompanionSleep({actor,avatar,model,bones,houseGroup,getBed,root,height}) {
   let bed,quilt,cover,clothRest,clothBounds,surface,active=false,phase='idle',contactGap=null;
-  const samples=[],inverse=avatar.matrixWorld.clone().invert();
+  const bindPose=new Map([...bones].map(([name,bone])=>[name,bone.quaternion.clone()]));
+  const offset=new THREE.Quaternion(),angles=new THREE.Euler();
+  const samples=[],clothSamples=[],inverse=avatar.matrixWorld.clone().invert();
   model.updateWorldMatrix(true,true);
   model.traverse(node=>{if(!node.isMesh||node.name.includes('eyelid'))return;
     const ids=[];for(let i=0;i<node.geometry.attributes.position.count;i++){
       const v=node.getVertexPosition(i,new THREE.Vector3()).applyMatrix4(node.matrixWorld).applyMatrix4(inverse);
       if(v.y>.35&&v.y<1.15)ids.push(i);
-    }samples.push({node,ids});
+    }samples.push({node,ids});clothSamples.push(node);
   });
   const smooth=v=>{v=THREE.MathUtils.clamp(v,0,1);return v*v*(3-2*v);};
   function grasp(side,target){
@@ -43,9 +45,11 @@ export function createCompanionSleep({actor,avatar,model,bones,houseGroup,getBed
     phase=seconds<1.2?'pull':seconds<2.6?'climb':seconds<4?'lie':seconds<5.2?'cover':'sleep';root.dataset.companionSleep=phase;
     actor.position.set(bed.position.x+.87*(1-climb),bed.position.y+(surface-bed.position.y)*climb,bed.position.z+.30+(height/2-.30)*lie);
     avatar.rotation.set((-Math.PI/2+.18)*lie,-Math.PI/2*(1-lie),0);avatar.position.set(0,0,0);
-    const set=(name,x,y,z)=>{const b=bones.get(name);if(b)b.rotation.set(x,y,z);};
+    // GLB 腿骨的静止姿态含 180° 朝向；动作必须叠加，不能用 Euler 清零覆盖。
+    const set=(name,x,y,z)=>{const b=bones.get(name);if(b)b.quaternion.copy(bindPose.get(name)).multiply(offset.setFromEuler(angles.set(x,y,z)));};
     const reach=1-lie;set('comp_arm_l',-.55*reach,0,.16*reach);set('comp_arm_r',-.55*reach,0,-.16*reach);set('comp_forearm_l',0,-.45*reach,0);set('comp_forearm_r',0,.45*reach,0);
     set('comp_leg_l',-.65*climb*(1-lie),0,0);set('comp_leg_r',-.65*climb*(1-lie),0,0);
+    for(const side of ['l','r']){set('comp_shin_'+side,0,0,0);set('comp_foot_'+side,0,0,0);}
     // 按实际蒙皮后的背面最低点落床，不使用估计厚度。
     if(lie>0){houseGroup.updateMatrixWorld(true);let low=Infinity;for(const {node,ids} of samples)for(const i of ids)low=Math.min(low,node.getVertexPosition(i,new THREE.Vector3()).applyMatrix4(node.matrixWorld).y);
       if(Number.isFinite(low)){avatar.position.y+=(surface+.007-low)*lie;houseGroup.updateMatrixWorld(true);contactGap=lie===1?low+avatar.position.y-surface:null;}}
@@ -56,9 +60,9 @@ export function createCompanionSleep({actor,avatar,model,bones,houseGroup,getBed
     // 床尾固定，拉开时将被子折到脚边，躺下后连续拉回胸口，枕头和脸留在外面。
     const headEdge=THREE.MathUtils.lerp(THREE.MathUtils.lerp(min.z,.30,pull),.10,covered);
     const bedInverse=bed.matrixWorld.clone().invert(),profile=new Float32Array(25).fill(max.y);let bodyHalfWidth=.24;
-    if(lie>0){houseGroup.updateMatrixWorld(true);for(const {node,ids} of samples)for(const i of ids){
+    if(lie>0){houseGroup.updateMatrixWorld(true);for(const node of clothSamples)for(let i=0;i<node.geometry.attributes.position.count;i++){
       const v=node.getVertexPosition(i,new THREE.Vector3()).applyMatrix4(node.matrixWorld).applyMatrix4(bedInverse);
-      if(v.z>headEdge-.025&&v.z<max.z&&Math.abs(v.x)<.48){const row=THREE.MathUtils.clamp(Math.round((v.z-headEdge)/(max.z-headEdge)*24),0,24);profile[row]=Math.max(profile[row],v.y+.035);bodyHalfWidth=Math.max(bodyHalfWidth,Math.abs(v.x));}
+      if(v.z>headEdge-.025&&v.z<max.z&&Math.abs(v.x)<.48){const row=THREE.MathUtils.clamp(Math.round((v.z-headEdge)/(max.z-headEdge)*24),0,24);profile[row]=Math.max(profile[row],v.y+.075);bodyHalfWidth=Math.max(bodyHalfWidth,Math.abs(v.x));}
     }}
     // 每一段只隆起到对应身体表面；空的床尾保持平铺，避免整张被子鼓成帐篷。
     const envelope=profile.map((_,row)=>Math.max(...profile.slice(Math.max(0,row-2),Math.min(25,row+3))));
