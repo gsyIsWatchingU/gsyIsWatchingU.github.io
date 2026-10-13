@@ -1,0 +1,140 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "selector": "[data-music-close]",
+      "text": "",
+      "label": "关闭音乐并暂停播放",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 1352,
+      "y": 434,
+      "right": 1398,
+      "bottom": 480
+    },
+    {
+      "selector": "[data-resume-close]",
+      "text": "",
+      "label": "关闭简历",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 1089,
+      "y": 63,
+      "right": 1135,
+      "bottom": 109
+    },
+    {
+      "selector": "[data-award-close]",
+      "text": "",
+      "label": "关闭证书原图",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 1112,
+      "y": 125.796875,
+      "right": 1158,
+      "bottom": 171.796875
+    },
+    {
+      "selector": "[data-diary-close]",
+      "text": "",
+      "label": "合上日记，继续探索",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 1098,
+      "y": 182,
+      "right": 1144,
+      "bottom": 228
+    },
+    {
+      "selector": "[data-toilet-close]",
+      "text": "",
+      "label": "关闭项目集，保留弹出物品",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 1349,
+      "y": 138.08033752441406,
+      "right": 1395,
+      "bottom": 184.08033752441406
+    },
+    {
+      "selector": "[data-music-close]",
+      "text": "",
+      "label": "关闭音乐并暂停播放",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 317,
+      "y": 392,
+      "right": 363,
+      "bottom": 438
+    },
+    {
+      "selector": "[data-resume-close]",
+      "text": "",
+      "label": "关闭简历",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 324,
+      "y": 16,
+      "right": 370,
+      "bottom": 62
+    },
+    {
+      "selector": "[data-award-close]",
+      "text": "",
+      "label": "关闭证书原图",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 306,
+      "y": 246.703125,
+      "right": 352,
+      "bottom": 292.703125
+    },
+    {
+      "selector": "[data-diary-close]",
+      "text": "",
+      "label": "合上日记，继续探索",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 315,
+      "y": 129,
+      "right": 361,
+      "bottom": 175
+    },
+    {
+      "selector": "[data-toilet-close]",
+      "text": "",
+      "label": "关闭项目集，保留弹出物品",
+      "ring": true,
+      "iconWidth": "27px",
+      "width": 46,
+      "height": 46,
+      "x": 318,
+      "y": 303.1698913574219,
+      "right": 364,
+      "bottom": 349.1698913574219
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Chrome desktop and mobile viewport; physical phone not tested",
+    "Chat close shares the same style; character interaction not retested"
+  ]
+}

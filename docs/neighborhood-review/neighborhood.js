@@ -22,7 +22,7 @@ const infoPanel = document.getElementById('info-panel');
 // ========== Config ==========
 let config = null;
 async function loadConfig() {
-  const res = await fetch('./config/house-config.json?v=20261013-squidward-v7');
+  const res = await fetch('./config/house-config.json?v=20261013-squidward-v7-final');
   if (!res.ok) throw new Error('config load ' + res.status);
   config = await res.json();
 }
@@ -43,6 +43,7 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.15;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFShadowMap;
+renderer.localClippingEnabled = true;
 wrap.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -313,12 +314,12 @@ function addPortholeDetails(root) {
     const radius = Math.max(size.x, size.z) / 2;
     const dir = new THREE.Vector3(0, 0, 1);
     const frame = new THREE.Mesh(new THREE.TorusGeometry(radius, radius * 0.3, 12, 28), frameMat);
-    frame.position.set(c.x, c.y, box.max.z + 0.012);
-    frame.lookAt(c.clone().add(dir));
+    frame.position.copy(root.worldToLocal(new THREE.Vector3(c.x, c.y, box.max.z + 0.012)));
+    frame.lookAt(frame.position.clone().add(dir));
     group.add(frame);
     const glass = new THREE.Mesh(new THREE.CircleGeometry(radius * 0.66, 28), glassMat);
-    glass.position.set(c.x, c.y, box.max.z + 0.025);
-    glass.lookAt(c.clone().add(dir));
+    glass.position.copy(root.worldToLocal(new THREE.Vector3(c.x, c.y, box.max.z + 0.025)));
+    glass.lookAt(glass.position.clone().add(dir));
     group.add(glass);
   });
   if (group.children.length) root.add(group);
@@ -447,8 +448,20 @@ function setRoomFurnitureVisible(roomId) {
   if (!state.intMesh) return;
   const room = roomId ? cfg.rooms.find(r => r.id === roomId) : null;
   const hideFloors = room && Array.isArray(room.hideFloors) ? room.hideFloors : [];
+  const level = room ? cfg.rooms.indexOf(room) : -1;
+  const section = level >= 0 ? [
+    new THREE.Plane(new THREE.Vector3(0, 1, 0), -[0, 1.08, 2.28, 3.48][level] - state.shift.y),
+    new THREE.Plane(new THREE.Vector3(0, -1, 0), [1.2, 2.4, 3.6, 4.62][level] + state.shift.y),
+  ] : [];
   state.intMesh.traverse(o => {
     if (!o.isMesh) return;
+    for (const material of (Array.isArray(o.material) ? o.material : [o.material])) {
+      if (!material) continue;
+      const changed = (material.clippingPlanes?.length || 0) !== section.length;
+      material.clippingPlanes = section;
+      material.clipShadows = !!room;
+      if (changed) material.needsUpdate = true;
+    }
     // 楼梯始终可见
     if (o.name.startsWith('stairs_')) { o.visible = true; return; }
     if (o.name.startsWith('wall_')) { o.visible = true; return; }
@@ -463,6 +476,8 @@ function setRoomFurnitureVisible(roomId) {
 }
 
 function enterExterior() {
+  ground.visible = true;
+  ssaoPass.enabled = config.tiers[state.tier].ssao;
   state.view = 'exterior';
   state.roomId = null;
   setShellVisible(true);
@@ -507,6 +522,8 @@ function cutawayPose() {
 }
 
 function enterCutaway() {
+  ground.visible = true;
+  ssaoPass.enabled = config.tiers[state.tier].ssao;
   state.view = 'cutaway';
   state.roomId = null;
   // 隐藏整个外壳组（外壳+结构），内部组（结构+家具）接管显示
@@ -525,6 +542,8 @@ function enterRoom(roomId) {
   const cfg = config.houses[state.house];
   const room = cfg.rooms.find(r => r.id === roomId);
   if (!room) return;
+  ground.visible = false;
+  ssaoPass.enabled = false;
   state.view = 'room';
   state.roomId = roomId;
   setRoomFurnitureVisible(roomId);

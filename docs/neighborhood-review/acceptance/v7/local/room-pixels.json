@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "file": "mobile-kitchen.png",
+      "roi": [
+        117,
+        110,
+        273,
+        280
+      ],
+      "greenRatio": 0.0,
+      "ok": true
+    },
+    {
+      "file": "mobile-living.png",
+      "roi": [
+        117,
+        110,
+        273,
+        280
+      ],
+      "greenRatio": 0.0,
+      "ok": true
+    },
+    {
+      "file": "mobile-bedroom.png",
+      "roi": [
+        117,
+        110,
+        273,
+        280
+      ],
+      "greenRatio": 0.0,
+      "ok": true
+    },
+    {
+      "file": "mobile-bathroom.png",
+      "roi": [
+        117,
+        110,
+        273,
+        280
+      ],
+      "greenRatio": 0.0,
+      "ok": true
+    }
+  ],
+  "purpose": "Detect other-floor green walls above the current room; does not certify artistic similarity."
+}

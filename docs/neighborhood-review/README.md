@@ -6,7 +6,7 @@
 
 ## 章鱼哥屋 v7（当前版本）
 
-[打开 v7 独立预览](https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7)。默认完整外观，点击木门或「查看剖面」进入四层；点击房间进入近景，Esc / 返回退出。
+[打开 v7 独立预览](https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7-final)。默认完整外观，点击木门或「查看剖面」进入四层；点击房间进入近景，Esc / 返回退出。
 
 按[本轮参考图](refs/v7/primary-reference.png)精修墨绿砖墙、木质楼板、右侧弧形木梯、家具材质、艺术品平台和浴室内腔。状态保持 `review`，用户视觉审查待完成，未接入正式首页。
 

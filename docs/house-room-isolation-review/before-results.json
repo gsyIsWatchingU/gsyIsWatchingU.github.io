@@ -1,0 +1,555 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "room": "living",
+      "state": {
+        "state": "ready",
+        "view": "living",
+        "loaded": [
+          "couch",
+          "table",
+          "sink",
+          "chair",
+          "treasure",
+          "toilet",
+          "bathtub",
+          "bed",
+          "barrel",
+          "siamese-cat",
+          "laptop",
+          "bluetooth-speaker",
+          "chest",
+          "lounger",
+          "structure"
+        ],
+        "failed": [],
+        "fps": 16.9,
+        "renderer": {
+          "frame": 136,
+          "calls": 92,
+          "triangles": 438452,
+          "points": 0,
+          "lines": 320
+        },
+        "camera": [
+          0,
+          2.25,
+          8.600000000000001
+        ],
+        "target": [
+          0,
+          1.25,
+          0
+        ],
+        "pet": {
+          "state": "idle",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.98462,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.00014219148230564213,
+            0.012367769952411421,
+            0.011495298693016184,
+            0.9998574279145729
+          ],
+          "tail": [
+            0.0740203362511633,
+            0.021645816333584565,
+            0.02680872939256168,
+            0.9966613076218163
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124306403,
+                0.06500000836313952,
+                1.7953792593597013
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_green_tubes",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_blue_fabric",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_orange_rubber",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "table_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "eight_section_life_ring",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "eight_section_life_ring_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_red_upholstery",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_red_seams",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_cat",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_2",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_3",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_4",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_5",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_fine_fibers",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "retopologized_rounded_screen_case",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "continuous_screen_bezel",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "clean_display",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_on_display",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib001",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib002",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib003",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib004",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "structure_L0_cut_edge",
+            "room": "structure",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_wood",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_blue_metal",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_window_glass",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_seams",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_rug",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "failures": [
+    "net::ERR_FAILED"
+  ],
+  "limitations": [
+    "手机为 Chrome 视口模拟，实机未测。"
+  ]
+}

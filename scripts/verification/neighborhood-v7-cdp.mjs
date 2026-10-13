@@ -1,7 +1,7 @@
 // 原生 CDP 输入验收；读取调试状态，不调用产品测试接口改变场景。
 import {launch} from './neighborhood-cdp-client.mjs';
 import fs from 'node:fs';
-const url=process.argv[2]||'http://127.0.0.1:8797/docs/neighborhood-review/?v=20261013-squidward-v7';
+const url=process.argv[2]||'http://127.0.0.1:8797/docs/neighborhood-review/?v=20261013-squidward-v7-final';
 const out=process.argv[3]||'tmp/v7-production/acceptance-local';
 const d=await launch(out,9957),checks=[];
 function check(name,ok,actual){checks.push({name,ok:!!ok,actual});console.log(`${ok?'PASS':'FAIL'} ${name}`);}

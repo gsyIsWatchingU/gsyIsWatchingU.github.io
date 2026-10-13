@@ -28,7 +28,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   canvas.addEventListener('pointermove',event=>{const r=canvas.getBoundingClientRect();pointer={x:((event.clientX-r.left)/r.width-.5)*2,y:(.5-(event.clientY-r.top)/r.height)*2};pointerTime=faceTime;});
   const bubble=document.createElement('div');bubble.className='companion-bubble';bubble.hidden=true;bubble.setAttribute('role','status');root.append(bubble);
   const panel=document.createElement('dialog');panel.className='companion-chat';panel.setAttribute('aria-label','和海绵宝宝聊天');
-  panel.innerHTML=`<header><div><b>海绵宝宝</b><small>有空聊两句吗？</small></div><button type="button" data-companion-close aria-label="关闭聊天">×</button></header>
+  panel.innerHTML=`<header><div><b>海绵宝宝</b><small>有空聊两句吗？</small></div><button type="button" data-companion-close aria-label="关闭聊天"></button></header>
     <p data-companion-config class="companion-config">正在连接聊天…</p>
     <div class="companion-messages" role="log" aria-live="polite"></div>
     <div class="companion-suggestions"><button type="button" data-say="翻翻实习日记吧">翻日记</button><button type="button" data-say="我们一起吹泡泡吧">吹泡泡</button><button type="button" data-say="去睡觉吧">晚安</button></div>
