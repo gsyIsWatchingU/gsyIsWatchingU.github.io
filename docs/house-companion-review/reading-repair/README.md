@@ -6,3 +6,5 @@
 - 完整翻页周期 295 帧：书页最高点 0.6884，持续低于嘴部；原静态最高点为 0.8634。坐标为缩放前的角色局部空间。
 - 构建、资源与差异检查通过。手机实机未测，仍为 review。
 - 证据：`before/`、`after/`；复测 `node scripts/verify-companion-reading-browser.mjs after`。
+
+- 公网复测：同样 295 帧通过，零脚本错误；三个关键资源内容哈希一致。证据 "live/"、"public-resources.json"。

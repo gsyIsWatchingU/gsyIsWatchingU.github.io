@@ -1,0 +1,2002 @@
+{
+  "records": [
+    {
+      "action": "journal",
+      "value": {
+        "state": {
+          "room": "bedroom",
+          "action": "journal",
+          "day": 2.3667999999999982,
+          "phase": 0,
+          "revision": 2,
+          "following": false,
+          "commanded": true,
+          "loaded": true,
+          "activity": "journal",
+          "entryTime": 2,
+          "chatOpen": false,
+          "position": [
+            -1.5,
+            6,
+            1.3
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0.18,
+            "lookRight": 0.2741766989967378,
+            "lookLeft": 0,
+            "lookUp": 0,
+            "lookDown": 0.95,
+            "smile": 0.25,
+            "calm": 0.65,
+            "browRaise": 0.2,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 0,
+            "contact": 0,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": true,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        },
+        "bookPosition": [
+          0,
+          0.53,
+          0.36
+        ],
+        "bookRotation": [
+          -1.95,
+          0,
+          0,
+          "XYZ"
+        ],
+        "bookTop": 0.6745240485769238,
+        "grips": [
+          {
+            "error": 4.812978939988984e-9,
+            "reach": 0.957329257361228
+          },
+          {
+            "error": 7.975758402352091e-10,
+            "reach": 0.9632931907294938
+          }
+        ],
+        "failed": []
+      }
+    },
+    {
+      "action": "read",
+      "value": {
+        "state": {
+          "room": "library",
+          "action": "read",
+          "day": 9.68400000000002,
+          "phase": 0,
+          "revision": 6,
+          "following": true,
+          "commanded": true,
+          "loaded": true,
+          "activity": "read",
+          "entryTime": 5.6,
+          "chatOpen": false,
+          "position": [
+            3.6,
+            3,
+            1.05
+          ],
+          "height": 0.88,
+          "face": {
+            "blink": 0.18,
+            "lookRight": 0.2325103580677757,
+            "lookLeft": 0,
+            "lookUp": 0,
+            "lookDown": 0.95,
+            "smile": 0.25,
+            "calm": 0.65,
+            "browRaise": 0.2,
+            "talk": 0
+          },
+          "bedHeight": null,
+          "backOffset": 0.25769634177028683,
+          "sleep": {
+            "phase": "idle",
+            "contactGap": null,
+            "active": false
+          },
+          "slide": {
+            "progress": 1,
+            "contact": -0.00274823101284305,
+            "posture": "seated"
+          },
+          "book": {
+            "open": true,
+            "visible": true,
+            "turning": false,
+            "coverThickness": 0.016,
+            "pageThickness": 0.025,
+            "spread": 0.64
+          },
+          "petContact": null,
+          "bones": [
+            "comp_root",
+            "comp_head",
+            "comp_arm_l",
+            "comp_forearm_l",
+            "comp_hand_l",
+            "comp_leg_l",
+            "comp_shin_l",
+            "comp_foot_l",
+            "comp_arm_r",
+            "comp_forearm_r",
+            "comp_hand_r",
+            "comp_leg_r",
+            "comp_shin_r",
+            "comp_foot_r"
+          ],
+          "animations": [
+            "bubble",
+            "idle",
+            "lie",
+            "pet",
+            "read",
+            "sit",
+            "slide",
+            "tidy",
+            "wake",
+            "walk",
+            "wash",
+            "wave"
+          ],
+          "status": "review"
+        },
+        "bookPosition": [
+          0,
+          0.53,
+          0.36
+        ],
+        "bookRotation": [
+          -1.95,
+          0,
+          0,
+          "XYZ"
+        ],
+        "bookTop": 0.6745240485769212,
+        "grips": [
+          {
+            "error": 4.69285361681903e-9,
+            "reach": 0.95659739450237
+          },
+          {
+            "error": 8.07839711271641e-10,
+            "reach": 0.9627498607595434
+          }
+        ],
+        "failed": []
+      }
+    }
+  ],
+  "cycle": [
+    {
+      "time": 0.011800000000745058,
+      "top": 0.6877975224468323,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.02830000000074506,
+      "top": 0.6871875610645565,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.044,
+      "top": 0.6864056890475433,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.061,
+      "top": 0.6854666190703399,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.07760000000149012,
+      "top": 0.6844038660901807,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.09420000000298023,
+      "top": 0.6832482575829585,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.111,
+      "top": 0.6820389871735185,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.12790000000223517,
+      "top": 0.6807860213297589,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.14430000000074505,
+      "top": 0.6795509105602929,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.16070000000298024,
+      "top": 0.6783565384309701,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.17760000000149012,
+      "top": 0.6771977055419108,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.194,
+      "top": 0.6761566525627122,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.21080000000074506,
+      "top": 0.6752190614104557,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.22820000000298024,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.24430000000074506,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.2607000000029802,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.278,
+      "top": 0.6745240485769256,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.29420000000298024,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.31120000000298026,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.3275,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.3446000000014901,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.3608000000007451,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.37760000000149013,
+      "top": 0.6752347396711348,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.3941000000014901,
+      "top": 0.6761686355520579,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.4111000000014901,
+      "top": 0.6772241574570598,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.4276000000014901,
+      "top": 0.6783707002403877,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.44430000000074504,
+      "top": 0.6795730229356637,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.46130000000074506,
+      "top": 0.6808159447629106,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.4775,
+      "top": 0.6820611907433937,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.49470000000298026,
+      "top": 0.6832767777523473,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.5109000000022351,
+      "top": 0.6844238695275121,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.5286000000014901,
+      "top": 0.6854846687839676,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.5441000000014902,
+      "top": 0.6864212434683649,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.5609000000022352,
+      "top": 0.6872001299359668,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.5784000000022351,
+      "top": 0.6878035796225445,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.5955,
+      "top": 0.6882016183214291,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.611,
+      "top": 0.688372335018615,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.6275,
+      "top": 0.6882982584104448,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.644300000000745,
+      "top": 0.6879633751637667,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.6619000000022351,
+      "top": 0.6873558777546337,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.6787000000029803,
+      "top": 0.6864742706012664,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.6946000000014901,
+      "top": 0.6853041994620651,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.7115,
+      "top": 0.6838598319046839,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.7282000000029802,
+      "top": 0.6821389434980675,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.7455,
+      "top": 0.680123554239236,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.762,
+      "top": 0.6778728653928977,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.7785,
+      "top": 0.6753631636285161,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.7954000000022352,
+      "top": 0.6745240485769203,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.8123000000007451,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.8284000000022351,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.845300000000745,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.8609000000022352,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.8788000000007451,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.895300000000745,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.9117000000029802,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.9291000000014901,
+      "top": 0.6745240485769256,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.9456000000014901,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.963,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.9792000000029802,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 0.995300000000745,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.0119000000022351,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.0287000000029802,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.0454000000022352,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.0608000000007451,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.077800000000745,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.0942000000029801,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.1113000000007451,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.1279000000022352,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.144300000000745,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.161,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.1777000000029803,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 1.194300000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.2111000000014902,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.2276000000014902,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.2442000000029803,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.2614000000022352,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.2782000000029803,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.2949000000022353,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.3114000000022352,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.327800000000745,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.3453000000007451,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.3615,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.378800000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.395400000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.4146000000014902,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.4284000000022352,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.4457000000029803,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.46210000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.4794000000022351,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.495800000000745,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.5114000000022352,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.5276000000014902,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.5446000000014901,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.5609000000022353,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.5786000000014901,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.5993000000007451,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.61160000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.62810000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.6472000000029803,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.666,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.6777000000029803,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.6955,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.7124000000022352,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.7294000000022351,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.745900000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.76310000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.77910000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.7947000000029802,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.8117000000029801,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.8299000000022352,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.8446000000014902,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.861,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.8779000000022352,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.8949000000022351,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.9124000000022352,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.9291000000014902,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.9457000000029803,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.961900000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.9804000000022353,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 1.9964000000022353,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.0122000000029803,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.028400000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.04620000000298,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.0609000000022353,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.0792000000029804,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.097,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.11420000000298,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.1325,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.1456000000014903,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.165,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.1779000000022353,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.1955,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.21120000000298,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.2291000000014902,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.246,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.26170000000298,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.279,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.2967000000029802,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.3124000000022353,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.3287000000029803,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.3454000000022353,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.361800000000745,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.3815,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.3985,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.415400000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.428300000000745,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.4475,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.463800000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.47860000000149,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.4966000000014903,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.5127000000029804,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.529,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.5449000000022353,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.561900000002235,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.578900000002235,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.6002000000029803,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.610800000000745,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.62860000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.6455,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.66170000000298,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.67920000000298,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.694900000002235,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.713400000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.728,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.744300000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.7612000000029804,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.77810000000149,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.794400000002235,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.811300000000745,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.8287000000029803,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.8455,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.86110000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.8775,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.8945,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.911300000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.92920000000298,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.945,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.96160000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.9814000000022354,
+      "top": 0.6745240485769185,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 2.994800000000745,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.0135,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.028,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.04510000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.0631000000014903,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.081800000000745,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.098800000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.11120000000298,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.12910000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.1456000000014903,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.163,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.1787000000029804,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.1945,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.21120000000298,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.227800000000745,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.24570000000298,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.2626000000014903,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.280300000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.29610000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.3131000000014903,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.327800000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.34710000000149,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.36110000000149,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.37770000000298,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.394800000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.411800000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.4294000000022353,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.4455,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.4624000000022352,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.478900000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.496400000002235,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.51410000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.528,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.5457000000029804,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.56110000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.577900000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.59460000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.610800000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.62870000000298,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.6456000000014903,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.66360000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.67820000000298,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.6957000000029803,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.7122000000029804,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.7314000000022354,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.7473000000007453,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.7637000000029803,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.781,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.7955,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.811400000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.83010000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.8472000000029802,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.861,
+      "top": 0.6745240485769256,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.877800000000745,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.89460000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.91170000000298,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.9287000000029804,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.944900000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.962800000000745,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.9795,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 3.995400000002235,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.01210000000149,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.0285,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.04460000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.06170000000298,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.078400000002235,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.0949000000022355,
+      "top": 0.6745240485769203,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.112800000000745,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.1283000000007455,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.144900000002235,
+      "top": 0.674524048576922,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.161300000000745,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.17760000000149,
+      "top": 0.6745240485769238,
+      "turning": false,
+      "visible": true
+    },
+    {
+      "time": 4.19470000000298,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.21310000000149,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.22810000000149,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.2453000000007455,
+      "top": 0.6745240485769203,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.261900000002235,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.27960000000149,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.295400000002235,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.31320000000298,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.32810000000149,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.345900000002235,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.361700000002981,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.378,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.394800000000745,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.412,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.429,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.445300000000745,
+      "top": 0.6745240485769203,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.46160000000149,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.478400000002235,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.495800000000745,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.51470000000298,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.530300000000745,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.54420000000298,
+      "top": 0.6745240485769203,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.5614000000022354,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.577900000002235,
+      "top": 0.674524048576922,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.594400000002235,
+      "top": 0.6745240485769238,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.611800000000745,
+      "top": 0.6754574057564807,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.62810000000149,
+      "top": 0.6779728007487159,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.645900000002235,
+      "top": 0.6802256165243482,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.663800000000745,
+      "top": 0.6822058866619686,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.678400000002235,
+      "top": 0.6839263653615825,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.696700000002981,
+      "top": 0.6853589597674931,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.715300000000745,
+      "top": 0.686517102692589,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.727800000000745,
+      "top": 0.6873825250815725,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.745,
+      "top": 0.6879828204179735,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.761,
+      "top": 0.6883053521053012,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.778400000002235,
+      "top": 0.6883696328563681,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.795400000002235,
+      "top": 0.6881875734306232,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.81210000000149,
+      "top": 0.687782247568448,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.8285,
+      "top": 0.687174932786066,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.8455,
+      "top": 0.6863848714319546,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.861,
+      "top": 0.6854485283211674,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.877800000000745,
+      "top": 0.6843838316463061,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.894900000002235,
+      "top": 0.6832268437183037,
+      "turning": true,
+      "visible": true
+    },
+    {
+      "time": 4.91120000000298,
+      "top": 0.6820093666869732,
+      "turning": true,
+      "visible": true
+    }
+  ],
+  "log": {
+    "console": [],
+    "errors": [],
+    "failedReq": []
+  },
+  "phone": "viewport simulation"
+}

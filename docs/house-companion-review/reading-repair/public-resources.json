@@ -1,0 +1,17 @@
+[
+  {
+    "file": "pineapple-companion.html",
+    "status": 200,
+    "match": true
+  },
+  {
+    "file": "assets/pineapple-house.js",
+    "status": 200,
+    "match": true
+  },
+  {
+    "file": "src/data/house-companion.json",
+    "status": 200,
+    "match": true
+  }
+]
