@@ -17,7 +17,7 @@
 
 完整哈希、每张贴图用途见[资产登记](asset-index.json)。建筑精修为 Blender，新增家具来自自有 L20 Forge3D/Hunyuan3D，纹理与肖像来自 Z-Image；采用项、失败候选和精修范围见[装配记录](ASSEMBLY_NOTES.md)及[生产来源](acceptance/v7/production/provenance.json)。派大星模型与正式首页资源未改。
 
-运行验收和截图见[verification.md](verification.md)。插画笔触、石雕细节及透视与参考仍有差异；真实 GPU 帧率、物理触屏尚未验证。技术验收与用户视觉批准分开记录。
+运行验收和截图见[verification.md](verification.md)。插画笔触、石雕细节及透视与参考仍有差异；桌面RTX3050硬件渲染约60fps；真实手机帧率、物理触屏尚未验证。技术验收与用户视觉批准分开记录。
 
 ## v6 历史记录（以下面数、贴图及脚本描述非当前版本）
 

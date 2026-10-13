@@ -12,11 +12,12 @@
 | 本地交互预检 | CDP原生输入51/51：1440×900、390×844，真实门网格点击、四房间/返回/Esc、双击返回、拖拽/滚轮/双指缩放及重置、直达派大星后切回、窗口变化；输入全trusted，健康运行零脚本错误/非取消资源失败；[results.json](acceptance/v7/local/results.json) |
 | 故障恢复 | 5/5：外观加载阻断后重试、室内失败停止loading、原生重试恢复、双击进入只发一次成功请求；[retry/results.json](acceptance/v7/retry/results.json)。此用例故意阻断2次网络，不混计为健康冒烟错误 |
 | 构建 | `npm run build` / `npm run check` / `git diff --check` 通过；正式首页源码和派大星模型未改 |
-| 公网 | v7-final原生CDP51/51和9/9资源SHA已通过；v7-final2新增石基、洗手盆支撑、蓝色客厅地面及标签锚点，最终公网证据待刷新 |
+| 公网 final2 | 代码提交 `04699fd`：9/9关键资源（含4个GLB）与Git提交SHA-256一致，原生CDP交互51/51、手机近景像素4/4；零脚本错误和非取消资源失败。见 [resources.json](acceptance/v7/public/resources.json)、[results.json](acceptance/v7/public/results.json)、[room-pixels.json](acceptance/v7/public/room-pixels.json) |
+| 硬件GPU | ANGLE / NVIDIA RTX3050 / Direct3D11，1440×900外观60.15 / 剖切60.18fps；390×844桌面GPU仿真60.14 / 60.04fps。各采样5秒，桌面≥50目标通过；[hardware-gpu/results.json](acceptance/v7/hardware-gpu/results.json) |
 
 公网目检补修：手机近景原先仍露出其他楼层的墙和楼梯；现近景按当前层高度裁剪，返回恢复完整四层，近景隐藏地面背景。手机四房间上方绿墙像素回归从3项失败→4/4通过，修前截图保留在 `acceptance/v7/before-room-section/`。全局剖切仍使用实际拆分的GLB壳体，层高裁剪仅用于房间近景。舷窗补件改为父模型局部坐标，避免归一化位移重复应用。
 
-本轮保持 `review`，没有用户视觉批准，也未接正式首页。插画笔触、石雕细节和透视与参考仍有差异；无头Chrome/SwiftShader及触屏仿真不能证明真实GPU帧率或物理手机操作，实机目标桌面≥50 / 手机≥30fps待复核。
+本轮保持 `review`，没有用户视觉批准，也未接正式首页。插画笔触、石雕细节和透视与参考仍有差异。交互用无头Chrome/SwiftShader验证；另补RTX3050硬件帧率采样。真实手机≥30fps和物理触屏仍待实机复核，桌面GPU上的手机视口仿真不替代手机性能。
 
 ---
 

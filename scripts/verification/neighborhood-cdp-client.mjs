@@ -4,10 +4,11 @@ import path from 'node:path';
 
 export async function launch(out, port = 9863) {
   fs.mkdirSync(out, { recursive: true });
+  const acceleration = process.env.NEIGHBORHOOD_HARDWARE_GPU === '1' ? [] : ['--disable-gpu', '--use-angle=swiftshader'];
   const chrome = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', [
     `--remote-debugging-port=${port}`, `--user-data-dir=${path.join(out, 'chrome-profile-'+port)}`,
     '--headless=new', '--no-first-run', '--no-default-browser-check',
-    '--disable-gpu', '--use-angle=swiftshader', '--window-size=1440,900', 'about:blank',
+    ...acceleration, '--window-size=1440,900', 'about:blank',
   ], { windowsHide: true, stdio: ['ignore', fs.openSync(path.join(out, 'chrome-out.log'), 'a'), fs.openSync(path.join(out, 'chrome-error.log'), 'a')] });
   const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
   let endpoint;

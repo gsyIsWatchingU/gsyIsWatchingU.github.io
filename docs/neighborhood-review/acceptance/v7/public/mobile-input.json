@@ -27,12 +27,12 @@
   {
     "type": "pointerdown",
     "trusted": true,
-    "target": "CANVAS"
+    "target": "BUTTON"
   },
   {
     "type": "touchstart",
     "trusted": true,
-    "target": "CANVAS"
+    "target": "BUTTON"
   },
   {
     "type": "pointerdown",
@@ -47,7 +47,7 @@
   {
     "type": "touchmove",
     "trusted": true,
-    "target": "CANVAS"
+    "target": "BUTTON"
   },
   {
     "type": "touchmove",
@@ -57,7 +57,7 @@
   {
     "type": "touchmove",
     "trusted": true,
-    "target": "CANVAS"
+    "target": "BUTTON"
   },
   {
     "type": "touchmove",
@@ -67,7 +67,7 @@
   {
     "type": "touchmove",
     "trusted": true,
-    "target": "CANVAS"
+    "target": "BUTTON"
   },
   {
     "type": "touchmove",
@@ -77,7 +77,47 @@
   {
     "type": "touchmove",
     "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
     "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "BUTTON"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "CANVAS"
+  },
+  {
+    "type": "touchmove",
+    "trusted": true,
+    "target": "BUTTON"
   },
   {
     "type": "touchmove",
@@ -87,12 +127,12 @@
   {
     "type": "pointerup",
     "trusted": true,
-    "target": "CANVAS"
+    "target": "BUTTON"
   },
   {
     "type": "touchend",
     "trusted": true,
-    "target": "CANVAS"
+    "target": "BUTTON"
   },
   {
     "type": "pointerup",

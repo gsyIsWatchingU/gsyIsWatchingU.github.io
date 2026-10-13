@@ -1,8 +1,8 @@
 {
   "reference": "docs/neighborhood-review/refs/v7/primary-reference.png",
   "referenceSHA256": "ac31584187f115a082f590af6d59a25987f21748c543d26f9500f9a23a1f6d66",
-  "browserScreenshot": "docs/neighborhood-review/acceptance/v7/public/desktop-cutaway.png",
-  "screenshotSHA256": "709a501d126e431daa2e16494f4e7e27b06852fcd41612ecb46ce63b13b3a5fb",
+  "browserScreenshot": "docs/neighborhood-review/acceptance/v7/hardware-gpu/desktop-cutaway.png",
+  "screenshotSHA256": "af03e9f995c357a9887a22e675e2c153dd4df56cfb24d7511d1e81622f201ea3",
   "operations": "crop, proportional resize, side-by-side; no retouching or overlay in the model view",
-  "modelSHA256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884"
+  "modelSHA256": "0983479c68ddb18ca69cdf434742762e496bc17ffca0556f83bc28f9b63d4b8e"
 }
