@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import {felineSitPoint} from './house-pet-sit-v2.js';
 
 // 四拍猫步：支撑脚固定在世界地面，摆动脚抬起后落地；关节由双骨 IK 求解。
 export function createHousePet(model, spec, { root, canvas, camera, reducedMotion }) {
@@ -12,6 +13,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
   const inverseModel = model.matrixWorld.clone().invert();
   const modelQuaternion = model.getWorldQuaternion(new THREE.Quaternion());
   const legNames = ["back_r", "front_r", "back_l", "front_l"];
+  const sittingBind=new Map();model.traverse(node=>{if(node.isBone)sittingBind.set(node.name,node.getWorldPosition(new THREE.Vector3()).applyMatrix4(model.matrixWorld.clone().invert()));});
   const worldPosition = bone => bone.getWorldPosition(new THREE.Vector3());
   const legs = legNames.map((name, index) => {
     const upper = bones.get(`pet_${name}_upper`)?.node;
@@ -178,7 +180,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         sideLie=approach(sideLie,!attention&&resting&&sit<.001&&(requestedRest??state)==="lie"?1:0,dt/2.3);
         const sitting=ease(sit),lying=ease(sideLie),roll=lying*Math.PI*.5;
         model.quaternion.setFromAxisAngle(up,yaw).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),roll));
-        const centerShift=.32*unit*Math.sin(roll),seatForward=.12*unit*sitting;
+        const centerShift=.32*unit*Math.sin(roll),seatForward=spec.pet.poseSitV2?0:.12*unit*sitting;
         // 侧躺围绕身体中心翻转，避免根节点在脚底造成大幅横移。
         const ground=curvePoint(distance);model.position.x=ground.x+centerShift*Math.cos(yaw)+seatForward*Math.sin(yaw);model.position.z=ground.z-centerShift*Math.sin(yaw)+seatForward*Math.cos(yaw);
         model.position.y=originY+(sideHeight+.008)*Math.sin(roll);
@@ -186,11 +188,11 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         const chest=bones.get("pet_chest")?.node;
         const rootBone=bones.get('pet_root')?.node;
         if(chest&&rootBone){
-          const chestWorld=worldPosition(chest).add(new THREE.Vector3(-seatForward*Math.sin(yaw),spec.pet.sitCorrectives ? .018*sitting : 0,-seatForward*Math.cos(yaw)));
+          const chestWorld=worldPosition(chest).add(new THREE.Vector3(-seatForward*Math.sin(yaw),spec.pet.poseSitV2 ? .030*sitting : spec.pet.sitCorrectives ? .018*sitting : 0,-seatForward*Math.cos(yaw)));
           const chestRotation=chest.getWorldQuaternion(new THREE.Quaternion());
           const parent=rootBone.parent.getWorldQuaternion(new THREE.Quaternion());
           const axis=new THREE.Vector3(1,0,0).applyAxisAngle(up,yaw);
-          const tilt=new THREE.Quaternion().setFromAxisAngle(axis,-.45*sitting);
+          const tilt=new THREE.Quaternion().setFromAxisAngle(axis,spec.pet.poseSitV2?0:-.45*sitting);
           rootBone.quaternion.copy(parent.clone().invert().multiply(tilt).multiply(parent).multiply(rootBone.quaternion));
           model.updateMatrixWorld(true);
           chest.position.copy(chestWorld.applyMatrix4(chest.parent.matrixWorld.clone().invert()));
@@ -198,7 +200,9 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
           model.updateMatrixWorld(true);
         }
         const haunch=bones.get('pet_haunch')?.node;
-        if(haunch){const offset=spec.pet.sitCorrectives?new THREE.Vector3(0,.010*sitting,.055*sitting).applyAxisAngle(up,yaw):new THREE.Vector3(0,-.02*unit*sitting,0);haunch.position.add(offset.applyQuaternion(haunch.parent.getWorldQuaternion(new THREE.Quaternion()).invert()));}
+        if(spec.pet.poseSitV2){
+          for(const name of ['pet_haunch','pet_back_l_upper','pet_back_r_upper']){const joint=bones.get(name)?.node;if(!joint)continue;const target=felineSitPoint(sittingBind.get(name),sitting).applyMatrix4(model.matrixWorld);joint.position.copy(target.applyMatrix4(joint.parent.matrixWorld.clone().invert()));joint.updateWorldMatrix(false,true);}
+        }else if(haunch){const offset=spec.pet.sitCorrectives?new THREE.Vector3(0,.010*sitting,.055*sitting).applyAxisAngle(up,yaw):new THREE.Vector3(0,-.02*unit*sitting,0);haunch.position.add(offset.applyQuaternion(haunch.parent.getWorldQuaternion(new THREE.Quaternion()).invert()));}
       }
       // 点击即回应，头尾动作不等待四足收步，脚掌仍由原有 IK 保持接地。
       const greet=greetingTime>0?ease(Math.min(1,(greetingDuration-greetingTime)/.2))*ease(Math.min(1,greetingTime/.65)):0;
@@ -216,7 +220,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         head.node.quaternion.copy(parent.clone().invert().multiply(lift).multiply(parent).multiply(head.node.quaternion));
       }
       tailLift=THREE.MathUtils.damp(tailLift,looking?1:state==='walk'?.30:.07,looking?5:1.8,dt);
-      for(const [name,pitchDown] of [['pet_tail',-1.15+.35*sit+.57*sideLie],['pet_tail_tip',-.70+.20*sit+.40*sideLie]]){
+      for(const [name,pitchDown] of [['pet_tail',spec.pet.poseSitV2?-1.15-.30*sit+.57*sideLie:-1.15+.35*sit+.57*sideLie],['pet_tail_tip',spec.pet.poseSitV2?-.70+.50*sit+.40*sideLie:-.70+.20*sit+.40*sideLie]]){
         const joint=bones.get(name),parent=joint.node.parent.getWorldQuaternion(new THREE.Quaternion()),axis=new THREE.Vector3(1,0,0).applyAxisAngle(up,yaw);
         const rotation=new THREE.Quaternion().setFromAxisAngle(up,.055*Math.sin(clock*1.5)*motion+.12*Math.sin(clock*4)*greet).multiply(new THREE.Quaternion().setFromAxisAngle(axis,pitchDown*(1-tailLift)));
         joint.node.quaternion.copy(parent.clone().invert().multiply(rotation).multiply(parent).multiply(joint.node.quaternion));joint.node.updateWorldMatrix(false,true);
@@ -261,8 +265,10 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
         }
         if(naturalRest&&sit>0&&!stepping){
           const rest=leg.rest.clone();
-          if(leg.name.startsWith("back")){rest.z+=.10*unit*ease(sit);rest.x+=Math.sign(rest.x)*.015*unit*ease(sit);}
-          leg.target.copy(rest.applyAxisAngle(up,yaw).add(curvePoint(distance)));leg.target.y=originY+leg.rest.y;leg.anchor.copy(leg.target);
+          if(leg.name.startsWith("back")){rest.z+=(spec.pet.poseSitV2 ? .155 : .10*unit)*ease(sit);rest.x+=Math.sign(rest.x)*(spec.pet.poseSitV2?-.012:.015*unit)*ease(sit);}
+          leg.target.copy(rest.applyAxisAngle(up,yaw).add(curvePoint(distance)));leg.target.y=originY+leg.rest.y;
+          if(spec.pet.poseSitV2&&leg.name.startsWith('back'))leg.target.y=originY+leg.rest.y*(1-.55*ease(sit))+.008*Math.sin(Math.PI*sit);
+          leg.anchor.copy(leg.target);
         }
         leg.swing=swing;solve(leg);
       }

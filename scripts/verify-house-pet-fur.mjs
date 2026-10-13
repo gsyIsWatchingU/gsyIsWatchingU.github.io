@@ -7,7 +7,8 @@ import { createHousePet } from "./house-pet.js";
 
 // 验证真实运行时网格、蒙皮变形与完整路线；Node 只省略贴图解码。
 const config = JSON.parse(readFileSync(new URL("../src/data/pineapple-house.json", import.meta.url)));
-const spec = structuredClone(config.assets.find(a => a.id === "siamese-cat"));
+const candidateIndex=process.argv.indexOf('--candidate');
+const spec = candidateIndex>=0 ? JSON.parse(readFileSync(process.argv[candidateIndex+1])) : structuredClone(config.assets.find(a => a.id === "siamese-cat"));
 assert(spec.pet.fur && spec.pet.restPoses,'正式入口需启用短毛与坐卧');
 const data = readFileSync(new URL(`../${spec.url}`, import.meta.url));
 assert.equal(createHash('sha256').update(data).digest('hex'),spec.pet.runtimeSha256,'脸部标定需匹配本次 GLB');
