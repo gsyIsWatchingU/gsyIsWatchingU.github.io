@@ -1,7 +1,7 @@
 [
   {
     "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\assets\\models\\neighborhood\\squidward-house.glb",
-    "triangles": 100626,
+    "triangles": 100814,
     "bbox_min": [
       -1.69,
       0,
@@ -10,12 +10,12 @@
     "bbox_max": [
       1.69,
       4.62,
-      1.625
+      1.72
     ],
     "size_xyz": [
       3.38,
       4.62,
-      3.175
+      3.27
     ],
     "flags": [],
     "warnings": [],
@@ -326,7 +326,7 @@
         ]
       }
     ],
-    "primitive_count": 58,
+    "primitive_count": 63,
     "primitives": [
       {
         "mesh": 0,
@@ -674,36 +674,64 @@
       {
         "mesh": 46,
         "prim": 0,
-        "tris": 646,
+        "tris": 162,
         "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 46,
+        "prim": 1,
+        "tris": 484,
+        "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 47,
         "prim": 0,
-        "tris": 652,
-        "material": 2,
+        "tris": 163,
+        "material": 27,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 47,
+        "prim": 1,
+        "tris": 489,
+        "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 48,
         "prim": 0,
-        "tris": 660,
+        "tris": 165,
         "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 48,
+        "prim": 1,
+        "tris": 495,
+        "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 49,
         "prim": 0,
-        "tris": 628,
+        "tris": 156,
         "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 49,
+        "prim": 1,
+        "tris": 472,
+        "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 50,
         "prim": 0,
-        "tris": 2,
-        "material": 33,
+        "tris": 188,
+        "material": 32,
         "has_baseColorTexture": true
       },
       {
@@ -716,19 +744,26 @@
       {
         "mesh": 52,
         "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 53,
+        "prim": 0,
         "tris": 116,
         "material": 2,
         "has_baseColorTexture": true
       },
       {
-        "mesh": 53,
+        "mesh": 54,
         "prim": 0,
         "tris": 15444,
         "material": 2,
         "has_baseColorTexture": true
       },
       {
-        "mesh": 54,
+        "mesh": 55,
         "prim": 0,
         "tris": 60,
         "material": 34,
@@ -741,7 +776,7 @@
   },
   {
     "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\assets\\models\\neighborhood\\squidward-house-web.glb",
-    "triangles": 100626,
+    "triangles": 100814,
     "bbox_min": [
       -1.69,
       0,
@@ -750,12 +785,12 @@
     "bbox_max": [
       1.69,
       4.62,
-      1.625
+      1.72
     ],
     "size_xyz": [
       3.38,
       4.62,
-      3.175
+      3.27
     ],
     "flags": [],
     "warnings": [],
@@ -1066,7 +1101,7 @@
         ]
       }
     ],
-    "primitive_count": 58,
+    "primitive_count": 63,
     "primitives": [
       {
         "mesh": 0,
@@ -1414,36 +1449,64 @@
       {
         "mesh": 46,
         "prim": 0,
-        "tris": 646,
+        "tris": 162,
         "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 46,
+        "prim": 1,
+        "tris": 484,
+        "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 47,
         "prim": 0,
-        "tris": 652,
-        "material": 2,
+        "tris": 163,
+        "material": 27,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 47,
+        "prim": 1,
+        "tris": 489,
+        "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 48,
         "prim": 0,
-        "tris": 660,
+        "tris": 165,
         "material": 2,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 48,
+        "prim": 1,
+        "tris": 495,
+        "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 49,
         "prim": 0,
-        "tris": 628,
+        "tris": 156,
         "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 49,
+        "prim": 1,
+        "tris": 472,
+        "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 50,
         "prim": 0,
-        "tris": 2,
-        "material": 33,
+        "tris": 188,
+        "material": 32,
         "has_baseColorTexture": true
       },
       {
@@ -1456,19 +1519,26 @@
       {
         "mesh": 52,
         "prim": 0,
+        "tris": 2,
+        "material": 33,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 53,
+        "prim": 0,
         "tris": 116,
         "material": 2,
         "has_baseColorTexture": true
       },
       {
-        "mesh": 53,
+        "mesh": 54,
         "prim": 0,
         "tris": 15444,
         "material": 2,
         "has_baseColorTexture": true
       },
       {
-        "mesh": 54,
+        "mesh": 55,
         "prim": 0,
         "tris": 60,
         "material": 34,
@@ -1481,7 +1551,7 @@
   },
   {
     "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\assets\\models\\neighborhood\\squidward-interior.glb",
-    "triangles": 95158,
+    "triangles": 95346,
     "bbox_min": [
       -1.69,
       0,
@@ -1490,12 +1560,12 @@
     "bbox_max": [
       1.69,
       4.62,
-      1.625
+      1.72
     ],
     "size_xyz": [
       3.38,
       4.62,
-      3.175
+      3.27
     ],
     "flags": [],
     "warnings": [],
@@ -1806,7 +1876,7 @@
         ]
       }
     ],
-    "primitive_count": 53,
+    "primitive_count": 58,
     "primitives": [
       {
         "mesh": 0,
@@ -2098,36 +2168,64 @@
       {
         "mesh": 39,
         "prim": 0,
-        "tris": 646,
+        "tris": 162,
         "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 39,
+        "prim": 1,
+        "tris": 484,
+        "material": 14,
         "has_baseColorTexture": true
       },
       {
         "mesh": 40,
         "prim": 0,
-        "tris": 652,
-        "material": 0,
+        "tris": 163,
+        "material": 27,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 40,
+        "prim": 1,
+        "tris": 489,
+        "material": 14,
         "has_baseColorTexture": true
       },
       {
         "mesh": 41,
         "prim": 0,
-        "tris": 660,
+        "tris": 165,
         "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 41,
+        "prim": 1,
+        "tris": 495,
+        "material": 14,
         "has_baseColorTexture": true
       },
       {
         "mesh": 42,
         "prim": 0,
-        "tris": 628,
+        "tris": 156,
         "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 42,
+        "prim": 1,
+        "tris": 472,
+        "material": 14,
         "has_baseColorTexture": true
       },
       {
         "mesh": 43,
         "prim": 0,
-        "tris": 2,
-        "material": 33,
+        "tris": 188,
+        "material": 32,
         "has_baseColorTexture": true
       },
       {
@@ -2140,30 +2238,30 @@
       {
         "mesh": 45,
         "prim": 0,
-        "tris": 116,
-        "material": 0,
+        "tris": 2,
+        "material": 33,
         "has_baseColorTexture": true
       },
       {
         "mesh": 46,
         "prim": 0,
-        "tris": 15444,
+        "tris": 116,
         "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 47,
         "prim": 0,
-        "tris": 60,
-        "material": 34,
-        "has_baseColorTexture": false
+        "tris": 15444,
+        "material": 0,
+        "has_baseColorTexture": true
       },
       {
         "mesh": 48,
         "prim": 0,
-        "tris": 188,
-        "material": 14,
-        "has_baseColorTexture": true
+        "tris": 60,
+        "material": 34,
+        "has_baseColorTexture": false
       },
       {
         "mesh": 49,
@@ -2174,6 +2272,13 @@
       },
       {
         "mesh": 50,
+        "prim": 0,
+        "tris": 188,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 51,
         "prim": 0,
         "tris": 188,
         "material": 14,
@@ -2186,7 +2291,7 @@
   },
   {
     "file": "C:\\Users\\Administrator\\.codex\\worktrees\\squidward-reference-v7\\gsyIsWatchingU\\assets\\models\\neighborhood\\squidward-interior-web.glb",
-    "triangles": 95158,
+    "triangles": 95346,
     "bbox_min": [
       -1.69,
       0,
@@ -2195,12 +2300,12 @@
     "bbox_max": [
       1.69,
       4.62,
-      1.625
+      1.72
     ],
     "size_xyz": [
       3.38,
       4.62,
-      3.175
+      3.27
     ],
     "flags": [],
     "warnings": [],
@@ -2511,7 +2616,7 @@
         ]
       }
     ],
-    "primitive_count": 53,
+    "primitive_count": 58,
     "primitives": [
       {
         "mesh": 0,
@@ -2803,36 +2908,64 @@
       {
         "mesh": 39,
         "prim": 0,
-        "tris": 646,
+        "tris": 162,
         "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 39,
+        "prim": 1,
+        "tris": 484,
+        "material": 14,
         "has_baseColorTexture": true
       },
       {
         "mesh": 40,
         "prim": 0,
-        "tris": 652,
-        "material": 0,
+        "tris": 163,
+        "material": 27,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 40,
+        "prim": 1,
+        "tris": 489,
+        "material": 14,
         "has_baseColorTexture": true
       },
       {
         "mesh": 41,
         "prim": 0,
-        "tris": 660,
+        "tris": 165,
         "material": 0,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 41,
+        "prim": 1,
+        "tris": 495,
+        "material": 14,
         "has_baseColorTexture": true
       },
       {
         "mesh": 42,
         "prim": 0,
-        "tris": 628,
+        "tris": 156,
         "material": 32,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 42,
+        "prim": 1,
+        "tris": 472,
+        "material": 14,
         "has_baseColorTexture": true
       },
       {
         "mesh": 43,
         "prim": 0,
-        "tris": 2,
-        "material": 33,
+        "tris": 188,
+        "material": 32,
         "has_baseColorTexture": true
       },
       {
@@ -2845,30 +2978,30 @@
       {
         "mesh": 45,
         "prim": 0,
-        "tris": 116,
-        "material": 0,
+        "tris": 2,
+        "material": 33,
         "has_baseColorTexture": true
       },
       {
         "mesh": 46,
         "prim": 0,
-        "tris": 15444,
+        "tris": 116,
         "material": 0,
         "has_baseColorTexture": true
       },
       {
         "mesh": 47,
         "prim": 0,
-        "tris": 60,
-        "material": 34,
-        "has_baseColorTexture": false
+        "tris": 15444,
+        "material": 0,
+        "has_baseColorTexture": true
       },
       {
         "mesh": 48,
         "prim": 0,
-        "tris": 188,
-        "material": 14,
-        "has_baseColorTexture": true
+        "tris": 60,
+        "material": 34,
+        "has_baseColorTexture": false
       },
       {
         "mesh": 49,
@@ -2879,6 +3012,13 @@
       },
       {
         "mesh": 50,
+        "prim": 0,
+        "tris": 188,
+        "material": 14,
+        "has_baseColorTexture": true
+      },
+      {
+        "mesh": 51,
         "prim": 0,
         "tris": 188,
         "material": 14,

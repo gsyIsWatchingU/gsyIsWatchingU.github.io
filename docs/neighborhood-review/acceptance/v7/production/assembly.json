@@ -1,0 +1,26 @@
+{
+  "adoptedGPUAssets": [
+    "sofa",
+    "armchair",
+    "bed",
+    "bathtub",
+    "old-tv",
+    "bookshelf",
+    "plant"
+  ],
+  "meshCount": 57,
+  "wallCount": 1,
+  "basinSupport": {
+    "center": [
+      0.6500001549720764,
+      -0.5999999642372131,
+      3.600003957748413
+    ],
+    "footRadius": 0.08500015735628311,
+    "floorOuterMargin": 0.16740945237917168,
+    "stairHoleMargin": 0.07571368079901641,
+    "frontCutMargin": 0.1949998784065038
+  },
+  "entranceSupport": "石基z=0..0.15，与雕像和木门底面0.15贴合",
+  "status": "review"
+}

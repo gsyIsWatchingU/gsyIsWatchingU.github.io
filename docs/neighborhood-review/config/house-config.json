@@ -1,8 +1,8 @@
 {
-  "version": "20261013-squidward-v7-final",
+  "version": "20261013-squidward-v7-final2",
   "status": "review",
   "note": "v7 参考图精修，glTF Y-up，+Z 朝前；石壳外观闭合，剖切保留有厚度的砖墙，四层行走面 y=0.15/1.20/2.40/3.60。近景镜头按视口适配；移动端关闭 SSAO。",
-  "cacheBust": "v=20261013-squidward-v7-final",
+  "cacheBust": "v=20261013-squidward-v7-final2",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 32,
@@ -81,8 +81,8 @@
           ],
           "label": [
             0,
-            0.85,
-            0
+            0.6,
+            0.8
           ],
           "target": [
             -0.2,
@@ -118,8 +118,8 @@
           ],
           "label": [
             0,
-            1.95,
-            0
+            1.7,
+            0.8
           ],
           "target": [
             -0.2,
@@ -154,8 +154,8 @@
           ],
           "label": [
             0,
-            3.15,
-            0
+            2.9,
+            0.8
           ],
           "target": [
             -0.2,
@@ -189,8 +189,8 @@
           ],
           "label": [
             0,
-            4.15,
-            0
+            4.05,
+            0.8
           ],
           "target": [
             0,

@@ -1,28 +1,28 @@
 {
-  "checkedAt": "2026-10-13T01:29:40.882Z",
-  "expectedGitCommit": "c1f8a91b4793de904e6d8204d549e9b1a2cdd216",
+  "checkedAt": "2026-10-13T02:09:13.156Z",
+  "expectedGitCommit": "a1eb5e951012fa49402dfd0c2b250b9268a67a2b",
   "checks": [
     {
       "file": "docs/neighborhood-review/index.html",
-      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/index.html?t=1791854978762",
+      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/index.html?t=1791857350208",
       "status": 200,
-      "expectedSHA256": "28c9d359e5d5aaa2ef9d1867d260c3cf57d53e5e122f286577da254c8c3ed263",
-      "actualSHA256": "28c9d359e5d5aaa2ef9d1867d260c3cf57d53e5e122f286577da254c8c3ed263",
-      "bytes": 1674,
+      "expectedSHA256": "c8031d99342af2a4c23f0c111e979156d77a057d59fa841725793cd53c0bd870",
+      "actualSHA256": "c8031d99342af2a4c23f0c111e979156d77a057d59fa841725793cd53c0bd870",
+      "bytes": 1686,
       "match": true
     },
     {
       "file": "docs/neighborhood-review/neighborhood.js",
-      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/neighborhood.js?t=1791854978816",
+      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/neighborhood.js?t=1791857350265",
       "status": 200,
-      "expectedSHA256": "4ea8d0a9a97d984d1280f8648c9803a0dfe749d05c98b544a388f7cee8d2ec06",
-      "actualSHA256": "4ea8d0a9a97d984d1280f8648c9803a0dfe749d05c98b544a388f7cee8d2ec06",
-      "bytes": 29795,
+      "expectedSHA256": "461b22b1528ee5ae4d59cb8a5c1621f81ec6e7cfdf167237f33d7fb9533fd1b0",
+      "actualSHA256": "461b22b1528ee5ae4d59cb8a5c1621f81ec6e7cfdf167237f33d7fb9533fd1b0",
+      "bytes": 30769,
       "match": true
     },
     {
       "file": "docs/neighborhood-review/neighborhood.css",
-      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/neighborhood.css?t=1791854978847",
+      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/neighborhood.css?t=1791857350306",
       "status": 200,
       "expectedSHA256": "c0f1048d1aef9dc848c1712406d60890834611a0d97545cc4fb3576a46ee801f",
       "actualSHA256": "c0f1048d1aef9dc848c1712406d60890834611a0d97545cc4fb3576a46ee801f",
@@ -31,16 +31,16 @@
     },
     {
       "file": "docs/neighborhood-review/config/house-config.json",
-      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/config/house-config.json?t=1791854978876",
+      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/config/house-config.json?t=1791857350337",
       "status": 200,
-      "expectedSHA256": "983024521b83b3b052fddee44f42b030320e6a278f75a08861763d0671364ea3",
-      "actualSHA256": "983024521b83b3b052fddee44f42b030320e6a278f75a08861763d0671364ea3",
-      "bytes": 5169,
+      "expectedSHA256": "ed21c75597c3dea88587b59ea759d0853ee87092e18711139217ae8d8514c5da",
+      "actualSHA256": "ed21c75597c3dea88587b59ea759d0853ee87092e18711139217ae8d8514c5da",
+      "bytes": 5181,
       "match": true
     },
     {
       "file": "docs/neighborhood-review/asset-index.json",
-      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/asset-index.json?t=1791854978907",
+      "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/asset-index.json?t=1791857350366",
       "status": 200,
       "expectedSHA256": "d8bcf47cc2be3aecacf3a222be3d694165c3aa2e261ec5e3fff3ce87608260be",
       "actualSHA256": "d8bcf47cc2be3aecacf3a222be3d694165c3aa2e261ec5e3fff3ce87608260be",
@@ -49,7 +49,7 @@
     },
     {
       "file": "assets/models/neighborhood/squidward-house.glb",
-      "url": "https://gsyiswatchingu.github.io/assets/models/neighborhood/squidward-house.glb?t=1791854978955",
+      "url": "https://gsyiswatchingu.github.io/assets/models/neighborhood/squidward-house.glb?t=1791857350418",
       "status": 200,
       "expectedSHA256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884",
       "actualSHA256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884",
@@ -58,7 +58,7 @@
     },
     {
       "file": "assets/models/neighborhood/squidward-house-web.glb",
-      "url": "https://gsyiswatchingu.github.io/assets/models/neighborhood/squidward-house-web.glb?t=1791854979003",
+      "url": "https://gsyiswatchingu.github.io/assets/models/neighborhood/squidward-house-web.glb?t=1791857350467",
       "status": 200,
       "expectedSHA256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884",
       "actualSHA256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884",
@@ -67,7 +67,7 @@
     },
     {
       "file": "assets/models/neighborhood/squidward-interior.glb",
-      "url": "https://gsyiswatchingu.github.io/assets/models/neighborhood/squidward-interior.glb?t=1791854979049",
+      "url": "https://gsyiswatchingu.github.io/assets/models/neighborhood/squidward-interior.glb?t=1791857350514",
       "status": 200,
       "expectedSHA256": "21f65160c1fdeba1888d6dddf47ac1ecd0e5cb4d2cebddce9b53db28d53469cc",
       "actualSHA256": "21f65160c1fdeba1888d6dddf47ac1ecd0e5cb4d2cebddce9b53db28d53469cc",
@@ -76,7 +76,7 @@
     },
     {
       "file": "assets/models/neighborhood/squidward-interior-web.glb",
-      "url": "https://gsyiswatchingu.github.io/assets/models/neighborhood/squidward-interior-web.glb?t=1791854979095",
+      "url": "https://gsyiswatchingu.github.io/assets/models/neighborhood/squidward-interior-web.glb?t=1791857350564",
       "status": 200,
       "expectedSHA256": "21f65160c1fdeba1888d6dddf47ac1ecd0e5cb4d2cebddce9b53db28d53469cc",
       "actualSHA256": "21f65160c1fdeba1888d6dddf47ac1ecd0e5cb4d2cebddce9b53db28d53469cc",

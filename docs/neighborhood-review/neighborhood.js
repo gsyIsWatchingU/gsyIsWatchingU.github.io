@@ -22,7 +22,7 @@ const infoPanel = document.getElementById('info-panel');
 // ========== Config ==========
 let config = null;
 async function loadConfig() {
-  const res = await fetch('./config/house-config.json?v=20261013-squidward-v7-final');
+  const res = await fetch('./config/house-config.json?v=20261013-squidward-v7-final2');
   if (!res.ok) throw new Error('config load ' + res.status);
   config = await res.json();
 }
@@ -417,6 +417,7 @@ function loadInterior(gen, done) {
     state.doorMeshes = [];
     const names = cfg.door.meshNames || [];
     sceneObj.traverse(o => { if (o.isMesh && names.includes(o.name)) state.doorMeshes.push(o); });
+    sceneObj.position.copy(state.shift);
     state.intMesh = sceneObj;
     state.intTris = countTris(sceneObj);
     intGroup.add(sceneObj);
@@ -466,7 +467,7 @@ function setRoomFurnitureVisible(roomId) {
     if (o.name.startsWith('stairs_')) { o.visible = true; return; }
     if (o.name.startsWith('wall_')) { o.visible = true; return; }
     // 楼板：房间近景按配置隐藏当前层上方的遮挡楼板
-    if (o.name.startsWith('floor_')) { o.visible = !hideFloors.includes(o.name); return; }
+    if (o.name.startsWith('floor_')) { o.visible = !hideFloors.includes(o.name.match(/^floor_[1-4]/)?.[0] || o.name); return; }
     // 门组：房间近景时整体隐藏（frame/panel/handle 都不挡视线）；剖切全局时显示
     if (o.name.startsWith('door_')) { o.visible = !roomId; return; }
     if (!roomId) { o.visible = true; return; }

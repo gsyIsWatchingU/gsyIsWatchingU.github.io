@@ -20,7 +20,7 @@ python -m http.server 8769 --bind 127.0.0.1
 
 ## 邻里房屋预览
 
-章鱼哥屋 v7 的[独立预览](https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7-final)已按参考精修四层剖面、材质与家具，状态为 `review`，尚未接入首页。入口、资产来源及验收证据见[预览说明](docs/neighborhood-review/README.md)。真实设备性能与用户视觉批准待完成。
+章鱼哥屋 v7 的[独立预览](https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7-final2)已按参考精修四层剖面、材质与家具，状态为 `review`，尚未接入首页。入口、资产来源及验收证据见[预览说明](docs/neighborhood-review/README.md)。真实设备性能与用户视觉批准待完成。
 
 ## 旧互动小屋（保留源码）
 

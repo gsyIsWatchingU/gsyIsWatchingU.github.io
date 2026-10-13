@@ -1,24 +1,28 @@
 # 验收记录
 
-## v7 当前版本（2026-10-13，缓存 `?v=20261013-squidward-v7-final`）
+## v7 当前版本（2026-10-13，缓存 `?v=20261013-squidward-v7-final2`）
 
 按本轮用户参考精修平顶石壳、侧耳与楔形鼻、四层砖墙/木楼板、右侧弧形梯、家具及艺术品平台。参考与浏览器实测并排图见 [reference-comparison.png](acceptance/v7/reference-comparison.png)，未在模型截图中补画或叠加插画。
 
 | 检查 | 结果 / 证据 |
 | --- | --- |
-| 最终 GLB | 整屋100,626 / 室内95,158三角；桌面/移动同哈希，23图像/23纹理，最大512×512；完整明细见 `asset-index.json` |
+| 最终 GLB | 整屋100,814 / 室内95,346三角；桌面/移动同哈希，23图像/23纹理，最大512×512；完整明细见 `asset-index.json` |
 | 几何技术门禁 | 4件GLB均通过，最低y=0、最高y=4.62，有贴图的网格均有UV和法线；[model-checks.json](acceptance/v7/model-checks.json) |
 | 来源 | 19张输入图检查通过；7件GPU候选进入精修，1件失败电视未采用；浴缸原始failed及白色搪瓷复核依据保留，见[生产登记](acceptance/v7/production/provenance.json) |
 | 本地交互预检 | CDP原生输入51/51：1440×900、390×844，真实门网格点击、四房间/返回/Esc、双击返回、拖拽/滚轮/双指缩放及重置、直达派大星后切回、窗口变化；输入全trusted，健康运行零脚本错误/非取消资源失败；[results.json](acceptance/v7/local/results.json) |
 | 故障恢复 | 5/5：外观加载阻断后重试、室内失败停止loading、原生重试恢复、双击进入只发一次成功请求；[retry/results.json](acceptance/v7/retry/results.json)。此用例故意阻断2次网络，不混计为健康冒烟错误 |
 | 构建 | `npm run build` / `npm run check` / `git diff --check` 通过；正式首页源码和派大星模型未改 |
-| 公网 | 待发布后追加公网SHA和CDP复验记录；最终以公网复验为准 |
+| 公网 | v7-final原生CDP51/51和9/9资源SHA已通过；v7-final2新增石基、洗手盆支撑、蓝色客厅地面及标签锚点，最终公网证据待刷新 |
 
 公网目检补修：手机近景原先仍露出其他楼层的墙和楼梯；现近景按当前层高度裁剪，返回恢复完整四层，近景隐藏地面背景。手机四房间上方绿墙像素回归从3项失败→4/4通过，修前截图保留在 `acceptance/v7/before-room-section/`。全局剖切仍使用实际拆分的GLB壳体，层高裁剪仅用于房间近景。舷窗补件改为父模型局部坐标，避免归一化位移重复应用。
 
 本轮保持 `review`，没有用户视觉批准，也未接正式首页。插画笔触、石雕细节和透视与参考仍有差异；无头Chrome/SwiftShader及触屏仿真不能证明真实GPU帧率或物理手机操作，实机目标桌面≥50 / 手机≥30fps待复核。
 
 ---
+
+支撑复核：洗手盆脚底y=3.600004，梯洞余量0.0757m、地坪外圈余量0.1674m、前切口余量0.1950m；正门/雕像由0..0.15m石基承托，冰箱顶低于二层楼板。见 [assembly.json](acceptance/v7/production/assembly.json)。
+
+源工程另存 `C:/Users/Administrator/Documents/CodexArtifacts/squidward-house-v7-20261013/squidward-reference-v7-final2.blend`，哈希见[生产登记](acceptance/v7/production/provenance.json)，不依赖工作树临时目录保留。
 
 ## v4 / v5 / v6 历史记录（以下数值与生产边界非当前版本）
 

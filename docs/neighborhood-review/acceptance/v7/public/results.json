@@ -1,5 +1,5 @@
 {
-  "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7",
+  "url": "https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7-final",
   "checks": [
     {
       "name": "desktop-closed-exterior",
@@ -43,8 +43,8 @@
       "ok": true,
       "actual": {
         "point": {
-          "x": 737.8023365903589,
-          "y": 705.3728885971788
+          "x": 736.4761268966989,
+          "y": 705.4053017258794
         },
         "state": {
           "house": "squidward",

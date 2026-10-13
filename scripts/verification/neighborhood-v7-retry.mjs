@@ -7,7 +7,7 @@ const wait=()=>d.wait(`window.__neighborhood?.state.extMesh&&!window.__neighborh
 function check(name,ok,actual){checks.push({name,ok,actual});console.log((ok?'PASS ':'FAIL ')+name);}
 try{
  await d.viewport(1440,900);await d.send('Network.setBlockedURLs',{urls:['*squidward-house.glb*']});
- await d.navigate('http://127.0.0.1:8797/docs/neighborhood-review/?v=20261013-squidward-v7-final');
+ await d.navigate('http://127.0.0.1:8797/docs/neighborhood-review/?v=20261013-squidward-v7-final2');
  await d.wait(`!document.querySelector('#error-panel').hidden`);check('exterior-failure-retry-visible',true);await d.screenshot('exterior-error');
  await d.send('Network.setBlockedURLs',{urls:[]});await d.clickElement('#btn-retry');await wait();check('exterior-native-retry',(await d.state()).view==='exterior');
  await d.send('Network.setBlockedURLs',{urls:['*squidward-interior.glb*']});await d.clickElement('#btn-cutaway');

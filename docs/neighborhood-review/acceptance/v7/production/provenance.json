@@ -7,9 +7,9 @@
   "baseRuntimeGitRef": "b926910:assets/models/neighborhood/squidward-house.glb",
   "baseRuntimeSHA256": "4d797fd3894319a598e200c46bf688b3dac29ebcfb0547e7898c80e63f40f6cb",
   "assemblyScript": "scripts/art/squidward-v7-assemble.py",
-  "assemblyScriptSHA256": "efbea03330e7c22221ac01d9a4cbec7a5835b3cf2d7814890da4323b30184575",
+  "assemblyScriptSHA256": "6d0691ef3267c0db8b28e2537c3e60c20e107d85cc402070f8feeca629d76728",
   "sourceBlendLocal": "tmp/v7-production/squidward-reference-v7.blend",
-  "sourceBlendSHA256": "7fc276bef689d55983c7e952c682772a9226739c4a93e8de3c3226ccb8ba9374",
+  "sourceBlendSHA256": "03bcfcf7f3a580021d5501f4c03cee607b5174cac3c1afc08b2bd4e9d43d89d3",
   "sourceRemote": "gsy013:/workspace/projects/squidward-reference-v7-20261013",
   "assets": [
     {
@@ -108,5 +108,6 @@
     "连续石雕曲面、开口洗手盆、后墙木门和画框",
     "纹理缩至 512，室内同材质合批；门使用真实枢轴"
   ],
-  "deviceReview": "pending"
+  "deviceReview": "pending",
+  "sourceBlendDurableLocal": "C:/Users/Administrator/Documents/CodexArtifacts/squidward-house-v7-20261013/squidward-reference-v7-final2.blend"
 }

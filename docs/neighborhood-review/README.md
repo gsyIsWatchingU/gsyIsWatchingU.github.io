@@ -6,14 +6,14 @@
 
 ## 章鱼哥屋 v7（当前版本）
 
-[打开 v7 独立预览](https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7-final)。默认完整外观，点击木门或「查看剖面」进入四层；点击房间进入近景，Esc / 返回退出。
+[打开 v7 独立预览](https://gsyiswatchingu.github.io/docs/neighborhood-review/?v=20261013-squidward-v7-final2)。默认完整外观，点击木门或「查看剖面」进入四层；点击房间进入近景，Esc / 返回退出。
 
 按[本轮参考图](refs/v7/primary-reference.png)精修墨绿砖墙、木质楼板、右侧弧形木梯、家具材质、艺术品平台和浴室内腔。状态保持 `review`，用户视觉审查待完成，未接入正式首页。
 
 | 模型 | 三角面 | 图像 / 纹理 | SHA-256 |
 | --- | ---: | --- | --- |
-| 整屋 / 移动整屋 | 100,626 | 23 / 23，最大512×512 | `503249e1…af65884` |
-| 室内 / 移动室内 | 95,158 | 23 / 23，最大512×512 | `21f65160…53469cc` |
+| 整屋 / 移动整屋 | 100,814 | 23 / 23，最大512×512 | `0983479c…63d4b8e` |
+| 室内 / 移动室内 | 95,346 | 23 / 23，最大512×512 | `793715cd…832e671` |
 
 完整哈希、每张贴图用途见[资产登记](asset-index.json)。建筑精修为 Blender，新增家具来自自有 L20 Forge3D/Hunyuan3D，纹理与肖像来自 Z-Image；采用项、失败候选和精修范围见[装配记录](ASSEMBLY_NOTES.md)及[生产来源](acceptance/v7/production/provenance.json)。派大星模型与正式首页资源未改。
 

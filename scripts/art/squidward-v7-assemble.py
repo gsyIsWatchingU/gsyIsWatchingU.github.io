@@ -48,7 +48,8 @@ def uv(o, cylindrical=False, scale=1.0):
         for index in p.loop_indices:
             v=o.data.vertices[o.data.loops[index].vertex_index].co
             if cylindrical:
-                layer.data[index].uv=((math.atan2(v.y,v.x)+math.pi)/math.tau*scale,v.z/2)
+                wall_tiles=p.material_index==1
+                layer.data[index].uv=((math.atan2(v.y,v.x)+math.pi)/math.tau*(8 if wall_tiles else scale),v.z/(.9 if wall_tiles else 2))
             else:
                 pairs=((v.y,v.z),(v.x,v.z),(v.x,v.y))
                 a,b=pairs[axis]; layer.data[index].uv=(a/scale,b/scale)
@@ -106,7 +107,7 @@ for o in list(bpy.context.scene.objects):
             mod=o.modifiers.new('stone_edge_wear','BEVEL');mod.width=.035;mod.segments=3
             bpy.context.view_layer.objects.active=o;bpy.ops.object.modifier_apply(modifier=mod.name)
     elif name.startswith('floor_'):
-        level=int(name[-1]); set_material(o,wood if level in (2,3) else floortile,False,1.6)
+        level=int(name[-1]); set_material(o,wood if level==3 else bluefabric if level==2 else floortile,False,1.6)
     elif name.startswith('stairs_'):
         set_material(o,wood,False,.7)
         for v in o.data.vertices:
@@ -215,13 +216,14 @@ def relocate(prefix,target,size):
 relocate('kitchen_cabinets_',(-.5,.85,.15),(1.2,.42,.66))
 relocate('kitchen_stove_',(-.67,.67,.15),(.42,.44,.7))
 relocate('kitchen_sink_',(-.13,.72,.15),(.42,.44,.7))
-relocate('kitchen_fridge_',(.55,.75,.15),(.4,.45,.95))
+relocate('kitchen_fridge_',(.55,.75,.15),(.4,.45,.9))
 relocate('kitchen_dining-table_',(-.2,-.3,.15),(.75,.65,.57))
 relocate('kitchen_stool_',(-.2,-.3,.15),(.96,.3,.4))
 relocate('bedroom_nightstand-L_',(-.93,.28,2.4),(.27,.27,.69))
 relocate('bedroom_nightstand-R_',(.18,.65,2.4),(.27,.27,.69))
 relocate('bedroom_dresser_',(.45,.6,2.4),(.38,.3,.6))
 relocate('bedroom_bed-rug_',(-.33,-.55,2.405),(.65,.4,.015))
+relocate('living_rug_',(-.4,-.05,1.205),(.9,.7,.012))
 relocate('art_plinth-1_',(.76,-.62,1.2),(.27,.27,.3))
 relocate('art_plinth-2_',(.76,-.62,2.4),(.27,.27,.3))
 relocate('art_sculpture_',(.76,-.62,1.5),(.23,.23,.37))
@@ -286,12 +288,19 @@ for level,(bottom,top,radius) in enumerate([(0,.15,1.341),(1.08,1.2,1.279),(2.28
     outline=sorted(set(outline),key=lambda p:math.atan2(p[1],p[0]))
     n=len(outline);verts=[(x,y,z) for z in (bottom,top) for x,y in outline]
     faces=[tuple(reversed(range(n))),tuple(range(n,n*2))]+[(k,(k+1)%n,(k+1)%n+n,k+n) for k in range(n)]
-    floor=mesh_object('floor_'+str(level),verts,faces,wood if level in (2,3) else floortile)
+    floor=mesh_object('floor_'+str(level),verts,faces,wood if level==3 else bluefabric if level==2 else floortile)
     bpy.ops.mesh.primitive_cylinder_add(vertices=64,radius=.47,depth=.8,location=(.68,.03,top))
     cutter=bpy.context.object
     mod=floor.modifiers.new('right_stairwell','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter
     bpy.context.view_layer.objects.active=floor;bpy.ops.object.modifier_apply(modifier=mod.name);bpy.data.objects.remove(cutter,do_unlink=True)
     uv(floor,False,1.6)
+    floor.data.materials.append(stone)
+    for p in floor.data.polygons:p.material_index=0 if p.normal.z>.5 else 1
+
+# 前院石基承托正门及两座雕像，接入一层0.15行走面。
+porch=mesh_object('entrance_stone_porch',[(x,y,z) for z in (0,.15) for x,y in [(-.95,-1.72),(.95,-1.72),(.95,-.84),(-.95,-.84)]],[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)],floortile)
+mod=porch.modifiers.new('porch_stone_edges','BEVEL');mod.width=.015;mod.segments=3
+bpy.context.view_layer.objects.active=porch;bpy.ops.object.modifier_apply(modifier=mod.name)
 
 # 拱形内门、肖像画与木质画框放在各层后墙，画面为本轮自有 GPU 生成纹理。
 for level,prefix,x,y,z in [(2,'living',-.52,1.02,1.87),(3,'bedroom',-.75,.75,2.97)]:
@@ -368,7 +377,7 @@ for o in bpy.context.scene.objects:
 remove_prefix('bath_washbasin_')
 enamel=next(o.data.materials[0] for o in bpy.context.scene.objects if o.type=='MESH' and o.name.startswith('bath_bathtub_'))
 def oval_profile(name,profile):
-    verts=[(.75+r*math.cos(math.tau*k/64),.18+.8*r*math.sin(math.tau*k/64),z) for r,z in profile for k in range(64)]
+    verts=[(.65+r*math.cos(math.tau*k/64),-.6+.8*r*math.sin(math.tau*k/64),z) for r,z in profile for k in range(64)]
     faces=[]
     for row in range(len(profile)-1):
         for k in range(64):faces.append((row*64+k,row*64+(k+1)%64,(row+1)*64+(k+1)%64,(row+1)*64+k))
@@ -377,10 +386,16 @@ def oval_profile(name,profile):
     for p in ob.data.polygons:p.use_smooth=True
 oval_profile('bath_washbasin_curved_pedestal',[(0,3.6),(.085,3.6),(.09,3.64),(.045,3.7),(.035,3.96),(.08,4.0),(0,4.0)])
 oval_profile('bath_washbasin_open_bowl',[(.03,3.985),(.1,3.98),(.17,4.065),(.185,4.09),(.175,4.105),(.157,4.09),(.12,4.03),(.04,4.005),(.03,3.985)])
-tap=rail('bath_washbasin_faucet',[(.75,.31,4.05),(.75,.31,4.17),(.75,.28,4.18),(.75,.23,4.18)],.01)
+tap=rail('bath_washbasin_faucet',[(.65,-.47,4.05),(.65,-.47,4.17),(.65,-.50,4.18),(.65,-.55,4.18)],.01)
 chrome=bpy.data.materials.new('v7_brushed_faucet_chrome');chrome.use_nodes=True
 bs=chrome.node_tree.nodes.get('Principled BSDF');bs.inputs['Base Color'].default_value=(.32,.38,.39,1);bs.inputs['Metallic'].default_value=.75;bs.inputs['Roughness'].default_value=.28
 set_material(tap,chrome,False,.15)
+pedestal=bpy.data.objects['bath_washbasin_curved_pedestal']
+bottom=min(v.co.z for v in pedestal.data.vertices)
+points=[v.co for v in pedestal.data.vertices if abs(v.co.z-bottom)<.0001]
+center=sum(points,Vector())/len(points);foot_radius=max(math.hypot(v.x-center.x,v.y-center.y) for v in points)
+basin_support={'center':list(center),'footRadius':foot_radius,'floorOuterMargin':1.137-math.hypot(center.x,center.y)-foot_radius,'stairHoleMargin':math.hypot(center.x-.68,center.y-.03)-foot_radius-.47,'frontCutMargin':center.y-foot_radius+.88}
+assert abs(bottom-3.6)<.001 and all(basin_support[k]>0 for k in ('floorOuterMargin','stairHoleMargin','frontCutMargin')),basin_support
 
 # 正门绕真实左门轴打开，避免绕整屋原点旋转。
 panel=bpy.data.objects.get('door_panel')
@@ -421,4 +436,4 @@ def export(name,objects):
 export('squidward-house.glb',[o for o in all_meshes if not o.name.startswith('wall_')])
 export('squidward-interior.glb',[o for o in all_meshes if not o.name.startswith('shell_')]+features)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'squidward-reference-v7.blend'))
-(OUT/'assembly.json').write_text(json.dumps({'adoptedGPUAssets':adopted,'meshCount':len(all_meshes),'wallCount':len(walls),'status':'review'},ensure_ascii=False,indent=2),encoding='utf-8')
+(OUT/'assembly.json').write_text(json.dumps({'adoptedGPUAssets':adopted,'meshCount':len(all_meshes),'wallCount':len(walls),'basinSupport':basin_support,'entranceSupport':'石基z=0..0.15，与雕像和木门底面0.15贴合','status':'review'},ensure_ascii=False,indent=2),encoding='utf-8')

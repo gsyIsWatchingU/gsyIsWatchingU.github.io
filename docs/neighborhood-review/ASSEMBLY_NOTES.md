@@ -8,7 +8,7 @@
 - 右侧三段弧形木梯各 13 步，梯段末端连接下一段起点，平台接各层楼板；扶手、栏杆随梯段连续上升。
 - 自有 L20 Forge3D/Hunyuan3D 生产座椅、扶手椅、四柱床、浴缸、电视、书柜、植物。Blender 精修比例/落点、床罩配色、书柜白底和书脊，补木门、画框、开口洗手盆，熔接石雕。建筑及这些精修不宣称全自动生成。
 - Z-Image 生成石材、砖、木纹、地毯、肖像；确定性裁边与配色见 `scripts/art/squidward-v7-textures.py`，原图及参数保留在 `refs/v7/`。
-- 整屋 100,626 三角，室内 95,158；各 23 张内嵌图像 / 23 纹理对象，最大512×512。各图用途/哈希见 `asset-index.json`。桌面/移动同几何同哈希，同房间同材质合批，手机关闭 SSAO。
+- 整屋 100,814 三角，室内 95,346；各 23 张内嵌图像 / 23 纹理对象，最大512×512。各图用途/哈希见 `asset-index.json`。桌面/移动同几何同哈希，同房间同材质合批，手机关闭 SSAO。
 - 浴缸任务因 `render_white_patch_risk` 为 **failed**，原状态未改。baseColor/ORM、UV 齐全，白色符合搪瓷参考；经内腔目检后作为 Blender 精修输入进入整屋 `review`。电视首任务显存不足失败未采用，gsy013 重试 `77b9ac8a…` 为 `review`。
 
 脚本：`scripts/art/squidward-v7-assemble.py`；本地源工程 `tmp/v7-production/squidward-reference-v7.blend`；远端 `gsy013:/workspace/projects/squidward-reference-v7-20261013/out/`。来源、输入/输出哈希、源工程哈希及日志见[生产登记](acceptance/v7/production/provenance.json)。

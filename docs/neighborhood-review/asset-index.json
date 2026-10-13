@@ -25,14 +25,14 @@
       -27
     ]
   },
-  "runtimeTriangles": 100626,
+  "runtimeTriangles": 100814,
   "assets": [
     {
       "id": "squidward-house",
       "runtime": "assets/models/neighborhood/squidward-house.glb",
-      "sha256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884",
-      "triangles": 100626,
-      "bytes": 10256476,
+      "sha256": "0983479c68ddb18ca69cdf434742762e496bc17ffca0556f83bc28f9b63d4b8e",
+      "triangles": 100814,
+      "bytes": 10273984,
       "images": [
         {
           "index": 0,
@@ -405,7 +405,7 @@
       ],
       "imageCount": 23,
       "textureCount": 23,
-      "meshCount": 55,
+      "meshCount": 56,
       "bboxMin": [
         -1.69,
         0,
@@ -414,16 +414,16 @@
       "bboxMax": [
         1.69,
         4.62,
-        1.625
+        1.72
       ],
       "status": "review"
     },
     {
       "id": "squidward-house-web",
       "runtime": "assets/models/neighborhood/squidward-house-web.glb",
-      "sha256": "503249e1fb272f37fae2f3781c8ed3823804d85e3b7ba9d15036b7c95af65884",
-      "triangles": 100626,
-      "bytes": 10256476,
+      "sha256": "0983479c68ddb18ca69cdf434742762e496bc17ffca0556f83bc28f9b63d4b8e",
+      "triangles": 100814,
+      "bytes": 10273984,
       "images": [
         {
           "index": 0,
@@ -796,7 +796,7 @@
       ],
       "imageCount": 23,
       "textureCount": 23,
-      "meshCount": 55,
+      "meshCount": 56,
       "bboxMin": [
         -1.69,
         0,
@@ -805,16 +805,16 @@
       "bboxMax": [
         1.69,
         4.62,
-        1.625
+        1.72
       ],
       "status": "review"
     },
     {
       "id": "squidward-interior",
       "runtime": "assets/models/neighborhood/squidward-interior.glb",
-      "sha256": "21f65160c1fdeba1888d6dddf47ac1ecd0e5cb4d2cebddce9b53db28d53469cc",
-      "triangles": 95158,
-      "bytes": 9865632,
+      "sha256": "793715cdf03c035c8bc4e7b1f1eace04d0662767a88c3cef67bb423a2832e671",
+      "triangles": 95346,
+      "bytes": 9883144,
       "images": [
         {
           "index": 0,
@@ -1187,7 +1187,7 @@
       ],
       "imageCount": 23,
       "textureCount": 23,
-      "meshCount": 51,
+      "meshCount": 52,
       "bboxMin": [
         -1.69,
         0,
@@ -1196,16 +1196,16 @@
       "bboxMax": [
         1.69,
         4.62,
-        1.625
+        1.72
       ],
       "status": "review"
     },
     {
       "id": "squidward-interior-web",
       "runtime": "assets/models/neighborhood/squidward-interior-web.glb",
-      "sha256": "21f65160c1fdeba1888d6dddf47ac1ecd0e5cb4d2cebddce9b53db28d53469cc",
-      "triangles": 95158,
-      "bytes": 9865632,
+      "sha256": "793715cdf03c035c8bc4e7b1f1eace04d0662767a88c3cef67bb423a2832e671",
+      "triangles": 95346,
+      "bytes": 9883144,
       "images": [
         {
           "index": 0,
@@ -1578,7 +1578,7 @@
       ],
       "imageCount": 23,
       "textureCount": 23,
-      "meshCount": 51,
+      "meshCount": 52,
       "bboxMin": [
         -1.69,
         0,
@@ -1587,7 +1587,7 @@
       "bboxMax": [
         1.69,
         4.62,
-        1.625
+        1.72
       ],
       "status": "review"
     }
