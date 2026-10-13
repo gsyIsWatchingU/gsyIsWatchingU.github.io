@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "commit": "ba254da05666c0a5923d94fef67b2ed3ff0f05e2",
+  "records": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "match": true
+    },
+    {
+      "path": "pineapple-house.html",
+      "status": 200,
+      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "expected": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
+      "actual": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
+      "match": true
+    },
+    {
+      "path": "src/data/pineapple-house.json",
+      "status": 200,
+      "expected": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
+      "actual": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "expected": "cca63f009ab9b12bbf1235879c2d2c7b388b01ce8d143e912c94a4c440e9eb37",
+      "actual": "cca63f009ab9b12bbf1235879c2d2c7b388b01ce8d143e912c94a4c440e9eb37",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-compact.glb",
+      "status": 200,
+      "expected": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "actual": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-anatomy-side-rest-v2.glb",
+      "status": 200,
+      "expected": "437014547c1505ebbed90b147074c42b5965df2911aad2f56438dab2569ff024",
+      "actual": "437014547c1505ebbed90b147074c42b5965df2911aad2f56438dab2569ff024",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/index.html",
+      "status": 200,
+      "expected": "ad9e3975020e6b7ae96ad7e87a2294826a96fc13bd31be1df2753900edc0276d",
+      "actual": "ad9e3975020e6b7ae96ad7e87a2294826a96fc13bd31be1df2753900edc0276d",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/viewer.js",
+      "status": 200,
+      "expected": "5f9edf3bd0c8cc10efbdfcc87cb54b6eed5ce7b6ebd8aabcd45ae7609f3468fc",
+      "actual": "5f9edf3bd0c8cc10efbdfcc87cb54b6eed5ce7b6ebd8aabcd45ae7609f3468fc",
+      "match": true
+    },
+    {
+      "path": "docs/cat-anatomy-review/runtime.json",
+      "status": 200,
+      "expected": "6a43aff0caee0a1bbb22978ea79d6152b0154566cfdf2ace11f8ac46dd1a51c1",
+      "actual": "6a43aff0caee0a1bbb22978ea79d6152b0154566cfdf2ace11f8ac46dd1a51c1",
+      "match": true
+    }
+  ]
+}
