@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "commit": "cfd03c4",
+  "records": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "132b301a310a431f84b12ea03177cc711de46cc12255505d4023d3a047c8d0af"
+    },
+    {
+      "file": "pineapple-house.html",
+      "status": 200,
+      "match": true,
+      "sha256": "132b301a310a431f84b12ea03177cc711de46cc12255505d4023d3a047c8d0af"
+    },
+    {
+      "file": "pineapple-companion.html",
+      "status": 200,
+      "match": true,
+      "sha256": "ff336404cee2a3950b3a3843701980ddd9d4d1635eae34f1f16f7b3eb91006e7"
+    },
+    {
+      "file": "assets/pineapple-house.js",
+      "status": 200,
+      "match": true,
+      "sha256": "4fa384f4a06f45b5f2c307c90891f94328fa138e22b10ae7661101d67429ec94"
+    }
+  ]
+}

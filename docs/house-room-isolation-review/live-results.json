@@ -1,0 +1,5549 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "room": "living",
+      "state": {
+        "state": "ready",
+        "view": "living",
+        "loaded": [
+          "table",
+          "chair",
+          "siamese-cat",
+          "sink",
+          "bathtub",
+          "toilet",
+          "treasure",
+          "couch",
+          "chest",
+          "barrel",
+          "bluetooth-speaker",
+          "lounger",
+          "bed",
+          "laptop",
+          "structure"
+        ],
+        "failed": [],
+        "fps": 58,
+        "renderer": {
+          "frame": 206,
+          "calls": 90,
+          "triangles": 429620,
+          "points": 0,
+          "lines": 320
+        },
+        "camera": [
+          0,
+          2.25,
+          8.600000000000001
+        ],
+        "target": [
+          0,
+          1.25,
+          0
+        ],
+        "pet": {
+          "state": "idle",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.98463,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.00014322332323747194,
+            0.012334560783352348,
+            0.011609880175279755,
+            0.9998565140957364
+          ],
+          "tail": [
+            0.07405001571226923,
+            0.02317488900230858,
+            0.026676896974829528,
+            0.9966282579207216
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124306403,
+                0.06500000836313952,
+                1.7953792593597013
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "table_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "eight_section_life_ring",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "eight_section_life_ring_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_red_upholstery",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_red_seams",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_cat",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_2",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_3",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_4",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_5",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_fine_fibers",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_green_tubes",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_blue_fabric",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_orange_rubber",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "retopologized_rounded_screen_case",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "continuous_screen_bezel",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "clean_display",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_on_display",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib001",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib002",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib003",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib004",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "living_L0_wood",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_blue_metal",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_window_glass",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_seams",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_rug",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "room": "storage",
+      "state": {
+        "state": "ready",
+        "view": "storage",
+        "loaded": [
+          "table",
+          "chair",
+          "siamese-cat",
+          "sink",
+          "bathtub",
+          "toilet",
+          "treasure",
+          "couch",
+          "chest",
+          "barrel",
+          "bluetooth-speaker",
+          "lounger",
+          "bed",
+          "laptop",
+          "structure"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 336,
+          "calls": 57,
+          "triangles": 204880,
+          "points": 0,
+          "lines": 160
+        },
+        "camera": [
+          -4.6,
+          2.2,
+          5.699999999999999
+        ],
+        "target": [
+          -3.32,
+          1.1499999999999995,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.45399,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.00002028573226043249,
+            0.010419890261028245,
+            0.001946718441831022,
+            0.9999438163030689
+          ],
+          "tail": [
+            0.0724000165639812,
+            -0.042424851227649094,
+            0.021275462455085388,
+            0.9962458260503398
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124306403,
+                0.06500000836313952,
+                1.7953792593597013
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "treasure_aged_gold",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "storage_partition",
+            "room": "storage",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "storage_L0_cut_edge",
+            "room": "storage",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "room": "bathroom",
+      "state": {
+        "state": "ready",
+        "view": "bathroom",
+        "loaded": [
+          "table",
+          "chair",
+          "siamese-cat",
+          "sink",
+          "bathtub",
+          "toilet",
+          "treasure",
+          "couch",
+          "chest",
+          "barrel",
+          "bluetooth-speaker",
+          "lounger",
+          "bed",
+          "laptop",
+          "structure"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 464,
+          "calls": 58,
+          "triangles": 141586,
+          "points": 0,
+          "lines": 320
+        },
+        "camera": [
+          -2.5999999999999996,
+          5.100000000000001,
+          7.700000000000019
+        ],
+        "target": [
+          -1.7499999999999998,
+          4.25,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.83797,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            -0.000037537972165072846,
+            0.005367392062235543,
+            -0.006993436105446622,
+            0.999961140017346
+          ],
+          "tail": [
+            0.07308636322244566,
+            -0.03165798867913672,
+            0.00893790094389972,
+            0.996782970769455
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124306403,
+                0.06500000836313952,
+                1.7953792593597013
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "sink_warm_wood",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "sink_blue_iron",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathtub_blue_porcelain",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathtub_blue_iron",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "toilet_blue_porcelain",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "toilet_warm_wood",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "toilet_blue_iron",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_room_back_1",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_room_back_2",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_room_back_3",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_left_1",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_left_2",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_left_3",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_pink",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bath_partition",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_cut_edge",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_wood",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_blue_metal",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_window_glass",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_seams",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_rope",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "room": "bedroom",
+      "state": {
+        "state": "ready",
+        "view": "bedroom",
+        "loaded": [
+          "table",
+          "chair",
+          "siamese-cat",
+          "sink",
+          "bathtub",
+          "toilet",
+          "treasure",
+          "couch",
+          "chest",
+          "barrel",
+          "bluetooth-speaker",
+          "lounger",
+          "bed",
+          "laptop",
+          "structure"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 595,
+          "calls": 91,
+          "triangles": 237270,
+          "points": 0,
+          "lines": 323
+        },
+        "camera": [
+          -2.3,
+          8.15,
+          7.600000000000001
+        ],
+        "target": [
+          -1.2,
+          7.200000000000001,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 1,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.87067,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.000014876953915657358,
+            -0.0012214234008633947,
+            -0.012179101375811296,
+            0.999925085890553
+          ],
+          "tail": [
+            0.07331280498491861,
+            0.021709207329664353,
+            -0.005099415611853859,
+            0.9970596574570317
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0.532,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.282,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.032,
+              "contacts": 1,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": true,
+              "phase": 0.782,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.09390664805791471,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657144564473,
+                0.09390663132102936,
+                1.7953792635398245
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chest_olive_wood",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chest_aged_gold",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chest_olive_wood__lid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chest_blue_iron__lid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_warm_wood",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_blue_iron",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_red_upholstery",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_aged_gold",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_cream_rubber",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_blue_porcelain",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_purple_quilt",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_cream_rubber",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_bamboo",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_warm_wood",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_rescue_ring",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_rescue_ring_1",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_rescue_ring_2",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_rescue_ring_3",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_room_back_1",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_room_back_2",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_room_back_3",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_left_1",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_left_2",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_left_3",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_sand",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_library_partition",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_cut_edge",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_blue_metal",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_window_glass",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_seams",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_wood",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_blue_metal",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_wood_roof_access",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": true,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_blue_metal_roof_access",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": true,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "room": "library",
+      "state": {
+        "state": "ready",
+        "view": "library",
+        "loaded": [
+          "table",
+          "chair",
+          "siamese-cat",
+          "sink",
+          "bathtub",
+          "toilet",
+          "treasure",
+          "couch",
+          "chest",
+          "barrel",
+          "bluetooth-speaker",
+          "lounger",
+          "bed",
+          "laptop",
+          "structure"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 725,
+          "calls": 84,
+          "triangles": 316348,
+          "points": 0,
+          "lines": 645
+        },
+        "camera": [
+          4.700000000000001,
+          7.1000000000000005,
+          12.500000000000018
+        ],
+        "target": [
+          2.7,
+          5.7,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55004,
+            0,
+            1.60007
+          ],
+          "yaw": -0.45078,
+          "steps": 4,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.98606,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.00008078978681357378,
+            -0.007460950291514221,
+            -0.010827414587638896,
+            0.9999135436562031
+          ],
+          "tail": [
+            0.07242202218051924,
+            0.04578775560234056,
+            -0.018411748672272587,
+            0.9961523785428454
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0.4187,
+              "contacts": 1,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.294119713258831,
+                0.06499997401436108,
+                1.4161585723723555
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.1687,
+              "contacts": 1,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.56383033031117,
+                0.06500004515688454,
+                1.9037577872534956
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.9187,
+              "contacts": 1,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161992847902,
+                0.0650000088138813,
+                1.29818273334227
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": true,
+              "phase": 0.6687,
+              "contacts": 1,
+              "target": [
+                -1.7780626912424629,
+                0.06757657667302082,
+                1.7953853727716282
+              ],
+              "actual": [
+                -1.7780626600875624,
+                0.06757654788523221,
+                1.7953853254376329
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_right_1",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_right_2",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_right_3",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_right_1",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_right_2",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_right_3",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_library_back_fill_1",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_library_back_fill_2",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_library_back_fill_3",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_library_green",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_wood",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_3",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_pages",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_4",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_0",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_2",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_5",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_1",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_wood",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_0",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_pages",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_2",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_4",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_3",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_5",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_1",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_blue_metal",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_blue_metal",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "room": "roof",
+      "state": {
+        "state": "ready",
+        "view": "roof",
+        "loaded": [
+          "table",
+          "chair",
+          "siamese-cat",
+          "sink",
+          "bathtub",
+          "toilet",
+          "treasure",
+          "couch",
+          "chest",
+          "barrel",
+          "bluetooth-speaker",
+          "lounger",
+          "bed",
+          "laptop",
+          "structure"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 852,
+          "calls": 30,
+          "triangles": 79590,
+          "points": 0,
+          "lines": 640
+        },
+        "camera": [
+          0,
+          12.4,
+          7.899999999999999
+        ],
+        "target": [
+          0,
+          9.6,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55479,
+            0,
+            1.61212
+          ],
+          "yaw": -0.3052,
+          "steps": 7,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.96766,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.000042367562419714556,
+            -0.011564024406904277,
+            -0.0036634690166996143,
+            0.9999264225628154
+          ],
+          "tail": [
+            0.07326079331764171,
+            0.008661006350938347,
+            -0.026931429375851412,
+            0.9969115120555018
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0.3054,
+              "contacts": 2,
+              "target": [
+                -1.3096572565785487,
+                0.06499997864060095,
+                1.404482217465392
+              ],
+              "actual": [
+                -1.3096572592985507,
+                0.06499997439563338,
+                1.4044822375846235
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.0554,
+              "contacts": 2,
+              "target": [
+                -1.5201270088459578,
+                0.06500007212090514,
+                1.915576510548489
+              ],
+              "actual": [
+                -1.5201270009227774,
+                0.06500004522385691,
+                1.9155764879720953
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": true,
+              "phase": 0.8054,
+              "contacts": 1,
+              "target": [
+                -1.6044431262827563,
+                0.09617858518686132,
+                1.3140851863382752
+              ],
+              "actual": [
+                -1.6044431112625315,
+                0.09617860098628757,
+                1.314085193140442
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.5554,
+              "contacts": 2,
+              "target": [
+                -1.7764931924994851,
+                0.06500003861859216,
+                1.79850437932124
+              ],
+              "actual": [
+                -1.7764931748657509,
+                0.0650000123773985,
+                1.798504322552756
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lounger_bamboo",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lounger_sunshine_canvas",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "roof_L3_library_green",
+            "room": "roof",
+            "level": 3,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_wood_roof_access",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": true,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_blue_metal_roof_access",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": true,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L3_wood",
+            "room": "stairs",
+            "level": 3,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "room": "living",
+      "state": {
+        "state": "ready",
+        "view": "living",
+        "loaded": [
+          "chair",
+          "table",
+          "couch",
+          "bathtub",
+          "sink",
+          "structure",
+          "siamese-cat",
+          "treasure",
+          "bluetooth-speaker",
+          "toilet",
+          "chest",
+          "laptop",
+          "barrel",
+          "lounger",
+          "bed"
+        ],
+        "failed": [],
+        "fps": 59.5,
+        "renderer": {
+          "frame": 234,
+          "calls": 88,
+          "triangles": 429620,
+          "points": 0,
+          "lines": 0
+        },
+        "camera": [
+          0,
+          3.324988261004593,
+          17.8448990446395
+        ],
+        "target": [
+          0,
+          1.25,
+          0
+        ],
+        "pet": {
+          "state": "idle",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.95121,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.00014192020540805032,
+            0.012375291292765782,
+            0.01146639720124915,
+            0.9998576667502721
+          ],
+          "tail": [
+            0.0740128002078341,
+            0.021267897276553493,
+            0.026838665974577486,
+            0.9966691976704652
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124306403,
+                0.06500000836313952,
+                1.7953792593597013
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "eight_section_life_ring",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "eight_section_life_ring_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_red_upholstery",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_red_seams",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "table_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_green_tubes",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_blue_fabric",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_orange_rubber",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "living_L0_wood",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_blue_metal",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_window_glass",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_seams",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_rug",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_cat",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_2",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_3",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_4",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_5",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_fine_fibers",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "retopologized_rounded_screen_case",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "continuous_screen_bezel",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "clean_display",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_on_display",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib001",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib002",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib003",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib004",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "room": "storage",
+      "state": {
+        "state": "ready",
+        "view": "storage",
+        "loaded": [
+          "chair",
+          "table",
+          "couch",
+          "bathtub",
+          "sink",
+          "structure",
+          "siamese-cat",
+          "treasure",
+          "bluetooth-speaker",
+          "toilet",
+          "chest",
+          "laptop",
+          "barrel",
+          "lounger",
+          "bed"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 356,
+          "calls": 53,
+          "triangles": 202640,
+          "points": 0,
+          "lines": 0
+        },
+        "camera": [
+          -4.680080519070751,
+          2.2656910508002257,
+          6.056608561486939
+        ],
+        "target": [
+          -3.32,
+          1.1499999999999995,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.48211,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.00003308049377617811,
+            0.010846708381827986,
+            0.0030496250771405616,
+            0.9999365217901833
+          ],
+          "tail": [
+            0.07245286691519039,
+            -0.0391980324170625,
+            0.02246104430482894,
+            0.9963481416877797
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124306403,
+                0.06500000836313952,
+                1.7953792593597013
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  -1,
+                  0,
+                  0,
+                  -2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "storage_partition",
+            "room": "storage",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "storage_L0_cut_edge",
+            "room": "storage",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "treasure_aged_gold",
+            "room": "storage",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "room": "bathroom",
+      "state": {
+        "state": "ready",
+        "view": "bathroom",
+        "loaded": [
+          "chair",
+          "table",
+          "couch",
+          "bathtub",
+          "sink",
+          "structure",
+          "siamese-cat",
+          "treasure",
+          "bluetooth-speaker",
+          "toilet",
+          "chest",
+          "laptop",
+          "barrel",
+          "lounger",
+          "bed"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 477,
+          "calls": 56,
+          "triangles": 141586,
+          "points": 0,
+          "lines": 0
+        },
+        "camera": [
+          -3.7719654086190273,
+          6.271965408619026,
+          18.31662781925472
+        ],
+        "target": [
+          -1.7499999999999998,
+          4.25,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.86022,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            -0.00003674064218142597,
+            0.006090747101514023,
+            -0.0060319845219106265,
+            0.9999632576312985
+          ],
+          "tail": [
+            0.07295275809288611,
+            -0.0363333939869783,
+            0.010569112522356688,
+            0.9966173262863096
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124306403,
+                0.06500000836313952,
+                1.7953792593597013
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathtub_blue_porcelain",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathtub_blue_iron",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "sink_warm_wood",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "sink_blue_iron",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_room_back_1",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_room_back_2",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_room_back_3",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_left_1",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_left_2",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_left_3",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_pink",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bath_partition",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_cut_edge",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_wood",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_blue_metal",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_window_glass",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_seams",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bathroom_L1_rope",
+            "room": "bathroom",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "toilet_blue_porcelain",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "toilet_warm_wood",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "toilet_blue_iron",
+            "room": "bathroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "room": "bedroom",
+      "state": {
+        "state": "ready",
+        "view": "bedroom",
+        "loaded": [
+          "chair",
+          "table",
+          "couch",
+          "bathtub",
+          "sink",
+          "structure",
+          "siamese-cat",
+          "treasure",
+          "bluetooth-speaker",
+          "toilet",
+          "chest",
+          "laptop",
+          "barrel",
+          "lounger",
+          "bed"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 597,
+          "calls": 89,
+          "triangles": 237270,
+          "points": 0,
+          "lines": 3
+        },
+        "camera": [
+          -4.03649529107344,
+          9.649700478654337,
+          19.597603829234686
+        ],
+        "target": [
+          -1.2,
+          7.200000000000001,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.86437,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.000006492214881158048,
+            -0.0005440061544298296,
+            -0.011933232002423046,
+            0.9999286484490438
+          ],
+          "tail": [
+            0.07338372904876683,
+            0.016465861466794757,
+            -0.003684053500179925,
+            0.9971610467183403
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0.4433,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.1933,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": true,
+              "phase": 0.9433,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.08100908101414049,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161974240847,
+                0.08100909265080908,
+                1.2981827294565589
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": true,
+              "phase": 0.6933,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.07469093199475721,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657127876969,
+                0.0746909069149882,
+                1.7953792600964653
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_room_back_1",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_room_back_2",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_room_back_3",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_left_1",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_left_2",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_left_3",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_sand",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_library_partition",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_cut_edge",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_blue_metal",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_window_glass",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bedroom_L2_seams",
+            "room": "bedroom",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_wood",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_blue_metal",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_wood_roof_access",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": true,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_blue_metal_roof_access",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": true,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chest_olive_wood",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chest_aged_gold",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chest_olive_wood__lid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chest_blue_iron__lid",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_warm_wood",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_blue_iron",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_red_upholstery",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_aged_gold",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "barrel_cream_rubber",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_blue_porcelain",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_purple_quilt",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_cream_rubber",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_bamboo",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_warm_wood",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_rescue_ring",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_rescue_ring_1",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_rescue_ring_2",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "bed_rescue_ring_3",
+            "room": "bedroom",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "room": "library",
+      "state": {
+        "state": "ready",
+        "view": "library",
+        "loaded": [
+          "chair",
+          "table",
+          "couch",
+          "bathtub",
+          "sink",
+          "structure",
+          "siamese-cat",
+          "treasure",
+          "bluetooth-speaker",
+          "toilet",
+          "chest",
+          "laptop",
+          "barrel",
+          "lounger",
+          "bed"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 717,
+          "calls": 80,
+          "triangles": 316348,
+          "points": 0,
+          "lines": 5
+        },
+        "camera": [
+          5.341048855536274,
+          7.548734198875393,
+          16.506555347101713
+        ],
+        "target": [
+          2.7,
+          5.7,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45125,
+          "steps": 4,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.99745,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.00007706833140274622,
+            -0.006791752026664311,
+            -0.01134634954306394,
+            0.9999125594355376
+          ],
+          "tail": [
+            0.07247154225528336,
+            0.046335695050388016,
+            -0.016949751299218226,
+            0.9961493896418284
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0.3122,
+              "contacts": 1,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132866809,
+                0.06499997401464414,
+                1.4161585723596357
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.0622,
+              "contacts": 1,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302799983,
+                0.06500004515489735,
+                1.903757787270621
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.8122,
+              "contacts": 1,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993035537,
+                0.06500000881293541,
+                1.2981827333370903
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.5622,
+              "contacts": 1,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124329202,
+                0.0650000083644714,
+                1.7953792593574955
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "library",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_right_1",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_right_2",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_1_right_3",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_right_1",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_right_2",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_right_3",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_library_back_fill_1",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_library_back_fill_2",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_2_library_back_fill_3",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_library_green",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_wood",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_3",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_pages",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_4",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_0",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_2",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_5",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_book_1",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_wood",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_0",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_pages",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_2",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_4",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_3",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_5",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_book_1",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L1_blue_metal",
+            "room": "library",
+            "level": 1,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "library_L2_blue_metal",
+            "room": "library",
+            "level": 2,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "room": "roof",
+      "state": {
+        "state": "ready",
+        "view": "roof",
+        "loaded": [
+          "chair",
+          "table",
+          "couch",
+          "bathtub",
+          "sink",
+          "structure",
+          "siamese-cat",
+          "treasure",
+          "bluetooth-speaker",
+          "toilet",
+          "chest",
+          "laptop",
+          "barrel",
+          "lounger",
+          "bed"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 840,
+          "calls": 26,
+          "triangles": 79590,
+          "points": 0,
+          "lines": 0
+        },
+        "camera": [
+          0,
+          15.984655172014026,
+          18.013848521039566
+        ],
+        "target": [
+          0,
+          9.6,
+          0
+        ],
+        "pet": {
+          "state": "paused",
+          "position": [
+            -1.55385,
+            0,
+            1.60927
+          ],
+          "yaw": -0.33679,
+          "steps": 6,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.92689,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.000053096587161990335,
+            -0.01122958181428703,
+            -0.004727927232205154,
+            0.9999257674333211
+          ],
+          "tail": [
+            0.07307584063201127,
+            0.015243102032895653,
+            -0.026373931214658353,
+            0.9968610769481266
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0.1987,
+              "contacts": 2,
+              "target": [
+                -1.30962540073738,
+                0.06499997864060095,
+                1.4045042269062835
+              ],
+              "actual": [
+                -1.3096254053742868,
+                0.06499997425828202,
+                1.4045042463915889
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": true,
+              "phase": 0.9487,
+              "contacts": 1,
+              "target": [
+                -1.5228548019953962,
+                0.0796005903427751,
+                1.9148411537141128
+              ],
+              "actual": [
+                -1.5228547930042637,
+                0.079600572805898,
+                1.9148411334023516
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": true,
+              "phase": 0.6987,
+              "contacts": 1,
+              "target": [
+                -1.57362384881873,
+                0.07620696509505161,
+                1.2996389099465524
+              ],
+              "actual": [
+                -1.5736238347260605,
+                0.07620697596634261,
+                1.2996389241607544
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.4487,
+              "contacts": 2,
+              "target": [
+                -1.77650052139801,
+                0.06500003861859216,
+                1.7984908390486778
+              ],
+              "actual": [
+                -1.7765005006719057,
+                0.06500001161595853,
+                1.7984907841223392
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "blink_crease_-1",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "blink_crease_1",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_left_eyelid",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lower_right_eyelid",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_left_eyelid",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "upper_right_eyelid",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "roof_L3_library_green",
+            "room": "roof",
+            "level": 3,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_wood_roof_access",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": true,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L2_blue_metal_roof_access",
+            "room": "stairs",
+            "level": 2,
+            "roofAccess": true,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "stairs_L3_wood",
+            "room": "stairs",
+            "level": 3,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lounger_bamboo",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "lounger_sunshine_canvas",
+            "room": "roof",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "viewport": [
+        670,
+        510
+      ],
+      "room": "homepage-living-zoomed-out",
+      "state": {
+        "state": "ready",
+        "view": "living",
+        "loaded": [
+          "bathtub",
+          "table",
+          "treasure",
+          "chair",
+          "chest",
+          "couch",
+          "laptop",
+          "sink",
+          "siamese-cat",
+          "structure",
+          "barrel",
+          "toilet",
+          "lounger",
+          "bed",
+          "bluetooth-speaker"
+        ],
+        "failed": [],
+        "fps": 60,
+        "renderer": {
+          "frame": 285,
+          "calls": 75,
+          "triangles": 367270,
+          "points": 0,
+          "lines": 160
+        },
+        "camera": [
+          0,
+          2.25,
+          8.600000000000001
+        ],
+        "target": [
+          0,
+          1.25,
+          0
+        ],
+        "pet": {
+          "state": "idle",
+          "position": [
+            -1.55,
+            0,
+            1.6
+          ],
+          "yaw": -0.45128,
+          "steps": 0,
+          "reactions": 0,
+          "reducedMotion": false,
+          "bones": 18,
+          "crouch": 0,
+          "facingCamera": 0.98458,
+          "sit": 0,
+          "sideLie": 0,
+          "head": [
+            0.00010966478429947584,
+            0.01239352066318339,
+            0.00884753182310895,
+            0.9998840481775102
+          ],
+          "tail": [
+            0.07334198909163152,
+            -0.005760569453455802,
+            0.02706403540181868,
+            0.9969229298641789
+          ],
+          "feet": [
+            {
+              "name": "back_r",
+              "swing": false,
+              "phase": 0,
+              "contacts": 0,
+              "target": [
+                -1.2941197045691548,
+                0.06499997864060095,
+                1.4161585543677966
+              ],
+              "actual": [
+                -1.2941197132881839,
+                0.0649999740146591,
+                1.4161585723589487
+              ]
+            },
+            {
+              "name": "front_r",
+              "swing": false,
+              "phase": 0.75,
+              "contacts": 0,
+              "target": [
+                -1.56383034081764,
+                0.06500007212090514,
+                1.903757809018758
+              ],
+              "actual": [
+                -1.5638303302783163,
+                0.0650000451547895,
+                1.9037577872715459
+              ]
+            },
+            {
+              "name": "back_l",
+              "swing": false,
+              "phase": 0.5,
+              "contacts": 0,
+              "target": [
+                -1.570516208107928,
+                0.0650000015259303,
+                1.298182717333878
+              ],
+              "actual": [
+                -1.5705161993045667,
+                0.06500000881288387,
+                1.298182733336811
+              ]
+            },
+            {
+              "name": "front_l",
+              "swing": false,
+              "phase": 0.25,
+              "contacts": 0,
+              "target": [
+                -1.7780657436847438,
+                0.06500003861859216,
+                1.7953793067664725
+              ],
+              "actual": [
+                -1.7780657124306403,
+                0.06500000836313952,
+                1.7953792593597013
+              ]
+            }
+          ]
+        },
+        "status": "review",
+        "structureOnly": false,
+        "meshes": [
+          {
+            "name": "table_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "eight_section_life_ring",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "eight_section_life_ring_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_red_upholstery",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "chair_red_seams",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_green_tubes",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_blue_fabric",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_orange_rubber",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "couch_warm_wood",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "retopologized_rounded_screen_case",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "continuous_screen_bezel",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "clean_display",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_on_display",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib001",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib002",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib003",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_rib004",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_cat",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_1",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_2",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_3",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_4",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_short_fur_5",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "siamese_fine_fibers",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              [
+                [
+                  1,
+                  0,
+                  0,
+                  2.55
+                ]
+              ]
+            ]
+          },
+          {
+            "name": "living_L0_wood",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_blue_metal",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_window_glass",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_seams",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "living_L0_rug",
+            "room": "living",
+            "level": 0,
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          },
+          {
+            "name": "textured",
+            "room": "living",
+            "roofAccess": false,
+            "clipping": [
+              []
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "serviceFailures": [],
+  "limitations": [
+    "手机为 Chrome 视口模拟，实机未测。",
+    "陪伴聊天健康请求的环境连接失败单独记录，不代表模型资源错误。"
+  ]
+}
