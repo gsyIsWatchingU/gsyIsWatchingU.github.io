@@ -161,9 +161,9 @@ if (renderer) {
       if(d.id==='work-journal'&&companion) {
         const diary=createCompanionBook(),group=diary.group;group.name='content-work-journal';
         Object.assign(group.userData,{roomId:d.room,contentId:d.id,diary});
-        group.position.fromArray(d.position);group.scale.setScalar(.62);group.position.x-=.155*.62;
+        group.position.fromArray(d.position);group.scale.setScalar(.62);group.position.x=-2.32;group.position.z-=.155*.62;
         group.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),new THREE.Vector3(...d.normal));
-        diary.update(0,true,0);displays.add(group);continue;
+        group.rotateZ(-Math.PI/2);diary.update(0,true,0);displays.add(group);continue;
       }
       if(d.id==='skills-book') {displays.add(createSkillsBook(d));continue;}
       let material;
