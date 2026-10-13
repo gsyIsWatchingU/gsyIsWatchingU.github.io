@@ -1,6 +1,6 @@
 {
   "asset": "barrel",
-  "revision": 3,
+  "revision": 4,
   "sourceBackend": "Hunyuan3D-2.1",
   "meshBackend": "Blender reference retopology",
   "rawSha256": "b1f50409d1a0c92164f4284b6d068fd3fe2f77fd5d8d187aba05fb42f2d60ad6",
@@ -9,11 +9,11 @@
     1.9943844676017761,
     1.994509518146515
   ],
-  "runtimeSha256": "f1f1b8eaec76fe7b7210b0ae8c6fb94e3b6e621ada3b4a08ea32561a6efafad0",
-  "triangles": 8420,
+  "runtimeSha256": "1b62a531273965f7ad314db93e5c504c72ae29e7094ebfa4f4784d428158d399",
+  "triangles": 22136,
   "dimensionsYUp": [
     0.5640000104904175,
-    0.8170000175014138,
+    0.8694000104442239,
     0.5640000104904175
   ],
   "origin": "bottom-center",
@@ -24,5 +24,7 @@
     "new UV and painted material maps"
   ],
   "status": "review",
-  "humanReview": "pending"
+  "humanReview": "pending",
+  "repairSource": "scripts/art/house_retopology.py",
+  "repairSourceSHA256": "80ad9a6b682bd08612f76b9d08a15c75f28b9d6c8e04ac385f3f907a78595055"
 }

@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "job_id": "a41edcc3ac8044cc9492d6b5742f2866",
+  "asset_name": "spongebob-companion-20261012",
+  "asset_kind": "character",
+  "profile": "xhs_mobile",
+  "state": "failed",
+  "source_file": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/source.png",
+  "source_sha256": "154bdc572542e1626533424dc673b114590eb916f71a1e0d28d44bd88c6e2f6e",
+  "material_source_file": null,
+  "material_source_sha256": null,
+  "prompt": "经典海绵宝宝全身角色，黄色海绵方形身体与蓝眼睛、白衬衫红领带棕短裤，完整双手双脚与黑皮鞋，保持参考比例和圆润手绘纹理，手臂分开用于骨骼动画",
+  "seed": 2026101207,
+  "created_at": "2026-10-12T13:37:11.456540+00:00",
+  "updated_at": "2026-10-12T13:43:48.598042+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-12T13:37:11.459330+00:00",
+      "completed_at": "2026-10-12T13:37:11.460998+00:00",
+      "details": {
+        "fingerprint": "17b6bb9fa61bb97e",
+        "work_dir": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work",
+        "profile": "xhs_mobile",
+        "elapsed_seconds": 0.001,
+        "execution_job_id": "a41edcc3ac8044cc9492d6b5742f2866"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "completed",
+      "started_at": "2026-10-12T13:37:11.461650+00:00",
+      "completed_at": "2026-10-12T13:39:01.871493+00:00",
+      "details": {
+        "fingerprint": "7f34f46c5370564a",
+        "backend": "hunyuan3d-2.1",
+        "output": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/generated.glb",
+        "elapsed_seconds": 110.408,
+        "execution_job_id": "a41edcc3ac8044cc9492d6b5742f2866"
+      }
+    },
+    {
+      "name": "draft_preview",
+      "state": "completed",
+      "started_at": "2026-10-12T13:39:01.872154+00:00",
+      "completed_at": "2026-10-12T13:40:04.453707+00:00",
+      "details": {
+        "fingerprint": "ea62c8f9b791ab41",
+        "draft_preview": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/draft-preview.png",
+        "draft_gate": "passed",
+        "elapsed_seconds": 62.58,
+        "execution_job_id": "a41edcc3ac8044cc9492d6b5742f2866"
+      }
+    },
+    {
+      "name": "generate_material",
+      "state": "completed",
+      "started_at": "2026-10-12T13:40:04.454423+00:00",
+      "completed_at": "2026-10-12T13:43:14.068699+00:00",
+      "details": {
+        "fingerprint": "8d9c208b2b35b8e3",
+        "backend": "hunyuan3d-paint-2.1",
+        "paint_source": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/paint-source.glb",
+        "output": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/textured.glb",
+        "material_source": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/source.png",
+        "elapsed_seconds": 189.613,
+        "execution_job_id": "a41edcc3ac8044cc9492d6b5742f2866"
+      }
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "completed",
+      "started_at": "2026-10-12T13:43:14.069393+00:00",
+      "completed_at": "2026-10-12T13:43:15.738476+00:00",
+      "details": {
+        "fingerprint": "d68fb3c659483e4d",
+        "output": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/normalized.glb",
+        "elapsed_seconds": 1.668,
+        "execution_job_id": "a41edcc3ac8044cc9492d6b5742f2866"
+      }
+    },
+    {
+      "name": "rig",
+      "state": "running",
+      "started_at": "2026-10-12T13:43:15.739098+00:00",
+      "completed_at": null,
+      "details": {
+        "fingerprint": "45a0e16a9fdf6c82",
+        "elapsed_seconds": 32.858,
+        "execution_job_id": "a41edcc3ac8044cc9492d6b5742f2866"
+      }
+    },
+    {
+      "name": "retarget_animation",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "export",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "render_preview",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "validate",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    }
+  ],
+  "outputs": {
+    "shape_mesh": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/generated.glb",
+    "generated_mesh": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/textured.glb",
+    "draft_preview": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/draft-preview.png",
+    "draft_preview_manifest": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/draft-preview.json",
+    "paint_source": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/paint-source.glb",
+    "pbr_mesh": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/textured.glb",
+    "normalized_mesh": "/workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/normalized.glb"
+  },
+  "metrics": {},
+  "provenance": {
+    "source_filename": "reference.png",
+    "material_source_filename": null,
+    "mesh_backend": "single",
+    "views": {},
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu"
+  },
+  "quality_gates": {},
+  "error": "阶段命令失败，退出码 1: /workspace/projects/forge3d/scripts/run-unirig.sh /workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/normalized.glb /workspace/3d-assets/jobs/a41edcc3ac8044cc9492d6b5742f2866/work/rigged.glb",
+  "stop_after": null
+}

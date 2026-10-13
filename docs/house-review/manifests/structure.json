@@ -10,12 +10,13 @@
   ],
   "bodyHeight": 9,
   "leafHeight": 13.55,
-  "triangles": 187208,
-  "sha256": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
+  "triangles": 187224,
+  "sha256": "867fbcd633be09f5cd18e54f56bf41aaf4dbe8a47ca37c7330463bb1d4b680a0",
   "status": "review",
   "humanReview": "pending",
-  "revision": 6,
-  "previousSha256": "56869e8b5c7e0af9107bb9907ff051f0a2947f42cfdc67b09a386b477fa11a7d",
+  "revision": 7,
+  "previousSha256": "fe24f1d4563cd72dca8c3d27dcd8236e88ca18192af920761686d447780abdf2",
+  "roofLandingTop": 9.018,
   "floorBoundaryX": 0.25,
   "bedroomWallBoundaryX": 1.12,
   "libraryCloseupWallBoundaryX": 0.25,
@@ -35,5 +36,5 @@
     ]
   ],
   "stairAxis": "vertical per floor with transfer landings",
-  "sourceSHA256": "3d9518870e25367c1e559a50d430c55a98a169ac588a8981930e6b6601064508"
+  "sourceSHA256": "82fc8f596b369be52469791ed80684986763f6afc67f9c848e13b8be4046c2bd"
 }
