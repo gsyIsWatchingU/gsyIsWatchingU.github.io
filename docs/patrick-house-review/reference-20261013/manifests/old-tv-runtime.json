@@ -1,0 +1,28 @@
+{
+  "id": "old-tv",
+  "rawSHA256": "61a9c09262551f0313f0bd8a79d26b92577b35b815fe652434a289163e832fbc",
+  "runtimeSHA256": "07f361da3b5f3c356bdfff6a9be18188d95a7bfb5f59305f7a702e553846630f",
+  "originalZUp": [
+    1.0336189270019531,
+    0.7090331315994263,
+    1.1406011581420898
+  ],
+  "scale": [
+    0.6965816617012024,
+    0.648770809173584,
+    0.7715229988098145
+  ],
+  "removedBackdropFaces": 7684,
+  "triangles": 18480,
+  "bones": 0,
+  "animations": [],
+  "status": "review",
+  "humanReview": "pending",
+  "repairs": [
+    "remove generated neutral backdrop",
+    "weld UV seam positions preserving loop UV",
+    "normalize bottom-center and scale",
+    "matte material",
+    "1024px embedded texture"
+  ]
+}

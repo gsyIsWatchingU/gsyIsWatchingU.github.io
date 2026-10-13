@@ -1,0 +1,105 @@
+{
+  "sourceSHA256": "6318b85f8f923355468f70e426cc432e723dda3599f753a298cdcd7671d41fe2",
+  "art": [
+    {
+      "id": "poster-band",
+      "source": "用户提供的派大星屋布局图",
+      "quad": [
+        1027,
+        316,
+        1035,
+        390,
+        1081,
+        398,
+        1073,
+        324
+      ],
+      "size": [
+        256,
+        384
+      ],
+      "file": "assets/patrick-reference/art/poster-band.png",
+      "sha256": "40455b261c134551b2c3b85391ef67b0a5bd827bbd2e74322f7b0243e91220ca"
+    },
+    {
+      "id": "poster-ocean",
+      "source": "用户提供的派大星屋布局图",
+      "quad": [
+        1102,
+        327,
+        1120,
+        408,
+        1158,
+        422,
+        1139,
+        342
+      ],
+      "size": [
+        256,
+        384
+      ],
+      "file": "assets/patrick-reference/art/poster-ocean.png",
+      "sha256": "6b8a2c78049a8be00d41c2d60becdd7c9049aeebfdcf6a4fbbb9f46fb846b216"
+    },
+    {
+      "id": "portrait-a",
+      "source": "用户提供的派大星屋布局图",
+      "quad": [
+        586,
+        650,
+        585,
+        677,
+        607,
+        674,
+        608,
+        644
+      ],
+      "size": [
+        192,
+        256
+      ],
+      "file": "assets/patrick-reference/art/portrait-a.png",
+      "sha256": "a3c36939ea34af5990d44da1906104e14cb8ed623d338975a1322c0cc7e3ac05"
+    },
+    {
+      "id": "portrait-b",
+      "source": "用户提供的派大星屋布局图",
+      "quad": [
+        1090,
+        680,
+        1090,
+        719,
+        1122,
+        723,
+        1123,
+        685
+      ],
+      "size": [
+        192,
+        256
+      ],
+      "file": "assets/patrick-reference/art/portrait-b.png",
+      "sha256": "f58b92a4c9c5e7620667a632dff1aedc547547b51f808ce3aed5be8b290c336d"
+    },
+    {
+      "id": "portrait-c",
+      "source": "用户提供的派大星屋布局图",
+      "quad": [
+        1029,
+        775,
+        1026,
+        805,
+        1050,
+        811,
+        1056,
+        778
+      ],
+      "size": [
+        192,
+        256
+      ],
+      "file": "assets/patrick-reference/art/portrait-c.png",
+      "sha256": "fef68ac8d0c682d231964d5ceb7d221b52213839f4dd33f00bfbb3332eec3e27"
+    }
+  ]
+}

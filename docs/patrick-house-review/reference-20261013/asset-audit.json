@@ -1,0 +1,99 @@
+[
+  {
+    "id": "patrick",
+    "bytes": 1762908,
+    "sha256": "66676f1e6eba5d15bc5cb719ad8ee54e2b60e2fab1601403bf27dd61c2c91614",
+    "triangles": 28232,
+    "embeddedTextures": [
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "bones": 9,
+    "animations": [
+      "idle",
+      "wave"
+    ],
+    "status": "review"
+  },
+  {
+    "id": "armchair",
+    "bytes": 1084152,
+    "sha256": "9719220e43b4fcd89c3ae72883945283791c93a765369e04e95190b6c79287ea",
+    "triangles": 21200,
+    "embeddedTextures": [
+      [
+        1024,
+        1024
+      ]
+    ],
+    "bones": 0,
+    "animations": [],
+    "status": "review"
+  },
+  {
+    "id": "bed",
+    "bytes": 1397456,
+    "sha256": "7e68325037d8645c6eda106c6fe843eb990fff1686d9d11c07b2550e1def2f08",
+    "triangles": 22997,
+    "embeddedTextures": [
+      [
+        1024,
+        1024
+      ]
+    ],
+    "bones": 0,
+    "animations": [],
+    "status": "review"
+  },
+  {
+    "id": "fridge",
+    "bytes": 1153024,
+    "sha256": "aa41605c13857d140daf67038d218aa0c0a01f6508d1ef17f8eac7faaf986b5b",
+    "triangles": 22622,
+    "embeddedTextures": [
+      [
+        1024,
+        1024
+      ]
+    ],
+    "bones": 0,
+    "animations": [],
+    "status": "review"
+  },
+  {
+    "id": "stove",
+    "bytes": 1418388,
+    "sha256": "742358eff3df92a7448c4e77c183115627ccc1927af58f7a415c29badaf0c4e4",
+    "triangles": 20150,
+    "embeddedTextures": [
+      [
+        1024,
+        1024
+      ]
+    ],
+    "bones": 0,
+    "animations": [],
+    "status": "review"
+  },
+  {
+    "id": "old-tv",
+    "bytes": 1209336,
+    "sha256": "07f361da3b5f3c356bdfff6a9be18188d95a7bfb5f59305f7a702e553846630f",
+    "triangles": 18480,
+    "embeddedTextures": [
+      [
+        1024,
+        1024
+      ]
+    ],
+    "bones": 0,
+    "animations": [],
+    "status": "review"
+  }
+]

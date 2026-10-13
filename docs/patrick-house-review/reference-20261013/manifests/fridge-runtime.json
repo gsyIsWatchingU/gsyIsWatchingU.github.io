@@ -1,0 +1,28 @@
+{
+  "id": "fridge",
+  "rawSHA256": "ab87f46d436d0f6e8c07563eb580ffb5c34add6bfd017655a56182d3087a932e",
+  "runtimeSHA256": "aa41605c13857d140daf67038d218aa0c0a01f6508d1ef17f8eac7faaf986b5b",
+  "originalZUp": [
+    1.1453449726104736,
+    1.4427821636199951,
+    1.93153715133667
+  ],
+  "scale": [
+    0.6635555624961853,
+    0.47131162881851196,
+    0.8697735667228699
+  ],
+  "removedBackdropFaces": 3489,
+  "triangles": 22622,
+  "bones": 0,
+  "animations": [],
+  "status": "review",
+  "humanReview": "pending",
+  "repairs": [
+    "remove generated neutral backdrop",
+    "weld UV seam positions preserving loop UV",
+    "normalize bottom-center and scale",
+    "matte material",
+    "1024px embedded texture"
+  ]
+}
