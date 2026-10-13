@@ -1,18 +1,18 @@
 import * as THREE from 'three';
 
-export function createCompanionBook() {
+export function createCompanionBook({title='实习日记'}={}) {
   const group=new THREE.Group();group.name='companion-open-book';
   const texture=(paper)=>{
     const canvas=document.createElement('canvas');canvas.width=512;canvas.height=640;
     const ctx=canvas.getContext?.('2d');if(!ctx)return null;
     ctx.fillStyle=paper?'#fff5dc':'#285861';ctx.fillRect(0,0,512,640);
     if(paper){
-      ctx.fillStyle='#6c5844';ctx.textAlign='center';ctx.font='bold 35px serif';ctx.fillText('航海日记',256,85);
+      ctx.fillStyle='#6c5844';ctx.textAlign='center';ctx.font='bold 35px serif';ctx.fillText(title,256,85);
       ctx.strokeStyle='#bcad8e';ctx.lineWidth=3;for(let y=150;y<550;y+=36){ctx.beginPath();ctx.moveTo(60,y);ctx.lineTo(450-(y%3)*12,y);ctx.stroke();}
       ctx.fillStyle='#ad976f';ctx.font='23px serif';ctx.fillText('✦',256,598);
     }else{
       ctx.strokeStyle='#d5b86b';ctx.lineWidth=12;ctx.strokeRect(28,28,456,584);
-      ctx.fillStyle='#f5d994';ctx.font='bold 46px serif';ctx.textAlign='center';ctx.fillText('航海日记',256,260);
+      ctx.fillStyle='#f5d994';ctx.font='bold 46px serif';ctx.textAlign='center';ctx.fillText(title,256,260);
       ctx.font='80px serif';ctx.fillText('⚓',256,390);
     }
     const map=new THREE.CanvasTexture(canvas);map.colorSpace=THREE.SRGBColorSpace;return map;
@@ -36,12 +36,16 @@ export function createCompanionBook() {
   for(let i=0;i<p.count;i++){const x=p.getX(i)+.1405;p.setXYZ(i,x,p.getY(i),.018*Math.sin(x/.281*Math.PI));}
   geometry.computeVertexNormals();turner.add(new THREE.Mesh(geometry,ink));
   group.traverse(n=>{if(n.isMesh){n.castShadow=true;n.receiveShadow=true;}});
+  let opening=0;
   return {group,
     grip:side=>new THREE.Vector3(side*.30,-.11,.03),
-    update(time,reducedMotion){const phase=time%4.8;turner.visible=!reducedMotion&&phase>2.4&&phase<4.2;const t=THREE.MathUtils.clamp((phase-2.4)/1.8,0,1),fold=t*t*(3-2*t);turner.rotation.y=-Math.PI*fold;
+    update(time,reducedMotion,amount=1){opening=THREE.MathUtils.clamp(amount,0,1);
+      wings[0].rotation.y=THREE.MathUtils.lerp(-Math.PI,.32,opening);wings[0].position.z=.04*(1-opening);
+      wings[1].rotation.y=-.32*opening;
+      const phase=time%4.8;turner.visible=opening>.98&&!reducedMotion&&phase>2.4&&phase<4.2;const t=THREE.MathUtils.clamp((phase-2.4)/1.8,0,1),fold=t*t*(3-2*t);turner.rotation.y=-Math.PI*fold;
       // 翻页时纸面收拢，避免整张刚性纸页竖起后再次碰到嘴部。
       turner.scale.x=1-.72*Math.sin(Math.PI*fold);
     },
-    snapshot:()=>({open:true,visible:group.visible,turning:turner.visible,coverThickness:.016,pageThickness:.025,spread:.64})
+    snapshot:()=>({open:opening>.98,opening,visible:group.visible,turning:turner.visible,coverThickness:.016,pageThickness:.025,spread:.64})
   };
 }

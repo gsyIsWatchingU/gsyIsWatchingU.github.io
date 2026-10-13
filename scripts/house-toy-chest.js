@@ -32,7 +32,7 @@ export function createToyChest(chest,{root,version,reducedMotion}){
   const holder=new THREE.Group();holder.visible=false;chest.add(holder);
   const gold=new THREE.MeshStandardMaterial({color:0xbd8732,metalness:.72,roughness:.32});
   const trim=new THREE.MeshStandardMaterial({color:0xf4d58a,metalness:.6,roughness:.26});
-  let open=false,amount=0,loaded=0,failed=false;
+  let open=false,amount=0,loaded=0,failed=false,companionPlaying=false;
   root.dataset.toyChest='closed';root.dataset.toyChestReady='loading';
   const gallery=createGallery(()=>{open=false;root.dataset.toyChest='closed';});
   paintings.forEach(([id],index)=>{
@@ -50,7 +50,9 @@ export function createToyChest(chest,{root,version,reducedMotion}){
   });
   return{
     toggle(){if(open){gallery.close();return;}open=true;root.dataset.toyChest='open';gallery.open();},
-    update(dt){const target=open?1:0;amount=reducedMotion?target:THREE.MathUtils.damp(amount,target,6,dt);if(Math.abs(amount-target)<.001)amount=target;hinge.rotation.x=-1.4*amount;holder.visible=amount>.05;holder.position.y=.06+.22*amount;holder.scale.setScalar(.55+.45*amount);},
-    snapshot:()=>({open,amount,ready:loaded===paintings.length,lidParts:lids.length,paintings:paintings.length,loaded})
+    setCompanionPlaying(value){companionPlaying=!!value;root.dataset.toyChestCompanion=String(companionPlaying);},
+    touchPoint(){chest.updateWorldMatrix(true,false);return chest.localToWorld(new THREE.Vector3(0,.32,.12));},
+    update(dt){const target=open||companionPlaying?1:0;amount=reducedMotion?target:THREE.MathUtils.damp(amount,target,6,dt);if(Math.abs(amount-target)<.001)amount=target;hinge.rotation.x=-1.4*amount;holder.visible=amount>.05;holder.position.y=.06+.22*amount;holder.scale.setScalar(.55+.45*amount);},
+    snapshot:()=>({open,companionPlaying,amount,ready:loaded===paintings.length,lidParts:lids.length,paintings:paintings.length,loaded})
   };
 }

@@ -7,6 +7,7 @@ import { addSiameseFur } from "./house-pet-fur.js";
 import { createHouseCompanion } from "./house-companion.js";
 import config from "../src/data/pineapple-house.json";
 import awards from "../src/data/house-awards.json";
+import { createCompanionBook } from './house-companion-book.js';
 import { createToyChest } from './house-toy-chest.js';
 import './house-music.js';
 
@@ -126,7 +127,7 @@ if (renderer) {
   window.addEventListener('house:toy-chest',()=>toyChest?.toggle());
   let lastPetFrame = null;
   const companion = root.hasAttribute('data-house-companion-preview')
-    ? createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom:()=>activeRoom,getAsset:id=>loaded.get(id),getPet:()=>pet,reducedMotion}) : null;
+    ? createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom:()=>activeRoom,getAsset:id=>loaded.get(id),getPet:()=>pet,getDisplay:id=>displays.children.find(n=>n.userData.contentId===id),getToyChest:()=>toyChest,reducedMotion}) : null;
 
   // 实物证书作为墙面展示件；使用用户照片，不生成或改写证书内容。
   function displayPlane(name,width,height,material,position,normal,metadata) {
@@ -155,6 +156,13 @@ if (renderer) {
       displayPlane(`certificate-${a.id}`,...d.size,material,d.position,new THREE.Vector3(...d.normal),{roomId:d.room,awardId:a.id});
     });
     for(const d of config.displays.filter(d=>d.kind==='content')) {
+      if(d.id==='work-journal'&&companion) {
+        const diary=createCompanionBook(),group=diary.group;group.name='content-work-journal';
+        Object.assign(group.userData,{roomId:d.room,contentId:d.id,diary});
+        group.position.fromArray(d.position);group.scale.setScalar(.62);group.position.x-=.155*.62;
+        group.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),new THREE.Vector3(...d.normal));
+        diary.update(0,true,0);displays.add(group);continue;
+      }
       if(d.id==='skills-book') {displays.add(createSkillsBook(d));continue;}
       let material;
       if(d.sourceAward) material=awardMaterials.get(d.sourceAward);
@@ -526,7 +534,7 @@ if (renderer) {
   requestAnimationFrame(frame);
   // 验收接口只报告真实载入状态，不将候选标为 approved。
   window.__pineappleHouse={focusRoom,resetView,scene,camera,controls,config,companion,toyChest:()=>toyChest?.snapshot(),
-    snapshot:() => ({state:root.dataset.houseState,view:activeRoom??"whole",loaded:[...loaded.keys()],failed:[...failures.keys()],fps:Number(measuredFps.toFixed(1)),renderer:renderer.info.render,camera:camera.position.toArray(),target:controls.target.toArray(),pet:pet?.snapshot()??null,status:"review",structureOnly}),
+    snapshot:() => ({state:root.dataset.houseState,view:activeRoom??"whole",loaded:[...loaded.keys()],failed:[...failures.keys()],fps:Number(measuredFps.toFixed(1)),renderer:renderer.info.render,camera:camera.position.toArray(),target:controls.target.toArray(),pet:pet?.snapshot()??null,toyChest:toyChest?.snapshot()??null,status:"review",structureOnly}),
     projectRoom:id => {
       const room=rooms.get(id);if(!room) return null;
       const point=new THREE.Vector3(...room.label).project(camera);

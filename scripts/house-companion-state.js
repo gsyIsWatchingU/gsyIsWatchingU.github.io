@@ -7,7 +7,7 @@ export function createCompanionState(config) {
     const room = command?.room ?? focused ?? base.room;
     const activities = config.rooms[room].activities;
     const action = command?.action ?? (focused ? activities[Math.floor(local / config.activitySeconds) % activities.length] : base.action);
-    return {room, action, day, phase:Math.floor(day / 20), revision, following:!!focused, commanded:!!command};
+    return {room, action, day, phase:Math.floor(day / (config.daySeconds / config.schedule.length)), revision, following:!!focused, commanded:!!command};
   };
   return {
     snapshot:current,

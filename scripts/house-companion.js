@@ -2,12 +2,12 @@ import * as THREE from 'three';
 import { createCompanionSleep } from './house-companion-sleep.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import spec from '../src/data/house-companion.json';
-import { createCompanionBook } from './house-companion-book.js';
+import { createCompanionProps } from './house-companion-props.js';
 import { createCompanionSlide } from './house-companion-slide.js';
 import { createCompanionState } from './house-companion-state.js';
 import { companionFace, companionRoute, companionSlide } from './house-companion-motion.js';
 
-export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom,getAsset,getPet,reducedMotion}) {
+export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom,getAsset,getPet,getDisplay,getToyChest,reducedMotion}) {
   const state=createCompanionState(spec), actor=new THREE.Group();actor.name='spongebob-companion';houseGroup.add(actor);
   actor.userData.companionId='spongebob';
   const avatar=new THREE.Group();actor.add(avatar);
@@ -37,7 +37,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   document.body.append(panel);
   const activityLabel=hud.querySelector('[data-companion-activity]');
   const messages=panel.querySelector('.companion-messages'),status=panel.querySelector('[data-companion-status]'),input=panel.querySelector('input'),send=panel.querySelector('[type=submit]');
-  const controller={snapshot:()=>({...state.snapshot(),loaded,room,activity,entryTime,chatOpen:panel.open,position:actor.position.toArray(),height:spec.height,face:faceValues,bedHeight,backOffset,sleep:sleepMotion?.snapshot(),slide:slideMotion?.snapshot(),book:readingBook.snapshot(),petContact,bones:[...bones.keys()],animations:model?.userData.animations??[],status:'review'}),actor};
+  const controller={snapshot:()=>({...state.snapshot(),loaded,room,activity,entryTime,chatOpen:panel.open,position:actor.position.toArray(),height:spec.height,face:faceValues,bedHeight,backOffset,sleep:sleepMotion?.snapshot(),slide:slideMotion?.snapshot(),book:propMotion.snapshot(),petContact,bones:[...bones.keys()],animations:model?.userData.animations??[],status:'review'}),actor};
   root.dataset.companionState='loading';
   const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href='./styles/house-companion.css?v='+spec.version;document.head.append(stylesheet);
 
@@ -97,7 +97,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   const bubbles=new THREE.Group();actor.add(bubbles);
   const bubbleMaterial=new THREE.MeshPhysicalMaterial({color:0xafeaf6,transparent:true,opacity:.28,roughness:.1,metalness:.05,clearcoat:1});
   for(let i=0;i<6;i++){const ball=new THREE.Mesh(new THREE.SphereGeometry(.05+i*.006,12,8),bubbleMaterial);bubbles.add(ball);}bubbles.visible=false;
-  const readingBook=createCompanionBook(),book=readingBook.group;avatar.add(book);book.visible=false;
+  const propMotion=createCompanionProps({actor,avatar,bones,houseGroup,getDisplay,getToyChest,root});
 
   new GLTFLoader().load(spec.model+'?v='+spec.version,gltf=>{
     model=gltf.scene;avatar.add(model);houseGroup.updateMatrixWorld(true);
@@ -125,26 +125,9 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     return null;
   }
   function poseBone(name,x=0,y=0,z=0){const b=bone(name);if(b){b.rotateX(x);b.rotateY(y);b.rotateZ(z);}}
-  function holdBook() {
-    // 放在胸前，留出完整嘴部；页内侧向上朝向视线，握点随书一起变换。
-    book.scale.setScalar(.88);
-    book.position.set(0,.53,.36);book.rotation.set(-1.95,0,0);
-    actor.updateMatrixWorld(true);
-    for(const [side,x] of [['l',1],['r',-1]]) {
-      const upper=bones.get('comp_arm_'+side),lower=bones.get('comp_forearm_'+side),hand=bones.get('comp_hand_'+side);
-      if(!upper || !lower || !hand)continue;
-      const shoulder=upper.getWorldPosition(new THREE.Vector3()),elbow=lower.getWorldPosition(new THREE.Vector3()),wrist=hand.getWorldPosition(new THREE.Vector3());
-      const a=shoulder.distanceTo(elbow),b=elbow.distanceTo(wrist);
-      const target=book.localToWorld(readingBook.grip(x));const axis=target.clone().sub(shoulder);const distance=Math.min(axis.length(),a+b-.0001);axis.normalize();
-      const pole=new THREE.Vector3(0,-1,.15).transformDirection(avatar.matrixWorld);pole.addScaledVector(axis,-pole.dot(axis)).normalize();
-      const cosine=THREE.MathUtils.clamp((a*a+distance*distance-b*b)/(2*a*distance),-1,1);
-      const joint=shoulder.clone().addScaledVector(axis,a*cosine).addScaledVector(pole,a*Math.sqrt(1-cosine*cosine));
-      const aim=(bone,child,to)=>{const position=bone.getWorldPosition(new THREE.Vector3()),world=bone.getWorldQuaternion(new THREE.Quaternion());const direction=child.getWorldPosition(new THREE.Vector3()).sub(position).normalize();const delta=new THREE.Quaternion().setFromUnitVectors(direction,to.clone().sub(position).normalize());bone.quaternion.copy(bone.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(delta.multiply(world)));bone.updateWorldMatrix(false,true);};
-      aim(upper,lower,joint);aim(lower,hand,shoulder.clone().addScaledVector(axis,distance));
-    }
-  }
   function startActivity(next) {
     sleepMotion?.reset();
+    propMotion.reset();
     getPet?.()?.endInteraction?.();
     const arriving=room!==next.room||arrivalRequested;arrivalRequested=false;
     room=next.room;activity=next.action;elapsed=0;actor.userData.roomId=room;actor.userData.revision=next.revision;
@@ -158,6 +141,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
       const ray=new THREE.Raycaster(new THREE.Vector3(anchor[0],9,anchor[2]+.35),new THREE.Vector3(0,-1,0));
       bed?.updateMatrixWorld(true);bedHeight=bed?ray.intersectObject(bed,true).find(hit=>hit.point.y<7.05 && hit.point.y>6.3 && hit.face.normal.clone().transformDirection(hit.object.matrixWorld).y>.8)?.point.y:null;
     }
+    propMotion.begin(activity);
     if(activity==='pet')getPet?.()?.beginInteraction?.(actor.position.toArray());
   }
   controller.react=()=>open(canvas);
@@ -187,12 +171,14 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     const route=companionRoute(pose,e);actor.position.fromArray(route.position);
     if(activity==='pet')actor.position.lerpVectors(new THREE.Vector3(...pose.entry),targetPosition,e);
     avatar.rotation.set(0,0,0);avatar.position.set(0,0,0);avatar.scale.setScalar(visualScale);
-    const walking=!sliding&&t<1;
-    const wantedClip=sliding?'slide':walking?'walk':(({journal:'read',rest:'sit',sleep:'lie',listen:'idle'})[activity]??activity);
+    const propPose=propMotion.place(elapsed);
+    const walking=propPose?.walking??(!sliding&&t<1);
+    const wantedClip=sliding?'slide':walking?'walk':(propPose?(['read','lift','return'].includes(propPose.phase)?'read':'idle'):({rest:'sit',sleep:'lie',listen:'idle'})[activity]??activity);
     const wanted=controller.clips?.find(c=>c.name===wantedClip);
     playClip(wanted);
     if(walking){avatar.rotation.y=Math.atan2(route.direction[0],route.direction[2]);}
     else avatar.rotation.y=(['read','journal'].includes(activity)?-.22:.10)+(reducedMotion?0:Math.sin(faceTime*.55)*.035);
+    if(propPose)avatar.rotation.y=propPose.yaw;
     // 未播放绑定片段时恢复基准姿势；活动姿态叠加在同一骨架上。
     for(const [name,value] of rest){const b=bones.get(name);b.quaternion.copy(value.q);b.position.copy(value.p);}
     mixer?.update(motionPaused?0:dt);
@@ -211,8 +197,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     if(!walking&&!sliding&&activity!=='sleep'&&!reducedMotion)poseBone('hips',(['read','journal'].includes(activity)?.055:0)+Math.sin(faceTime*1.7)*.008,0,Math.sin(faceTime*.85)*.01);
     // 转头回应始终可见，弹层打开时不恢复自主动作。
     if(panel.open && !next.commanded){const target=camera.position.clone().sub(actor.position);avatar.rotation.y=Math.atan2(target.x,target.z);}
-    book.visible=!walking && !sliding && ['read','journal','tidy'].includes(activity);
-    if(book.visible)holdBook();
+
     petContact=null;
     if(activity==='pet'&&!walking)avatar.rotation.set(.10,.10,0);
     if(sliding){
@@ -220,7 +205,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     }else if(activity!=='sleep'||walking){
       houseGroup.updateMatrixWorld(true);let foot=Infinity;const point=new THREE.Vector3();
       for(const {node,indices} of feet)for(const index of indices){point.fromBufferAttribute(node.geometry.attributes.position,index);node.applyBoneTransform(index,point);point.applyMatrix4(node.matrixWorld);foot=Math.min(foot,point.y);}
-      if(Number.isFinite(foot))avatar.position.y+=pose.position[1]-foot+.008;
+      if(Number.isFinite(foot))avatar.position.y+=(propPose?actor.position.y:pose.position[1])-foot+.008;
     }
     if(activity==='pet'&&!walking){
       const point=getPet?.()?.touchPoint?.();
@@ -236,7 +221,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
       }
     }
     diagnosticTime+=dt;if(diagnosticTime>.2){diagnosticTime=0;root.dataset.companionFace=JSON.stringify(faceValues);root.dataset.companionPosition=JSON.stringify(actor.position.toArray());root.dataset.companionHeight=String(spec.height);root.dataset.companionArrival=sliding?'slide':walking?'walk':'activity';}
-    readingBook.update(elapsed,reducedMotion);
+    propMotion.update(elapsed,reducedMotion);
     bubbles.visible=!walking && activity==='bubble';bubbles.children.forEach((ball,i)=>{const phase=((elapsed*.25+i*.17)%1);ball.position.set(.23+Math.sin(i+phase*4)*.18,.9+phase*.8,.5+phase*.3);ball.scale.setScalar(.4+phase*.8);});
     hud.querySelector('.companion-day').textContent=`${Math.floor(next.day/120*24).toString().padStart(2,'0')}:00 · ${next.following?'陪你逛逛':'循环的一天'} · 预览待审`;
     if(greeting>0){greeting-=dt;const point=actor.position.clone().add(new THREE.Vector3(0,spec.height+.13,0)).project(camera);bubble.hidden=greeting<=0 || !actor.visible || point.z<-1 || point.z>1;bubble.style.left=THREE.MathUtils.clamp((point.x*.5+.5)*root.clientWidth,95,root.clientWidth-95)+'px';bubble.style.top=THREE.MathUtils.clamp((-.5*point.y+.5)*root.clientHeight,80,root.clientHeight-80)+'px';}
