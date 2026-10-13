@@ -23,9 +23,9 @@
   },
   {
     "id": "armchair",
-    "bytes": 1082964,
-    "sha256": "3a6c15503591de1c8c00b807aa281d36dd894a5412795db7db9dcfc6186b6630",
-    "triangles": 21002,
+    "bytes": 1084152,
+    "sha256": "9719220e43b4fcd89c3ae72883945283791c93a765369e04e95190b6c79287ea",
+    "triangles": 21200,
     "embeddedTextures": [
       [
         1024,
@@ -38,9 +38,9 @@
   },
   {
     "id": "bed",
-    "bytes": 1396412,
-    "sha256": "5354ad2f74e2b3d8272bebd22c96a95430e065784cd7aff754d4072704afce67",
-    "triangles": 22823,
+    "bytes": 1397456,
+    "sha256": "7e68325037d8645c6eda106c6fe843eb990fff1686d9d11c07b2550e1def2f08",
+    "triangles": 22997,
     "embeddedTextures": [
       [
         1024,
@@ -54,7 +54,7 @@
   {
     "id": "fridge",
     "bytes": 1153024,
-    "sha256": "75ef918debd9f07550fb5baff4031814a80a067a09f936648e6dd2e40f4e70d6",
+    "sha256": "aa41605c13857d140daf67038d218aa0c0a01f6508d1ef17f8eac7faaf986b5b",
     "triangles": 22622,
     "embeddedTextures": [
       [
@@ -68,9 +68,9 @@
   },
   {
     "id": "stove",
-    "bytes": 1417968,
-    "sha256": "02b49e893100b1aafe84f1fdb01cf8b5f895df5093095ae7a5cdf4a0849459dd",
-    "triangles": 20080,
+    "bytes": 1418388,
+    "sha256": "742358eff3df92a7448c4e77c183115627ccc1927af58f7a415c29badaf0c4e4",
+    "triangles": 20150,
     "embeddedTextures": [
       [
         1024,
@@ -83,9 +83,9 @@
   },
   {
     "id": "old-tv",
-    "bytes": 1208352,
-    "sha256": "489f4e9fa525c2fcc94e80b7ea71740a04d44f304f3c9274f46bc0d1bf1721ea",
-    "triangles": 18316,
+    "bytes": 1209336,
+    "sha256": "07f361da3b5f3c356bdfff6a9be18188d95a7bfb5f59305f7a702e553846630f",
+    "triangles": 18480,
     "embeddedTextures": [
       [
         1024,

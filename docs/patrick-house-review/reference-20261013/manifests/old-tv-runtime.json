@@ -1,7 +1,7 @@
 {
   "id": "old-tv",
   "rawSHA256": "61a9c09262551f0313f0bd8a79d26b92577b35b815fe652434a289163e832fbc",
-  "runtimeSHA256": "489f4e9fa525c2fcc94e80b7ea71740a04d44f304f3c9274f46bc0d1bf1721ea",
+  "runtimeSHA256": "07f361da3b5f3c356bdfff6a9be18188d95a7bfb5f59305f7a702e553846630f",
   "originalZUp": [
     1.0336189270019531,
     0.7090331315994263,
@@ -13,7 +13,7 @@
     0.7715229988098145
   ],
   "removedBackdropFaces": 7684,
-  "triangles": 18316,
+  "triangles": 18480,
   "bones": 0,
   "animations": [],
   "status": "review",

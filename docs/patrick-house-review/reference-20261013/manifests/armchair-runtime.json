@@ -1,7 +1,7 @@
 {
   "id": "armchair",
   "rawSHA256": "b2d52ebe8924aabcd98641156d8ee415acc7742d4d0d66c9d8e96812eb7d1867",
-  "runtimeSHA256": "3a6c15503591de1c8c00b807aa281d36dd894a5412795db7db9dcfc6186b6630",
+  "runtimeSHA256": "9719220e43b4fcd89c3ae72883945283791c93a765369e04e95190b6c79287ea",
   "originalZUp": [
     1.1763789653778076,
     1.0192279815673828,
@@ -13,7 +13,7 @@
     1.1569232940673828
   ],
   "removedBackdropFaces": 4998,
-  "triangles": 21002,
+  "triangles": 21200,
   "bones": 0,
   "animations": [],
   "status": "review",

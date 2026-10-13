@@ -67,6 +67,15 @@ center=Vector(((lo.x+hi.x)/2,(lo.y+hi.y)/2,lo.z))
 for o in meshes:
     for v in o.data.vertices:
         v.co=(v.co-center);v.co.x*=scale.x;v.co.y*=scale.y;v.co.z*=scale.z
+    if name!='patrick':
+        # 脚底裁去背景后留下锯齿边，压平低位接触边并封底；主体曲面和 UV 保留。
+        bm=bmesh.new();bm.from_mesh(o.data)
+        for v in bm.verts:
+            if v.co.z<dims[2]*.055:v.co.z=0
+        bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=.00003)
+        edges=[e for e in bm.edges if e.is_boundary and all(v.co.z<dims[2]*.07 for v in e.verts)]
+        if edges:bmesh.ops.holes_fill(bm,edges=edges,sides=0)
+        bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
     o.name=f'patrick-reference-{name}';o['sourceBackend']='Hunyuan3D-2.1 Shape + Paint; Blender normalization';o['humanReview']='pending'
     for p in o.data.polygons:p.use_smooth=True
     for material in o.data.materials:

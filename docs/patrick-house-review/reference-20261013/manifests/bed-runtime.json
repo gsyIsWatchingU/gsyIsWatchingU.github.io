@@ -1,7 +1,7 @@
 {
   "id": "bed",
   "rawSHA256": "8bb73f58bdea591d88593e3433fb0b03cb7358fb55f5f8ef83864b47c35e86e5",
-  "runtimeSHA256": "5354ad2f74e2b3d8272bebd22c96a95430e065784cd7aff754d4072704afce67",
+  "runtimeSHA256": "7e68325037d8645c6eda106c6fe843eb990fff1686d9d11c07b2550e1def2f08",
   "originalZUp": [
     1.3213369846343994,
     1.9941961765289307,
@@ -13,7 +13,7 @@
     0.8425919413566589
   ],
   "removedBackdropFaces": 3177,
-  "triangles": 22823,
+  "triangles": 22997,
   "bones": 0,
   "animations": [],
   "status": "review",

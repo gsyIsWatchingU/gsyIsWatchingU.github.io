@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:8693/patrick-house.html?t=1791854895049",
+  "url": "http://127.0.0.1:8693/patrick-house.html?t=1791855194805",
   "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002584) Direct3D11 vs_5_0 ps_5_0, D3D11)",
   "checks": [
     {
@@ -45,7 +45,7 @@
       "ok": true,
       "detail": {
         "meshes": 245,
-        "triangles": 267585
+        "triangles": 268355
       }
     },
     {
@@ -291,25 +291,25 @@
           "table",
           "sink",
           "chair",
+          "bathtub",
+          "treasure",
           "couch",
           "toilet",
-          "treasure",
           "barrel",
           "lounger",
-          "bathtub",
           "chest",
-          "bed",
-          "structure",
           "siamese-cat",
+          "bed",
           "laptop",
-          "bluetooth-speaker"
+          "bluetooth-speaker",
+          "structure"
         ],
         "failed": [],
         "fps": 0,
         "renderer": {
-          "frame": 21,
-          "calls": 305,
-          "triangles": 1046762,
+          "frame": 11,
+          "calls": 313,
+          "triangles": 1074226,
           "points": 0,
           "lines": 648
         },
@@ -336,20 +336,20 @@
           "reducedMotion": false,
           "bones": 18,
           "crouch": 0,
-          "facingCamera": 0.96346,
+          "facingCamera": 0.96392,
           "sit": 0,
           "sideLie": 0,
           "head": [
-            0.0000025256087069995756,
-            0.001351785919723389,
-            0.0018683446502085492,
-            0.9999973409748233
+            3.2881919050891616e-7,
+            0.00048737629793054756,
+            0.0006746718665138821,
+            0.9999996536409945
           ],
           "tail": [
-            0.07369463203679179,
-            -0.0186069829083694,
-            -0.01377357228155832,
-            0.9970121321870508
+            0.07381151036989383,
+            -0.024644694753527655,
+            -0.0162701589428272,
+            0.9968348928036932
           ],
           "feet": [
             {
