@@ -16,7 +16,7 @@ try{
   const click=async selector=>{const point=await evaluate(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2}})()`);await call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',buttons:1,clickCount:1,...point});await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',buttons:0,clickCount:1,...point});};
   const key=async(key,code)=>{for(const type of ['keyDown','keyUp'])await call('Input.dispatchKeyEvent',{type,key,code:key,windowsVirtualKeyCode:code,nativeVirtualKeyCode:code});};
   const select=async index=>{await click('[data-companion-action]');await key('Home',36);for(let i=0;i<index;i++)await key('ArrowDown',40);await key('Enter',13);};
-  const snapshot=()=>evaluate('({house:window.__pineappleHouse.snapshot(),companion:window.__pineappleHouse.companion.snapshot()})');
+  const snapshot=()=>evaluate('(()=>{const h=window.__pineappleHouse;let catShapes=null;h.scene.traverse(n=>{if(n.name==="siamese_cat"&&!n.userData.petFur)catShapes=n.morphTargetInfluences?.slice(0,4)??null});return{house:h.snapshot(),companion:h.companion.snapshot(),catShapes}})()');
   const shot=async name=>{const r=await call('Page.captureScreenshot',{format:'png'});writeFileSync(`${out}/${name}.png`,Buffer.from(r.data,'base64'));};
   const base=process.argv.includes('--live')?'https://gsyiswatchingu.github.io':'http://127.0.0.1:8770';
   await call('Page.navigate',{url:base+'/pineapple-companion.html?privacy=1&t='+Date.now()});await wait('window.__pineappleHouse?.snapshot().state==="ready"&&window.__pineappleHouse.companion?.snapshot().loaded');
@@ -33,6 +33,7 @@ try{
   await delay(1400);await shot('cat-greeting');records.push({test:'cat-greeting',value:await snapshot()});
   const petting=records.find(r=>r.test==='petting').value;
   assert(petting.companion.petContact<.09,'抚摸手腕必须在猫头附近');assert(petting.house.pet.sit>.95&&petting.house.pet.interaction);
+  assert(petting.catShapes?.reduce((a,b)=>a+b,0)>.95,'实际渲染的猫咪必须启用坐姿曲面修正');
   assert(records.at(-1).value.house.pet.reactions>records.find(r=>r.test==='cat-sit').value.house.pet.reactions,'真实点击猫咪必须触发回应');
   // 正式小屋单独检查参观者招呼时的尾巴变化，不受陪伴动作影响。
   await call('Page.navigate',{url:base+'/pineapple-house.html?privacy=1&t='+Date.now()});await wait('window.__pineappleHouse?.snapshot().state==="ready"&&window.__pineappleHouse.snapshot().pet');
