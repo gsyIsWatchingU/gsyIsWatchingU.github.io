@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "job_id": "413330331cd042a58d2cdb1080863637",
+  "asset_name": "squidward-bunny-20261013",
+  "asset_kind": "character",
+  "profile": "xhs_mobile",
+  "state": "queued",
+  "source_file": "/workspace/3d-assets/jobs/413330331cd042a58d2cdb1080863637/source.png",
+  "source_sha256": "1a1d441fab25dd5a82c92508dcb6f58f81076288a06b29ecfcd8634833a6b6c4",
+  "material_source_file": null,
+  "material_source_sha256": null,
+  "prompt": "参考图中的兔耳帽装扮章鱼哥，青绿色皮肤，半睁黄色红瞳眼睛、长鼻子，棕色双马尾，白兔垂耳帽，粉色短上衣，粉紫蓝三层波浪裙，右手握蓝紫夹板，左手插腰，双腿与触足完整。完整单角色圆润连续曲面，真实手绘贴图，保留所有配饰与五官，不增加物件。",
+  "seed": 2026101301,
+  "created_at": "2026-10-13T02:17:35.221303+00:00",
+  "updated_at": "2026-10-13T02:17:35.221396+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "generate_mesh",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "draft_preview",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "generate_material",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "rig",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "retarget_animation",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "export",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "render_preview",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "validate",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    }
+  ],
+  "outputs": {},
+  "metrics": {},
+  "provenance": {
+    "source_filename": "source.png",
+    "material_source_filename": null,
+    "mesh_backend": "single",
+    "views": {},
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu"
+  },
+  "quality_gates": {},
+  "error": null,
+  "stop_after": null
+}

@@ -1,0 +1,10 @@
+{
+  "observedOn": "2026-10-13",
+  "allocation": [
+    {"host":"gsy013","index":0,"gpu":"L20","uuid":"GPU-1a462216-9e7c-59c9-5e0f-a1d2b2ef1766","freeMiB":45586,"utilization":0,"assigned":"章鱼哥 Shape / Paint","jobId":"413330331cd042a58d2cdb1080863637","estimatedPeakMiB":44500},
+    {"host":"mygpu","index":0,"gpu":"L20","uuid":"GPU-706e351c-2da2-a710-30c8-6710acd63788","freeMiB":38177,"utilization":0,"assigned":null,"reason":"已有常驻服务；单角色任务无需额外工位"},
+    {"host":"mygpu","index":1,"gpu":"L20","uuid":"GPU-f870b78d-ba8b-23ac-47d4-88922d4010a4","freeMiB":45586,"utilization":0,"assigned":null,"reason":"单角色仅一份输入，无剩余独立阶段任务"},
+    {"host":"gsy0930","indices":[0,1,2,3],"gpu":"T4","assigned":null,"reason":"本机独立SSH信任文件缺失；未绕过校验，当前资源不可核验"}
+  ],
+  "dispatch": "API队列消费后任务仍queued且无运行记录，直接在原创建主机执行同一job，保留原manifest。未重启Worker或停止其他服务。"
+}

@@ -12,7 +12,7 @@ const projectOverviewPattern = /^[\t ]*<!-- @project-overview -->[\t ]*$/gm;
 const projectDetailPattern = /^[\t ]*<!-- @project-detail ([a-z0-9-]+) -->[\t ]*$/gm;
 const projectArchivePattern = /^[\t ]*<!-- @project-archive -->[\t ]*$/gm;
 const roomProjectsPattern = /^[\t ]*<!-- @room-projects -->[\t ]*$/gm;
-const entries = ["index.html", "playground.html", "pineapple-house.html", "pineapple-companion.html", "patrick-house.html"];
+const entries = ["index.html", "playground.html", "pineapple-house.html", "pineapple-companion.html", "patrick-house.html", "squidward-model.html"];
 const projects = JSON.parse(readFileSync(join(sourceRoot, "data", "projects.json"), "utf8"));
 const galaxyOutput = join(projectRoot, "assets", "galaxy.js");
 const room3dOutput = join(projectRoot, "assets", "room3d.js");
@@ -42,6 +42,7 @@ bundle(join(projectRoot, "scripts", "patrick-house.js"), join(projectRoot, "asse
 bundle(join(projectRoot, "scripts", "house-profile.js"), join(projectRoot, "assets", "house-profile.js"));
 bundle(join(projectRoot, "scripts", "house-toilet-projects.js"), join(projectRoot, "assets", "house-toilet-projects.js"));
 bundle(join(projectRoot, "scripts", "cat-fur-review.js"), join(projectRoot, "docs", "cat-fur-review", "viewer.js"));
+bundle(join(projectRoot, "scripts", "squidward-model.js"), join(projectRoot, "assets", "squidward-model.js"));
 
 const escapeHtml = (value) =>
   String(value)

@@ -1,0 +1,16 @@
+{
+  "sourceSHA256": "a3c6f5cd99cb459b18151a2dd5af71bb0946197faf7014163bfbfd8d1009af28",
+  "preparedSHA256": "1a1d441fab25dd5a82c92508dcb6f58f81076288a06b29ecfcd8634833a6b6c4",
+  "foregroundRatio": 0.32961591084798175,
+  "foregroundBBox": [
+    200,
+    16,
+    912,
+    1464
+  ],
+  "imageSize": [
+    1024,
+    1536
+  ],
+  "maskValid": true
+}

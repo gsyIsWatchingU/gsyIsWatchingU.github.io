@@ -1,0 +1,38 @@
+{
+  "browser": "Codex In-app Browser",
+  "checkedAt": "2026-10-13T02:30:21.793Z",
+  "loaded": true,
+  "staticModel": true,
+  "desktop": {
+    "width": 1280,
+    "height": 720
+  },
+  "portrait": {
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "scrollHeight": 844,
+    "fullyVisible": true
+  },
+  "landscape": {
+    "height": 390,
+    "loaded": "true",
+    "scrollHeight": 390,
+    "scrollWidth": 844,
+    "width": 844
+  },
+  "interactions": [
+    "front",
+    "side",
+    "back",
+    "native-drag",
+    "native-scroll",
+    "auto-rotate-on",
+    "reset-off"
+  ],
+  "finalConsoleIssues": [],
+  "limitations": [
+    "手机为视口模拟，未验证实机与物理双指",
+    "造型待用户审看，未验证骨骼动作"
+  ]
+}
