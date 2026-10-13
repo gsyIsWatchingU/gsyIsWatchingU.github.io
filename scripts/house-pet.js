@@ -105,7 +105,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
     return leg.rest.clone().applyAxisAngle(up,curveYaw(ahead)).add(curvePoint(ahead));
   }
   function settle(next="idle") { state="settling";elapsed=0;duration=Infinity;afterSettle=next;for(const leg of legs){leg.settled=false;leg.landingIsRest=false;} }
-  function idle(next="idle") { state=next;elapsed=0;duration=next==="curious"?Infinity:next==="lie"?7+(walkNumber%3):4.5+(walkNumber%3)*.7; }
+  function idle(next="idle") {if(next==='sit'&&spec.pet.sitEnabled===false)next='idle';state=next;elapsed=0;duration=next==="curious"?Infinity:next==="lie"?7+(walkNumber%3):4.5+(walkNumber%3)*.7; }
   function beginSteps(next) {
     state=next;elapsed=0;duration=next==="walk"?5.5+(walkNumber%4)*1.1:Infinity;
     for(const leg of legs){leg.settled=false;leg.waitForStance=((gaitTime/cycle+leg.offset)%1+1)%1>=stance;}
@@ -174,7 +174,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
       resetBones();
       if(naturalRest){
         const resting=state!=="settling"&&state!=="walk"&&state!=="turn";
-        sit=approach(sit,!attention&&resting&&sideLie<.001&&(requestedRest??state)==="sit"?1:0,dt/1.9);
+        sit=approach(sit,spec.pet.sitEnabled!==false&&!attention&&resting&&sideLie<.001&&(requestedRest??state)==="sit"?1:0,dt/1.9);
         sideLie=approach(sideLie,!attention&&resting&&sit<.001&&(requestedRest??state)==="lie"?1:0,dt/2.3);
         const sitting=ease(sit),lying=ease(sideLie),roll=lying*Math.PI*.5;
         model.quaternion.setFromAxisAngle(up,yaw).multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),roll));
@@ -288,7 +288,7 @@ export function createHousePet(model, spec, { root, canvas, camera, reducedMotio
     attention=false;requestedRest=next==="walk"?null:next;
     if(next==="walk"){walkNumber++;beginSteps("turn");}else settle(next);
   }
-  function beginInteraction(target){interactionRest=requestedRest;requestedRest='sit';attention=false;companionTarget=new THREE.Vector3().fromArray(target);interactionRemaining=14;settle('sit');}
+  function beginInteraction(target){interactionRest=requestedRest;requestedRest=spec.pet.sitEnabled===false?'idle':'sit';attention=false;companionTarget=new THREE.Vector3().fromArray(target);interactionRemaining=14;settle(requestedRest);}
   function trackCompanion(target){if(interactionRemaining>0)companionTarget.fromArray(target);}
   function endInteraction(){if(companionTarget){companionTarget=null;interactionRemaining=0;requestedRest=interactionRest;interactionRest=null;}}
   const touchPoint=()=>{model.updateMatrixWorld(true);return faceCenterInHead?faceCenterInHead.clone().applyMatrix4(head.node.matrixWorld).add(new THREE.Vector3(0,.05,0)):worldPosition(head.node);};

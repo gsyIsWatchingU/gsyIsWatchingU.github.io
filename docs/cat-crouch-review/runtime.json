@@ -1,6 +1,6 @@
 {
-  "status": "review",
-  "humanReview": "pending",
+  "status": "rejected",
+  "humanReview": "rejected",
   "source": "assets/house-review/props/siamese-kitten-compact.glb",
   "sourceSHA256": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
   "output": "assets/house-review/props/siamese-kitten-sit.glb",
@@ -12,5 +12,6 @@
     "sit_75",
     "sit_100"
   ],
-  "faceUnchanged": true
+  "faceUnchanged": true,
+  "reason": "User rejected sharp hind-leg folds and suspended rump"
 }
