@@ -1,6 +1,6 @@
 # 派大星石头屋 · 资产清单
 
-## 当前版本：20261013-reference1
+## 当前版本：20261013-reference2
 
 - 状态 review，用户视觉确认待定；没有标记 approved。
 - 六件新 GLB 来自自有 GPU 的 Z-Image 参考 / Hunyuan3D Shape + Paint，再经 Blender 修整。派大星包含明确的身体/眼睛/肩臂重拓扑和 GPU 眉嘴纹理重投影，9 骨蒙皮，两动作。

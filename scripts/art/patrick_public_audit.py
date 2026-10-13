@@ -10,7 +10,7 @@ expected={p:hashlib.sha256(subprocess.check_output(['git','show',f'HEAD:{p}'],cw
 for attempt in range(24):
     results=[]
     for path in files:
-        url='https://gsyiswatchingu.github.io/'+path+'?v=20261013-reference1&t='+str(int(time.time()))
+        url='https://gsyiswatchingu.github.io/'+path+'?v=20261013-reference2&t='+str(int(time.time()))
         try:
             with urlopen(Request(url,headers={'Cache-Control':'no-cache'}),timeout=20) as r:
                 raw=r.read();status=r.status
@@ -20,6 +20,6 @@ for attempt in range(24):
     print('PUBLIC_BYTES',sum(r['matched'] for r in results),'/',len(files),'attempt',attempt+1,flush=True)
     if all(r['matched'] for r in results):
         out=root/'docs/patrick-house-review/reference-20261013/public-resources.json'
-        out.write_text(json.dumps(dict(commit=commit,version='20261013-reference1',files=results),indent=2)+'\n',encoding='utf-8');break
+        out.write_text(json.dumps(dict(commit=commit,version='20261013-reference2',files=results),indent=2)+'\n',encoding='utf-8');break
     time.sleep(10)
 else:raise RuntimeError('Published files have not converged to the committed bytes')

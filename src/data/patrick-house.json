@@ -1,5 +1,5 @@
 {
-  "version": "20261013-reference1",
+  "version": "20261013-reference2",
   "status": "review",
   "rooms": [
     {
@@ -31,7 +31,7 @@
       ],
       "camera": [
         -1.35,
-        1.85,
+        2.4,
         3.85
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:8693/patrick-house.html?t=1791855194805",
+  "url": "http://127.0.0.1:8693/patrick-house.html?t=1791855776128",
   "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002584) Direct3D11 vs_5_0 ps_5_0, D3D11)",
   "checks": [
     {
@@ -44,8 +44,8 @@
       "name": "geometry",
       "ok": true,
       "detail": {
-        "meshes": 245,
-        "triangles": 268355
+        "meshes": 250,
+        "triangles": 272355
       }
     },
     {
@@ -288,26 +288,26 @@
         "state": "ready",
         "view": "whole",
         "loaded": [
+          "chair",
           "table",
           "sink",
-          "chair",
-          "bathtub",
           "treasure",
-          "couch",
+          "bathtub",
           "toilet",
-          "barrel",
+          "couch",
           "lounger",
           "chest",
+          "barrel",
+          "structure",
           "siamese-cat",
           "bed",
           "laptop",
-          "bluetooth-speaker",
-          "structure"
+          "bluetooth-speaker"
         ],
         "failed": [],
         "fps": 0,
         "renderer": {
-          "frame": 11,
+          "frame": 22,
           "calls": 313,
           "triangles": 1074226,
           "points": 0,
@@ -336,20 +336,20 @@
           "reducedMotion": false,
           "bones": 18,
           "crouch": 0,
-          "facingCamera": 0.96392,
+          "facingCamera": 0.96353,
           "sit": 0,
           "sideLie": 0,
           "head": [
-            3.2881919050891616e-7,
-            0.00048737629793054756,
-            0.0006746718665138821,
-            0.9999996536409945
+            0.0000020525881039136506,
+            0.0012184352021872714,
+            0.0016846063410523489,
+            0.9999978387541252
           ],
           "tail": [
-            0.07381151036989383,
-            -0.024644694753527655,
-            -0.0162701589428272,
-            0.9968348928036932
+            0.07371178782850091,
+            -0.019577015947816558,
+            -0.014168672657379852,
+            0.9969867517286214
           ],
           "feet": [
             {

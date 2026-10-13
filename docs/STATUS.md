@@ -1,6 +1,6 @@
 # 项目状态
 
-## 派大星参考图重建（2026-10-13，reference1，review）
+## 派大星参考图重建（2026-10-13，reference2，review）
 
 - 两层剖面、完整木平台/侧梯、小门、灰岩地下客厅和参考家具位置已调整；补齐镜子、海报、收藏与骨头风向标。
 - 自有 GPU Shape+Paint 六件 GLB 已接入，派大星经 Blender 重拓扑与纹理重投影，9 骨蒙皮、idle/wave；拒绝自动热权重的变形候选。来源/哈希见 `docs/patrick-house-review/reference-20261013/`。

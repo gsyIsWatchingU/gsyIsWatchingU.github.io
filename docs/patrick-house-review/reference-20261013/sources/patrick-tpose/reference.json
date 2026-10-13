@@ -7,5 +7,7 @@
   "seed": 2026101318,
   "sourceSHA256": "39762a62cd64b86c27a6d3c65c9e93476d9fbc351f47ef1100d0e706be6e1f3c",
   "status": "review",
-  "humanReview": "pending"
+  "humanReview": "pending",
+  "adopted": false,
+  "rejectionReason": "T-pose target not met: arms remain down; not submitted to Shape/Paint"
 }

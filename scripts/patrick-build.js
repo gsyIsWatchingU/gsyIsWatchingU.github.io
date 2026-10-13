@@ -477,9 +477,13 @@ export function buildStove() {
 export function buildSink() {
   const g = new THREE.Group();
   // 参考图蓝色洗手池：木质柜体 + 浅色台面 + 陶瓷盆腔 + 镀铬龙头
-  const counter = new THREE.Mesh(rbox(1.0, 0.62, 0.55, 0.06), texMat(woodTex(512, "plank"), 0.8));
-  counter.position.y = 0.31;
+  const cabinetWood=texMat(woodTex(512, "plank"), 0.8);
+  const counter = new THREE.Mesh(rbox(1.0, 0.48, 0.55, 0.04), cabinetWood);
+  counter.position.y = 0.24;
   g.add(counter);
+  for(const [w,d,x,z]of[[1,.04,0,.255],[1,.04,0,-.255],[.04,.51,-.48,0],[.04,.51,.48,0]]){
+    const fascia=new THREE.Mesh(rbox(w,.145,d,.012),cabinetWood);fascia.position.set(x,.55,z);g.add(fascia);
+  }
   // 台面（浅石英）
   const topShape=new THREE.Shape();topShape.moveTo(-.51,-.285);topShape.lineTo(.51,-.285);topShape.lineTo(.51,.285);topShape.lineTo(-.51,.285);topShape.closePath();
   const hole=new THREE.Path();hole.absellipse(-.16,0,.218,.158,0,Math.PI*2,true);topShape.holes.push(hole);
@@ -489,7 +493,10 @@ export function buildSink() {
   g.add(top);
   // 盆腔（方形陶瓷盆 + 内侧深色）
   const basinProfile=[[0,.53],[.14,.54],[.19,.60],[.225,.665],[.23,.68],[.21,.69],[.19,.64],[.14,.57],[0,.56]];
-  const basin=new THREE.Mesh(new THREE.LatheGeometry(basinProfile.map(p=>new THREE.Vector2(...p)),40),mat(0xcadadc,.4));basin.scale.z=.72;basin.position.x=-.16;g.add(basin);
+  const basinGeometry=new THREE.LatheGeometry(basinProfile.map(p=>new THREE.Vector2(...p)),40);
+  const colors=[];for(let i=0;i<basinGeometry.attributes.position.count;i++){const p=basinGeometry.attributes.position,n=basinGeometry.attributes.normal;const inward=p.getX(i)*n.getX(i)+p.getZ(i)*n.getZ(i)<-.005;colors.push(...(inward?[.67,.77,.80]:[1,1,1]));}
+  basinGeometry.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));
+  const basin=new THREE.Mesh(basinGeometry,mat(0xcadadc,.4,{vertexColors:true}));basin.scale.z=.72;basin.position.x=-.16;g.add(basin);
   // 镀铬龙头（L 形管 + 立管 + 双把手）
   const chrome = mat(0xd9e0e4, 0.2, { metalness: 0.75 });
   const faucet=new THREE.CatmullRomCurve3([new THREE.Vector3(-.16,.66,-.22),new THREE.Vector3(-.16,.86,-.22),new THREE.Vector3(-.16,.88,-.10),new THREE.Vector3(-.16,.79,-.02)]);
@@ -609,14 +616,15 @@ export function buildBedLamp() {
 export function buildBenchPress() {
   const g = new THREE.Group();
   // 参考图：卧推凳（真实支撑）+ 杠铃架（立柱 + 挂钩托杠 + 铃片）
-  const bench = new THREE.Mesh(rbox(1.15, 0.12, 0.34, 0.05), mat(0xc84a3a, 0.9));
+  const upholstery=texMat(fabricTex('#bd4b3d','#773326','#e49372',null,60),.94);
+  const bench = new THREE.Mesh(rbox(1.15, 0.12, 0.34, 0.05), upholstery);
   bench.position.y = 0.36;
   g.add(bench);
-  const pad = new THREE.Mesh(rbox(0.5, 0.06, 0.3, 0.04), mat(0xd8674f, 0.92));
+  const pad = new THREE.Mesh(rbox(0.5, 0.06, 0.3, 0.04), upholstery);
   pad.position.set(-0.28, 0.45, 0);
   g.add(pad);
   // 凳腿（斜撑 + 横撑）
-  const steel = mat(0x5a5a5a, 0.55, { metalness: 0.45 });
+  const steel = goldMat();
   for (const lx of [0.42, -0.42]) {
     for (const lz of [0.1, -0.1]) {
       const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.032, 0.34, 8), steel);
@@ -625,25 +633,26 @@ export function buildBenchPress() {
       g.add(leg);
     }
   }
-  const cross = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.3, 8), steel);
+  const cross = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.84, 8), steel);
   cross.rotation.z = Math.PI / 2;
-  cross.position.set(0, 0.1, 0);
+  cross.position.set(0, 0.1, .1);
   g.add(cross);
+  const secondCross=cross.clone();secondCross.position.z=-.1;g.add(secondCross);
   // 杠铃架：两根立柱 + 顶部横梁 + 挂钩
   const rackX = 0.42;
   for (const s of [-1, 1]) {
-    const post = new THREE.Mesh(rbox(0.06, 1.0, 0.06, 0.02), mat(0xd94f4f, 0.6));
+    const post = new THREE.Mesh(rbox(0.06, 1.0, 0.06, 0.02), steel);
     post.position.set(rackX + s * 0.16, 0.5, 0);
     g.add(post);
-    const hook = new THREE.Mesh(rbox(0.06, 0.05, 0.09, 0.015), mat(0xd94f4f, 0.6));
+    const hook = new THREE.Mesh(rbox(0.06, 0.05, 0.09, 0.015), steel);
     hook.position.set(rackX + s * 0.16, 0.78, 0.06);
     g.add(hook);
   }
-  const topBar = new THREE.Mesh(rbox(0.38, 0.04, 0.05, 0.015), mat(0xd94f4f, 0.6));
+  const topBar = new THREE.Mesh(rbox(0.38, 0.04, 0.05, 0.015), steel);
   topBar.position.set(rackX, 1.0, 0);
   g.add(topBar);
   // 杠铃（托在挂钩上）
-  const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 1.1, 10), mat(0x22272c, 0.45, { metalness: 0.7 }));
+  const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 1.1, 10), steel);
   bar.rotation.z = Math.PI / 2;
   bar.position.set(rackX, 0.8, 0.05);
   g.add(bar);
@@ -651,12 +660,12 @@ export function buildBenchPress() {
     for (const [pr, ph] of [[0.11, 0.07], [0.085, 0.05]]) {
       const plate = new THREE.Mesh(new THREE.CylinderGeometry(pr, pr, ph, 14), mat(0x333, 0.6, { metalness: 0.5 }));
       plate.rotation.z = Math.PI / 2;
-      plate.position.set(rackX + s * 0.14, 0.8, 0.05);
+      plate.position.set(rackX + s * (pr===.11?.36:.43), 0.8, 0.05);
       g.add(plate);
     }
     const clip = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.07, 8), mat(0xc84a3a, 0.8));
     clip.rotation.z = Math.PI / 2;
-    clip.position.set(rackX + s * 0.3, 0.8, 0.05);
+    clip.position.set(rackX + s * 0.49, 0.8, 0.05);
     g.add(clip);
   }
   return shade(g);

@@ -75,7 +75,9 @@ function mountedMirror() {
 function pedestalSink() {
   const g=new THREE.Group();const porcelain=mat(0xa6b9ba,.47);
   const stem=new THREE.Mesh(new THREE.LatheGeometry([[.16,0],[.14,.04],[.08,.13],[.065,.42],[.14,.54]].map(p=>new THREE.Vector2(...p)),32),porcelain);g.add(stem);
-  const basin=new THREE.Mesh(new THREE.LatheGeometry([[.055,.53],[.18,.55],[.3,.67],[.32,.72],[.3,.75],[.25,.7],[.13,.64],[.07,.64]].map(p=>new THREE.Vector2(...p)),40),porcelain);g.add(basin);
+  const geometry=new THREE.LatheGeometry([[.055,.53],[.18,.55],[.3,.67],[.32,.72],[.3,.75],[.25,.7],[.13,.64],[.07,.64],[0,.64]].map(p=>new THREE.Vector2(...p)),40);
+  const colors=[];for(let i=0;i<geometry.attributes.position.count;i++){const p=geometry.attributes.position,n=geometry.attributes.normal;colors.push(...(p.getX(i)*n.getX(i)+p.getZ(i)*n.getZ(i)<-.005?[.63,.74,.77]:[1,1,1]));}geometry.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));
+  const basin=new THREE.Mesh(geometry,mat(0xa6b9ba,.47,{vertexColors:true}));basin.castShadow=basin.receiveShadow=true;g.add(basin);
   const metal=mat(0xa8b5b0,.35,{metalness:.4});g.add(curve([[0,.72,-.19],[0,.89,-.2],[0,.91,-.08],[0,.84,-.04]],.025,metal));
   for(const x of [-.13,.13]){const tap=new THREE.Mesh(new THREE.SphereGeometry(.035,12,8),metal);tap.position.set(x,.77,-.19);g.add(tap);}return g;
 }

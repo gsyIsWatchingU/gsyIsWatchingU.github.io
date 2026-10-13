@@ -26,7 +26,7 @@ for name in names:
     assert runtime['rawSHA256']==meta['texturedSHA256']
     print('MODEL_READY',name,flush=True)
 config=ROOT/'src/data/patrick-house.json';data=json.loads(config.read_text(encoding='utf-8'))
-data['version']='20261013-reference1';data['status']='review'
+data['version']='20261013-reference2';data['status']='review'
 data['assets']=[dict(id=name,url=f'assets/patrick-reference/models/{name}.glb') for name in names]
 config.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('ALL_RUNTIME_READY',flush=True)
