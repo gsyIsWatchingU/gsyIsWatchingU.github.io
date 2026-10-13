@@ -1,11 +1,12 @@
 import {launch} from './verification/neighborhood-cdp-client.mjs';
 import {writeFileSync,mkdirSync} from 'node:fs';
 import assert from 'node:assert/strict';
-const label=process.argv[2]??'local',root='docs/cat-sit-v2-review',out=root+'/'+label;mkdirSync(out,{recursive:true});
+const rootIndex=process.argv.indexOf('--review-path');
+const label=process.argv[2]??'local',root=rootIndex>=0?process.argv[rootIndex+1]:'docs/cat-sit-v2-review',out=root+'/'+label;mkdirSync(out,{recursive:true});
 const c=await launch('tmp/cat-sit-v2-'+label,9896);const records=[];
 async function shot(name){const r=await c.send('Page.captureScreenshot',{format:'png'});writeFileSync(out+'/'+name+'.png',Buffer.from(r.data,'base64'));}
 try{
-  await c.viewport(1100,800);const base=process.argv.includes('--live')?'https://gsyiswatchingu.github.io':'http://127.0.0.1:8770';await c.navigate(base+'/docs/cat-sit-v2-review/?t='+Date.now());await c.wait('document.querySelector("main").dataset.loaded==="true"');
+  await c.viewport(1100,800);const base=process.argv.includes('--live')?'https://gsyiswatchingu.github.io':'http://127.0.0.1:8770';await c.navigate(base+'/'+root+'/?t='+Date.now());await c.wait('document.querySelector("main").dataset.loaded==="true"');
   await c.evaluate(`window.__record={chunks:[]};window.__record.recorder=new MediaRecorder(document.querySelector('canvas').captureStream(30),{mimeType:'video/webm;codecs=vp9'});window.__record.recorder.ondataavailable=e=>window.__record.chunks.push(e.data);window.__record.recorder.start();`);
   await c.pause(500);await c.clickElement('[data-pose="sit"]');
   for(let i=0;i<12;i++){await c.pause(170);await shot('sit-frame-'+i);records.push({frame:i,snapshot:await c.evaluate('window.__catReview.snapshot()')});}
@@ -14,7 +15,7 @@ try{
   await c.wait('window.__catReview.snapshot().sit<.001');await c.pause(600);
   const movie=await c.evaluate(`new Promise(resolve=>{const r=window.__record;r.recorder.onstop=()=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result.split(',')[1]);reader.readAsDataURL(new Blob(r.chunks,{type:'video/webm'}));};r.recorder.stop();})`);writeFileSync(out+'/sit-rise.webm',Buffer.from(movie,'base64'));
   // 招呼会转身朝向镜头。重载后再拍固定视角，避免把已转身的正面误标成侧面。
-  await c.navigate(base+'/docs/cat-sit-v2-review/?t='+Date.now());await c.wait('document.querySelector("main").dataset.loaded==="true"');
+  await c.navigate(base+'/'+root+'/?t='+Date.now());await c.wait('document.querySelector("main").dataset.loaded==="true"');
   for(const pose of ['sit','lie']){
     await c.clickElement('[data-pose="'+pose+'"]');await c.wait('window.__catReview.snapshot().'+(pose==='sit'?'sit':'sideLie')+'>.999');await c.clickElement('#pause');
     for(const view of ['side','front','rear']){await c.clickElement('[data-view="'+view+'"]');await c.pause(250);await shot(pose+'-'+view);records.push({pose,view,snapshot:await c.evaluate('window.__catReview.snapshot()')});}

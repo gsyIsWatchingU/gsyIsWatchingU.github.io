@@ -1,0 +1,17 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "source": "assets/house-review/props/siamese-kitten-compact.glb",
+  "sourceSHA256": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+  "output": "assets/house-review/props/siamese-kitten-seated-anatomy.glb",
+  "runtimeSHA256": "19a4bb5ce94944d79c224dc941cecdfeaa00fe188f208f60723c731e741325a1",
+  "method": "independent foreleg cross sections, anchored paws, tucked hindlegs; existing GPU mesh/UV retained",
+  "targets": [
+    "sit_25",
+    "sit_50",
+    "sit_75",
+    "sit_100"
+  ],
+  "poseReference": "https://unsplash.com/photos/18Dsc6X5wdw",
+  "referenceSHA256": "b2ad891a4cf08bde31c6b5cf374e7b64d52387db91081d61807e70e5884b8ff3"
+}
