@@ -1,5 +1,15 @@
 # 海绵宝宝入住预览
 
+## 2026-10-13 角色修复
+
+- [本轮独立预览](http://127.0.0.1:8769/tmp/companion-expression-v3/pineapple-companion.html)：缩小约 30%，图书馆先滑滑梯，再去旁边读书；书页朝向他自己。
+- 新增真实眼睑、左右/上下虹膜 morph、开心/放松/阅读表情；原身体与贴图仍来自 GPU，眼睑与骨架为 Blender 修整。
+- 31,175 三角面、14 骨骼、12 动作；SHA、实际五官顶点变形、257 个滑面接触采样见 `runtime.json`、`asset-check.json`、`contact-check.json`。
+- `refinement-v3/` 为本轮真实浏览器截图与采样；手机仅为视口模拟。保持 review，等待用户审看。
+- 已发布的文字聊天保留；本轮未纳入其他任务的睡眠入床和家具调整。
+
+复测新增：`node scripts/verify-house-companion-motion.mjs`、`node scripts/verify-house-companion-contact.mjs`；更换模型或尺寸后用 `--calibrate` 重算接触数据。
+
 [本机试玩](http://127.0.0.1:8769/pineapple-companion.html)。启动方式：仓库根目录运行 `python -m http.server 8769 --bind 127.0.0.1`。
 
 - 独立预览默认启用角色；正式首页未启用。

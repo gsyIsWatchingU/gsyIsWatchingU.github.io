@@ -3,12 +3,12 @@
   "humanReview": "pending",
   "jobId": "a41edcc3ac8044cc9492d6b5742f2866",
   "sourceMeshSHA256": "600ff41b294d46aabb026f305f8ba0e8f0f3c8d4725dddcca8fac2b526bd7339",
-  "runtimeSHA256": "e857cc53ad7e0ecf2459169e171dab247353ec43a6f9a39e10a3b0aea943057e",
+  "runtimeSHA256": "55045947ae10126f1350777b34bfeffbd78f7638f6a5f0ef156d0b0d933bc7d4",
   "meshBackend": "Hunyuan3D-2.1",
   "textureBackend": "Hunyuan3D Paint 2.1",
   "rigBackend": "Blender character-specific symmetric skeleton; UniRig candidate rejected by structural QC",
   "bones": 14,
-  "triangles": 28999,
+  "triangles": 31175,
   "dimensionsYUp": [
     1.4257423877716064,
     1.25,
@@ -20,6 +20,7 @@
     "wave",
     "read",
     "sit",
+    "slide",
     "lie",
     "wash",
     "bubble",
@@ -28,26 +29,39 @@
     "tidy"
   ],
   "weights": {
-    "comp_root": 13792,
+    "comp_root": 14775,
     "comp_head": 0,
     "comp_arm_l": 499,
     "comp_forearm_l": 491,
     "comp_hand_l": 892,
-    "comp_leg_l": 849,
+    "comp_leg_l": 927,
     "comp_shin_l": 680,
     "comp_foot_l": 834,
     "comp_arm_r": 499,
     "comp_forearm_r": 491,
     "comp_hand_r": 892,
-    "comp_leg_r": 846,
+    "comp_leg_r": 926,
     "comp_shin_r": 680,
     "comp_foot_r": 834
   },
   "repairs": [
     "mirror complete GPU mesh half to restore missing arm; preserve source UV",
     "mobile triangle reduction",
-    "body stays rigid; symmetric limbs skin independently"
+    "body stays rigid; symmetric limbs skin independently",
+    "paired skinned eyelid surfaces; original texture iris gaze morphs; smile/calm/brow expressions",
+    "reduce relaxed-knee bend to prevent pants seam stretching"
+  ],
+  "facialMorphs": [
+    "blink",
+    "lookRight",
+    "lookLeft",
+    "lookUp",
+    "lookDown",
+    "smile",
+    "calm",
+    "browRaise",
+    "talk"
   ],
   "sleep": "engine places lie clip on calibrated bed surface",
-  "mouth": "small lower-mouth morph; no cloned voice"
+  "mouth": "lower-mouth morph; no cloned voice"
 }

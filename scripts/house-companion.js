@@ -1,18 +1,28 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import spec from '../src/data/house-companion.json';
+import contact from '../src/data/house-companion-contact.json';
 import { createCompanionState } from './house-companion-state.js';
+import { companionFace, companionRoute, companionSlide } from './house-companion-motion.js';
 
 export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom,getAsset,getPet,reducedMotion}) {
   const state=createCompanionState(spec), actor=new THREE.Group();actor.name='spongebob-companion';houseGroup.add(actor);
   actor.userData.companionId='spongebob';
   const avatar=new THREE.Group();actor.add(avatar);
+  const visualScale=spec.height/1.25;avatar.scale.setScalar(visualScale);
   const bones=new Map(),rest=new Map();let model=null,mixer=null,currentClip=null;
+  const faceMeshes=[],feet=[],fading=[];let faceTime=0,facePreview='auto',faceValues={},pointer=null,pointerTime=-10,diagnosticTime=0;
   let room=null,activity=null,entryTime=0,elapsed=0,loaded=false,greeting=0,bodyDepth=.64,backOffset=.32,bedHeight=null;
+  let arrivalRequested=false,slideArrival=false,entryDuration=2;
   let session=null,epoch=0,request=null,opener=null;
   const hud=document.createElement('section');hud.className='companion-hud';hud.setAttribute('aria-label','海绵宝宝的作息');
   hud.innerHTML='<span class="companion-day">海绵宝宝入住预览 · 待审</span><strong data-companion-activity>正在载入海绵宝宝…</strong><div class="companion-review-controls"><select aria-label="预览角色动作" data-companion-action disabled>'+Object.entries(spec.actions).filter(([id])=>id!=='wake'&&id!=='tidy').map(([id,value])=>'<option value="'+id+'">'+value.label+'</option>').join('')+'</select></div>';
   root.append(hud);
+  const expression=document.createElement('select');expression.setAttribute('aria-label','预览角色表情');
+  expression.innerHTML='<option value="auto">自然表情</option><option value="blink">闭眼</option><option value="left">看左边</option><option value="right">看右边</option><option value="happy">开心</option><option value="calm">放松</option>';
+  hud.querySelector('.companion-review-controls').append(expression);
+  expression.addEventListener('change',()=>{facePreview=expression.value;});
+  canvas.addEventListener('pointermove',event=>{const r=canvas.getBoundingClientRect();pointer={x:((event.clientX-r.left)/r.width-.5)*2,y:(.5-(event.clientY-r.top)/r.height)*2};pointerTime=faceTime;});
   const bubble=document.createElement('div');bubble.className='companion-bubble';bubble.hidden=true;bubble.setAttribute('role','status');root.append(bubble);
   const panel=document.createElement('dialog');panel.className='companion-chat';panel.setAttribute('aria-label','和海绵宝宝聊天');
   panel.innerHTML=`<header><div><b>海绵宝宝</b><small>有空聊两句吗？</small></div><button type="button" data-companion-close aria-label="关闭聊天">×</button></header>
@@ -24,7 +34,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   document.body.append(panel);
   const activityLabel=hud.querySelector('[data-companion-activity]');
   const messages=panel.querySelector('.companion-messages'),status=panel.querySelector('[data-companion-status]'),input=panel.querySelector('input'),send=panel.querySelector('[type=submit]');
-  const controller={snapshot:()=>({...state.snapshot(),loaded,room,activity,entryTime,chatOpen:panel.open,position:actor.position.toArray(),bedHeight,backOffset,bones:[...bones.keys()],animations:model?.userData.animations??[],status:'review'}),actor};
+  const controller={snapshot:()=>({...state.snapshot(),loaded,room,activity,entryTime,chatOpen:panel.open,position:actor.position.toArray(),height:spec.height,face:faceValues,bedHeight,backOffset,bones:[...bones.keys()],animations:model?.userData.animations??[],status:'review'}),actor};
   root.dataset.companionState='loading';
   const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href='./styles/house-companion.css?v='+spec.version;document.head.append(stylesheet);
 
@@ -76,6 +86,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   panel.querySelectorAll('[data-say]').forEach(button=>button.addEventListener('click',()=>chat(button.dataset.say)));
   let internalFocus=false;
   window.addEventListener('house:room-changed',event=>{
+    arrivalRequested=event.detail.id==='library';
     if(!internalFocus)invalidate();state.follow(event.detail.id);activity=null;
   });
   document.addEventListener('visibilitychange',()=>{if(document.hidden)invalidate();});
@@ -92,15 +103,18 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   const turningPage=new THREE.Group();turningPage.position.z=.025;book.add(turningPage);const sheet=new THREE.Mesh(new THREE.PlaneGeometry(.19,.28),pageMaterial);sheet.position.x=.10;turningPage.add(sheet);
 
   new GLTFLoader().load(spec.model+'?v='+spec.version,gltf=>{
-    model=gltf.scene;const bounds=new THREE.Box3().setFromObject(model),size=bounds.getSize(new THREE.Vector3());
-    model.scale.setScalar(spec.height/size.y);
+    model=gltf.scene;avatar.add(model);houseGroup.updateMatrixWorld(true);
+    // 先让骨骼世界矩阵就位，再测蒙皮后的尺寸；道具、IK 与模型共用 avatar 缩放。
+    const bounds=new THREE.Box3();model.traverse(node=>{if(!node.isMesh)return;if(node.isSkinnedMesh)node.computeBoundingBox();else node.geometry.computeBoundingBox();bounds.union((node.isSkinnedMesh?node.boundingBox:node.geometry.boundingBox).clone().applyMatrix4(node.matrixWorld).applyMatrix4(avatar.matrixWorld.clone().invert()));});
+    const size=bounds.getSize(new THREE.Vector3());model.scale.setScalar(1.25/size.y);
     bodyDepth=size.z*model.scale.x;
     // 包围盒中心只用于 X/Z；Y 使用脚底，不以蒙皮根骨作为落地点。
     model.position.set(0,-bounds.min.y*model.scale.x,-(bounds.min.z+bounds.max.z)*.5*model.scale.x);
-    model.traverse(node=>{node.userData.companionId='spongebob';if(node.isMesh){node.castShadow=true;node.receiveShadow=true;}if(node.isSkinnedMesh)node.frustumCulled=false;if(node.isBone){bones.set(node.name,node);rest.set(node.name,{q:node.quaternion.clone(),p:node.position.clone()});}});
-    avatar.add(model);model.updateMatrixWorld(true);
+    model.traverse(node=>{node.userData.companionId='spongebob';if(node.isMesh){node.castShadow=true;node.receiveShadow=true;}if(node.morphTargetDictionary)faceMeshes.push(node);if(node.isSkinnedMesh)node.frustumCulled=false;if(node.isBone){bones.set(node.name,node);rest.set(node.name,{q:node.quaternion.clone(),p:node.position.clone()});}});
+    model.updateMatrixWorld(true);
+    model.traverse(node=>{if(!node.isSkinnedMesh||node.name.includes('eyelid'))return;const p=node.geometry.attributes.position,indices=[];for(let i=0;i<p.count;i++)if(p.getY(i)<.16)indices.push(i);feet.push({node,indices});});
     let back=Infinity;
-    model.traverse(node=>{if(!node.isMesh)return;const p=node.geometry.attributes.position;for(let i=0;i<p.count;i++){const v=new THREE.Vector3().fromBufferAttribute(p,i).applyMatrix4(node.matrixWorld);if(v.y>.5 && v.y<1.1)back=Math.min(back,v.z);}});
+    model.traverse(node=>{if(!node.isMesh)return;const p=node.geometry.attributes.position;for(let i=0;i<p.count;i++){const v=new THREE.Vector3().fromBufferAttribute(p,i).applyMatrix4(node.matrixWorld).applyMatrix4(avatar.matrixWorld.clone().invert());if(v.y>.5 && v.y<1.1)back=Math.min(back,v.z);}});
     backOffset=Number.isFinite(back)?-back:bodyDepth/2;
     model.userData.animations=gltf.animations.map(c=>c.name);mixer=new THREE.AnimationMixer(model);
     controller.clips=gltf.animations;loaded=true;hud.querySelector('select').disabled=false;root.dataset.companionState='ready';activity=null;
@@ -113,29 +127,27 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   }
   function poseBone(name,x=0,y=0,z=0){const b=bone(name);if(b){b.rotateX(x);b.rotateY(y);b.rotateZ(z);}}
   function holdBook() {
+    // 书页朝向角色的眼睛；从访客位置看到的是封面与页边。
+    book.position.set(0,.70,.34);book.rotation.set(-1.88,0,0);
     actor.updateMatrixWorld(true);
     for(const [side,x] of [['l',.23],['r',-.23]]) {
       const upper=bones.get('comp_arm_'+side),lower=bones.get('comp_forearm_'+side),hand=bones.get('comp_hand_'+side);
       if(!upper || !lower || !hand)continue;
       const shoulder=upper.getWorldPosition(new THREE.Vector3()),elbow=lower.getWorldPosition(new THREE.Vector3()),wrist=hand.getWorldPosition(new THREE.Vector3());
       const a=shoulder.distanceTo(elbow),b=elbow.distanceTo(wrist);
-      const target=avatar.localToWorld(new THREE.Vector3(x,.63,.27));const axis=target.clone().sub(shoulder);const distance=Math.min(axis.length(),a+b-.0001);axis.normalize();
+      const target=book.localToWorld(new THREE.Vector3(x,-.04,0));const axis=target.clone().sub(shoulder);const distance=Math.min(axis.length(),a+b-.0001);axis.normalize();
       const pole=new THREE.Vector3(0,-1,.15).transformDirection(avatar.matrixWorld);pole.addScaledVector(axis,-pole.dot(axis)).normalize();
       const cosine=THREE.MathUtils.clamp((a*a+distance*distance-b*b)/(2*a*distance),-1,1);
       const joint=shoulder.clone().addScaledVector(axis,a*cosine).addScaledVector(pole,a*Math.sqrt(1-cosine*cosine));
       const aim=(bone,child,to)=>{const position=bone.getWorldPosition(new THREE.Vector3()),world=bone.getWorldQuaternion(new THREE.Quaternion());const direction=child.getWorldPosition(new THREE.Vector3()).sub(position).normalize();const delta=new THREE.Quaternion().setFromUnitVectors(direction,to.clone().sub(position).normalize());bone.quaternion.copy(bone.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(delta.multiply(world)));bone.updateWorldMatrix(false,true);};
       aim(upper,lower,joint);aim(lower,hand,shoulder.clone().addScaledVector(axis,distance));
     }
-    book.position.set(0,.63,.29);
   }
   function startActivity(next) {
-    const changedRoom=room!==next.room || next.revision!==actor.userData.revision;
+    const arriving=room!==next.room||arrivalRequested;arrivalRequested=false;
     room=next.room;activity=next.action;elapsed=0;actor.userData.roomId=room;actor.userData.revision=next.revision;
     actor.traverse(node=>{node.userData.roomId=room;node.userData.companionId='spongebob';});
-    if(changedRoom){actor.position.fromArray(spec.rooms[room].entry);entryTime=0;}else entryTime=2;
-    const clipName=({journal:'read',rest:'sit',sleep:'lie',listen:'idle'})[activity]??activity;
-    const clip=controller.clips?.find(c=>c.name===clipName || c.name.endsWith(clipName));
-    if(clip && mixer){currentClip?.fadeOut(.2);currentClip=mixer.clipAction(clip);currentClip.reset().fadeIn(.2).play();}
+    if(arriving){slideArrival=room==='library';entryDuration=slideArrival?5.6:2;actor.position.fromArray(spec.rooms[room].entry);entryTime=0;}
     activityLabel.textContent=spec.actions[activity]?.label??activity;
     root.dataset.companionRoom=room;root.dataset.companionActivity=activity;
     if(activity==='sleep'){
@@ -146,41 +158,69 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     if(activity==='pet')getPet?.()?.react();
   }
   controller.react=()=>open(canvas);
+  function playClip(clip) {
+    if(!clip||currentClip?.getClip()===clip)return;
+    const next=mixer.clipAction(clip);const old=fading.findIndex(item=>item.action===next);if(old>=0)fading.splice(old,1);
+    if(currentClip){currentClip.fadeOut(.18);fading.push({action:currentClip,time:.18});}
+    currentClip=next;next.reset().fadeIn(.18).play();
+  }
   controller.update=(dt,ready)=>{
     if(!loaded)return;
     const blocked=!ready || document.hidden;
     const paused=blocked || !!document.querySelector('dialog[open]');
     const next=state.tick(dt,paused,!blocked && panel.open);
     const motionPaused=blocked || (paused && !next.commanded);
+    if(!blocked&&(!paused||panel.open))faceTime+=dt;
     if(room!==next.room || activity!==next.action || actor.userData.revision!==next.revision)startActivity(next);
     actor.visible=!getRoom() || getRoom()===room;
     if(!actor.visible){bubble.hidden=true;return;}
-    if(!motionPaused){entryTime=Math.min(2,entryTime+dt);elapsed+=dt;}
-    const pose=spec.rooms[room],t=reducedMotion?1:Math.min(1,entryTime/2),e=t*t*(3-2*t);
+    if(!motionPaused){entryTime=Math.min(entryDuration,entryTime+dt);elapsed+=dt;}
+    const sliding=slideArrival&&!reducedMotion&&entryTime<3.6;
+    activityLabel.textContent=sliding?'滑滑梯':spec.actions[activity]?.label??activity;
+    const pose=spec.rooms[room],t=reducedMotion||entryTime>=entryDuration?1:Math.max(0,Math.min(1,(entryTime-(slideArrival?3.6:0))/2)),e=t*t*(3-2*t);
     const targetPosition=new THREE.Vector3(...pose.position);
     if(activity==='pet'){const cat=getAsset?.('siamese-cat');if(cat)targetPosition.copy(cat.position).add(new THREE.Vector3(.55,0,.05));}
-    actor.position.lerpVectors(new THREE.Vector3(...pose.entry),targetPosition,e);
-    avatar.rotation.set(0,0,0);avatar.position.set(0,0,0);avatar.scale.setScalar(1);
-    const walking=t<1;
-    const wantedClip=walking?'walk':(({journal:'read',rest:'sit',sleep:'lie',listen:'idle'})[activity]??activity);
+    const route=companionRoute(pose,e);actor.position.fromArray(route.position);
+    if(activity==='pet')actor.position.lerpVectors(new THREE.Vector3(...pose.entry),targetPosition,e);
+    avatar.rotation.set(0,0,0);avatar.position.set(0,0,0);avatar.scale.setScalar(visualScale);
+    const walking=!sliding&&t<1;
+    const wantedClip=sliding?'slide':walking?'walk':(({journal:'read',rest:'sit',sleep:'lie',listen:'idle'})[activity]??activity);
     const wanted=controller.clips?.find(c=>c.name===wantedClip);
-    if(wanted && currentClip?.getClip()!==wanted){currentClip?.fadeOut(.18);currentClip=mixer.clipAction(wanted);currentClip.reset().fadeIn(.18).play();}
-    if(walking){const destination=new THREE.Vector3(...pose.position).sub(new THREE.Vector3(...pose.entry));avatar.rotation.y=Math.atan2(destination.x,destination.z);}
-    else avatar.rotation.y=.10;
+    playClip(wanted);
+    if(walking){avatar.rotation.y=Math.atan2(route.direction[0],route.direction[2]);}
+    else avatar.rotation.y=(['read','journal'].includes(activity)?-.22:.10)+(reducedMotion?0:Math.sin(faceTime*.55)*.035);
     // 未播放绑定片段时恢复基准姿势；活动姿态叠加在同一骨架上。
     for(const [name,value] of rest){const b=bones.get(name);b.quaternion.copy(value.q);b.position.copy(value.p);}
     mixer?.update(motionPaused?0:dt);
+    if(!motionPaused)for(let i=fading.length-1;i>=0;i--){fading[i].time-=dt;if(fading[i].time<=0){fading[i].action.stop();fading.splice(i,1);}}
     if(!wanted){
       if(walking){poseBone('leftLeg',Math.sin(elapsed*8)*.3);poseBone('rightLeg',-Math.sin(elapsed*8)*.3);}
       else if(activity==='wave'){poseBone('rightArm',0,0,-.55+Math.sin(elapsed*9)*.13);}
       else if(['journal','read','tidy','wash','bubble','pet'].includes(activity)){poseBone('leftArm',-.5,0,.12);poseBone('rightArm',-.5,0,-.12);poseBone('head',.08);}
     }
-    if(activity==='sleep' && !walking){actor.position.fromArray(pose.bed??pose.position);if(bedHeight!==null && bedHeight!==undefined)actor.position.y=bedHeight;avatar.rotation.x=-Math.PI/2;avatar.position.z=spec.height*.5;avatar.position.y=backOffset+.015;}
-    if(activity==='rest' && !walking){avatar.position.y=-.04;}
+    if(activity==='sleep' && !walking){actor.position.fromArray(pose.bed??pose.position);if(bedHeight!==null && bedHeight!==undefined)actor.position.y=bedHeight;avatar.rotation.x=-Math.PI/2;avatar.position.z=spec.height*.5;avatar.position.y=backOffset*visualScale+.025;}
+    faceValues=companionFace(faceTime,sliding?'bubble':activity,false,facePreview,faceTime-pointerTime<4?pointer:null);
+    for(const node of faceMeshes)for(const [name,value] of Object.entries(faceValues)){const index=node.morphTargetDictionary[name];if(index!==undefined)node.morphTargetInfluences[index]=value;}
+    // 表情与轻微重心变化分别作用于网格和有权重的主骨，脚底随后校准。
+    if(!walking&&!sliding&&activity!=='sleep'&&!reducedMotion)poseBone('hips',(['read','journal'].includes(activity)?.055:0)+Math.sin(faceTime*1.7)*.008,0,Math.sin(faceTime*.85)*.01);
     // 转头回应始终可见，弹层打开时不恢复自主动作。
     if(panel.open && !next.commanded){const target=camera.position.clone().sub(actor.position);avatar.rotation.y=Math.atan2(target.x,target.z);}
-    book.visible=!walking && ['read','journal','tidy'].includes(activity);
+    book.visible=!walking && !sliding && ['read','journal','tidy'].includes(activity);
     if(book.visible)holdBook();
+    if(sliding){
+      const slide=companionSlide(Math.min(1,entryTime/3.2)),settle=THREE.MathUtils.clamp((entryTime-3.2)/.4,0,1);
+      actor.position.fromArray(slide.position).lerp(new THREE.Vector3(...pose.entry),settle);
+      avatar.rotation.y=Math.atan2(slide.direction[0],slide.direction[2]);avatar.rotation.x=(Math.atan2(-slide.direction[1],Math.hypot(slide.direction[0],slide.direction[2]))-.25)*(1-settle);
+      const seat=new THREE.Vector3(0,.35,-.21).multiplyScalar(visualScale).applyEuler(avatar.rotation);
+      avatar.position.copy(seat).multiplyScalar(-(1-settle));avatar.position.y+=.035*(1-settle);
+      const sample=Math.min(1,entryTime/3.2)*64;
+      avatar.position.y+=Math.max(contact.slideLift[Math.floor(sample)],contact.slideLift[Math.min(64,Math.ceil(sample))])*(1-settle);
+    }else if(activity!=='sleep'||walking){
+      actor.updateMatrixWorld(true);let foot=Infinity;const point=new THREE.Vector3();
+      for(const {node,indices} of feet)for(const index of indices){point.fromBufferAttribute(node.geometry.attributes.position,index);node.applyBoneTransform(index,point);point.applyMatrix4(node.matrixWorld);foot=Math.min(foot,point.y);}
+      if(Number.isFinite(foot))avatar.position.y+=pose.position[1]-foot+.008;
+    }
+    diagnosticTime+=dt;if(diagnosticTime>.2){diagnosticTime=0;root.dataset.companionFace=JSON.stringify(faceValues);root.dataset.companionPosition=JSON.stringify(actor.position.toArray());root.dataset.companionHeight=String(spec.height);root.dataset.companionArrival=sliding?'slide':walking?'walk':'activity';}
     turningPage.rotation.y=reducedMotion?-.35:-Math.PI*((elapsed%3)/3);
     bubbles.visible=!walking && activity==='bubble';bubbles.children.forEach((ball,i)=>{const phase=((elapsed*.25+i*.17)%1);ball.position.set(.23+Math.sin(i+phase*4)*.18,.9+phase*.8,.5+phase*.3);ball.scale.setScalar(.4+phase*.8);});
     hud.querySelector('.companion-day').textContent=`${Math.floor(next.day/120*24).toString().padStart(2,'0')}:00 · ${next.following?'陪你逛逛':'循环的一天'} · 预览待审`;

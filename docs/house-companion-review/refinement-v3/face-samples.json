@@ -1,0 +1,72 @@
+[
+  {
+    "expression": "left",
+    "face": {
+      "blink": 0,
+      "lookRight": 0,
+      "lookLeft": 1,
+      "lookUp": 0,
+      "lookDown": 0,
+      "smile": 0.25,
+      "calm": 0.65,
+      "browRaise": 0.2,
+      "talk": 0
+    }
+  },
+  {
+    "expression": "right",
+    "face": {
+      "blink": 0,
+      "lookRight": 1,
+      "lookLeft": 0,
+      "lookUp": 0,
+      "lookDown": 0,
+      "smile": 0.25,
+      "calm": 0.65,
+      "browRaise": 0.2,
+      "talk": 0
+    }
+  },
+  {
+    "expression": "blink",
+    "face": {
+      "blink": 1,
+      "lookRight": 0.17642295262293364,
+      "lookLeft": 0,
+      "lookUp": 0,
+      "lookDown": 0.95,
+      "smile": 0.25,
+      "calm": 0.65,
+      "browRaise": 0.2,
+      "talk": 0
+    }
+  },
+  {
+    "expression": "happy",
+    "face": {
+      "blink": 0.13,
+      "lookRight": 0.23472798941765186,
+      "lookLeft": 0,
+      "lookUp": 0,
+      "lookDown": 0.95,
+      "smile": 1,
+      "calm": 0,
+      "browRaise": 1,
+      "talk": 0
+    }
+  },
+  {
+    "expression": "calm",
+    "face": {
+      "blink": 0.35,
+      "lookRight": 0.271181675817501,
+      "lookLeft": 0,
+      "lookUp": 0,
+      "lookDown": 0.95,
+      "smile": 0,
+      "calm": 1,
+      "browRaise": 0,
+      "talk": 0
+    }
+  }
+]

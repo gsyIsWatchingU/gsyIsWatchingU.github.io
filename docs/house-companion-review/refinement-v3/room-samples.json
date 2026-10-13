@@ -1,0 +1,62 @@
+[
+  {
+    "activity": "listen",
+    "arrival": "activity",
+    "position": [
+      0.25,
+      0,
+      1.25
+    ],
+    "room": "living"
+  },
+  {
+    "activity": "tidy",
+    "arrival": "activity",
+    "position": [
+      -3.4,
+      0,
+      0.8
+    ],
+    "room": "storage"
+  },
+  {
+    "activity": "wash",
+    "arrival": "activity",
+    "position": [
+      -0.45,
+      3,
+      0.8999999999999999
+    ],
+    "room": "bathroom"
+  },
+  {
+    "activity": "journal",
+    "arrival": "activity",
+    "position": [
+      -1.5,
+      6,
+      1.3
+    ],
+    "room": "bedroom"
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "position": [
+      3.6,
+      3,
+      1.05
+    ],
+    "room": "library"
+  },
+  {
+    "activity": "bubble",
+    "arrival": "activity",
+    "position": [
+      0.6500000000000001,
+      9,
+      0.85
+    ],
+    "room": "roof"
+  }
+]
