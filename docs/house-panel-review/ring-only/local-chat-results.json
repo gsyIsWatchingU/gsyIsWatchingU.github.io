@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "selector": "[data-companion-close]",
+      "text": "",
+      "label": "关闭聊天",
+      "ring": true,
+      "iconWidth": "36px",
+      "background": "none",
+      "border": "0px",
+      "shadow": "none",
+      "width": 46,
+      "height": 46,
+      "x": 1364,
+      "y": 517,
+      "right": 1410,
+      "bottom": 563
+    },
+    {
+      "selector": "[data-companion-close]",
+      "text": "",
+      "label": "关闭聊天",
+      "ring": true,
+      "iconWidth": "36px",
+      "background": "none",
+      "border": "0px",
+      "shadow": "none",
+      "width": 46,
+      "height": 46,
+      "x": 322,
+      "y": 505,
+      "right": 368,
+      "bottom": 551
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Chrome desktop and mobile viewport; physical phone not tested",
+    "Real character click and chat close verified"
+  ]
+}
