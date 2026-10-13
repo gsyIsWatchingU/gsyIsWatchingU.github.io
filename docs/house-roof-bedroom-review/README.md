@@ -12,3 +12,5 @@
 屋顶和家具由 Blender 修整导出；源模型、GPU 来源与待审状态保留。浏览器验收不代表真实手机触屏和性能验收。
 
 入口：正式首页及 `pineapple-house.html`；角色动作位于 `pineapple-companion.html` 独立预览。
+
+公网：5d2bdab 的 Pages 部署成功，8 项资源 SHA-256 与提交内容一致（public-resources.json）。本地真实点击与动作截图通过；公网浏览器连接连续超时，未完成公网 UI 点击复测。
