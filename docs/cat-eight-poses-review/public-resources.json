@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "commit": "4d0311cb71a0268d8da3ec0571b625fdc2ea467b",
+  "records": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "match": true
+    },
+    {
+      "path": "pineapple-house.html",
+      "status": 200,
+      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "expected": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
+      "actual": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
+      "match": true
+    },
+    {
+      "path": "src/data/pineapple-house.json",
+      "status": 200,
+      "expected": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
+      "actual": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "expected": "27d4ef2b40ad799f1e1aa44c749acf10b20b40261a1ab5f8d8fe9ceceb426ec4",
+      "actual": "27d4ef2b40ad799f1e1aa44c749acf10b20b40261a1ab5f8d8fe9ceceb426ec4",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-compact.glb",
+      "status": 200,
+      "expected": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "actual": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-cat-eight-poses.glb",
+      "status": 200,
+      "expected": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+      "actual": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/index.html",
+      "status": 200,
+      "expected": "1c0e89a3240e75053d61a29aa535c8636861b938a63e2201d7a3ae6046d3dac0",
+      "actual": "1c0e89a3240e75053d61a29aa535c8636861b938a63e2201d7a3ae6046d3dac0",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/viewer.js",
+      "status": 200,
+      "expected": "1c9f2e8265b514e46f2166227da6f132d3745c30549a2c0ea23510468b888358",
+      "actual": "1c9f2e8265b514e46f2166227da6f132d3745c30549a2c0ea23510468b888358",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/runtime.json",
+      "status": 200,
+      "expected": "5e8e5b76bc53fcb11975cbd721f3ab40d9c9893053cd8bc3dac865346d8aaa81",
+      "actual": "5e8e5b76bc53fcb11975cbd721f3ab40d9c9893053cd8bc3dac865346d8aaa81",
+      "match": true
+    }
+  ]
+}

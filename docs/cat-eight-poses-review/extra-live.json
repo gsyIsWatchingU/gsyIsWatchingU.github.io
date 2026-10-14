@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "base": "https://gsyiswatchingu.github.io",
+  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+  "midActionSwitch": true,
+  "portraitButtons": [
+    {
+      "pose": "side",
+      "inView": true
+    },
+    {
+      "pose": "prone",
+      "inView": true
+    },
+    {
+      "pose": "belly",
+      "inView": true
+    },
+    {
+      "pose": "curl",
+      "inView": true
+    },
+    {
+      "pose": "stretch",
+      "inView": true
+    },
+    {
+      "pose": "pillow",
+      "inView": true
+    },
+    {
+      "pose": "loaf",
+      "inView": true
+    },
+    {
+      "pose": "wall",
+      "inView": true
+    }
+  ],
+  "sleepFace": true,
+  "greeting": {
+    "pose": "pillow",
+    "time": 0,
+    "target": 0,
+    "progress": 0,
+    "velocity": 0,
+    "pending": null,
+    "state": "standing",
+    "phase": "站立",
+    "reactions": 1,
+    "tailLift": 0.8815897512630433,
+    "greeting": 6.066599999999996,
+    "headYaw": -0.3069613112456587,
+    "headQuaternion": [
+      0,
+      -0.1528787919187755,
+      0,
+      0.9882449468534882
+    ],
+    "tailQuaternion": [
+      0.2400692451615278,
+      0,
+      0,
+      0.9707557661572632
+    ],
+    "paused": false,
+    "eyesClosure": 0,
+    "whiskers": 12
+  },
+  "oldPreviewWithdrawn": true,
+  "errors": []
+}
