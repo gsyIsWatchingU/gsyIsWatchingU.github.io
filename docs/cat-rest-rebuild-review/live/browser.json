@@ -1,0 +1,790 @@
+{
+  "status": "passed",
+  "base": "https://gsyiswatchingu.github.io",
+  "runtimeSHA256": "b0dfe0c2cca383b1a2d1b6c632f7ee790e331b10d38e68d74e6a35fd697ae750",
+  "nativeMeshClick": true,
+  "records": [
+    {
+      "frame": 0,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.06750800952380971,
+        "sit": 0,
+        "time": 0.2835336400000008,
+        "velocity": 1,
+        "phase": "降低身体",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "frame": 1,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.162746104761905,
+        "sit": 0,
+        "time": 0.683533640000001,
+        "velocity": 1,
+        "phase": "降低身体",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "frame": 2,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.2540080095238097,
+        "sit": 0,
+        "time": 1.0668336400000007,
+        "velocity": 1,
+        "phase": "换爪支撑",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "frame": 3,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.3492699142857144,
+        "sit": 0,
+        "time": 1.4669336400000006,
+        "velocity": 1,
+        "phase": "换爪支撑",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "frame": 4,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.4445080095238094,
+        "sit": 0,
+        "time": 1.8669336399999996,
+        "velocity": 1,
+        "phase": "侧身落地",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          -0.000011583306021645716,
+          -0.005890874172115945,
+          0.0019636044823423153,
+          0.99998072067653
+        ]
+      }
+    },
+    {
+      "frame": 5,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.5397699142857142,
+        "sit": 0,
+        "time": 2.2670336399999997,
+        "velocity": 1,
+        "phase": "侧身落地",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          -0.0009675466639355208,
+          -0.05385314066452572,
+          0.017935591816786108,
+          0.9983873084330558
+        ]
+      }
+    },
+    {
+      "frame": 6,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.6350318190476189,
+        "sit": 0,
+        "time": 2.6671336399999994,
+        "velocity": 1,
+        "phase": "侧身落地",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          -0.004462466946144644,
+          -0.11550154730944169,
+          0.03834718405905111,
+          0.9925567854952284
+        ]
+      }
+    },
+    {
+      "frame": 7,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.7302222952380951,
+        "sit": 0,
+        "time": 3.06693364,
+        "velocity": 1,
+        "phase": "侧身落地",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          -0.006999583034323223,
+          -0.1489838280615053,
+          0.049404898139114306,
+          0.9875798604940004
+        ]
+      }
+    },
+    {
+      "frame": 8,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.8294603904761904,
+        "sit": 0,
+        "time": 3.4837336399999996,
+        "velocity": 1,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.010139139364645375,
+          -0.14834657550438232,
+          0.05207110205611201,
+          0.9875115653599856
+        ]
+      }
+    },
+    {
+      "frame": 9,
+      "snapshot": {
+        "state": "lying",
+        "sideLie": 0.9247222952380953,
+        "sit": 0,
+        "time": 3.8838336400000006,
+        "velocity": 1,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.03341253352053699,
+          -0.14707801869427645,
+          0.05555324971024855,
+          0.9869982246525754
+        ]
+      }
+    },
+    {
+      "frame": 10,
+      "snapshot": {
+        "state": "lie",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.04189673811197281,
+          -0.14659498631954193,
+          0.05681565776467323,
+          0.9866744875907898
+        ]
+      }
+    },
+    {
+      "frame": 11,
+      "snapshot": {
+        "state": "lie",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.04189673811197281,
+          -0.14659498631954193,
+          0.05681565776467323,
+          0.9866744875907898
+        ]
+      }
+    },
+    {
+      "frame": 12,
+      "snapshot": {
+        "state": "lie",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.04189673811197281,
+          -0.14659498631954193,
+          0.05681565776467323,
+          0.9866744875907898
+        ]
+      }
+    },
+    {
+      "frame": 13,
+      "snapshot": {
+        "state": "lie",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.04189673811197281,
+          -0.14659498631954193,
+          0.05681565776467323,
+          0.9866744875907898
+        ]
+      }
+    },
+    {
+      "frame": 14,
+      "snapshot": {
+        "state": "lie",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.04189673811197281,
+          -0.14659498631954193,
+          0.05681565776467323,
+          0.9866744875907898
+        ]
+      }
+    },
+    {
+      "frame": 15,
+      "snapshot": {
+        "state": "lie",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.04189673811197281,
+          -0.14659498631954193,
+          0.05681565776467323,
+          0.9866744875907898
+        ]
+      }
+    },
+    {
+      "frame": 16,
+      "snapshot": {
+        "state": "lie",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 0,
+        "tailLift": 0,
+        "head": [
+          0.04189673811197281,
+          -0.14659498631954193,
+          0.05681565776467323,
+          0.9866744875907898
+        ]
+      }
+    },
+    {
+      "riseFrame": 0,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.9040110380952379,
+        "sit": 0,
+        "time": 3.796846359999999,
+        "velocity": -1,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          0.02892699906820296,
+          -0.14732894488540602,
+          0.054884310652165785,
+          0.9871398701137026
+        ]
+      }
+    },
+    {
+      "riseFrame": 1,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.8127491333333329,
+        "sit": 0,
+        "time": 3.4135463599999984,
+        "velocity": -1,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          0.0060906863751808305,
+          -0.14855880186023981,
+          0.05146250695808825,
+          0.9875448325554227
+        ]
+      }
+    },
+    {
+      "riseFrame": 2,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.7214634190476189,
+        "sit": 0,
+        "time": 3.0301463599999994,
+        "velocity": -1,
+        "phase": "侧身落地",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          -0.007258413252164656,
+          -0.148160084625487,
+          0.049078372064655186,
+          0.9877181876204937
+        ]
+      }
+    },
+    {
+      "riseFrame": 3,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.6301777047619048,
+        "sit": 0,
+        "time": 2.6467463600000003,
+        "velocity": -1,
+        "phase": "侧身落地",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          -0.004247370465762948,
+          -0.11267110212929753,
+          0.03741458549708541,
+          0.9929185925246727
+        ]
+      }
+    },
+    {
+      "riseFrame": 4,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.5428919904761905,
+        "sit": 0,
+        "time": 2.2801463600000003,
+        "velocity": -1,
+        "phase": "侧身落地",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          -0.0010445282298643139,
+          -0.05589744792496152,
+          0.01861509456514884,
+          0.998262421676076
+        ]
+      }
+    },
+    {
+      "riseFrame": 5,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.45558246666666663,
+        "sit": 0,
+        "time": 1.91344636,
+        "velocity": -1,
+        "phase": "侧身落地",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          -0.000030329908218175065,
+          -0.009439179395041537,
+          0.003146304560281258,
+          0.9999504996448868
+        ]
+      }
+    },
+    {
+      "riseFrame": 6,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.3642967523809523,
+        "sit": 0,
+        "time": 1.5300463599999998,
+        "velocity": -1,
+        "phase": "换爪支撑",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "riseFrame": 7,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.273011038095238,
+        "sit": 0,
+        "time": 1.1466463599999996,
+        "velocity": -1,
+        "phase": "换爪支撑",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "riseFrame": 8,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.18174913333333334,
+        "sit": 0,
+        "time": 0.7633463600000001,
+        "velocity": -1,
+        "phase": "降低身体",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "riseFrame": 9,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.09443960952380932,
+        "sit": 0,
+        "time": 0.3966463599999992,
+        "velocity": -1,
+        "phase": "降低身体",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "riseFrame": 10,
+      "snapshot": {
+        "state": "rising",
+        "sideLie": 0.003177704761904759,
+        "sit": 0,
+        "time": 0.013346359999999988,
+        "velocity": -1,
+        "phase": "降低身体",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0,
+        "head": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "riseFrame": 11,
+      "snapshot": {
+        "state": "idle",
+        "sideLie": 0,
+        "sit": 0,
+        "time": 0,
+        "velocity": 0,
+        "phase": "站立",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0.7843287453753244,
+        "head": [
+          0,
+          -0.7373155354264623,
+          0,
+          -0.6755485187747722
+        ]
+      }
+    },
+    {
+      "riseFrame": 12,
+      "snapshot": {
+        "state": "idle",
+        "sideLie": 0,
+        "sit": 0,
+        "time": 0,
+        "velocity": 0,
+        "phase": "站立",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0.9534486837680823,
+        "head": [
+          0,
+          0.4148409538974325,
+          0,
+          0.9098939405059623
+        ]
+      }
+    },
+    {
+      "riseFrame": 13,
+      "snapshot": {
+        "state": "idle",
+        "sideLie": 0,
+        "sit": 0,
+        "time": 0,
+        "velocity": 0,
+        "phase": "站立",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0.9899562025082322,
+        "head": [
+          0,
+          0.09674290152448328,
+          0,
+          -0.9953094046599897
+        ]
+      }
+    },
+    {
+      "riseFrame": 14,
+      "snapshot": {
+        "state": "idle",
+        "sideLie": 0,
+        "sit": 0,
+        "time": 0,
+        "velocity": 0,
+        "phase": "站立",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0.9978329749570761,
+        "head": [
+          0,
+          -0.5923111385989003,
+          0,
+          0.805709324193082
+        ]
+      }
+    },
+    {
+      "riseFrame": 15,
+      "snapshot": {
+        "state": "idle",
+        "sideLie": 0,
+        "sit": 0,
+        "time": 0,
+        "velocity": 0,
+        "phase": "站立",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0.8748222775470714,
+        "head": [
+          0,
+          0.9035778672344685,
+          0,
+          -0.42842389971149786
+        ]
+      }
+    },
+    {
+      "riseFrame": 16,
+      "snapshot": {
+        "state": "idle",
+        "sideLie": 0,
+        "sit": 0,
+        "time": 0,
+        "velocity": 0,
+        "phase": "站立",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 0.18874950287539774,
+        "head": [
+          0,
+          0.7789361922266236,
+          0,
+          0.6271031880316726
+        ]
+      }
+    },
+    {
+      "view": "side",
+      "snapshot": {
+        "state": "paused",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 1.2057856091571355e-9,
+        "head": [
+          0.04189673811199726,
+          -0.14659498631996584,
+          0.05681565776465532,
+          0.9866744875907261
+        ]
+      }
+    },
+    {
+      "view": "front",
+      "snapshot": {
+        "state": "paused",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 1.2057856091571355e-9,
+        "head": [
+          0.041896738112009474,
+          -0.14659498632017723,
+          0.056815657764646435,
+          0.9866744875906941
+        ]
+      }
+    },
+    {
+      "view": "opposite",
+      "snapshot": {
+        "state": "paused",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 1.2057856091571355e-9,
+        "head": [
+          0.041896738112021686,
+          -0.14659498632038861,
+          0.05681565776463755,
+          0.9866744875906621
+        ]
+      }
+    },
+    {
+      "view": "diagonal",
+      "snapshot": {
+        "state": "paused",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 1.2057856091571355e-9,
+        "head": [
+          0.0418967381120339,
+          -0.1465949863206,
+          0.05681565776462867,
+          0.9866744875906301
+        ]
+      }
+    },
+    {
+      "view": "rear",
+      "snapshot": {
+        "state": "paused",
+        "sideLie": 1,
+        "sit": 0,
+        "time": 4.2,
+        "velocity": 0,
+        "phase": "放松",
+        "bones": 28,
+        "reactions": 1,
+        "tailLift": 1.2057856091571355e-9,
+        "head": [
+          0.04189673811204535,
+          -0.14659498632079818,
+          0.056815657764620345,
+          0.9866744875906002
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "movieBytes": 1637187
+}

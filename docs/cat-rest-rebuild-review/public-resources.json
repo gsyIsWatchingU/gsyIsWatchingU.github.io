@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "commit": "6e7c31dbd3001b023132c8a15678262bd2f464fb",
+  "records": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "match": true
+    },
+    {
+      "path": "pineapple-house.html",
+      "status": 200,
+      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
+      "match": true
+    },
+    {
+      "path": "pineapple-companion.html",
+      "status": 200,
+      "expected": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
+      "actual": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
+      "match": true
+    },
+    {
+      "path": "src/data/pineapple-house.json",
+      "status": 200,
+      "expected": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
+      "actual": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
+      "match": true
+    },
+    {
+      "path": "assets/pineapple-house.js",
+      "status": 200,
+      "expected": "cca63f009ab9b12bbf1235879c2d2c7b388b01ce8d143e912c94a4c440e9eb37",
+      "actual": "cca63f009ab9b12bbf1235879c2d2c7b388b01ce8d143e912c94a4c440e9eb37",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-compact.glb",
+      "status": 200,
+      "expected": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "actual": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-kitten-rest-rebuilt.glb",
+      "status": 200,
+      "expected": "b0dfe0c2cca383b1a2d1b6c632f7ee790e331b10d38e68d74e6a35fd697ae750",
+      "actual": "b0dfe0c2cca383b1a2d1b6c632f7ee790e331b10d38e68d74e6a35fd697ae750",
+      "match": true
+    },
+    {
+      "path": "docs/cat-rest-rebuild-review/index.html",
+      "status": 200,
+      "expected": "948eea29f12d4e34b379c208149a4c0e3f01682b0cd4787079cbb50075984ef1",
+      "actual": "948eea29f12d4e34b379c208149a4c0e3f01682b0cd4787079cbb50075984ef1",
+      "match": true
+    },
+    {
+      "path": "docs/cat-rest-rebuild-review/viewer.js",
+      "status": 200,
+      "expected": "7bfdc1904325e41fb468d8c3a55902edbf635aa423c5d4aa85c7b81771856579",
+      "actual": "7bfdc1904325e41fb468d8c3a55902edbf635aa423c5d4aa85c7b81771856579",
+      "match": true
+    },
+    {
+      "path": "docs/cat-rest-rebuild-review/runtime.json",
+      "status": 200,
+      "expected": "4c007fea84eb5f3a649bf0fd593315dad87e064597e6d608548eb917fac24574",
+      "actual": "4c007fea84eb5f3a649bf0fd593315dad87e064597e6d608548eb917fac24574",
+      "match": true
+    }
+  ]
+}
