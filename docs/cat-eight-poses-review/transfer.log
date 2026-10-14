@@ -1,0 +1,21 @@
+20:57:00 | INFO: Data are loaded, start creating Blender stuff
+20:57:00 | INFO: Blender create Mesh node textured.001
+20:57:01 | INFO: Blender create Mesh node textured.003
+20:57:01 | INFO: glTF import finished in 0.13s
+20:57:01 | INFO: Data are loaded, start creating Blender stuff
+20:57:01 | INFO: Blender create Mesh node textured
+20:57:01 | INFO: glTF import finished in 0.15s
+surface harmonic labels 977 9.986152113783398e-06
+INFO Draco mesh compression is available, use library at /workspace/.tools/blender-4.5.13-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+20:57:05 | INFO: Starting glTF 2.0 export
+20:57:05 | INFO: Extracting primitive: textured
+20:57:05 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:57:05 | INFO: Primitives created: 1
+20:57:05 | INFO: Extracting primitive: textured.002
+20:57:05 | INFO: Primitives created: 1
+20:57:05 | INFO: Finished glTF 2.0 export in 0.38482069969177246 s
+
+Original surface transfer 20368 0.12438622117042542
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+
+Blender quit

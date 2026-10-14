@@ -1,5 +1,7 @@
 # 猫咪侧卧重做预览
 
+> 已撤回：用户否定脸部和侧卧观感。以下为历史制作记录，入口不再加载旧候选；新版见 [八种睡姿预览](../cat-eight-poses-review/)。
+
 新网格来自自有 L20 的 Hunyuan3D，四足骨架与蒙皮重新制作；旧侧卧 V2 已撤回。
 
 - 参考图：OpenAI ImageGen；GPU 任务与哈希见 `provenance.json`、`manifest.json`。

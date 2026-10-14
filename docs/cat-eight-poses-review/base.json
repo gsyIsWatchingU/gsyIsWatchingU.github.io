@@ -1,0 +1,66 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "meshBackend": "Hunyuan3D-2.1",
+  "sourceSha256": "1c27729749f15a3b18357d6c4e7c15b575f334194afa803f751572c8e5f0db03",
+  "runtimeSha256": "fa735ab4fe6517beac86f5ff849948b70446d710c1295c9f7b006e9d9726947d",
+  "dimensionsYUp": [
+    0.4573715627193451,
+    0.8499999642372131,
+    1.4308600425720215
+  ],
+  "triangles": 39860,
+  "bones": 18,
+  "maxWeights": 4,
+  "weightedVertices": {
+    "pet_root": 5305,
+    "pet_chest": 4565,
+    "pet_haunch": 3189,
+    "pet_head": 7588,
+    "pet_tail": 3242,
+    "pet_tail_tip": 64,
+    "pet_front_l_upper": 1437,
+    "pet_front_l_lower": 662,
+    "pet_front_l_paw": 1057,
+    "pet_front_r_upper": 1478,
+    "pet_front_r_lower": 683,
+    "pet_front_r_paw": 1159,
+    "pet_back_l_upper": 1339,
+    "pet_back_l_lower": 799,
+    "pet_back_l_paw": 1032,
+    "pet_back_r_upper": 1259,
+    "pet_back_r_lower": 688,
+    "pet_back_r_paw": 1011
+  },
+  "feetBlender": {
+    "front_l": [
+      -0.10014653950929642,
+      -0.427819162607193,
+      0.028690412640571594
+    ],
+    "front_r": [
+      0.10014655441045761,
+      -0.4055546820163727,
+      0.02547934278845787
+    ],
+    "back_l": [
+      -0.13443058729171753,
+      0.14313706755638123,
+      0.028674114495515823
+    ],
+    "back_r": [
+      0.13443057239055634,
+      0.23280343413352966,
+      0.02700447104871273
+    ]
+  },
+  "animation": "Four beat walk; stance anchors; two bone IK; ground oriented paws; head and tail idle",
+  "repairs": [
+    "uniform scale 0.85m",
+    "canonical forward +Z",
+    "preserve GPU mesh and UV",
+    "separate upper/lower/paw chains for four legs",
+    "texture <=2048",
+    "rigid face weighting; blend only at sloped neck; head pivot at neck base"
+  ]
+}

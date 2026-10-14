@@ -1,5 +1,4 @@
 {
-  "status": "review",
   "humanReview": "pending",
   "sideRestStatus": "review",
   "sideRestMethod": "rebuilt-skeletal",
@@ -83,5 +82,7 @@
         4.2
       ]
     }
-  ]
+  ],
+  "status": "rejected",
+  "replacement": "docs/cat-eight-poses-review/"
 }

@@ -1,0 +1,8 @@
+{
+  "sourceSHA256": "fa735ab4fe6517beac86f5ff849948b70446d710c1295c9f7b006e9d9726947d",
+  "runtimeSHA256": "269795e609bd9f1df33123a8c7dd7ea0b8c5164dfa41c48610656c1743a013a2",
+  "scale": 0.8,
+  "limbShortening": false,
+  "textureRebake": false,
+  "faceDeformation": false
+}

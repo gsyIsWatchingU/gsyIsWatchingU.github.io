@@ -1,0 +1,327 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "method": "Baked elastic joint corrections on welded GPU surface; foot soles and skull locked; body/head seam solved as one surface",
+  "range": [
+    0.4,
+    1.95
+  ],
+  "keys": [
+    0.125,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "morphs": 45,
+  "records": [
+    {
+      "pose": "side",
+      "t": 0.125,
+      "maximumCorrection": 1.1363418029681908e-9,
+      "maximumStretch": 1.00001440904331,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "side",
+      "t": 0.25,
+      "maximumCorrection": 0.0010467976243647482,
+      "maximumStretch": 1.2634724846494565,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "side",
+      "t": 0.5,
+      "maximumCorrection": 0.004268876899345135,
+      "maximumStretch": 1.5902064571625718,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "side",
+      "t": 0.75,
+      "maximumCorrection": 0.00014349095756834278,
+      "maximumStretch": 1.250635200292307,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "side",
+      "t": 1,
+      "maximumCorrection": 0.007991022853641588,
+      "maximumStretch": 2.1029775747950525,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "prone",
+      "t": 0.125,
+      "maximumCorrection": 0.000003177887220999698,
+      "maximumStretch": 1.0350550801914635,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "prone",
+      "t": 0.25,
+      "maximumCorrection": 0.0026245386223234814,
+      "maximumStretch": 1.4458445473674078,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "prone",
+      "t": 0.5,
+      "maximumCorrection": 0.03456357662493905,
+      "maximumStretch": 2.4375743160655805,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "prone",
+      "t": 0.75,
+      "maximumCorrection": 0.043388516421061486,
+      "maximumStretch": 2.388703064953303,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "prone",
+      "t": 1,
+      "maximumCorrection": 0.043388509967352,
+      "maximumStretch": 2.804699821857304,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "belly",
+      "t": 0.125,
+      "maximumCorrection": 3.765719736270207e-7,
+      "maximumStretch": 1.0154985209791005,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "belly",
+      "t": 0.25,
+      "maximumCorrection": 0.00005588380222324273,
+      "maximumStretch": 1.1895590581998399,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "belly",
+      "t": 0.5,
+      "maximumCorrection": 0.0008972730554585679,
+      "maximumStretch": 1.7595516723836233,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "belly",
+      "t": 0.75,
+      "maximumCorrection": 0.05083486722090033,
+      "maximumStretch": 4.102923154429935,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "belly",
+      "t": 1,
+      "maximumCorrection": 0.05183915354592648,
+      "maximumStretch": 4.679243325831402,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "curl",
+      "t": 0.125,
+      "maximumCorrection": 0.00000529400996455446,
+      "maximumStretch": 1.0263785932898262,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "curl",
+      "t": 0.25,
+      "maximumCorrection": 0.0015744260439356657,
+      "maximumStretch": 1.4593715111152794,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "curl",
+      "t": 0.5,
+      "maximumCorrection": 0.03214963798909762,
+      "maximumStretch": 2.2059470069996645,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "curl",
+      "t": 0.75,
+      "maximumCorrection": 0.040431040108062526,
+      "maximumStretch": 2.891196562121844,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "curl",
+      "t": 1,
+      "maximumCorrection": 0.04762994455815836,
+      "maximumStretch": 3.6963987850939213,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "stretch",
+      "t": 0.125,
+      "maximumCorrection": 0.000003850156532419407,
+      "maximumStretch": 1.0555436504716287,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "stretch",
+      "t": 0.25,
+      "maximumCorrection": 0.0014670060541433928,
+      "maximumStretch": 1.7059896330777404,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "stretch",
+      "t": 0.5,
+      "maximumCorrection": 0.034379742397222274,
+      "maximumStretch": 2.5333058820916503,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "stretch",
+      "t": 0.75,
+      "maximumCorrection": 0.04920297550770409,
+      "maximumStretch": 2.807480561803981,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "stretch",
+      "t": 1,
+      "maximumCorrection": 0.049202978141483396,
+      "maximumStretch": 2.8074805618040397,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 0.125,
+      "maximumCorrection": 0.00008527538102177887,
+      "maximumStretch": 1.1026442212736745,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 0.25,
+      "maximumCorrection": 0.016910173191556677,
+      "maximumStretch": 2.1409120854914967,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 0.375,
+      "maximumCorrection": 0.027464293013551307,
+      "maximumStretch": 2.263687760254599,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 0.5,
+      "maximumCorrection": 0.0455403744186199,
+      "maximumStretch": 2.3592449702064315,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 0.5625,
+      "maximumCorrection": 0.053616489300111696,
+      "maximumStretch": 2.3943606740532646,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 0.625,
+      "maximumCorrection": 0.05717507753362506,
+      "maximumStretch": 2.429870540405902,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 0.75,
+      "maximumCorrection": 0.057813445624932285,
+      "maximumStretch": 2.438558583363181,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 0.875,
+      "maximumCorrection": 0.057813461790227,
+      "maximumStretch": 2.4385489440348045,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "pillow",
+      "t": 1,
+      "maximumCorrection": 0.05781348065311562,
+      "maximumStretch": 2.52837343559626,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "loaf",
+      "t": 0.125,
+      "maximumCorrection": 0.000005291157090111241,
+      "maximumStretch": 1.0264265202168417,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "loaf",
+      "t": 0.25,
+      "maximumCorrection": 0.0015933573819276925,
+      "maximumStretch": 1.4589578847604943,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "loaf",
+      "t": 0.5,
+      "maximumCorrection": 0.03161893542934056,
+      "maximumStretch": 2.210969649077,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "loaf",
+      "t": 0.75,
+      "maximumCorrection": 0.03835650282707504,
+      "maximumStretch": 2.4283815666484934,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "loaf",
+      "t": 1,
+      "maximumCorrection": 0.04116870763106301,
+      "maximumStretch": 2.478382613790223,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "wall",
+      "t": 0.125,
+      "maximumCorrection": 0.000005291157090111241,
+      "maximumStretch": 1.0264265202168417,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "wall",
+      "t": 0.25,
+      "maximumCorrection": 0.0015933573819276925,
+      "maximumStretch": 1.4589578847604943,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "wall",
+      "t": 0.5,
+      "maximumCorrection": 0.03161893542934056,
+      "maximumStretch": 2.210969649077,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "wall",
+      "t": 0.75,
+      "maximumCorrection": 0.037642088430603945,
+      "maximumStretch": 2.4283815875634627,
+      "geometricVertices": 20138
+    },
+    {
+      "pose": "wall",
+      "t": 1,
+      "maximumCorrection": 0.04175785106164553,
+      "maximumStretch": 2.4783833587137982,
+      "geometricVertices": 20138
+    }
+  ]
+}

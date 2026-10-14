@@ -1,0 +1,30 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "ownerGPU": "gsy013 / L20",
+  "sourceJob": "2274dd8871c34c68b01ec81daf4d7a18",
+  "profile": "steam_desktop",
+  "seed": 20261016,
+  "sourceImageSHA256": "8a2e84182af48ba4c45e41e73bcdb114638544bca5eefe69fd23d68eeea4578b",
+  "faceReferenceSHA256": "c98b94cfd5897ad86042bb0073af117a95af2d60aaf5d82179f6e4c3cbb5f6eb",
+  "poseReferenceSHA256": "76c710e892361432cad49f38080a0119174d8a1e2922b18920a5413f4ac55726",
+  "referenceGeneration": "Built-in ImageGen; user face image guided whole-cat reference; subsequent edit to opaque RGB white background",
+  "selectedReference": "docs/cat-eight-poses-review/reference-white.png",
+  "rejectedReference": {
+    "job": "cf3d65ea1694489c91eca53388554813",
+    "reason": "Alpha halo reconstructed as backdrop sheets; locally rejected, source service review state unchanged"
+  },
+  "scale": 0.8,
+  "limbShortening": false,
+  "preparation": "Original Hunyuan3D GPU mesh and UV/base-color pixels; fitted shoulder/hip and elbow/knee joints, anatomical head/neck field, harmonic limb labels and paw protection; smooth volume-aware joint positions/normals baked across the shared head/body seam; standard linear GLB with 16 clips",
+  "props": {
+    "pillow": "Reused bed.glb / bed_cream_rubber; actual sampled heightfield",
+    "wall": "Preview floor extension"
+  },
+  "eyelids": "Runtime material effect; does not change stored head image",
+  "whiskers": "12 fine runtime lines; original branched brow/whisker source was rejected",
+  "formalIntegration": false,
+  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+  "runtimeBehavior": "Remove previous greeting head/tail quaternion offsets before mixer updates; actual browser poses compared with exported rotations",
+  "runtimeHumanReview": "pending"
+}

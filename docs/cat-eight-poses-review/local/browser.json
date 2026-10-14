@@ -1,0 +1,3411 @@
+{
+  "status": "passed",
+  "base": "http://127.0.0.1:8770",
+  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+  "poses": [
+    "side",
+    "prone",
+    "belly",
+    "curl",
+    "stretch",
+    "pillow",
+    "loaf",
+    "wall"
+  ],
+  "nativeMeshClicks": 8,
+  "errors": [],
+  "records": [
+    {
+      "name": "standing",
+      "snapshot": {
+        "pose": "side",
+        "time": 0,
+        "target": 0,
+        "progress": 0,
+        "velocity": 0,
+        "pending": null,
+        "state": "standing",
+        "phase": "站立",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "face",
+      "snapshot": {
+        "pose": "side",
+        "time": 0,
+        "target": 0,
+        "progress": 0,
+        "velocity": 0,
+        "pending": null,
+        "state": "standing",
+        "phase": "站立",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-enter-0.15",
+      "snapshot": {
+        "pose": "side",
+        "time": 1.0500334000000002,
+        "target": 4.6,
+        "progress": 0.22826813043478267,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "降低身体",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-enter-0.35",
+      "snapshot": {
+        "pose": "side",
+        "time": 1.9501333999999997,
+        "target": 4.6,
+        "progress": 0.4239420434782608,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "换爪支撑",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-enter-0.55",
+      "snapshot": {
+        "pose": "side",
+        "time": 2.8502333999999983,
+        "target": 4.6,
+        "progress": 0.6196159565217388,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-enter-0.75",
+      "snapshot": {
+        "pose": "side",
+        "time": 3.7503333999999975,
+        "target": 4.6,
+        "progress": 0.8152898695652169,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "放松",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          -0.0019488354663692643,
+          -0.02881653188670873,
+          0.06732231060797163,
+          0.997313148426687
+        ],
+        "tailQuaternion": [
+          0,
+          0.006740102565314286,
+          0,
+          0.9999772852507246
+        ],
+        "paused": false,
+        "eyesClosure": 0.6340077896152058,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-enter-0.95",
+      "snapshot": {
+        "pose": "side",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          -0.013045871630311012,
+          -0.07378526777029037,
+          0.17361868917942047,
+          0.981958270072937
+        ],
+        "tailQuaternion": [
+          0,
+          0.017499106004834175,
+          0,
+          0.999846875667572
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side",
+      "snapshot": {
+        "pose": "side",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          -0.013045871630311012,
+          -0.07378526777029037,
+          0.17361868917942047,
+          0.981958270072937
+        ],
+        "tailQuaternion": [
+          0,
+          0.017499106004834175,
+          0,
+          0.999846875667572
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-front",
+      "snapshot": {
+        "pose": "side",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          -0.013045871630311012,
+          -0.07378526777029037,
+          0.17361868917942047,
+          0.981958270072937
+        ],
+        "tailQuaternion": [
+          0,
+          0.017499106004834175,
+          0,
+          0.999846875667572
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-opposite",
+      "snapshot": {
+        "pose": "side",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          -0.013045871630311012,
+          -0.07378526777029037,
+          0.17361868917942047,
+          0.981958270072937
+        ],
+        "tailQuaternion": [
+          0,
+          0.017499106004834175,
+          0,
+          0.999846875667572
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-rear",
+      "snapshot": {
+        "pose": "side",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          -0.013045871630311012,
+          -0.07378526777029037,
+          0.17361868917942047,
+          0.981958270072937
+        ],
+        "tailQuaternion": [
+          0,
+          0.017499106004834175,
+          0,
+          0.999846875667572
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-bare",
+      "snapshot": {
+        "pose": "side",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          -0.013045871630311012,
+          -0.07378526777029037,
+          0.17361868917942047,
+          0.981958270072937
+        ],
+        "tailQuaternion": [
+          0,
+          0.017499106004834175,
+          0,
+          0.999846875667572
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-rise-0.75",
+      "snapshot": {
+        "pose": "side",
+        "time": 3.182157679999996,
+        "target": 0,
+        "progress": 0.6917734086956514,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "调整身体",
+        "reactions": 1,
+        "tailLift": 0,
+        "greeting": 5.066599999999987,
+        "headYaw": 0,
+        "headQuaternion": [
+          -3.2312590054338033e-7,
+          -0.0003236577804858973,
+          0.0007552017352223879,
+          0.999999662457881
+        ],
+        "tailQuaternion": [
+          0,
+          0.00007552018742959647,
+          0,
+          0.9999999971483506
+        ],
+        "paused": false,
+        "eyesClosure": 0.060132296521798266,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-rise-0.45",
+      "snapshot": {
+        "pose": "side",
+        "time": 1.765257679999993,
+        "target": 0,
+        "progress": 0.3837516695652159,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "换爪支撑",
+        "reactions": 1,
+        "tailLift": 0,
+        "greeting": 3.649699999999983,
+        "headYaw": 0,
+        "headQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "side-rise-0.15",
+      "snapshot": {
+        "pose": "side",
+        "time": 0.3484576799999932,
+        "target": 0,
+        "progress": 0.07575166956521592,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "降低身体",
+        "reactions": 1,
+        "tailLift": 0,
+        "greeting": 2.232899999999984,
+        "headYaw": 0,
+        "headQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-enter-0.15",
+      "snapshot": {
+        "pose": "prone",
+        "time": 1.0667336399999996,
+        "target": 4.6,
+        "progress": 0.23189861739130427,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "降低身体",
+        "reactions": 1,
+        "tailLift": 0.006476172060228045,
+        "greeting": 0.382899999999983,
+        "headYaw": -0.0002282020703150748,
+        "headQuaternion": [
+          0,
+          -0.00011410103490992915,
+          0,
+          0.9999999934904761
+        ],
+        "tailQuaternion": [
+          0.00178094637510266,
+          0,
+          0,
+          0.9999984141137458
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-enter-0.35",
+      "snapshot": {
+        "pose": "prone",
+        "time": 1.9668336400000028,
+        "target": 4.6,
+        "progress": 0.42757253043478327,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "换爪支撑",
+        "reactions": 1,
+        "tailLift": 0.00017688236079778556,
+        "greeting": 0,
+        "headYaw": -0.000001030074891464362,
+        "headQuaternion": [
+          0,
+          -5.150374457050877e-7,
+          0,
+          0.9999999999998659
+        ],
+        "tailQuaternion": [
+          0.0000486426492002139,
+          0,
+          0,
+          0.9999999988169445
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-enter-0.55",
+      "snapshot": {
+        "pose": "prone",
+        "time": 2.883633640000004,
+        "target": 4.6,
+        "progress": 0.6268768782608706,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 1,
+        "tailLift": 0.000004518973577124157,
+        "greeting": 0,
+        "headYaw": -4.206314248137467e-9,
+        "headQuaternion": [
+          0,
+          -2.1031570969989634e-9,
+          0,
+          0.9999999999999984
+        ],
+        "tailQuaternion": [
+          0.000001242717733714056,
+          0,
+          0,
+          0.9999999999992258
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-enter-0.75",
+      "snapshot": {
+        "pose": "prone",
+        "time": 3.783733640000003,
+        "target": 4.6,
+        "progress": 0.8225507913043485,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "放松",
+        "reactions": 1,
+        "tailLift": 1.234257995727802e-7,
+        "greeting": 0,
+        "headYaw": -1.8986763295499675e-11,
+        "headQuaternion": [
+          -0.12524220010534873,
+          -9.418632633430835e-12,
+          1.1889720040039305e-12,
+          0.9921261972716835
+        ],
+        "tailQuaternion": [
+          -0.020534999788631318,
+          0.0083695974062156,
+          0.0001720650940631013,
+          0.999754086771613
+        ],
+        "paused": false,
+        "eyesClosure": 0.6712369904421225,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-enter-0.95",
+      "snapshot": {
+        "pose": "prone",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 1,
+        "tailLift": 3.153270481517671e-9,
+        "greeting": 0,
+        "headYaw": -7.753251111901008e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -3.703481933598927e-14,
+          1.14562122252397e-14,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.020892736566527674,
+          0.019994299859170908,
+          0.00041791044071634874,
+          0.9995816946210835
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone",
+      "snapshot": {
+        "pose": "prone",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 1,
+        "tailLift": 1.977908873920409e-9,
+        "greeting": 0,
+        "headYaw": -3.851690927051021e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.839830486109823e-14,
+          5.691262678000327e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.02089273688961691,
+          0.01999429985903583,
+          0.0004179104471789952,
+          0.9995816946143304
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-front",
+      "snapshot": {
+        "pose": "prone",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 1,
+        "tailLift": 1.4168557590417474e-9,
+        "greeting": 0,
+        "headYaw": -2.3352343584064278e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.1154673223214068e-14,
+          3.4505448126800056e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.020892737043841977,
+          0.01999429985897135,
+          0.0004179104502639078,
+          0.9995816946111069
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-opposite",
+      "snapshot": {
+        "pose": "prone",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 1,
+        "tailLift": 1.4168557590417474e-9,
+        "greeting": 0,
+        "headYaw": -2.3352343584064278e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.1154673223214068e-14,
+          3.4505448126800056e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.020892737043841977,
+          0.01999429985897135,
+          0.0004179104502639078,
+          0.9995816946111069
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-rear",
+      "snapshot": {
+        "pose": "prone",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 1,
+        "tailLift": 1.4168557590417474e-9,
+        "greeting": 0,
+        "headYaw": -2.3352343584064278e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.1154673223214068e-14,
+          3.4505448126800056e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.020892737043841977,
+          0.01999429985897135,
+          0.0004179104502639078,
+          0.9995816946111069
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-bare",
+      "snapshot": {
+        "pose": "prone",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 1,
+        "tailLift": 1.4168557590417474e-9,
+        "greeting": 0,
+        "headYaw": -2.3352343584064278e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.1154673223214068e-14,
+          3.4505448126800056e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.020892737043841977,
+          0.01999429985897135,
+          0.0004179104502639078,
+          0.9995816946111069
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-rise-0.75",
+      "snapshot": {
+        "pose": "prone",
+        "time": 3.1832730799999975,
+        "target": 0,
+        "progress": 0.6920158869565213,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "调整身体",
+        "reactions": 2,
+        "tailLift": 3.0728191843620853e-12,
+        "greeting": 5.066599999999993,
+        "headYaw": -2.3585632132326613e-18,
+        "headQuaternion": [
+          -0.001343917139598005,
+          -1.1792805416577656e-18,
+          1.5848567635443589e-21,
+          0.9999990969429531
+        ],
+        "tailQuaternion": [
+          -0.00022398625521508953,
+          0.00008959450025442456,
+          2.609394974745261e-8,
+          0.9999999709014908
+        ],
+        "paused": false,
+        "eyesClosure": 0.060793412195006676,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-rise-0.45",
+      "snapshot": {
+        "pose": "prone",
+        "time": 1.7498730799999953,
+        "target": 0,
+        "progress": 0.38040719130434686,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "换爪支撑",
+        "reactions": 2,
+        "tailLift": 9.94182614202196e-15,
+        "greeting": 3.633199999999984,
+        "headYaw": -4.340514969598172e-22,
+        "headQuaternion": [
+          0,
+          -2.170257484799086e-22,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          2.7340021890560394e-15,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "prone-rise-0.15",
+      "snapshot": {
+        "pose": "prone",
+        "time": 0.3331730799999936,
+        "target": 0,
+        "progress": 0.07242893043478123,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "降低身体",
+        "reactions": 2,
+        "tailLift": 3.438794267407611e-17,
+        "greeting": 2.2164999999999817,
+        "headYaw": -8.829808876920888e-26,
+        "headQuaternion": [
+          0,
+          -4.414904438460444e-26,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          9.45668423537093e-18,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-enter-0.15",
+      "snapshot": {
+        "pose": "belly",
+        "time": 1.0668334799999997,
+        "target": 4.6,
+        "progress": 0.23192032173913038,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "降低身体",
+        "reactions": 2,
+        "tailLift": 0.00676342793224983,
+        "greeting": 0.3494999999999798,
+        "headYaw": -0.00023454900561859009,
+        "headQuaternion": [
+          0,
+          -0.00011727450254047016,
+          0,
+          0.9999999931233445
+        ],
+        "tailQuaternion": [
+          0.0018599416089920275,
+          0,
+          0,
+          0.9999982703071085
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-enter-0.35",
+      "snapshot": {
+        "pose": "belly",
+        "time": 1.966833480000002,
+        "target": 4.6,
+        "progress": 0.42757249565217437,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "换爪支撑",
+        "reactions": 2,
+        "tailLift": 0.0001848020276130601,
+        "greeting": 0,
+        "headYaw": -0.0000010593595688856761,
+        "headQuaternion": [
+          0,
+          -5.296797844367802e-7,
+          0,
+          0.9999999999998588
+        ],
+        "tailQuaternion": [
+          0.00005082055757170892,
+          0,
+          0,
+          0.9999999987086338
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-enter-0.55",
+      "snapshot": {
+        "pose": "belly",
+        "time": 2.900233480000001,
+        "target": 4.6,
+        "progress": 0.630485539130435,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 2,
+        "tailLift": 0.000004417991279237199,
+        "greeting": 0,
+        "headYaw": -3.9158006789140035e-9,
+        "headQuaternion": [
+          0,
+          -1.957900333424413e-9,
+          0,
+          0.9999999999999989
+        ],
+        "tailQuaternion": [
+          0.0000012149476017833306,
+          0,
+          0,
+          0.9999999999992599
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-enter-0.75",
+      "snapshot": {
+        "pose": "belly",
+        "time": 3.800333480000003,
+        "target": 4.6,
+        "progress": 0.8261594521739137,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "放松",
+        "reactions": 2,
+        "tailLift": 1.206676907574296e-7,
+        "greeting": 0,
+        "headYaw": -1.7675422285868557e-11,
+        "headQuaternion": [
+          0.02176254944742773,
+          -8.83561808726545e-12,
+          -1.9233112575019028e-13,
+          0.9997631676759993
+        ],
+        "tailQuaternion": [
+          0.08694387842736931,
+          0.008672623871945501,
+          -0.0007569722367564405,
+          0.9961751726439559
+        ],
+        "paused": false,
+        "eyesClosure": 0.6894038891964591,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-enter-0.95",
+      "snapshot": {
+        "pose": "belly",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 2,
+        "tailLift": 3.295771918147588e-9,
+        "greeting": 0,
+        "headYaw": -7.978459033068853e-14,
+        "headQuaternion": [
+          0.04997916892170906,
+          -3.984244054389028e-14,
+          -1.9937837587434187e-15,
+          0.9987502694129944
+        ],
+        "tailQuaternion": [
+          0.19862960367797206,
+          0.019600024443244067,
+          -0.003973121772589348,
+          0.9798705576050087
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly",
+      "snapshot": {
+        "pose": "belly",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 2,
+        "tailLift": 2.0681208851962877e-9,
+        "greeting": 0,
+        "headYaw": -3.965949469879783e-14,
+        "headQuaternion": [
+          0.04997916892170906,
+          -1.9804965507603777e-14,
+          -9.910742924504208e-16,
+          0.9987502694129944
+        ],
+        "tailQuaternion": [
+          0.19862960334716384,
+          0.019600024444585407,
+          -0.003973121765972301,
+          0.9798705576720669
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-front",
+      "snapshot": {
+        "pose": "belly",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 2,
+        "tailLift": 1.5831878011038236e-9,
+        "greeting": 0,
+        "headYaw": -2.656329517358738e-14,
+        "headQuaternion": [
+          0.04997916892170906,
+          -1.3265049105558645e-14,
+          -6.638057082989714e-16,
+          0.9987502694129944
+        ],
+        "tailQuaternion": [
+          0.19862960321649162,
+          0.01960002444511525,
+          -0.003973121763358508,
+          0.9798705576985555
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-opposite",
+      "snapshot": {
+        "pose": "belly",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 2,
+        "tailLift": 1.5831878011038236e-9,
+        "greeting": 0,
+        "headYaw": -2.656329517358738e-14,
+        "headQuaternion": [
+          0.04997916892170906,
+          -1.3265049105558645e-14,
+          -6.638057082989714e-16,
+          0.9987502694129944
+        ],
+        "tailQuaternion": [
+          0.19862960321649162,
+          0.01960002444511525,
+          -0.003973121763358508,
+          0.9798705576985555
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-rear",
+      "snapshot": {
+        "pose": "belly",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 2,
+        "tailLift": 1.5831878011038236e-9,
+        "greeting": 0,
+        "headYaw": -2.656329517358738e-14,
+        "headQuaternion": [
+          0.04997916892170906,
+          -1.3265049105558645e-14,
+          -6.638057082989714e-16,
+          0.9987502694129944
+        ],
+        "tailQuaternion": [
+          0.19862960321649162,
+          0.01960002444511525,
+          -0.003973121763358508,
+          0.9798705576985555
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-bare",
+      "snapshot": {
+        "pose": "belly",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 2,
+        "tailLift": 1.5831878011038236e-9,
+        "greeting": 0,
+        "headYaw": -2.656329517358738e-14,
+        "headQuaternion": [
+          0.04997916892170906,
+          -1.3265049105558645e-14,
+          -6.638057082989714e-16,
+          0.9987502694129944
+        ],
+        "tailQuaternion": [
+          0.19862960321649162,
+          0.01960002444511525,
+          -0.003973121763358508,
+          0.9798705576985555
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-rise-0.75",
+      "snapshot": {
+        "pose": "belly",
+        "time": 3.1832660799999934,
+        "target": 0,
+        "progress": 0.6920143652173899,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "调整身体",
+        "reactions": 3,
+        "tailLift": 3.4335533568851137e-12,
+        "greeting": 5.066599999999986,
+        "headYaw": -2.682866094065863e-18,
+        "headQuaternion": [
+          0.0002239347059021094,
+          -1.3414330133986755e-18,
+          -3.0039341487469e-22,
+          0.9999999749266234
+        ],
+        "tailQuaternion": [
+          0.0008957386777931216,
+          0.00008957382166034971,
+          -1.043387577071514e-7,
+          0.9999995948142882
+        ],
+        "paused": false,
+        "eyesClosure": 0.060789253353298794,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-rise-0.45",
+      "snapshot": {
+        "pose": "belly",
+        "time": 1.7498660799999943,
+        "target": 0,
+        "progress": 0.3804056695652162,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "换爪支撑",
+        "reactions": 3,
+        "tailLift": 1.1108948647947966e-14,
+        "greeting": 3.6331999999999756,
+        "headYaw": -4.937336585844365e-22,
+        "headQuaternion": [
+          0,
+          -2.4686682929221827e-22,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          3.0549608781856906e-15,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "belly-rise-0.15",
+      "snapshot": {
+        "pose": "belly",
+        "time": 0.316366079999995,
+        "target": 0,
+        "progress": 0.06877523478260761,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "降低身体",
+        "reactions": 3,
+        "tailLift": 3.592761597565909e-17,
+        "greeting": 2.199699999999975,
+        "headYaw": -9.080837328147871e-26,
+        "headQuaternion": [
+          0,
+          -4.5404186640739356e-26,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          9.88009439330625e-18,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-enter-0.15",
+      "snapshot": {
+        "pose": "curl",
+        "time": 1.0501336800000025,
+        "target": 4.6,
+        "progress": 0.22828993043478318,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "降低身体",
+        "reactions": 3,
+        "tailLift": 0.007230656628965858,
+        "greeting": 0.3661999999999762,
+        "headYaw": -0.00025926858840587713,
+        "headQuaternion": [
+          0,
+          -0.00012963429383984346,
+          0,
+          0.9999999915974743
+        ],
+        "tailQuaternion": [
+          0.0019884292626377795,
+          0,
+          0,
+          0.9999980230725798
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-enter-0.35",
+      "snapshot": {
+        "pose": "curl",
+        "time": 1.9501336800000015,
+        "target": 4.6,
+        "progress": 0.4239421043478265,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "换爪支撑",
+        "reactions": 3,
+        "tailLift": 0.0001975684548415393,
+        "greeting": 0,
+        "headYaw": -0.000001171007565412074,
+        "headQuaternion": [
+          0,
+          -5.855037826960998e-7,
+          0,
+          0.9999999999998281
+        ],
+        "tailQuaternion": [
+          0.000054331325054674914,
+          0,
+          0,
+          0.9999999985240531
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-enter-0.55",
+      "snapshot": {
+        "pose": "curl",
+        "time": 2.850333679999999,
+        "target": 4.6,
+        "progress": 0.6196377565217389,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 3,
+        "tailLift": 0.0000053939887069284335,
+        "greeting": 0,
+        "headYaw": -5.282607519572777e-9,
+        "headQuaternion": [
+          0,
+          -2.641303749882825e-9,
+          0,
+          0.9999999999999993
+        ],
+        "tailQuaternion": [
+          0.0000014833468943864534,
+          0,
+          0,
+          0.9999999999988989
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-enter-0.75",
+      "snapshot": {
+        "pose": "curl",
+        "time": 3.7336336800000005,
+        "target": 4.6,
+        "progress": 0.8116594956521741,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "放松",
+        "reactions": 3,
+        "tailLift": 1.5756536846930962e-7,
+        "greeting": 0,
+        "headYaw": -2.6373905761006368e-11,
+        "headQuaternion": [
+          -0.14657936826435997,
+          -0.06375158132057296,
+          0.009467512461306444,
+          0.9870970524148791
+        ],
+        "tailQuaternion": [
+          -0.018294147420276675,
+          0.11947078058575333,
+          0.00220192274985802,
+          0.9926667156163744
+        ],
+        "paused": false,
+        "eyesClosure": 0.6151072470743557,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-enter-0.95",
+      "snapshot": {
+        "pose": "curl",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 3,
+        "tailLift": 4.305272395360801e-9,
+        "greeting": 0,
+        "headYaw": -1.1911988014242392e-13,
+        "headQuaternion": [
+          -0.38347056508063865,
+          -0.16036421060567535,
+          0.06780090183021922,
+          0.9069932103156948
+        ],
+        "tailQuaternion": [
+          -0.01980297714057928,
+          0.3192390501578176,
+          0.006672568706949494,
+          0.9474437833066793
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl",
+      "snapshot": {
+        "pose": "curl",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 3,
+        "tailLift": 2.5249983520197262e-9,
+        "greeting": 0,
+        "headYaw": -5.3502607026572524e-14,
+        "headQuaternion": [
+          -0.38347056508064087,
+          -0.1603642106056456,
+          0.06780090183020664,
+          0.9069932103157
+        ],
+        "tailQuaternion": [
+          -0.019802977604424413,
+          0.31923905015455084,
+          0.006672568863241067,
+          0.9474437832969843
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-front",
+      "snapshot": {
+        "pose": "curl",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 3,
+        "tailLift": 1.933709946953744e-9,
+        "greeting": 0,
+        "headYaw": -3.5856697948308014e-14,
+        "headQuaternion": [
+          -0.3834705650806415,
+          -0.1603642106056376,
+          0.06780090183020325,
+          0.9069932103157015
+        ],
+        "tailQuaternion": [
+          -0.019802977758482856,
+          0.3192390501534659,
+          0.006672568915150713,
+          0.9474437832937643
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-opposite",
+      "snapshot": {
+        "pose": "curl",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 3,
+        "tailLift": 1.933709946953744e-9,
+        "greeting": 0,
+        "headYaw": -3.5856697948308014e-14,
+        "headQuaternion": [
+          -0.3834705650806415,
+          -0.1603642106056376,
+          0.06780090183020325,
+          0.9069932103157015
+        ],
+        "tailQuaternion": [
+          -0.019802977758482856,
+          0.3192390501534659,
+          0.006672568915150713,
+          0.9474437832937643
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-rear",
+      "snapshot": {
+        "pose": "curl",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 3,
+        "tailLift": 1.933709946953744e-9,
+        "greeting": 0,
+        "headYaw": -3.5856697948308014e-14,
+        "headQuaternion": [
+          -0.3834705650806415,
+          -0.1603642106056376,
+          0.06780090183020325,
+          0.9069932103157015
+        ],
+        "tailQuaternion": [
+          -0.019802977758482856,
+          0.3192390501534659,
+          0.006672568915150713,
+          0.9474437832937643
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-bare",
+      "snapshot": {
+        "pose": "curl",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 3,
+        "tailLift": 1.933709946953744e-9,
+        "greeting": 0,
+        "headYaw": -3.5856697948308014e-14,
+        "headQuaternion": [
+          -0.3834705650806415,
+          -0.1603642106056376,
+          0.06780090183020325,
+          0.9069932103157015
+        ],
+        "tailQuaternion": [
+          -0.019802977758482856,
+          0.3192390501534659,
+          0.006672568915150713,
+          0.9474437832937643
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-rise-0.75",
+      "snapshot": {
+        "pose": "curl",
+        "time": 3.1653508799999934,
+        "target": 0,
+        "progress": 0.6881197565217377,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "调整身体",
+        "reactions": 4,
+        "tailLift": 3.921191999342074e-12,
+        "greeting": 5.0497999999999905,
+        "headYaw": -3.274239607344377e-18,
+        "headQuaternion": [
+          -0.0007820254831346105,
+          -0.0003421360929660256,
+          2.78117961990717e-7,
+          0.9999996356894135
+        ],
+        "tailQuaternion": [
+          -0.000097753175947792,
+          0.0006353957520019022,
+          6.45631064745621e-8,
+          0.9999997933582541
+        ],
+        "paused": false,
+        "eyesClosure": 0.05055723667468053,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-rise-0.45",
+      "snapshot": {
+        "pose": "curl",
+        "time": 1.7320508799999998,
+        "target": 0,
+        "progress": 0.3765328,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "换爪支撑",
+        "reactions": 4,
+        "tailLift": 1.2691734667692467e-14,
+        "greeting": 3.6164999999999887,
+        "headYaw": -6.029270549212222e-22,
+        "headQuaternion": [
+          0,
+          -3.014635274606111e-22,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          3.490227033615429e-15,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "curl-rise-0.15",
+      "snapshot": {
+        "pose": "curl",
+        "time": 0.5652508799999979,
+        "target": 0,
+        "progress": 0.12288062608695607,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "降低身体",
+        "reactions": 4,
+        "tailLift": 1.1928388579436583e-16,
+        "greeting": 2.4496999999999853,
+        "headYaw": -5.493586451697604e-25,
+        "headQuaternion": [
+          0,
+          -2.746793225848802e-25,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          3.28030685934506e-17,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-enter-0.15",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 1.0500334799999966,
+        "target": 4.6,
+        "progress": 0.22826814782608623,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "降低身体",
+        "reactions": 4,
+        "tailLift": 0.007373689800364598,
+        "greeting": 0.349499999999989,
+        "headYaw": -0.00026250566848175596,
+        "headQuaternion": [
+          0,
+          -0.00013125283386400622,
+          0,
+          0.9999999913863462
+        ],
+        "tailQuaternion": [
+          0.0020277633054633184,
+          0,
+          0,
+          0.9999979440858754
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-enter-0.35",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 1.9667334800000011,
+        "target": 4.6,
+        "progress": 0.4275507565217394,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "换爪支撑",
+        "reactions": 4,
+        "tailLift": 0.00018845768731960474,
+        "greeting": 0,
+        "headYaw": -0.0000010725861297070356,
+        "headQuaternion": [
+          0,
+          -5.362930648372725e-7,
+          0,
+          0.9999999999998562
+        ],
+        "tailQuaternion": [
+          0.000051825863989628166,
+          0,
+          0,
+          0.9999999986570398
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-enter-0.55",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 2.8669334799999975,
+        "target": 4.6,
+        "progress": 0.6232464086956516,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 4,
+        "tailLift": 0.000005145247696304134,
+        "greeting": 0,
+        "headYaw": -4.838612252847389e-9,
+        "headQuaternion": [
+          0,
+          -2.4193061102040074e-9,
+          0,
+          0.9999999999999999
+        ],
+        "tailQuaternion": [
+          0.000001414943116420038,
+          0,
+          0,
+          0.9999999999989987
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-enter-0.75",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 3.783633480000001,
+        "target": 4.6,
+        "progress": 0.8225290173913047,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "放松",
+        "reactions": 4,
+        "tailLift": 1.3150288495782071e-7,
+        "greeting": 0,
+        "headYaw": -1.9770347891726815e-11,
+        "headQuaternion": [
+          -0.1252121914296037,
+          -9.807377478538673e-12,
+          1.2377442924243798e-12,
+          0.9921299849905737
+        ],
+        "tailQuaternion": [
+          -0.020921318994534154,
+          0.00836751147479075,
+          0.0001753852737895145,
+          0.9997460939674904
+        ],
+        "paused": false,
+        "eyesClosure": 0.6711266460121817,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-enter-0.95",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 4,
+        "tailLift": 3.5931483296057388e-9,
+        "greeting": 0,
+        "headYaw": -8.929437651659584e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -4.265308906267439e-14,
+          1.3194146728000924e-14,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.04996917298115474,
+          0.01997367292741357,
+          0.0009995166713449243,
+          0.9985505342977273
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 4,
+        "tailLift": 2.252923689410765e-9,
+        "greeting": 0,
+        "headYaw": -4.433340752112754e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -2.1176661433982322e-14,
+          6.5507090883522996e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.04996917334918229,
+          0.01997367292704519,
+          0.0009995166787064567,
+          0.9985505342793106
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-front",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 4,
+        "tailLift": 1.7246580349457733e-9,
+        "greeting": 0,
+        "headYaw": -2.969380722014964e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.418378909600802e-14,
+          4.387560165144469e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.04996917349424478,
+          0.019973672926899985,
+          0.000999516681608093,
+          0.9985505342720514
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-opposite",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 4,
+        "tailLift": 1.7246580349457733e-9,
+        "greeting": 0,
+        "headYaw": -2.969380722014964e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.418378909600802e-14,
+          4.387560165144469e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.04996917349424478,
+          0.019973672926899985,
+          0.000999516681608093,
+          0.9985505342720514
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-rear",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 4,
+        "tailLift": 1.7246580349457733e-9,
+        "greeting": 0,
+        "headYaw": -2.969380722014964e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.418378909600802e-14,
+          4.387560165144469e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.04996917349424478,
+          0.019973672926899985,
+          0.000999516681608093,
+          0.9985505342720514
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-bare",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 4,
+        "tailLift": 1.7246580349457733e-9,
+        "greeting": 0,
+        "headYaw": -2.969380722014964e-14,
+        "headQuaternion": [
+          -0.29552021622657776,
+          -1.418378909600802e-14,
+          4.387560165144469e-15,
+          0.9553365111351013
+        ],
+        "tailQuaternion": [
+          -0.04996917349424478,
+          0.019973672926899985,
+          0.000999516681608093,
+          0.9985505342720514
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-rise-0.75",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 3.16535768,
+        "target": 0,
+        "progress": 0.6881212347826088,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "调整身体",
+        "reactions": 5,
+        "tailLift": 3.497274913895011e-12,
+        "greeting": 5.049799999999996,
+        "headYaw": -2.711477778384063e-18,
+        "headQuaternion": [
+          -0.0005866412108359938,
+          -1.3557386559046587e-18,
+          7.953323035330586e-22,
+          0.99999982792603
+        ],
+        "tailQuaternion": [
+          -0.00009777353832619973,
+          0.00003910941711411628,
+          3.973957854013302e-9,
+          0.9999999944553944
+        ],
+        "paused": false,
+        "eyesClosure": 0.05056096218565109,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-rise-0.45",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 1.7319576799999998,
+        "target": 0,
+        "progress": 0.37651253913043475,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "换爪支撑",
+        "reactions": 5,
+        "tailLift": 1.1315113932425279e-14,
+        "greeting": 3.6163999999999867,
+        "headYaw": -4.989991288246147e-22,
+        "headQuaternion": [
+          0,
+          -2.4949956441230734e-22,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          3.111656331416952e-15,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "stretch-rise-0.15",
+      "snapshot": {
+        "pose": "stretch",
+        "time": 0.5485576799999992,
+        "target": 0,
+        "progress": 0.11925166956521721,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "降低身体",
+        "reactions": 5,
+        "tailLift": 9.951363074224538e-17,
+        "greeting": 2.4329999999999865,
+        "headYaw": -4.115619801771638e-25,
+        "headQuaternion": [
+          0,
+          -2.057809900885819e-25,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          2.736624845411748e-17,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-enter-0.15",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 1.0666271200000026,
+        "target": 4.6,
+        "progress": 0.23187546086956579,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "降低身体",
+        "reactions": 5,
+        "tailLift": 0.007022641494498557,
+        "greeting": 0.31619999999998505,
+        "headYaw": -0.00024014338099540776,
+        "headQuaternion": [
+          0,
+          -0.00012007169020919566,
+          0,
+          0.9999999927913953
+        ],
+        "tailQuaternion": [
+          0.0019312252105254588,
+          0,
+          0,
+          0.999998135182855
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-enter-0.35",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 1.9834271200000044,
+        "target": 4.6,
+        "progress": 0.43117980869565314,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "换爪支撑",
+        "reactions": 5,
+        "tailLift": 0.0001794137708933811,
+        "greeting": 0,
+        "headYaw": -9.806262956675655e-7,
+        "headQuaternion": [
+          0,
+          -4.903131478419729e-7,
+          0,
+          0.9999999999998804
+        ],
+        "tailQuaternion": [
+          0.00004933878697553974,
+          0,
+          0,
+          0.9999999987828432
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-enter-0.55",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 2.8834271200000026,
+        "target": 4.6,
+        "progress": 0.6268319826086962,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 5,
+        "tailLift": 0.000004902252079112888,
+        "greeting": 0,
+        "headYaw": -4.429078038836986e-9,
+        "headQuaternion": [
+          0,
+          -2.2145390276281813e-9,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0.000001348119321633219,
+          0,
+          0,
+          0.9999999999990924
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-enter-0.75",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 3.8003271199999955,
+        "target": 4.6,
+        "progress": 0.8261580695652164,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "放松",
+        "reactions": 5,
+        "tailLift": 1.2519217872832005e-7,
+        "greeting": 0,
+        "headYaw": -1.8075306476711007e-11,
+        "headQuaternion": [
+          -0.07610015939102098,
+          -9.011445656169894e-12,
+          6.877668519596308e-13,
+          0.9971001783876388
+        ],
+        "tailQuaternion": [
+          -0.02176136766285666,
+          0.008703406134562832,
+          0.00018946117811725557,
+          0.9997252911192959
+        ],
+        "paused": false,
+        "eyesClosure": 0.6893969764512566,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-enter-0.95",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 5,
+        "tailLift": 3.419348331227546e-9,
+        "greeting": 0,
+        "headYaw": -8.158961630574146e-14,
+        "headQuaternion": [
+          -0.1741081327199936,
+          -4.017173061664896e-14,
+          7.1027078721666934e-15,
+          0.9847265481948853
+        ],
+        "tailQuaternion": [
+          -0.03553227986318793,
+          0.019986033440304554,
+          0.0007107403756313643,
+          0.9991683960295055
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 5,
+        "tailLift": 2.0070178958552487e-9,
+        "greeting": 0,
+        "headYaw": -3.668991797411681e-14,
+        "headQuaternion": [
+          -0.1741081327199936,
+          -1.8064768140102764e-14,
+          3.194006554061604e-15,
+          0.9847265481948853
+        ],
+        "tailQuaternion": [
+          -0.035532280251255814,
+          0.01998603344002851,
+          0.0007107403833937572,
+          0.9991683960157051
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-front",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 5,
+        "tailLift": 1.5364122436264238e-9,
+        "greeting": 0,
+        "headYaw": -2.457432018342676e-14,
+        "headQuaternion": [
+          -0.1741081327199936,
+          -1.2099492744230866e-14,
+          2.139294499999842e-15,
+          0.9847265481948853
+        ],
+        "tailQuaternion": [
+          -0.035532280380564746,
+          0.01998603343993653,
+          0.0007107403859802808,
+          0.9991683960111066
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-opposite",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 5,
+        "tailLift": 1.5364122436264238e-9,
+        "greeting": 0,
+        "headYaw": -2.457432018342676e-14,
+        "headQuaternion": [
+          -0.1741081327199936,
+          -1.2099492744230866e-14,
+          2.139294499999842e-15,
+          0.9847265481948853
+        ],
+        "tailQuaternion": [
+          -0.035532280380564746,
+          0.01998603343993653,
+          0.0007107403859802808,
+          0.9991683960111066
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-rear",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 5,
+        "tailLift": 1.5364122436264238e-9,
+        "greeting": 0,
+        "headYaw": -2.457432018342676e-14,
+        "headQuaternion": [
+          -0.1741081327199936,
+          -1.2099492744230866e-14,
+          2.139294499999842e-15,
+          0.9847265481948853
+        ],
+        "tailQuaternion": [
+          -0.035532280380564746,
+          0.01998603343993653,
+          0.0007107403859802808,
+          0.9991683960111066
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-bare",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 5,
+        "tailLift": 1.5364122436264238e-9,
+        "greeting": 0,
+        "headYaw": -2.457432018342676e-14,
+        "headQuaternion": [
+          -0.1741081327199936,
+          -1.2099492744230866e-14,
+          2.139294499999842e-15,
+          0.9847265481948853
+        ],
+        "tailQuaternion": [
+          -0.035532280380564746,
+          0.01998603343993653,
+          0.0007107403859802808,
+          0.9991683960111066
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-rise-0.75",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 3.16646644,
+        "target": 0,
+        "progress": 0.6883622695652175,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "调整身体",
+        "reactions": 6,
+        "tailLift": 3.115548641041059e-12,
+        "greeting": 5.0497999999999905,
+        "headYaw": -2.243993927832905e-18,
+        "headQuaternion": [
+          -0.0003538174307643272,
+          -1.1219968936868602e-18,
+          3.9698208309829474e-22,
+          0.999999937406611
+        ],
+        "tailQuaternion": [
+          -0.00010109069131992625,
+          0.00004043627831726448,
+          4.111492881201066e-9,
+          0.9999999940727898
+        ],
+        "paused": false,
+        "eyesClosure": 0.051170044135206844,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-rise-0.45",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 1.7330664400000078,
+        "target": 0,
+        "progress": 0.3767535739130452,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "换爪支撑",
+        "reactions": 6,
+        "tailLift": 1.0080073400958746e-14,
+        "greeting": 3.6163999999999903,
+        "headYaw": -4.129670632018692e-22,
+        "headQuaternion": [
+          0,
+          -2.064835316009346e-22,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          2.7720201852636555e-15,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "pillow-rise-0.15",
+      "snapshot": {
+        "pose": "pillow",
+        "time": 0.2995664400000093,
+        "target": 0,
+        "progress": 0.06512313913043681,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "降低身体",
+        "reactions": 6,
+        "tailLift": 3.260011524339872e-17,
+        "greeting": 2.182899999999993,
+        "headYaw": -7.595363730256614e-26,
+        "headQuaternion": [
+          0,
+          -3.797681865128307e-26,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          8.965031691934649e-18,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-enter-0.15",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 1.0333335999999995,
+        "target": 4.6,
+        "progress": 0.2246377391304347,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "降低身体",
+        "reactions": 6,
+        "tailLift": 0.007734182180781074,
+        "greeting": 0.3827999999999898,
+        "headYaw": -0.00028678685359413095,
+        "headQuaternion": [
+          0,
+          -0.00014339342630564203,
+          0,
+          0.9999999897191615
+        ],
+        "tailQuaternion": [
+          0.0021268984961373503,
+          0,
+          0,
+          0.9999977381488362
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-enter-0.35",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 1.9334335999999879,
+        "target": 4.6,
+        "progress": 0.4203116521739104,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "换爪支撑",
+        "reactions": 6,
+        "tailLift": 0.00021124213350943763,
+        "greeting": 0,
+        "headYaw": -0.0000012945190930193127,
+        "headQuaternion": [
+          0,
+          -6.472595464878337e-7,
+          0,
+          0.9999999999997894
+        ],
+        "tailQuaternion": [
+          0.000058091586682372723,
+          0,
+          0,
+          0.9999999983126838
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-enter-0.55",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 2.833533599999992,
+        "target": 4.6,
+        "progress": 0.6159855652173896,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 6,
+        "tailLift": 0.000005769613118307743,
+        "greeting": 0,
+        "headYaw": -5.843293237433431e-9,
+        "headQuaternion": [
+          0,
+          -2.9216465969400185e-9,
+          0,
+          0.9999999999999984
+        ],
+        "tailQuaternion": [
+          0.000001586643607484282,
+          0,
+          0,
+          0.9999999999987411
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-enter-0.75",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 3.750333599999996,
+        "target": 4.6,
+        "progress": 0.8152899130434774,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "放松",
+        "reactions": 6,
+        "tailLift": 1.4740152219964987e-7,
+        "greeting": 0,
+        "headYaw": -2.3861107385813198e-11,
+        "headQuaternion": [
+          -0.15345202683326975,
+          -1.1789249392892315e-11,
+          1.830767645419669e-12,
+          0.9881560987317548
+        ],
+        "tailQuaternion": [
+          -0.019255787653570854,
+          0.007701527119168934,
+          0.00014860549938678947,
+          0.9997849163886595
+        ],
+        "paused": false,
+        "eyesClosure": 0.63400801493394,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-enter-0.95",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 6,
+        "tailLift": 3.768813787415843e-9,
+        "greeting": 0,
+        "headYaw": -9.755390591356401e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -4.4926548060877697e-14,
+          1.8994639746751366e-14,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307040668651966,
+          0.019994542003098907,
+          0.00040619495231569047,
+          0.9995937347622577
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 6,
+        "tailLift": 2.363066893923144e-9,
+        "greeting": 0,
+        "headYaw": -4.843414820573368e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -2.2305401990572853e-14,
+          9.430572645895042e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041055075307,
+          0.01999454200294188,
+          0.0004061949600451884,
+          0.9995937347544074
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-front",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 6,
+        "tailLift": 1.809698590274792e-9,
+        "greeting": 0,
+        "headYaw": -3.245988782815827e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -1.494876803656189e-14,
+          6.320237716182497e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041207189767,
+          0.01999454200288007,
+          0.0004061949630878835,
+          0.9995937347513171
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-opposite",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 6,
+        "tailLift": 1.809698590274792e-9,
+        "greeting": 0,
+        "headYaw": -3.245988782815827e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -1.494876803656189e-14,
+          6.320237716182497e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041207189767,
+          0.01999454200288007,
+          0.0004061949630878835,
+          0.9995937347513171
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-rear",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 6,
+        "tailLift": 1.809698590274792e-9,
+        "greeting": 0,
+        "headYaw": -3.245988782815827e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -1.494876803656189e-14,
+          6.320237716182497e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041207189767,
+          0.01999454200288007,
+          0.0004061949630878835,
+          0.9995937347513171
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-bare",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 6,
+        "tailLift": 1.809698590274792e-9,
+        "greeting": 0,
+        "headYaw": -3.245988782815827e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -1.494876803656189e-14,
+          6.320237716182497e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041207189767,
+          0.01999454200288007,
+          0.0004061949630878835,
+          0.9995937347513171
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-rise-0.75",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 3.165551,
+        "target": 0,
+        "progress": 0.6881632608695653,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "调整身体",
+        "reactions": 7,
+        "tailLift": 3.672657761564869e-12,
+        "greeting": 5.04999999999999,
+        "headYaw": -2.967620298557087e-18,
+        "headQuaternion": [
+          -0.0007868152398775957,
+          -1.4838096899811982e-18,
+          1.1674844385374083e-21,
+          0.9999996904608414
+        ],
+        "tailQuaternion": [
+          -0.00009835190690305983,
+          0.000039340764572460105,
+          3.9979380377717226e-9,
+          0.9999999943896033
+        ],
+        "paused": false,
+        "eyesClosure": 0.05066692717530254,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-rise-0.45",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 1.7320510000000024,
+        "target": 0,
+        "progress": 0.3765328260869571,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "换爪支撑",
+        "reactions": 7,
+        "tailLift": 1.1877797066952879e-14,
+        "greeting": 3.6164999999999834,
+        "headYaw": -5.458100073665102e-22,
+        "headQuaternion": [
+          0,
+          -2.729050036832551e-22,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          3.266394193412042e-15,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "loaf-rise-0.15",
+      "snapshot": {
+        "pose": "loaf",
+        "time": 0.5652510000000164,
+        "target": 0,
+        "progress": 0.12288065217391661,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "降低身体",
+        "reactions": 7,
+        "tailLift": 1.116340536514495e-16,
+        "greeting": 2.449699999999996,
+        "headYaw": -4.973162901209779e-25,
+        "headQuaternion": [
+          0,
+          -2.4865814506048897e-25,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          3.069936475414861e-17,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-enter-0.15",
+      "snapshot": {
+        "pose": "wall",
+        "time": 1.0666334800000028,
+        "target": 4.6,
+        "progress": 0.23187684347826149,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "降低身体",
+        "reactions": 7,
+        "tailLift": 0.006899978062536524,
+        "greeting": 0.3328999999999969,
+        "headYaw": -0.0002376199802738717,
+        "headQuaternion": [
+          0,
+          -0.00011880998985741639,
+          0,
+          0.9999999929420936
+        ],
+        "tailQuaternion": [
+          0.0018974928285484848,
+          0,
+          0,
+          0.9999981997588626
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-enter-0.35",
+      "snapshot": {
+        "pose": "wall",
+        "time": 1.966733480000006,
+        "target": 4.6,
+        "progress": 0.42755075652174046,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "换爪支撑",
+        "reactions": 7,
+        "tailLift": 0.00018845768731959797,
+        "greeting": 0,
+        "headYaw": -0.0000010725861297069842,
+        "headQuaternion": [
+          0,
+          -5.362930648505464e-7,
+          0,
+          0.9999999999998567
+        ],
+        "tailQuaternion": [
+          0.000051825863989665476,
+          0,
+          0,
+          0.9999999986570404
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-enter-0.55",
+      "snapshot": {
+        "pose": "wall",
+        "time": 2.8667334800000046,
+        "target": 4.6,
+        "progress": 0.6232029304347837,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 7,
+        "tailLift": 0.00000514936554137935,
+        "greeting": 0,
+        "headYaw": -4.844422072745247e-9,
+        "headQuaternion": [
+          0,
+          -2.4222110334524375e-9,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          0.000001416075523854865,
+          0,
+          0,
+          0.9999999999989978
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-enter-0.75",
+      "snapshot": {
+        "pose": "wall",
+        "time": 3.7669334800000005,
+        "target": 4.6,
+        "progress": 0.8188985826086959,
+        "velocity": 1,
+        "pending": null,
+        "state": "lowering",
+        "phase": "放松",
+        "reactions": 7,
+        "tailLift": 1.4058731997638084e-7,
+        "greeting": 0,
+        "headYaw": -2.185398388990162e-11,
+        "headQuaternion": [
+          -0.15997448501247666,
+          -1.0786264851240777e-11,
+          1.7480399091289866e-12,
+          0.9871211496797102
+        ],
+        "tailQuaternion": [
+          -0.02007018576276131,
+          0.008031535905256473,
+          0.000161233795791978,
+          0.999766300731383
+        ],
+        "paused": false,
+        "eyesClosure": 0.6526150364135669,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-enter-0.95",
+      "snapshot": {
+        "pose": "wall",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 7,
+        "tailLift": 3.5945858764276335e-9,
+        "greeting": 0,
+        "headYaw": -8.934796921870361e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -4.1147464016484696e-14,
+          1.7396868649388788e-14,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307040716545176,
+          0.019994542003079447,
+          0.00040619495327368245,
+          0.9995937347612847
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall",
+      "snapshot": {
+        "pose": "wall",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 7,
+        "tailLift": 2.2538250391443678e-9,
+        "greeting": 0,
+        "headYaw": -4.436001554724731e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -2.0429139682326005e-14,
+          8.637301670184544e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041085104612,
+          0.019994542002929678,
+          0.00040619496064585466,
+          0.9995937347537973
+        ],
+        "paused": false,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-front",
+      "snapshot": {
+        "pose": "wall",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 7,
+        "tailLift": 1.7253480361507233e-9,
+        "greeting": 0,
+        "headYaw": -2.9711628850434494e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -1.3683110983774642e-14,
+          5.785126500247266e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041230376743,
+          0.019994542002870645,
+          0.00040619496355168497,
+          0.999593734750846
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-opposite",
+      "snapshot": {
+        "pose": "wall",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 7,
+        "tailLift": 1.7253480361507233e-9,
+        "greeting": 0,
+        "headYaw": -2.9711628850434494e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -1.3683110983774642e-14,
+          5.785126500247266e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041230376743,
+          0.019994542002870645,
+          0.00040619496355168497,
+          0.999593734750846
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-rear",
+      "snapshot": {
+        "pose": "wall",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 7,
+        "tailLift": 1.7253480361507233e-9,
+        "greeting": 0,
+        "headYaw": -2.9711628850434494e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -1.3683110983774642e-14,
+          5.785126500247266e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041230376743,
+          0.019994542002870645,
+          0.00040619496355168497,
+          0.999593734750846
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-bare",
+      "snapshot": {
+        "pose": "wall",
+        "time": 4.6,
+        "target": 4.6,
+        "progress": 1,
+        "velocity": 0,
+        "pending": null,
+        "state": "resting",
+        "phase": "放松",
+        "reactions": 7,
+        "tailLift": 1.7253480361507233e-9,
+        "greeting": 0,
+        "headYaw": -2.9711628850434494e-14,
+        "headQuaternion": [
+          -0.3894183337688446,
+          -1.3683110983774642e-14,
+          5.785126500247266e-15,
+          0.9210609793663025
+        ],
+        "tailQuaternion": [
+          -0.020307041230376743,
+          0.019994542002870645,
+          0.00040619496355168497,
+          0.999593734750846
+        ],
+        "paused": true,
+        "eyesClosure": 1,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-rise-0.75",
+      "snapshot": {
+        "pose": "wall",
+        "time": 3.2166661199999975,
+        "target": 0,
+        "progress": 0.6992752434782604,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "调整身体",
+        "reactions": 8,
+        "tailLift": 4.276710200115634e-12,
+        "greeting": 5.099999999999988,
+        "headYaw": -3.666706295528262e-18,
+        "headQuaternion": [
+          -0.004314377624555517,
+          -1.8333360848005542e-18,
+          7.909777798621992e-21,
+          0.9999906930295466
+        ],
+        "tailQuaternion": [
+          -0.000539298824723387,
+          0.00021571950998761658,
+          1.3110357946113163e-7,
+          0.9999998313109124
+        ],
+        "paused": false,
+        "eyesClosure": 0.08200966692224582,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-rise-0.45",
+      "snapshot": {
+        "pose": "wall",
+        "time": 1.7832661200000057,
+        "target": 0,
+        "progress": 0.3876665478260882,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "换爪支撑",
+        "reactions": 8,
+        "tailLift": 1.3836905694205277e-14,
+        "greeting": 3.6665999999999874,
+        "headYaw": -6.747919019328405e-22,
+        "headQuaternion": [
+          0,
+          -3.3739595096642027e-22,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          3.805149065906451e-15,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    },
+    {
+      "name": "wall-rise-0.15",
+      "snapshot": {
+        "pose": "wall",
+        "time": 0.3498661199999991,
+        "target": 0,
+        "progress": 0.07605785217391285,
+        "velocity": -1,
+        "pending": null,
+        "state": "rising",
+        "phase": "降低身体",
+        "reactions": 8,
+        "tailLift": 4.4768046052113255e-17,
+        "greeting": 2.233199999999981,
+        "headYaw": -1.2418341536365104e-25,
+        "headQuaternion": [
+          0,
+          -6.209170768182552e-26,
+          0,
+          1
+        ],
+        "tailQuaternion": [
+          1.2311212664331145e-17,
+          0,
+          0,
+          1
+        ],
+        "paused": false,
+        "eyesClosure": 0,
+        "whiskers": 12
+      }
+    }
+  ]
+}

@@ -11,7 +11,8 @@ const coatColor = `
 `;
 
 // 短绒毛与原网格共用骨架、UV 和贴图；每层随蒙皮运动，脸部不覆盖眼鼻。
-export function addSiameseFur(model, { layers = 8, length = .009, strands = 24000, bodyScale = 1, limbRatio = 1 } = {}) {
+export function addSiameseFur(model, { layers = 8, length = .009, strands = 24000, bodyScale = 1, limbRatio = 1, preserveTexture = false } = {}) {
+  const pointCoat = preserveTexture ? '' : coatColor;
   const originalPoint=p=>new THREE.Vector3(p.x/bodyScale,p.y/bodyScale<.30*limbRatio?p.y/bodyScale/limbRatio:p.y/bodyScale+.30*(1-limbRatio),p.z/bodyScale);
   const restCode=`vFurRest = position / ${bodyScale.toFixed(4)}; vFurRest.y = vFurRest.y < ${(.30*limbRatio).toFixed(4)} ? vFurRest.y / ${limbRatio.toFixed(4)} : vFurRest.y + ${(.30*(1-limbRatio)).toFixed(4)};`;
   const meshes = [];
@@ -26,9 +27,9 @@ export function addSiameseFur(model, { layers = 8, length = .009, strands = 2400
       shader.vertexShader = "varying vec3 vFurRest;\n" + shader.vertexShader;
       shader.vertexShader = shader.vertexShader.replace("#include <begin_vertex>","#include <begin_vertex>\n"+restCode);
       shader.fragmentShader = "varying vec3 vFurRest;\n" + shader.fragmentShader;
-      shader.fragmentShader = shader.fragmentShader.replace("#include <map_fragment>","#include <map_fragment>\n"+coatColor);
+      shader.fragmentShader = shader.fragmentShader.replace("#include <map_fragment>","#include <map_fragment>\n"+pointCoat);
     };
-    mesh.material.customProgramCacheKey = () => "siamese-point-coat-v1";
+    mesh.material.customProgramCacheKey = () => "siamese-point-coat-v1"+(preserveTexture?'-source-texture':'');
     mesh.material.needsUpdate = true;
     const geometry = mesh.geometry.clone();
     const position = geometry.attributes.position;
@@ -59,7 +60,7 @@ export function addSiameseFur(model, { layers = 8, length = .009, strands = 2400
           transformed += normal * furLengthScale * furDepth * furLength;
         `);
         shader.fragmentShader = "varying vec3 vFurRest; varying float vFurLength; uniform float furDepth;\n" + shader.fragmentShader;
-        shader.fragmentShader = shader.fragmentShader.replace("#include <map_fragment>","#include <map_fragment>\n"+coatColor);
+        shader.fragmentShader = shader.fragmentShader.replace("#include <map_fragment>","#include <map_fragment>\n"+pointCoat);
         shader.fragmentShader = shader.fragmentShader.replace("#include <alphatest_fragment>", `
           vec3 furCell = floor(vFurRest * 390.0);
           float strand = fract(sin(dot(furCell, vec3(127.1,311.7,74.7))) * 43758.5453);
@@ -71,7 +72,7 @@ export function addSiameseFur(model, { layers = 8, length = .009, strands = 2400
           #include <alphatest_fragment>
         `);
       };
-      material.customProgramCacheKey = () => `siamese-plush-fur-v3-${bodyScale}-${limbRatio}`;
+      material.customProgramCacheKey = () => `siamese-plush-fur-v3-${bodyScale}-${limbRatio}-${preserveTexture}`;
       const shell = new THREE.SkinnedMesh(geometry, material);
       shell.name = `siamese_short_fur_${layer}`;
       shell.position.copy(mesh.position); shell.quaternion.copy(mesh.quaternion); shell.scale.copy(mesh.scale);
@@ -129,7 +130,7 @@ export function addSiameseFur(model, { layers = 8, length = .009, strands = 2400
     if(corrections.length){hairs.morphTargetsRelative=true;hairs.morphAttributes.position=corrections.map(values=>new THREE.Float32BufferAttribute(values,3));}
     fibers+=coordinates.length/24;
     const hairMaterial=mesh.material.clone();hairMaterial.side=THREE.DoubleSide;hairMaterial.roughness=1;
-    hairMaterial.onBeforeCompile=shader=>{mesh.material.onBeforeCompile(shader);shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_begin>',THREE.ShaderChunk.normal_fragment_begin.replace('normal *= faceDirection;',''));};hairMaterial.customProgramCacheKey=()=>"siamese-fiber-coat-v1";
+    hairMaterial.onBeforeCompile=shader=>{mesh.material.onBeforeCompile(shader);shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_begin>',THREE.ShaderChunk.normal_fragment_begin.replace('normal *= faceDirection;',''));};hairMaterial.customProgramCacheKey=()=>"siamese-fiber-coat-v1"+(preserveTexture?'-source-texture':'');
     const hairMesh=new THREE.SkinnedMesh(hairs,hairMaterial);hairMesh.name='siamese_fine_fibers';hairMesh.position.copy(mesh.position);hairMesh.quaternion.copy(mesh.quaternion);hairMesh.scale.copy(mesh.scale);hairMesh.bindMode=mesh.bindMode;hairMesh.bind(mesh.skeleton,mesh.bindMatrix);hairMesh.frustumCulled=false;hairMesh.userData={...mesh.userData,petFur:true};hairMesh.raycast=()=>{};mesh.parent.add(hairMesh);shells.push(hairMesh);
     if(mesh.morphTargetInfluences)hairMesh.morphTargetInfluences=mesh.morphTargetInfluences;
   }

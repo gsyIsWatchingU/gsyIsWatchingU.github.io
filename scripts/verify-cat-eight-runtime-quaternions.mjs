@@ -1,0 +1,7 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+import {loadGeometry} from './geometry-test-utils.mjs';
+const root='docs/cat-eight-poses-review',live=process.argv.includes('--live'),runtime=JSON.parse(readFileSync(root+'/runtime.json')),browser=JSON.parse(readFileSync(root+'/'+(live?'live':'local')+'/browser.json')),asset=await loadGeometry(runtime.output),records=[];
+assert.equal(browser.runtimeSHA256,runtime.runtimeSHA256);
+for(const pose of runtime.poses){const snapshot=browser.records.find(r=>r.name===pose.id).snapshot,clip=asset.animations.find(c=>c.name==='rest_'+pose.id),record={pose:pose.id};for(const [field,bone]of [['headQuaternion','DEF_head'],['tailQuaternion','DEF_tail_01']]){const track=clip.tracks.find(t=>t.name===bone+'.quaternion');assert(track,'需要实际导出骨骼轨道');const expected=track.values.slice(-4),actual=snapshot[field];assert(actual,'需要浏览器实际骨骼旋转');const error=Math.max(0,1-Math.abs(actual.reduce((sum,v,i)=>sum+v*expected[i],0)));record[field+'Error']=error;assert(error<1e-5,'打招呼后进入 '+pose.id+' 的 '+bone+' 不能累加旧偏移');}records.push(record);}
+writeFileSync(root+'/runtime-rotations-'+(live?'live':'local')+'.json',JSON.stringify({status:'passed',runtimeSHA256:runtime.runtimeSHA256,scope:'将八次真实浏览器起身回应后的睡姿头部/尾根旋转，与 GLB 终态轨道比较，排除逐帧偏移累加。',records},null,2)+'\n');console.log('native head/tail rotation matches exported poses: PASS');

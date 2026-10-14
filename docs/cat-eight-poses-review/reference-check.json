@@ -1,0 +1,32 @@
+{
+  "image": "docs\\cat-eight-poses-review\\reference-white.png",
+  "readability": {
+    "ok": true,
+    "size": [
+      1536,
+      1024
+    ],
+    "mean_luma": 226.65,
+    "std_luma": 54.36,
+    "issues": []
+  },
+  "near_solid": {
+    "ok": true,
+    "std": 53.721,
+    "entropy_bits": 4.12,
+    "threshold_std": 6.0,
+    "threshold_entropy": 2.0
+  },
+  "subject": {
+    "ok": true,
+    "fg_ratio": 0.2798,
+    "bbox": [
+      243,
+      32,
+      1473,
+      966
+    ],
+    "edges_touched": []
+  },
+  "ok": true
+}

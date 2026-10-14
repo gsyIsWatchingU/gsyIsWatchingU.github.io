@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "model": "assets/house-review/props/siamese-kitten-compact.glb",
+  "sitDisabled": true,
+  "lieDisabled": true,
+  "manualLieBlocked": true,
+  "automaticSeconds": 120,
+  "states": [
+    "settling",
+    "walk",
+    "idle"
+  ]
+}
