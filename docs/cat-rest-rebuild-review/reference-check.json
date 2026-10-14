@@ -1,0 +1,32 @@
+{
+  "image": "docs\\cat-rest-rebuild-review\\reference.png",
+  "readability": {
+    "ok": true,
+    "size": [
+      1374,
+      1145
+    ],
+    "mean_luma": 52.16,
+    "std_luma": 78.68,
+    "issues": []
+  },
+  "near_solid": {
+    "ok": true,
+    "std": 77.738,
+    "entropy_bits": 3.852,
+    "threshold_std": 6.0,
+    "threshold_entropy": 2.0
+  },
+  "subject": {
+    "ok": true,
+    "fg_ratio": 0.3728,
+    "bbox": [
+      88,
+      34,
+      1331,
+      1069
+    ],
+    "edges_touched": []
+  },
+  "ok": true
+}

@@ -1,0 +1,87 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "sideRestStatus": "review",
+  "sideRestMethod": "rebuilt-skeletal",
+  "source": "assets/house-review/props/siamese-kitten-rebuilt-retopo.glb",
+  "sourceSHA256": "7185f249ada527dcf4ce640b3c3c7d5db0f07fb036189e6ca45a8597dfa6b520",
+  "output": "assets/house-review/props/siamese-kitten-rest-rebuilt.glb",
+  "runtimeSHA256": "b0dfe0c2cca383b1a2d1b6c632f7ee790e331b10d38e68d74e6a35fd697ae750",
+  "bones": [
+    "CTRL_ground",
+    "DEF_pelvis",
+    "DEF_spine_01",
+    "DEF_spine_02",
+    "DEF_chest",
+    "DEF_neck",
+    "DEF_head",
+    "DEF_scapula_l",
+    "DEF_front_l_upper",
+    "DEF_front_l_lower",
+    "DEF_front_l_paw",
+    "DEF_front_l_toe",
+    "DEF_back_l_upper",
+    "DEF_back_l_lower",
+    "DEF_back_l_paw",
+    "DEF_back_l_toe",
+    "DEF_scapula_r",
+    "DEF_front_r_upper",
+    "DEF_front_r_lower",
+    "DEF_front_r_paw",
+    "DEF_front_r_toe",
+    "DEF_back_r_upper",
+    "DEF_back_r_lower",
+    "DEF_back_r_paw",
+    "DEF_back_r_toe",
+    "DEF_tail_01",
+    "DEF_tail_02",
+    "DEF_tail_03"
+  ],
+  "skin": "Blender bone-heat binding; normalized max four influences; dual quaternion renderer required; baked skeletal clips; no morph targets",
+  "animations": [
+    {
+      "name": "lie_down_side",
+      "duration": 4.2,
+      "fps": 30,
+      "loop": false,
+      "rootMotion": "baked bone support transfer"
+    },
+    {
+      "name": "rise_from_side",
+      "duration": 4.2,
+      "fps": 30,
+      "loop": false,
+      "rootMotion": "baked bone support transfer"
+    }
+  ],
+  "stages": [
+    {
+      "name": "降低身体",
+      "time": [
+        0,
+        0.95
+      ]
+    },
+    {
+      "name": "换爪支撑",
+      "time": [
+        0.95,
+        1.85
+      ]
+    },
+    {
+      "name": "侧身落地",
+      "time": [
+        1.85,
+        3.1
+      ]
+    },
+    {
+      "name": "放松",
+      "time": [
+        3.1,
+        4.2
+      ]
+    }
+  ]
+}

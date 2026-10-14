@@ -1,7 +1,7 @@
 {
   "status": "review",
   "humanReview": "pending",
-  "sideRestStatus": "review",
+  "sideRestStatus": "rejected",
   "sideRestMethod": "arap",
   "source": "assets/house-review/props/siamese-kitten-seated-anatomy.glb",
   "sourceSHA256": "81096fb16cc221b2335d1bd6d6b7c123d3179c79125fe3a0a70392199f4e455f",
@@ -30,5 +30,6 @@
     "lie_94",
     "lie_100"
   ],
-  "referencePose": "用户参考图01侧躺式"
+  "referencePose": "用户参考图01侧躺式",
+  "sideRestRejection": "2026-10-14 用户指出扭曲，撤回 V2 侧卧。新网格与骨架另行预览。"
 }

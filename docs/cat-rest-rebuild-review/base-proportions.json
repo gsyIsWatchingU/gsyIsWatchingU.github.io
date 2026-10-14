@@ -1,0 +1,17 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "source": "/workspace/projects/pineapple-cat-rest-20261014/prepared/siamese-cat.glb",
+  "sourceSHA256": "ef18364a3733e67088791c28427b86b3d3f2390e2a60287033615ebf31d7a010",
+  "runtimeSHA256": "385feffc964feb889b560e0626e42f0b560fa4551500bc41f44026548299ea41",
+  "meshBackend": "existing Hunyuan3D-2.1 mesh and UV; Blender proportion repair",
+  "bodyScale": 0.8,
+  "limbRatio": 0.78,
+  "heightShift": 0.066,
+  "dimensionsYUp": [
+    0.3621867299079895,
+    0.6272000065041438,
+    1.015136957168579
+  ],
+  "rigidFacePreserved": true
+}

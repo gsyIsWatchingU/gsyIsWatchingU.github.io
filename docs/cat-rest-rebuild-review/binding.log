@@ -1,0 +1,33 @@
+03:20:55 | INFO: Data are loaded, start creating Blender stuff
+03:20:55 | INFO: Blender create Mesh node textured
+03:20:55 | INFO: glTF import finished in 0.10s
+retopology before 18624 27194 [0.3621867299079895, 1.015136957168579, 0.6272000670433044]
+retopology after 56194 56128
+retopology components [14394, 7, 5, 3, 9, 4, 6, 3, 6, 12, 3, 3, 3, 8, 6, 7, 3, 3, 3, 3, 3, 7, 5, 3, 3, 6, 3, 8, 3, 3, 3, 5, 3, 5, 5, 4, 6] debris 172
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+Fra:1 Mem:127.26M (Peak 134.37M) | Time:497763:20:56.95 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | siamese_cat
+Fra:1 Mem:129.17M (Peak 134.37M) | Time:497763:20:56.96 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:129.17M (Peak 134.37M) | Time:497763:20:56.96 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading cat_retopology_basecolor
+Fra:1 Mem:129.17M (Peak 134.37M) | Time:497763:20:56.96 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading textured
+Fra:1 Mem:129.17M (Peak 134.37M) | Time:497763:20:56.96 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading Forge3D_ORM_Material
+Info: Baking map saved to internal image, save it externally or pack it
+bone heat unbound 0
+Fra:1 Mem:129.98M (Peak 275.11M) | Time:497763:20:59.26 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | siamese_cat
+Fra:1 Mem:131.89M (Peak 275.11M) | Time:497763:20:59.27 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:131.89M (Peak 275.11M) | Time:497763:20:59.27 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading cat_retopology_basecolor
+Fra:1 Mem:135.89M (Peak 275.11M) | Time:497763:20:59.27 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading textured
+Fra:1 Mem:135.89M (Peak 275.11M) | Time:497763:20:59.27 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading Forge3D_ORM_Material
+Info: Circular dependency for image "cat_retopology_basecolor" from object "siamese_cat_retopology"
+Info: Baking map saved to internal image, save it externally or pack it
+opposite limb tissue separation 1361 sole bindings 2426
+weight smoothing passes 16
+INFO Draco mesh compression is available, use library at /workspace/.tools/blender-4.5.13-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+03:21:05 | INFO: Starting glTF 2.0 export
+03:21:05 | INFO: Extracting primitive: textured.001
+03:21:05 | INFO: Primitives created: 1
+03:21:05 | INFO: Finished glTF 2.0 export in 0.3635094165802002 s
+
+Info: Saved as "heat-weights.blend"
+bone heat vertices 14394
+
+Blender quit

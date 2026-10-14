@@ -1,0 +1,27 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "reference": {
+    "backend": "OpenAI image_gen",
+    "path": "docs/cat-rest-rebuild-review/reference.png",
+    "sha256": "2f9a81891be7bbbe18bab141365da4455fc638217726f9bdb74d554d9f3a9b4e"
+  },
+  "mesh": {
+    "backend": "Hunyuan3D-2.1 / Forge3D",
+    "host": "gsy013",
+    "gpu": "L20",
+    "job": "91771c8e7ee54bc8957e730fa793eb2f",
+    "seed": 20261014,
+    "assetKind": "prop",
+    "assetKindReason": "跳过人形自动绑定，后续按四足重新绑定",
+    "profile": "xhs_mobile",
+    "rawTexturedSHA256": "fed502588a1d6fe71a48931a1be2115ea0dcac66de44801887e6c1b3ea269936"
+  },
+  "preparedBaseSHA256": "385feffc964feb889b560e0626e42f0b560fa4551500bc41f44026548299ea41",
+  "retopologySHA256": "7185f249ada527dcf4ce640b3c3c7d5db0f07fb036189e6ca45a8597dfa6b520",
+  "binding": "Blender 4.5.13 CPU bone heat, unbound 0; voxel .005m; bake source color; 16 smoothing passes; largest four weights",
+  "renderer": "scripts/cat-dual-quaternion.js; standard glTF linear skinning differs",
+  "formalIntegration": false,
+  "runtimeSHA256": "b0dfe0c2cca383b1a2d1b6c632f7ee790e331b10d38e68d74e6a35fd697ae750",
+  "faceCleanup": "65 local smoothing passes after binding; rebake GPU color"
+}

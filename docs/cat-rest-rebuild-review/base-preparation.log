@@ -1,0 +1,17 @@
+01:20:53 | INFO: Data are loaded, start creating Blender stuff
+01:20:53 | INFO: Blender create Mesh node textured
+01:20:53 | INFO: glTF import finished in 0.19s
+{"components": 38, "componentSizes": [13573, 94, 90, 84, 81, 81, 76, 69, 65, 42, 36, 31, 26, 23, 23, 19, 18, 17, 16, 15], "debrisVertices": 1025}
+{"tailCoreVertices": 1000, "tailX": 0.02503353399821581}
+INFO Draco mesh compression is available, use library at /workspace/.tools/blender-4.5.13-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+01:20:56 | INFO: Starting glTF 2.0 export
+01:20:56 | INFO: Extracting primitive: textured
+01:20:57 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+01:20:57 | INFO: Primitives created: 1
+01:20:57 | INFO: Finished glTF 2.0 export in 0.8050472736358643 s
+
+Info: Saved as "siamese-cat.blend"
+{"status": "review", "humanReview": "pending", "meshBackend": "Hunyuan3D-2.1", "sourceSha256": "fed502588a1d6fe71a48931a1be2115ea0dcac66de44801887e6c1b3ea269936", "runtimeSha256": "ef18364a3733e67088791c28427b86b3d3f2390e2a60287033615ebf31d7a010", "dimensionsYUp": [0.45273342728614807, 0.8500000238418579, 1.268921136856079], "triangles": 27194, "bones": 18, "maxWeights": 4, "weightedVertices": {"pet_root": 2968, "pet_chest": 2456, "pet_haunch": 1910, "pet_head": 6671, "pet_tail": 1722, "pet_tail_tip": 44, "pet_front_l_upper": 1023, "pet_front_l_lower": 423, "pet_front_l_paw": 640, "pet_front_r_upper": 1023, "pet_front_r_lower": 371, "pet_front_r_paw": 634, "pet_back_l_upper": 826, "pet_back_l_lower": 430, "pet_back_l_paw": 645, "pet_back_r_upper": 768, "pet_back_r_lower": 417, "pet_back_r_paw": 558}, "feetBlender": {"front_l": [-0.10624723881483078, -0.3737424910068512, 0.02789130061864853], "front_r": [0.10624722391366959, -0.31556054949760437, 0.02558397874236107], "back_l": [-0.1163172796368599, 0.12065968662500381, 0.026554053649306297], "back_r": [0.11631728708744049, 0.24383126199245453, 0.025248924270272255]}, "animation": "Four beat walk; stance anchors; two bone IK; ground oriented paws; head and tail idle", "repairs": ["uniform scale 0.85m", "canonical forward +Z", "preserve GPU mesh and UV", "separate upper/lower/paw chains for four legs", "texture <=1024", "rigid face weighting; blend only at sloped neck; head pivot at neck base"]}
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+
+Blender quit

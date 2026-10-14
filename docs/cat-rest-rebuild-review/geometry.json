@@ -1,0 +1,904 @@
+{
+  "status": "passed",
+  "scope": "实际导出的骨骼片段：权重、127帧全网格接地、相邻帧连续性及拉伸分布；局部极值单独披露，不能替代观感审看",
+  "humanReview": "pending",
+  "runtimeSHA256": "b0dfe0c2cca383b1a2d1b6c632f7ee790e331b10d38e68d74e6a35fd697ae750",
+  "vertices": 19689,
+  "triangles": 28800,
+  "bones": 28,
+  "maxWeights": 4,
+  "maxWeightError": 4.470348358154297e-8,
+  "minimumFloor": 0.00099998258225448,
+  "maximumStretch": 3.8998098946072597,
+  "records": [
+    {
+      "time": 0,
+      "minimumFloor": 0.0009999888249223026,
+      "p99EdgeStretch": 1.0014457461013413,
+      "maxEdgeStretch": 1.01183893543721,
+      "maxFrameDisplacement": 0
+    },
+    {
+      "time": 0.03333333333333333,
+      "minimumFloor": 0.000999988038781357,
+      "p99EdgeStretch": 1.001614706884624,
+      "maxEdgeStretch": 1.0134648642733086,
+      "maxFrameDisplacement": 0.00014024093317946447
+    },
+    {
+      "time": 0.06666666666666667,
+      "minimumFloor": 0.0009999893350043135,
+      "p99EdgeStretch": 1.002214893726573,
+      "maxEdgeStretch": 1.0181856795797988,
+      "maxFrameDisplacement": 0.0004072439624756994
+    },
+    {
+      "time": 0.1,
+      "minimumFloor": 0.0009999980501566423,
+      "p99EdgeStretch": 1.0033925182026129,
+      "maxEdgeStretch": 1.0257640368276828,
+      "maxFrameDisplacement": 0.0006540020808240906
+    },
+    {
+      "time": 0.13333333333333333,
+      "minimumFloor": 0.0009999901800862474,
+      "p99EdgeStretch": 1.0050562778086791,
+      "maxEdgeStretch": 1.0359596659769639,
+      "maxFrameDisplacement": 0.0008805088919790735
+    },
+    {
+      "time": 0.16666666666666666,
+      "minimumFloor": 0.0010000006968425834,
+      "p99EdgeStretch": 1.007240300030015,
+      "maxEdgeStretch": 1.0485288586890449,
+      "maxFrameDisplacement": 0.0010866931138509676
+    },
+    {
+      "time": 0.2,
+      "minimumFloor": 0.0010000051038492096,
+      "p99EdgeStretch": 1.0098234552151595,
+      "maxEdgeStretch": 1.0632242478281928,
+      "maxFrameDisplacement": 0.0012726099424504773
+    },
+    {
+      "time": 0.23333333333333334,
+      "minimumFloor": 0.0010000091338813013,
+      "p99EdgeStretch": 1.012633139101001,
+      "maxEdgeStretch": 1.079795109067048,
+      "maxFrameDisplacement": 0.0014382538293493067
+    },
+    {
+      "time": 0.26666666666666666,
+      "minimumFloor": 0.0009999889613904827,
+      "p99EdgeStretch": 1.0158698003894453,
+      "maxEdgeStretch": 1.097988152581433,
+      "maxFrameDisplacement": 0.001583682393631335
+    },
+    {
+      "time": 0.3,
+      "minimumFloor": 0.001000008967587909,
+      "p99EdgeStretch": 1.0193520368853455,
+      "maxEdgeStretch": 1.1175488226492285,
+      "maxFrameDisplacement": 0.001708845867963656
+    },
+    {
+      "time": 0.3333333333333333,
+      "minimumFloor": 0.0009999850695955428,
+      "p99EdgeStretch": 1.022936727055019,
+      "maxEdgeStretch": 1.1382228438460367,
+      "maxFrameDisplacement": 0.0018139308611319757
+    },
+    {
+      "time": 0.36666666666666664,
+      "minimumFloor": 0.0010000120590144034,
+      "p99EdgeStretch": 1.0267540614125714,
+      "maxEdgeStretch": 1.1597578036376035,
+      "maxFrameDisplacement": 0.0018988099299397745
+    },
+    {
+      "time": 0.4,
+      "minimumFloor": 0.0010000071087524075,
+      "p99EdgeStretch": 1.030713847773173,
+      "maxEdgeStretch": 1.1819047482379772,
+      "maxFrameDisplacement": 0.0019636897250927543
+    },
+    {
+      "time": 0.43333333333333335,
+      "minimumFloor": 0.0010000041241741797,
+      "p99EdgeStretch": 1.0346075204013396,
+      "maxEdgeStretch": 1.2044195237064281,
+      "maxFrameDisplacement": 0.0020084998759846884
+    },
+    {
+      "time": 0.4666666666666667,
+      "minimumFloor": 0.0010000087333609626,
+      "p99EdgeStretch": 1.0388641181655371,
+      "maxEdgeStretch": 1.2270639283354943,
+      "maxFrameDisplacement": 0.0020332833053460426
+    },
+    {
+      "time": 0.5,
+      "minimumFloor": 0.0009999985187179002,
+      "p99EdgeStretch": 1.042941380974232,
+      "maxEdgeStretch": 1.2496063282982686,
+      "maxFrameDisplacement": 0.0020381048740922155
+    },
+    {
+      "time": 0.5333333333333333,
+      "minimumFloor": 0.0010000076190123124,
+      "p99EdgeStretch": 1.0467908008424995,
+      "maxEdgeStretch": 1.2718222679854885,
+      "maxFrameDisplacement": 0.0020228938835071767
+    },
+    {
+      "time": 0.5666666666666667,
+      "minimumFloor": 0.001000008637761491,
+      "p99EdgeStretch": 1.0508400013886576,
+      "maxEdgeStretch": 1.2934945104412878,
+      "maxFrameDisplacement": 0.0019877294080967406
+    },
+    {
+      "time": 0.6,
+      "minimumFloor": 0.00099998258225448,
+      "p99EdgeStretch": 1.0547861591251195,
+      "maxEdgeStretch": 1.314412806622224,
+      "maxFrameDisplacement": 0.0019325882377101023
+    },
+    {
+      "time": 0.6333333333333333,
+      "minimumFloor": 0.000999990962111889,
+      "p99EdgeStretch": 1.0585028392112543,
+      "maxEdgeStretch": 1.3343737171292247,
+      "maxFrameDisplacement": 0.0018573784300097806
+    },
+    {
+      "time": 0.6666666666666666,
+      "minimumFloor": 0.0010000103714484225,
+      "p99EdgeStretch": 1.0619022620874476,
+      "maxEdgeStretch": 1.3531796929668765,
+      "maxFrameDisplacement": 0.0017621390289832778
+    },
+    {
+      "time": 0.7,
+      "minimumFloor": 0.0009999878017364263,
+      "p99EdgeStretch": 1.0653247304080138,
+      "maxEdgeStretch": 1.3706385616898418,
+      "maxFrameDisplacement": 0.0016468965279836391
+    },
+    {
+      "time": 0.7333333333333333,
+      "minimumFloor": 0.0009999859621635757,
+      "p99EdgeStretch": 1.0685048419021599,
+      "maxEdgeStretch": 1.386562159756101,
+      "maxFrameDisplacement": 0.0015114858069730764
+    },
+    {
+      "time": 0.7666666666666667,
+      "minimumFloor": 0.0010000093893691652,
+      "p99EdgeStretch": 1.0710289578810512,
+      "maxEdgeStretch": 1.4007655925639098,
+      "maxFrameDisplacement": 0.0013559436560538218
+    },
+    {
+      "time": 0.8,
+      "minimumFloor": 0.0010000094124876368,
+      "p99EdgeStretch": 1.0732111722588868,
+      "maxEdgeStretch": 1.4130656561162458,
+      "maxFrameDisplacement": 0.0011802860613911825
+    },
+    {
+      "time": 0.8333333333333334,
+      "minimumFloor": 0.0010000034325339273,
+      "p99EdgeStretch": 1.0755939073653018,
+      "maxEdgeStretch": 1.4242216130101464,
+      "maxFrameDisplacement": 0.0010686725040067004
+    },
+    {
+      "time": 0.8666666666666667,
+      "minimumFloor": 0.0009999985365847835,
+      "p99EdgeStretch": 1.077763899799675,
+      "maxEdgeStretch": 1.4348987125487305,
+      "maxFrameDisplacement": 0.001014874259605487
+    },
+    {
+      "time": 0.9,
+      "minimumFloor": 0.0009999877689811372,
+      "p99EdgeStretch": 1.079909397286315,
+      "maxEdgeStretch": 1.444776149745613,
+      "maxFrameDisplacement": 0.0009314477923852145
+    },
+    {
+      "time": 0.9333333333333333,
+      "minimumFloor": 0.0009999847777813304,
+      "p99EdgeStretch": 1.0818017839654506,
+      "maxEdgeStretch": 1.4534125758867724,
+      "maxFrameDisplacement": 0.0009274919869602762
+    },
+    {
+      "time": 0.9666666666666667,
+      "minimumFloor": 0.000999997178480998,
+      "p99EdgeStretch": 1.0830761187621694,
+      "maxEdgeStretch": 1.4607414136836665,
+      "maxFrameDisplacement": 0.0009340604482305389
+    },
+    {
+      "time": 1,
+      "minimumFloor": 0.0010000002524662116,
+      "p99EdgeStretch": 1.085055322400963,
+      "maxEdgeStretch": 1.4754799697319478,
+      "maxFrameDisplacement": 0.0010686278191049566
+    },
+    {
+      "time": 1.0333333333333334,
+      "minimumFloor": 0.0010000017675970906,
+      "p99EdgeStretch": 1.087337085538768,
+      "maxEdgeStretch": 1.4967381208200778,
+      "maxFrameDisplacement": 0.0013278103397167795
+    },
+    {
+      "time": 1.0666666666666667,
+      "minimumFloor": 0.0010000099950145498,
+      "p99EdgeStretch": 1.089921543065621,
+      "maxEdgeStretch": 1.5211444258415874,
+      "maxFrameDisplacement": 0.0016144833694690872
+    },
+    {
+      "time": 1.1,
+      "minimumFloor": 0.0010000126802640348,
+      "p99EdgeStretch": 1.0933228655075269,
+      "maxEdgeStretch": 1.5478383563589517,
+      "maxFrameDisplacement": 0.001851873453101203
+    },
+    {
+      "time": 1.1333333333333333,
+      "minimumFloor": 0.0009999963938756966,
+      "p99EdgeStretch": 1.097703287413013,
+      "maxEdgeStretch": 1.5758265113381045,
+      "maxFrameDisplacement": 0.0020320596186477404
+    },
+    {
+      "time": 1.1666666666666667,
+      "minimumFloor": 0.000999995234518056,
+      "p99EdgeStretch": 1.101849526109949,
+      "maxEdgeStretch": 1.6040083103573752,
+      "maxFrameDisplacement": 0.0021491141223818075
+    },
+    {
+      "time": 1.2,
+      "minimumFloor": 0.0010000030702020987,
+      "p99EdgeStretch": 1.1068629242672927,
+      "maxEdgeStretch": 1.6312271509250458,
+      "maxFrameDisplacement": 0.0022014749291295655
+    },
+    {
+      "time": 1.2333333333333334,
+      "minimumFloor": 0.0011902948463252416,
+      "p99EdgeStretch": 1.112699530551211,
+      "maxEdgeStretch": 1.656342113410834,
+      "maxFrameDisplacement": 0.0021945836971742033
+    },
+    {
+      "time": 1.2666666666666666,
+      "minimumFloor": 0.001905981992454282,
+      "p99EdgeStretch": 1.1193500450036824,
+      "maxEdgeStretch": 1.6782745858431936,
+      "maxFrameDisplacement": 0.0021587588047400873
+    },
+    {
+      "time": 1.3,
+      "minimumFloor": 0.0030137627289823538,
+      "p99EdgeStretch": 1.12308981281208,
+      "maxEdgeStretch": 1.7004215214632032,
+      "maxFrameDisplacement": 0.0029189059153486106
+    },
+    {
+      "time": 1.3333333333333333,
+      "minimumFloor": 0.004413708081886468,
+      "p99EdgeStretch": 1.1274616932179913,
+      "maxEdgeStretch": 1.7767506413234593,
+      "maxFrameDisplacement": 0.004247967493842181
+    },
+    {
+      "time": 1.3666666666666667,
+      "minimumFloor": 0.005964526123878039,
+      "p99EdgeStretch": 1.1331491910938003,
+      "maxEdgeStretch": 1.8539625440885112,
+      "maxFrameDisplacement": 0.005561602572626106
+    },
+    {
+      "time": 1.4,
+      "minimumFloor": 0.007484587784118355,
+      "p99EdgeStretch": 1.1379010509250085,
+      "maxEdgeStretch": 1.931219917980296,
+      "maxFrameDisplacement": 0.0066184839983044206
+    },
+    {
+      "time": 1.4333333333333333,
+      "minimumFloor": 0.007299304360573008,
+      "p99EdgeStretch": 1.1414896438564295,
+      "maxEdgeStretch": 2.0077926142343587,
+      "maxFrameDisplacement": 0.007365768558946098
+    },
+    {
+      "time": 1.4666666666666666,
+      "minimumFloor": 0.005870621275706798,
+      "p99EdgeStretch": 1.1455929917931895,
+      "maxEdgeStretch": 2.083003326332799,
+      "maxFrameDisplacement": 0.007783392751229417
+    },
+    {
+      "time": 1.5,
+      "minimumFloor": 0.004310484443784402,
+      "p99EdgeStretch": 1.1516004113119245,
+      "maxEdgeStretch": 2.1561768034535542,
+      "maxFrameDisplacement": 0.007863649330567034
+    },
+    {
+      "time": 1.5333333333333334,
+      "minimumFloor": 0.0028146848312052323,
+      "p99EdgeStretch": 1.1604966258102456,
+      "maxEdgeStretch": 2.22660584448162,
+      "maxFrameDisplacement": 0.007606408192349093
+    },
+    {
+      "time": 1.5666666666666667,
+      "minimumFloor": 0.0015459365782656883,
+      "p99EdgeStretch": 1.1691591698830923,
+      "maxEdgeStretch": 2.293538664810605,
+      "maxFrameDisplacement": 0.007016647646238225
+    },
+    {
+      "time": 1.6,
+      "minimumFloor": 0.001000006402989086,
+      "p99EdgeStretch": 1.179787037530148,
+      "maxEdgeStretch": 2.3566089003182733,
+      "maxFrameDisplacement": 0.006103270084634974
+    },
+    {
+      "time": 1.6333333333333333,
+      "minimumFloor": 0.000999999617246582,
+      "p99EdgeStretch": 1.1879991332186675,
+      "maxEdgeStretch": 2.414710049781361,
+      "maxFrameDisplacement": 0.004885139569875082
+    },
+    {
+      "time": 1.6666666666666667,
+      "minimumFloor": 0.0010000107143561822,
+      "p99EdgeStretch": 1.195351743177289,
+      "maxEdgeStretch": 2.466274618343428,
+      "maxFrameDisplacement": 0.0033911705409020326
+    },
+    {
+      "time": 1.7,
+      "minimumFloor": 0.00099999934498569,
+      "p99EdgeStretch": 1.1979223590429924,
+      "maxEdgeStretch": 2.5097713226896707,
+      "maxFrameDisplacement": 0.002442398860743161
+    },
+    {
+      "time": 1.7333333333333334,
+      "minimumFloor": 0.0009999955852634478,
+      "p99EdgeStretch": 1.19992541172953,
+      "maxEdgeStretch": 2.5361201183347415,
+      "maxFrameDisplacement": 0.0022443098594749334
+    },
+    {
+      "time": 1.7666666666666666,
+      "minimumFloor": 0.0010000007634790912,
+      "p99EdgeStretch": 1.2007630424451115,
+      "maxEdgeStretch": 2.5371483703091418,
+      "maxFrameDisplacement": 0.002397073656653823
+    },
+    {
+      "time": 1.8,
+      "minimumFloor": 0.0009999894047085897,
+      "p99EdgeStretch": 1.202171610042782,
+      "maxEdgeStretch": 2.5135222249633298,
+      "maxFrameDisplacement": 0.0036343588279051124
+    },
+    {
+      "time": 1.8333333333333333,
+      "minimumFloor": 0.0009999999597980025,
+      "p99EdgeStretch": 1.203817699151493,
+      "maxEdgeStretch": 2.468588553548249,
+      "maxFrameDisplacement": 0.004810432604014635
+    },
+    {
+      "time": 1.8666666666666667,
+      "minimumFloor": 0.0009999960240327636,
+      "p99EdgeStretch": 1.2060103692305524,
+      "maxEdgeStretch": 2.4892277501443085,
+      "maxFrameDisplacement": 0.005935515657614201
+    },
+    {
+      "time": 1.9,
+      "minimumFloor": 0.0010000005890808963,
+      "p99EdgeStretch": 1.2099568172016975,
+      "maxEdgeStretch": 2.516073375921283,
+      "maxFrameDisplacement": 0.007077310082817587
+    },
+    {
+      "time": 1.9333333333333333,
+      "minimumFloor": 0.000999999598684112,
+      "p99EdgeStretch": 1.2150179246857997,
+      "maxEdgeStretch": 2.5664619823243546,
+      "maxFrameDisplacement": 0.00818258705792785
+    },
+    {
+      "time": 1.9666666666666666,
+      "minimumFloor": 0.0009999979765225545,
+      "p99EdgeStretch": 1.2231869309221446,
+      "maxEdgeStretch": 2.600381628555078,
+      "maxFrameDisplacement": 0.030204034370455084
+    },
+    {
+      "time": 2,
+      "minimumFloor": 0.00099999337759182,
+      "p99EdgeStretch": 1.2367256762231575,
+      "maxEdgeStretch": 2.6491386346455266,
+      "maxFrameDisplacement": 0.020105847796724915
+    },
+    {
+      "time": 2.033333333333333,
+      "minimumFloor": 0.0009999939281866207,
+      "p99EdgeStretch": 1.2527126598475091,
+      "maxEdgeStretch": 2.7166154464471775,
+      "maxFrameDisplacement": 0.014347659409119825
+    },
+    {
+      "time": 2.066666666666667,
+      "minimumFloor": 0.0010000062151738418,
+      "p99EdgeStretch": 1.270119853998253,
+      "maxEdgeStretch": 2.7940110060639065,
+      "maxFrameDisplacement": 0.012247629095101607
+    },
+    {
+      "time": 2.1,
+      "minimumFloor": 0.0010000012180418436,
+      "p99EdgeStretch": 1.2891826046871697,
+      "maxEdgeStretch": 2.8569135051679884,
+      "maxFrameDisplacement": 0.013207582354772766
+    },
+    {
+      "time": 2.1333333333333333,
+      "minimumFloor": 0.0010000087921057318,
+      "p99EdgeStretch": 1.3049686606289743,
+      "maxEdgeStretch": 2.9052462586242185,
+      "maxFrameDisplacement": 0.014155169756459815
+    },
+    {
+      "time": 2.1666666666666665,
+      "minimumFloor": 0.0009999959421230203,
+      "p99EdgeStretch": 1.318100611552414,
+      "maxEdgeStretch": 2.9425679489643883,
+      "maxFrameDisplacement": 0.015092546410943779
+    },
+    {
+      "time": 2.2,
+      "minimumFloor": 0.0009999999318196715,
+      "p99EdgeStretch": 1.331177196352503,
+      "maxEdgeStretch": 2.97109124735324,
+      "maxFrameDisplacement": 0.016019348091081177
+    },
+    {
+      "time": 2.2333333333333334,
+      "minimumFloor": 0.0009999916754745517,
+      "p99EdgeStretch": 1.3430403437910106,
+      "maxEdgeStretch": 3.02369875609476,
+      "maxFrameDisplacement": 0.016932343132302977
+    },
+    {
+      "time": 2.2666666666666666,
+      "minimumFloor": 0.001000004970878864,
+      "p99EdgeStretch": 1.3554349977923394,
+      "maxEdgeStretch": 3.0745805418680416,
+      "maxFrameDisplacement": 0.017825133542092152
+    },
+    {
+      "time": 2.3,
+      "minimumFloor": 0.0009999961813585284,
+      "p99EdgeStretch": 1.3645262177112882,
+      "maxEdgeStretch": 3.0963407076229608,
+      "maxFrameDisplacement": 0.018688432897170336
+    },
+    {
+      "time": 2.3333333333333335,
+      "minimumFloor": 0.0009999912536942553,
+      "p99EdgeStretch": 1.3762292698268264,
+      "maxEdgeStretch": 3.0896470158518037,
+      "maxFrameDisplacement": 0.01950976804208033
+    },
+    {
+      "time": 2.3666666666666667,
+      "minimumFloor": 0.0009999883273240015,
+      "p99EdgeStretch": 1.3846746347589969,
+      "maxEdgeStretch": 3.0568423157303433,
+      "maxFrameDisplacement": 0.020274372440257104
+    },
+    {
+      "time": 2.4,
+      "minimumFloor": 0.0009999949451005782,
+      "p99EdgeStretch": 1.392282535448762,
+      "maxEdgeStretch": 3.0016724161078012,
+      "maxFrameDisplacement": 0.020965370759828326
+    },
+    {
+      "time": 2.433333333333333,
+      "minimumFloor": 0.0010000014351564945,
+      "p99EdgeStretch": 1.4060729499503422,
+      "maxEdgeStretch": 2.9704193118248274,
+      "maxFrameDisplacement": 0.021564829820991338
+    },
+    {
+      "time": 2.466666666666667,
+      "minimumFloor": 0.000999999318743585,
+      "p99EdgeStretch": 1.4259889753037696,
+      "maxEdgeStretch": 3.0440253709786376,
+      "maxFrameDisplacement": 0.022054458334266943
+    },
+    {
+      "time": 2.5,
+      "minimumFloor": 0.001000000844533916,
+      "p99EdgeStretch": 1.43661956353492,
+      "maxEdgeStretch": 3.108218011466008,
+      "maxFrameDisplacement": 0.022416497944932053
+    },
+    {
+      "time": 2.533333333333333,
+      "minimumFloor": 0.001000009574696075,
+      "p99EdgeStretch": 1.4531477708555822,
+      "maxEdgeStretch": 3.1629118222038652,
+      "maxFrameDisplacement": 0.02263458483909046
+    },
+    {
+      "time": 2.566666666666667,
+      "minimumFloor": 0.0010000021967589597,
+      "p99EdgeStretch": 1.471241427693131,
+      "maxEdgeStretch": 3.208261431705375,
+      "maxFrameDisplacement": 0.022694659920006757
+    },
+    {
+      "time": 2.6,
+      "minimumFloor": 0.000999996991737466,
+      "p99EdgeStretch": 1.4948130798355586,
+      "maxEdgeStretch": 3.2446167674542146,
+      "maxFrameDisplacement": 0.022585524638029795
+    },
+    {
+      "time": 2.6333333333333333,
+      "minimumFloor": 0.0009999871090871637,
+      "p99EdgeStretch": 1.515367097223747,
+      "maxEdgeStretch": 3.2724961512743636,
+      "maxFrameDisplacement": 0.022300738220938685
+    },
+    {
+      "time": 2.6666666666666665,
+      "minimumFloor": 0.0009999963375361062,
+      "p99EdgeStretch": 1.5388517499261516,
+      "maxEdgeStretch": 3.292564375155184,
+      "maxFrameDisplacement": 0.021834437468027348
+    },
+    {
+      "time": 2.7,
+      "minimumFloor": 0.001000001807068586,
+      "p99EdgeStretch": 1.5707159642785877,
+      "maxEdgeStretch": 3.3056138401288346,
+      "maxFrameDisplacement": 0.021184882706878287
+    },
+    {
+      "time": 2.7333333333333334,
+      "minimumFloor": 0.001000001730439036,
+      "p99EdgeStretch": 1.6045843711854153,
+      "maxEdgeStretch": 3.3125382569796176,
+      "maxFrameDisplacement": 0.02035403920484096
+    },
+    {
+      "time": 2.7666666666666666,
+      "minimumFloor": 0.0009999977245840896,
+      "p99EdgeStretch": 1.6371133942604867,
+      "maxEdgeStretch": 3.314302615388762,
+      "maxFrameDisplacement": 0.01934660737525004
+    },
+    {
+      "time": 2.8,
+      "minimumFloor": 0.0010000096709839243,
+      "p99EdgeStretch": 1.676336878133535,
+      "maxEdgeStretch": 3.311908433485548,
+      "maxFrameDisplacement": 0.01816926057305856
+    },
+    {
+      "time": 2.8333333333333335,
+      "minimumFloor": 0.0010000027420343088,
+      "p99EdgeStretch": 1.7076618543041264,
+      "maxEdgeStretch": 3.3063455256710497,
+      "maxFrameDisplacement": 0.01683017103849108
+    },
+    {
+      "time": 2.8666666666666667,
+      "minimumFloor": 0.0009999960075290568,
+      "p99EdgeStretch": 1.7454189054419897,
+      "maxEdgeStretch": 3.2985724319389247,
+      "maxFrameDisplacement": 0.015338201920640596
+    },
+    {
+      "time": 2.9,
+      "minimumFloor": 0.0010000042043315574,
+      "p99EdgeStretch": 1.7891491839281195,
+      "maxEdgeStretch": 3.289523309394957,
+      "maxFrameDisplacement": 0.013702361341166983
+    },
+    {
+      "time": 2.933333333333333,
+      "minimumFloor": 0.0010000031063882031,
+      "p99EdgeStretch": 1.8302886609907008,
+      "maxEdgeStretch": 3.2800545503411476,
+      "maxFrameDisplacement": 0.011930726643654686
+    },
+    {
+      "time": 2.966666666666667,
+      "minimumFloor": 0.000999999631367876,
+      "p99EdgeStretch": 1.8773237008455126,
+      "maxEdgeStretch": 3.326821369218841,
+      "maxFrameDisplacement": 0.010030488543600592
+    },
+    {
+      "time": 3,
+      "minimumFloor": 0.0009999858691467564,
+      "p99EdgeStretch": 1.9270259215841814,
+      "maxEdgeStretch": 3.4381582902463688,
+      "maxFrameDisplacement": 0.008007207901126155
+    },
+    {
+      "time": 3.033333333333333,
+      "minimumFloor": 0.0009999962110320698,
+      "p99EdgeStretch": 1.9682489089528268,
+      "maxEdgeStretch": 3.5423881989098147,
+      "maxFrameDisplacement": 0.0058554426246534156
+    },
+    {
+      "time": 3.066666666666667,
+      "minimumFloor": 0.0010000086643096318,
+      "p99EdgeStretch": 2.004874911918337,
+      "maxEdgeStretch": 3.6363541463705205,
+      "maxFrameDisplacement": 0.004941051144653549
+    },
+    {
+      "time": 3.1,
+      "minimumFloor": 0.0010000001437859979,
+      "p99EdgeStretch": 2.032968359317589,
+      "maxEdgeStretch": 3.715830147926969,
+      "maxFrameDisplacement": 0.004187222740996525
+    },
+    {
+      "time": 3.1333333333333333,
+      "minimumFloor": 0.0010000001437870734,
+      "p99EdgeStretch": 2.063832454456727,
+      "maxEdgeStretch": 3.781764066006166,
+      "maxFrameDisplacement": 0.003469273813089039
+    },
+    {
+      "time": 3.1666666666666665,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.0878041828151086,
+      "maxEdgeStretch": 3.8363147255163224,
+      "maxFrameDisplacement": 0.00281131429038691
+    },
+    {
+      "time": 3.2,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.1063264260050025,
+      "maxEdgeStretch": 3.875930188859119,
+      "maxFrameDisplacement": 0.002012503660937799
+    },
+    {
+      "time": 3.2333333333333334,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.897071964479675,
+      "maxFrameDisplacement": 0.001064089466533133
+    },
+    {
+      "time": 3.2666666666666666,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0007416334554401765
+    },
+    {
+      "time": 3.3,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0008110519287596027
+    },
+    {
+      "time": 3.3333333333333335,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0008735305806006279
+    },
+    {
+      "time": 3.3666666666666667,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0009290660651202844
+    },
+    {
+      "time": 3.4,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0009776588202817834
+    },
+    {
+      "time": 3.433333333333333,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0010193112809633667
+    },
+    {
+      "time": 3.466666666666667,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0010540210093231393
+    },
+    {
+      "time": 3.5,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.001081789411993811
+    },
+    {
+      "time": 3.533333333333333,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0011026141516535914
+    },
+    {
+      "time": 3.566666666666667,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0011164985843947297
+    },
+    {
+      "time": 3.6,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0011234404542624723
+    },
+    {
+      "time": 3.6333333333333333,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.001123440924212303
+    },
+    {
+      "time": 3.6666666666666665,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0011164977523620448
+    },
+    {
+      "time": 3.7,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.001102614629380406
+    },
+    {
+      "time": 3.7333333333333334,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.001081788984958661
+    },
+    {
+      "time": 3.7666666666666666,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0010540212434388737
+    },
+    {
+      "time": 3.8,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0010193110642196883
+    },
+    {
+      "time": 3.8333333333333335,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0009776600479300377
+    },
+    {
+      "time": 3.8666666666666667,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0009290659777342279
+    },
+    {
+      "time": 3.9,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0008735307251189531
+    },
+    {
+      "time": 3.933333333333333,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0008110519075225266
+    },
+    {
+      "time": 3.966666666666667,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0007416322246620255
+    },
+    {
+      "time": 4,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0006652716790659486
+    },
+    {
+      "time": 4.033333333333333,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0005819667528788589
+    },
+    {
+      "time": 4.066666666666666,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0004917231183984329
+    },
+    {
+      "time": 4.1,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0003945345428992514
+    },
+    {
+      "time": 4.133333333333334,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.0002904064153433547
+    },
+    {
+      "time": 4.166666666666667,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.00017933271992692855
+    },
+    {
+      "time": 4.2,
+      "minimumFloor": 0.0010000001961998142,
+      "p99EdgeStretch": 2.114860409584876,
+      "maxEdgeStretch": 3.8998098946072597,
+      "maxFrameDisplacement": 0.00006132220956468451
+    }
+  ]
+}
