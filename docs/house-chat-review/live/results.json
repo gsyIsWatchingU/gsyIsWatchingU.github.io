@@ -1,0 +1,183 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "test": "browse-living",
+      "value": {
+        "opening": "嗨，我是海绵宝宝！欢迎来串门。要一起听会儿音乐，还是陪小猫玩？",
+        "tags": [
+          "listen",
+          "pet",
+          "rest"
+        ],
+        "userMessages": 0,
+        "hints": false,
+        "x": 1124,
+        "y": 564,
+        "right": 1424,
+        "bottom": 884,
+        "overflow": false
+      }
+    },
+    {
+      "test": "reopen-does-not-duplicate-browse",
+      "value": true
+    },
+    {
+      "test": "browse-storage",
+      "value": {
+        "opening": "嗨，我是海绵宝宝！欢迎来串门。要一起听会儿音乐，还是陪小猫玩？",
+        "tags": [
+          "tidy",
+          "rest"
+        ],
+        "userMessages": 0,
+        "hints": false,
+        "x": 1124,
+        "y": 564,
+        "right": 1424,
+        "bottom": 884,
+        "overflow": false
+      }
+    },
+    {
+      "test": "browse-bathroom",
+      "value": {
+        "opening": "嗨，我是海绵宝宝！欢迎来串门。要一起听会儿音乐，还是陪小猫玩？",
+        "tags": [
+          "wash",
+          "rest"
+        ],
+        "userMessages": 0,
+        "hints": false,
+        "x": 1124,
+        "y": 564,
+        "right": 1424,
+        "bottom": 884,
+        "overflow": false
+      }
+    },
+    {
+      "test": "browse-bedroom",
+      "value": {
+        "opening": "嗨，我是海绵宝宝！欢迎来串门。要一起听会儿音乐，还是陪小猫玩？",
+        "tags": [
+          "journal",
+          "toy",
+          "rest",
+          "sleep"
+        ],
+        "userMessages": 0,
+        "hints": false,
+        "x": 1124,
+        "y": 564,
+        "right": 1424,
+        "bottom": 884,
+        "overflow": false
+      }
+    },
+    {
+      "test": "browse-library",
+      "value": {
+        "opening": "嗨，我是海绵宝宝！欢迎来串门。要一起听会儿音乐，还是陪小猫玩？",
+        "tags": [
+          "rest"
+        ],
+        "userMessages": 0,
+        "hints": false,
+        "x": 1124,
+        "y": 564,
+        "right": 1424,
+        "bottom": 884,
+        "overflow": false
+      }
+    },
+    {
+      "test": "browse-roof",
+      "value": {
+        "opening": "嗨，我是海绵宝宝！欢迎来串门。要一起听会儿音乐，还是陪小猫玩？",
+        "tags": [
+          "bubble",
+          "rest"
+        ],
+        "userMessages": 0,
+        "hints": false,
+        "x": 1124,
+        "y": 564,
+        "right": 1424,
+        "bottom": 884,
+        "overflow": false
+      }
+    },
+    {
+      "test": "choice-survives-reload-browse",
+      "value": true
+    },
+    {
+      "test": "recruit-bedroom",
+      "value": {
+        "opening": "嗨！听说你是来找伙伴的，我来陪你了解郭书羽。实习日记就在旁边，你想先了解他实际负责过什么吗？",
+        "tags": [
+          "journal",
+          "toy",
+          "rest",
+          "sleep"
+        ],
+        "userMessages": 0,
+        "hints": false,
+        "x": 1124,
+        "y": 564,
+        "right": 1424,
+        "bottom": 884,
+        "overflow": false
+      }
+    },
+    {
+      "test": "reopen-does-not-duplicate-recruit",
+      "value": true
+    },
+    {
+      "test": "real-chat-preserves-purpose-and-opening",
+      "value": "太棒啦！郭书羽在字节做 TraceAgent / FixAgent，用 DAG 编排、Tool Calling 聚合证据，30+ 问题闭环，人工复核一致率约 80%。要不我翻开实习日记给你细看？"
+    },
+    {
+      "test": "choice-survives-reload-recruit",
+      "value": true
+    },
+    {
+      "test": "inspiration-roof",
+      "value": {
+        "opening": "嗨！来找灵感呀，我们边逛边聊！来屋顶放空一下吧，你脑海里有没有一个还没动手的点子？",
+        "tags": [
+          "bubble",
+          "rest"
+        ],
+        "userMessages": 0,
+        "hints": false,
+        "x": 110,
+        "y": 568,
+        "right": 380,
+        "bottom": 834,
+        "overflow": false
+      }
+    },
+    {
+      "test": "reopen-does-not-duplicate-inspiration",
+      "value": true
+    },
+    {
+      "test": "room-tag-performs-bubble-without-changing-room",
+      "value": true
+    },
+    {
+      "test": "choice-survives-reload-inspiration",
+      "value": true
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "serviceFailures": [],
+  "limitations": [
+    "手机为 Chrome 视口模拟，未测实机"
+  ]
+}
