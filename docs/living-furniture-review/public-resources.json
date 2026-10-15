@@ -1,19 +1,19 @@
 {
-  "commit": "05dc87975b5d4ce19c903ceaa3b454b3783fd151",
-  "checkedAt": "2026-10-15T02:21:55.115Z",
+  "commit": "a2abf52daadd9118f5cbcc0ef3bd7853e14f7f3b",
+  "checkedAt": "2026-10-15T02:28:18.813Z",
   "records": [
     {
       "file": "docs/living-furniture-review/index.html",
       "status": 200,
       "bytes": 2795,
-      "sha256": "7041e95bcbbfc7104160fdc36d91f2f68504b0f684d1f052dcbb3940327ee747",
+      "sha256": "7894388ca9aeaf708c557b2e0be806e436fa718d64d9a42a735a3b9145d3b7c3",
       "matches": true
     },
     {
       "file": "docs/living-furniture-review/viewer.js",
       "status": 200,
-      "bytes": 655686,
-      "sha256": "933c144f02f0a9df02bcf9da0ac2e717e989148cbb91a994f38b527f1336322c",
+      "bytes": 656398,
+      "sha256": "98d4dcd3aac8fec83a391c9afca7649f3622f99b323963664ec7f5960777268c",
       "matches": true
     },
     {
