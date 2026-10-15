@@ -138,7 +138,7 @@
     },
     {
       "test": "real-chat-preserves-purpose-and-opening",
-      "value": "哇，Agent 工程可是他的拿手好戏！他在字节开发了 TraceAgent / FixAgent，用 DAG、Tool Calling 和 Evidence Gate 把问题排查到修复串成闭环，闭环了 30+ 项问题。要不要翻开实习日记细看？"
+      "value": "太棒啦！郭书羽在字节实习时开发了 TraceAgent / FixAgent，闭环 30+ 项问题，人工复核一致率约 80%。我把实习日记翻给你看！"
     },
     {
       "test": "choice-survives-reload-recruit",
@@ -166,12 +166,17 @@
       "value": true
     },
     {
+      "test": "room-tag-performs-bubble-without-changing-room",
+      "value": true
+    },
+    {
       "test": "choice-survives-reload-inspiration",
       "value": true
     }
   ],
   "errors": [],
   "failures": [],
+  "serviceFailures": [],
   "limitations": [
     "手机为 Chrome 视口模拟，未测实机"
   ]
