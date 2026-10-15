@@ -1,0 +1,76 @@
+{
+  "commit": "05dc87975b5d4ce19c903ceaa3b454b3783fd151",
+  "checkedAt": "2026-10-15T02:21:55.115Z",
+  "records": [
+    {
+      "file": "docs/living-furniture-review/index.html",
+      "status": 200,
+      "bytes": 2795,
+      "sha256": "7041e95bcbbfc7104160fdc36d91f2f68504b0f684d1f052dcbb3940327ee747",
+      "matches": true
+    },
+    {
+      "file": "docs/living-furniture-review/viewer.js",
+      "status": 200,
+      "bytes": 655686,
+      "sha256": "933c144f02f0a9df02bcf9da0ac2e717e989148cbb91a994f38b527f1336322c",
+      "matches": true
+    },
+    {
+      "file": "styles/living-furniture-review.css",
+      "status": 200,
+      "bytes": 3181,
+      "sha256": "95a1a45e6d6f2ff1fbd222634da1e35c64ee22962a53f239249b3ca85ea54cb4",
+      "matches": true
+    },
+    {
+      "file": "styles/house-music.css",
+      "status": 200,
+      "bytes": 1899,
+      "sha256": "ce3c0b42ad6acfd4ce3fabe02efeb96736507419ca0bb167f8bd24e02a7bb0b8",
+      "matches": true
+    },
+    {
+      "file": "assets/living-furniture-review/sofa.glb",
+      "status": 200,
+      "bytes": 1705368,
+      "sha256": "bedc3a6531d4371ac366e3dace961c428d30f491e442174a0f27edbfd6271ffc",
+      "matches": true
+    },
+    {
+      "file": "assets/living-furniture-review/shell.glb",
+      "status": 200,
+      "bytes": 1848460,
+      "sha256": "2fb754b6e4b3a104b586dfca590a17f5212efd6cda9af6f2d1b272d76ec03c60",
+      "matches": true
+    },
+    {
+      "file": "docs/living-furniture-review/sources/user-sofa.png",
+      "status": 200,
+      "bytes": 89138,
+      "sha256": "76bf8bc06a1af83b17f646eb5c984fbb0b547a1e2b44b0ca655900fa43b34b2c",
+      "matches": true
+    },
+    {
+      "file": "docs/living-furniture-review/sources/user-shell.png",
+      "status": 200,
+      "bytes": 46014,
+      "sha256": "bc8eff0dbf009fc0199069c91f7cc750360404ed3eca23d8ea24589cbd6668a2",
+      "matches": true
+    },
+    {
+      "file": "docs/living-furniture-review/sources/sofa-clean.png",
+      "status": 200,
+      "bytes": 2019855,
+      "sha256": "2d2215c388ad6de48a58ef5ce666882423c9e25f744f5cafe542154a5813a95c",
+      "matches": true
+    },
+    {
+      "file": "docs/living-furniture-review/sources/shell.png",
+      "status": 200,
+      "bytes": 1618509,
+      "sha256": "c3e6bd4598952646ffc6127c6d9f40b0c495a05aa1a4722faa4b3350e3a6594e",
+      "matches": true
+    }
+  ]
+}
