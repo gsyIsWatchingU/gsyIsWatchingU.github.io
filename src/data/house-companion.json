@@ -1,6 +1,6 @@
 {
   "status": "review",
-  "version": "20261013-diary-toy-v9",
+  "version": "20261015-room-chat-v1",
   "model": "assets/house-companion/spongebob.glb",
   "api": "https://gsy-gpu.tail660bdf.ts.net/house-api",
   "height": 0.88,

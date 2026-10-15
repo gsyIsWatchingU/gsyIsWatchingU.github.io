@@ -6,6 +6,7 @@ import { createCompanionProps } from './house-companion-props.js';
 import { createCompanionSlide } from './house-companion-slide.js';
 import { createCompanionState } from './house-companion-state.js';
 import { companionFace, companionRoute, companionSlide } from './house-companion-motion.js';
+import { createVisitPurpose, getVisitPurpose, visitPurposes } from './house-visit-purpose.js';
 
 export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom,getAsset,getPet,getDisplay,getToyChest,reducedMotion,onReady=()=>{},onError=()=>{}}) {
   const state=createCompanionState(spec), actor=new THREE.Group();actor.name='spongebob-companion';houseGroup.add(actor);
@@ -15,9 +16,11 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   const bones=new Map(),rest=new Map();let model=null,mixer=null,currentClip=null;
   let sleepMotion=null,slideMotion=null,petContact=null;
   const faceMeshes=[],feet=[],fading=[];let faceTime=0,facePreview='auto',faceValues={},pointer=null,pointerTime=-10,diagnosticTime=0;
-  let room=null,activity=null,entryTime=0,elapsed=0,loaded=false,greeting=0,bodyDepth=.64,backOffset=.32,bedHeight=null;
+  let room=null,activity=null,entryTime=0,elapsed=0,loaded=false,bodyDepth=.64,backOffset=.32,bedHeight=null;
   let arrivalRequested=false,slideArrival=false,entryDuration=2;
   let session=null,epoch=0,request=null,opener=null;
+  let opening='',openingKey=null,openingSent=false;
+  createVisitPurpose(root);
   const hud=document.createElement('section');hud.className='companion-hud';hud.setAttribute('aria-label','海绵宝宝的作息');
   hud.hidden=!root.hasAttribute('data-house-companion-preview');
   hud.innerHTML='<span class="companion-day">海绵宝宝入住预览 · 待审</span><strong data-companion-activity>正在载入海绵宝宝…</strong><div class="companion-review-controls"><select aria-label="预览角色动作" data-companion-action disabled>'+Object.entries(spec.actions).filter(([id])=>id!=='wake'&&id!=='tidy').map(([id,value])=>'<option value="'+id+'">'+value.label+'</option>').join('')+'</select></div>';
@@ -27,13 +30,11 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   hud.querySelector('.companion-review-controls').append(expression);
   expression.addEventListener('change',()=>{facePreview=expression.value;});
   canvas.addEventListener('pointermove',event=>{const r=canvas.getBoundingClientRect();pointer={x:((event.clientX-r.left)/r.width-.5)*2,y:(.5-(event.clientY-r.top)/r.height)*2};pointerTime=faceTime;});
-  const bubble=document.createElement('div');bubble.className='companion-bubble';bubble.hidden=true;bubble.setAttribute('role','status');root.append(bubble);
   const panel=document.createElement('dialog');panel.className='companion-chat';panel.setAttribute('aria-label','和海绵宝宝聊天');
-  panel.innerHTML=`<header><div><b>海绵宝宝</b><small>有空聊两句吗？</small></div><button type="button" data-companion-close aria-label="关闭聊天"></button></header>
-    <p data-companion-config class="companion-config">正在连接聊天…</p>
+  panel.innerHTML=`<header><div><b>海绵宝宝</b></div><button type="button" data-companion-close aria-label="关闭聊天"></button></header>
     <div class="companion-messages" role="log" aria-live="polite"></div>
-    <div class="companion-suggestions"><button type="button" data-say="翻翻实习日记吧">翻日记</button><button type="button" data-say="我们一起吹泡泡吧">吹泡泡</button><button type="button" data-say="去睡觉吧">晚安</button></div>
-    <form><label for="companion-input">跟他说句话</label><div class="companion-input-row"><input id="companion-input" maxlength="400" autocomplete="off" placeholder="比如：一起去读书吧"><button type="submit">发送</button></div></form>
+    <div class="companion-suggestions" aria-label="当前房间可进行的动作"></div>
+    <form><div class="companion-input-row"><input id="companion-input" aria-label="聊天内容" maxlength="400" autocomplete="off"><button type="submit">发送</button></div></form>
     <footer><span data-companion-status role="status"></span></footer>`;
   document.body.append(panel);
   const activityLabel=hud.querySelector('[data-companion-activity]');
@@ -45,8 +46,35 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   function log(text,who='assistant') {const item=document.createElement('p');item.className='companion-message '+who;item.textContent=text;messages.append(item);while(messages.children.length>24)messages.firstElementChild.remove();messages.scrollTop=messages.scrollHeight;}
   function invalidate(cancelActions=true) {epoch++;request?.abort();request=null;send.disabled=false;status.textContent='';if(cancelActions)state.cancel();}
   function close() {invalidate(false);if(panel.open)panel.close();opener?.focus({preventScroll:true});}
-  function greet() {greeting=3;bubble.textContent='嗨！我准备好啦！';bubble.hidden=false;state.act('wave');}
-  function open(from=canvas) {if(!loaded)return;opener=from;greet();if(!panel.open)panel.show();input.focus();}
+  const currentRoom=()=>getRoom()??state.snapshot().room;
+  const currentPurpose=()=>root.dataset.visitPurpose??getVisitPurpose()??'browse';
+  const suggestions={
+    listen:['听音乐','一起听音乐吧'],pet:['陪小猫','陪小猫玩一会儿吧'],rest:['歇一会儿','歇一会儿吧'],
+    tidy:['整理收藏','整理一下收藏吧'],wash:['洗漱','洗漱一下吧'],journal:['翻日记','翻翻实习日记吧'],
+    toy:['玩玩具','一起玩玩具吧'],sleep:['晚安','去睡觉吧'],bubble:['吹泡泡','我们一起吹泡泡吧']
+  };
+  const roomTopics={
+    browse:{living:'要一起听会儿音乐，还是陪小猫玩？',storage:'这里放着不少收藏，你平时爱收集什么？',bathroom:'你猜他把项目藏在了浴室的哪里？',bedroom:'日记和玩具都在这儿，你想先看看哪个？',library:'来图书馆歇会儿吧，你最近在看什么？',roof:'屋顶最适合吹泡泡了，要一起吗？'},
+    recruit:{living:'你在找全栈开发、AI 提效，还是 Agent 工程方向的伙伴？',storage:'这里有他的奖杯和证书，你更关注哪方面的积累？',bathroom:'他的项目入口藏在这里，你想先了解哪类项目？',bedroom:'实习日记就在旁边，你想先了解他实际负责过什么吗？',library:'这里有他的技能书，你更想了解全栈开发还是 Agent 工程？',roof:'我们边吹泡泡边聊吧，你希望新伙伴解决什么问题？'},
+    inspiration:{living:'这间小屋把个人主页做成了可探索的场景，你想做什么样的作品？',storage:'这些收藏里，你最想听哪一件背后的故事？',bathroom:'把项目入口藏在浴室里是不是有点意外？你喜欢怎样的探索设计？',bedroom:'日记和玩具箱都藏着故事，你想聊叙事还是互动设计？',library:'你最近想尝试 AI 应用、Agent，还是三维交互？',roof:'来屋顶放空一下吧，你脑海里有没有一个还没动手的点子？'}
+  };
+  function refreshSuggestions() {
+    const host=panel.querySelector('.companion-suggestions');host.replaceChildren();
+    for(const action of spec.rooms[currentRoom()]?.activities??[]) {
+      const item=suggestions[action];if(!item)continue;
+      const button=document.createElement('button');button.type='button';button.dataset.action=action;button.dataset.say=item[1];button.textContent=item[0];host.append(button);
+    }
+    host.hidden=!host.children.length;
+  }
+  function greet() {
+    const purpose=currentPurpose(),here=currentRoom(),key=purpose+':'+here;
+    if(openingKey!==key) {
+      const intro={browse:'嗨，我是海绵宝宝！欢迎来串门。',recruit:'嗨！听说你是来找伙伴的，我来陪你了解郭书羽。',inspiration:'嗨！来找灵感呀，我们边逛边聊！'};
+      opening=intro[purpose]+roomTopics[purpose][here];openingKey=key;openingSent=false;log(opening);
+    }
+    state.act('wave');
+  }
+  function open(from=canvas) {if(!loaded)return;opener=from;refreshSuggestions();greet();if(!panel.open)panel.show();panel.querySelector('[data-companion-close]').focus({preventScroll:true});}
   panel.querySelector('[data-companion-close]').addEventListener('click',close);
   hud.querySelector('[data-companion-action]').addEventListener('change',event=>{if(!loaded)return;invalidate();const action=event.target.value;const destination=spec.actions[action].room;if(destination)focusRoom(destination);state.act(action);activity=null;});
   document.addEventListener('keydown',event=>{if(event.key==='Escape' && panel.open && !document.querySelector('dialog:modal')){event.preventDefault();close();}});
@@ -59,26 +87,27 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   }
   const healthRequest=new AbortController();const healthTimer=setTimeout(()=>healthRequest.abort(),8000);
   api('/health',null,healthRequest.signal).then(r=>r.json()).then(data=>{
-    panel.querySelector('[data-companion-config]').textContent=data.chatConfigured?'文字聊天':'聊天尚未配置 · 需要服务器 DeepSeek 密钥';
     root.dataset.companionChatConfigured=String(data.chatConfigured);
-  }).catch(()=>{panel.querySelector('[data-companion-config]').textContent='聊天服务暂时未连接，作息和房间陪伴仍可体验';root.dataset.companionChatConfigured='false';}).finally(()=>clearTimeout(healthTimer));
+  }).catch(()=>{root.dataset.companionChatConfigured='false';}).finally(()=>clearTimeout(healthTimer));
 
-  async function chat(message) {
+  async function chat(message,suggestedAction=null) {
     message=message.trim();if(!message || message.length>400 || send.disabled)return;
     invalidate();const token=epoch;const pending=new AbortController();request=pending;
     const timer=setTimeout(()=>pending.abort(),60000);send.disabled=true;
     log(message,'user');input.value='';status.textContent='海绵宝宝正在想…';
     try {
       if(!session)session=(await (await api('/session',{},pending.signal)).json()).session;
-      const response=await api('/chat',{session,message,room:room??'living',activity:activity??'idle'},pending.signal);
+      const context=openingSent?'':'（来访目的：'+visitPurposes[currentPurpose()]+'；你刚才的开场白：'+opening+'）\n';
+      const response=await api('/chat',{session,message:context.length+message.length<=400?context+message:message,room:currentRoom(),activity:activity??'idle'},pending.signal);
       const data=await response.json();if(token!==epoch)return;
-      log(data.reply);status.textContent='';
+      log(data.reply);status.textContent='';openingSent=true;
       // 相机切换先结束，再登记动作。该次内部切换不让 room-changed 取消自己的回复。
-      if(data.action && spec.actions[data.action]) {
-        const destination=spec.actions[data.action].room;
+      const action=suggestedAction??data.action;
+      if(action && spec.actions[action]) {
+        const destination=spec.actions[action].room;
         internalFocus=true;
         try{if(destination && destination!==getRoom())focusRoom(destination);}finally{internalFocus=false;}
-        state.act(data.action);activity=null;
+        state.act(action);activity=null;
       }
     } catch(error) {
       if(token!==epoch)return;
@@ -87,11 +116,13 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     } finally {clearTimeout(timer);if(token===epoch){send.disabled=false;request=null;}}
   }
   panel.querySelector('form').addEventListener('submit',event=>{event.preventDefault();chat(input.value);});
-  panel.querySelectorAll('[data-say]').forEach(button=>button.addEventListener('click',()=>chat(button.dataset.say)));
+  panel.querySelector('.companion-suggestions').addEventListener('click',event=>{const button=event.target.closest('[data-say]');if(button && spec.rooms[currentRoom()]?.activities.includes(button.dataset.action))chat(button.dataset.say,button.dataset.action);});
+  window.addEventListener('house:visit-purpose-changed',()=>{invalidate();if(panel.open)greet();});
   let internalFocus=false;
   window.addEventListener('house:room-changed',event=>{
     arrivalRequested=event.detail.id==='library';
     if(!internalFocus)invalidate();state.follow(event.detail.id);activity=null;
+    refreshSuggestions();
   });
   document.addEventListener('visibilitychange',()=>{if(document.hidden)invalidate();});
 
@@ -163,7 +194,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     if(!blocked&&(!paused||panel.open))faceTime+=dt;
     if(room!==next.room || activity!==next.action || actor.userData.revision!==next.revision)startActivity(next);
     actor.visible=!getRoom() || getRoom()===room;
-    if(!actor.visible){bubble.hidden=true;return;}
+    if(!actor.visible)return;
     if(!motionPaused){entryTime=Math.min(entryDuration,entryTime+dt);elapsed+=dt;}
     const sliding=slideArrival&&!reducedMotion&&entryTime<3.6;
     activityLabel.textContent=sliding?'滑滑梯':spec.actions[activity]?.label??activity;
@@ -226,7 +257,6 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     propMotion.update(elapsed,reducedMotion);
     bubbles.visible=!walking && activity==='bubble';bubbles.children.forEach((ball,i)=>{const phase=((elapsed*.25+i*.17)%1);ball.position.set(.23+Math.sin(i+phase*4)*.18,.9+phase*.8,.5+phase*.3);ball.scale.setScalar(.4+phase*.8);});
     hud.querySelector('.companion-day').textContent=`${Math.floor(next.day/120*24).toString().padStart(2,'0')}:00 · ${next.following?'陪你逛逛':'循环的一天'} · 预览待审`;
-    if(greeting>0){greeting-=dt;const point=actor.position.clone().add(new THREE.Vector3(0,spec.height+.13,0)).project(camera);bubble.hidden=greeting<=0 || !actor.visible || point.z<-1 || point.z>1;bubble.style.left=THREE.MathUtils.clamp((point.x*.5+.5)*root.clientWidth,95,root.clientWidth-95)+'px';bubble.style.top=THREE.MathUtils.clamp((-.5*point.y+.5)*root.clientHeight,80,root.clientHeight-80)+'px';}
   };
   return controller;
 }

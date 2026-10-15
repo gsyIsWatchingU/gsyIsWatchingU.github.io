@@ -8,4 +8,7 @@
 .companion-message{padding:7px 9px;font-size:13px;line-height:1.5;max-width:90%}.companion-suggestions{gap:5px;margin:8px 0}.companion-suggestions button{padding:5px 8px;font-size:11px}
 .companion-chat label{font-size:11px}.companion-chat input{padding:8px;font-size:13px}.companion-input-row{gap:6px}.companion-input-row button{padding:7px 10px;font-size:13px}
 .companion-chat footer{margin-top:6px;min-height:0}.companion-chat footer span{font-size:11px}.companion-chat footer:has(span:empty){display:none}
+.companion-suggestions{flex-wrap:wrap}
+.house-visit-purpose{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:39;box-sizing:border-box;width:min(390px,calc(100% - 32px));padding:22px;border:2px solid #756246;border-radius:20px;background:#fff9e8;color:#394f48;box-shadow:0 8px 30px #123b4428;text-align:center;font-family:inherit}
+.house-visit-purpose h2{margin:0 0 16px;font-size:20px}.house-visit-purpose>div{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.house-visit-purpose button{padding:9px 13px;border:1px solid #9c8558;border-radius:10px;background:#f9df72;color:inherit;font:inherit;cursor:pointer}.house-visit-purpose button:focus-visible{outline:3px solid #3b8a8b;outline-offset:3px}.house:not([data-house-state="ready"]) .house-visit-purpose{display:none}
 @media(max-width:600px){.companion-chat{right:10px;bottom:10px;width:min(270px,calc(100vw - 20px));max-height:min(350px,55dvh);padding:10px}.companion-messages{height:120px;max-height:18dvh}}
