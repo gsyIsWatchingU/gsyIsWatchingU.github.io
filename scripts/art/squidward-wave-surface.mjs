@@ -17,5 +17,3 @@ export function armSurface(){
  for(let i=0;i<indices.length;i+=3){const [a,b,c]=indices.slice(i,i+3),pa=new T.Vector3().fromArray(positions,a*3),pb=new T.Vector3().fromArray(positions,b*3),pc=new T.Vector3().fromArray(positions,c*3),n=new T.Vector3().crossVectors(pb.sub(pa),pc.sub(pa));if(n.dot(new T.Vector3().fromArray(normals,a*3))<0)[indices[i+1],indices[i+2]]=[indices[i+2],indices[i+1]];}
  return{positions,normals,indices};
 }
-
-

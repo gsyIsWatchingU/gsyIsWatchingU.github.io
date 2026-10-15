@@ -13,4 +13,3 @@ try{
  await c.viewport(390,844,true);await c.pause(600);await c.clickElement('[data-resident-action=wave]',true);await c.wait("window.__neighborhood.state.resident.action==='wave'");await c.pause(800);await c.screenshot('mobile-wave');assert(await c.evaluate('document.documentElement.scrollWidth<=innerWidth'));records.push({test:'mobile-native-wave',state:await c.evaluate('window.__neighborhood.state.resident.diagnostic()')});
  const errors=c.events.filter(e=>['exception','httpFailure','error','browserError'].includes(e.type)||(e.type==='resourceFailure'&&!e.canceled));assert.equal(errors.length,0,JSON.stringify(errors));mkdirSync('docs/squidward-wave-review',{recursive:true});writeFileSync('docs/squidward-wave-review/browser-'+tag+'.json',JSON.stringify({status:'passed',base,records,errors},null,2)+'\n');console.log('连续帧、三视角、角色点击、重复点击、动作切换和手机触控通过',tag);
 }finally{await c.dispose();}
-

@@ -34,5 +34,3 @@ const sj=[],sw=[];for(let i=0;i<n;i++){const y=surface.positions[i*3+1],upper=sm
 function appendRaw(values,type,componentType){const bytes=Buffer.from((componentType===5121?new Uint8Array(values):new Uint16Array(values)).buffer),view=j.bufferViews.push({buffer:0,byteOffset:data.length,byteLength:bytes.length})-1;data=Buffer.concat([data,bytes]);if(data.length%4)data=Buffer.concat([data,Buffer.alloc(4-data.length%4)]);return j.accessors.push({bufferView:view,componentType,count:values.length/(type==='VEC4'?4:1),type})-1;}
 p.attributes.JOINTS_0=appendRaw(sj,'VEC4',5121);p.attributes.WEIGHTS_0=add(sw,'VEC4');p.indices=appendRaw(surface.indices,'SCALAR',5123);p.attributes.TEXCOORD_0=add(Array.from({length:n},()=>[.71676898,.68568897]).flat(),'VEC2');delete p.targets;delete j.meshes[0].weights;delete j.meshes[0].extras;const mat=structuredClone(j.materials[p.material]);delete mat.normalTexture;delete mat.occlusionTexture;delete mat.emissiveTexture;p.material=j.materials.push(mat)-1;
 j.buffers[0].byteLength=data.length;fs.writeFileSync(file,pack(j,data));console.log('左臂重拓扑与招手已生成：',n,'顶点，',surface.indices.length/3,'三角形');
-
-

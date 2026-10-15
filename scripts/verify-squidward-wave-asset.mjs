@@ -11,6 +11,3 @@ for(let frame=0;frame<=96;frame++){action.time=frame/30;mix.update(0);root.updat
 const endGap=Math.max(...first.map((p,i)=>p.distanceTo(last[i])));assert(endGap<.0001,'起止姿态必须闭合');assert(maxStretch<3,'不能出现长条拉伸');assert(records.every(r=>r.p01AreaRatio>.12),'至少99%的三角形须保留可见面积，单个微小三角形极值另行记录');const raised=records.filter(r=>r.time>=.7&&r.time<=2.4);assert(raised.every(r=>r.hand[1]>r.shoulder[1]+.08&&r.hand[0]<r.shoulder[0]-.16),'手须抬到肩外上方');
 for(let i=0;i<p.count;i++){const w=mesh.geometry.attributes.skinWeight;assert(Math.abs(w.getX(i)+w.getY(i)+w.getZ(i)+w.getW(i)-1)<1e-5);}
 const result={status:'passed',vertices:p.count,triangles:index.length/3,closedEdges:edges.size,volume,frames:records.length,maxStretch,minAreaRatio,endGap,records};fs.mkdirSync('docs/squidward-wave-review',{recursive:true});fs.writeFileSync('docs/squidward-wave-review/asset-check.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({...result,records:undefined}));
-
-
-

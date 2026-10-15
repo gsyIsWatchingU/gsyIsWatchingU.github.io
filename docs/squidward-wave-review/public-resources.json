@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "commit": "4b60105",
+  "records": [
+    {
+      "file": "squidward-model.html",
+      "status": 200,
+      "sha256": "f2c34bc1c19655c8747d8d16feeaf580caaadf4d4422a47b47ae060f83e846eb",
+      "expected": "f2c34bc1c19655c8747d8d16feeaf580caaadf4d4422a47b47ae060f83e846eb",
+      "match": true
+    },
+    {
+      "file": "assets/squidward-model.js",
+      "status": 200,
+      "sha256": "f59a0528b691840d5a3d37f3a32b3a6479fbb0ffd2e0c5d3979bb137f8605a0b",
+      "expected": "f59a0528b691840d5a3d37f3a32b3a6479fbb0ffd2e0c5d3979bb137f8605a0b",
+      "match": true
+    },
+    {
+      "file": "assets/models/squidward-bunny/squidward-bunny-active.glb",
+      "status": 200,
+      "sha256": "be9d9631cd8e441974eb6b1c999c39e87ea889a02b46e040e9d6fe25693d257d",
+      "expected": "be9d9631cd8e441974eb6b1c999c39e87ea889a02b46e040e9d6fe25693d257d",
+      "match": true
+    },
+    {
+      "file": "assets/models/squidward-bunny/asset.json",
+      "status": 200,
+      "sha256": "af0cfe514332261a34959c2e48c8475de12cb9d1b0e4ecf7561cc3923cf5a137",
+      "expected": "af0cfe514332261a34959c2e48c8475de12cb9d1b0e4ecf7561cc3923cf5a137",
+      "match": true
+    },
+    {
+      "file": "docs/squidward-home/index.html",
+      "status": 200,
+      "sha256": "1aababf35f525be641d637c157a5ea57aa26514b64c5fdd9a4d3472393357a8d",
+      "expected": "1aababf35f525be641d637c157a5ea57aa26514b64c5fdd9a4d3472393357a8d",
+      "match": true
+    },
+    {
+      "file": "docs/squidward-home/app.js",
+      "status": 200,
+      "sha256": "98ce80c874c8e635412fa70b79fd9c680ea326f405f00ead765266ff3fe564c1",
+      "expected": "98ce80c874c8e635412fa70b79fd9c680ea326f405f00ead765266ff3fe564c1",
+      "match": true
+    },
+    {
+      "file": "docs/squidward-home/config/house-config.json",
+      "status": 200,
+      "sha256": "7388a27fd15e82ed794606f427ea35b96156998a295a2e3948d11266ad1d68d9",
+      "expected": "7388a27fd15e82ed794606f427ea35b96156998a295a2e3948d11266ad1d68d9",
+      "match": true
+    }
+  ]
+}
