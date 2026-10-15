@@ -1,0 +1,22 @@
+[
+  {
+    "mesh": "leg.L.001",
+    "removedComponents": 1,
+    "removedTriangles": 276
+  },
+  {
+    "mesh": "leg.L",
+    "removedComponents": 1,
+    "removedTriangles": 276
+  },
+  {
+    "mesh": "leg.R.001",
+    "removedComponents": 2,
+    "removedTriangles": 432
+  },
+  {
+    "mesh": "leg.R",
+    "removedComponents": 2,
+    "removedTriangles": 432
+  }
+]

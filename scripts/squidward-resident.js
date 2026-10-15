@@ -11,11 +11,11 @@ export function skinnedBounds(root) {
   return box;
 }
 
-const labels = {idle:'发呆',walk:'散步',wave:'招手',read:'看夹板',annoyed:'烦躁',happy:'开心',surprised:'惊讶',sad:'低头'};
-const schedule = [['idle',3.2],['walk',7.5],['read',5.6],['idle',2.2],['happy',4],['walk',7.5],['annoyed',4],['surprised',3.4],['wave',4],['sad',4]];
+const labels = {idle:'休息',walk:'散步',wave:'招手',read:'看夹板'};
+const schedule = [['idle',3.2],['walk',7.5],['read',5.6],['idle',2.2],['wave',4]];
+export const squidwardEmotions={happy:'喜',annoyed:'怒',sad:'哀'};
 const mood = {
-  idle:{bored:.38},walk:{bored:.25},wave:{happy:.42,mouthOpen:.35},read:{bored:.7,lookDown:.9},
-  annoyed:{angry:1,mouthOpen:0},happy:{happy:.92,mouthOpen:.93},surprised:{surprised:.95,mouthOpen:.9},sad:{sad:.88,lookDown:.55}
+  annoyed:{angry:1},happy:{happy:1},sad:{sad:1}
 };
 
 export class SquidwardResident {
@@ -28,11 +28,12 @@ export class SquidwardResident {
       if(object.name.includes('mouth_inner')){this.mouth=object;object.visible=false;}
       if(object.userData.semanticPart?.startsWith('leg.')||/leg[._]?[LR]/.test(object.name)) {
         const pos=object.geometry.attributes.position,indices=[];
-        for(let i=0;i<pos.count;i++)if(pos.getY(i)<.018)indices.push(i);
-        this.feet.push({mesh:object,indices});
+        const referenced=new Set(object.geometry.index?.array||Array.from({length:pos.count},(_,i)=>i));
+        for(const i of referenced)if(pos.getY(i)<.018)indices.push(i);
+        if(indices.length)this.feet.push({mesh:object,indices});
       }
     });
-    this.elapsed=0;this.actionTime=0;this.paused=false;this.index=0;this.routeIndex=0;this.nextBlink=1.7;this.blinkAt=-100;
+    this.elapsed=0;this.actionTime=0;this.paused=false;this.index=0;this.routeIndex=0;this.nextBlink=1.7;this.blinkAt=-100;this.expression='happy';
     this.homeRotation=actor.rotation.y;this.scale=model.getWorldScale(new THREE.Vector3()).y;
     this.speed=.32*this.scale/(clips.find(clip=>clip.name==='walk')?.duration||1.4)*speedMultiplier;
     this.mode='idle';this.path=[];this.goal=null;this.activity=null;this.autoCount=0;this.interactionCount=0;
@@ -47,9 +48,11 @@ export class SquidwardResident {
     this.notify();
   }
   get label(){return this.mode==='navigate'?(this.intent?.destinationLabel?'走向'+this.intent.destinationLabel:'走过去'):this.mode==='arrived'?'到了，歇一会儿':this.activity?.label||labels[this.action];}
-  notify(){this.onChange({action:this.action,label:this.label,paused:this.paused});}
+  notify(){this.onChange({action:this.action,label:this.label,paused:this.paused,expression:this.expression});}
+  setEmotion(name){if(!squidwardEmotions[name])return;this.expression=name;this.paused=false;this.notify();}
   release(){this.activity?.exit?.();this.activity=null;this.intent=null;this.path=[];this.goal=null;this.requested=null;this.onGoal(null);}
   request(name,continuous=false) {
+    if(squidwardEmotions[name]){this.setEmotion(name);return;}
     if(name==='wave'&&this.action==='wave'&&this.actionTime<this.duration&&this.currentAction.isRunning()){this.paused=false;this.notify();return;}
     this.paused=false;this.release();this.mode='manual';this.source='button';
     if(name==='walk'&&this.navigation)return this.goTo(this.navigation.random([this.actor.position.x,this.actor.position.z]),null,'button');
@@ -70,7 +73,7 @@ export class SquidwardResident {
     const arrival={position:this.actor.position.toArray(),destination:this.goal,requested:this.requested,activity:this.intent?.id||null,source:this.source,time:this.elapsed};
     this.lastArrival=arrival;if(this.source!=='auto')this.lastUserArrival=arrival;
     this.path=[];this.onGoal(null);
-    if(this.intent){this.activity=this.intent;this.intent=null;this.mode='interact';this.interactionCount++;this.activity.enter?.();this.transition(this.activity.action||'idle',this.activity.duration||6);}
+    if(this.intent){this.activity=this.intent;this.intent=null;this.mode='interact';this.interactionCount++;this.activity.enter?.();if(this.activity.emotion)this.setEmotion(this.activity.emotion);this.transition(this.activity.action||'idle',this.activity.duration||6);}
     else {this.mode='arrived';this.goal=null;this.transition('idle',4.5);}
   }
   setPaused(value) {this.paused=value;this.notify();}
@@ -103,14 +106,12 @@ export class SquidwardResident {
     this.mixer.update(dt);
     if(this.elapsed>=this.nextBlink){this.blinkAt=this.elapsed;this.nextBlink=this.elapsed+3.0+(Math.sin(this.elapsed*2)+1)*.7;}
     const blinkAge=this.elapsed-this.blinkAt;
-    const targets={...mood[this.action],...this.activity?.mood,blink:blinkAge<.19?Math.sin(blinkAge/.19*Math.PI):0};
-    if(this.action!=='read'&&this.action!=='sad'&&!this.activity){
-      const glance=Math.sin(this.elapsed*.8);targets.lookLeft=Math.max(0,-glance)*.35;targets.lookRight=Math.max(0,glance)*.35;
-    }
+    const targets={...mood[this.expression],blink:blinkAge<.19?Math.sin(blinkAge/.19*Math.PI):0};
     for(const mesh of this.meshes) {
       if(!mesh.morphTargetDictionary)continue;
       for(const [name,index] of Object.entries(mesh.morphTargetDictionary)) {
-        const value=THREE.MathUtils.damp(mesh.morphTargetInfluences[index]||0,targets[name]||0,name==='blink'?42:10,dt);
+        const eyeBlend=mesh.name.includes('expression_eye_')&&['happy','angry','sad'].includes(name)?1-targets.blink:1;
+        const value=THREE.MathUtils.damp(mesh.morphTargetInfluences[index]||0,(targets[name]||0)*eyeBlend,name==='blink'?42:10,dt);
         mesh.morphTargetInfluences[index]=value;
       }
     }
@@ -125,8 +126,8 @@ export class SquidwardResident {
       const hit=this.floor?new THREE.Raycaster(new THREE.Vector3(lowest.x,this.floorY+2,lowest.z),new THREE.Vector3(0,-1,0)).intersectObject(this.floor,true)[0]:null;
       return {position:lowest.toArray(),floorY:this.floor?hit?.point.y:this.floorY,gap:lowest.y-(this.floor?hit?.point.y:this.floorY)};
     });
-    const mesh=this.meshes.find(item=>item.name.includes('body'));
+    const mesh=this.meshes.find(item=>item.name.includes('expression_eye_left_lid'))||this.meshes.find(item=>item.name.includes('body'));
     const values=Object.fromEntries(Object.entries(mesh?.morphTargetDictionary||{}).map(([name,index])=>[name,mesh.morphTargetInfluences[index]]));
-    return {action:this.action,label:this.label,mode:this.mode,source:this.source,activity:this.activity?.id||null,intent:this.intent?.id||null,destination:this.goal,requested:this.requested,path:this.path,lastArrival:this.lastArrival,lastUserArrival:this.lastUserArrival,autoCount:this.autoCount,interactionCount:this.interactionCount,paused:this.paused,position:this.actor.position.toArray(),yaw:this.actor.rotation.y,clipTime:this.currentAction.time,footContact,morphs:values,speed:this.speed};
+    return {action:this.action,expression:this.expression,label:this.label,mode:this.mode,source:this.source,activity:this.activity?.id||null,intent:this.intent?.id||null,destination:this.goal,requested:this.requested,path:this.path,lastArrival:this.lastArrival,lastUserArrival:this.lastUserArrival,autoCount:this.autoCount,interactionCount:this.interactionCount,paused:this.paused,position:this.actor.position.toArray(),yaw:this.actor.rotation.y,clipTime:this.currentAction.time,footContact,morphs:values,speed:this.speed};
   }
 }

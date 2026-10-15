@@ -1,8 +1,8 @@
 {
-  "version": "20261015-wave-20",
+  "version": "20261015-reference-21",
   "status": "review",
-  "note": "保留房间与自主活动；左臂封闭重拓扑、肩肘腕重新绑定；招手抬到脸旁轻摆，连续点击不重置。",
-  "cacheBust": "v=20261015-wave-20",
+  "note": "按参考重做无手指触手，清理脚部脱落细条；表情仅保留喜怒哀，眼睑、瞳孔与嘴形同步变化，独立于动作。",
+  "cacheBust": "v=20261015-reference-21",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,

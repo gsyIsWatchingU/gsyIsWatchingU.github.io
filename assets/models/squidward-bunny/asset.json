@@ -3,12 +3,12 @@
   "status": "review",
   "humanReview": "pending",
   "model": "assets/models/squidward-bunny/squidward-bunny-active.glb",
-  "sha256": "be9d9631cd8e441974eb6b1c999c39e87ea889a02b46e040e9d6fe25693d257d",
-  "triangles": 44484,
+  "sha256": "73a0553376451c6c0646fc496682eb5847df2323b5ec4d83b0107c2bde169145",
+  "triangles": 58724,
   "bones": 24,
-  "animations": 8,
-  "morphs": 10,
-  "revision": "animation-v20",
+  "animations": 4,
+  "morphs": 4,
+  "revision": "reference-v21",
   "sourceCommit": "f1377382d15e886fc501de8521a0fc1b5b2e7a83",
   "sourceJobId": "413330331cd042a58d2cdb1080863637",
   "sourceBackend": "Hunyuan3D-2.1",
@@ -20,8 +20,28 @@
   "motionRepair": {
     "date": "2026-10-15",
     "sourceSHA256": "54a34d939c1a8ef48ea0beb2e01d1073ffa11216fcf41ceaeed2098df33fcd78",
-    "method": "左臂封闭重拓扑、肩肘腕重新绑定；垂手起止，抬到脸旁轻摆；原贴图肤色采样。",
+    "method": "左臂重拓扑为单根卷曲触手，无手指；重新绑定肩肘腕，保留招手动作。",
     "script": "scripts/art/repair-squidward-wave.mjs",
+    "newGPUJob": false,
+    "humanReview": "pending"
+  },
+  "bytes": 5958732,
+  "referenceRepair": {
+    "date": "2026-10-15",
+    "previousSHA256": "be9d9631cd8e441974eb6b1c999c39e87ea889a02b46e040e9d6fe25693d257d",
+    "method": "沿用原自有 GPU 服饰和贴图；局部重拓扑双手、清除四脚脱落细条；以三维曲面重做头脸、眼球、眼睑、口腔和牙齿，形变仅保留喜怒哀与眨眼。",
+    "script": "scripts/art/optimize-squidward-reference.mjs",
+    "emotions": [
+      "喜",
+      "怒",
+      "哀"
+    ],
+    "actions": [
+      "idle",
+      "walk",
+      "wave",
+      "read"
+    ],
     "newGPUJob": false,
     "humanReview": "pending"
   }

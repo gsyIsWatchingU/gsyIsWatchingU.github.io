@@ -38,8 +38,8 @@ export async function livingProps(interior){
   const interactions=[
     {id:'tv',object:'living_old-tv',destinationLabel:'电视',label:'看电视',point:[.28,-.48],focus:[.28,-.86],action:'idle',duration:7,enter:()=>setTV(true),exit:()=>setTV(false)},
     {id:'books',object:'living_bookshelf',destinationLabel:'书架',label:'在书架旁阅读',point:[.65,-.30],focus:[.95,-.60],action:'read',duration:6},
-    {id:'portrait',object:'living_wall-picture',destinationLabel:'肖像画',label:'欣赏自己的肖像',point:[.12,-.43],focus:[-.40,-1.13],action:'happy',duration:5,mood:{happy:.7,mouthOpen:.3}},
-    {id:'plant',object:'living_plant',destinationLabel:'盆栽',label:'看看盆栽',point:[.56,-.49],focus:[.55,-.90],action:'read',duration:5,mood:{lookDown:.4,bored:.2}}
+    {id:'portrait',object:'living_wall-picture',destinationLabel:'肖像画',label:'欣赏自己的肖像',point:[.12,-.43],focus:[-.40,-1.13],action:'idle',duration:5,emotion:'happy'},
+    {id:'plant',object:'living_plant',destinationLabel:'盆栽',label:'看看盆栽',point:[.56,-.49],focus:[.55,-.90],action:'read',duration:5}
   ];
   for(const o of objects){const interaction=interactions.find(a=>o.name.startsWith(a.object));if(interaction)o.userData.residentInteraction=interaction.id;}
   const boxes=[];

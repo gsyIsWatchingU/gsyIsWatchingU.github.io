@@ -43,7 +43,7 @@ function fit(angle = front) {
   camera.lookAt(controls.target);controls.update();
 }
 new ResizeObserver(() => { renderer.setSize(stage.clientWidth, stage.clientHeight);camera.aspect = stage.clientWidth / stage.clientHeight;camera.updateProjectionMatrix();if(model)fit(front); }).observe(stage);
-new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-active.glb?v=20261015-wave-20', gltf => {
+new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-active.glb?v=20261015-reference-21', gltf => {
   model = gltf.scene;actor=new THREE.Group();actor.add(model);scene.add(actor);scene.updateMatrixWorld(true);
   model.traverse(o => { if(o.isMesh){o.castShadow = true;o.receiveShadow = true;} });
   const box = skinnedBounds(model);
@@ -52,16 +52,18 @@ new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-active.glb?
   height = size.y;width = Math.max(size.x, size.z);
   scene.updateMatrixWorld(true);
   resident=new SquidwardResident({model,actor,clips:gltf.animations,travel:false,onChange:updateActionUI});
+  resident.request('idle',true);
   if(new URLSearchParams(location.search).has('debug'))window.__squidwardModel={resident,model,actor,camera,controls,renderer};
   fit();document.querySelector('#loading').remove();
   stage.dataset.loaded = 'true';
-  document.querySelector('#action-select').disabled=false;document.querySelector('#action-select').value='idle';
+  document.querySelector('#emotion-select').disabled=false;document.querySelector('#emotion-select').value=resident.expression;
   document.querySelector('#pause-action').disabled=false;
   stage.dataset.dimensions = JSON.stringify(size.toArray());
   stage.dataset.view = 'front';
 }, undefined, error => { document.querySelector('#loading').textContent = '模型加载失败，请刷新重试';console.error(error); });
-function updateActionUI({action,label,paused}){document.querySelector('#action-select').value=action;document.querySelector('#action-state').textContent=paused?'已暂停':label;document.querySelector('#pause-action').textContent=paused?'继续':'暂停';}
-document.querySelector('#action-select').addEventListener('change',event=>resident?.request(event.target.value,true));
+function updateActionUI({action,label,paused,expression}){document.querySelector('#emotion-select').value=expression;document.querySelector('#action-state').textContent=paused?'已暂停':label;document.querySelector('#pause-action').textContent=paused?'继续':'暂停';document.querySelectorAll('[data-action]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.action===action)));}
+document.querySelector('#emotion-select').addEventListener('change',event=>resident?.setEmotion(event.target.value));
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>resident?.request(b.dataset.action,true)));
 document.querySelector('#pause-action').addEventListener('click',()=>resident?.setPaused(!resident.paused));
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {front = viewAngles[button.dataset.view];stage.dataset.view = button.dataset.view;fit(front);}));
 document.querySelector('#rotate').addEventListener('click', event => {controls.autoRotate = !controls.autoRotate;event.currentTarget.setAttribute('aria-pressed', String(controls.autoRotate));});

@@ -5,9 +5,9 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { SSAOPass } from 'three/addons/postprocessing/SSAOPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-import { SquidwardResident, skinnedBounds } from './squidward-resident.js?v=20261015-wave-20';
+import { SquidwardResident, skinnedBounds } from './squidward-resident.js?v=20261015-reference-21';
 import { RoomNavigation } from './squidward-navigation.js?v=20261013-nav-1';
-import { livingProps } from './squidward-room-props.js?v=20261013-props-2';
+import { livingProps } from './squidward-room-props.js?v=20261015-reference-21';
 
 // ========== DOM ==========
 const wrap = document.getElementById('canvas-wrap');
@@ -28,7 +28,7 @@ const residentPause = document.getElementById('resident-pause');
 // ========== Config ==========
 let config = null;
 async function loadConfig() {
-  const res = await fetch('./config/house-config.json?v=20261015-wave-20');
+  const res = await fetch('./config/house-config.json?v=20261015-reference-21');
   if (!res.ok) throw new Error('config load ' + res.status);
   config = await res.json();
 }
@@ -204,10 +204,10 @@ function updateResidentUI() {
   if(!state.resident)return;
   residentLabel.textContent='章鱼哥 · '+(state.resident.paused?'休息中':state.resident.diagnostic().label);
   residentPause.textContent=state.resident.paused?'继续活动':'暂停活动';
-  document.getElementById('resident-mood').value=['idle','happy','annoyed','surprised','sad'].includes(state.resident.action)?state.resident.action:'';
+  document.getElementById('resident-mood').value=state.resident.expression;
 }
 document.querySelectorAll('[data-resident-action]').forEach(button=>button.addEventListener('click',()=>state.resident?.request(button.dataset.residentAction)));
-document.getElementById('resident-mood').addEventListener('change',event=>{if(event.target.value)state.resident?.request(event.target.value);});
+document.getElementById('resident-mood').addEventListener('change',event=>state.resident?.setEmotion(event.target.value));
 residentPause.addEventListener('click',()=>state.resident?.setPaused(!state.resident.paused));
 
 // ========== 外观材质增强（运行时画布纹理 + 舷窗框/玻璃，不改 GLB） ==========
