@@ -1,0 +1,69 @@
+      <div class="archive" data-archive hidden>
+        <!-- @project-archive -->
+        <div class="archive__scrim" data-archive-dismiss></div>
+        <section
+          class="archive__panel"
+          data-archive-panel
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="archive-project-name"
+          tabindex="-1"
+        >
+          <header class="archive__head">
+            <p class="archive__tag">
+              <span aria-hidden="true"></span>
+              ARCHIVE · <b data-archive-counter>01/05</b>
+            </p>
+            <button class="archive__close" type="button" data-archive-dismiss aria-label="关闭图鉴面板">
+              ×
+            </button>
+          </header>
+
+          <div class="archive__frame" data-archive-frame>
+            <div class="archive__viewport" data-archive-viewport></div>
+            <div class="archive__placeholder" data-archive-placeholder aria-hidden="true">
+              <span></span>
+              <b>LOADING</b>
+            </div>
+            <button
+              class="archive__arrow archive__arrow--prev"
+              type="button"
+              data-archive-prev
+              aria-label="上一张截图"
+            >
+              ←
+            </button>
+            <button
+              class="archive__arrow archive__arrow--next"
+              type="button"
+              data-archive-next
+              aria-label="下一张截图"
+            >
+              →
+            </button>
+            <div class="archive__dots" data-archive-dots role="tablist" aria-label="选择截图"></div>
+            <div class="archive__caption">
+              <b data-archive-shot-label></b>
+              <span data-archive-shot-caption></span>
+            </div>
+          </div>
+
+          <div class="archive__info">
+            <p class="archive__kicker" data-archive-kicker></p>
+            <h3 class="archive__name" id="archive-project-name" data-archive-name></h3>
+            <p class="archive__desc" data-archive-desc></p>
+            <div class="archive__tech" data-archive-tech aria-label="技术栈"></div>
+            <div class="archive__actions">
+              <a class="archive__button archive__button--go" data-archive-entry></a>
+              <a class="archive__button" data-archive-detail></a>
+            </div>
+          </div>
+
+          <footer class="archive__foot">
+            <button type="button" data-archive-project-prev aria-label="上一个项目">←</button>
+            <span data-archive-project-status aria-live="polite">01/05</span>
+            <button type="button" data-archive-project-next aria-label="下一个项目">→</button>
+            <span class="archive__esc">ESC</span>
+          </footer>
+        </section>
+      </div>

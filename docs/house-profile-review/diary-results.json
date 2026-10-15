@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-09",
+  "desktop": [
+    1280,
+    720,
+    1440,
+    900
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "scope": "前十项在隔离任务预览，后七项在完整预览；手机为浏览器视口模拟",
+  "checks": [
+    {
+      "case": "physical-alarm-clock-opens-education",
+      "pass": true
+    },
+    {
+      "case": "barrel-body-does-not-open-education",
+      "pass": true
+    },
+    {
+      "case": "physical-bed-diary-opens-diary-reader",
+      "pass": true
+    },
+    {
+      "case": "diary-page-2",
+      "pass": true
+    },
+    {
+      "case": "diary-page-3",
+      "pass": true
+    },
+    {
+      "case": "diary-page-4",
+      "pass": true
+    },
+    {
+      "case": "last-page-next-disabled",
+      "pass": true
+    },
+    {
+      "case": "escape-closes-diary-keeps-bedroom-camera",
+      "pass": true
+    },
+    {
+      "case": "reopen-diary-starts-first-page",
+      "pass": true
+    },
+    {
+      "case": "close-restores-diary-entry-focus",
+      "pass": true
+    },
+    {
+      "name": "mobile-390x844-diary-no-overflow",
+      "pass": true
+    },
+    {
+      "name": "mobile-diary-page-2",
+      "pass": true
+    },
+    {
+      "name": "mobile-escape-keeps-bedroom",
+      "pass": true
+    },
+    {
+      "name": "mobile-clock-opens-education",
+      "pass": true
+    },
+    {
+      "name": "main-preview-ready-clean-entry",
+      "pass": true
+    },
+    {
+      "case": "main-1440-physical-clock",
+      "pass": true
+    },
+    {
+      "case": "main-1440-physical-diary",
+      "pass": true
+    }
+  ]
+}

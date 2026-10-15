@@ -1,0 +1,452 @@
+/* 图鉴面板：首屏 3D 场景里触发的项目档案浮层。
+   独立于 Three.js —— 面板本身就是纯 DOM，Three.js 只负责在触发点派发事件。 */
+
+.archive {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 32px);
+}
+
+.archive[hidden] {
+  display: none;
+}
+
+.archive__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 9, 11, 0.66);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.archive__panel {
+  --archive-accent: #8fb9a2;
+  --archive-accent-line: rgba(143, 185, 162, 0.42);
+  position: relative;
+  width: min(480px, 100%);
+  max-height: calc(100vh - clamp(24px, 6vw, 64px));
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 16px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--archive-accent-line);
+  border-radius: 20px;
+  background: linear-gradient(165deg, rgba(21, 27, 29, 0.97), rgba(8, 11, 13, 0.98));
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 0 46px -14px var(--archive-accent-line);
+  color: #e9e7e1;
+  animation: archive-in 0.26s ease both;
+}
+
+@keyframes archive-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+}
+
+/* ── 头部：ARCHIVE · 03/05 + 关闭 ───────────────────────── */
+
+.archive__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.archive__tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font: 600 10px/1.2 var(--font-mono);
+  letter-spacing: 0.18em;
+  color: rgba(233, 231, 225, 0.58);
+}
+
+.archive__tag > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--archive-accent);
+  box-shadow: 0 0 12px var(--archive-accent);
+}
+
+.archive__tag b {
+  color: #f4f2ec;
+  font-weight: 600;
+}
+
+.archive__close {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(233, 231, 225, 0.72);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.archive__close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* ── 轮播图区：固定 260px，cover 居中裁剪 ────────────────── */
+
+.archive__frame {
+  position: relative;
+  border: 1px solid var(--archive-accent-line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(5, 8, 10, 0.72);
+}
+
+.archive__viewport {
+  position: relative;
+  height: 260px;
+}
+
+.archive__viewport img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.42s ease, transform 0.42s ease;
+}
+
+.archive__viewport img.is-active {
+  opacity: 1;
+  transform: none;
+}
+
+/* 加载占位：细线框 + LOADING，避免切图时闪白屏 */
+.archive__placeholder {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 260px;
+  display: none;
+  place-items: center;
+  background: rgba(5, 8, 10, 0.72);
+}
+
+.archive__frame.is-loading .archive__placeholder {
+  display: grid;
+}
+
+.archive__placeholder > span {
+  position: relative;
+  width: 58%;
+  height: 52%;
+  border: 1px solid rgba(233, 231, 225, 0.16);
+}
+
+.archive__placeholder > span::before,
+.archive__placeholder > span::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--archive-accent-line);
+}
+
+.archive__placeholder > span::before {
+  top: -1px;
+  left: -1px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.archive__placeholder > span::after {
+  right: -1px;
+  bottom: -1px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.archive__placeholder b {
+  position: absolute;
+  bottom: 30%;
+  font: 600 9px/1 var(--font-mono);
+  letter-spacing: 0.34em;
+  color: rgba(233, 231, 225, 0.46);
+  animation: archive-blink 1.3s ease-in-out infinite;
+}
+
+@keyframes archive-blink {
+  50% {
+    opacity: 0.34;
+  }
+}
+
+.archive__arrow {
+  position: absolute;
+  top: 130px;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(8, 11, 13, 0.5);
+  backdrop-filter: blur(4px);
+  color: #e9e7e1;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.26;
+  transition: opacity 0.25s, background 0.25s;
+}
+
+.archive__arrow--prev {
+  left: 10px;
+}
+
+.archive__arrow--next {
+  right: 10px;
+}
+
+.archive__panel:hover .archive__arrow,
+.archive__arrow:focus-visible {
+  opacity: 1;
+}
+
+.archive__arrow:hover {
+  background: rgba(24, 31, 33, 0.9);
+}
+
+.archive__arrow[disabled] {
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.archive__dots {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  padding: 9px 0 1px;
+}
+
+.archive__dots button {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.archive__dots button i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(233, 231, 225, 0.26);
+  transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.archive__dots button[aria-current="true"] i {
+  background: var(--archive-accent);
+  box-shadow: 0 0 10px var(--archive-accent);
+  transform: scale(1.3);
+}
+
+.archive__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.archive__caption b {
+  font: 600 10px/1.2 var(--font-mono);
+  letter-spacing: 0.16em;
+  color: var(--archive-accent);
+}
+
+.archive__caption span {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: rgba(233, 231, 225, 0.72);
+}
+
+/* ── 项目信息区 ─────────────────────────────────────────── */
+
+.archive__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.archive__kicker {
+  margin: 0;
+  font: 600 10px/1.3 var(--font-mono);
+  letter-spacing: 0.18em;
+  color: var(--archive-accent);
+}
+
+.archive__name {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: #f5f3ed;
+}
+
+.archive__desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(233, 231, 225, 0.72);
+}
+
+.archive__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.archive__tech span {
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 11px;
+  color: rgba(233, 231, 225, 0.8);
+}
+
+.archive__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.archive__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 13px;
+  color: #e9e7e1;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.archive__button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.archive__button--go {
+  background: var(--archive-accent);
+  border-color: var(--archive-accent);
+  color: #08110e;
+  font-weight: 600;
+}
+
+.archive__button--go:hover {
+  filter: brightness(1.08);
+}
+
+.archive__button[hidden] {
+  display: none;
+}
+
+/* ── 底部项目切换 ───────────────────────────────────────── */
+
+.archive__foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.archive__foot button {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e9e7e1;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.archive__foot button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.archive__foot span[data-archive-project-status] {
+  font: 600 11px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  color: rgba(233, 231, 225, 0.7);
+}
+
+.archive__esc {
+  margin-left: auto;
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font: 600 9px/1 var(--font-mono);
+  letter-spacing: 0.14em;
+  color: rgba(233, 231, 225, 0.55);
+}
+
+body.is-archive-open {
+  overflow: hidden;
+}
+
+@media (max-width: 520px) {
+  .archive__viewport,
+  .archive__placeholder {
+    height: 200px;
+  }
+
+  .archive__arrow {
+    top: 100px;
+  }
+
+  .archive__name {
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive__panel {
+    animation: none;
+  }
+
+  .archive__viewport img,
+  .archive__arrow,
+  .archive__dots button i {
+    transition: none;
+  }
+
+  .archive__placeholder b {
+    animation: none;
+  }
+}

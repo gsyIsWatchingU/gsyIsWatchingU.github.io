@@ -1,0 +1,59 @@
+{
+  "viewportDesktop": [
+    1440,
+    900
+  ],
+  "beforeFix": {
+    "clickedBodyReactions": 1,
+    "state": "settling"
+  },
+  "desktopClick": {
+    "reactions": 1,
+    "bubble": true
+  },
+  "repeat": {
+    "footError": 5.875467586976865e-8,
+    "head": [
+      -0.014484484562071746,
+      0.15430184761511373,
+      0.06032097759907104,
+      0.9860742969933988
+    ],
+    "reactions": 2,
+    "visible": true
+  },
+  "drag": {
+    "reactions": 2
+  },
+  "expiry": {
+    "hidden": true,
+    "reactions": 2
+  },
+  "wholeClick": {
+    "bubble": true,
+    "reactions": 1,
+    "view": "room"
+  },
+  "mobile": {
+    "reactions": 1,
+    "rect": {
+      "bottom": 461.5489234924317,
+      "height": 41.19565200805664,
+      "left": 221.3994598388672,
+      "right": 287.92120361328125,
+      "top": 420.353271484375,
+      "width": 66.52174377441406,
+      "x": 221.3994598388672,
+      "y": 420.353271484375
+    },
+    "viewport": [
+      390,
+      844
+    ],
+    "visible": true
+  },
+  "resumePause": {
+    "hidden": true,
+    "state": "paused"
+  }
+}

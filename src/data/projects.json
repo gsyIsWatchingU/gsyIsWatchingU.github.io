@@ -168,7 +168,7 @@
     "kicker": "WINDOWS DEVELOPER TOOL",
     "name": "CLI List",
     "englishName": "Local Command Deck",
-    "stage": "WINDOWS DESKTOP",
+    "stage": "桌面应用",
     "role": "独立产品设计与原生桌面开发",
     "description": "面向 Windows 开发者的独立命令管理应用。获取安装包后，双击即可打开 CLI List；在一个窗口里搜索、分类、排序并启动本地 CLI、远端 GPU、编辑器与日常工具，不再靠记忆命令或在多个入口间切换。",
     "heroFeature": {

@@ -1,0 +1,77 @@
+{
+  "asset": "speaker",
+  "state": "review",
+  "humanReview": "pending",
+  "sourceSha256": "0d2f333e58cb87da9a34ddea71b3b1d40ed7acac5989667329128208bdfa34d2",
+  "runtimeSha256": "fb83bc6a3073902bae103ba94394984087ff79afd6c8d6ab281f36e873661789",
+  "triangles": 20639,
+  "dimensionsYUp": [
+    0.4300000071525574,
+    0.38762515783309937,
+    0.24790138751268387
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "remove generated background plates",
+    "merge coincident vertices",
+    "recalculate normals",
+    "preserve painted UV",
+    "normalize physical size and contact pivot"
+  ],
+  "removedMeshes": [
+    {
+      "kind": "background plate",
+      "vertices": 1269,
+      "dimensionsZUp": [
+        1.993237018585205,
+        0.012134915217757225,
+        1.9932942390441895
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 45,
+      "dimensionsZUp": [
+        1.9928110241889954,
+        0.0071530010318383574,
+        0.0014510154724121094
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 40,
+      "dimensionsZUp": [
+        1.992179036140442,
+        0.00764700080617331,
+        0.0031189918518066406
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 50,
+      "dimensionsZUp": [
+        0.0011129975318908691,
+        0.008679000578013074,
+        1.9914472699165344
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 53,
+      "dimensionsZUp": [
+        0.0020360350608825684,
+        0.010300000838469714,
+        1.9934852123260498
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 1516,
+      "dimensionsZUp": [
+        1.9932820200920105,
+        0.0552888261154294,
+        1.9934852123260498
+      ]
+    }
+  ]
+}

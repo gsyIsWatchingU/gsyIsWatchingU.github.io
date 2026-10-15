@@ -1,0 +1,7962 @@
+[
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3283367839587304,
+      "lookUp": 0.15185414888514545,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.297075457436707,
+      7.637234497070313,
+      -0.33437500000000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.3071959625852454,
+      "lookUp": 0.15489367461404388,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.3976615263279037,
+      7.527941120106027,
+      -0.19223124999999616
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.284833419525702,
+      "lookUp": 0.15708156821151176,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.4868607460879746,
+      7.339404264896257,
+      -0.06091562499999709
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.2577830429415884,
+      "lookUp": 0.15876925930768132,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.5768097681740074,
+      7.055908499284837,
+      0.08129375000000078
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.22807522278377268,
+      "lookUp": 0.15974045161187228,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.657280447319765,
+      6.706269454956056,
+      0.2234374999999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.19852446063272516,
+      "lookUp": 0.1599979484290246,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7212193311901953,
+      6.338729640346026,
+      0.35475312500000356
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1672351132148236,
+      "lookUp": 0.15964032779598936,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.773520628362598,
+      5.942037021126054,
+      0.48600312500000376
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.1316754179464578,
+      "lookUp": 0.158560510711238,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.815605865257637,
+      5.494243185733784,
+      0.6282125000000015
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.09475100507866432,
+      "lookUp": 0.15676541883685888,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.841346931047567,
+      5.043908686373522,
+      0.7704218749999997
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.059791846822661254,
+      "lookUp": 0.1544808989069451,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.849949619458855,
+      4.6403621719387065,
+      0.9016718749999996
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0,
+      "lookRight": 0.02428693325579726,
+      "lookUp": 0.15160115878976024,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.84377278725396,
+      4.2616334680724535,
+      1.032987500000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.014359981480205132,
+      "lookRight": 0,
+      "lookUp": 0.14782899121569845,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.820619345934338,
+      3.895156061206319,
+      1.175065625000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.04995623405200931,
+      "lookRight": 0,
+      "lookUp": 0.14375022574446678,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7845611203212215,
+      3.6104147542746303,
+      1.306381250000002
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.7957378174479918,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.08511095739794722,
+      "lookRight": 0,
+      "lookUp": 0.13911850903146655,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.7353270869692214,
+      3.390937246210946,
+      1.4376968750000003
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.12230717900293056,
+      "lookRight": 0,
+      "lookUp": 0.13350232408182863,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6685955073627436,
+      3.242040437634281,
+      1.5798406249999992
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0.9756303770798987,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.15553667047826886,
+      "lookRight": 0,
+      "lookUp": 0.12778165892075294,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.60267110272987,
+      3.1915500000000003,
+      1.7219699999999991
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "slide",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.1,
+      "calm": 0,
+      "lookDown": 0,
+      "lookLeft": 0.18996631643973655,
+      "lookRight": 0,
+      "lookUp": 0.1210330497022745,
+      "smile": 0.85,
+      "talk": 0
+    },
+    "position": [
+      2.6026704792600452,
+      3.083250000000001,
+      2.0035499999999975
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2796414062990945,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6043778047120876,
+      3,
+      2.219794514789037
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2782485065250785,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.6905190264848304,
+      3,
+      2.20942989464051
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.26952201022272637,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      2.884377812435637,
+      3,
+      2.1861045616874293
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2537008016075997,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.1546808380145506,
+      3,
+      2.1535813616739232
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.23314759870816237,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.4453042497834128,
+      3,
+      2.11861318723591
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.2073442911323858,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.948590145707803
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.17416383696047708,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.6283011385289892
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.1364114109963633,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.3515980740162603
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.09831880369163244,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.1616921379788778
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "walk",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.05460120640288379,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.0566038556227275
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.009465512261099764,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.009465512261099764,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.009465512261099764,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.009465512261099764,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.009465512261099764,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.009465512261099764,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.009465512261099764,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0.009465512261099764,
+      "lookRight": 0,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.032480394804536246,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.0770332339141364,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.11641531236924584,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.1560690407205121,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.18907197542387028,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.21999795177077897,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.24511544949948985,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2625961416032881,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2748557741999577,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2748557741999577,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2748557741999577,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2748557741999577,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2748557741999577,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2748557741999577,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  },
+  {
+    "activity": "read",
+    "arrival": "activity",
+    "face": {
+      "blink": 0,
+      "browRaise": 0.2,
+      "calm": 0.35,
+      "lookDown": 0.95,
+      "lookLeft": 0,
+      "lookRight": 0.2748557741999577,
+      "lookUp": 0,
+      "smile": 0.25,
+      "talk": 0
+    },
+    "position": [
+      3.6,
+      3,
+      1.05
+    ]
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-09",
+  "status": "review",
+  "humanReview": "pending",
+  "target": "pineapple-house.html",
+  "url": "http://127.0.0.1:8769/tmp/skills-book-task/preview/pineapple-house.html?v=20261009-skillsbook1",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "tests": [
+    {
+      "case": "library-entry-keeps-reader-closed",
+      "pass": true
+    },
+    {
+      "case": "physical-skills-book-opens-skills",
+      "pass": true
+    },
+    {
+      "case": "close-preserves-library-and-camera",
+      "pass": true
+    },
+    {
+      "case": "existing-project-book-still-opens-project",
+      "pass": true
+    },
+    {
+      "case": "final-book-position-native-click",
+      "pass": true
+    },
+    {
+      "case": "mobile-physical-book-opens-skills",
+      "pass": true
+    },
+    {
+      "case": "mobile-close-retains-library",
+      "pass": true
+    },
+    {
+      "case": "escape-returns-whole",
+      "pass": true
+    },
+    {
+      "case": "refresh-keeps-whole-and-reader-closed",
+      "pass": true
+    },
+    {
+      "case": "living-no-longer-has-skills-entry",
+      "pass": true
+    }
+  ],
+  "note": "使用本任务独立构建页验证；保留工作区中其他并行修改及其暂存状态。手机为视口模拟。"
+}

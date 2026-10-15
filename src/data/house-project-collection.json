@@ -8,7 +8,9 @@
     "name": "北师大教育培训管理服务平台",
     "actionUrl": "https://jp.liyunol.com/",
     "actionLabel": "直达网站",
-    "icon": "./assets/projects/icons/etms.ico"
+    "icon": "./assets/projects/icons/etms.ico",
+    "image": "./assets/projects/etms-home.png",
+    "imageAlt": "励耘在线首页，北师大教育培训平台门户展示教育家精神共读计划"
   },
   {
     "id": "write-here",
@@ -48,7 +50,9 @@
     "provenance": "E:/prj-gsy/agent-adc/README.md",
     "icon": "./assets/projects/icons/ai-project-hub.png",
     "actionUrl": "https://midi-nose-somewhere-paint.trycloudflare.com",
-    "actionLabel": "直达网站"
+    "actionLabel": "直达网站",
+    "image": "./assets/projects/ai-project-hub-login.png",
+    "imageAlt": "AI Project Hub 登录页：服务器、GPU、项目代码与 Token 保管库的统一工作台入口"
   },
   {
     "id": "algorithm-lab",
@@ -56,6 +60,75 @@
     "source": "product",
     "sourceId": "algorithm-lab",
     "icon": "./assets/projects/icons/algorithm-lab.svg"
+  },
+  {
+    "id": "modeling-studio",
+    "label": "Modeling Studio",
+    "source": "custom",
+    "name": "游戏生产工厂 · GPU 3D 建模",
+    "status": "个人项目 · GPU 自托管",
+    "description": "从游戏想法到浏览器可玩包：AI 策划剧本、关卡美术、GPU 事件音效，再经 Forge3D 完成多参考图 3D 建模与版本发布，全流程在浏览器里完成。",
+    "tech": [
+      "Express",
+      "Three.js",
+      "lowdb",
+      "MCP",
+      "WebAudio",
+      "Forge3D"
+    ],
+    "proofs": [
+      {
+        "label": "分阶段生产",
+        "text": "策划、剧本、预览图可独立异步生成并保留版本；一键完整生产产出浏览器可玩包，预览图上传后再关联 3D 建模。"
+      },
+      {
+        "label": "队列化建模",
+        "text": "多参考图提交后进入 queued → generating → succeeded 任务流，成功前校验 GLB 2.0 文件头、声明长度、大小与 SHA-256。"
+      },
+      {
+        "label": "受控通知与 MCP",
+        "text": "邮箱、飞书、企微通知按登录账号隔离；MCP 接口让外部模型共用项目、固定 Skill、生产队列与产物。"
+      }
+    ],
+    "provenance": "E:/prj-gsy/3d-modeling-studio/README.md",
+    "icon": "./assets/projects/icons/modeling-studio.png",
+    "actionUrl": "https://focuses-traveling-minerals-router.trycloudflare.com",
+    "actionLabel": "直达网站",
+    "image": "./assets/projects/modeling-studio-login.png",
+    "imageAlt": "资源工作室登录页：统一账号一个邮箱跨站使用，登录后用自然语言指挥 GPU 创作"
+  },
+  {
+    "id": "krusty-krab",
+    "label": "罪恶蟹湖",
+    "source": "custom",
+    "name": "罪恶蟹湖 · 夜班悬疑解谜",
+    "status": "个人游戏 · 试玩 0.3.5",
+    "description": "你是午夜餐厅的新员工。寻找小海的事故证据，解开循环，逃出蟹湖。",
+    "tech": [
+      "Three.js",
+      "WebAudio",
+      "JavaScript",
+      "离线 H5"
+    ],
+    "proofs": [
+      {
+        "label": "空间探索",
+        "text": "第一人称移动与物件调查，串联餐厅、办公室、冷库和厕所线索。"
+      },
+      {
+        "label": "剧情解谜",
+        "text": "收集证据、还原事故，完成逃脱与举报。"
+      },
+      {
+        "label": "随时继续",
+        "text": "自动保存进度，支持键鼠和触控操作。"
+      }
+    ],
+    "entryUrl": "./games/krusty-krab/0.3.5/",
+    "entryLabel": "开始试玩 ↗",
+    "icon": "./assets/projects/icons/krusty-krab.png",
+    "image": "./assets/projects/krusty-krab.png",
+    "imageAlt": "罪恶蟹湖开始界面：夜班柜台前疲惫的海绵宝宝、粉紫夕阳与开始试玩按钮"
   },
   {
     "id": "skill-atlas",
@@ -95,37 +168,7 @@
     "label": "CLI List",
     "source": "product",
     "sourceId": "cli-list",
+    "status": "桌面应用",
     "screenshotOnly": true
-  },
-  {
-    "id": "krusty-krab",
-    "label": "罪恶蟹湖",
-    "source": "custom",
-    "name": "罪恶蟹湖 · 夜班悬疑解谜",
-    "status": "个人游戏 · 试玩 0.3.5",
-    "description": "你是午夜餐厅的新员工。寻找小海的事故证据，解开循环，逃出蟹湖。",
-    "tech": [
-      "Three.js",
-      "WebAudio",
-      "JavaScript",
-      "离线 H5"
-    ],
-    "proofs": [
-      {
-        "label": "空间探索",
-        "text": "第一人称移动与物件调查，串联餐厅、办公室、冷库和厕所线索。"
-      },
-      {
-        "label": "剧情解谜",
-        "text": "收集证据、还原事故，完成逃脱与举报。"
-      },
-      {
-        "label": "随时继续",
-        "text": "自动保存进度，支持键鼠和触控操作。"
-      }
-    ],
-    "entryUrl": "./games/krusty-krab/0.3.5/",
-    "entryLabel": "开始试玩 ↗",
-    "icon": "./assets/projects/icons/krusty-krab.png"
   }
 ]

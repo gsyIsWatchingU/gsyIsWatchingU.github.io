@@ -1,0 +1,377 @@
+{
+  "asset": "laptop",
+  "state": "review",
+  "humanReview": "pending",
+  "sourceSha256": "bb0d1a905beb90c899783b1555beab84d4787546a36429636f8aee164564f78a",
+  "runtimeSha256": "def0adb716d900664d56fa9000d8b72423b8950c4b743b8c8197204d91da4a70",
+  "triangles": 8858,
+  "dimensionsYUp": [
+    0.7500000596046448,
+    0.515948474407196,
+    0.6352279484272003
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "remove generated background plates",
+    "preserve painted base UV",
+    "normalize physical size and contact pivot",
+    "rebuild overlapping screen as rounded continuous shell, bezel and shell icon"
+  ],
+  "removedMeshes": [
+    {
+      "kind": "background plate",
+      "vertices": 3,
+      "dimensionsZUp": [
+        0.0016530156135559082,
+        0.006608009338378906,
+        0.0031900107860565186
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 3,
+      "dimensionsZUp": [
+        0.00175398588180542,
+        0.006850004196166992,
+        0.0011370033025741577
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 739,
+      "dimensionsZUp": [
+        1.9939559698104858,
+        1.992533266544342,
+        0.0057318806648254395
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 1441,
+      "dimensionsZUp": [
+        1.7987470030784607,
+        0.40962088108062744,
+        1.016201138496399
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 35,
+      "dimensionsZUp": [
+        1.9938879609107971,
+        0.0021799802780151367,
+        0.008638978004455566
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 37,
+      "dimensionsZUp": [
+        1.9938160181045532,
+        0.002155005931854248,
+        0.00872802734375
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 37,
+      "dimensionsZUp": [
+        0.004797995090484619,
+        1.9928101897239685,
+        0.008385777473449707
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 35,
+      "dimensionsZUp": [
+        0.004817008972167969,
+        1.992753267288208,
+        0.008718788623809814
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 39,
+      "dimensionsZUp": [
+        1.7991119623184204,
+        0.007198035717010498,
+        0.00525897741317749
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 20,
+      "dimensionsZUp": [
+        0.2487879991531372,
+        0.0155009925365448,
+        0.013514012098312378
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 18,
+      "dimensionsZUp": [
+        0.2909240126609802,
+        0.008309006690979004,
+        0.01254299283027649
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 905,
+      "dimensionsZUp": [
+        1.9927719831466675,
+        1.9928101897239685,
+        0.008017957210540771
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 48,
+      "dimensionsZUp": [
+        0.0028859972953796387,
+        0.07282501459121704,
+        0.15382501482963562
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 93,
+      "dimensionsZUp": [
+        0.0023199915885925293,
+        0.12927991151809692,
+        0.3425740599632263
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 241,
+      "dimensionsZUp": [
+        0.0033359527587890625,
+        0.394570916891098,
+        0.983081191778183
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 131,
+      "dimensionsZUp": [
+        0.0023080110549926758,
+        0.19176000356674194,
+        0.4561890810728073
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 15,
+      "dimensionsZUp": [
+        0.0020130276679992676,
+        0.02440100908279419,
+        0.04080700874328613
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 3,
+      "dimensionsZUp": [
+        0.001667022705078125,
+        0.006784021854400635,
+        0.0033740103244781494
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 2704,
+      "dimensionsZUp": [
+        1.7991119623184204,
+        0.4184309244155884,
+        0.9928571879863739
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 5,
+      "dimensionsZUp": [
+        0.04141300916671753,
+        0.012540996074676514,
+        0.032200008630752563
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 5,
+      "dimensionsZUp": [
+        0.0453609824180603,
+        0.0077790021896362305,
+        0.022262990474700928
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 4,
+      "dimensionsZUp": [
+        0.1811690330505371,
+        0.004442989826202393,
+        0.012109994888305664
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 5,
+      "dimensionsZUp": [
+        0.06326299905776978,
+        0.01105797290802002,
+        0.02990800142288208
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 6,
+      "dimensionsZUp": [
+        0.09168905019760132,
+        0.007948994636535645,
+        0.02888600528240204
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 4,
+      "dimensionsZUp": [
+        0.03435397148132324,
+        0.006530940532684326,
+        0.023197993636131287
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 4,
+      "dimensionsZUp": [
+        0.033549964427948,
+        0.01559901237487793,
+        0.04280298948287964
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 5,
+      "dimensionsZUp": [
+        0.049299001693725586,
+        0.017894983291625977,
+        0.050167016685009
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 6,
+      "dimensionsZUp": [
+        0.10948598384857178,
+        0.013991951942443848,
+        0.03794300556182861
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 4,
+      "dimensionsZUp": [
+        0.08734703063964844,
+        0.0055789947509765625,
+        0.015056002885103226
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 5,
+      "dimensionsZUp": [
+        0.044676005840301514,
+        0.010434985160827637,
+        0.02544400282204151
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 5,
+      "dimensionsZUp": [
+        0.03583502769470215,
+        0.009739995002746582,
+        0.023671003058552742
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 6,
+      "dimensionsZUp": [
+        0.07693499326705933,
+        0.026686012744903564,
+        0.06162101402878761
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 4,
+      "dimensionsZUp": [
+        0.0432400107383728,
+        0.014752984046936035,
+        0.03196901082992554
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 6,
+      "dimensionsZUp": [
+        0.03471803665161133,
+        0.012317031621932983,
+        0.025044023990631104
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 4,
+      "dimensionsZUp": [
+        0.05994802713394165,
+        0.009728997945785522,
+        0.0200900137424469
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 7,
+      "dimensionsZUp": [
+        0.08448594808578491,
+        0.011601001024246216,
+        0.025718986988067627
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 3,
+      "dimensionsZUp": [
+        0.005317986011505127,
+        0.00391697883605957,
+        0.010210007429122925
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 3,
+      "dimensionsZUp": [
+        0.004396021366119385,
+        0.0044519901275634766,
+        0.008922010660171509
+      ]
+    },
+    {
+      "kind": "background plate",
+      "vertices": 4,
+      "dimensionsZUp": [
+        0.004800021648406982,
+        0.008115023374557495,
+        0.01637798547744751
+      ]
+    },
+    {
+      "kind": "overlapping screen surfaces",
+      "vertices": 5307
+    }
+  ]
+}

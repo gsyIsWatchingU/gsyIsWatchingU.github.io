@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-09",
+  "desktop": [
+    1440,
+    900
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "scope": "完整独立预览；手机为浏览器视口模拟",
+  "checks": [
+    {
+      "case": "desktop-all-four-visible-without-scroll",
+      "pass": true
+    },
+    {
+      "case": "no-directory-pagination-or-technical-tags",
+      "pass": true
+    },
+    {
+      "case": "mobile-four-visible-no-scroll-or-horizontal-overflow",
+      "pass": true
+    },
+    {
+      "case": "close-keeps-bedroom-and-restores-focus",
+      "pass": true
+    },
+    {
+      "case": "reopen-shows-four-items",
+      "pass": true
+    },
+    {
+      "case": "escape-closes-content-keeps-bedroom",
+      "pass": true
+    },
+    {
+      "case": "refresh-starts-clean-whole-house",
+      "pass": true
+    }
+  ]
+}

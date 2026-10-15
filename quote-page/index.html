@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    background: #111113;
+    font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+    color: #e8e6e3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 微妙的径向渐变背景，增加层次 */
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(60, 60, 68, 0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* 细微噪点纹理 */
+  body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ===== 语录展示区 ===== */
+  .quote-wrap {
+    position: relative;
+    max-width: 720px;
+    padding: 0 40px;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .quote-mark {
+    font-size: 80px;
+    line-height: 1;
+    color: rgba(232, 230, 227, 0.15);
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
+    user-select: none;
+  }
+
+  .quote-text {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    text-wrap: pretty;
+  }
+
+  .quote-text.fading {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .quote-author {
+    margin-top: 32px;
+    font-size: 15px;
+    color: rgba(232, 230, 227, 0.4);
+    letter-spacing: 0.15em;
+    transition: opacity 0.5s ease;
+  }
+
+  .quote-author.fading {
+    opacity: 0;
+  }
+
+  /* ===== 刷新按钮 ===== */
+  .refresh-btn {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(232, 230, 227, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(232, 230, 227, 0.6);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    z-index: 10;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  .refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(232, 230, 227, 0.3);
+    color: rgba(232, 230, 227, 0.9);
+  }
+
+  .refresh-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .refresh-btn.spinning svg {
+    transform: rotate(360deg);
+  }
+
+  /* ===== 计数 / 底部信息 ===== */
+  .counter {
+    position: fixed;
+    left: 40px;
+    bottom: 40px;
+    font-size: 12px;
+    color: rgba(232, 230, 227, 0.25);
+    letter-spacing: 0.1em;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    z-index: 10;
+  }
+
+  @media (max-width: 640px) {
+    .refresh-btn { right: 20px; bottom: 20px; }
+    .counter { left: 20px; bottom: 22px; }
+    .quote-wrap { padding: 0 28px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="quote-wrap">
+    <div class="quote-mark">"</div>
+    <div class="quote-text" id="quoteText"></div>
+    <div class="quote-author" id="quoteAuthor"></div>
+  </div>
+
+  <div class="counter" id="counter"></div>
+
+  <button class="refresh-btn" id="refreshBtn" aria-label="换一条">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="23 4 23 10 17 10"></polyline>
+      <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+    </svg>
+  </button>
+
+<script>
+  /* ============================================
+     语录库 —— 在这里增删你的语录
+     格式：{ text: "语录内容", author: "作者（可选）" }
+     ============================================ */
+  const quotes = [
+    { text: "睁开眼睛，这就是你新的机会。", author: "" },
+    { text: "种一棵树最好的时间是十年前，其次是现在。", author: "" },
+    { text: "你所做的事情也许暂时看不到成果，但不要灰心，你不是没有成长，而是在扎根。", author: "" },
+    { text: "生活不是等待风暴过去，而是学会在雨中起舞。", author: "" },
+    { text: "凡是过往，皆为序章。", author: "莎士比亚" },
+    { text: "一个人知道自己为什么而活，就可以忍受任何一种生活。", author: "尼采" },
+    { text: "你今天的努力，是幸运的伏笔。", author: "" },
+    { text: "星光不问赶路人，时光不负有心人。", author: "" },
+    { text: "山高路远，看世界，也找自己。", author: "" },
+    { text: "且视他人之疑目如盏盏鬼火，大胆地去走你的夜路。", author: "史铁生" },
+    { text: "于无声处听惊雷，于无色处见繁花。", author: "" },
+    { text: "不急于见胜负，慢慢来，比较快。", author: "" },
+    { text: "人生如逆旅，我亦是行人。", author: "苏轼" },
+    { text: "愿你出走半生，归来仍是少年。", author: "" },
+    { text: "所有的不期而遇，都在路上。", author: "" },
+    { text: "真正的发现之旅，不在于发现新大陆，而在于拥有新的眼光。", author: "普鲁斯特" },
+    { text: "把每一件简单的事做好，就是不简单。", author: "" },
+    { text: "世界上只有一种英雄主义，就是认清生活的真相后依然热爱它。", author: "罗曼·罗兰" },
+    { text: "慢慢来，谁还没有一个努力的过程。", author: "" },
+    { text: "今天也要加油鸭，不对，今天也要认真生活。", author: "" }
+  ];
+
+  const quoteText = document.getElementById("quoteText");
+  const quoteAuthor = document.getElementById("quoteAuthor");
+  const refreshBtn = document.getElementById("refreshBtn");
+  const counter = document.getElementById("counter");
+
+  let lastIndex = -1;
+  let isAnimating = false;
+
+  function getRandomIndex() {
+    if (quotes.length <= 1) return 0;
+    let idx;
+    do {
+      idx = Math.floor(Math.random() * quotes.length);
+    } while (idx === lastIndex);
+    return idx;
+  }
+
+  function showQuote() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    quoteText.classList.add("fading");
+    quoteAuthor.classList.add("fading");
+    refreshBtn.classList.add("spinning");
+
+    setTimeout(() => {
+      lastIndex = getRandomIndex();
+      const q = quotes[lastIndex];
+      quoteText.textContent = q.text;
+      quoteAuthor.textContent = q.author ? "—— " + q.author : "";
+      counter.textContent = (lastIndex + 1) + " / " + quotes.length;
+
+      quoteText.classList.remove("fading");
+      quoteAuthor.classList.remove("fading");
+    }, 500);
+
+    setTimeout(() => {
+      refreshBtn.classList.remove("spinning");
+      isAnimating = false;
+    }, 600);
+  }
+
+  refreshBtn.addEventListener("click", showQuote);
+
+  // 首次加载
+  showQuote();
+</script>
+
+</body>
+</html>

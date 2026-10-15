@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "commit": "69301e3f951eba1cacc797f7b8e84416ab956d92",
+  "mergedMain": "f046b9f4f6a7ec59cbeb221b408a4a9661cea43f",
+  "version": "20261013-diary-layout-v2",
+  "verified": [
+    "公网 HTML 新缓存版本",
+    "公网 CSS 与本地验收版本一致",
+    "公网 JS 与本地验收版本一致"
+  ],
+  "browser": "本地 6 种视口、11 个页面状态通过；公网浏览器工具超时"
+}

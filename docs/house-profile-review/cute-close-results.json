@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-09",
+  "desktop": [
+    1440,
+    900
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "scope": "完整预览；手机为浏览器视口模拟",
+  "checks": [
+    {
+      "case": "certificate-button-closes-top-layer",
+      "pass": true
+    },
+    {
+      "case": "resume-button-closes-content",
+      "pass": true
+    },
+    {
+      "case": "mobile-diary-button-44px-and-no-overflow",
+      "pass": true
+    },
+    {
+      "case": "diary-close-keeps-bedroom-and-focus",
+      "pass": true
+    },
+    {
+      "case": "mobile-certificate-title-and-button-no-overlap",
+      "pass": true
+    },
+    {
+      "case": "escape-still-closes-certificate-first",
+      "pass": true
+    },
+    {
+      "case": "mobile-music-icon-button-44px",
+      "pass": true
+    },
+    {
+      "case": "music-close-hides-panel-keeps-living-room",
+      "pass": true
+    },
+    {
+      "case": "mobile-project-clean-button-44px",
+      "pass": true
+    },
+    {
+      "case": "project-clean-exits-and-keeps-bathroom",
+      "pass": true
+    }
+  ]
+}

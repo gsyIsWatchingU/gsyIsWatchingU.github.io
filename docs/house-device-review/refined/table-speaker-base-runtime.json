@@ -1,0 +1,24 @@
+{
+  "asset": "table-speaker-base",
+  "state": "review",
+  "humanReview": "pending",
+  "sourceSha256": "287a8040cc1b850e239cb9c68400f4f72b9e6fbb6436cd7569b07d05a011f1ee",
+  "runtimeSha256": "1b8be2e0d2052f7c03d1f930bacea475ca20ded3943ef9df741e71d0307ad774",
+  "triangles": 2940,
+  "dimensionsYUp": [
+    0.7400000095367432,
+    0.7418041229248047,
+    0.7400000095367432
+  ],
+  "origin": "bottom-center",
+  "repairs": [
+    "merge coincident vertices",
+    "recalculate normals",
+    "preserve painted UV",
+    "normalize physical size and contact pivot"
+  ],
+  "removedMeshes": [
+    "table_purple quilt",
+    "table_pink shell"
+  ]
+}

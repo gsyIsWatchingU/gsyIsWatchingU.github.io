@@ -1,0 +1,28 @@
+{
+  "url": "https://gsyiswatchingu.github.io/",
+  "checks": [
+    {
+      "name": "loading text is 欢迎进入",
+      "pass": true
+    },
+    {
+      "name": "operation hint removed",
+      "pass": true
+    },
+    {
+      "name": "models loaded clean",
+      "pass": true
+    },
+    {
+      "name": "close button has no text ×",
+      "pass": true
+    },
+    {
+      "name": "resume closes",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "success": true
+}
