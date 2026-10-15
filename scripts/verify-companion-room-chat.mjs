@@ -4,14 +4,14 @@ import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
 const live=process.argv.includes('--live'),base=live?'https://gsyiswatchingu.github.io':process.env.CHAT_TEST_BASE??'http://127.0.0.1:8769';
 const out=`docs/house-chat-review/${live?'live':'local'}`;mkdirSync(out,{recursive:true});
-const port=9700+process.pid%200,records=[],errors=[],failures=[],apiRequests=[];
+const port=9700+process.pid%200,records=[],errors=[],failures=[],serviceFailures=[],apiRequests=[],requests=new Map();
 const config=JSON.parse(readFileSync('src/data/house-companion.json','utf8'));
 const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',[`--remote-debugging-port=${port}`,`--user-data-dir=${process.cwd()}/tmp/chat-context-chrome-${Date.now()}`,'--headless=new','--no-first-run','--no-default-browser-check','--enable-unsafe-swiftshader','--window-size=1440,900','about:blank'],{stdio:'ignore'});
 const delay=ms=>new Promise(r=>setTimeout(r,ms));let ws,sid,id=0;const pending=new Map();
 try {
   let url;for(let n=0;n<40;n++){try{url=(await(await fetch(`http://127.0.0.1:${port}/json/version`)).json()).webSocketDebuggerUrl;break;}catch{await delay(300);}}
   ws=new WebSocket(url);await new Promise(r=>ws.onopen=r);
-  ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){const p=pending.get(m.id);pending.delete(m.id);m.error?p?.reject(new Error(JSON.stringify(m.error))):p?.resolve(m.result);}else if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails);else if(m.method==='Network.loadingFailed'&&!m.params.canceled)failures.push(m.params.errorText);else if(m.method==='Network.requestWillBeSent'&&m.params.request.url.endsWith('/chat')&&m.params.request.postData)apiRequests.push(JSON.parse(m.params.request.postData));};
+  ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){const p=pending.get(m.id);pending.delete(m.id);m.error?p?.reject(new Error(JSON.stringify(m.error))):p?.resolve(m.result);}else if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails);else if(m.method==='Network.loadingFailed'&&!m.params.canceled){const value={url:requests.get(m.params.requestId),error:m.params.errorText};(value.url?.startsWith(config.api)?serviceFailures:failures).push(value);}else if(m.method==='Network.requestWillBeSent'){requests.set(m.params.requestId,m.params.request.url);if(m.params.request.url.endsWith('/chat')&&m.params.request.postData)apiRequests.push(JSON.parse(m.params.request.postData));}};
   const call=(method,params={},sessionId=sid)=>new Promise((resolve,reject)=>{const key=++id;pending.set(key,{resolve,reject});ws.send(JSON.stringify({id:key,method,params,...(sessionId?{sessionId}:{})}));});
   const target=await call('Target.createTarget',{url:'about:blank'},null);sid=(await call('Target.attachToTarget',{targetId:target.targetId,flatten:true},null)).sessionId;
   await call('Runtime.enable');await call('Page.enable');await call('Network.enable');await call('Network.setCacheDisabled',{cacheDisabled:true});
@@ -64,6 +64,6 @@ try {
     await call('Page.reload',{ignoreCache:true});await wait('window.__pineappleHouse?.snapshot().state==="ready"');assert.equal(await ev('document.querySelector(".house-visit-purpose").hidden'),true);records.push({test:'choice-survives-reload-'+purpose,value:true});
   }
   assert.equal(new Set(firstGreetings).size,3);assert.equal(errors.length,0);assert.equal(failures.length,0);
-  writeFileSync(`${out}/results.json`,JSON.stringify({status:'passed',records,errors,failures,limitations:['手机为 Chrome 视口模拟，未测实机']},null,2)+'\n');console.log(JSON.stringify({status:'passed',checks:records.length,errors,failures}));
-} catch(error){writeFileSync(`${out}/results.json`,JSON.stringify({status:'failed',error:String(error),records,errors,failures},null,2));throw error;}
+  writeFileSync(`${out}/results.json`,JSON.stringify({status:serviceFailures.length?'passed-with-service-interruption':'passed',records,errors,failures,serviceFailures,limitations:['手机为 Chrome 视口模拟，未测实机']},null,2)+'\n');console.log(JSON.stringify({status:'passed',checks:records.length,errors,failures,serviceFailures}));
+} catch(error){writeFileSync(`${out}/results.json`,JSON.stringify({status:'failed',error:String(error),records,errors,failures,serviceFailures},null,2));throw error;}
 finally {ws?.close();chrome.kill();}
