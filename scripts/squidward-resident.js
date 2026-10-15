@@ -50,6 +50,7 @@ export class SquidwardResident {
   notify(){this.onChange({action:this.action,label:this.label,paused:this.paused});}
   release(){this.activity?.exit?.();this.activity=null;this.intent=null;this.path=[];this.goal=null;this.requested=null;this.onGoal(null);}
   request(name,continuous=false) {
+    if(name==='wave'&&this.action==='wave'&&this.actionTime<this.duration&&this.currentAction.isRunning()){this.paused=false;this.notify();return;}
     this.paused=false;this.release();this.mode='manual';this.source='button';
     if(name==='walk'&&this.navigation)return this.goTo(this.navigation.random([this.actor.position.x,this.actor.position.z]),null,'button');
     this.transition(name,continuous?Infinity:name==='wave'?3.2:6);

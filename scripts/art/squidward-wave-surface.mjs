@@ -1,0 +1,21 @@
+import * as T from 'three';
+export function armSurface(){
+ const wrist=new T.Vector3(-.223,.838,.055),handY=new T.Vector3(-.07,-.145,.005).normalize(),handX=new T.Vector3(-handY.y,handY.x,0).normalize(),handZ=new T.Vector3().crossVectors(handX,handY).normalize();
+ const world=(x,y,z=0)=>wrist.clone().addScaledVector(handX,x).addScaledVector(handY,y).addScaledVector(handZ,z);
+ const pieces=[[[ -.171,1.141,.025],[-.205,1.005,.040],.029,.030],[[-.205,1.005,.040],[-.223,.838,.055],.030,.020]];
+ for(const [x,y,dx,dy,r]of [[-.023,.074,-.035,.139,.0125],[0,.088,0,.161,.013],[.023,.077,.033,.142,.0125],[.025,.052,.052,.086,.014]])pieces.push([world(x,y).toArray(),world(dx,dy).toArray(),r,r*.87]);
+ const segments=pieces.map(([a,b,r0,r1])=>({a:new T.Vector3().fromArray(a),d:new T.Vector3().fromArray(b).sub(new T.Vector3().fromArray(a)),r0,r1}));segments.forEach(s=>s.l2=s.d.lengthSq());
+ const smin=(a,b,k)=>{if(!Number.isFinite(a))return b;const h=T.MathUtils.clamp(.5+.5*(b-a)/k,0,1);return T.MathUtils.lerp(b,a,h)-k*h*(1-h);};
+ function field(p){let d=Infinity;for(const s of segments){const t=T.MathUtils.clamp(p.clone().sub(s.a).dot(s.d)/s.l2,0,1),v=p.distanceTo(s.a.clone().addScaledVector(s.d,t))-T.MathUtils.lerp(s.r0,s.r1,t);d=smin(d,v,.013);}const local=p.clone().sub(world(0,.065)),x=local.dot(handX)/.034,y=local.dot(handY)/.049,z=local.dot(handZ)/.021;return smin(d,(Math.hypot(x,y,z)-1)*.021,.013);}
+ const min=new T.Vector3(-.36,.620,-.025),step=.008,max=new T.Vector3(-.092,1.214,.111),size=[0,1,2].map(i=>Math.ceil((max.getComponent(i)-min.getComponent(i))/step)+1),grid=new Float32Array(size[0]*size[1]*size[2]);const id=(x,y,z)=>(z*size[1]+y)*size[0]+x,point=(x,y,z)=>new T.Vector3(min.x+x*step,min.y+y*step,min.z+z*step);
+ for(let z=0;z<size[2];z++)for(let y=0;y<size[1];y++)for(let x=0;x<size[0];x++)grid[id(x,y,z)]=field(point(x,y,z));
+ const offsets=[[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,0,1],[1,0,1],[1,1,1],[0,1,1]],tetra=[[0,5,1,6],[0,1,2,6],[0,2,3,6],[0,3,7,6],[0,7,4,6],[0,4,5,6]],positions=[],indices=[],cache=new Map();
+ const vertex=(a,b,va,vb)=>{const p=a.clone().lerp(b,va/(va-vb)),k=p.toArray().map(v=>v.toFixed(7)).join(',');if(!cache.has(k)){cache.set(k,positions.length/3);positions.push(...p.toArray());}return cache.get(k);};
+ for(let z=0;z<size[2]-1;z++)for(let y=0;y<size[1]-1;y++)for(let x=0;x<size[0]-1;x++){const values=offsets.map(([dx,dy,dz])=>grid[id(x+dx,y+dy,z+dz)]);if(values.every(v=>v>0)||values.every(v=>v<0))continue;const points=offsets.map(([dx,dy,dz])=>point(x+dx,y+dy,z+dz));for(const tet of tetra){const inside=tet.filter(i=>values[i]<0),outside=tet.filter(i=>values[i]>=0);if(!inside.length||!outside.length)continue;const edge=(a,b)=>vertex(points[a],points[b],values[a],values[b]);if(inside.length===1){const a=inside[0];indices.push(...outside.map(b=>edge(a,b)));}else if(inside.length===3){const b=outside[0];indices.push(...inside.map(a=>edge(a,b)));}else{const [a,b]=inside,[c,d]=outside,ac=edge(a,c),ad=edge(a,d),bc=edge(b,c),bd=edge(b,d);indices.push(ac,ad,bc,bc,ad,bd);}}}
+ const normals=[];for(let i=0;i<positions.length;i+=3){const p=new T.Vector3().fromArray(positions,i),e=.0002,n=new T.Vector3(...[0,1,2].map(k=>{const a=p.clone(),b=p.clone();a.setComponent(k,a.getComponent(k)+e);b.setComponent(k,b.getComponent(k)-e);return field(a)-field(b);})).normalize();normals.push(...n.toArray());}
+ for(let i=indices.length-3;i>=0;i-=3){const [a,b,c]=indices.slice(i,i+3);if(a===b||b===c||a===c)indices.splice(i,3);}
+ for(let i=0;i<indices.length;i+=3){const [a,b,c]=indices.slice(i,i+3),pa=new T.Vector3().fromArray(positions,a*3),pb=new T.Vector3().fromArray(positions,b*3),pc=new T.Vector3().fromArray(positions,c*3),n=new T.Vector3().crossVectors(pb.sub(pa),pc.sub(pa));if(n.dot(new T.Vector3().fromArray(normals,a*3))<0)[indices[i+1],indices[i+2]]=[indices[i+2],indices[i+1]];}
+ return{positions,normals,indices};
+}
+
+
