@@ -1,0 +1,595 @@
+{
+  "date": "2026-10-15",
+  "sourceCommit": "57051d8804f7e4d5b377a153f73e1ccdfcad3952",
+  "pagesRun": "https://github.com/gsyIsWatchingU/gsyIsWatchingU.github.io/actions/runs/38667240221",
+  "pagesConclusion": "success",
+  "resources": {
+    "checkedAt": "2026-10-15T01:46:42.210Z",
+    "results": [
+      {
+        "path": "index.html",
+        "status": 200,
+        "bytes": 44110,
+        "sha256": "de630832eb6acd34a415bf830d8ba0de6d6e36e167e4c00d9059b4661009e0ba",
+        "match": true
+      },
+      {
+        "path": "pineapple-house.html",
+        "status": 200,
+        "bytes": 44110,
+        "sha256": "de630832eb6acd34a415bf830d8ba0de6d6e36e167e4c00d9059b4661009e0ba",
+        "match": true
+      },
+      {
+        "path": "pineapple-companion.html",
+        "status": 200,
+        "bytes": 44140,
+        "sha256": "f76cad4976d72275760b39d9a341f36799d7d52c88ed331cfa6878803d98d519",
+        "match": true
+      },
+      {
+        "path": "assets/projects/algorithm-lab.png",
+        "status": 200,
+        "bytes": 99336,
+        "sha256": "4b3104b469f3b53d2ea5e919f93b811bbb021097d625452a2c56cd5bbe8da688",
+        "match": true
+      },
+      {
+        "path": "assets/projects/ai-project-hub-login.png",
+        "status": 200,
+        "bytes": 28451,
+        "sha256": "f142d22e4fadda88ef169184b89a539b7ae886665130d4de22c17373d4b71efd",
+        "match": true
+      },
+      {
+        "path": "assets/projects/etms-home.png",
+        "status": 200,
+        "bytes": 236938,
+        "sha256": "681490c4033c979b8dc7a745531cfcb0c60c58bab96237007adc707e0ce12430",
+        "match": true
+      },
+      {
+        "path": "assets/projects/icons/modeling-studio.png",
+        "status": 200,
+        "bytes": 122684,
+        "sha256": "d2b98e99d09cd63cd292ddd9c522847cc766bf2fda8a7b55b8978507cd0fa7fe",
+        "match": true
+      },
+      {
+        "path": "assets/projects/krusty-krab.png",
+        "status": 200,
+        "bytes": 328110,
+        "sha256": "59a2e44d5fa3faf20dacd7c4c69af139a24bee938c47ab85500097fcf383ac92",
+        "match": true
+      },
+      {
+        "path": "assets/projects/modeling-studio-login.png",
+        "status": 200,
+        "bytes": 24981,
+        "sha256": "b565ea0add93e6b57af4174f780e03be142d023bb9b1dc2ce40cfa713adc62bb",
+        "match": true
+      },
+      {
+        "path": "src/data/house-project-collection.json",
+        "status": 200,
+        "bytes": 6139,
+        "sha256": "eca19e022f20b35c13caf797fd2bfb6424bc1234a1f1f3688e5673f3b1a3d49d",
+        "match": true
+      },
+      {
+        "path": "src/data/projects.json",
+        "status": 200,
+        "bytes": 11002,
+        "sha256": "1e56d6bd82b2381e5f568a34d9228b7b19d3a7eb20f51f16429b162870829c1d",
+        "match": true
+      },
+      {
+        "path": "assets/pineapple-house.js",
+        "status": 200,
+        "bytes": 788128,
+        "sha256": "27d4ef2b40ad799f1e1aa44c749acf10b20b40261a1ab5f8d8fe9ceceb426ec4",
+        "match": true
+      },
+      {
+        "path": "assets/house-toilet-projects.js",
+        "status": 200,
+        "bytes": 38022,
+        "sha256": "367e7227e1e89d3c3da16a5025008b5444a0c7a25f9f4e95bcb75410a70b18b8",
+        "match": true
+      },
+      {
+        "path": "quote-page/index.html",
+        "status": 200,
+        "bytes": 7413,
+        "sha256": "160c8d41411cffa4e1fde1cf9109557c035307bd169c2d88417de8cefc65d3d5",
+        "match": true
+      }
+    ]
+  },
+  "localBrowser": {
+    "status": "passed",
+    "checks": 20
+  },
+  "liveBrowser": {
+    "status": "passed",
+    "records": [
+      {
+        "test": "house-ready",
+        "value": {
+          "state": "ready",
+          "view": "whole",
+          "loaded": [
+            "table",
+            "couch",
+            "siamese-cat",
+            "sink",
+            "chair",
+            "barrel",
+            "lounger",
+            "bed",
+            "chest",
+            "toilet",
+            "laptop",
+            "bluetooth-speaker",
+            "treasure",
+            "bathtub",
+            "structure"
+          ],
+          "failed": [],
+          "fps": 36.8,
+          "renderer": {
+            "frame": 109,
+            "calls": 316,
+            "triangles": 1207938,
+            "points": 0,
+            "lines": 648
+          },
+          "camera": [
+            1.5206684451225543,
+            8.703094304324878,
+            27.64851718404644
+          ],
+          "target": [
+            0,
+            5.8,
+            0
+          ],
+          "pet": {
+            "state": "idle",
+            "position": [
+              -1.55,
+              0,
+              1.6
+            ],
+            "yaw": -0.45128,
+            "steps": 0,
+            "reactions": 0,
+            "reducedMotion": false,
+            "bones": 18,
+            "crouch": 0,
+            "facingCamera": 0.96257,
+            "sit": 0,
+            "sideLie": 0,
+            "tailLift": 0.0149,
+            "interaction": false,
+            "head": [
+              0.0021015133731791024,
+              0.002619180772166761,
+              0.0020904936826093906,
+              0.9999921766542922
+            ],
+            "tail": [
+              -0.26791346760000057,
+              0.0027846698841687296,
+              0.004703556492515285,
+              0.9634274935691073
+            ],
+            "feet": [
+              {
+                "name": "back_r",
+                "swing": false,
+                "phase": 0,
+                "contacts": 0,
+                "target": [
+                  -1.345295804113772,
+                  0.04055995632554392,
+                  1.4529268092136716
+                ],
+                "actual": [
+                  -1.3452957998949613,
+                  0.04055994861636053,
+                  1.4529267930286236
+                ]
+              },
+              {
+                "name": "front_r",
+                "swing": false,
+                "phase": 0.75,
+                "contacts": 0,
+                "target": [
+                  -1.561064268310885,
+                  0.04056009514456732,
+                  1.8430062068137434
+                ],
+                "actual": [
+                  -1.5610642486492305,
+                  0.040560068463959764,
+                  1.843006148472073
+                ]
+              },
+              {
+                "name": "back_l",
+                "swing": false,
+                "phase": 0.5,
+                "contacts": 0,
+                "target": [
+                  -1.5664129659030244,
+                  0.04055988407135877,
+                  1.358546136954509
+                ],
+                "actual": [
+                  -1.5664129583229298,
+                  0.04055988576149082,
+                  1.3585461148963047
+                ]
+              },
+              {
+                "name": "front_l",
+                "swing": false,
+                "phase": 0.25,
+                "contacts": 0,
+                "target": [
+                  -1.7324526361100017,
+                  0.04056006654079784,
+                  1.7563034992544209
+                ],
+                "actual": [
+                  -1.7324526239594908,
+                  0.04056001734161181,
+                  1.7563034550855101
+                ]
+              }
+            ]
+          },
+          "toyChest": {
+            "open": false,
+            "companionPlaying": false,
+            "amount": 0,
+            "ready": false,
+            "lidParts": 2,
+            "paintings": 5,
+            "loaded": 0
+          },
+          "status": "review",
+          "structureOnly": false
+        }
+      },
+      {
+        "test": "resume-open-close",
+        "passed": true
+      },
+      {
+        "test": "project-1440-etms",
+        "value": {
+          "id": "etms",
+          "heading": "北师大教育培训管理服务平台",
+          "kind": "参与开发 · 项目负责人 · 2024.09—2026.05",
+          "images": [
+            {
+              "src": "./assets/projects/icons/etms.ico",
+              "width": 1768
+            },
+            {
+              "src": "./assets/projects/etms-home.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-1440-write-here",
+        "value": {
+          "id": "write-here",
+          "heading": "Lumi Doc",
+          "kind": "LIVE · GPU 部署环境",
+          "images": [
+            {
+              "src": "./assets/projects/icons/lumi-doc.png",
+              "width": 256
+            },
+            {
+              "src": "./assets/projects/lumi-doc/lumi-doc-editor-outline.png",
+              "width": 1400
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-1440-ai-project-hub",
+        "value": {
+          "id": "ai-project-hub",
+          "heading": "AI Project Hub",
+          "kind": "个人项目 · Agent 工程",
+          "images": [
+            {
+              "src": "./assets/projects/icons/ai-project-hub.png",
+              "width": 811
+            },
+            {
+              "src": "./assets/projects/ai-project-hub-login.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-1440-algorithm-lab",
+        "value": {
+          "id": "algorithm-lab",
+          "heading": "Algorithm Lab",
+          "kind": "MVP · GPU 演示环境",
+          "images": [
+            {
+              "src": "./assets/projects/icons/algorithm-lab.svg",
+              "width": 64
+            },
+            {
+              "src": "./assets/projects/algorithm-lab.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-1440-modeling-studio",
+        "value": {
+          "id": "modeling-studio",
+          "heading": "游戏生产工厂 · GPU 3D 建模",
+          "kind": "个人项目 · GPU 自托管",
+          "images": [
+            {
+              "src": "./assets/projects/icons/modeling-studio.png",
+              "width": 512
+            },
+            {
+              "src": "./assets/projects/modeling-studio-login.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-1440-krusty-krab",
+        "value": {
+          "id": "krusty-krab",
+          "heading": "罪恶蟹湖 · 夜班悬疑解谜",
+          "kind": "个人游戏 · 试玩 0.3.5",
+          "images": [
+            {
+              "src": "./assets/projects/icons/krusty-krab.png",
+              "width": 1254
+            },
+            {
+              "src": "./assets/projects/krusty-krab.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-1440-skill-atlas",
+        "value": {
+          "id": "skill-atlas",
+          "heading": "Skill Packer",
+          "kind": "桌面应用",
+          "images": [
+            {
+              "src": "./assets/projects/icons/skill-packer.png",
+              "width": 1080
+            },
+            {
+              "src": "./assets/projects/skill-packer-app.png",
+              "width": 1642
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-1440-cli-list",
+        "value": {
+          "id": "cli-list",
+          "heading": "CLI List",
+          "kind": "桌面应用",
+          "images": [
+            {
+              "src": "./assets/projects/icons/cli-list.svg",
+              "width": 150
+            },
+            {
+              "src": "./assets/projects/cli-list-app.png",
+              "width": 1060
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-panel-1440",
+        "value": {
+          "x": 916,
+          "y": 108,
+          "right": 1416,
+          "bottom": 872,
+          "pageWidth": 1440,
+          "viewport": 1440
+        }
+      },
+      {
+        "test": "project-390-etms",
+        "value": {
+          "id": "etms",
+          "heading": "北师大教育培训管理服务平台",
+          "kind": "参与开发 · 项目负责人 · 2024.09—2026.05",
+          "images": [
+            {
+              "src": "./assets/projects/icons/etms.ico",
+              "width": 1768
+            },
+            {
+              "src": "./assets/projects/etms-home.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-390-write-here",
+        "value": {
+          "id": "write-here",
+          "heading": "Lumi Doc",
+          "kind": "LIVE · GPU 部署环境",
+          "images": [
+            {
+              "src": "./assets/projects/icons/lumi-doc.png",
+              "width": 256
+            },
+            {
+              "src": "./assets/projects/lumi-doc/lumi-doc-editor-outline.png",
+              "width": 1400
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-390-ai-project-hub",
+        "value": {
+          "id": "ai-project-hub",
+          "heading": "AI Project Hub",
+          "kind": "个人项目 · Agent 工程",
+          "images": [
+            {
+              "src": "./assets/projects/icons/ai-project-hub.png",
+              "width": 811
+            },
+            {
+              "src": "./assets/projects/ai-project-hub-login.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-390-algorithm-lab",
+        "value": {
+          "id": "algorithm-lab",
+          "heading": "Algorithm Lab",
+          "kind": "MVP · GPU 演示环境",
+          "images": [
+            {
+              "src": "./assets/projects/icons/algorithm-lab.svg",
+              "width": 64
+            },
+            {
+              "src": "./assets/projects/algorithm-lab.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-390-modeling-studio",
+        "value": {
+          "id": "modeling-studio",
+          "heading": "游戏生产工厂 · GPU 3D 建模",
+          "kind": "个人项目 · GPU 自托管",
+          "images": [
+            {
+              "src": "./assets/projects/icons/modeling-studio.png",
+              "width": 512
+            },
+            {
+              "src": "./assets/projects/modeling-studio-login.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-390-krusty-krab",
+        "value": {
+          "id": "krusty-krab",
+          "heading": "罪恶蟹湖 · 夜班悬疑解谜",
+          "kind": "个人游戏 · 试玩 0.3.5",
+          "images": [
+            {
+              "src": "./assets/projects/icons/krusty-krab.png",
+              "width": 1254
+            },
+            {
+              "src": "./assets/projects/krusty-krab.png",
+              "width": 1440
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-390-skill-atlas",
+        "value": {
+          "id": "skill-atlas",
+          "heading": "Skill Packer",
+          "kind": "桌面应用",
+          "images": [
+            {
+              "src": "./assets/projects/icons/skill-packer.png",
+              "width": 1080
+            },
+            {
+              "src": "./assets/projects/skill-packer-app.png",
+              "width": 1642
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-390-cli-list",
+        "value": {
+          "id": "cli-list",
+          "heading": "CLI List",
+          "kind": "桌面应用",
+          "images": [
+            {
+              "src": "./assets/projects/icons/cli-list.svg",
+              "width": 150
+            },
+            {
+              "src": "./assets/projects/cli-list-app.png",
+              "width": 1060
+            }
+          ]
+        }
+      },
+      {
+        "test": "project-panel-390",
+        "value": {
+          "x": 10,
+          "y": 285.40625,
+          "right": 380,
+          "bottom": 834,
+          "pageWidth": 390,
+          "viewport": 390
+        }
+      }
+    ],
+    "log": {
+      "console": [],
+      "errors": [],
+      "failedReq": []
+    },
+    "limitations": [
+      "手机为浏览器视口模拟，实机未测"
+    ]
+  },
+  "limitations": [
+    "手机仅浏览器视口模拟，实机未测",
+    "历史候选资产保持待审，发布不代表视觉批准"
+  ]
+}
