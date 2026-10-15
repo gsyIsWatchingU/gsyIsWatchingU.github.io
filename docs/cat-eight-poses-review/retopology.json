@@ -1,0 +1,26 @@
+{
+  "method": "Voxel cleanup and Quadriflow body on owned GPU surface; original head retained; anatomical joint-plane weights at elbow/knee, protected soles, height-gated head/neck, shared seam weights and two ear bones",
+  "source": "/workspace/projects/pineapple-cat-eight-20261014/current-bound.glb",
+  "bodyVerticesBefore": 14295,
+  "bodyVerticesAfter": 9088,
+  "bodyQuads": 7777,
+  "bodyFaces": 9702,
+  "headVertices": 6073,
+  "maximumProjectionBeforeNeckCapRemoval": 0.11641215533018112,
+  "neckBoundaryPoints": 230,
+  "maximumNeckGap": 0.0,
+  "bodyTextureRebake": true,
+  "bodyTextureSize": [
+    2048,
+    2048
+  ],
+  "neckTextureTransferredTexels": 207394,
+  "bones": 33,
+  "faceTextureRebake": false,
+  "status": "review",
+  "humanReview": "pending",
+  "sourceSHA256": "ad4de13e92c56aac1c943cd47bf551e8237fa7edfb4e872560f97ce6b7d7d17c",
+  "outputSHA256": "073da67c541a14879452311ba85f0cb700011d74c56ae05a27a0529afdacdee8",
+  "jointFitting": "joint-fit.json",
+  "earBones": 2
+}

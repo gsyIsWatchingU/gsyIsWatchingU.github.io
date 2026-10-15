@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "sharedSamples": 239,
+  "meanRGBDifference": 0.9595536959553698,
+  "p95RGBDifference": 1.0,
+  "maximumRGBDifference": 173.33333333333334,
+  "scope": "实际头身接缝贴图采样；保留原始贴图 UV 接缝的单点极值"
+}

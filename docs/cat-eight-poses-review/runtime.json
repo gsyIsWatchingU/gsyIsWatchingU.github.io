@@ -2,10 +2,10 @@
   "status": "review",
   "humanReview": "pending",
   "source": "assets/house-review/props/siamese-cat-clean-bound.glb",
-  "sourceSHA256": "ad4de13e92c56aac1c943cd47bf551e8237fa7edfb4e872560f97ce6b7d7d17c",
+  "sourceSHA256": "073da67c541a14879452311ba85f0cb700011d74c56ae05a27a0529afdacdee8",
   "output": "assets/house-review/props/siamese-cat-eight-poses.glb",
-  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
-  "bones": 31,
+  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "bones": 33,
   "fps": 30,
   "duration": 4.6,
   "poses": [
@@ -69,9 +69,9 @@
     "rise_wall"
   ],
   "faceTextureRebake": false,
-  "bodyTextureRebake": false,
+  "bodyTextureRebake": true,
   "pillowSurface": "docs/cat-eight-poses-review/pillow-surface.json",
-  "skin": "Original GPU surface and texture; fitted quadruped skeleton with harmonic surface limb labels, continuous spine field and torso relaxation morph; normalized max four weights; standard glTF linear skinning with baked joint corrections",
+  "skin": "GPU-derived Quadriflow body, original head, surface-fitted elbow/knee joint-plane weights and protected soles; supported limb-plane IK and staged weight transfer; standard glTF linear skinning with volume-aware joint position and normal corrections",
   "props": {
     "pillow": {
       "url": "assets/house-review/props/bed.glb",

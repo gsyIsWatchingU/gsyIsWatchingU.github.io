@@ -1,327 +1,801 @@
 {
   "status": "review",
   "humanReview": "pending",
-  "method": "Baked elastic joint corrections on welded GPU surface; foot soles and skull locked; body/head seam solved as one surface",
-  "range": [
-    0.4,
-    1.95
-  ],
-  "keys": [
-    0.125,
-    0.25,
-    0.5,
-    0.75,
-    1
-  ],
-  "morphs": 45,
+  "method": "Baked volume-aware skinning and local Delta Mush; soles and skull locked; shared body/head surface normals; adaptive contact keys",
+  "smoothing": {
+    "steps": 12,
+    "weight": 0.4,
+    "radius": 0.075
+  },
+  "maximumAllowedCorrection": 0.065,
+  "tension": {
+    "poses": [
+      "stretch",
+      "pillow",
+      "belly"
+    ],
+    "steps": 32,
+    "maximumEdgeRatio": 2.05
+  },
+  "keysByPose": {
+    "side": [
+      0.125,
+      0.25,
+      0.375,
+      0.44,
+      0.5,
+      0.546875,
+      0.5625,
+      0.5703125,
+      0.578125,
+      0.625,
+      0.75,
+      0.86,
+      0.925,
+      1
+    ],
+    "prone": [
+      0.125,
+      0.25,
+      0.375,
+      0.44,
+      0.5,
+      0.5625,
+      0.625,
+      0.75,
+      0.86,
+      0.925,
+      1
+    ],
+    "belly": [
+      0.125,
+      0.25,
+      0.375,
+      0.46875,
+      0.5,
+      0.515625,
+      0.53125,
+      0.54296875,
+      0.5546875,
+      0.625,
+      0.71875,
+      0.75,
+      0.875,
+      1
+    ],
+    "curl": [
+      0.125,
+      0.25,
+      0.375,
+      0.5,
+      0.53125,
+      0.5625,
+      0.5859375,
+      0.609375,
+      0.625,
+      0.640625,
+      0.65625,
+      0.75,
+      0.875,
+      1
+    ],
+    "stretch": [
+      0.125,
+      0.25,
+      0.375,
+      0.5,
+      0.5625,
+      0.625,
+      0.75,
+      0.875,
+      1
+    ],
+    "pillow": [
+      0.125,
+      0.25,
+      0.375,
+      0.5,
+      0.5625,
+      0.609375,
+      0.625,
+      0.65625,
+      0.75,
+      0.875,
+      1
+    ],
+    "loaf": [
+      0.125,
+      0.25,
+      0.375,
+      0.44,
+      0.5,
+      0.5625,
+      0.625,
+      0.6875,
+      0.75,
+      0.86,
+      0.925,
+      1
+    ],
+    "wall": [
+      0.125,
+      0.25,
+      0.375,
+      0.5,
+      0.5625,
+      0.625,
+      0.6875,
+      0.75,
+      0.875,
+      1
+    ]
+  },
+  "morphs": 96,
   "records": [
     {
       "pose": "side",
       "t": 0.125,
-      "maximumCorrection": 1.1363418029681908e-9,
-      "maximumStretch": 1.00001440904331,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.006357661143120959,
+      "maximumStretch": 1.2504307287693683,
+      "geometricVertices": 14931
     },
     {
       "pose": "side",
       "t": 0.25,
-      "maximumCorrection": 0.0010467976243647482,
-      "maximumStretch": 1.2634724846494565,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.02470787077478997,
+      "maximumStretch": 2.3448280702629116,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.375,
+      "maximumCorrection": 0.036852667850658355,
+      "maximumStretch": 3.829964686678338,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.44,
+      "maximumCorrection": 0.03693550573176782,
+      "maximumStretch": 3.899114838819032,
+      "geometricVertices": 14931
     },
     {
       "pose": "side",
       "t": 0.5,
-      "maximumCorrection": 0.004268876899345135,
-      "maximumStretch": 1.5902064571625718,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.04266951496715782,
+      "maximumStretch": 3.6241056759599917,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.625,
+      "maximumCorrection": 0.0541046103667569,
+      "maximumStretch": 4.3772070982959255,
+      "geometricVertices": 14931
     },
     {
       "pose": "side",
       "t": 0.75,
-      "maximumCorrection": 0.00014349095756834278,
-      "maximumStretch": 1.250635200292307,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.04043915510224602,
+      "maximumStretch": 3.29704114738547,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.86,
+      "maximumCorrection": 0.03548691104687464,
+      "maximumStretch": 4.284821843686381,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.925,
+      "maximumCorrection": 0.03548691104687464,
+      "maximumStretch": 4.406376570411377,
+      "geometricVertices": 14931
     },
     {
       "pose": "side",
       "t": 1,
-      "maximumCorrection": 0.007991022853641588,
-      "maximumStretch": 2.1029775747950525,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03548691104687464,
+      "maximumStretch": 4.487128604809731,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.5625,
+      "maximumCorrection": 0.06004744014092914,
+      "maximumStretch": 4.307595130398607,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.546875,
+      "maximumCorrection": 0.05076014310979763,
+      "maximumStretch": 4.0142462546520425,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.578125,
+      "maximumCorrection": 0.05468126354349391,
+      "maximumStretch": 4.488647680707729,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "side",
+      "t": 0.5703125,
+      "maximumCorrection": 0.05727504030588777,
+      "maximumStretch": 4.414022846490146,
+      "geometricVertices": 14931
     },
     {
       "pose": "prone",
       "t": 0.125,
-      "maximumCorrection": 0.000003177887220999698,
-      "maximumStretch": 1.0350550801914635,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.0037757962530680527,
+      "maximumStretch": 1.1594087175632575,
+      "geometricVertices": 14931
     },
     {
       "pose": "prone",
       "t": 0.25,
-      "maximumCorrection": 0.0026245386223234814,
-      "maximumStretch": 1.4458445473674078,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.01427202386287455,
+      "maximumStretch": 1.5913717812412596,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "prone",
+      "t": 0.375,
+      "maximumCorrection": 0.023499322245482287,
+      "maximumStretch": 2.050159156608254,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "prone",
+      "t": 0.44,
+      "maximumCorrection": 0.027517930696866304,
+      "maximumStretch": 2.48382516002956,
+      "geometricVertices": 14931
     },
     {
       "pose": "prone",
       "t": 0.5,
-      "maximumCorrection": 0.03456357662493905,
-      "maximumStretch": 2.4375743160655805,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03198109348653988,
+      "maximumStretch": 2.9000449349748703,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "prone",
+      "t": 0.625,
+      "maximumCorrection": 0.03755662061400507,
+      "maximumStretch": 3.499989784427699,
+      "geometricVertices": 14931
     },
     {
       "pose": "prone",
       "t": 0.75,
-      "maximumCorrection": 0.043388516421061486,
-      "maximumStretch": 2.388703064953303,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03782746482040109,
+      "maximumStretch": 4.374490125375289,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "prone",
+      "t": 0.86,
+      "maximumCorrection": 0.03782747681289575,
+      "maximumStretch": 6.371789469756541,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "prone",
+      "t": 0.925,
+      "maximumCorrection": 0.03782748340159477,
+      "maximumStretch": 6.694129304569032,
+      "geometricVertices": 14931
     },
     {
       "pose": "prone",
       "t": 1,
-      "maximumCorrection": 0.043388509967352,
-      "maximumStretch": 2.804699821857304,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03782748678648088,
+      "maximumStretch": 6.694129304569032,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "prone",
+      "t": 0.5625,
+      "maximumCorrection": 0.03602042017867548,
+      "maximumStretch": 3.195267587512792,
+      "geometricVertices": 14931
     },
     {
       "pose": "belly",
       "t": 0.125,
-      "maximumCorrection": 3.765719736270207e-7,
-      "maximumStretch": 1.0154985209791005,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.006357661143120959,
+      "maximumStretch": 1.2504307287693683,
+      "geometricVertices": 14931
     },
     {
       "pose": "belly",
       "t": 0.25,
-      "maximumCorrection": 0.00005588380222324273,
-      "maximumStretch": 1.1895590581998399,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.02470787077478997,
+      "maximumStretch": 2.050000357576296,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.375,
+      "maximumCorrection": 0.036852667850658355,
+      "maximumStretch": 2.1565399431924557,
+      "geometricVertices": 14931
     },
     {
       "pose": "belly",
       "t": 0.5,
-      "maximumCorrection": 0.0008972730554585679,
-      "maximumStretch": 1.7595516723836233,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.049095149113380046,
+      "maximumStretch": 2.088712772044524,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.625,
+      "maximumCorrection": 0.061386939152413326,
+      "maximumStretch": 2.5989662548218253,
+      "geometricVertices": 14931
     },
     {
       "pose": "belly",
       "t": 0.75,
-      "maximumCorrection": 0.05083486722090033,
-      "maximumStretch": 4.102923154429935,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03078233512940654,
+      "maximumStretch": 3.1867646084446495,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.875,
+      "maximumCorrection": 0.03078234482916824,
+      "maximumStretch": 3.153614364440476,
+      "geometricVertices": 14931
     },
     {
       "pose": "belly",
       "t": 1,
-      "maximumCorrection": 0.05183915354592648,
-      "maximumStretch": 4.679243325831402,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.030782366582765095,
+      "maximumStretch": 2.995780325651222,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.46875,
+      "maximumCorrection": 0.038477999387726364,
+      "maximumStretch": 2.146245380876611,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.53125,
+      "maximumCorrection": 0.05434152331030512,
+      "maximumStretch": 2.0609661521687004,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.71875,
+      "maximumCorrection": 0.03135465020492593,
+      "maximumStretch": 3.158448701639857,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.515625,
+      "maximumCorrection": 0.053644664093422716,
+      "maximumStretch": 2.0595573116130366,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.5546875,
+      "maximumCorrection": 0.05048170159247875,
+      "maximumStretch": 2.1191822386760983,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "belly",
+      "t": 0.54296875,
+      "maximumCorrection": 0.052555260789807545,
+      "maximumStretch": 2.079789366425058,
+      "geometricVertices": 14931
     },
     {
       "pose": "curl",
       "t": 0.125,
-      "maximumCorrection": 0.00000529400996455446,
-      "maximumStretch": 1.0263785932898262,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.0037757962530680527,
+      "maximumStretch": 1.1594087175632575,
+      "geometricVertices": 14931
     },
     {
       "pose": "curl",
       "t": 0.25,
-      "maximumCorrection": 0.0015744260439356657,
-      "maximumStretch": 1.4593715111152794,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.01427202386287455,
+      "maximumStretch": 1.5913717812412596,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.375,
+      "maximumCorrection": 0.023499322245482287,
+      "maximumStretch": 2.050159156608254,
+      "geometricVertices": 14931
     },
     {
       "pose": "curl",
       "t": 0.5,
-      "maximumCorrection": 0.03214963798909762,
-      "maximumStretch": 2.2059470069996645,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03198109348653988,
+      "maximumStretch": 2.9000449349748703,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.625,
+      "maximumCorrection": 0.04761917167604516,
+      "maximumStretch": 3.7964665512242433,
+      "geometricVertices": 14931
     },
     {
       "pose": "curl",
       "t": 0.75,
-      "maximumCorrection": 0.040431040108062526,
-      "maximumStretch": 2.891196562121844,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.037176651672035474,
+      "maximumStretch": 5.077508999657164,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.875,
+      "maximumCorrection": 0.04028519587204752,
+      "maximumStretch": 8.490332313853713,
+      "geometricVertices": 14931
     },
     {
       "pose": "curl",
       "t": 1,
-      "maximumCorrection": 0.04762994455815836,
-      "maximumStretch": 3.6963987850939213,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.0380129280394121,
+      "maximumStretch": 9.304514963431599,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.5625,
+      "maximumCorrection": 0.03601639106416877,
+      "maximumStretch": 3.1955177048344843,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.65625,
+      "maximumCorrection": 0.03753931181822769,
+      "maximumStretch": 3.641031112962994,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.53125,
+      "maximumCorrection": 0.034304319899473606,
+      "maximumStretch": 3.0773136214711667,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.609375,
+      "maximumCorrection": 0.039686596194706214,
+      "maximumStretch": 3.6765585806590324,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.640625,
+      "maximumCorrection": 0.037657745563730305,
+      "maximumStretch": 3.6774673178398407,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "curl",
+      "t": 0.5859375,
+      "maximumCorrection": 0.03682859110988636,
+      "maximumStretch": 3.3383219776204407,
+      "geometricVertices": 14931
     },
     {
       "pose": "stretch",
       "t": 0.125,
-      "maximumCorrection": 0.000003850156532419407,
-      "maximumStretch": 1.0555436504716287,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.0037757962530680527,
+      "maximumStretch": 1.1594087175632575,
+      "geometricVertices": 14931
     },
     {
       "pose": "stretch",
       "t": 0.25,
-      "maximumCorrection": 0.0014670060541433928,
-      "maximumStretch": 1.7059896330777404,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.01427202386287455,
+      "maximumStretch": 1.5913717812412596,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "stretch",
+      "t": 0.375,
+      "maximumCorrection": 0.023499322245482287,
+      "maximumStretch": 2.050000000000004,
+      "geometricVertices": 14931
     },
     {
       "pose": "stretch",
       "t": 0.5,
-      "maximumCorrection": 0.034379742397222274,
-      "maximumStretch": 2.5333058820916503,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03198109348653988,
+      "maximumStretch": 2.05219968655444,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "stretch",
+      "t": 0.625,
+      "maximumCorrection": 0.037085272464252896,
+      "maximumStretch": 2.1262064490249073,
+      "geometricVertices": 14931
     },
     {
       "pose": "stretch",
       "t": 0.75,
-      "maximumCorrection": 0.04920297550770409,
-      "maximumStretch": 2.807480561803981,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.044732619239214094,
+      "maximumStretch": 2.231071660885503,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "stretch",
+      "t": 0.875,
+      "maximumCorrection": 0.05707256938919818,
+      "maximumStretch": 2.4328731354511364,
+      "geometricVertices": 14931
     },
     {
       "pose": "stretch",
       "t": 1,
-      "maximumCorrection": 0.049202978141483396,
-      "maximumStretch": 2.8074805618040397,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.059623014178578355,
+      "maximumStretch": 2.4916396709170208,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "stretch",
+      "t": 0.5625,
+      "maximumCorrection": 0.03602042017867548,
+      "maximumStretch": 2.0723020272794597,
+      "geometricVertices": 14931
     },
     {
       "pose": "pillow",
       "t": 0.125,
-      "maximumCorrection": 0.00008527538102177887,
-      "maximumStretch": 1.1026442212736745,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.0037757962530680527,
+      "maximumStretch": 1.1594087175632575,
+      "geometricVertices": 14931
     },
     {
       "pose": "pillow",
       "t": 0.25,
-      "maximumCorrection": 0.016910173191556677,
-      "maximumStretch": 2.1409120854914967,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.015491814914276623,
+      "maximumStretch": 1.7394392191813755,
+      "geometricVertices": 14931
     },
     {
       "pose": "pillow",
       "t": 0.375,
-      "maximumCorrection": 0.027464293013551307,
-      "maximumStretch": 2.263687760254599,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.023499322245482287,
+      "maximumStretch": 2.0500000000011527,
+      "geometricVertices": 14931
     },
     {
       "pose": "pillow",
       "t": 0.5,
-      "maximumCorrection": 0.0455403744186199,
-      "maximumStretch": 2.3592449702064315,
-      "geometricVertices": 20138
-    },
-    {
-      "pose": "pillow",
-      "t": 0.5625,
-      "maximumCorrection": 0.053616489300111696,
-      "maximumStretch": 2.3943606740532646,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03198109348653988,
+      "maximumStretch": 2.0846776966822707,
+      "geometricVertices": 14931
     },
     {
       "pose": "pillow",
       "t": 0.625,
-      "maximumCorrection": 0.05717507753362506,
-      "maximumStretch": 2.429870540405902,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03896080580569234,
+      "maximumStretch": 2.2383116060844035,
+      "geometricVertices": 14931
     },
     {
       "pose": "pillow",
       "t": 0.75,
-      "maximumCorrection": 0.057813445624932285,
-      "maximumStretch": 2.438558583363181,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.039309489298373024,
+      "maximumStretch": 2.2454449583003178,
+      "geometricVertices": 14931
     },
     {
       "pose": "pillow",
       "t": 0.875,
-      "maximumCorrection": 0.057813461790227,
-      "maximumStretch": 2.4385489440348045,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.039309489298373024,
+      "maximumStretch": 2.4397049106362383,
+      "geometricVertices": 14931
     },
     {
       "pose": "pillow",
       "t": 1,
-      "maximumCorrection": 0.05781348065311562,
-      "maximumStretch": 2.52837343559626,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.039309489298373024,
+      "maximumStretch": 2.3891054953031814,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "pillow",
+      "t": 0.5625,
+      "maximumCorrection": 0.03725376908672101,
+      "maximumStretch": 2.207013647668422,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "pillow",
+      "t": 0.65625,
+      "maximumCorrection": 0.03922923509287178,
+      "maximumStretch": 2.2441535607845435,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "pillow",
+      "t": 0.609375,
+      "maximumCorrection": 0.03854563644724456,
+      "maximumStretch": 2.2303378234942706,
+      "geometricVertices": 14931
     },
     {
       "pose": "loaf",
       "t": 0.125,
-      "maximumCorrection": 0.000005291157090111241,
-      "maximumStretch": 1.0264265202168417,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.0037757962530680527,
+      "maximumStretch": 1.1594087175632575,
+      "geometricVertices": 14931
     },
     {
       "pose": "loaf",
       "t": 0.25,
-      "maximumCorrection": 0.0015933573819276925,
-      "maximumStretch": 1.4589578847604943,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.01427202386287455,
+      "maximumStretch": 1.5913717812412596,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "loaf",
+      "t": 0.375,
+      "maximumCorrection": 0.023499322245482287,
+      "maximumStretch": 2.050159156608254,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "loaf",
+      "t": 0.44,
+      "maximumCorrection": 0.027517930696866304,
+      "maximumStretch": 2.48382516002956,
+      "geometricVertices": 14931
     },
     {
       "pose": "loaf",
       "t": 0.5,
-      "maximumCorrection": 0.03161893542934056,
-      "maximumStretch": 2.210969649077,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03198109348653988,
+      "maximumStretch": 2.9000449349748703,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "loaf",
+      "t": 0.625,
+      "maximumCorrection": 0.03755662061400507,
+      "maximumStretch": 3.2873893125485827,
+      "geometricVertices": 14931
     },
     {
       "pose": "loaf",
       "t": 0.75,
-      "maximumCorrection": 0.03835650282707504,
-      "maximumStretch": 2.4283815666484934,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03782746482040109,
+      "maximumStretch": 4.866043990171413,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "loaf",
+      "t": 0.86,
+      "maximumCorrection": 0.03782747681289575,
+      "maximumStretch": 7.820178382240066,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "loaf",
+      "t": 0.925,
+      "maximumCorrection": 0.03782748340159477,
+      "maximumStretch": 8.515333056404073,
+      "geometricVertices": 14931
     },
     {
       "pose": "loaf",
       "t": 1,
-      "maximumCorrection": 0.04116870763106301,
-      "maximumStretch": 2.478382613790223,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03782748678648088,
+      "maximumStretch": 8.755311350004648,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "loaf",
+      "t": 0.5625,
+      "maximumCorrection": 0.03602042017867548,
+      "maximumStretch": 3.194913558319216,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "loaf",
+      "t": 0.6875,
+      "maximumCorrection": 0.037822463868381,
+      "maximumStretch": 3.664020329358592,
+      "geometricVertices": 14931
     },
     {
       "pose": "wall",
       "t": 0.125,
-      "maximumCorrection": 0.000005291157090111241,
-      "maximumStretch": 1.0264265202168417,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.0037757962530680527,
+      "maximumStretch": 1.1594087175632575,
+      "geometricVertices": 14931
     },
     {
       "pose": "wall",
       "t": 0.25,
-      "maximumCorrection": 0.0015933573819276925,
-      "maximumStretch": 1.4589578847604943,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.01427202386287455,
+      "maximumStretch": 1.5913717812412596,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "wall",
+      "t": 0.375,
+      "maximumCorrection": 0.023499322245482287,
+      "maximumStretch": 2.050159156608254,
+      "geometricVertices": 14931
     },
     {
       "pose": "wall",
       "t": 0.5,
-      "maximumCorrection": 0.03161893542934056,
-      "maximumStretch": 2.210969649077,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03198109348653988,
+      "maximumStretch": 2.9000449349748703,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "wall",
+      "t": 0.625,
+      "maximumCorrection": 0.03755662061400507,
+      "maximumStretch": 3.2873893125485827,
+      "geometricVertices": 14931
     },
     {
       "pose": "wall",
       "t": 0.75,
-      "maximumCorrection": 0.037642088430603945,
-      "maximumStretch": 2.4283815875634627,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.0378274647971321,
+      "maximumStretch": 4.866043990167414,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "wall",
+      "t": 0.875,
+      "maximumCorrection": 0.03782747839381657,
+      "maximumStretch": 8.047471374004408,
+      "geometricVertices": 14931
     },
     {
       "pose": "wall",
       "t": 1,
-      "maximumCorrection": 0.04175785106164553,
-      "maximumStretch": 2.4783833587137982,
-      "geometricVertices": 20138
+      "maximumCorrection": 0.03782748662906048,
+      "maximumStretch": 8.755311349989611,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "wall",
+      "t": 0.5625,
+      "maximumCorrection": 0.03602042017867548,
+      "maximumStretch": 3.194913558319216,
+      "geometricVertices": 14931
+    },
+    {
+      "pose": "wall",
+      "t": 0.6875,
+      "maximumCorrection": 0.037822463867100246,
+      "maximumStretch": 3.6640203293385665,
+      "geometricVertices": 14931
     }
   ]
 }

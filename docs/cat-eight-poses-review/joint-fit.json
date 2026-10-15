@@ -1,0 +1,38 @@
+{
+  "method": "Unique source surface vertices in elbow/knee height slices, family mass > 0.6; X/Z centroids place joint inside actual limb",
+  "sourceSHA256": "801818d23b92ccdb30248ce40cd72501470742fb417e9a2b093a1b337d16dbfe",
+  "joints": {
+    "DEF_front_l_lower": {
+      "samples": 21,
+      "position": [
+        -0.11163221264169329,
+        0.19058182196957724,
+        0.24415368977047147
+      ]
+    },
+    "DEF_front_r_lower": {
+      "samples": 26,
+      "position": [
+        0.11273774619285877,
+        0.1894895056119332,
+        0.2555390040461834
+      ]
+    },
+    "DEF_back_l_lower": {
+      "samples": 30,
+      "position": [
+        -0.10278893038630485,
+        0.2003655438621839,
+        -0.0497472753127416
+      ]
+    },
+    "DEF_back_r_lower": {
+      "samples": 29,
+      "position": [
+        0.11380318475180659,
+        0.19859687778456458,
+        -0.12968396292678241
+      ]
+    }
+  }
+}

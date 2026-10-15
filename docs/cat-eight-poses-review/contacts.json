@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "scope": "终态实际胸腹/侧腹/背部接地；头部与地面或实际前爪的支撑距离，防止仅脚掌接地而身体悬空。",
+  "records": [
+    {
+      "pose": "side",
+      "bodyContact": "侧腹或背部",
+      "bodyGap": 0.006719736254790364,
+      "headToSupportGap": 0.019102474367338227
+    },
+    {
+      "pose": "prone",
+      "bodyContact": "胸腹",
+      "bodyGap": 0.0060951616941483005,
+      "headToSupportGap": 0.00316057633229104
+    },
+    {
+      "pose": "belly",
+      "bodyContact": "侧腹或背部",
+      "bodyGap": 0.004999994246361211,
+      "headToSupportGap": 0.017710618161469217
+    },
+    {
+      "pose": "curl",
+      "bodyContact": "胸腹",
+      "bodyGap": 0.006520243499819628,
+      "headToSupportGap": 0.0027747633169011507
+    },
+    {
+      "pose": "stretch",
+      "bodyContact": "胸腹",
+      "bodyGap": 0.00609466103078304,
+      "headToSupportGap": -0.000029613651054700985
+    },
+    {
+      "pose": "pillow",
+      "bodyContact": "胸腹",
+      "bodyGap": 0.005610640958561519,
+      "headToSupportGap": 1.7277857561337484e-8
+    },
+    {
+      "pose": "loaf",
+      "bodyContact": "胸腹",
+      "bodyGap": 0.0060961308905211195,
+      "headToSupportGap": 0.00008927444177175576
+    },
+    {
+      "pose": "wall",
+      "bodyContact": "胸腹",
+      "bodyGap": 0.006096130889559625,
+      "headToSupportGap": 0.00008927444177175576
+    }
+  ],
+  "failures": []
+}

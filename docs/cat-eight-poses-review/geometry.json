@@ -2,94 +2,95 @@
   "status": "passed",
   "humanReview": "pending",
   "scope": "实际导出的 16 段骨骼动作：8 种进入片段的 1112 帧全网格接地、连续性、拉伸分布；静止终态检查 UV 接缝张开；起身片段为逐帧逆序；脸部贴图像素保留。观感仍需审看。",
-  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
-  "bones": 31,
+  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "bones": 33,
   "clips": 16,
   "parts": [
     {
       "name": "siamese_cat",
-      "vertices": 16225,
-      "seamGroups": 1821,
-      "maxWeightError": 4.470348358154297e-8
+      "vertices": 10718,
+      "seamGroups": 1516,
+      "maxWeightError": 4.1873136069625616e-8
     },
     {
       "name": "siamese_cat_head",
       "vertices": 8139,
       "seamGroups": 1688,
-      "maxWeightError": 2.9802322387695312e-8
+      "maxWeightError": 3.725290298461914e-8
     }
   ],
+  "maxInitialShapeError": 8.205853231130066e-9,
   "maximumUVSeamOpening": 0,
   "headBodySeamPairs": 239,
   "maximumHeadBodyOpening": 0,
-  "minimumFloor": 0.0029999694889157862,
-  "maxFrameDisplacement": 0.038796558971526895,
-  "p99EdgeStretch": 2.1308752196498366,
-  "maxEdgeStretch": 4.812007097910094,
+  "minimumFloor": 0.002999980256460104,
+  "maxFrameDisplacement": 0.04075243490369499,
+  "p99EdgeStretch": 2.160938671216699,
+  "maxEdgeStretch": 9.304514629660213,
   "records": [
     {
       "pose": "side",
       "frames": 139,
-      "minimumFloor": 0.0029999789483027145,
-      "maxFrameDisplacement": 0.016792366867580642,
-      "p99EdgeStretch": 1.7087752878889493,
-      "maxEdgeStretch": 2.1029775691709838
+      "minimumFloor": 0.0029999837833303337,
+      "maxFrameDisplacement": 0.04075243490369499,
+      "p99EdgeStretch": 2.00448101187271,
+      "maxEdgeStretch": 4.545825958818253
     },
     {
       "pose": "prone",
       "frames": 139,
-      "minimumFloor": 0.0029999774017407726,
-      "maxFrameDisplacement": 0.008382612548581438,
-      "p99EdgeStretch": 1.96671692903815,
-      "maxEdgeStretch": 2.804699844279251
+      "minimumFloor": 0.002999980256460104,
+      "maxFrameDisplacement": 0.019255006987367953,
+      "p99EdgeStretch": 1.9691442263605792,
+      "maxEdgeStretch": 6.694129392259813
     },
     {
       "pose": "belly",
       "frames": 139,
-      "minimumFloor": 0.0029999773829644666,
-      "maxFrameDisplacement": 0.038796558971526895,
-      "p99EdgeStretch": 2.092061540865152,
-      "maxEdgeStretch": 4.812007097910094
+      "minimumFloor": 0.002999984022788013,
+      "maxFrameDisplacement": 0.04055874943979777,
+      "p99EdgeStretch": 2.121039330808678,
+      "maxEdgeStretch": 3.2151584677741107
     },
     {
       "pose": "curl",
       "frames": 139,
-      "minimumFloor": 0.0029999793198559263,
-      "maxFrameDisplacement": 0.017450611057634277,
-      "p99EdgeStretch": 1.9646693067440477,
-      "maxEdgeStretch": 3.6963986456890154
+      "minimumFloor": 0.002999980256460104,
+      "maxFrameDisplacement": 0.020103590750010888,
+      "p99EdgeStretch": 2.160938671216699,
+      "maxEdgeStretch": 9.304514629660213
     },
     {
       "pose": "stretch",
       "frames": 139,
-      "minimumFloor": 0.0029999694889157862,
-      "maxFrameDisplacement": 0.008562926647684894,
-      "p99EdgeStretch": 2.1308752196498366,
-      "maxEdgeStretch": 2.931321289759887
+      "minimumFloor": 0.002999980256460104,
+      "maxFrameDisplacement": 0.019591067131285014,
+      "p99EdgeStretch": 2.0943489965142805,
+      "maxEdgeStretch": 2.5419363251141136
     },
     {
       "pose": "pillow",
       "frames": 139,
-      "minimumFloor": 0.0029999773822782516,
-      "maxFrameDisplacement": 0.020611465906152048,
-      "p99EdgeStretch": 1.9644776797349823,
-      "maxEdgeStretch": 2.531672822754863
+      "minimumFloor": 0.002999980256460104,
+      "maxFrameDisplacement": 0.008984957852448287,
+      "p99EdgeStretch": 2.0519683419932515,
+      "maxEdgeStretch": 2.4370817120756563
     },
     {
       "pose": "loaf",
       "frames": 139,
-      "minimumFloor": 0.002999980023182758,
-      "maxFrameDisplacement": 0.008907837120595136,
-      "p99EdgeStretch": 1.9490123908407468,
-      "maxEdgeStretch": 2.519518254258539
+      "minimumFloor": 0.002999980256460104,
+      "maxFrameDisplacement": 0.01722964455736561,
+      "p99EdgeStretch": 2.1329879237528067,
+      "maxEdgeStretch": 8.755311244414509
     },
     {
       "pose": "wall",
       "frames": 139,
-      "minimumFloor": 0.002999980023182758,
-      "maxFrameDisplacement": 0.009044344538236342,
-      "p99EdgeStretch": 1.9490090906923827,
-      "maxEdgeStretch": 2.5195189914553353
+      "minimumFloor": 0.002999980256460104,
+      "maxFrameDisplacement": 0.017528674493831824,
+      "p99EdgeStretch": 2.132987901893269,
+      "maxEdgeStretch": 8.755311261215047
     }
   ],
   "failures": []

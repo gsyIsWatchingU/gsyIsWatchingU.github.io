@@ -1,13 +1,14 @@
 {
   "status": "review",
-  "method": "Original GPU surface and UV; harmonic surface limb labels with continuous spine weights; heat proxy initializes tail and boundary",
+  "method": "Owned GPU body retopology; surface-fitted elbow/knee joint-plane weights; protected soles; shared seam; height-gated neck and two ear bones",
   "parts": {
-    "siamese_cat": 14295,
+    "siamese_cat": 9088,
     "siamese_cat_head": 6073
   },
   "maxWeights": 4,
-  "maxWeightError": 4.941936015967485e-8,
+  "maxWeightError": 4.941936015967485e-08,
   "faceTextureRebake": false,
-  "bodyTextureRebake": false,
-  "outputSHA256": "ad4de13e92c56aac1c943cd47bf551e8237fa7edfb4e872560f97ce6b7d7d17c"
+  "bodyTextureRebake": true,
+  "outputSHA256": "073da67c541a14879452311ba85f0cb700011d74c56ae05a27a0529afdacdee8",
+  "bones": 33
 }

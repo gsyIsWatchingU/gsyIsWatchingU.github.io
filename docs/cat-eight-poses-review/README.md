@@ -1,23 +1,29 @@
-# 猫咪睡姿重做候选
+# 猫咪坐卧修复候选
 
-[独立预览](./)参考用户提供的八种睡姿，保留暹罗幼猫造型。正式页保留原猫，坐卧继续停用。
+[独立预览](./?v=20261015-cat-supported-v3)。正式页继续保留原猫，坐卧停用，当前候选尚未获得用户视觉确认。
 
-- 来源：自有 L20 的 Hunyuan3D；参考图由 ImageGen 制作。任务、输入哈希与来源见 `provenance.json`、`manifest.json`。
-- 原 GPU 曲面与贴图保留；重划头颈区域，肩髋和肘膝重新拟合，四肢使用连续权重与脚掌保护，尾骨按实际蒙皮坐标拟合。
-- 31 骨、每点最多四权重；关节补形锁定脚掌和头骨，头身接缝合并求解，平滑关节修形并烘焙表面法线。标准 GLB 线性蒙皮，无专用双四元数适配器依赖。
-- 八段躺下及八段起身，均为 4.6 秒、30 帧/秒。侧躺先屈腿再侧身；卧睡收拢前爪；靠枕先抬前爪、枕头滑入后再落爪靠头；用下巴/脸颊判断头部支撑。
-- 修复打招呼转头、抬尾逐帧累加；每帧先撤销旧偏移，再施加当前偏移。浏览器实测旋转与 GLB 终态一致。
-- 眼睑、细胡须、短绒毛及耳内色彩由预览材质控制，不改原始贴图。
-- `geometry.json` 检查实际动画；`local/` 保存完整连续帧、多视角、裸网格和录像；`live/` 保存线上终态、对照图和检查摘要，完整线上帧及录像留在本机。技术检查不代表用户视觉批准。
+- 沿用自有 L20 的 Hunyuan3D 猫咪，未重新生成 GPU 模型。Blender 重建身体四边面：9088 点、7777 四边面；保留原头部曲面及脸部贴图像素。来源见 `provenance.json`、`retopology.json`。
+- 33 骨、每点最多四权重；按腿部曲面截面拟合肘膝，记录见 `joint-fit.json`；重绑肘膝、头颈和接缝，耳朵可折转。身体贴图重新烘焙至 2048²，颈部从原贴图传色，避免烘焙颈圈。
+- 动作先后肢承重、屈前肘、胸腹降低，再侧转或收腕。脚掌约束、肘膝平面及肩髋扭转共同求解；补形与法线烘焙为标准 GLB，无专用蒙皮着色器依赖。
+- 胸腹/侧腹接地与头部支撑单独检查，避免仅脚掌着地而身体悬空。靠枕抬爪后再落下，翻身时头颈和耳朵随支撑面调整。
+- 八种进入与八种起身片段均为 4.6 秒、30 帧/秒。新增慢速、可拖动进度条和素模切换；拖动暂停，继续后沿当前进度播放。
+- `geometry.json` 为 1112 帧网格检查；`contacts.json` 为身体/头部支撑检查；`neck-colors.json` 为贴图接缝采样。`local/` 保存连续帧、多角度、素模及录像，`live/` 保存公网摘要。
+- 技术检查通过不代表造型已获认可。肩髋仍有可见折痕，不能据此声称达到影视动画质量；手机实机性能未验证。
 
 ```powershell
 node scripts/art/build_cat_eight_poses.mjs
 npm run build
 npm run check
+python scripts/art/analyze_cat_face.py
+python scripts/verify-cat-neck-colors.py
 node scripts/verify-cat-eight-poses.mjs
+node scripts/verify-cat-rest-contacts.mjs
 $env:NEIGHBORHOOD_HARDWARE_GPU='1'
 node scripts/verify-cat-eight-poses-browser.mjs
+node scripts/verify-cat-eight-extra-browser.mjs
 node scripts/verify-cat-eight-runtime-quaternions.mjs
 ```
 
-源网格准备：`prepare_cat_clean_base.py` → `scale_cat_clean_base.py`；代理骨热：`bind_cat_hybrid_surface.py` → `bind_cat_heat_surface.py`；最终原曲面绑定：`transfer_cat_original_surface.py`。参数见各脚本入口，代理仅用于初始权重，未作为展示网格。
+重拓扑入口：`scripts/art/retopologize_cat_joints.py`，输入原绑定 GLB 与 `binding-skeleton.json`，由 Blender 后台执行；输出绑定网格再交给动作构建脚本。原始绑定 SHA 及运行环境见来源记录。
+
+关节拟合入口为 `scripts/art/fit_cat_surface_joints.mjs <绑定网格> <输出 JSON>`；先对初始重拓扑网格采样，再以拟合后的骨架重绑。

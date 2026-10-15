@@ -15,5 +15,6 @@ export function createEightPosePlayer(model,animations,{duration,poses,camera}){
  }
  function react(){reactions++;pending=null;target=0;greeting=duration+2;}
  function snapshot(){const t=time/duration;return{pose:current,time,target,progress:t,velocity,pending,state:time===0?'standing':time===duration?'resting':target===0?'rising':'lowering',phase:time===0?'站立':t<.28?'降低身体':t<.56?'换爪支撑':t<.79?'调整身体':'放松',reactions,tailLift,greeting,headYaw,headQuaternion:head.quaternion.toArray(),tailQuaternion:tail.quaternion.toArray()};}
- update(0,true);return{update,request,react,snapshot};
+ function seek(progress){pending=null;time=THREE.MathUtils.clamp(progress,0,1)*duration;target=duration;velocity=0;update(0,false);}
+ update(0,true);return{update,request,react,snapshot,seek};
 }

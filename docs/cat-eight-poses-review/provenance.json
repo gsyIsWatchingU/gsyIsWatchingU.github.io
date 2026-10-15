@@ -16,7 +16,7 @@
   },
   "scale": 0.8,
   "limbShortening": false,
-  "preparation": "Original Hunyuan3D GPU mesh and UV/base-color pixels; fitted shoulder/hip and elbow/knee joints, anatomical head/neck field, harmonic limb labels and paw protection; smooth volume-aware joint positions/normals baked across the shared head/body seam; standard linear GLB with 16 clips",
+  "preparation": "Existing owned Hunyuan3D mesh; Blender 4.5.13 CPU retopology and 2K body texture rebake; original head geometry and texture retained; 33 bones with shared seam and anatomical elbow/knee/head/neck weights; supported IK, volume-aware joint correction and normal morphs; standard linear GLB, 16 clips",
   "props": {
     "pillow": "Reused bed.glb / bed_cream_rubber; actual sampled heightfield",
     "wall": "Preview floor extension"
@@ -24,7 +24,17 @@
   "eyelids": "Runtime material effect; does not change stored head image",
   "whiskers": "12 fine runtime lines; original branched brow/whisker source was rejected",
   "formalIntegration": false,
-  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
   "runtimeBehavior": "Remove previous greeting head/tail quaternion offsets before mixer updates; actual browser poses compared with exported rotations",
-  "runtimeHumanReview": "pending"
+  "runtimeHumanReview": "pending",
+  "repairSourceCommit": "c3153552f75a6bbebde413de935883cb63e334fa",
+  "repairSourceBoundSHA256": "ad4de13e92c56aac1c943cd47bf551e8237fa7edfb4e872560f97ce6b7d7d17c",
+  "repairProcessing": {
+    "host": "gsy013",
+    "blender": "4.5.13 LTS",
+    "device": "CPU",
+    "threads": 8,
+    "newGPUGeneration": false
+  },
+  "jointFitting": "X/Z centroids of actual limb surface slices; joint-fit.json"
 }

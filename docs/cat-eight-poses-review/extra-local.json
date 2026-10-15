@@ -1,7 +1,9 @@
 {
   "status": "passed",
   "base": "http://127.0.0.1:8770",
-  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "timelineScrubFreezeResume": true,
+  "slowPlayback": true,
   "midActionSwitch": true,
   "portraitButtons": [
     {
@@ -49,21 +51,24 @@
     "phase": "站立",
     "reactions": 1,
     "tailLift": 0.8816371058909804,
-    "greeting": 6.066499999999997,
-    "headYaw": -0.3069691321124166,
+    "greeting": 6.066499999999999,
+    "headYaw": -0.3069691321124167,
     "headQuaternion": [
       0,
-      -0.15288265638363335,
+      -0.15288265638363338,
       0,
       0.9882443490236018
     ],
     "tailQuaternion": [
-      0.2400818868301554,
+      0.24008188683015538,
       0,
       0,
       0.9707526397677593
     ],
     "paused": false,
+    "plain": false,
+    "furry": true,
+    "playbackSpeed": 1,
     "eyesClosure": 0,
     "whiskers": 12
   },
