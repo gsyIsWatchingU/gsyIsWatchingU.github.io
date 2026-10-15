@@ -1,55 +1,55 @@
 {
   "status": "passed",
-  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "runtimeSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
   "scope": "终态实际胸腹/侧腹/背部接地；头部与地面或实际前爪的支撑距离，防止仅脚掌接地而身体悬空。",
   "records": [
     {
       "pose": "side",
       "bodyContact": "侧腹或背部",
-      "bodyGap": 0.006719736254790364,
-      "headToSupportGap": 0.019102474367338227
+      "bodyGap": 0.0023993129011460916,
+      "headToSupportGap": 0.021501784836965607
     },
     {
       "pose": "prone",
       "bodyContact": "胸腹",
-      "bodyGap": 0.0060951616941483005,
-      "headToSupportGap": 0.00316057633229104
+      "bodyGap": 0.0073948964582399536,
+      "headToSupportGap": 0.0006233625527150358
     },
     {
       "pose": "belly",
       "bodyContact": "侧腹或背部",
-      "bodyGap": 0.004999994246361211,
-      "headToSupportGap": 0.017710618161469217
+      "bodyGap": 0.012677695740694214,
+      "headToSupportGap": 0.0206459686359184
     },
     {
       "pose": "curl",
       "bodyContact": "胸腹",
-      "bodyGap": 0.006520243499819628,
-      "headToSupportGap": 0.0027747633169011507
+      "bodyGap": 0.009059686833044905,
+      "headToSupportGap": 0.0005133180514150801
     },
     {
       "pose": "stretch",
       "bodyContact": "胸腹",
-      "bodyGap": 0.00609466103078304,
-      "headToSupportGap": -0.000029613651054700985
+      "bodyGap": -4.709872539719606e-9,
+      "headToSupportGap": 0.000999989776144461
     },
     {
       "pose": "pillow",
       "bodyContact": "胸腹",
-      "bodyGap": 0.005610640958561519,
-      "headToSupportGap": 1.7277857561337484e-8
+      "bodyGap": 0.011121170205500717,
+      "headToSupportGap": 0.0009999959592315033
     },
     {
       "pose": "loaf",
       "bodyContact": "胸腹",
-      "bodyGap": 0.0060961308905211195,
-      "headToSupportGap": 0.00008927444177175576
+      "bodyGap": 0.017588913357453363,
+      "headToSupportGap": 0.0000892595670558367
     },
     {
       "pose": "wall",
       "bodyContact": "胸腹",
-      "bodyGap": 0.006096130889559625,
-      "headToSupportGap": 0.00008927444177175576
+      "bodyGap": 0.017597096299955286,
+      "headToSupportGap": 0.0000892595670558367
     }
   ],
   "failures": []

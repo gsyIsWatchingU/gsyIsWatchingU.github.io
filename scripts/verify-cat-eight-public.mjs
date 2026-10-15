@@ -4,7 +4,7 @@ import {writeFileSync} from 'node:fs';
 
 // 必须与已提交内容比较，避免并行工作区修改污染公网验收。
 const commit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
-const paths=['assets/house-review/props/siamese-cat-eight-poses.glb','assets/house-review/props/siamese-cat-clean-bound.glb',...['index.html','viewer.js','runtime.json','correctives.json','geometry.json','contacts.json','neck-colors.json','provenance.json','retopology.json','joint-fit.json','README.md'].map(p=>'docs/cat-eight-poses-review/'+p)];
+const paths=['assets/house-review/props/siamese-cat-eight-poses.glb','assets/house-review/props/siamese-cat-clean-bound.glb',...['index.html','viewer.js','runtime.json','correctives.json','geometry.json','contacts.json','neck-colors.json','provenance.json','retopology.json','joint-fit.json','README.md','baseline-runtime.json','MESHOPT-LICENSE.txt','volume/comparison.html','volume/comparison.png','volume/side-065-before.png','volume/side-065-after.png','volume/joints.json'].map(p=>'docs/cat-eight-poses-review/'+p)];
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const expected=new Map(paths.map(path=>{const bytes=execFileSync('git',['show',commit+':'+path],{maxBuffer:128*1024*1024});return[path,{bytes:bytes.length,sha256:hash(bytes)}];}));
 const base='https://gsyiswatchingu.github.io/';

@@ -1,0 +1,85 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "source": "assets/house-review/props/siamese-cat-clean-bound.glb",
+  "sourceSHA256": "073da67c541a14879452311ba85f0cb700011d74c56ae05a27a0529afdacdee8",
+  "output": "assets/house-review/props/siamese-cat-eight-poses.glb",
+  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "bones": 33,
+  "fps": 30,
+  "duration": 4.6,
+  "poses": [
+    {
+      "id": "side",
+      "label": "01 侧躺",
+      "support": "侧腹、下侧前后爪和脸颊"
+    },
+    {
+      "id": "prone",
+      "label": "02 趴地",
+      "support": "胸腹、前爪和下巴"
+    },
+    {
+      "id": "belly",
+      "label": "03 四脚朝天",
+      "support": "背部和侧头；四肢放松抬起"
+    },
+    {
+      "id": "curl",
+      "label": "04 蜷成球",
+      "support": "臀腹、收拢的四爪和侧头"
+    },
+    {
+      "id": "stretch",
+      "label": "05 伸长",
+      "support": "胸腹、前后伸展的爪和下巴"
+    },
+    {
+      "id": "pillow",
+      "label": "06 靠枕",
+      "support": "胸腹、枕上的前爪和下巴"
+    },
+    {
+      "id": "loaf",
+      "label": "07 卧睡",
+      "support": "胸腹、折叠收拢的四爪和下巴"
+    },
+    {
+      "id": "wall",
+      "label": "08 贴墙",
+      "support": "臀腹、收拢的四爪与墙侧背部"
+    }
+  ],
+  "animations": [
+    "rest_side",
+    "rise_side",
+    "rest_prone",
+    "rise_prone",
+    "rest_belly",
+    "rise_belly",
+    "rest_curl",
+    "rise_curl",
+    "rest_stretch",
+    "rise_stretch",
+    "rest_pillow",
+    "rise_pillow",
+    "rest_loaf",
+    "rise_loaf",
+    "rest_wall",
+    "rise_wall"
+  ],
+  "faceTextureRebake": false,
+  "bodyTextureRebake": true,
+  "pillowSurface": "docs/cat-eight-poses-review/pillow-surface.json",
+  "skin": "GPU-derived Quadriflow body, original head, surface-fitted elbow/knee joint-plane weights and protected soles; supported limb-plane IK and staged weight transfer; standard glTF linear skinning with volume-aware joint position and normal corrections",
+  "props": {
+    "pillow": {
+      "url": "assets/house-review/props/bed.glb",
+      "mesh": "bed_cream_rubber",
+      "reused": true
+    },
+    "wall": {
+      "type": "preview ground extension"
+    }
+  }
+}

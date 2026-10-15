@@ -4,8 +4,8 @@
   "source": "assets/house-review/props/siamese-cat-clean-bound.glb",
   "sourceSHA256": "073da67c541a14879452311ba85f0cb700011d74c56ae05a27a0529afdacdee8",
   "output": "assets/house-review/props/siamese-cat-eight-poses.glb",
-  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
-  "bones": 33,
+  "runtimeSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
+  "bones": 35,
   "fps": 30,
   "duration": 4.6,
   "poses": [
@@ -69,9 +69,17 @@
     "rise_wall"
   ],
   "faceTextureRebake": false,
-  "bodyTextureRebake": true,
+  "bodyTextureRebake": false,
   "pillowSurface": "docs/cat-eight-poses-review/pillow-surface.json",
-  "skin": "GPU-derived Quadriflow body, original head, surface-fitted elbow/knee joint-plane weights and protected soles; supported limb-plane IK and staged weight transfer; standard glTF linear skinning with volume-aware joint position and normal corrections",
+  "compression": {
+    "method": "EXT_meshopt_compression / v0 / lossless / NONE filter",
+    "originalBytes": 99564736,
+    "compressedBytes": 77054028,
+    "compressedViews": 1945,
+    "verifiedBytes": 93222776,
+    "byteExactRoundTrip": true
+  },
+  "skin": "Owned GPU source mesh; 35-bone rig with separate hind hocks; volumetric ARAP deformation baked into standard glTF position/normal corrective shapes; contact solved on the internal cage",
   "props": {
     "pillow": {
       "url": "assets/house-review/props/bed.glb",
@@ -81,5 +89,6 @@
     "wall": {
       "type": "preview ground extension"
     }
-  }
+  },
+  "sourceBodyTextureRebaked": true
 }

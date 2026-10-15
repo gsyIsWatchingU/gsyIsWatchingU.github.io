@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "base": "http://127.0.0.1:8770",
-  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "runtimeSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
   "poses": [
     "side",
     "prone",
@@ -47,7 +47,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 0,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -82,16 +99,33 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.5384208251131557,
+          0.7702631496961989,
+          1.2258815925507176
+        ],
+        "cameraTarget": [
+          0.08016238221722244,
+          0.5373112186620463,
+          0.48714442864053903
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 0,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "side-enter-0.15",
       "snapshot": {
         "pose": "side",
-        "time": 1.0832268399999996,
+        "time": 1.0835334800000003,
         "target": 4.6,
-        "progress": 0.23548409565217385,
+        "progress": 0.2355507565217392,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
@@ -117,16 +151,33 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "side-enter-0.35",
       "snapshot": {
         "pose": "side",
-        "time": 1.9999268399999988,
+        "time": 2.000133479999999,
         "target": 4.6,
-        "progress": 0.4347667043478258,
+        "progress": 0.4348116260869563,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
@@ -152,16 +203,33 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "side-enter-0.55",
       "snapshot": {
         "pose": "side",
-        "time": 2.9000268399999976,
+        "time": 2.900233479999997,
         "target": 4.6,
-        "progress": 0.6304406173913039,
+        "progress": 0.6304855391304343,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
@@ -171,10 +239,10 @@
         "greeting": 0,
         "headYaw": 0,
         "headQuaternion": [
-          0.006679089711597634,
+          0.006678420997883516,
           0,
           0,
-          0.9999776946315475
+          0.9999776990978224
         ],
         "tailQuaternion": [
           0,
@@ -187,16 +255,33 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "side-enter-0.75",
       "snapshot": {
         "pose": "side",
-        "time": 3.8168268399999983,
+        "time": 3.8169334799999945,
         "target": 4.6,
-        "progress": 0.8297449652173909,
+        "progress": 0.8297681478260859,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
@@ -206,23 +291,40 @@
         "greeting": 0,
         "headYaw": 0,
         "headQuaternion": [
-          0.0013265253905768064,
-          -0.0010431674813309766,
-          -0.000001316614288170395,
-          0.9999985760641166
+          0.0013247374822983459,
+          -0.0010447058157806164,
+          -0.000001316798104751461,
+          0.9999985768283012
         ],
         "tailQuaternion": [
           0,
-          0.0007558721781634923,
+          0.0007569708071584381,
           0,
-          0.9999997143285844
+          0.9999997134975576
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.7071993743803233,
-        "whiskers": 12
+        "eyesClosure": 0.7073135517875622,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -257,7 +359,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -292,7 +411,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -327,7 +463,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.12,
+          0.56,
+          2.1
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -362,7 +515,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.9,
+          0.57,
+          0.04999999999999998
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -397,7 +567,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.1000000000000003,
+          0.6500000000000001,
+          -1.8000000000000003
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -432,7 +619,24 @@
         "furry": false,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -466,30 +670,47 @@
         "plain": true,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 1,
-        "whiskers": 12
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "side-rise-0.75",
       "snapshot": {
         "pose": "side",
-        "time": 3.1654441599999994,
+        "time": 3.165451039999997,
         "target": 0,
-        "progress": 0.6881400347826087,
+        "progress": 0.688141530434782,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "调整身体",
         "reactions": 1,
         "tailLift": 0,
-        "greeting": 5.04989999999999,
+        "greeting": 5.049899999999986,
         "headYaw": 0,
         "headQuaternion": [
-          0.006354167101776723,
+          0.006354179588592095,
           0,
           0,
-          0.9999798120764454
+          0.9999798119971004
         ],
         "tailQuaternion": [
           0,
@@ -501,24 +722,41 @@
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.05060835253435727,
-        "whiskers": 12
+        "eyesClosure": 0.05061212356451918,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "side-rise-0.45",
       "snapshot": {
         "pose": "side",
-        "time": 1.7152441599999964,
+        "time": 1.7486510399999962,
         "target": 0,
-        "progress": 0.37287916521739056,
+        "progress": 0.3801415304347818,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "换爪支撑",
         "reactions": 1,
         "tailLift": 0,
-        "greeting": 3.599699999999985,
+        "greeting": 3.633099999999976,
         "headYaw": 0,
         "headQuaternion": [
           0,
@@ -537,23 +775,40 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "side-rise-0.15",
       "snapshot": {
         "pose": "side",
-        "time": 0.5318441599999966,
+        "time": 0.5485510399999964,
         "target": 0,
-        "progress": 0.11561829565217317,
+        "progress": 0.11925022608695576,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "降低身体",
         "reactions": 1,
         "tailLift": 0,
-        "greeting": 2.4162999999999846,
+        "greeting": 2.4329999999999776,
         "headYaw": 0,
         "headQuaternion": [
           0,
@@ -572,147 +827,232 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "prone-enter-0.15",
       "snapshot": {
         "pose": "prone",
-        "time": 1.0833334799999996,
+        "time": 1.066733560000001,
         "target": 4.6,
-        "progress": 0.2355072782608695,
+        "progress": 0.23189860000000023,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "降低身体",
         "reactions": 1,
-        "tailLift": 0.0037131661064073586,
-        "greeting": 0.5495999999999817,
-        "headYaw": -0.00014177493449530007,
+        "tailLift": 0.006896459457714167,
+        "greeting": 0.3328999999999736,
+        "headYaw": -0.00023746157596745383,
         "headQuaternion": [
           0,
-          -0.00007088746718827998,
+          -0.00011873078770474144,
           0,
-          0.999999997487483
+          0.9999999929514983
         ],
         "tailQuaternion": [
-          0.0010211205018103733,
+          0.0018965252139633668,
           0,
           0,
-          0.9999994786563239
+          0.999998201594438
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "prone-enter-0.35",
       "snapshot": {
         "pose": "prone",
-        "time": 1.9835334800000035,
+        "time": 2.0002335600000047,
         "target": 4.6,
-        "progress": 0.4312029304347834,
+        "progress": 0.4348333826086967,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "换爪支撑",
         "reactions": 1,
-        "tailLift": 0.00010137638653384494,
+        "tailLift": 0.00016480507910671634,
         "greeting": 0,
-        "headYaw": -6.395700225798658e-7,
+        "headYaw": -8.772228841870337e-7,
         "headQuaternion": [
           0,
-          -3.1978501128855224e-7,
+          -4.3861144206617977e-7,
           0,
-          0.999999999999948
+          0.9999999999999017
         ],
         "tailQuaternion": [
-          0.000027878506293154905,
+          0.000045321396738786363,
           0,
           0,
-          0.9999999996113937
+          0.9999999989729846
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "prone-enter-0.55",
       "snapshot": {
         "pose": "prone",
-        "time": 2.900233480000001,
+        "time": 2.9169335600000026,
         "target": 4.6,
-        "progress": 0.630485539130435,
+        "progress": 0.6341159913043485,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "调整身体",
         "reactions": 1,
-        "tailLift": 0.000002590990382324279,
+        "tailLift": 0.000004212108850231458,
         "greeting": 0,
-        "headYaw": -2.6132537981490703e-9,
+        "headYaw": -3.5842924980724614e-9,
         "headQuaternion": [
-          -0.0007806210120514096,
-          -1.3066265009654037e-9,
-          1.0199804123291586e-12,
-          0.9999996953153715
+          -0.0021764654866672437,
+          -1.7921420043310075e-9,
+          3.900544458087515e-12,
+          0.9999976314961876
         ],
         "tailQuaternion": [
-          7.125223550979231e-7,
+          0.000001158329933768056,
           0,
           0,
-          0.9999999999997453
+          0.9999999999993281
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "prone-enter-0.75",
       "snapshot": {
         "pose": "prone",
-        "time": 3.8168334800000028,
+        "time": 3.8003335600000034,
         "target": 4.6,
-        "progress": 0.8297464086956529,
+        "progress": 0.8261594695652182,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "放松",
         "reactions": 1,
-        "tailLift": 6.624735030035085e-8,
+        "tailLift": 1.2299192659816547e-7,
         "greeting": 0,
-        "headYaw": -1.0684043746622321e-11,
+        "headYaw": -1.7884177492040547e-11,
         "headQuaternion": [
-          -0.222104568945379,
-          -5.208593398339026e-12,
-          1.1864874654685615e-12,
-          0.975022851246876
+          -0.21737606344937743,
+          -8.728264893739054e-12,
+          1.9437960506248667e-12,
+          0.9760879299731415
         ],
         "tailQuaternion": [
-          1.8217698662495492e-8,
-          0.005951710991290654,
-          -1.0842839780478213e-10,
-          0.9999822884112877
+          3.382222103611382e-8,
+          0.0057481534415023475,
+          -1.9441852819186857e-10,
+          0.999983479229538
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.707206484042218,
-        "whiskers": 12
+        "eyesClosure": 0.6894039761489891,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -727,19 +1067,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 1,
-        "tailLift": 1.5831166519288743e-9,
+        "tailLift": 3.3592532955317562e-9,
         "greeting": 0,
-        "headYaw": -3.94686493257209e-14,
+        "headYaw": -8.072688457036545e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -1.8881843866513697e-14,
-          5.73755487080135e-15,
+          -3.861982754232173e-14,
+          1.1735261725044064e-14,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          4.353230597428165e-10,
+          9.237224693962252e-10,
           0.0124996742233634,
-          -5.441821661840498e-12,
+          -1.1547132252674384e-11,
           0.9999218583106995
         ],
         "paused": false,
@@ -747,7 +1087,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -762,19 +1119,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 1,
-        "tailLift": 9.288532377397145e-10,
+        "tailLift": 1.970956022817842e-9,
         "greeting": 0,
-        "headYaw": -1.7737954552807243e-14,
+        "headYaw": -3.628018273140319e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -8.485856346727281e-15,
-          2.5785652481446627e-15,
+          -1.735647805248094e-14,
+          5.274047698624239e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          2.5541468028411644e-10,
+          5.419705524707876e-10,
           0.0124996742233634,
-          -3.1928497900922547e-12,
+          -6.774984753294732e-12,
           0.9999218583106995
         ],
         "paused": false,
@@ -782,7 +1139,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -797,19 +1171,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 1,
-        "tailLift": 7.110556861214403e-10,
+        "tailLift": 1.5094098034886466e-9,
         "greeting": 0,
-        "headYaw": -1.1880598231025612e-14,
+        "headYaw": -2.4314470378298527e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.683690845047865e-15,
-          1.7270817576225698e-15,
+          -1.163206852079475e-14,
+          3.534592906858076e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.955250338329585e-10,
+          4.150552603056077e-10,
           0.0124996742233634,
-          -2.4441902185767394e-12,
+          -5.18846097361874e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -817,7 +1191,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.12,
+          0.56,
+          2.1
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -832,19 +1223,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 1,
-        "tailLift": 7.110556861214403e-10,
+        "tailLift": 1.5094098034886466e-9,
         "greeting": 0,
-        "headYaw": -1.1880598231025612e-14,
+        "headYaw": -2.4314470378298527e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.683690845047865e-15,
-          1.7270817576225698e-15,
+          -1.163206852079475e-14,
+          3.534592906858076e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.955250338329585e-10,
+          4.150552603056077e-10,
           0.0124996742233634,
-          -2.4441902185767394e-12,
+          -5.18846097361874e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -852,7 +1243,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.9,
+          0.57,
+          0.04999999999999998
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -867,19 +1275,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 1,
-        "tailLift": 7.110556861214403e-10,
+        "tailLift": 1.5094098034886466e-9,
         "greeting": 0,
-        "headYaw": -1.1880598231025612e-14,
+        "headYaw": -2.4314470378298527e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.683690845047865e-15,
-          1.7270817576225698e-15,
+          -1.163206852079475e-14,
+          3.534592906858076e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.955250338329585e-10,
+          4.150552603056077e-10,
           0.0124996742233634,
-          -2.4441902185767394e-12,
+          -5.18846097361874e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -887,7 +1295,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.1000000000000003,
+          0.6500000000000001,
+          -1.8000000000000003
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -902,19 +1327,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 1,
-        "tailLift": 7.110556861214403e-10,
+        "tailLift": 1.5094098034886466e-9,
         "greeting": 0,
-        "headYaw": -1.1880598231025612e-14,
+        "headYaw": -2.4314470378298527e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.683690845047865e-15,
-          1.7270817576225698e-15,
+          -1.163206852079475e-14,
+          3.534592906858076e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.955250338329585e-10,
+          4.150552603056077e-10,
           0.0124996742233634,
-          -2.4441902185767394e-12,
+          -5.18846097361874e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -922,7 +1347,24 @@
         "furry": false,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -937,87 +1379,121 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 1,
-        "tailLift": 7.110556861214403e-10,
+        "tailLift": 1.5094098034886466e-9,
         "greeting": 0,
-        "headYaw": -1.1880598231025612e-14,
+        "headYaw": -2.4314470378298527e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.683690845047865e-15,
-          1.7270817576225698e-15,
+          -1.163206852079475e-14,
+          3.534592906858076e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.955250338329585e-10,
+          4.150552603056077e-10,
           0.0124996742233634,
-          -2.4441902185767394e-12,
+          -5.18846097361874e-12,
           0.9999218583106995
         ],
         "paused": true,
         "plain": true,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 1,
-        "whiskers": 12
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "prone-rise-0.75",
       "snapshot": {
         "pose": "prone",
-        "time": 3.1798330399999957,
+        "time": 3.113253079999997,
         "target": 0,
-        "progress": 0.6912680521739122,
+        "progress": 0.6767941478260864,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "调整身体",
         "reactions": 2,
-        "tailLift": 1.5414919522166335e-12,
-        "greeting": 5.066499999999991,
-        "headYaw": -1.199208730195179e-18,
+        "tailLift": 2.506967849462653e-12,
+        "greeting": 4.999899999999991,
+        "headYaw": -1.645800580514797e-18,
         "headQuaternion": [
-          -0.039127282429820366,
-          -5.991452088730172e-19,
-          2.346088933932651e-20,
-          0.999234234686571
+          -0.026792429339335417,
+          -8.226048842202069e-19,
+          2.2047497880039953e-20,
+          0.9996410184311648
         ],
         "tailQuaternion": [
-          4.2391028190961855e-13,
-          0.00015281946401947066,
-          -6.478174283022019e-17,
-          0.9999999883231055
+          6.894161584668597e-13,
+          0.000019816889421071855,
+          -1.366208378012052e-17,
+          0.9999999998036455
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.058764600084812074,
-        "whiskers": 12
+        "eyesClosure": 0.025719100335990515,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "prone-rise-0.45",
       "snapshot": {
         "pose": "prone",
-        "time": 1.7297330399999924,
+        "time": 1.6798530799999953,
         "target": 0,
-        "progress": 0.37602892173912883,
+        "progress": 0.3651854521739121,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "换爪支撑",
         "reactions": 2,
-        "tailLift": 4.6650848676884194e-15,
-        "greeting": 3.616399999999982,
-        "headYaw": -1.9965133211931153e-22,
+        "tailLift": 8.111065769777975e-15,
+        "greeting": 3.5664999999999827,
+        "headYaw": -3.028802457622807e-22,
         "headQuaternion": [
           0,
-          -9.982566605965576e-23,
+          -1.5144012288114035e-22,
           0,
           1
         ],
         "tailQuaternion": [
-          1.2828983386143154e-15,
+          2.2305430866889433e-15,
           0,
           0,
           1
@@ -1027,32 +1503,49 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "prone-rise-0.15",
       "snapshot": {
         "pose": "prone",
-        "time": 0.5464330399999922,
+        "time": 0.49645307999999616,
         "target": 0,
-        "progress": 0.11878979130434612,
+        "progress": 0.10792458260869482,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "降低身体",
         "reactions": 2,
-        "tailLift": 4.1044683123408675e-17,
-        "greeting": 2.4330999999999805,
-        "headYaw": -1.6476624702254015e-25,
+        "tailLift": 7.133481896516402e-17,
+        "greeting": 2.383099999999986,
+        "headYaw": -2.498080387356461e-25,
         "headQuaternion": [
           0,
-          -8.238312351127008e-26,
+          -1.2490401936782306e-25,
           0,
           1
         ],
         "tailQuaternion": [
-          1.1287287858937387e-17,
+          1.9617075215420107e-17,
           0,
           0,
           1
@@ -1062,147 +1555,232 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "belly-enter-0.15",
       "snapshot": {
         "pose": "belly",
-        "time": 1.0500336799999967,
+        "time": 1.066733640000001,
         "target": 4.6,
-        "progress": 0.22826819130434714,
+        "progress": 0.23189861739130457,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "降低身体",
         "reactions": 2,
-        "tailLift": 0.007373689800364583,
-        "greeting": 0.3494999999999808,
-        "headYaw": -0.00026250566848175564,
+        "tailLift": 0.004279978199429133,
+        "greeting": 0.5496999999999824,
+        "headYaw": -0.00016685372098369382,
         "headQuaternion": [
-          -0.020683571082828037,
-          -0.0001312247552153086,
-          0.000002714777342433276,
-          0.999786063445553
+          -0.022622424437596742,
+          -0.00008340550981023085,
+          0.000001887317851921335,
+          0.9997440767279014
         ],
         "tailQuaternion": [
-          0.002027763305463364,
+          0.0011769937330917907,
           0,
           0,
-          0.999997944085875
+          0.9999993073426351
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "belly-enter-0.35",
       "snapshot": {
         "pose": "belly",
-        "time": 1.9834336800000008,
+        "time": 1.9835336400000045,
         "target": 4.6,
-        "progress": 0.4311812347826089,
+        "progress": 0.4312029652173923,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "换爪支撑",
         "reactions": 2,
-        "tailLift": 0.00017627997730641936,
+        "tailLift": 0.00010934447226198234,
         "greeting": 0,
-        "headYaw": -9.703219804214943e-7,
+        "headYaw": -6.813477250481366e-7,
         "headQuaternion": [
-          -0.22263918166949137,
-          -4.7298389345732477e-7,
-          1.0801584583848934e-7,
-          0.9749009153679691
+          -0.2213161625683572,
+          0.0008129478627432021,
+          0.0035698835234229676,
+          0.9751952374952505
         ],
         "tailQuaternion": [
-          0.000048476993740266075,
+          0.000030069729867494885,
           0,
           0,
-          0.99999999882499
+          0.9999999995479028
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "belly-enter-0.55",
       "snapshot": {
         "pose": "belly",
-        "time": 2.9168336800000043,
+        "time": 2.883633640000001,
         "target": 4.6,
-        "progress": 0.6340942782608705,
+        "progress": 0.6268768782608699,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "调整身体",
         "reactions": 2,
-        "tailLift": 0.000004214257887227003,
+        "tailLift": 0.000002986503171011587,
         "greeting": 0,
-        "headYaw": -3.586683484339796e-9,
+        "headYaw": -3.075516286769209e-9,
         "headQuaternion": [
-          -0.36258632279613817,
-          0.07030206920023677,
-          0.17687244202103578,
-          0.9123074683684524
+          -0.37512044665658356,
+          0.055392790562763604,
+          0.1351552080406196,
+          0.9153957390076337
         ],
         "tailQuaternion": [
-          0.0000011589209189749026,
+          8.212883720093697e-7,
           0,
           0,
-          0.9999999999993284
+          0.9999999999996596
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "belly-enter-0.75",
       "snapshot": {
         "pose": "belly",
-        "time": 3.583533680000001,
+        "time": 3.816933639999996,
         "target": 4.6,
-        "progress": 0.7790290608695655,
+        "progress": 0.8297681826086948,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
-        "phase": "调整身体",
+        "phase": "放松",
         "reactions": 2,
-        "tailLift": 2.92782142125874e-7,
+        "tailLift": 7.142575181185438e-8,
         "greeting": 0,
-        "headYaw": -6.567926234121467e-11,
+        "headYaw": -1.1375114881785707e-11,
         "headQuaternion": [
-          -0.3389392404889706,
-          0.19171455703751547,
-          0.2413296899481162,
-          0.8888901510457943
+          -0.3216187925725377,
+          0.21579901455262443,
+          0.12220695661127698,
+          0.9138148594426054
         ],
         "tailQuaternion": [
-          8.051508907235092e-8,
-          0,
-          0,
-          0.9999999999999959
+          1.964207612073105e-8,
+          0.0007569724555140311,
+          -1.4868514852387676e-11,
+          0.9999997134963095
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.4413474178097557,
-        "whiskers": 12
+        "eyesClosure": 0.7073137230877253,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1217,19 +1795,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 2,
-        "tailLift": 2.5728874515176322e-9,
+        "tailLift": 1.824778252100503e-9,
         "greeting": 0,
-        "headYaw": -5.410564439100831e-14,
+        "headYaw": -4.645031948447422e-14,
         "headQuaternion": [
-          -0.21800874173641147,
-          0.28740856051442487,
-          0.021823517978197274,
-          0.9324120283126909
+          -0.21800874173641155,
+          0.2874085605144284,
+          0.021823517978196438,
+          0.9324120283126898
         ],
         "tailQuaternion": [
-          7.074887604800924e-10,
+          5.017748067324535e-10,
           0.0124996742233634,
-          -8.844070113271277e-12,
+          -6.2725117623120645e-12,
           0.9999218583106995
         ],
         "paused": false,
@@ -1237,7 +1815,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1252,19 +1847,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 2,
-        "tailLift": 1.413160648180868e-9,
+        "tailLift": 1.070642005789915e-9,
         "greeting": 0,
-        "headYaw": -2.202412653090475e-14,
+        "headYaw": -2.0875648649117117e-14,
         "headQuaternion": [
-          -0.2180087417364118,
-          0.2874085605144398,
-          0.021823517978193777,
-          0.9324120283126863
+          -0.21800874173641183,
+          0.28740856051444036,
+          0.02182351797819365,
+          0.9324120283126861
         ],
         "tailQuaternion": [
-          3.885888108906557e-10,
+          2.944035446041103e-10,
           0.0124996742233634,
-          -4.857613125072925e-12,
+          -3.68023597761113e-12,
           0.9999218583106995
         ],
         "paused": false,
@@ -1272,7 +1867,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1287,19 +1899,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 2,
-        "tailLift": 1.0822354794192738e-9,
+        "tailLift": 8.195978170565667e-10,
         "greeting": 0,
-        "headYaw": -1.4760261162633646e-14,
+        "headYaw": -1.3982175547572767e-14,
         "headQuaternion": [
-          -0.21800874173641188,
-          0.2874085605144432,
-          0.021823517978192986,
-          0.9324120283126852
+          -0.2180087417364119,
+          0.2874085605144436,
+          0.0218235179781929,
+          0.9324120283126851
         ],
         "tailQuaternion": [
-          2.9759150072044005e-10,
+          2.253717873821136e-10,
           0.0124996742233634,
-          -3.720087504569268e-12,
+          -2.8172940695313914e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -1307,7 +1919,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.12,
+          0.56,
+          2.1
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1322,19 +1951,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 2,
-        "tailLift": 1.0822354794192738e-9,
+        "tailLift": 8.195978170565667e-10,
         "greeting": 0,
-        "headYaw": -1.4760261162633646e-14,
+        "headYaw": -1.3982175547572767e-14,
         "headQuaternion": [
-          -0.21800874173641188,
-          0.2874085605144432,
-          0.021823517978192986,
-          0.9324120283126852
+          -0.2180087417364119,
+          0.2874085605144436,
+          0.0218235179781929,
+          0.9324120283126851
         ],
         "tailQuaternion": [
-          2.9759150072044005e-10,
+          2.253717873821136e-10,
           0.0124996742233634,
-          -3.720087504569268e-12,
+          -2.8172940695313914e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -1342,7 +1971,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.9,
+          0.57,
+          0.04999999999999998
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1357,19 +2003,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 2,
-        "tailLift": 1.0822354794192738e-9,
+        "tailLift": 8.195978170565667e-10,
         "greeting": 0,
-        "headYaw": -1.4760261162633646e-14,
+        "headYaw": -1.3982175547572767e-14,
         "headQuaternion": [
-          -0.21800874173641188,
-          0.2874085605144432,
-          0.021823517978192986,
-          0.9324120283126852
+          -0.2180087417364119,
+          0.2874085605144436,
+          0.0218235179781929,
+          0.9324120283126851
         ],
         "tailQuaternion": [
-          2.9759150072044005e-10,
+          2.253717873821136e-10,
           0.0124996742233634,
-          -3.720087504569268e-12,
+          -2.8172940695313914e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -1377,7 +2023,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.1000000000000003,
+          0.6500000000000001,
+          -1.8000000000000003
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1392,19 +2055,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 2,
-        "tailLift": 1.0822354794192738e-9,
+        "tailLift": 8.195978170565667e-10,
         "greeting": 0,
-        "headYaw": -1.4760261162633646e-14,
+        "headYaw": -1.3982175547572767e-14,
         "headQuaternion": [
-          -0.21800874173641188,
-          0.2874085605144432,
-          0.021823517978192986,
-          0.9324120283126852
+          -0.2180087417364119,
+          0.2874085605144436,
+          0.0218235179781929,
+          0.9324120283126851
         ],
         "tailQuaternion": [
-          2.9759150072044005e-10,
+          2.253717873821136e-10,
           0.0124996742233634,
-          -3.720087504569268e-12,
+          -2.8172940695313914e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -1412,7 +2075,24 @@
         "furry": false,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1427,52 +2107,69 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 2,
-        "tailLift": 1.0822354794192738e-9,
+        "tailLift": 8.195978170565667e-10,
         "greeting": 0,
-        "headYaw": -1.4760261162633646e-14,
+        "headYaw": -1.3982175547572767e-14,
         "headQuaternion": [
-          -0.21800874173641188,
-          0.2874085605144432,
-          0.021823517978192986,
-          0.9324120283126852
+          -0.2180087417364119,
+          0.2874085605144436,
+          0.0218235179781929,
+          0.9324120283126851
         ],
         "tailQuaternion": [
-          2.9759150072044005e-10,
+          2.253717873821136e-10,
           0.0124996742233634,
-          -3.720087504569268e-12,
+          -2.8172940695313914e-12,
           0.9999218583106995
         ],
         "paused": true,
         "plain": true,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 1,
-        "whiskers": 12
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "belly-rise-0.75",
       "snapshot": {
         "pose": "belly",
-        "time": 3.1664663999999996,
+        "time": 3.1467332400000023,
         "target": 0,
-        "progress": 0.6883622608695652,
+        "progress": 0.6840724434782615,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "调整身体",
         "reactions": 3,
-        "tailLift": 2.1945654827852133e-12,
-        "greeting": 5.049799999999997,
-        "headYaw": -1.3478271697833421e-18,
+        "tailLift": 1.556459596953907e-12,
+        "greeting": 5.033399999999992,
+        "headYaw": -1.157125164129741e-18,
         "headQuaternion": [
-          -0.3608871926281507,
-          0.10339839345530531,
-          0.24720593241794758,
-          0.8932851915291148
+          -0.3870132420586895,
+          0.08338482270757204,
+          0.18830160202184024,
+          0.8987826369535948
         ],
         "tailQuaternion": [
-          6.035055077659337e-13,
+          4.2802638916232443e-13,
           0,
           0,
           1
@@ -1481,33 +2178,50 @@
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.05117002210349099,
-        "whiskers": 12
+        "eyesClosure": 0.04081955359499335,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "belly-rise-0.45",
       "snapshot": {
         "pose": "belly",
-        "time": 1.7330663999999998,
+        "time": 1.696533240000006,
         "target": 0,
-        "progress": 0.3767535652173913,
+        "progress": 0.3688115739130448,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "换爪支撑",
         "reactions": 3,
-        "tailLift": 7.1003164124225966e-15,
-        "greeting": 3.61639999999999,
-        "headYaw": -2.4804355355213577e-22,
+        "tailLift": 4.708498332955886e-15,
+        "greeting": 3.5831999999999904,
+        "headYaw": -1.9252945985225606e-22,
         "headQuaternion": [
-          -0.165554566664487,
-          -1.2231035456911279e-22,
-          2.0532371511121656e-23,
-          0.9862006314419668
+          -0.15651214831206414,
+          -9.507836663305401e-23,
+          1.506659968741895e-23,
+          0.9876760336419743
         ],
         "tailQuaternion": [
-          1.9525870134162144e-15,
+          1.2948370415628686e-15,
           0,
           0,
           1
@@ -1517,32 +2231,49 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "belly-rise-0.15",
       "snapshot": {
         "pose": "belly",
-        "time": 0.5329664000000021,
+        "time": 0.49643324000000816,
         "target": 0,
-        "progress": 0.11586226086956568,
+        "progress": 0.10792026956521918,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "降低身体",
         "reactions": 3,
-        "tailLift": 5.841043919310823e-17,
-        "greeting": 2.416299999999994,
-        "headYaw": -1.8507471878996011e-25,
+        "tailLift": 3.873425346042205e-17,
+        "greeting": 2.3830999999999944,
+        "headYaw": -1.4365354443065467e-25,
         "headQuaternion": [
           0,
-          -9.253735939498006e-26,
+          -7.182677221532733e-26,
           0,
           1
         ],
         "tailQuaternion": [
-          1.6062870778104765e-17,
+          1.0651919701616064e-17,
           0,
           0,
           1
@@ -1552,147 +2283,232 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "curl-enter-0.15",
       "snapshot": {
         "pose": "curl",
-        "time": 1.0667335599999939,
+        "time": 1.0835334800000038,
         "target": 4.6,
-        "progress": 0.23189859999999868,
+        "progress": 0.23555075652173998,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "降低身体",
         "reactions": 3,
-        "tailLift": 0.007019122889676386,
-        "greeting": 0.3161999999999984,
-        "headYaw": -0.000239984976689,
+        "tailLift": 0.004001814630964274,
+        "greeting": 0.5328999999999915,
+        "headYaw": -0.00015085475799178394,
         "headQuaternion": [
           0,
-          -0.00011999248805655074,
+          -0.00007542737892436218,
           0,
-          0.9999999928009016
+          0.9999999971553561
         ],
         "tailQuaternion": [
-          0.0019302575960030044,
+          0.0011004988013797918,
           0,
           0,
-          0.9999981370510709
+          0.9999993944510107
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "curl-enter-0.35",
       "snapshot": {
         "pose": "curl",
-        "time": 1.983533559999996,
+        "time": 1.7501334800000026,
         "target": 4.6,
-        "progress": 0.4312029478260861,
+        "progress": 0.3804638000000006,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "换爪支撑",
         "reactions": 3,
-        "tailLift": 0.0001793238779150874,
+        "tailLift": 0.00027813405090521096,
         "greeting": 0,
-        "headYaw": -9.799794511550642e-7,
+        "headYaw": -0.0000027641066936033136,
         "headQuaternion": [
           0,
-          -4.899897255741374e-7,
+          -0.0000013820533467927073,
           0,
-          0.9999999999998798
+          0.9999999999990457
         ],
         "tailQuaternion": [
-          0.000049314066406659925,
+          0.0000764868639243375,
           0,
           0,
-          0.9999999987840607
+          0.9999999970748789
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "curl-enter-0.55",
       "snapshot": {
         "pose": "curl",
-        "time": 2.9001335599999933,
+        "time": 2.666933479999997,
         "target": 4.6,
-        "progress": 0.630463817391303,
+        "progress": 0.5797681478260863,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "调整身体",
         "reactions": 3,
-        "tailLift": 0.000004585015767909365,
+        "tailLift": 0.000007105742038212941,
         "greeting": 0,
-        "headYaw": -4.0065543325136386e-9,
+        "headYaw": -1.1287238884298418e-8,
         "headQuaternion": [
-          -0.000772241903146243,
-          -0.0084093304799729,
-          0.00000651030353996678,
-          0.9999643427447489
+          0.007655709422711763,
+          -0.0012637598394170872,
+          -0.000009674331463972278,
+          0.9999698960122302
         ],
         "tailQuaternion": [
-          0.00000126087933617329,
+          0.000001954079060489625,
           0,
           0,
-          0.9999999999992033
+          0.9999999999980905
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "curl-enter-0.75",
       "snapshot": {
         "pose": "curl",
-        "time": 3.800333559999998,
+        "time": 3.5836334799999987,
         "target": 4.6,
-        "progress": 0.826159469565217,
+        "progress": 0.7790507565217389,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
-        "phase": "放松",
+        "phase": "调整身体",
         "reactions": 3,
-        "tailLift": 1.2517951457902124e-7,
+        "tailLift": 1.816094448596269e-7,
         "greeting": 0,
-        "headYaw": -1.8074224855297668e-11,
+        "headYaw": -4.6119140740878106e-11,
         "headQuaternion": [
-          -0.2169618391873205,
-          -0.06022844012337338,
-          0.013413133645131472,
-          0.9742279934299661
+          -0.1494502963990769,
+          -0.04808355384634499,
+          0.0072823370641981215,
+          0.9875725534473998
         ],
         "tailQuaternion": [
-          3.419712952788728e-8,
-          0.11471062334579188,
-          -3.948840540557873e-9,
-          0.993398949512037
+          4.9840704899451986e-8,
+          0.06384527856019899,
+          -3.188599038962147e-9,
+          0.9979598090131528
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.6894039761489829,
-        "whiskers": 12
+        "eyesClosure": 0.44146293219255683,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1707,19 +2523,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 3,
-        "tailLift": 3.1980742241818613e-9,
+        "tailLift": 1.597210186569583e-9,
         "greeting": 0,
-        "headYaw": -7.380615736085138e-14,
+        "headYaw": -3.803791187390308e-14,
         "headQuaternion": [
-          -0.28980997204780495,
-          -0.07646255195144358,
-          0.023234385997067657,
-          0.9537420272827121
+          -0.28980997204780534,
+          -0.07646255195142652,
+          0.023234385997062474,
+          0.9537420272827134
         ],
         "tailQuaternion": [
-          8.521298072069735e-10,
+          4.255781176244385e-10,
           0.24740396440029144,
-          -2.175844664149692e-10,
+          -1.086679363379071e-10,
           0.9689124226570129
         ],
         "paused": false,
@@ -1727,7 +2543,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1742,19 +2575,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 3,
-        "tailLift": 1.6423839652985819e-9,
+        "tailLift": 9.371222590189052e-10,
         "greeting": 0,
-        "headYaw": -2.716263080452283e-14,
+        "headYaw": -1.7094954188444883e-14,
         "headQuaternion": [
-          -0.28980997204780545,
-          -0.07646255195142133,
-          0.023234385997060895,
-          0.9537420272827138
+          -0.28980997204780556,
+          -0.07646255195141653,
+          0.023234385997059438,
+          0.9537420272827142
         ],
         "tailQuaternion": [
-          4.3761471235638217e-10,
+          2.496970845357506e-10,
           0.24740396440029144,
-          -1.1174138362264347e-10,
+          -6.375813455248434e-11,
           0.9689124226570129
         ],
         "paused": false,
@@ -1762,7 +2595,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1777,19 +2627,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 3,
-        "tailLift": 1.2577807062229308e-9,
+        "tailLift": 7.173857868955152e-10,
         "greeting": 0,
-        "headYaw": -1.8204014764278918e-14,
+        "headYaw": -1.1449926872123765e-14,
         "headQuaternion": [
-          -0.28980997204780556,
-          -0.07646255195141707,
-          0.023234385997059598,
-          0.9537420272827142
+          -0.2898099720478057,
+          -0.07646255195141384,
+          0.02323438599705862,
+          0.9537420272827144
         ],
         "tailQuaternion": [
-          3.351368215903699e-10,
+          1.9114810020917634e-10,
           0.24740396440029144,
-          -8.557448159308164e-11,
+          -4.880812411265261e-11,
           0.9689124226570129
         ],
         "paused": true,
@@ -1797,7 +2647,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.12,
+          0.56,
+          2.1
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1812,19 +2679,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 3,
-        "tailLift": 1.2577807062229308e-9,
+        "tailLift": 7.173857868955152e-10,
         "greeting": 0,
-        "headYaw": -1.8204014764278918e-14,
+        "headYaw": -1.1449926872123765e-14,
         "headQuaternion": [
-          -0.28980997204780556,
-          -0.07646255195141707,
-          0.023234385997059598,
-          0.9537420272827142
+          -0.2898099720478057,
+          -0.07646255195141384,
+          0.02323438599705862,
+          0.9537420272827144
         ],
         "tailQuaternion": [
-          3.351368215903699e-10,
+          1.9114810020917634e-10,
           0.24740396440029144,
-          -8.557448159308164e-11,
+          -4.880812411265261e-11,
           0.9689124226570129
         ],
         "paused": true,
@@ -1832,7 +2699,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.9,
+          0.57,
+          0.04999999999999998
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1847,19 +2731,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 3,
-        "tailLift": 1.2577807062229308e-9,
+        "tailLift": 7.173857868955152e-10,
         "greeting": 0,
-        "headYaw": -1.8204014764278918e-14,
+        "headYaw": -1.1449926872123765e-14,
         "headQuaternion": [
-          -0.28980997204780556,
-          -0.07646255195141707,
-          0.023234385997059598,
-          0.9537420272827142
+          -0.2898099720478057,
+          -0.07646255195141384,
+          0.02323438599705862,
+          0.9537420272827144
         ],
         "tailQuaternion": [
-          3.351368215903699e-10,
+          1.9114810020917634e-10,
           0.24740396440029144,
-          -8.557448159308164e-11,
+          -4.880812411265261e-11,
           0.9689124226570129
         ],
         "paused": true,
@@ -1867,7 +2751,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.1000000000000003,
+          0.6500000000000001,
+          -1.8000000000000003
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1882,19 +2783,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 3,
-        "tailLift": 1.2577807062229308e-9,
+        "tailLift": 7.173857868955152e-10,
         "greeting": 0,
-        "headYaw": -1.8204014764278918e-14,
+        "headYaw": -1.1449926872123765e-14,
         "headQuaternion": [
-          -0.28980997204780556,
-          -0.07646255195141707,
-          0.023234385997059598,
-          0.9537420272827142
+          -0.2898099720478057,
+          -0.07646255195141384,
+          0.02323438599705862,
+          0.9537420272827144
         ],
         "tailQuaternion": [
-          3.351368215903699e-10,
+          1.9114810020917634e-10,
           0.24740396440029144,
-          -8.557448159308164e-11,
+          -4.880812411265261e-11,
           0.9689124226570129
         ],
         "paused": true,
@@ -1902,7 +2803,24 @@
         "furry": false,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -1917,87 +2835,121 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 3,
-        "tailLift": 1.2577807062229308e-9,
+        "tailLift": 7.173857868955152e-10,
         "greeting": 0,
-        "headYaw": -1.8204014764278918e-14,
+        "headYaw": -1.1449926872123765e-14,
         "headQuaternion": [
-          -0.28980997204780556,
-          -0.07646255195141707,
-          0.023234385997059598,
-          0.9537420272827142
+          -0.2898099720478057,
+          -0.07646255195141384,
+          0.02323438599705862,
+          0.9537420272827144
         ],
         "tailQuaternion": [
-          3.351368215903699e-10,
+          1.9114810020917634e-10,
           0.24740396440029144,
-          -8.557448159308164e-11,
+          -4.880812411265261e-11,
           0.9689124226570129
         ],
         "paused": true,
         "plain": true,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 1,
-        "whiskers": 12
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "curl-rise-0.75",
       "snapshot": {
         "pose": "curl",
-        "time": 3.1489562799999966,
+        "time": 3.130146359999993,
         "target": 0,
-        "progress": 0.6845557130434776,
+        "progress": 0.6804665999999985,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "调整身体",
         "reactions": 4,
-        "tailLift": 2.388592075677807e-12,
-        "greeting": 5.033399999999993,
-        "headYaw": -1.5065125952873012e-18,
+        "tailLift": 1.2748311684439611e-12,
+        "greeting": 5.016799999999986,
+        "headYaw": -8.577338911700681e-19,
         "headQuaternion": [
-          -0.03314894047246861,
-          -0.021060607917477207,
-          0.0007016937621800316,
-          0.9992282552878312
+          -0.029683699553207373,
+          -0.019972717261629875,
+          0.0005941784786301882,
+          0.9993596026946243
         ],
         "tailQuaternion": [
-          6.568620835421329e-13,
-          0.0014982717812111995,
-          -9.841590285485048e-16,
-          0.9999988775902049
+          3.5057846788392073e-13,
+          0.0007681794656909851,
+          -2.693072596009115e-16,
+          0.9999997049501108
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.04193312535305029,
-        "whiskers": 12
+        "eyesClosure": 0.03294189545815274,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "curl-rise-0.45",
       "snapshot": {
         "pose": "curl",
-        "time": 1.7321562799999963,
+        "time": 1.6799463599999978,
         "target": 0,
-        "progress": 0.3765557130434775,
+        "progress": 0.36520573043478216,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "换爪支撑",
         "reactions": 4,
-        "tailLift": 8.258635512282151e-15,
-        "greeting": 3.616599999999985,
-        "headYaw": -3.0628253659126865e-22,
+        "tailLift": 3.856534691402178e-15,
+        "greeting": 3.5665999999999825,
+        "headYaw": -1.4271493515409444e-22,
         "headQuaternion": [
           0,
-          -1.5314126829563433e-22,
+          -7.135746757704722e-23,
           0,
           1
         ],
         "tailQuaternion": [
-          2.2711247658775916e-15,
+          1.0605470401355989e-15,
           0,
           0,
           1
@@ -2007,32 +2959,49 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "curl-rise-0.15",
       "snapshot": {
         "pose": "curl",
-        "time": 0.5488562800000011,
+        "time": 0.4964463599999985,
         "target": 0,
-        "progress": 0.1193165826086959,
+        "progress": 0.10792312173913012,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "降低身体",
         "reactions": 4,
-        "tailLift": 7.266171725645786e-17,
-        "greeting": 2.4332999999999907,
-        "headYaw": -2.527657769522439e-25,
+        "tailLift": 3.390370535430129e-17,
+        "greeting": 2.383099999999984,
+        "headYaw": -1.1763709968137545e-25,
         "headQuaternion": [
           0,
-          -1.2638288847612195e-25,
+          -5.881854984068772e-26,
           0,
           1
         ],
         "tailQuaternion": [
-          1.9981972245525914e-17,
+          9.323518972432855e-18,
           0,
           0,
           1
@@ -2042,182 +3011,284 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "stretch-enter-0.15",
       "snapshot": {
         "pose": "stretch",
-        "time": 1.0667334000000013,
+        "time": 1.0834334400000054,
         "target": 4.6,
-        "progress": 0.2318985652173916,
+        "progress": 0.23552900869565338,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "降低身体",
         "reactions": 4,
-        "tailLift": 0.007019832999637211,
-        "greeting": 0.31639999999998947,
-        "headYaw": -0.00023999933818397723,
+        "tailLift": 0.004274718611324401,
+        "greeting": 0.5163999999999795,
+        "headYaw": -0.00015927057631820742,
         "headQuaternion": [
           0,
-          -0.0001199996688039807,
+          -0.00007963528807493838,
           0,
-          0.9999999928000395
+          0.9999999968291109
         ],
         "tailQuaternion": [
-          0.0019304528758783133,
+          0.0011755473473636132,
           0,
           0,
-          0.999998136674111
+          0.9999993090439775
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "stretch-enter-0.35",
       "snapshot": {
         "pose": "stretch",
-        "time": 1.9834333999999982,
+        "time": 1.7501334400000028,
         "target": 4.6,
-        "progress": 0.4311811739130431,
+        "progress": 0.3804637913043485,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "换爪支撑",
         "reactions": 4,
-        "tailLift": 0.00017941377089338617,
+        "tailLift": 0.0002969826018009615,
         "greeting": 0,
-        "headYaw": -9.806262956676074e-7,
+        "headYaw": -0.0000029165589913115867,
         "headQuaternion": [
           0,
-          -4.903131478234995e-7,
+          -0.0000014582794956614522,
           0,
-          0.9999999999998798
+          0.9999999999989372
         ],
         "tailQuaternion": [
-          0.00004933878697557694,
+          0.00008167021540445853,
           0,
           0,
-          0.9999999987828414
+          0.9999999966649863
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "stretch-enter-0.55",
       "snapshot": {
         "pose": "stretch",
-        "time": 2.8835334000000037,
+        "time": 2.7003334399999996,
         "target": 4.6,
-        "progress": 0.6268550869565226,
+        "progress": 0.5870290086956521,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "调整身体",
         "reactions": 4,
-        "tailLift": 0.0000049002915704091474,
+        "tailLift": 0.000006638417171542544,
         "greeting": 0,
-        "headYaw": -4.426421389088342e-9,
+        "headYaw": -9.747002216296871e-9,
         "headQuaternion": [
-          0.0004008955778368319,
-          -2.21321051669358e-9,
-          -8.872663802639415e-13,
-          0.9999999196413647
+          0.00747434455449355,
+          -4.873364975163388e-9,
+          -3.642622646900754e-11,
+          0.9999720666966055
         ],
         "tailQuaternion": [
-          0.000001347580181775582,
+          0.000001825564722157836,
           0,
           0,
-          0.999999999999092
+          0.9999999999983322
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "stretch-enter-0.75",
       "snapshot": {
         "pose": "stretch",
-        "time": 3.816933399999997,
+        "time": 3.63363344,
         "target": 4.6,
-        "progress": 0.8297681304347819,
+        "progress": 0.7899203130434783,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
-        "phase": "放松",
+        "phase": "调整身体",
         "reactions": 4,
-        "tailLift": 1.1714939334495441e-7,
+        "tailLift": 1.5876558977753612e-7,
         "greeting": 0,
-        "headYaw": -1.636175703664457e-11,
+        "headYaw": -3.6050295178200104e-11,
         "headQuaternion": [
-          -0.2221331882009907,
-          -7.976490161415082e-12,
-          1.8172446275599264e-12,
-          0.9750163315040744
+          -0.16564680843244162,
+          -1.7776132739795856e-11,
+          2.985808169658143e-12,
+          0.9861851422811774
         ],
         "tailQuaternion": [
-          3.221551233545979e-8,
-          0.005952943691713504,
-          -1.917805290777504e-10,
-          0.9999822810737209
+          4.3660229803801006e-8,
+          0.0037524165821637965,
+          -1.6383252373351653e-10,
+          0.9999929596601129
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.7073134661374733,
-        "whiskers": 12
+        "eyesClosure": 0.4995731056361639,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "stretch-enter-0.95",
       "snapshot": {
         "pose": "stretch",
-        "time": 4.6,
+        "time": 4.550433440000009,
         "target": 4.6,
-        "progress": 1,
-        "velocity": 0,
+        "progress": 0.9892246608695672,
+        "velocity": 1,
         "pending": null,
-        "state": "resting",
+        "state": "lowering",
         "phase": "放松",
         "reactions": 4,
-        "tailLift": 2.800645668507554e-9,
+        "tailLift": 4.0561280498817904e-9,
         "greeting": 0,
-        "headYaw": -6.04793511042818e-14,
+        "headYaw": -1.4721150036193039e-13,
         "headQuaternion": [
           -0.29073986411094666,
-          -2.8933385971100843e-14,
-          8.791879160788562e-15,
+          -7.04261385346615e-14,
+          2.1400125805398107e-14,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          7.701173758640684e-10,
-          0.0124996742233634,
-          -9.626968579640015e-12,
-          0.9999218583106995
+          1.1153486745946681e-9,
+          0.012456345427246721,
+          -1.3894246323779858e-11,
+          0.999922416719716
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2232,19 +3303,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 4,
-        "tailLift": 1.642550121844294e-9,
+        "tailLift": 7.660014902665361e-10,
         "greeting": 0,
-        "headYaw": -2.716425630621568e-14,
+        "headYaw": -1.208143927513143e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -1.299540914336967e-14,
-          3.948866093572036e-15,
+          -5.779773414418241e-15,
+          1.7562780065581829e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          4.5166598680582844e-10,
+          2.10633949244422e-10,
           0.0124996742233634,
-          -5.6461188901148725e-12,
+          -2.633061497809207e-12,
           0.9999218583106995
         ],
         "paused": false,
@@ -2252,7 +3323,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2267,19 +3355,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 4,
-        "tailLift": 1.2584112170898831e-9,
+        "tailLift": 5.866240268731155e-10,
         "greeting": 0,
-        "headYaw": -1.8216030492815527e-14,
+        "headYaw": -8.096811406854627e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -8.714568385517282e-15,
-          2.6480631150610236e-15,
+          -3.873523199113015e-15,
+          1.1770329240804384e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          3.4603604274567494e-10,
+          1.6130900144718464e-10,
           0.0124996742233634,
-          -4.325675819478689e-12,
+          -2.016467537565668e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -2287,7 +3375,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.12,
+          0.56,
+          2.1
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2302,19 +3407,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 4,
-        "tailLift": 1.2584112170898831e-9,
+        "tailLift": 5.866240268731155e-10,
         "greeting": 0,
-        "headYaw": -1.8216030492815527e-14,
+        "headYaw": -8.096811406854627e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -8.714568385517282e-15,
-          2.6480631150610236e-15,
+          -3.873523199113015e-15,
+          1.1770329240804384e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          3.4603604274567494e-10,
+          1.6130900144718464e-10,
           0.0124996742233634,
-          -4.325675819478689e-12,
+          -2.016467537565668e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -2322,7 +3427,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.9,
+          0.57,
+          0.04999999999999998
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2337,19 +3459,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 4,
-        "tailLift": 1.2584112170898831e-9,
+        "tailLift": 5.866240268731155e-10,
         "greeting": 0,
-        "headYaw": -1.8216030492815527e-14,
+        "headYaw": -8.096811406854627e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -8.714568385517282e-15,
-          2.6480631150610236e-15,
+          -3.873523199113015e-15,
+          1.1770329240804384e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          3.4603604274567494e-10,
+          1.6130900144718464e-10,
           0.0124996742233634,
-          -4.325675819478689e-12,
+          -2.016467537565668e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -2357,7 +3479,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.1000000000000003,
+          0.6500000000000001,
+          -1.8000000000000003
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2372,19 +3511,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 4,
-        "tailLift": 1.2584112170898831e-9,
+        "tailLift": 5.866240268731155e-10,
         "greeting": 0,
-        "headYaw": -1.8216030492815527e-14,
+        "headYaw": -8.096811406854627e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -8.714568385517282e-15,
-          2.6480631150610236e-15,
+          -3.873523199113015e-15,
+          1.1770329240804384e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          3.4603604274567494e-10,
+          1.6130900144718464e-10,
           0.0124996742233634,
-          -4.325675819478689e-12,
+          -2.016467537565668e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -2392,7 +3531,24 @@
         "furry": false,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2407,87 +3563,121 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 4,
-        "tailLift": 1.2584112170898831e-9,
+        "tailLift": 5.866240268731155e-10,
         "greeting": 0,
-        "headYaw": -1.8216030492815527e-14,
+        "headYaw": -8.096811406854627e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -8.714568385517282e-15,
-          2.6480631150610236e-15,
+          -3.873523199113015e-15,
+          1.1770329240804384e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          3.4603604274567494e-10,
+          1.6130900144718464e-10,
           0.0124996742233634,
-          -4.325675819478689e-12,
+          -2.016467537565668e-12,
           0.9999218583106995
         ],
         "paused": true,
         "plain": true,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 1,
-        "whiskers": 12
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "stretch-rise-0.75",
       "snapshot": {
         "pose": "stretch",
-        "time": 3.1134529199999945,
+        "time": 3.0965332799999983,
         "target": 0,
-        "progress": 0.6768375913043467,
+        "progress": 0.6731594086956518,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "调整身体",
         "reactions": 5,
-        "tailLift": 2.0917588466195985e-12,
-        "greeting": 5.000099999999988,
-        "headYaw": -1.2344892005139391e-18,
+        "tailLift": 9.113612803660123e-13,
+        "greeting": 4.983199999999986,
+        "headYaw": -4.958040998193553e-19,
         "headQuaternion": [
-          -0.02682670351735043,
-          -6.170224534469183e-19,
-          1.6558637888779207e-20,
-          0.9996400992249123
+          -0.02397855501749909,
+          -2.4783077140517984e-19,
+          5.944332942710011e-21,
+          0.9997124731137812
         ],
         "tailQuaternion": [
-          5.752336827049189e-13,
-          0.000020036825565216774,
-          -1.152585696190938e-17,
-          0.9999999997992628
+          2.5062435209790066e-13,
+          0.000004686945549362947,
+          -1.1746626916401296e-18,
+          0.9999999999890163
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.025799717979763433,
-        "whiskers": 12
+        "eyesClosure": 0.019392192935191104,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "stretch-rise-0.45",
       "snapshot": {
         "pose": "stretch",
-        "time": 1.9132529199999913,
+        "time": 1.9131332800000054,
         "target": 0,
-        "progress": 0.41592454782608507,
+        "progress": 0.415898539130436,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "换爪支撑",
         "reactions": 5,
-        "tailLift": 1.7200879985490795e-14,
-        "greeting": 3.799899999999979,
-        "headYaw": -9.20546798480887e-22,
+        "tailLift": 8.01519723696559e-15,
+        "greeting": 3.7997999999999887,
+        "headYaw": -4.089268002977594e-22,
         "headQuaternion": [
           0,
-          -4.602733992404435e-22,
+          -2.044634001488797e-22,
           0,
           1
         ],
         "tailQuaternion": [
-          4.730241996009969e-15,
+          2.2041792401655373e-15,
           0,
           0,
           1
@@ -2497,32 +3687,49 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "stretch-rise-0.15",
       "snapshot": {
         "pose": "stretch",
-        "time": 0.4464529200000055,
+        "time": 0.46293328000000983,
         "target": 0,
-        "progress": 0.09705498260869685,
+        "progress": 0.10063766956521954,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "降低身体",
         "reactions": 5,
-        "tailLift": 4.8692052484777366e-17,
-        "greeting": 2.3330999999999937,
-        "headYaw": -1.3864588861492033e-25,
+        "tailLift": 2.424704303434784e-17,
+        "greeting": 2.349599999999995,
+        "headYaw": -6.803970600678371e-26,
         "headQuaternion": [
           0,
-          -6.932294430746016e-26,
+          -3.4019853003391857e-26,
           0,
           1
         ],
         "tailQuaternion": [
-          1.3390314433313776e-17,
+          6.667936834445657e-18,
           0,
           0,
           1
@@ -2532,182 +3739,284 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "pillow-enter-0.15",
       "snapshot": {
         "pose": "pillow",
-        "time": 1.0833337199999997,
+        "time": 0.866533519999997,
         "target": 4.6,
-        "progress": 0.23550733043478256,
+        "progress": 0.1883768521739124,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "降低身体",
         "reactions": 5,
-        "tailLift": 0.004769447088921082,
-        "greeting": 0.4830999999999974,
-        "headYaw": -0.00017377153143640988,
+        "tailLift": 0.01135900015227395,
+        "greeting": 0.6995999999999973,
+        "headYaw": -0.0006384164617929304,
         "headQuaternion": [
           0,
-          -0.00008688576560884286,
+          -0.00031920822547555096,
           0,
-          0.9999999962254315
+          0.9999999490530531
         ],
         "tailQuaternion": [
-          0.0013115975733986721,
+          0.0031237199618375775,
           0,
           0,
-          0.9999991398555325
+          0.9999951211748984
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "pillow-enter-0.35",
       "snapshot": {
         "pose": "pillow",
-        "time": 1.766833719999998,
+        "time": 1.800033519999995,
         "target": 4.6,
-        "progress": 0.3840942869565213,
+        "progress": 0.39131163478260766,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "换爪支撑",
         "reactions": 5,
-        "tailLift": 0.0003098181966091078,
+        "tailLift": 0.0002714466647918492,
         "greeting": 0,
-        "headYaw": -0.0000028769807648277467,
+        "headYaw": -0.000002358417472994592,
         "headQuaternion": [
           0,
-          -0.0000014384903823700987,
+          -0.000001179208736477672,
           0,
-          0.9999999999989648
+          0.9999999999993044
         ],
         "tailQuaternion": [
-          0.00008520000396439547,
+          0.00007464783274837196,
           0,
           0,
-          0.9999999963704796
+          0.99999999721385
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 4,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "pillow-enter-0.55",
       "snapshot": {
         "pose": "pillow",
-        "time": 2.7002337200000053,
+        "time": 2.7500335199999935,
         "target": 4.6,
-        "progress": 0.5870073304347838,
+        "progress": 0.5978333739130421,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "调整身体",
         "reactions": 5,
-        "tailLift": 0.000007406704939590409,
+        "tailLift": 0.000006072471409175524,
         "greeting": 0,
-        "headYaw": -1.0634428161143135e-8,
+        "headYaw": -7.891183398936601e-9,
         "headQuaternion": [
-          0.04223670921703901,
-          -5.312469169073477e-9,
-          -2.245816249658467e-10,
-          0.9991076320369668
+          0.048548285641932226,
+          -3.940939202806424e-9,
+          -1.9155171285222387e-10,
+          0.9988208367676504
         ],
         "tailQuaternion": [
-          0.000002036843858355123,
+          0.0000016699296374626222,
           0,
           0,
-          0.9999999999979243
+          0.9999999999986052
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "pillow-enter-0.75",
       "snapshot": {
         "pose": "pillow",
-        "time": 3.6337337200000044,
+        "time": 3.683433519999999,
         "target": 4.6,
-        "progress": 0.7899421130434793,
+        "progress": 0.8007464173913041,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
-        "phase": "调整身体",
+        "phase": "放松",
         "reactions": 5,
-        "tailLift": 1.7699844405289888e-7,
+        "tailLift": 1.4517224770567167e-7,
         "greeting": 0,
-        "headYaw": -3.928536103237345e-11,
+        "headYaw": -2.916885089686062e-11,
         "headQuaternion": [
-          0.026986132018163182,
-          -1.9635526809505516e-11,
-          -5.300799696004167e-13,
-          0.9996358080214504
+          0.018198912605020347,
+          -1.4582010064502675e-11,
+          -2.6542068413041786e-13,
+          0.9998343860760115
         ],
         "tailQuaternion": [
-          4.867422921711231e-8,
-          0.0037535765727987553,
-          -1.827037335801681e-10,
-          0.999992955306641
+          3.992199340751703e-8,
+          0.004332657579008285,
+          -1.7296995080300286e-10,
+          0.9999906139951023
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.4996898913220255,
-        "whiskers": 12
+        "eyesClosure": 0.5574570232658024,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "pillow-enter-0.95",
       "snapshot": {
         "pose": "pillow",
-        "time": 4.567033720000008,
+        "time": 4.6,
         "target": 4.6,
-        "progress": 0.9928334173913063,
-        "velocity": 1,
+        "progress": 1,
+        "velocity": 0,
         "pending": null,
-        "state": "lowering",
+        "state": "resting",
         "phase": "放松",
         "reactions": 5,
-        "tailLift": 4.233126908659601e-9,
+        "tailLift": 3.4705773125705903e-9,
         "greeting": 0,
-        "headYaw": -1.4530096843840588e-13,
+        "headYaw": -1.0781929903669648e-13,
         "headQuaternion": [
           -0.04997916892170906,
-          -7.255969068691343e-14,
-          3.631010823035502e-15,
+          -5.384227698041041e-14,
+          2.6943594797876583e-15,
           0.9987502694129944
         ],
         "tailQuaternion": [
-          1.164019211197201e-9,
-          0.012482055187728283,
-          -1.453048401490036e-11,
-          0.9999220961146377
+          9.54334181844048e-10,
+          0.0124996742233634,
+          -1.1929798587885317e-11,
+          0.9999218583106995
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2722,19 +4031,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 5,
-        "tailLift": 8.546535830878535e-10,
+        "tailLift": 1.904693213102676e-9,
         "greeting": 0,
-        "headYaw": -1.318140646770171e-14,
+        "headYaw": -4.38360557228196e-14,
         "headQuaternion": [
           -0.04997916892170906,
-          -6.582466630429635e-15,
-          3.2939787023748606e-16,
+          -2.1890636231584556e-14,
+          1.095444816916126e-15,
           0.9987502694129944
         ],
         "tailQuaternion": [
-          2.350113697286037e-10,
+          5.237497037182863e-10,
           0.0124996742233634,
-          -2.9377951246678133e-12,
+          -6.54721228128955e-12,
           0.9999218583106995
         ],
         "paused": false,
@@ -2742,7 +4051,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2757,19 +4083,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 5,
-        "tailLift": 6.545161241371491e-10,
+        "tailLift": 1.4586640063055207e-9,
         "greeting": 0,
-        "headYaw": -8.83399401474983e-15,
+        "headYaw": -2.937831064040834e-14,
         "headQuaternion": [
           -0.04997916892170906,
-          -4.411476951112087e-15,
-          2.2075783955827429e-16,
+          -1.4670797833503232e-14,
+          7.341517750657055e-16,
           0.9987502694129944
         ],
         "tailQuaternion": [
-          1.7997786926392202e-10,
+          4.011012565548852e-10,
           0.0124996742233634,
-          -2.2498405395545316e-12,
+          -5.014026842045404e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -2777,7 +4103,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.12,
+          0.56,
+          2.1
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2792,19 +4135,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 5,
-        "tailLift": 6.545161241371491e-10,
+        "tailLift": 1.4586640063055207e-9,
         "greeting": 0,
-        "headYaw": -8.83399401474983e-15,
+        "headYaw": -2.937831064040834e-14,
         "headQuaternion": [
           -0.04997916892170906,
-          -4.411476951112087e-15,
-          2.2075783955827429e-16,
+          -1.4670797833503232e-14,
+          7.341517750657055e-16,
           0.9987502694129944
         ],
         "tailQuaternion": [
-          1.7997786926392202e-10,
+          4.011012565548852e-10,
           0.0124996742233634,
-          -2.2498405395545316e-12,
+          -5.014026842045404e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -2812,7 +4155,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.9,
+          0.57,
+          0.04999999999999998
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2827,19 +4187,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 5,
-        "tailLift": 6.545161241371491e-10,
+        "tailLift": 1.4586640063055207e-9,
         "greeting": 0,
-        "headYaw": -8.83399401474983e-15,
+        "headYaw": -2.937831064040834e-14,
         "headQuaternion": [
           -0.04997916892170906,
-          -4.411476951112087e-15,
-          2.2075783955827429e-16,
+          -1.4670797833503232e-14,
+          7.341517750657055e-16,
           0.9987502694129944
         ],
         "tailQuaternion": [
-          1.7997786926392202e-10,
+          4.011012565548852e-10,
           0.0124996742233634,
-          -2.2498405395545316e-12,
+          -5.014026842045404e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -2847,7 +4207,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.1000000000000003,
+          0.6500000000000001,
+          -1.8000000000000003
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2862,19 +4239,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 5,
-        "tailLift": 6.545161241371491e-10,
+        "tailLift": 1.4586640063055207e-9,
         "greeting": 0,
-        "headYaw": -8.83399401474983e-15,
+        "headYaw": -2.937831064040834e-14,
         "headQuaternion": [
           -0.04997916892170906,
-          -4.411476951112087e-15,
-          2.2075783955827429e-16,
+          -1.4670797833503232e-14,
+          7.341517750657055e-16,
           0.9987502694129944
         ],
         "tailQuaternion": [
-          1.7997786926392202e-10,
+          4.011012565548852e-10,
           0.0124996742233634,
-          -2.2498405395545316e-12,
+          -5.014026842045404e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -2882,7 +4259,24 @@
         "furry": false,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -2897,87 +4291,121 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 5,
-        "tailLift": 6.545161241371491e-10,
+        "tailLift": 1.4586640063055207e-9,
         "greeting": 0,
-        "headYaw": -8.83399401474983e-15,
+        "headYaw": -2.937831064040834e-14,
         "headQuaternion": [
           -0.04997916892170906,
-          -4.411476951112087e-15,
-          2.2075783955827429e-16,
+          -1.4670797833503232e-14,
+          7.341517750657055e-16,
           0.9987502694129944
         ],
         "tailQuaternion": [
-          1.7997786926392202e-10,
+          4.011012565548852e-10,
           0.0124996742233634,
-          -2.2498405395545316e-12,
+          -5.014026842045404e-12,
           0.9999218583106995
         ],
         "paused": true,
         "plain": true,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 1,
-        "whiskers": 12
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "pillow-rise-0.75",
       "snapshot": {
         "pose": "pillow",
-        "time": 3.165457679999995,
+        "time": 3.07983308,
         "target": 0,
-        "progress": 0.6881429739130425,
+        "progress": 0.6695289304347826,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "调整身体",
         "reactions": 6,
-        "tailLift": 1.3277638624931723e-12,
-        "greeting": 5.049899999999983,
-        "headYaw": -8.071566743593798e-19,
+        "tailLift": 2.1197035237174346e-12,
+        "greeting": 4.966499999999989,
+        "headYaw": -1.6274460535780747e-18,
         "headQuaternion": [
-          0.07628416480572624,
-          -4.0240235742449924e-19,
-          -3.078663638543642e-20,
-          0.9970861177450486
+          0.07577138735586833,
+          -8.11383749045058e-19,
+          -6.165692266322178e-20,
+          0.9971252162382449
         ],
         "tailQuaternion": [
-          3.651350599859317e-13,
-          0.00010976630158719832,
-          -4.007952535592744e-17,
-          0.9999999939756794
+          5.829184690210503e-13,
+          0.0000020662010890890094,
+          -1.204426775543963e-18,
+          0.9999999999978655
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.05061576316523232,
-        "whiskers": 12
+        "eyesClosure": 0.013915024204511791,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "pillow-rise-0.45",
       "snapshot": {
         "pose": "pillow",
-        "time": 1.715357680000005,
+        "time": 1.8796330799999885,
         "target": 0,
-        "progress": 0.372903843478262,
+        "progress": 0.4086158869565193,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "换爪支撑",
         "reactions": 6,
-        "tailLift": 4.0182701530641666e-15,
-        "greeting": 3.5997999999999886,
-        "headYaw": -1.3438019688084323e-22,
+        "tailLift": 1.743067370084614e-14,
+        "greeting": 3.7662999999999727,
+        "headYaw": -1.2135709682173688e-21,
         "headQuaternion": [
           0,
-          -6.719009844042162e-23,
+          -6.067854841086844e-22,
           0,
           1
         ],
         "tailQuaternion": [
-          1.1050242920926458e-15,
+          4.793435267732689e-15,
           0,
           0,
           1
@@ -2987,32 +4415,49 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "pillow-rise-0.15",
       "snapshot": {
         "pose": "pillow",
-        "time": 0.5318576800000067,
+        "time": 0.446333080000002,
         "target": 0,
-        "progress": 0.11562123478261015,
+        "progress": 0.09702893043478304,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "降低身体",
         "reactions": 6,
-        "tailLift": 3.5325559914498784e-17,
-        "greeting": 2.4162999999999903,
-        "headYaw": -1.1076693969419554e-25,
+        "tailLift": 5.64179172372558e-17,
+        "greeting": 2.3329999999999878,
+        "headYaw": -2.234701358336691e-25,
         "headQuaternion": [
           0,
-          -5.538346984709777e-26,
+          -1.1173506791683455e-25,
           0,
           1
         ],
         "tailQuaternion": [
-          9.714528976487167e-18,
+          1.5514927240245347e-17,
           0,
           0,
           1
@@ -3022,147 +4467,232 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "loaf-enter-0.15",
       "snapshot": {
         "pose": "loaf",
-        "time": 1.050033679999997,
+        "time": 1.0667334000000082,
         "target": 4.6,
-        "progress": 0.2282681913043472,
+        "progress": 0.2318985652173931,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "降低身体",
         "reactions": 6,
-        "tailLift": 0.004240147885016207,
-        "greeting": 0.5828999999999845,
-        "headYaw": -0.0001730584767549273,
+        "tailLift": 0.005337220043811348,
+        "greeting": 0.48279999999997975,
+        "headYaw": -0.0001988701721242232,
         "headQuaternion": [
           0,
-          -0.00008652923826947723,
+          -0.00009943508589823502,
           0,
-          0.9999999962563451
+          0.9999999950563319
         ],
         "tailQuaternion": [
-          0.001166040404144753,
+          0.0014677349850705415,
           0,
           0,
-          0.9999993201746565
+          0.9999989228764252
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "loaf-enter-0.35",
       "snapshot": {
         "pose": "loaf",
-        "time": 1.9834336799999894,
+        "time": 1.9835333999999936,
         "target": 4.6,
-        "progress": 0.43118123478260645,
+        "progress": 0.4312029130434769,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "换爪支撑",
         "reactions": 6,
-        "tailLift": 0.00010136759114949275,
+        "tailLift": 0.0001363547854319681,
         "greeting": 0,
-        "headYaw": -6.39690734545972e-7,
+        "headYaw": -8.120870098547273e-7,
         "headQuaternion": [
           0,
-          -3.198453672651114e-7,
+          -4.060435049087575e-7,
           0,
-          0.9999999999999485
+          0.999999999999917
         ],
         "tailQuaternion": [
-          0.000027876087562473872,
+          0.0000374975659849709,
           0,
           0,
-          0.9999999996114611
+          0.9999999992969648
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "loaf-enter-0.55",
       "snapshot": {
         "pose": "loaf",
-        "time": 2.883533679999994,
+        "time": 2.8835333999999904,
         "target": 4.6,
-        "progress": 0.6268551478260856,
+        "progress": 0.6268550869565197,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "调整身体",
         "reactions": 6,
-        "tailLift": 0.000002768632251298672,
+        "tailLift": 0.0000037257203115032293,
         "greeting": 0,
-        "headYaw": -2.8874819717823483e-9,
+        "headYaw": -3.6678567124531714e-9,
         "headQuaternion": [
-          0.0004008758189956438,
-          -1.4437408698855548e-9,
-          -5.787608501367026e-13,
-          0.9999999196492857
+          0.000400895577837772,
+          -1.8339282088546057e-9,
+          -7.352137680825325e-13,
+          0.9999999196413647
         ],
         "tailQuaternion": [
-          7.613738690807468e-7,
+          0.0000010245730856303066,
           0,
           0,
-          0.9999999999997095
+          0.9999999999994736
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "loaf-enter-0.75",
       "snapshot": {
         "pose": "loaf",
-        "time": 3.8169336799999853,
+        "time": 3.783533399999988,
         "target": 4.6,
-        "progress": 0.8297681913043446,
+        "progress": 0.8225072608695627,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "放松",
         "reactions": 6,
-        "tailLift": 6.618863060996065e-8,
+        "tailLift": 1.0180054770775467e-7,
         "greeting": 0,
-        "headYaw": -1.0673244663614037e-11,
+        "headYaw": -1.6566171727699953e-11,
         "headQuaternion": [
-          -0.22213326839879258,
-          -5.2032938310753705e-12,
-          1.1854413607742787e-12,
-          0.9750163132329992
+          -0.2123918358410864,
+          -8.094103800797837e-12,
+          1.7592598130524476e-12,
+          0.9771845823937528
         ],
         "tailQuaternion": [
-          1.8201550899711655e-8,
-          0.005952947146037995,
-          -1.0835479041467531e-10,
-          0.9999822810531575
+          2.7994720720385226e-8,
+          0.0055418564063748075,
+          -1.551451048088383e-10,
+          0.9999846437958788
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.7073137659127502,
-        "whiskers": 12
+        "eyesClosure": 0.671016381296397,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3177,19 +4707,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 6,
-        "tailLift": 1.933455284610008e-9,
+        "tailLift": 2.6007906223844543e-9,
         "greeting": 0,
-        "headYaw": -5.328715939606396e-14,
+        "headYaw": -6.76480173943991e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -2.5492633799120524e-14,
-          7.746350740834996e-15,
+          -3.2362883558010283e-14,
+          9.833987692311276e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          5.316586553156674e-10,
+          7.151615328582187e-10,
           0.0124996742233634,
-          -6.646079325343002e-12,
+          -8.939984763320661e-12,
           0.9999218583106995
         ],
         "paused": false,
@@ -3197,7 +4727,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3212,19 +4759,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 6,
-        "tailLift": 1.133498315819775e-9,
+        "tailLift": 1.5259474324532515e-9,
         "greeting": 0,
-        "headYaw": -2.3919532635792995e-14,
+        "headYaw": -3.0402293431089493e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -1.1443129884221667e-14,
-          3.4771808340639046e-15,
+          -1.4544489552006772e-14,
+          4.419579330408043e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          3.1168767914530337e-10,
+          4.1960275289435136e-10,
           0.0124996742233634,
-          -3.896298912131524e-12,
+          -5.2453075916019545e-12,
           0.9999218583106995
         ],
         "paused": false,
@@ -3232,7 +4779,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3247,19 +4811,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 6,
-        "tailLift": 8.684100267080134e-10,
+        "tailLift": 1.168143205495648e-9,
         "greeting": 0,
-        "headYaw": -1.6040156997332628e-14,
+        "headYaw": -2.0362969838557388e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -7.673628188249889e-15,
-          2.3317565328613694e-15,
+          -9.741666454737376e-15,
+          2.9601635418787402e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          2.387940961124183e-10,
+          3.212142793233621e-10,
           0.0124996742233634,
-          -2.9850816671919314e-12,
+          -4.015387616606038e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -3267,7 +4831,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.12,
+          0.56,
+          2.1
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3282,19 +4863,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 6,
-        "tailLift": 8.684100267080134e-10,
+        "tailLift": 1.168143205495648e-9,
         "greeting": 0,
-        "headYaw": -1.6040156997332628e-14,
+        "headYaw": -2.0362969838557388e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -7.673628188249889e-15,
-          2.3317565328613694e-15,
+          -9.741666454737376e-15,
+          2.9601635418787402e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          2.387940961124183e-10,
+          3.212142793233621e-10,
           0.0124996742233634,
-          -2.9850816671919314e-12,
+          -4.015387616606038e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -3302,7 +4883,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.9,
+          0.57,
+          0.04999999999999998
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3317,19 +4915,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 6,
-        "tailLift": 8.684100267080134e-10,
+        "tailLift": 1.168143205495648e-9,
         "greeting": 0,
-        "headYaw": -1.6040156997332628e-14,
+        "headYaw": -2.0362969838557388e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -7.673628188249889e-15,
-          2.3317565328613694e-15,
+          -9.741666454737376e-15,
+          2.9601635418787402e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          2.387940961124183e-10,
+          3.212142793233621e-10,
           0.0124996742233634,
-          -2.9850816671919314e-12,
+          -4.015387616606038e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -3337,7 +4935,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.1000000000000003,
+          0.6500000000000001,
+          -1.8000000000000003
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3352,19 +4967,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 6,
-        "tailLift": 8.684100267080134e-10,
+        "tailLift": 1.168143205495648e-9,
         "greeting": 0,
-        "headYaw": -1.6040156997332628e-14,
+        "headYaw": -2.0362969838557388e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -7.673628188249889e-15,
-          2.3317565328613694e-15,
+          -9.741666454737376e-15,
+          2.9601635418787402e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          2.387940961124183e-10,
+          3.212142793233621e-10,
           0.0124996742233634,
-          -2.9850816671919314e-12,
+          -4.015387616606038e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -3372,7 +4987,24 @@
         "furry": false,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3387,87 +5019,121 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 6,
-        "tailLift": 8.684100267080134e-10,
+        "tailLift": 1.168143205495648e-9,
         "greeting": 0,
-        "headYaw": -1.6040156997332628e-14,
+        "headYaw": -2.0362969838557388e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -7.673628188249889e-15,
-          2.3317565328613694e-15,
+          -9.741666454737376e-15,
+          2.9601635418787402e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          2.387940961124183e-10,
+          3.212142793233621e-10,
           0.0124996742233634,
-          -2.9850816671919314e-12,
+          -4.015387616606038e-12,
           0.9999218583106995
         ],
         "paused": true,
         "plain": true,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 1,
-        "whiskers": 12
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "loaf-rise-0.75",
       "snapshot": {
         "pose": "loaf",
-        "time": 3.129833159999998,
+        "time": 3.130146480000001,
         "target": 0,
-        "progress": 0.6803985130434779,
+        "progress": 0.6804666260869567,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "调整身体",
         "reactions": 7,
-        "tailLift": 1.5413582128453176e-12,
-        "greeting": 5.016499999999996,
-        "headYaw": -1.1994350679509132e-18,
+        "tailLift": 2.0758501140876802e-12,
+        "greeting": 5.016799999999992,
+        "headYaw": -1.5254254066834638e-18,
         "headQuaternion": [
-          -0.029635933392646394,
-          -5.99454113601898e-19,
-          1.7773188891298783e-20,
-          0.9995607592597595
+          -0.029689665713868302,
+          -7.62376472663696e-19,
+          2.2644685197936824e-20,
+          0.9995591647070217
         ],
         "tailQuaternion": [
-          4.2387350822538944e-13,
-          0.000038064281646356424,
-          -1.613444061120891e-17,
-          0.9999999992755553
+          5.708587809530297e-13,
+          0.000038409109471491535,
+          -2.1926177426560523e-17,
+          0.9999999992623703
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.03280055469774617,
-        "whiskers": 12
+        "eyesClosure": 0.03294194966491122,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "loaf-rise-0.45",
       "snapshot": {
         "pose": "loaf",
-        "time": 1.6965331599999969,
+        "time": 1.6799464800000063,
         "target": 0,
-        "progress": 0.36881155652173847,
+        "progress": 0.36520575652174053,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "换爪支撑",
         "reactions": 7,
-        "tailLift": 4.988919050274309e-15,
-        "greeting": 3.583199999999986,
-        "headYaw": -2.208671141436069e-22,
+        "tailLift": 6.2797240742880486e-15,
+        "greeting": 3.5665999999999882,
+        "headYaw": -2.5380947428842336e-22,
         "headQuaternion": [
           0,
-          -1.1043355707180346e-22,
+          -1.2690473714421168e-22,
           0,
           1
         ],
         "tailQuaternion": [
-          1.371952738825435e-15,
+          1.7269241204292134e-15,
           0,
           0,
           1
@@ -3477,32 +5143,49 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "loaf-rise-0.15",
       "snapshot": {
         "pose": "loaf",
-        "time": 0.5131331600000043,
+        "time": 0.4965464799999999,
         "target": 0,
-        "progress": 0.11155068695652269,
+        "progress": 0.10794488695652173,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "降低身体",
         "reactions": 7,
-        "tailLift": 4.387631014030391e-17,
-        "greeting": 2.399799999999992,
-        "headYaw": -1.821656624272619e-25,
+        "tailLift": 5.522862133107365e-17,
+        "greeting": 2.3831999999999813,
+        "headYaw": -2.093356957794977e-25,
         "headQuaternion": [
           0,
-          -9.108283121363094e-26,
+          -1.0466784788974885e-25,
           0,
           1
         ],
         "tailQuaternion": [
-          1.2065985288583577e-17,
+          1.5187870866045255e-17,
           0,
           0,
           1
@@ -3512,182 +5195,284 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "wall-enter-0.15",
       "snapshot": {
         "pose": "wall",
-        "time": 1.0666334400000024,
+        "time": 1.0833335199999996,
         "target": 4.6,
-        "progress": 0.23187683478260923,
+        "progress": 0.23550728695652168,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "降低身体",
         "reactions": 7,
-        "tailLift": 0.004281690533152794,
-        "greeting": 0.5495999999999833,
-        "headYaw": -0.00016695386325596024,
+        "tailLift": 0.004005017363591352,
+        "greeting": 0.533199999999985,
+        "headYaw": -0.00015103589236026312,
         "headQuaternion": [
           0,
-          -0.00008347693153100942,
+          -0.00007551794610834185,
           0,
-          0.9999999965158006
+          0.9999999971485185
         ],
         "tailQuaternion": [
-          0.0011774646245395262,
+          0.0011013795523184657,
           0,
           0,
-          0.9999993067882876
+          0.9999993934813569
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "wall-enter-0.35",
       "snapshot": {
         "pose": "wall",
-        "time": 1.983333439999997,
+        "time": 1.7501335200000019,
         "target": 4.6,
-        "progress": 0.43115944347826024,
+        "progress": 0.3804638086956526,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "换爪支撑",
         "reactions": 7,
-        "tailLift": 0.0001094319828393576,
+        "tailLift": 0.0002781340509052111,
         "greeting": 0,
-        "headYaw": -6.821658330848633e-7,
+        "headYaw": -0.0000027641066936033174,
         "headQuaternion": [
           0,
-          -3.4108291652181684e-7,
+          -0.0000013820533467909092,
           0,
-          0.9999999999999416
+          0.9999999999990432
         ],
         "tailQuaternion": [
-          0.000030093795276287134,
+          0.00007648686392432994,
           0,
           0,
-          0.9999999995471801
+          0.9999999970748783
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "wall-enter-0.55",
       "snapshot": {
         "pose": "wall",
-        "time": 2.916733439999991,
+        "time": 2.683533519999994,
         "target": 4.6,
-        "progress": 0.6340724869565199,
+        "progress": 0.5833768521739118,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
         "phase": "调整身体",
         "reactions": 7,
-        "tailLift": 0.0000026161484919755144,
+        "tailLift": 0.000006649244205972757,
         "greeting": 0,
-        "headYaw": -2.52154746205344e-9,
+        "headYaw": -1.021720215241754e-8,
         "headQuaternion": [
-          -0.002159738845652301,
-          -1.2607707906014823e-9,
-          2.7229420024763926e-12,
-          0.9999976677613395
+          0.007567037229393741,
+          -5.108454814732269e-9,
+          -3.8656974533792694e-11,
+          0.9999713695639336
         ],
         "tailQuaternion": [
-          7.194408352993846e-7,
+          0.0000018285421566162596,
           0,
           0,
-          0.99999999999974
+          0.9999999999983271
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "wall-enter-0.75",
       "snapshot": {
         "pose": "wall",
-        "time": 3.833533439999994,
+        "time": 3.6002335199999904,
         "target": 4.6,
-        "progress": 0.8333768347826074,
+        "progress": 0.7826594608695632,
         "velocity": 1,
         "pending": null,
         "state": "lowering",
-        "phase": "放松",
+        "phase": "调整身体",
         "reactions": 7,
-        "tailLift": 6.683711058439477e-8,
+        "tailLift": 1.6994221609634086e-7,
         "greeting": 0,
-        "headYaw": -1.0296747454849481e-11,
+        "headYaw": -4.174701969857859e-11,
         "headQuaternion": [
-          -0.2268826847920936,
-          -5.014114927017708e-12,
-          1.1680768535912034e-12,
-          0.9739220951090142
+          -0.15493489043659006,
+          -2.0621455605655e-11,
+          3.2340349615267204e-12,
+          0.9879246832250937
         ],
         "tailQuaternion": [
-          1.8379856939465117e-8,
-          0.006157738354999535,
-          -1.1318049583029014e-10,
-          0.9999810409494527
+          4.673384312041651e-8,
+          0.0033758872413342878,
+          -1.577690837480208e-10,
+          0.9999943016764302
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.7249400702069502,
-        "whiskers": 12
+        "eyesClosure": 0.46071171949513845,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "wall-enter-0.95",
       "snapshot": {
         "pose": "wall",
-        "time": 4.6,
+        "time": 4.533833519999999,
         "target": 4.6,
-        "progress": 1,
-        "velocity": 0,
+        "progress": 0.9856159826086955,
+        "velocity": 1,
         "pending": null,
-        "state": "resting",
+        "state": "lowering",
         "phase": "放松",
         "reactions": 7,
-        "tailLift": 1.59784919843815e-9,
+        "tailLift": 4.0594945628446365e-9,
         "greeting": 0,
-        "headYaw": -3.8060741469224157e-14,
+        "headYaw": -1.541279872459893e-13,
         "headQuaternion": [
           -0.29073986411094666,
-          -1.8208299248722955e-14,
-          5.5328874013620515e-15,
+          -7.373499322517364e-14,
+          2.2405575033796326e-14,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          4.3937419344569757e-10,
-          0.0124996742233634,
-          -5.492463470598284e-12,
-          0.9999218583106995
+          1.116274756283234e-9,
+          0.01243025544016324,
+          -1.3876652452880978e-11,
+          0.9999227413903998
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3702,19 +5487,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 7,
-        "tailLift": 1.001059034334946e-9,
+        "tailLift": 8.199257217599782e-10,
         "greeting": 0,
-        "headYaw": -1.8873962811964965e-14,
+        "headYaw": -1.399056737019689e-14,
         "headQuaternion": [
           -0.29073986411094666,
-          -9.029323907612565e-15,
-          2.7437066915928774e-15,
+          -6.693102328076025e-15,
+          2.033807828023044e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          2.752697227200012e-10,
+          2.254619541292192e-10,
           0.0124996742233634,
-          -3.441050747073935e-12,
+          -2.8184212125728536e-12,
           0.9999218583106995
         ],
         "paused": false,
@@ -3722,7 +5507,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3737,19 +5539,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 7,
-        "tailLift": 7.179599251497469e-10,
+        "tailLift": 6.279206173193221e-10,
         "greeting": 0,
-        "headYaw": -1.146367503161704e-14,
+        "headYaw": -9.376282319653178e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.484234342480653e-15,
-          1.6664736604521952e-15,
+          -4.485623446269541e-15,
+          1.3630295237409183e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.9742355120079506e-10,
+          1.72664676398923e-10,
           0.0124996742233634,
-          -2.4679229216956072e-12,
+          -2.1584208675218104e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -3757,7 +5559,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          0.12,
+          0.56,
+          2.1
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3772,19 +5591,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 7,
-        "tailLift": 7.179599251497469e-10,
+        "tailLift": 6.279206173193221e-10,
         "greeting": 0,
-        "headYaw": -1.146367503161704e-14,
+        "headYaw": -9.376282319653178e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.484234342480653e-15,
-          1.6664736604521952e-15,
+          -4.485623446269541e-15,
+          1.3630295237409183e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.9742355120079506e-10,
+          1.72664676398923e-10,
           0.0124996742233634,
-          -2.4679229216956072e-12,
+          -2.1584208675218104e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -3792,7 +5611,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.9,
+          0.57,
+          0.04999999999999998
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3807,19 +5643,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 7,
-        "tailLift": 7.179599251497469e-10,
+        "tailLift": 6.279206173193221e-10,
         "greeting": 0,
-        "headYaw": -1.146367503161704e-14,
+        "headYaw": -9.376282319653178e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.484234342480653e-15,
-          1.6664736604521952e-15,
+          -4.485623446269541e-15,
+          1.3630295237409183e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.9742355120079506e-10,
+          1.72664676398923e-10,
           0.0124996742233634,
-          -2.4679229216956072e-12,
+          -2.1584208675218104e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -3827,7 +5663,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.1000000000000003,
+          0.6500000000000001,
+          -1.8000000000000003
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3842,19 +5695,19 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 7,
-        "tailLift": 7.179599251497469e-10,
+        "tailLift": 6.279206173193221e-10,
         "greeting": 0,
-        "headYaw": -1.146367503161704e-14,
+        "headYaw": -9.376282319653178e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.484234342480653e-15,
-          1.6664736604521952e-15,
+          -4.485623446269541e-15,
+          1.3630295237409183e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.9742355120079506e-10,
+          1.72664676398923e-10,
           0.0124996742233634,
-          -2.4679229216956072e-12,
+          -2.1584208675218104e-12,
           0.9999218583106995
         ],
         "paused": true,
@@ -3862,7 +5715,24 @@
         "furry": false,
         "playbackSpeed": 1,
         "eyesClosure": 1,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
@@ -3877,87 +5747,121 @@
         "state": "resting",
         "phase": "放松",
         "reactions": 7,
-        "tailLift": 7.179599251497469e-10,
+        "tailLift": 6.279206173193221e-10,
         "greeting": 0,
-        "headYaw": -1.146367503161704e-14,
+        "headYaw": -9.376282319653178e-15,
         "headQuaternion": [
           -0.29073986411094666,
-          -5.484234342480653e-15,
-          1.6664736604521952e-15,
+          -4.485623446269541e-15,
+          1.3630295237409183e-15,
           0.9568021297454834
         ],
         "tailQuaternion": [
-          1.9742355120079506e-10,
+          1.72664676398923e-10,
           0.0124996742233634,
-          -2.4679229216956072e-12,
+          -2.1584208675218104e-12,
           0.9999218583106995
         ],
         "paused": true,
         "plain": true,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 1,
-        "whiskers": 12
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "wall-rise-0.75",
       "snapshot": {
         "pose": "wall",
-        "time": 3.1833729599999887,
+        "time": 3.129833199999997,
         "target": 0,
-        "progress": 0.6920375999999976,
+        "progress": 0.6803985217391298,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "调整身体",
         "reactions": 8,
-        "tailLift": 1.557705262831416e-12,
-        "greeting": 5.066699999999991,
-        "headYaw": -1.1585145477902006e-18,
+        "tailLift": 1.1145087812827168e-12,
+        "greeting": 5.016499999999982,
+        "headYaw": -7.011304080795674e-19,
         "headQuaternion": [
-          -0.039842649758721566,
-          -5.787973241481327e-19,
-          2.307914468399433e-20,
-          0.9992059663854114
+          -0.02963594025238975,
+          -3.504112214487592e-19,
+          1.0389329441489852e-20,
+          0.9995607590563751
         ],
         "tailQuaternion": [
-          4.2836894153841173e-13,
-          0.00016370824934733478,
-          -7.01275304337468e-17,
-          0.9999999865998044
+          3.064899146307117e-13,
+          0.00003806432566880239,
+          -1.1666331933158483e-17,
+          0.9999999992755537
         ],
         "paused": false,
         "plain": false,
         "furry": true,
         "playbackSpeed": 1,
-        "eyesClosure": 0.06085276643515027,
-        "whiskers": 12
+        "eyesClosure": 0.03280057273119822,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "wall-rise-0.45",
       "snapshot": {
         "pose": "wall",
-        "time": 1.7165729599999882,
+        "time": 1.6796332000000034,
         "target": 0,
-        "progress": 0.37316803478260613,
+        "progress": 0.3651376521739138,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "换爪支撑",
         "reactions": 8,
-        "tailLift": 4.409534074859869e-15,
-        "greeting": 3.5998999999999866,
-        "headYaw": -1.7448681502856353e-22,
+        "tailLift": 3.3715380399236733e-15,
+        "greeting": 3.5662999999999796,
+        "headYaw": -1.1665830364606578e-22,
         "headQuaternion": [
           0,
-          -8.724340751428177e-23,
+          -5.832915182303289e-23,
           0,
           1
         ],
         "tailQuaternion": [
-          1.212621870586464e-15,
+          9.271729609790102e-16,
           0,
           0,
           1
@@ -3967,32 +5871,49 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     },
     {
       "name": "wall-rise-0.15",
       "snapshot": {
         "pose": "wall",
-        "time": 0.5330729599999908,
+        "time": 0.4963332000000024,
         "target": 0,
-        "progress": 0.11588542608695454,
+        "progress": 0.10789852173913096,
         "velocity": -1,
         "pending": null,
         "state": "rising",
         "phase": "降低身体",
         "reactions": 8,
-        "tailLift": 3.8765253261457095e-17,
-        "greeting": 2.416399999999986,
-        "headYaw": -1.4382603215590617e-25,
+        "tailLift": 2.9663706966118675e-17,
+        "greeting": 2.382999999999978,
+        "headYaw": -9.627459367158686e-26,
         "headQuaternion": [
           0,
-          -7.191301607795309e-26,
+          -4.813729683579343e-26,
           0,
           1
         ],
         "tailQuaternion": [
-          1.0660444646900702e-17,
+          8.157519415682636e-18,
           0,
           0,
           1
@@ -4002,7 +5923,24 @@
         "furry": true,
         "playbackSpeed": 1,
         "eyesClosure": 0,
-        "whiskers": 12
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 5,
+          "gpuMorphBytes": 47480832
+        }
       }
     }
   ]

@@ -16,7 +16,7 @@
   },
   "scale": 0.8,
   "limbShortening": false,
-  "preparation": "Existing owned Hunyuan3D mesh; Blender 4.5.13 CPU retopology and 2K body texture rebake; original head geometry and texture retained; 33 bones with shared seam and anatomical elbow/knee/head/neck weights; supported IK, volume-aware joint correction and normal morphs; standard linear GLB, 16 clips",
+  "preparation": "Existing owned Hunyuan3D surface and original face pixels retained; 35-bone runtime adds two hind hocks; volume-cage ARAP skin, stable export basis, corrected head/paw support; 16 standard glTF clips with lossless Meshopt compression",
   "props": {
     "pillow": "Reused bed.glb / bed_cream_rubber; actual sampled heightfield",
     "wall": "Preview floor extension"
@@ -24,7 +24,7 @@
   "eyelids": "Runtime material effect; does not change stored head image",
   "whiskers": "12 fine runtime lines; original branched brow/whisker source was rejected",
   "formalIntegration": false,
-  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "runtimeSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
   "runtimeBehavior": "Remove previous greeting head/tail quaternion offsets before mixer updates; actual browser poses compared with exported rotations",
   "runtimeHumanReview": "pending",
   "repairSourceCommit": "c3153552f75a6bbebde413de935883cb63e334fa",
@@ -36,5 +36,25 @@
     "threads": 8,
     "newGPUGeneration": false
   },
-  "jointFitting": "X/Z centroids of actual limb surface slices; joint-fit.json"
+  "jointFitting": "X/Z centroids of actual limb surface slices; joint-fit.json",
+  "volumeRepair": {
+    "baselineCommit": "749c170a863dfcef49e69d0437a5a14f946a1c62",
+    "controlBoundSHA256": "073da67c541a14879452311ba85f0cb700011d74c56ae05a27a0529afdacdee8",
+    "sourceMeshAndFaceTextureChanged": false,
+    "sourceBindingBones": 33,
+    "runtimeBones": 35,
+    "newGPUGeneration": false,
+    "processing": "Local Windows CPU / NumPy 2.5.3 / SciPy 1.18.1 / trimesh 5.1.1",
+    "cagePoints": 32432,
+    "export": "Position and normal morphs on stable limb basis; source head/tail and sole binding preserved",
+    "runtime": "8 active morph texture slots; standard GLB remains fully baked",
+    "compression": {
+      "method": "EXT_meshopt_compression / v0 / lossless / NONE filter",
+      "originalBytes": 99564736,
+      "compressedBytes": 77054028,
+      "compressedViews": 1945,
+      "verifiedBytes": 93222776,
+      "byteExactRoundTrip": true
+    }
+  }
 }
