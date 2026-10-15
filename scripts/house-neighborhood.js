@@ -1,13 +1,14 @@
 import * as THREE from 'three';
 import config from '../src/data/house-neighborhood.json';
 import {createPatrickExterior} from './patrick-exterior.js';
+import {prepareSquidwardExterior,preparePineappleEntrance,preparePatrickEntrance} from './neighborhood-exterior.js';
 
 function addPortholeDetails(root) {
   if (root.userData.portholeDetails) return;
   root.userData.portholeDetails = true;
   const group = new THREE.Group();
   group.name = 'porthole_details';
-  const frameMat = new THREE.MeshStandardMaterial({ color: 0x617e9b, roughness: 0.78, metalness: 0 });
+  const frameMat = new THREE.MeshStandardMaterial({ color: 0x5966b1, roughness: 0.65, metalness: 0.12 });
   const glassCanvas = document.createElement('canvas');
   glassCanvas.width = glassCanvas.height = 128;
   const context = glassCanvas.getContext('2d');
@@ -30,10 +31,12 @@ function addPortholeDetails(root) {
     const size = box.getSize(new THREE.Vector3());
     const radius = Math.max(size.x, size.z) / 2;
     const dir = new THREE.Vector3(0, 0, 1);
-    const frame = new THREE.Mesh(new THREE.TorusGeometry(radius, radius * 0.3, 12, 28), frameMat);
+    const frame = new THREE.Mesh(new THREE.TorusGeometry(radius*.94, radius * 0.18, 10, 40), frameMat);
     frame.position.copy(root.worldToLocal(new THREE.Vector3(c.x, c.y, box.max.z + 0.012)));
     frame.lookAt(frame.position.clone().add(dir));
     group.add(frame);
+    const boltMat=new THREE.MeshStandardMaterial({color:0x293e75,roughness:.6,metalness:.2});
+    for(let i=0;i<8;i++){const a=i/8*Math.PI*2;const bolt=new THREE.Mesh(new THREE.SphereGeometry(radius*.055,8,6),boltMat);bolt.position.copy(frame.position).add(new THREE.Vector3(Math.cos(a)*radius*.94,Math.sin(a)*radius*.94,radius*.16));bolt.scale.z=.4;group.add(bolt);}
     const glass = new THREE.Mesh(new THREE.CircleGeometry(radius * 0.66, 28), glassMat);
     glass.position.copy(root.worldToLocal(new THREE.Vector3(c.x, c.y, box.max.z + 0.025)));
     glass.lookAt(glass.position.clone().add(dir));
@@ -44,28 +47,38 @@ function addPortholeDetails(root) {
 
 
 // 复用三栋现有房屋，只统一尺度、朝向和门前道路；室内各自保留。
-export function createHouseNeighborhood({root,scene,loader,camera,canvas,onProgress,onFailure,onPineapple,onStreet}) {
+export function createHouseNeighborhood({root,scene,loader,camera,canvas,controls,reducedMotion,onTransition,onProgress,onFailure,onPineapple,onStreet}) {
   const group=new THREE.Group();group.name='bikini-bottom-neighborhood';scene.add(group);
-  const models=new Map(),boxes=new Map();let visible=true,visiting=false,frame=null;
+  const models=new Map(),boxes=new Map(),entrances=new Map();let visible=true,visiting=false,frame=null,transition=null,fadeTimer=null;
   const nav=document.createElement('nav');nav.className='neighborhood-labels';nav.setAttribute('aria-label','比奇堡三位邻居');root.append(nav);
   const back=document.createElement('button');back.className='neighborhood-return';back.textContent='← 返回比奇堡';back.hidden=true;root.append(back);
   const note=document.createElement('p');note.className='neighborhood-hint';note.textContent='点击房子去做客 · 拖动环顾 · 滚轮或双指缩放';root.append(note);
   const visit=document.createElement('section');visit.className='neighborhood-visit';visit.hidden=true;visit.setAttribute('aria-label','邻居家中');root.append(visit);
+  const fade=document.createElement('div');fade.className='neighborhood-fade';fade.hidden=true;root.append(fade);
+  function state(value,id='',progress=0){root.dataset.entranceState=value;root.dataset.entranceHouse=id;root.dataset.entranceProgress=progress.toFixed(3);}
+  function reveal(){clearTimeout(fadeTimer);fade.style.opacity='0';fadeTimer=setTimeout(()=>{fade.hidden=true;},350);}
   function closeVisit(){if(frame){frame.remove();frame=null;}visit.hidden=true;visiting=false;}
-  function choose(id){
-    if(root.dataset.houseState!=='ready'||!models.has(id))return;
+  function enter(id){
     const spec=config.houses.find(h=>h.id===id);
-    tooltipHide();nav.hidden=true;note.hidden=true;back.hidden=false;
-    if(id==='pineapple'){visible=false;group.visible=false;root.dataset.neighborhood='inside';onPineapple();}
-    else {visiting=true;root.dataset.neighborhood='visit';visit.hidden=false;frame=document.createElement('iframe');frame.title=spec.name;frame.src=spec.entry;visit.append(frame);back.focus({preventScroll:true});}
+    transition=null;controls.enabled=true;controls.enableDamping=true;state('inside',id,1);
+    if(id==='pineapple'){visible=false;group.visible=false;root.dataset.neighborhood='inside';onPineapple();fadeTimer=setTimeout(reveal,reducedMotion?0:680);}
+    else {visiting=true;root.dataset.neighborhood='visit';visit.hidden=false;frame=document.createElement('iframe');frame.title=spec.name;frame.addEventListener('load',reveal,{once:true});frame.src=spec.entry;visit.append(frame);back.focus({preventScroll:true});}
+  }
+  function choose(id){
+    if(root.dataset.houseState!=='ready'||!models.has(id)||transition||visiting||!visible)return;
+    tooltipHide();nav.hidden=true;note.hidden=true;back.hidden=false;fade.hidden=false;fade.style.opacity='0';
+    const model=models.get(id),entrance=entrances.get(id),anchor=model.localToWorld(entrance.anchor.clone()),rock=id==='patrick';
+    onTransition();controls.enabled=false;controls.enableDamping=false;
+    const distance=Math.max(rock?15:5,(rock?4.2:1.2)/(Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*camera.aspect)),target=anchor.clone().add(new THREE.Vector3(0,rock?2.4:0,0)),position=anchor.clone().add(new THREE.Vector3(rock?2:.25,rock?distance*.5:distance*.13,distance));
+    transition={id,start:performance.now(),from:camera.position.clone(),fromTarget:controls.target.clone(),position,target,anchor,entrance,rock};state('approaching',id);
   }
   const buttons=new Map(config.houses.map(spec=>{
     const button=document.createElement('button');button.className='neighborhood-label';button.textContent=spec.name;button.dataset.neighbor=spec.id;button.disabled=true;button.addEventListener('click',()=>choose(spec.id));nav.append(button);return [spec.id,button];
   }));
   function tooltipHide(){const tooltip=root.querySelector('[data-house-tooltip]');if(tooltip)tooltip.hidden=true;}
-  function show(){tooltipHide();closeVisit();visible=true;group.visible=true;nav.hidden=false;note.hidden=false;back.hidden=true;root.dataset.neighborhood='street';onStreet();}
+  function show(){clearTimeout(fadeTimer);transition=null;controls.enabled=true;controls.enableDamping=true;fade.hidden=true;for(const e of entrances.values())e.reset();state('idle');tooltipHide();closeVisit();visible=true;group.visible=true;nav.hidden=false;note.hidden=false;back.hidden=true;root.dataset.neighborhood='street';onStreet();}
   back.addEventListener('click',show);
-  window.addEventListener('keydown',event=>{if(event.key==='Escape'&&visiting){event.preventDefault();show();}});
+  window.addEventListener('keydown',event=>{if(event.key==='Escape'&&(visiting||transition)){event.preventDefault();show();}});
   function sandTexture(){
     const c=document.createElement('canvas');c.width=c.height=256;const ctx=c.getContext('2d');ctx.fillStyle='#e8dba5';ctx.fillRect(0,0,256,256);
     let seed=31;for(let i=0;i<3600;i++){seed=(seed*16807)%2147483647;const x=seed%256;seed=(seed*16807)%2147483647;const y=seed%256;ctx.fillStyle=i%3?'#c9ba862e':'#fff8d355';ctx.fillRect(x,y,1,1);}
@@ -89,6 +102,7 @@ export function createHouseNeighborhood({root,scene,loader,camera,canvas,onProgr
       // 章鱼哥整屋包中只取闭合外壳与门；不把室内家具重复摆在街上。
       if(spec.shellOnly)model.traverse(o=>{if(o.isMesh){let ancestor=o,keep=false;while(ancestor&&ancestor!==model){if(/^(shell_|door_)/.test(ancestor.name))keep=true;ancestor=ancestor.parent;}o.visible=keep;}});
       if(spec.id==='squidward')addPortholeDetails(model);
+      const entrance=spec.id==='squidward'?prepareSquidwardExterior(model):spec.id==='pineapple'?preparePineappleEntrance(model):preparePatrickEntrance(model);entrances.set(spec.id,entrance);
       model.updateMatrixWorld(true);const box=new THREE.Box3();model.traverse(o=>{if(o.isMesh&&o.visible)box.union(new THREE.Box3().setFromObject(o));});
       const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3()),scale=spec.height/size.y;
       model.scale.set(scale*(spec.widthScale||1),scale,scale);model.position.set(spec.x-center.x*scale*(spec.widthScale||1),-box.min.y*scale,spec.z-center.z*scale);model.userData.neighbor=spec.id;
@@ -105,10 +119,21 @@ export function createHouseNeighborhood({root,scene,loader,camera,canvas,onProgr
     const hits=raycaster.intersectObjects([...models.values()],true).filter(hit=>{let o=hit.object;while(o){if(!o.visible)return false;o=o.parent;}return true;});
     if(!hits.length)return null;let node=hits[0].object;while(node&&!node.userData.neighbor)node=node.parent;return node?.userData.neighbor||null;
   }
-  function update(width,height){
+  function update(width,height,now=performance.now()){
     if(!visible||visiting)return;
+    if(transition){
+      const a=transition,t=(now-a.start)/(reducedMotion?700:2450),ease=x=>{x=THREE.MathUtils.clamp(x,0,1);return x*x*(3-2*x);};
+      if(t<.3){const e=ease(t/.3);camera.position.lerpVectors(a.from,a.position,e);controls.target.lerpVectors(a.fromTarget,a.target,e);state('approaching',a.id,t);}
+      else {
+        const open=ease((t-.3)/.34);a.entrance.setOpen(open);state(a.rock?'lifting-rock':'opening-door',a.id,t);
+        if(t>.64){const e=ease((t-.64)/.36),end=a.anchor.clone().add(a.rock?new THREE.Vector3(0,-1.7,0):new THREE.Vector3(0,0,-1.3)),look=a.anchor.clone().add(a.rock?new THREE.Vector3(0,-2.5,-1):new THREE.Vector3(0,0,-3));camera.position.lerpVectors(a.position,end,e);controls.target.lerpVectors(a.target,look,e);state('entering',a.id,t);fade.style.opacity=String(ease((t-.88)/.12));}
+      }
+      camera.lookAt(controls.target);camera.updateMatrixWorld(true);
+      root.dataset.entranceAngle=(a.rock?a.entrance.pivot.rotation.x:a.entrance.pivot.rotation.y).toFixed(3);
+      if(t>=1){fade.style.opacity='1';enter(a.id);}
+    }
     for(const spec of config.houses){const box=boxes.get(spec.id);if(!box)continue;const p=new THREE.Vector3(spec.x,-.45,box.max.z).project(camera),button=buttons.get(spec.id);button.style.left=`${(p.x*.5+.5)*width}px`;button.style.top=`${(-p.y*.5+.5)*height}px`;}
   }
-  root.dataset.neighborhood='street';
-  return {group,pose,pick,choose,show,update,loadAll:()=>Promise.all(config.houses.map(load)),retry:id=>load(config.houses.find(h=>h.id===id)),get loadedCount(){return models.size;},get visible(){return visible;},get visiting(){return visiting;}};
+  root.dataset.neighborhood='street';state('idle');
+  return {group,pose,pick,choose,show,update,loadAll:()=>Promise.all(config.houses.map(load)),retry:id=>load(config.houses.find(h=>h.id===id)),get loadedCount(){return models.size;},get visible(){return visible;},get visiting(){return visiting;},get transitioning(){return !!transition;}};
 }

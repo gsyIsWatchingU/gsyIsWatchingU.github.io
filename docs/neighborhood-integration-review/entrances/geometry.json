@@ -1,0 +1,7 @@
+{
+  "sourceTriangles": 30000,
+  "doorTriangles": 1008,
+  "shellTriangles": 29390,
+  "relativeAreaError": 7.221358281249791e-11,
+  "finiteAttributes": true
+}

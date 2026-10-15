@@ -139,7 +139,7 @@ if (renderer) {
     ? createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom:()=>activeRoom,getAsset:id=>loaded.get(id),getPet:()=>pet,getDisplay:id=>displays.children.find(n=>n.userData.contentId===id),getToyChest:()=>toyChest,reducedMotion,onReady:updateLoading,onError:failure=>{failures.set(failure.id,failure);updateLoading();}}) : null;
 
   if(neighborhoodEnabled){
-    street=createHouseNeighborhood({root,scene,loader,camera,canvas,
+    street=createHouseNeighborhood({root,scene,loader,camera,canvas,controls,reducedMotion,onTransition:()=>{animation=null;},
       onProgress:id=>{failures.delete('neighbor-'+id);updateLoading();},
       onFailure:spec=>{failures.set(spec.id,spec);updateLoading();},
       onPineapple:()=>{houseGroup.visible=true;scene.background=null;controls.maxDistance=60;controls.minAzimuthAngle=-Math.PI*.30;controls.maxAzimuthAngle=Math.PI*.30;resetView();},
@@ -510,6 +510,7 @@ if (renderer) {
     showFailure("图形上下文已丢失，请重新载入预览。");
   });
   new ResizeObserver(() => {
+    if(street?.transitioning)street.show();
     viewWidth=Math.max(1,root.clientWidth);viewHeight=Math.max(1,root.clientHeight);
     camera.aspect=viewWidth/viewHeight;
     camera.updateProjectionMatrix();

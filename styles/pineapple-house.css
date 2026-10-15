@@ -30,3 +30,5 @@
 @media(max-width:600px){.neighborhood-labels{inset:auto 10px 68px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}.neighborhood-label{position:static;transform:none;font-size:12px;padding:10px 12px;min-height:42px}.neighborhood-hint{bottom:28px;font-size:11px}.neighborhood-return{bottom:20px}.neighborhood-visit{padding-top:60px}}
 
 .portfolio:has(.house[data-neighborhood="visit"]) .profile-topbar{visibility:hidden}
+
+.neighborhood-fade{position:absolute;inset:0;z-index:11;background:#12272a;pointer-events:none;transition:opacity .25s}.neighborhood-fade[hidden]{display:none}
