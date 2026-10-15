@@ -35,7 +35,7 @@ function setCamera(view='diagonal'){
   // 客厅用与正式页相同的前方近景；单件按当前视口适配尺寸。
   const target=active==='room'?new THREE.Vector3(0,.83,-.1):center;
   const halfFov=THREE.MathUtils.degToRad(camera.fov/2),fitAngle=Math.min(halfFov,Math.atan(Math.tan(halfFov)*camera.aspect));
-  const distance=active==='room'?3.7/(2*Math.tan(halfFov))*1.4:size.length()/2/Math.sin(fitAngle)*1.12;
+  const distance=active==='room'?3.7/(2*Math.tan(halfFov))*1.4*Math.max(1,1.2/camera.aspect):size.length()/2/Math.sin(fitAngle)*1.12;
   const directions={front:[0,.19,1],side:[1,.24,.04],rear:[0,.24,-1],diagonal:[.55,.35,1]};
   const direction=new THREE.Vector3(...directions[view]).normalize();
   if(active==='room' && view==='diagonal')direction.set(.12,.19,1).normalize();
@@ -69,6 +69,7 @@ async function start(){
   const sofaModel=fit(sofa,1.76),shellModel=fit(shell,.58);groups.sofa.add(sofaModel);groups.shell.add(shellModel);
   shellModel.traverse(node=>{if(node.isMesh)node.userData.musicShell=true;});
   const contextSofa=sofaModel.clone(true),contextShell=shellModel.clone(true);contextSofa.position.set(1.1,0,-.35);contextSofa.rotation.y=-.18;
+  contextSofa.userData.reviewAsset='sofa';contextShell.userData.reviewAsset='shell';chair.userData.reviewAsset='chair';table.userData.reviewAsset='table';
   contextShell.position.set(0,.7418,.05);contextShell.rotation.y=-.08;
   for(const [id,model] of [['chair',chair],['table',table]]){const spec=config.assets.find(item=>item.id===id);model.position.fromArray(spec.position);model.rotation.y=spec.rotation;}
   structure.traverse(node=>{if(!node.isMesh)return;let parent=node.parent;while(parent&&parent!==structure.parent){for(const key of ['roomId','occluder','roomViewOnly'])if(node.userData[key]===undefined&&parent.userData[key]!==undefined)node.userData[key]=parent.userData[key];parent=parent.parent;}
@@ -78,4 +79,8 @@ async function start(){
   groups.room.add(structure,chair,table,contextSofa,contextShell);ready=true;document.body.dataset.reviewState='ready';status.textContent='模型已载入';show(active);
 }
 start().catch(error=>{document.body.dataset.reviewState='error';status.textContent='模型载入失败，请刷新重试';console.error(error);});
-window.__livingReview={snapshot:()=>({ready,active,wireframe,camera:camera.position.toArray(),target:controls.target.toArray(),renderer:renderer.info.render,models:[...models.keys()],bounds:Object.fromEntries(Object.entries(groups).map(([id,group])=>{const b=new THREE.Box3().setFromObject(group);return[id,{min:b.min.toArray(),max:b.max.toArray()}];})),musicOpen:!document.querySelector('.house-music').hidden}),shellPoint:()=>{const shell=active==='room'?groups.room.children.at(-1):groups.shell;const center=new THREE.Box3().setFromObject(shell).getCenter(new THREE.Vector3()).project(camera),rect=canvas.getBoundingClientRect();return{x:rect.left+(center.x+1)*rect.width/2,y:rect.top+(1-center.y)*rect.height/2};}};
+function assetFrames(){
+  const entries=active==='room'?groups.room.children.filter(group=>group.userData.reviewAsset).map(group=>[group.userData.reviewAsset,group]):[[active,groups[active]]];
+  return Object.fromEntries(entries.map(([id,group])=>{const box=new THREE.Box3().setFromObject(group),corners=[];for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z])corners.push(new THREE.Vector3(x,y,z).project(camera));const bounds={left:Math.min(...corners.map(p=>p.x)),right:Math.max(...corners.map(p=>p.x)),bottom:Math.min(...corners.map(p=>p.y)),top:Math.max(...corners.map(p=>p.y))};return[id,{...bounds,onScreen:bounds.left>=-1&&bounds.right<=1&&bounds.bottom>=-1&&bounds.top<=1}];}));
+}
+window.__livingReview={assetFrames,snapshot:()=>({ready,active,wireframe,camera:camera.position.toArray(),target:controls.target.toArray(),renderer:renderer.info.render,models:[...models.keys()],bounds:Object.fromEntries(Object.entries(groups).map(([id,group])=>{const b=new THREE.Box3().setFromObject(group);return[id,{min:b.min.toArray(),max:b.max.toArray()}];})),musicOpen:!document.querySelector('.house-music').hidden}),shellPoint:()=>{const shell=active==='room'?groups.room.children.at(-1):groups.shell;const center=new THREE.Box3().setFromObject(shell).getCenter(new THREE.Vector3()).project(camera),rect=canvas.getBoundingClientRect();return{x:rect.left+(center.x+1)*rect.width/2,y:rect.top+(1-center.y)*rect.height/2};}};
