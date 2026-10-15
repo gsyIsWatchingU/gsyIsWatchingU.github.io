@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-15",
+  "sourceCommit": "9564a93534fdb4376ab3a23dcfb27c192bc0b7cb",
+  "url": "https://gsyiswatchingu.github.io/?v=20261015-entrances-1",
+  "check": "click-squidward-entrance",
+  "result": {
+    "angle": "-1.791",
+    "entrance": "inside",
+    "house": "squidward",
+    "iframe": "docs/squidward-home/index.html?autotest=cutaway",
+    "mode": "visit",
+    "state": "ready"
+  },
+  "returnCheck": {
+    "pass": true,
+    "evidence": "public-street.jpg",
+    "visible": [
+      "派大星的家",
+      "章鱼哥的家",
+      "海绵宝宝的家"
+    ]
+  }
+}

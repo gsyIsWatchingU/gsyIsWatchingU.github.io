@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-15",
+  "sourceCommit": "9564a93534fdb4376ab3a23dcfb27c192bc0b7cb",
+  "base": "https://gsyiswatchingu.github.io/",
+  "resources": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 44524,
+      "sha256": "772389c42d1183491975b029c64385fbe4277fec45fd9b179cfc887b1ea8f857",
+      "match": true
+    },
+    {
+      "file": "pineapple-house.html",
+      "status": 200,
+      "bytes": 44524,
+      "sha256": "772389c42d1183491975b029c64385fbe4277fec45fd9b179cfc887b1ea8f857",
+      "match": true
+    },
+    {
+      "file": "assets/pineapple-house.js",
+      "status": 200,
+      "bytes": 812139,
+      "sha256": "5d0ac288ff49fbc46365f7e656148415376cea29a74b4a62f5c0c28cca247e49",
+      "match": true
+    },
+    {
+      "file": "styles/pineapple-house.css",
+      "status": 200,
+      "bytes": 9792,
+      "sha256": "2467d63f8eb6aaca325504a62a6e0e091ab4af236155c326ecda27293afd1535",
+      "match": true
+    },
+    {
+      "file": "src/data/house-neighborhood.json",
+      "status": 200,
+      "bytes": 851,
+      "sha256": "bc5a4fcf0045d2d39a47cc2b2ea278867cbc15e652a3e702437cc477cd00073a",
+      "match": true
+    },
+    {
+      "file": "docs/squidward-home/index.html",
+      "status": 200,
+      "bytes": 2034,
+      "sha256": "ff65b9a52e50b31de2a6ef374ad1b956537726e97a23b8db7925b432e9e7cccd",
+      "match": true
+    },
+    {
+      "file": "docs/squidward-home/app.js",
+      "status": 200,
+      "bytes": 715932,
+      "sha256": "40bb28e8a9a658ec8624c1250fbba9de79052b4499ee4b486a1ac8bc83cf6a5a",
+      "match": true
+    },
+    {
+      "file": "docs/squidward-home/config/house-config.json",
+      "status": 200,
+      "bytes": 5879,
+      "sha256": "c71a8687f6bce5c4267737cb9ed2ce8300b387eeedc9ad0ab404d96941cf31ae",
+      "match": true
+    },
+    {
+      "file": "assets/models/squidward-bunny/squidward-bunny-active.glb",
+      "status": 200,
+      "bytes": 3681216,
+      "sha256": "54a34d939c1a8ef48ea0beb2e01d1073ffa11216fcf41ceaeed2098df33fcd78",
+      "match": true
+    },
+    {
+      "file": "assets/models/neighborhood/squidward-house-layout-v8.glb",
+      "status": 200,
+      "bytes": 5175036,
+      "sha256": "5dce97a9ec746fd95e01655a17779002234074494585685b435f1328ed608b05",
+      "match": true
+    },
+    {
+      "file": "assets/models/neighborhood/squidward-interior-layout-v8.glb",
+      "status": 200,
+      "bytes": 4760132,
+      "sha256": "90a44ff412d0a135e08669a1fd803b45fb17be84a87604ece00e5d39313b2a85",
+      "match": true
+    },
+    {
+      "file": "assets/images/squidward-house/self-portrait.png",
+      "status": 200,
+      "bytes": 2787986,
+      "sha256": "bfbf88b4573937ee16c22d8e44c75a645ab7604e2bd6879cafc937ed5fd79f6c",
+      "match": true
+    },
+    {
+      "file": "squidward-model.html",
+      "status": 200,
+      "bytes": 3042,
+      "sha256": "0aee2993e41fd1392cc34a98be72b434bacc30307cff9ec0a06b3668837c000a",
+      "match": true
+    },
+    {
+      "file": "assets/squidward-model.js",
+      "status": 200,
+      "bytes": 662154,
+      "sha256": "75aa9f3688c9ef588195e194f922f6d08cf22b91ad43e403e905a7341b0c795a",
+      "match": true
+    }
+  ],
+  "runs": [
+    {
+      "name": "pages build and deployment",
+      "headSha": "9564a93534fdb4376ab3a23dcfb27c192bc0b7cb",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/gsyIsWatchingU/gsyIsWatchingU.github.io/actions/runs/38715806897"
+    },
+    {
+      "name": "pages build and deployment",
+      "headSha": "5f8e3033955701fdb21fe28e2870c93d7f889877",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/gsyIsWatchingU/gsyIsWatchingU.github.io/actions/runs/38710296176"
+    },
+    {
+      "name": "pages build and deployment",
+      "headSha": "749c170a863dfcef49e69d0437a5a14f946a1c62",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/gsyIsWatchingU/gsyIsWatchingU.github.io/actions/runs/38673703832"
+    }
+  ],
+  "passed": true
+}
