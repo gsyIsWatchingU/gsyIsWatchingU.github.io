@@ -26,11 +26,14 @@ node scripts/verify-squidward-reference-browser.mjs
 
 - `animation-check.json`：97 帧招手、封闭左臂、归一化权重、起止闭合及四脚单连通。最大边长拉伸 1.536 倍；至少 99% 三角形面积保留超过 12%，微小三角形面积极值另记为 0.00867，不宣称全部局部变形无损。
 - `browser-local.json`：原生选择喜怒哀并测量实际顶点差异；120 帧招手与 120 帧走路、动作切换、角色点击/连续点击、家中活动、桌面及 390×844 手机视口，零脚本与资源异常。
+- `browser-live.json`：同组公网交互通过；`public-resources.json`：功能提交 `afe706d` 的 7 个关键资源逐字节一致，Pages 发布成功。
 - 逐张审看表情正面/侧面、招手各阶段、脚部正侧背与步态、持物触手及手机截图。浏览器视口检查不等于手机实机性能验收。
 - 原服饰的局部扫描接缝仍存在；造型与动作观感等待用户审看。
 
-![三表情正侧面对照](expressions-local.jpg)
+![线上三表情](expressions-live.jpg)
 
-![触手和脚部](limbs-local.jpg)
+![本地正侧面对照](expressions-local.jpg)
+
+![线上触手和脚部](limbs-live.jpg)
 
 ![触手侧面与背面](wave-sides-local.jpg)

@@ -3,13 +3,13 @@ import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {writeFileSync} from 'node:fs';
 
-const commit=process.argv[2]||execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+const commit=execFileSync('git',['rev-parse',process.argv[2]||'HEAD'],{encoding:'utf8'}).trim();
 const base='https://gsyiswatchingu.github.io/';
 const paths=['squidward-model.html','assets/squidward-model.js','assets/models/squidward-bunny/squidward-bunny-active.glb','assets/models/squidward-bunny/asset.json','docs/squidward-home/index.html','docs/squidward-home/app.js','docs/squidward-home/config/house-config.json'];
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const expected=paths.map(path=>({path,sha256:sha(execFileSync('git',['show',commit+':'+path],{maxBuffer:64*1024*1024}))}));
 let records=[];
-for(let attempt=1;attempt<=24;attempt++){
+for(let attempt=1;attempt<=60;attempt++){
   records=await Promise.all(expected.map(async item=>{
     const response=await fetch(base+item.path+'?t='+Date.now(),{signal:AbortSignal.timeout(30000)});
     const bytes=Buffer.from(await response.arrayBuffer());
