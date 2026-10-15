@@ -29,3 +29,7 @@
 构建：`npm run build`、`npm run check`。真实 Chrome 验收脚本：`scripts/verification/living-furniture-cdp.mjs`；多视角截图与交互记录保存在 `local/`、`public/`。
 
 技术检查、流水线状态与用户视觉批准分别记录。
+
+发布提交：`a2abf52`。本地与公网真实 Chrome 各 20 项通过，公网 10 个关键资源与提交逐字节一致；已查看在线客厅与修正后的手机视口画面。记录：`local/browser.json`、`public/browser.json`、`public-resources.json`。
+
+手机客厅镜头按窄屏宽度自动后退，沙发、贝壳、椅子和圆桌的屏幕边界断言通过。

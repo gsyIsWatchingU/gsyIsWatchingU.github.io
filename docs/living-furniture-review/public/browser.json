@@ -1,0 +1,453 @@
+{
+  "origin": "https://gsyiswatchingu.github.io",
+  "recordedAt": "2026-10-15T02:29:18.286Z",
+  "records": [
+    {
+      "name": "desktop-loaded",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "active": "sofa",
+        "wireframe": false,
+        "camera": [
+          2.0201438189438967,
+          1.8460322671093325,
+          3.6729887617161756
+        ],
+        "target": [
+          0,
+          0.5604862005086714,
+          0
+        ],
+        "renderer": {
+          "frame": 33,
+          "calls": 3,
+          "triangles": 58202,
+          "points": 0,
+          "lines": 0
+        },
+        "models": [
+          "table",
+          "chair",
+          "sofa",
+          "structure",
+          "shell"
+        ],
+        "bounds": {
+          "sofa": {
+            "min": [
+              -0.8799999999999999,
+              0,
+              -0.5452142983415684
+            ],
+            "max": [
+              0.8799999999999999,
+              1.1209724010173427,
+              0.5452142983415684
+            ]
+          },
+          "shell": {
+            "min": [
+              -0.29,
+              0,
+              -0.1450933408764041
+            ],
+            "max": [
+              0.29,
+              0.2634457425582828,
+              0.1450933408764041
+            ]
+          },
+          "room": {
+            "min": [
+              -6.5,
+              -0.3400000035762787,
+              -4.679999828338623
+            ],
+            "max": [
+              6.5,
+              13.557357788085938,
+              5.880000114440918
+            ]
+          }
+        },
+        "musicOpen": false
+      }
+    },
+    {
+      "name": "sofa-grounded",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "active": "sofa",
+        "wireframe": false,
+        "camera": [
+          5.221282148904007e-16,
+          1.583726302560482,
+          -4.26350042521588
+        ],
+        "target": [
+          0,
+          0.5604862005086714,
+          0
+        ],
+        "renderer": {
+          "frame": 251,
+          "calls": 3,
+          "triangles": 58202,
+          "points": 0,
+          "lines": 0
+        },
+        "models": [
+          "table",
+          "chair",
+          "sofa",
+          "structure",
+          "shell"
+        ],
+        "bounds": {
+          "sofa": {
+            "min": [
+              -0.8799999999999999,
+              0,
+              -0.5452142983415684
+            ],
+            "max": [
+              0.8799999999999999,
+              1.1209724010173427,
+              0.5452142983415684
+            ]
+          },
+          "shell": {
+            "min": [
+              -0.29,
+              0,
+              -0.1450933408764041
+            ],
+            "max": [
+              0.29,
+              0.2634457425582828,
+              0.1450933408764041
+            ]
+          },
+          "room": {
+            "min": [
+              -6.5,
+              -0.3400000035762787,
+              -4.679999828338623
+            ],
+            "max": [
+              6.5,
+              13.557357788085938,
+              5.880000114440918
+            ]
+          }
+        },
+        "musicOpen": false
+      }
+    },
+    {
+      "name": "shell-grounded",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "active": "shell",
+        "wireframe": false,
+        "camera": [
+          1.552385930033403e-16,
+          0.4359515055820412,
+          -1.2676193095954154
+        ],
+        "target": [
+          0,
+          0.1317228712791414,
+          0
+        ],
+        "renderer": {
+          "frame": 462,
+          "calls": 3,
+          "triangles": 58202,
+          "points": 0,
+          "lines": 0
+        },
+        "models": [
+          "table",
+          "chair",
+          "sofa",
+          "structure",
+          "shell"
+        ],
+        "bounds": {
+          "sofa": {
+            "min": [
+              -0.8799999999999999,
+              0,
+              -0.5452142983415684
+            ],
+            "max": [
+              0.8799999999999999,
+              1.1209724010173427,
+              0.5452142983415684
+            ]
+          },
+          "shell": {
+            "min": [
+              -0.29,
+              0,
+              -0.1450933408764041
+            ],
+            "max": [
+              0.29,
+              0.2634457425582828,
+              0.1450933408764041
+            ]
+          },
+          "room": {
+            "min": [
+              -6.5,
+              -0.3400000035762787,
+              -4.679999828338623
+            ],
+            "max": [
+              6.5,
+              13.557357788085938,
+              5.880000114440918
+            ]
+          }
+        },
+        "musicOpen": false
+      }
+    },
+    {
+      "name": "native-orbit",
+      "ok": true,
+      "detail": {
+        "before": [
+          1.552385930033403e-16,
+          0.4359515055820412,
+          -1.2676193095954154
+        ],
+        "after": [
+          0.9698098179142284,
+          0.6903114184413308,
+          -0.6684770213293595
+        ]
+      }
+    },
+    {
+      "name": "native-zoom",
+      "ok": true,
+      "detail": {
+        "distance": 1.3036156550106965,
+        "afterDistance": 1.2070770009359555
+      }
+    },
+    {
+      "name": "shell-mesh-music",
+      "ok": true,
+      "detail": {
+        "point": {
+          "x": 585,
+          "y": 483.99999999999994
+        }
+      }
+    },
+    {
+      "name": "music-tracks",
+      "ok": true
+    },
+    {
+      "name": "music-close",
+      "ok": true
+    },
+    {
+      "name": "room-view",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "active": "room",
+        "wireframe": false,
+        "camera": [
+          0.9591809797454723,
+          2.353316567376471,
+          7.9147581092171
+        ],
+        "target": [
+          0,
+          0.83,
+          -0.1
+        ],
+        "renderer": {
+          "frame": 683,
+          "calls": 40,
+          "triangles": 165496,
+          "points": 0,
+          "lines": 0
+        },
+        "models": [
+          "table",
+          "chair",
+          "sofa",
+          "structure",
+          "shell"
+        ],
+        "bounds": {
+          "sofa": {
+            "min": [
+              -0.8799999999999999,
+              0,
+              -0.5452142983415684
+            ],
+            "max": [
+              0.8799999999999999,
+              1.1209724010173427,
+              0.5452142983415684
+            ]
+          },
+          "shell": {
+            "min": [
+              -0.29,
+              0,
+              -0.1450933408764041
+            ],
+            "max": [
+              0.29,
+              0.2634457425582828,
+              0.1450933408764041
+            ]
+          },
+          "room": {
+            "min": [
+              -6.5,
+              -0.3400000035762787,
+              -4.679999828338623
+            ],
+            "max": [
+              6.5,
+              13.557357788085938,
+              5.880000114440918
+            ]
+          }
+        },
+        "musicOpen": false
+      }
+    },
+    {
+      "name": "room-shell-music",
+      "ok": true,
+      "detail": {
+        "point": {
+          "x": 582.0822435232649,
+          "y": 481.52027243203315
+        }
+      }
+    },
+    {
+      "name": "wireframe",
+      "ok": true
+    },
+    {
+      "name": "mobile-sofa-layout",
+      "ok": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "mobile-sofa-fully-visible",
+      "ok": true,
+      "detail": {
+        "sofa": {
+          "left": -0.7929740031565341,
+          "right": 0.7785735869830284,
+          "bottom": -0.5013307173775992,
+          "top": 0.39299119826587864,
+          "onScreen": true
+        }
+      }
+    },
+    {
+      "name": "mobile-shell-layout",
+      "ok": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "mobile-shell-fully-visible",
+      "ok": true,
+      "detail": {
+        "shell": {
+          "left": -0.8173157404571496,
+          "right": 0.8291852521907914,
+          "bottom": -0.4328265612184026,
+          "top": 0.33566670238314034,
+          "onScreen": true
+        }
+      }
+    },
+    {
+      "name": "mobile-room-layout",
+      "ok": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "mobile-room-fully-visible",
+      "ok": true,
+      "detail": {
+        "chair": {
+          "left": -0.6325596846953158,
+          "right": -0.18311609923005964,
+          "bottom": -0.21093430319817147,
+          "top": 0.21775611028287714,
+          "onScreen": true
+        },
+        "table": {
+          "left": -0.14297592371506082,
+          "right": 0.1248606082860114,
+          "bottom": -0.22744048914012643,
+          "top": -0.008932566878695963,
+          "onScreen": true
+        },
+        "sofa": {
+          "left": 0.027229962896178624,
+          "right": 0.6796115593054112,
+          "bottom": -0.2355083854377386,
+          "top": 0.10293671691070254,
+          "onScreen": true
+        },
+        "shell": {
+          "left": -0.11081031562000443,
+          "right": 0.097102955317443,
+          "bottom": -0.03735201799785675,
+          "top": 0.04363095187715291,
+          "onScreen": true
+        }
+      }
+    },
+    {
+      "name": "mobile-music",
+      "ok": true
+    },
+    {
+      "name": "runtime-errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "resource-failures",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "log": {
+    "console": [],
+    "errors": [],
+    "failedReq": []
+  }
+}

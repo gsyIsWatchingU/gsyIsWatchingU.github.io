@@ -41,7 +41,7 @@ try{
   check('room-shell-music',await value('window.__livingReview.snapshot().musicOpen'),{point});await click('[data-music-close]');
   await click('#wireframe');check('wireframe',await value('window.__livingReview.snapshot().wireframe'));await driver.shot(path.join(out,'room-wireframe.png'));await click('#wireframe');
   await driver.setViewport(390,844);await driver.sleep(300);
-  for(const asset of ['sofa','shell','room']){await click(`[data-asset="${asset}"]`);await driver.sleep(300);await driver.shot(path.join(out,'mobile-'+asset+'.png'));check('mobile-'+asset+'-layout',await value('document.documentElement.scrollWidth===innerWidth'),await value('({width:innerWidth,scrollWidth:document.documentElement.scrollWidth})'));}
+  for(const asset of ['sofa','shell','room']){await click(`[data-asset="${asset}"]`);await driver.sleep(300);await driver.shot(path.join(out,'mobile-'+asset+'.png'));check('mobile-'+asset+'-layout',await value('document.documentElement.scrollWidth===innerWidth'),await value('({width:innerWidth,scrollWidth:document.documentElement.scrollWidth})'));const frames=await value('window.__livingReview.assetFrames()');check('mobile-'+asset+'-fully-visible',Object.values(frames).every(frame=>frame.onScreen),frames);}
   await click('#shell-music');check('mobile-music',await value('window.__livingReview.snapshot().musicOpen'));await click('[data-music-close]');
   const log=driver.getLog();check('runtime-errors',log.errors.length===0,log.errors);check('resource-failures',log.failedReq.length===0,log.failedReq);
   fs.writeFileSync(path.join(out,'browser.json'),JSON.stringify({origin,recordedAt:new Date().toISOString(),records,log},null,2)+'\n');
