@@ -1,0 +1,20 @@
+{
+  "id": "squidward-bunny-active",
+  "status": "review",
+  "humanReview": "pending",
+  "model": "assets/models/squidward-bunny/squidward-bunny-active.glb",
+  "sha256": "54a34d939c1a8ef48ea0beb2e01d1073ffa11216fcf41ceaeed2098df33fcd78",
+  "triangles": 33204,
+  "bones": 24,
+  "animations": 8,
+  "morphs": 10,
+  "revision": "animation-v18",
+  "sourceCommit": "f1377382d15e886fc501de8521a0fc1b5b2e7a83",
+  "sourceJobId": "413330331cd042a58d2cdb1080863637",
+  "sourceBackend": "Hunyuan3D-2.1",
+  "sourceProductionHost": "gsy013",
+  "staticSourceSHA256": "bc8d355cd4e0783697d5871b11e3a4ef9d1e82fce01db4f80ff6102da3a1da8f",
+  "integrationDate": "2026-10-15",
+  "integrationRequest": "用户要求把章鱼哥与派大星房屋放到菠萝屋旁；保留当前角色与家中活动。",
+  "scope": "沿用2026-10-13活动候选，展示授权不等同独立造型批准"
+}

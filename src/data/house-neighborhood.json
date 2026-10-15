@@ -1,0 +1,38 @@
+{
+  "version": "20261015-street-4",
+  "order": [
+    "patrick",
+    "squidward",
+    "pineapple"
+  ],
+  "houses": [
+    {
+      "id": "patrick",
+      "name": "派大星的家",
+      "height": 3.8,
+      "x": -9.5,
+      "z": 0,
+      "entry": "patrick-house.html?neighborhood=1",
+      "component": "patrick-exterior",
+      "source": "scripts/patrick-house.js:闭合外壳与风向标"
+    },
+    {
+      "id": "squidward",
+      "name": "章鱼哥的家",
+      "url": "assets/models/neighborhood/squidward-house.glb",
+      "height": 8.6,
+      "x": 0,
+      "z": 0,
+      "shellOnly": true,
+      "entry": "docs/squidward-home/index.html?autotest=cutaway"
+    },
+    {
+      "id": "pineapple",
+      "name": "海绵宝宝的家",
+      "url": "assets/models/pineapple-shell.glb",
+      "height": 10.5,
+      "x": 10,
+      "z": 0
+    }
+  ]
+}

@@ -2,9 +2,15 @@
 
 项目已按板块拆分。日常修改 `src`、`styles`、`scripts` 中的源码，不直接修改根目录的 `index.html`。
 
-## 三层菠萝屋（首页）
+## 比奇堡邻里（首页）
 
-首页与 `pineapple-house.html` 使用同一份源码：默认全屏探索三层菠萝屋，首屏仅显示原 gsyIsWatchingU 标志、查看简历入口和操作提示。点击房间只进入近景；图书馆仅以黄色技能书打开专业技能，书架保留装饰；其他履历由各房间物品打开。右上角可直接阅读完整简历。支持旋转缩放、返回和 Esc；旧底栏、设备与留言不加载。2026-10-10 按用户部署指令替换正式首页；旧首页源码保留在 `src/legacy-room.html`。
+首屏按参考图从左至右排列派大星石头屋、章鱼哥人像屋、海绵宝宝菠萝屋，落在同一片沙地，门前小路接公共道路。点击房屋或名称进入；「返回比奇堡」回到街景。菠萝屋沿用现有履历与角色，派大星保留原互动页，章鱼哥保留兔耳帽角色的走动和表情。
+
+布局配置：`src/data/house-neighborhood.json`；场景：`scripts/house-neighborhood.js`；来源与验收：`docs/neighborhood-integration-review/`。
+
+## 三层菠萝屋
+
+首页与 `pineapple-house.html` 使用同一份源码：从邻里街景进入后，全屏探索三层菠萝屋，保留原 gsyIsWatchingU 标志、查看简历入口和操作提示。点击房间只进入近景；图书馆仅以黄色技能书打开专业技能，书架保留装饰；其他履历由各房间物品打开。右上角可直接阅读完整简历。支持旋转缩放、返回和 Esc；旧底栏、设备与留言不加载。2026-10-10 按用户部署指令替换正式首页；旧首页源码保留在 `src/legacy-room.html`。
 
 源码为 `src/pineapple-house.html`、`scripts/pineapple-house.js`、`styles/pineapple-house.css`；房间与镜头统一配置在 `src/data/pineapple-house.json`。制作来源、模型哈希与截图见 [审查记录](docs/house-review/README.md)。
 

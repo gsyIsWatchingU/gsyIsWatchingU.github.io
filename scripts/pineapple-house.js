@@ -11,6 +11,7 @@ import { createCompanionBook } from './house-companion-book.js';
 import { createToyChest } from './house-toy-chest.js';
 import './house-music.js';
 import { createHouseConnections } from './house-connections.js';
+import { createHouseNeighborhood } from './house-neighborhood.js';
 
 const root = document.querySelector(".house");
 const canvas = document.querySelector("[data-house-canvas]");
@@ -36,7 +37,8 @@ if(privatePreview)document.body.classList.add('privacy-preview');
 const specs = [config.structure, ...(structureOnly ? [] : config.assets)];
 const textureSpecs = structureOnly ? [] : awards.map(a=>({id:`award-${a.id}`,name:a.title,url:a.thumbnail,kind:'texture',award:a}));
 const companionEnabled=root.hasAttribute('data-house-companion') || root.hasAttribute('data-house-companion-preview');
-const resourceCount=specs.length+textureSpecs.length+Number(companionEnabled);
+const neighborhoodEnabled=root.hasAttribute('data-house-neighborhood');
+const resourceCount=specs.length+textureSpecs.length+Number(companionEnabled)+(neighborhoodEnabled?3:0);
 const loadingStarted=performance.now();
 const textureLoaded=new Set();
 const loaded = new Map();
@@ -83,7 +85,7 @@ if (renderer) {
     storage: [new THREE.Plane(new THREE.Vector3(-1,0,0),-2.55)]
   };
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(34, viewWidth / viewHeight, 0.1, 120);
+  const camera = new THREE.PerspectiveCamera(34, viewWidth / viewHeight, 0.1, 260);
   const controls = new OrbitControls(camera, canvas);
   controls.enableDamping = true;
   controls.dampingFactor = 0.08;
@@ -118,6 +120,7 @@ if (renderer) {
   const roomButtons = new Map();
   const objectButtons = new Map();
   let activeRoom = null;
+  let street = null;
   let animation = null;
   let pointerDown = null;
   let rotating = false;
@@ -134,6 +137,17 @@ if (renderer) {
   let lastPetFrame = null;
   const companion = companionEnabled
     ? createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom:()=>activeRoom,getAsset:id=>loaded.get(id),getPet:()=>pet,getDisplay:id=>displays.children.find(n=>n.userData.contentId===id),getToyChest:()=>toyChest,reducedMotion,onReady:updateLoading,onError:failure=>{failures.set(failure.id,failure);updateLoading();}}) : null;
+
+  if(neighborhoodEnabled){
+    street=createHouseNeighborhood({root,scene,loader,camera,canvas,
+      onProgress:id=>{failures.delete('neighbor-'+id);updateLoading();},
+      onFailure:spec=>{failures.set(spec.id,spec);updateLoading();},
+      onPineapple:()=>{houseGroup.visible=true;scene.background=null;controls.maxDistance=60;controls.minAzimuthAngle=-Math.PI*.30;controls.maxAzimuthAngle=Math.PI*.30;resetView();},
+      onStreet:()=>{activeRoom=null;houseGroup.visible=false;root.dataset.houseView='street';labelsHost.hidden=true;objectsHost.hidden=true;caption.hidden=true;scene.background=new THREE.Color('#54c5d7');controls.maxDistance=170;controls.minAzimuthAngle=-Math.PI*.24;controls.maxAzimuthAngle=Math.PI*.24;const pose=street.pose();tweenCamera(pose.position,pose.target);window.dispatchEvent(new CustomEvent('house:room-changed',{detail:{id:null}}));}
+    });
+    houseGroup.visible=false;labelsHost.hidden=true;scene.background=new THREE.Color('#54c5d7');controls.maxDistance=170;controls.minAzimuthAngle=-Math.PI*.24;controls.maxAzimuthAngle=Math.PI*.24;
+    Object.assign(key.shadow.camera,{left:-22,right:22,top:20,bottom:-15,far:70});
+  }
 
   // 实物证书作为墙面展示件；使用用户照片，不生成或改写证书内容。
   function displayPlane(name,width,height,material,position,normal,metadata) {
@@ -271,7 +285,7 @@ if (renderer) {
 
   function focusRoom(id) {
     const room=rooms.get(id);
-    if(!room || !ready || contextLost) return false;
+    if(!room || !ready || contextLost || street?.visible) return false;
     const changed=activeRoom!==id;
     activeRoom=id;
     root.dataset.houseView="room";
@@ -296,6 +310,7 @@ if (renderer) {
   }
 
   function resetView() {
+    if(street?.visible){street.show();return;}
     activeRoom=null;
     root.dataset.houseView="whole";
     caption.hidden=true;
@@ -368,6 +383,7 @@ if (renderer) {
   canvas.addEventListener("pointerup",event => {
     const start=pointerDown;pointerDown=null;
     if(!start || start.id!==event.pointerId || Math.hypot(event.clientX-start.x,event.clientY-start.y)>7 || performance.now()-start.time>650 || !ready) return;
+    if(street?.visible){const rect=canvas.getBoundingClientRect();pointer.set((event.clientX-rect.left)/rect.width*2-1,-(event.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,camera);const id=street.pick(raycaster);if(id)street.choose(id);return;}
     const hit=pick(event.clientX,event.clientY);
     if(!activeRoom){if(hit){focusRoom(hit.roomId);if(hit.companionId)companion?.react();if(hit.petId)pet?.react();}return;}
     if(!hit || hit.roomId!==activeRoom)return;
@@ -379,6 +395,7 @@ if (renderer) {
   });
   canvas.addEventListener("pointermove",event => {
     if(event.pointerType!=="mouse" || rotating || !ready) {tooltip.hidden=true;return;}
+    if(street?.visible){const rect=canvas.getBoundingClientRect();pointer.set((event.clientX-rect.left)/rect.width*2-1,-(event.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,camera);canvas.style.cursor=street.pick(raycaster)?'pointer':'grab';tooltip.hidden=true;return;}
     const hit=pick(event.clientX,event.clientY);
     const interactive=hit && (!activeRoom || hit.roomId===activeRoom && (hit.passage || hit.companionId || hit.petId || hit.awardId || hit.contentId));
     canvas.style.cursor=interactive?"pointer":"grab";
@@ -398,7 +415,7 @@ if (renderer) {
     root.dataset.failedModels=String([...failures.values()].filter(s=>s.kind!=='texture').length);
     root.dataset.failedTextures=String([...failures.values()].filter(s=>s.kind==='texture').length);
     root.dataset.failedResources=String(failures.size);
-    const completed=loaded.size+textureLoaded.size+Number(companion?.snapshot().loaded??false);
+    const completed=loaded.size+textureLoaded.size+Number(companion?.snapshot().loaded??false)+(street?.loadedCount||0);
     progress.value=completed/resourceCount*100;
     const value=loading.querySelector('[data-house-load-value]');
     if(value)value.textContent=`${Math.floor(progress.value)}%`;
@@ -485,7 +502,7 @@ if (renderer) {
     root.setAttribute('aria-busy','true');
     const failed=[...failures.values()];
     failures.clear();
-    await Promise.all(failed.map(spec=>spec.kind==='texture'?loadTexture(spec):loadAsset(spec)));
+    await Promise.all(failed.map(spec=>spec.kind==='texture'?loadTexture(spec):spec.kind==='neighbor'?street.retry(spec.neighbor):loadAsset(spec)));
     updateLoading();
   });
   canvas.addEventListener("webglcontextlost",event => {
@@ -498,15 +515,15 @@ if (renderer) {
     camera.updateProjectionMatrix();
     renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
     renderer.setSize(viewWidth,viewHeight,false);
-    if(!activeRoom) {const pose=wholePose();tweenCamera(pose.position,pose.target);}
+    if(!activeRoom) {const pose=street?.visible?street.pose():wholePose();tweenCamera(pose.position,pose.target);}
     else if(ready) focusRoom(activeRoom);
   }).observe(root);
 
-  const pose=wholePose();
+  const pose=street?.visible?street.pose():wholePose();
   camera.position.copy(pose.position);
   controls.target.copy(pose.target);
   controls.update();
-  root.dataset.houseView="whole";
+  root.dataset.houseView=street?"street":"whole";
   root.dataset.cameraTransition="idle";
   if(structureOnly) {
     document.querySelector(".review-note").textContent="结构审查 · 家具尚未载入";
@@ -514,7 +531,7 @@ if (renderer) {
 
   function frame(now) {
     requestAnimationFrame(frame);
-    if(contextLost) return;
+    if(contextLost || street?.visiting) return;
     if(animation) {
       const t=animation.duration?Math.min((now-animation.start)/animation.duration,1):1;
       const eased=t*t*(3-2*t);
@@ -528,8 +545,9 @@ if (renderer) {
     const petDt=lastPetFrame===null?0:Math.min((now-lastPetFrame)/1000,.06);
     lastPetFrame=now;
     toyChest?.update(petDt);
-    pet?.update(petDt,ready && !document.hidden && (!activeRoom || activeRoom==='living') && !document.querySelector('dialog[open]'));
-    companion?.update(companionDt,ready);
+    pet?.update(petDt,ready && !street?.visible && !document.hidden && (!activeRoom || activeRoom==='living') && !document.querySelector('dialog[open]'));
+    companion?.update(companionDt,ready && !street?.visible);
+    street?.update(viewWidth,viewHeight);
     if(!activeRoom) {
       for(const room of config.rooms) {
         const point=new THREE.Vector3(...room.label).project(camera);
@@ -552,7 +570,7 @@ if (renderer) {
   requestAnimationFrame(frame);
   // 验收接口只报告真实载入状态，不将候选标为 approved。
   window.__pineappleHouse={focusRoom,resetView,scene,camera,controls,config,companion,toyChest:()=>toyChest?.snapshot(),
-    snapshot:() => ({state:root.dataset.houseState,view:activeRoom??"whole",loaded:[...loaded.keys()],failed:[...failures.keys()],fps:Number(measuredFps.toFixed(1)),renderer:renderer.info.render,camera:camera.position.toArray(),target:controls.target.toArray(),pet:pet?.snapshot()??null,toyChest:toyChest?.snapshot()??null,status:"review",structureOnly}),
+    snapshot:() => ({state:root.dataset.houseState,view:root.dataset.houseView,loaded:[...loaded.keys()],failed:[...failures.keys()],fps:Number(measuredFps.toFixed(1)),renderer:renderer.info.render,camera:camera.position.toArray(),target:controls.target.toArray(),pet:pet?.snapshot()??null,toyChest:toyChest?.snapshot()??null,status:"review",structureOnly}),
     projectRoom:id => {
       const room=rooms.get(id);if(!room) return null;
       const point=new THREE.Vector3(...room.label).project(camera);
@@ -560,5 +578,5 @@ if (renderer) {
       return {x:rect.left+(point.x*.5+.5)*viewWidth,y:rect.top+(-.5*point.y+.5)*viewHeight};
     }
   };
-  Promise.all([...specs.map(loadAsset),...textureSpecs.map(loadTexture)]).then(updateLoading);
+  Promise.all([...specs.map(loadAsset),...textureSpecs.map(loadTexture),...(street?[street.loadAll()]:[])]).then(updateLoading);
 }

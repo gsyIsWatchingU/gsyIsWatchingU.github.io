@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-15",
+  "status": "review",
+  "integrationRequest": "用户指定参考图左右关系：派大星、章鱼哥、菠萝屋。",
+  "placementConfig": "src/data/house-neighborhood.json",
+  "layoutOrder": [
+    "patrick",
+    "squidward",
+    "pineapple"
+  ],
+  "assets": [
+    {
+      "file": "assets/models/pineapple-shell.glb",
+      "sha256": "0c591a99cff237ecad1ba737a9370a94203cbbd6753ca109cfd5b86555375ac1",
+      "bytes": 4077564
+    },
+    {
+      "file": "assets/models/neighborhood/squidward-house.glb",
+      "sha256": "0983479c68ddb18ca69cdf434742762e496bc17ffca0556f83bc28f9b63d4b8e",
+      "bytes": 10273984
+    },
+    {
+      "file": "assets/models/neighborhood/squidward-house-layout-v8.glb",
+      "sha256": "5dce97a9ec746fd95e01655a17779002234074494585685b435f1328ed608b05",
+      "bytes": 5175036
+    },
+    {
+      "file": "assets/models/neighborhood/squidward-interior-layout-v8.glb",
+      "sha256": "90a44ff412d0a135e08669a1fd803b45fb17be84a87604ece00e5d39313b2a85",
+      "bytes": 4760132
+    },
+    {
+      "file": "assets/models/squidward-bunny/squidward-bunny-active.glb",
+      "sha256": "54a34d939c1a8ef48ea0beb2e01d1073ffa11216fcf41ceaeed2098df33fcd78",
+      "bytes": 3681216
+    },
+    {
+      "file": "assets/images/squidward-house/self-portrait.png",
+      "sha256": "bfbf88b4573937ee16c22d8e44c75a645ab7604e2bd6879cafc937ed5fd79f6c",
+      "bytes": 2787986
+    },
+    {
+      "file": "scripts/patrick-exterior.js",
+      "sha256": "e76625386f4957af63c4fc0b10f69457638cf2a9b6378ca1933970b08f8283b1",
+      "bytes": 1496
+    },
+    {
+      "file": "scripts/patrick-build.js",
+      "sha256": "e4c5c12ee099839ba9cfc8b4546d22581ba92af8b24469e4e742f7bcfe9ba17e",
+      "bytes": 40594
+    }
+  ],
+  "sourceNotes": [
+    "菠萝屋外观复用仓库现有带贴图GLB；室内仍由现有菠萝屋逻辑提供。",
+    "章鱼哥外观复用main的v7闭合蓝石壳与舷窗细节；家中活动复用f137738的layout-v8和animation-v18，独立新页面，不覆盖旧审查页。",
+    "派大星外观直接复用正式页岩石曲面、rockTex和buildWeatherVane；初版旧GLB造成帽檐状轮廓，已弃用。",
+    "未新增GPU生成任务，未将历史资产的review状态提升为造型批准。"
+  ],
+  "squidwardSourceCommit": "f1377382d15e886fc501de8521a0fc1b5b2e7a83"
+}

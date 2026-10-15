@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-15",
+  "version": "20261015-street-4",
+  "status": "technical_review",
+  "checks": [
+    {
+      "test": "pineapple-room-and-resume",
+      "passed": true
+    },
+    {
+      "test": "squidward-room-and-resident",
+      "passed": true
+    },
+    {
+      "test": "patrick-basement-and-return",
+      "passed": true
+    },
+    {
+      "test": "mobile-390x844-three-houses",
+      "passed": true,
+      "actual": {
+        "height": 844,
+        "labels": [
+          {
+            "id": "patrick",
+            "rect": {
+              "bottom": 776.3587341308594,
+              "height": 41.997283935546875,
+              "left": 54.687503814697266,
+              "right": 140.38044357299805,
+              "top": 734.3614501953125,
+              "width": 85.69293975830078,
+              "x": 54.687503814697266,
+              "y": 734.3614501953125
+            }
+          },
+          {
+            "id": "squidward",
+            "rect": {
+              "bottom": 776.3587341308594,
+              "height": 41.997283935546875,
+              "left": 146.37228393554688,
+              "right": 232.06522369384768,
+              "top": 734.3614501953125,
+              "width": 85.69293975830078,
+              "x": 146.37228393554688,
+              "y": 734.3614501953125
+            }
+          },
+          {
+            "id": "pineapple",
+            "rect": {
+              "bottom": 776.3587341308594,
+              "height": 41.997283935546875,
+              "left": 238.05706787109375,
+              "right": 335.7472915649414,
+              "top": 734.3614501953125,
+              "width": 97.69022369384766,
+              "x": 238.05706787109375,
+              "y": 734.3614501953125
+            }
+          }
+        ],
+        "scrollWidth": 390,
+        "width": 390
+      }
+    },
+    {
+      "test": "mobile-squidward-living-and-resident",
+      "passed": true
+    },
+    {
+      "test": "mobile-model-raycast-squidward",
+      "passed": true
+    },
+    {
+      "test": "mobile-visit-header-no-overlap",
+      "passed": true
+    },
+    {
+      "test": "drag-does-not-enter-house",
+      "passed": true
+    },
+    {
+      "test": "left-center-right-no-overlap-grounded",
+      "passed": true,
+      "bounds": [
+        {
+          "id": "patrick",
+          "max": [
+            -6.4662854300840085,
+            3.8,
+            3.027558109477556
+          ],
+          "min": [
+            -12.533714569915992,
+            0,
+            -3.027558109477556
+          ]
+        },
+        {
+          "id": "squidward",
+          "max": [
+            3.145887630327752,
+            8.6,
+            2.9550697441448626
+          ],
+          "min": [
+            -3.145887630327752,
+            0,
+            -2.9550697441448626
+          ]
+        },
+        {
+          "id": "pineapple",
+          "max": [
+            13.539596786643104,
+            10.5,
+            3.223800680817881
+          ],
+          "min": [
+            6.460403213356894,
+            0,
+            -3.223800680817881
+          ]
+        }
+      ]
+    },
+    {
+      "test": "wheel-zoom-stays-street",
+      "passed": true,
+      "before": "[-22.272,12.108,24.25]",
+      "after": "[-15.24,9.698,16.762]"
+    }
+  ],
+  "logs": [],
+  "limits": [
+    "手机为390x844浏览器视口，实机与物理双指未测"
+  ]
+}
