@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "commit": "ba6bc4f7fd4ed9bb8a032ea35b74a31e055da9f8",
+  "commit": "4586d9faae3f968732709b2a190f0061d2d2c388",
   "base": "https://gsyiswatchingu.github.io/",
   "records": [
     {
       "path": "assets/house-review/props/siamese-cat-eight-poses.glb",
-      "bytes": 54124516,
-      "sha256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+      "bytes": 77054028,
+      "sha256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
       "match": true
     },
     {
@@ -17,38 +17,38 @@
     },
     {
       "path": "docs/cat-eight-poses-review/index.html",
-      "bytes": 1870,
-      "sha256": "c2ead4b0546cfd09538b10457f816316404bad6a45617afd8cead5717689c873",
+      "bytes": 1954,
+      "sha256": "ac6f70f56f080e8861700fb95f58808fa02479d2e3acb7225215df33455d6c7b",
       "match": true
     },
     {
       "path": "docs/cat-eight-poses-review/viewer.js",
-      "bytes": 676421,
-      "sha256": "88a3a547da973ad71652660b09bc654823f2cfa26a8d506e0749c7a31a9932ad",
+      "bytes": 710204,
+      "sha256": "d152fec2ba5a46c06d7bd5d8c4c09a281c4bec7de0f7c74ce79618013aedd7cf",
       "match": true
     },
     {
       "path": "docs/cat-eight-poses-review/runtime.json",
-      "bytes": 2271,
-      "sha256": "9d43a0e6078640d6bc86fd70f721b35cc888c8891d1e5858dae5cb3080544744",
+      "bytes": 2494,
+      "sha256": "537fa2dd9c3561854da49274463c4c35248f4a668b211db416e6ba112cca3948",
       "match": true
     },
     {
       "path": "docs/cat-eight-poses-review/correctives.json",
-      "bytes": 18850,
-      "sha256": "43d6af7515e10ff4a4c859fba1cb09c5738296e3c38d079c550d47c5646cff9e",
+      "bytes": 100064,
+      "sha256": "d29368da4298ac0169dcf3839686ae0fc28a6d79679cf72bfd3513505835c297",
       "match": true
     },
     {
       "path": "docs/cat-eight-poses-review/geometry.json",
-      "bytes": 2954,
-      "sha256": "2f8bdb2484e2c98add89febbc0c43caec5a848e742d3a648ddd050e6f24af97a",
+      "bytes": 2960,
+      "sha256": "7dcb306810c22ae2c603e976e4dbc65ded3c03df0808ce394c795f27eec918da",
       "match": true
     },
     {
       "path": "docs/cat-eight-poses-review/contacts.json",
-      "bytes": 1543,
-      "sha256": "6540752d23b7074f366b7a88b045b7a66f5994989efa249de4382b93d9287b03",
+      "bytes": 1539,
+      "sha256": "1aae1531a4615a18c273a721a9d7c7c3b73995c55ce91a48f9c334c0d2957d89",
       "match": true
     },
     {
@@ -59,8 +59,8 @@
     },
     {
       "path": "docs/cat-eight-poses-review/provenance.json",
-      "bytes": 2230,
-      "sha256": "2aa89ad9221e50fe1bbd995041dcee7102b0da68190623a6732b1a11a5769cbc",
+      "bytes": 3047,
+      "sha256": "80741b160f60befb047f3fc663b1f5631209c0bcc2a7576aace972f3e203b521",
       "match": true
     },
     {
@@ -77,8 +77,50 @@
     },
     {
       "path": "docs/cat-eight-poses-review/README.md",
-      "bytes": 2378,
-      "sha256": "525e233c1777306e515e530829c374e0588fb88f0446126210f24044cc8ea29c",
+      "bytes": 2659,
+      "sha256": "8a9b64e1acea52185b112a6c16c24f666c08a450ec4bd2b5a31c440135b53964",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/baseline-runtime.json",
+      "bytes": 2271,
+      "sha256": "9d43a0e6078640d6bc86fd70f721b35cc888c8891d1e5858dae5cb3080544744",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/MESHOPT-LICENSE.txt",
+      "bytes": 1079,
+      "sha256": "f03037ca7bad1e3eb7f4a63fa6084a8baabd5ba30d3c239a9a7f35705d873e26",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/volume/comparison.html",
+      "bytes": 1026,
+      "sha256": "a78a4295649fd6340c2c27d7b85ff36fab998f4c9892487450c9764d9f216cfc",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/volume/comparison.png",
+      "bytes": 138191,
+      "sha256": "50c350088743170e9a4d62f8ec95e1834e7e5e420a065867113ee94ad1d1cc84",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/volume/side-065-before.png",
+      "bytes": 150170,
+      "sha256": "c835f38c81ec2010a77eea74f8a886da06c7f0e32174f39e781c93ed5eabf8ce",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/volume/side-065-after.png",
+      "bytes": 150180,
+      "sha256": "20f098fe330d7f29d278e91fc8e9a5ba0fdc08fdaef13e317f828d053cf9fee7",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/volume/joints.json",
+      "bytes": 59564,
+      "sha256": "37d40c20f83d8082c597ee1cd12f812eff77ea48d6a1645e4b1362f21899c831",
       "match": true
     }
   ]
