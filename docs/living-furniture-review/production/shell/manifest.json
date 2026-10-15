@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.0",
+  "job_id": "eef84e98a88845efb553958b044f9be9",
+  "asset_name": "pineapple-living-shell-20261015",
+  "asset_kind": "prop",
+  "profile": "xhs_mobile",
+  "state": "failed",
+  "source_file": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/source.png",
+  "source_sha256": "c3e6bd4598952646ffc6127c6d9f40b0c495a05aa1a4722faa4b3350e3a6594e",
+  "prompt": "按独立参考生成完整紫色螺旋海螺贝壳，水平侧卧，左侧细螺旋尖塔，右侧饱满螺房及张开的椭圆壳口，奶白外翻薄壳唇，深紫内腔，微妙珍珠光与自然螺纹。是有机贝壳，无电子零件、音响网格、桌子或背景。",
+  "seed": 20261016,
+  "created_at": "2026-10-15T02:01:46.636726+00:00",
+  "updated_at": "2026-10-15T02:09:14.799699+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-15T02:01:46.650719+00:00",
+      "completed_at": "2026-10-15T02:01:46.652563+00:00",
+      "details": {
+        "work_dir": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work",
+        "profile": "xhs_mobile"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "completed",
+      "started_at": "2026-10-15T02:01:46.653044+00:00",
+      "completed_at": "2026-10-15T02:03:52.725131+00:00",
+      "details": {
+        "backend": "hunyuan3d-2.1",
+        "output": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/generated.glb"
+      }
+    },
+    {
+      "name": "generate_material",
+      "state": "completed",
+      "started_at": "2026-10-15T02:03:52.726831+00:00",
+      "completed_at": "2026-10-15T02:07:46.020601+00:00",
+      "details": {
+        "backend": "hunyuan3d-paint-2.1",
+        "paint_source": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/paint-source.glb",
+        "output": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/textured.glb",
+        "preserved_mesh": false,
+        "material_prompt": "high quality"
+      }
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "completed",
+      "started_at": "2026-10-15T02:07:46.021599+00:00",
+      "completed_at": "2026-10-15T02:07:47.589048+00:00",
+      "details": {
+        "output": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/normalized.glb"
+      }
+    },
+    {
+      "name": "export",
+      "state": "completed",
+      "started_at": "2026-10-15T02:07:47.589941+00:00",
+      "completed_at": "2026-10-15T02:07:50.259036+00:00",
+      "details": {
+        "output": "/workspace/3d-assets/exports/pineapple-living-shell-20261015/eef84e98a88845efb553958b044f9be9/pineapple-living-shell-20261015-xhs_mobile.glb"
+      }
+    },
+    {
+      "name": "render_preview",
+      "state": "completed",
+      "started_at": "2026-10-15T02:07:50.259901+00:00",
+      "completed_at": "2026-10-15T02:09:12.529284+00:00",
+      "details": {
+        "preview": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/preview.png",
+        "manifest": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/preview.json"
+      }
+    },
+    {
+      "name": "validate",
+      "state": "running",
+      "started_at": "2026-10-15T02:09:12.530184+00:00",
+      "completed_at": null,
+      "details": {}
+    }
+  ],
+  "outputs": {
+    "shape_mesh": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/generated.glb",
+    "generated_mesh": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/textured.glb",
+    "paint_source": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/paint-source.glb",
+    "pbr_mesh": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/textured.glb",
+    "normalized_mesh": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/work/normalized.glb",
+    "game_asset": "/workspace/3d-assets/exports/pineapple-living-shell-20261015/eef84e98a88845efb553958b044f9be9/pineapple-living-shell-20261015-xhs_mobile.glb",
+    "preview": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/preview.png",
+    "preview_manifest": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/preview.json"
+  },
+  "metrics": {
+    "delivery_bytes": 1848484,
+    "triangle_budget": 30000,
+    "max_bones": 64,
+    "missing_animation_clips": [
+      "crouch",
+      "idle",
+      "interact",
+      "run",
+      "walk"
+    ],
+    "preview_quality": {
+      "luma_mean": 0.22847,
+      "luma_stddev": 0.24249,
+      "clipped_channel_ratio": 0.00403,
+      "neutral_white_ratio": 0.00326,
+      "edge_detail_score": 0.01418,
+      "min_character_height_ratio": 1.0,
+      "max_character_height_ratio": 1.0
+    },
+    "mesh_objects": 1,
+    "mesh_details": [
+      {
+        "name": "textured",
+        "triangles": 29100,
+        "hidden": false
+      }
+    ],
+    "triangles": 29100,
+    "vertices": 16885,
+    "armatures": 0,
+    "bones": 0,
+    "bone_names": [],
+    "bone_layout": [],
+    "max_weights_per_vertex": 0,
+    "materials": 1,
+    "material_details": [
+      {
+        "name": "Material",
+        "uses_nodes": true,
+        "channels": {
+          "Base Color": {
+            "texture": {
+              "image": "textured",
+              "width": 1024,
+              "height": 1024,
+              "channel": null,
+              "mean": 0.36397,
+              "stddev": 0.15506,
+              "p05": 0.11995,
+              "p50": 0.35288,
+              "p95": 0.65802,
+              "near_zero_ratio": 0.0,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": [
+              0.8,
+              0.8,
+              0.8,
+              1.0
+            ]
+          },
+          "Metallic": {
+            "texture": {
+              "image": "Forge3D_ORM_Material",
+              "width": 1024,
+              "height": 1024,
+              "channel": 2,
+              "mean": 0.26425,
+              "stddev": 0.08434,
+              "p05": 0.0902,
+              "p50": 0.2902,
+              "p95": 0.37255,
+              "near_zero_ratio": 0.00162,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": 0.0
+          },
+          "Roughness": {
+            "texture": {
+              "image": "Forge3D_ORM_Material",
+              "width": 1024,
+              "height": 1024,
+              "channel": 1,
+              "mean": 0.35472,
+              "stddev": 0.17456,
+              "p05": 0.19216,
+              "p50": 0.28235,
+              "p95": 0.7451,
+              "near_zero_ratio": 0.0,
+              "near_one_ratio": 0.0,
+              "neutral_white_ratio": 0.0
+            },
+            "default": 0.5
+          }
+        }
+      }
+    ],
+    "material_metrics": {
+      "textured_materials": 1,
+      "missing_base_color_textures": 0,
+      "roughness_p95_min": 0.7451,
+      "roughness_collapsed_materials": 0,
+      "unassigned_material_faces": 0
+    },
+    "uv_details": [
+      {
+        "name": "textured",
+        "uv_layers": 1,
+        "uv_values": 87300,
+        "out_of_range_ratio": 0.0,
+        "non_finite_values": 0,
+        "degenerate_triangle_ratio": 0.0
+      }
+    ],
+    "uv_metrics": {
+      "textured_meshes_without_uv": 0,
+      "out_of_range_ratio_max": 0.0,
+      "degenerate_triangle_ratio_max": 0.0,
+      "non_finite_values": 0
+    },
+    "textures": 2,
+    "max_texture_width": 1024,
+    "max_texture_height": 1024,
+    "animations": []
+  },
+  "provenance": {
+    "source_filename": "shell.png",
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu",
+    "skill_plan_sha256": null
+  },
+  "quality_gates": {
+    "file_exists": "passed",
+    "profile_contract": "failed",
+    "material_uv_review": "passed",
+    "render_anomaly_review": "failed",
+    "animation_pose_review": "n/a",
+    "deformation_review": "n/a",
+    "target_device_review": "required"
+  },
+  "skill_plan": {},
+  "error": "质量门禁失败: render_white_patch_risk"
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>客厅沙发与贝壳 · 预览</title>
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../styles/pineapple-house.css?v=20261015-living">
+  <link rel="stylesheet" href="../../styles/house-music.css?v=20261013-panel-close">
+  <link rel="stylesheet" href="../../styles/living-furniture-review.css?v=20261015-living">
+</head>
+<body class="furniture-review">
+  <header class="review-header"><a href="../../">菠萝小屋</a><h1>客厅沙发与贝壳</h1><span>待审预览</span></header>
+  <main class="review-layout">
+    <section class="review-stage" aria-label="家具三维预览">
+      <canvas aria-label="拖动旋转家具，滚轮或双指缩放"></canvas>
+      <nav aria-label="预览对象">
+        <button type="button" data-asset="sofa" aria-pressed="true">绿管沙发</button>
+        <button type="button" data-asset="shell" aria-pressed="false">紫色贝壳</button>
+        <button type="button" data-asset="room" aria-pressed="false">客厅摆放</button>
+      </nav>
+      <div class="review-tools" aria-label="查看方式">
+        <button type="button" data-view="front">正面</button><button type="button" data-view="side">侧面</button><button type="button" data-view="rear">背面</button><button type="button" data-view="diagonal">斜前方</button>
+        <button type="button" id="rotate" aria-pressed="false">自动旋转</button><button type="button" id="wireframe" aria-pressed="false">网格</button>
+      </div>
+      <p id="load-status" role="status">正在载入模型…</p>
+      <button type="button" id="shell-music" hidden>贝壳 · 听音乐 ♫</button>
+      <p class="review-gesture">拖动旋转 · 滚轮 / 双指缩放</p>
+    </section>
+    <aside class="review-details">
+      <p class="review-eyebrow">参考对照</p><h2 id="object-title">绿管沙发</h2>
+      <p id="object-description">三根绿色横管、两道红棕绑带、顶部绳圈与一整块蓝色软垫。</p>
+      <figure><img id="user-reference" src="sources/user-sofa.png" alt="用户提供的沙发参考"><figcaption>原始参考</figcaption></figure>
+      <details><summary>查看单件建模参考</summary><img id="model-reference" src="sources/sofa.png" alt="整理后的单件沙发参考"></details>
+      <p class="review-note">紫色贝壳保留「听音乐」入口。候选供审看轮廓、材质与摆放。</p>
+      <a href="README.md">制作与验证记录</a>
+    </aside>
+  </main>
+  <script src="viewer.js?v=20261015-living-v1"></script>
+</body>
+</html>

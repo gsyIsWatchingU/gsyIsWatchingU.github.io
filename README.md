@@ -16,6 +16,8 @@
 
 客厅默认宠物为已确认的短绒毛暹罗幼猫，可自动行走；点击后正面看向镜头。正式页坐卧暂时停用；被否定的旧候选已撤回，重做见 [八种睡姿独立预览](docs/cat-eight-poses-review/)。造型、来源与动作验证见 [猫咪记录](docs/cat-fur-review/README.md)，整屋脱敏截图见 [九图展示](docs/house-gallery-review/index.html)。
 
+按用户参考重做的[绿管沙发与紫色音乐贝壳](docs/living-furniture-review/)提供单件转台和客厅摆放预览，待视觉确认后替换正式页家具。
+
 履历内容在 `src/data/house-profile.json`，证书清单在 `src/data/house-awards.json`；构建时生成可直接阅读的 HTML，`scripts/house-profile.js` 独立控制阅读弹层与证书查看，提供 `openResume(sectionId)`、`closeResume()`；关闭内容保留原房间与镜头，Esc 优先关闭最上层内容。新增字体、简历、证书来源和浏览器截图见 [履历小屋记录](docs/house-profile-review/README.md)。
 
 ```powershell

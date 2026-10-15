@@ -1,0 +1,393 @@
+{
+  "origin": "http://127.0.0.1:8776",
+  "recordedAt": "2026-10-15T02:16:59.809Z",
+  "records": [
+    {
+      "name": "desktop-loaded",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "active": "sofa",
+        "wireframe": false,
+        "camera": [
+          2.0201438189438967,
+          1.8460322671093325,
+          3.6729887617161756
+        ],
+        "target": [
+          0,
+          0.5604862005086714,
+          0
+        ],
+        "renderer": {
+          "frame": 24,
+          "calls": 3,
+          "triangles": 58202,
+          "points": 0,
+          "lines": 0
+        },
+        "models": [
+          "chair",
+          "table",
+          "sofa",
+          "shell",
+          "structure"
+        ],
+        "bounds": {
+          "sofa": {
+            "min": [
+              -0.8799999999999999,
+              0,
+              -0.5452142983415684
+            ],
+            "max": [
+              0.8799999999999999,
+              1.1209724010173427,
+              0.5452142983415684
+            ]
+          },
+          "shell": {
+            "min": [
+              -0.29,
+              0,
+              -0.1450933408764041
+            ],
+            "max": [
+              0.29,
+              0.2634457425582828,
+              0.1450933408764041
+            ]
+          },
+          "room": {
+            "min": [
+              -6.5,
+              -0.3400000035762787,
+              -4.679999828338623
+            ],
+            "max": [
+              6.5,
+              13.557357788085938,
+              5.880000114440918
+            ]
+          }
+        },
+        "musicOpen": false
+      }
+    },
+    {
+      "name": "sofa-grounded",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "active": "sofa",
+        "wireframe": false,
+        "camera": [
+          5.221282148904007e-16,
+          1.583726302560482,
+          -4.26350042521588
+        ],
+        "target": [
+          0,
+          0.5604862005086714,
+          0
+        ],
+        "renderer": {
+          "frame": 232,
+          "calls": 3,
+          "triangles": 58202,
+          "points": 0,
+          "lines": 0
+        },
+        "models": [
+          "chair",
+          "table",
+          "sofa",
+          "shell",
+          "structure"
+        ],
+        "bounds": {
+          "sofa": {
+            "min": [
+              -0.8799999999999999,
+              0,
+              -0.5452142983415684
+            ],
+            "max": [
+              0.8799999999999999,
+              1.1209724010173427,
+              0.5452142983415684
+            ]
+          },
+          "shell": {
+            "min": [
+              -0.29,
+              0,
+              -0.1450933408764041
+            ],
+            "max": [
+              0.29,
+              0.2634457425582828,
+              0.1450933408764041
+            ]
+          },
+          "room": {
+            "min": [
+              -6.5,
+              -0.3400000035762787,
+              -4.679999828338623
+            ],
+            "max": [
+              6.5,
+              13.557357788085938,
+              5.880000114440918
+            ]
+          }
+        },
+        "musicOpen": false
+      }
+    },
+    {
+      "name": "shell-grounded",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "active": "shell",
+        "wireframe": false,
+        "camera": [
+          1.552385930033403e-16,
+          0.4359515055820412,
+          -1.2676193095954154
+        ],
+        "target": [
+          0,
+          0.1317228712791414,
+          0
+        ],
+        "renderer": {
+          "frame": 436,
+          "calls": 3,
+          "triangles": 58202,
+          "points": 0,
+          "lines": 0
+        },
+        "models": [
+          "chair",
+          "table",
+          "sofa",
+          "shell",
+          "structure"
+        ],
+        "bounds": {
+          "sofa": {
+            "min": [
+              -0.8799999999999999,
+              0,
+              -0.5452142983415684
+            ],
+            "max": [
+              0.8799999999999999,
+              1.1209724010173427,
+              0.5452142983415684
+            ]
+          },
+          "shell": {
+            "min": [
+              -0.29,
+              0,
+              -0.1450933408764041
+            ],
+            "max": [
+              0.29,
+              0.2634457425582828,
+              0.1450933408764041
+            ]
+          },
+          "room": {
+            "min": [
+              -6.5,
+              -0.3400000035762787,
+              -4.679999828338623
+            ],
+            "max": [
+              6.5,
+              13.557357788085938,
+              5.880000114440918
+            ]
+          }
+        },
+        "musicOpen": false
+      }
+    },
+    {
+      "name": "native-orbit",
+      "ok": true,
+      "detail": {
+        "before": [
+          1.552385930033403e-16,
+          0.4359515055820412,
+          -1.2676193095954154
+        ],
+        "after": [
+          0.9692467468224265,
+          0.6900622865386115,
+          -0.6695010210080515
+        ]
+      }
+    },
+    {
+      "name": "native-zoom",
+      "ok": true,
+      "detail": {
+        "distance": 1.3036156550106965,
+        "afterDistance": 1.2070770009359555
+      }
+    },
+    {
+      "name": "shell-mesh-music",
+      "ok": true,
+      "detail": {
+        "point": {
+          "x": 585.0000000000001,
+          "y": 483.9999999999999
+        }
+      }
+    },
+    {
+      "name": "music-tracks",
+      "ok": true
+    },
+    {
+      "name": "music-close",
+      "ok": true
+    },
+    {
+      "name": "room-view",
+      "ok": true,
+      "detail": {
+        "ready": true,
+        "active": "room",
+        "wireframe": false,
+        "camera": [
+          0.9583945122210986,
+          2.3534854805396206,
+          7.9148200862614395
+        ],
+        "target": [
+          0,
+          0.83,
+          -0.1
+        ],
+        "renderer": {
+          "frame": 650,
+          "calls": 40,
+          "triangles": 165496,
+          "points": 0,
+          "lines": 0
+        },
+        "models": [
+          "chair",
+          "table",
+          "sofa",
+          "shell",
+          "structure"
+        ],
+        "bounds": {
+          "sofa": {
+            "min": [
+              -0.8799999999999999,
+              0,
+              -0.5452142983415684
+            ],
+            "max": [
+              0.8799999999999999,
+              1.1209724010173427,
+              0.5452142983415684
+            ]
+          },
+          "shell": {
+            "min": [
+              -0.29,
+              0,
+              -0.1450933408764041
+            ],
+            "max": [
+              0.29,
+              0.2634457425582828,
+              0.1450933408764041
+            ]
+          },
+          "room": {
+            "min": [
+              -6.5,
+              -0.3400000035762787,
+              -4.679999828338623
+            ],
+            "max": [
+              6.5,
+              13.557357788085938,
+              5.880000114440918
+            ]
+          }
+        },
+        "musicOpen": false
+      }
+    },
+    {
+      "name": "room-shell-music",
+      "ok": true,
+      "detail": {
+        "point": {
+          "x": 582.0846236515787,
+          "y": 481.52085361213693
+        }
+      }
+    },
+    {
+      "name": "wireframe",
+      "ok": true
+    },
+    {
+      "name": "mobile-sofa-layout",
+      "ok": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "mobile-shell-layout",
+      "ok": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "mobile-room-layout",
+      "ok": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "mobile-music",
+      "ok": true
+    },
+    {
+      "name": "runtime-errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "resource-failures",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "log": {
+    "console": [],
+    "errors": [],
+    "failedReq": []
+  }
+}

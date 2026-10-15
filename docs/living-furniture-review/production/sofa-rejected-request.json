@@ -1,0 +1,102 @@
+{
+  "asset": "sofa",
+  "host": "gsy013",
+  "sourceSHA256": "99e78e0ae79de99950f22463a2e5cb4e54fd8e7d5ca171711349f998bc43df2e",
+  "request": {
+    "asset_name": "pineapple-living-sofa-20261015",
+    "asset_kind": "prop",
+    "profile": "xhs_mobile",
+    "seed": "20261015",
+    "mesh_backend": "single",
+    "prompt": "按独立参考生成完整厚实的低沙发：三根浅绿色横向圆管叠成靠背，两道红棕绑带，顶部两个绳圈，一整块厚蓝色坐垫连接在靠背前方。保留圆润织物曲面、凹点缝线和真实体积，无传统扶手，无高腿，无地面背景。"
+  },
+  "job": {
+    "schema_version": "1.0",
+    "job_id": "0b0d02832f264418886227dd59ae653c",
+    "asset_name": "pineapple-living-sofa-20261015",
+    "asset_kind": "prop",
+    "profile": "xhs_mobile",
+    "state": "queued",
+    "source_file": "/workspace/3d-assets/jobs/0b0d02832f264418886227dd59ae653c/source.png",
+    "source_sha256": "99e78e0ae79de99950f22463a2e5cb4e54fd8e7d5ca171711349f998bc43df2e",
+    "material_source_file": null,
+    "material_source_sha256": null,
+    "prompt": "按独立参考生成完整厚实的低沙发：三根浅绿色横向圆管叠成靠背，两道红棕绑带，顶部两个绳圈，一整块厚蓝色坐垫连接在靠背前方。保留圆润织物曲面、凹点缝线和真实体积，无传统扶手，无高腿，无地面背景。",
+    "seed": 20261015,
+    "created_at": "2026-10-15T02:01:46.714391+00:00",
+    "updated_at": "2026-10-15T02:01:46.714484+00:00",
+    "stages": [
+      {
+        "name": "prepare",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "generate_mesh",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "draft_preview",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "generate_material",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "normalize_mesh",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "export",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "render_preview",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "validate",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      }
+    ],
+    "outputs": {},
+    "metrics": {},
+    "provenance": {
+      "source_filename": "sofa.png",
+      "material_source_filename": null,
+      "mesh_backend": "single",
+      "views": {},
+      "forge3d_version": "0.1.0",
+      "resource_class": "gpu",
+      "queue_name": "forge3d:jobs:gpu"
+    },
+    "quality_gates": {},
+    "error": null,
+    "stop_after": null
+  },
+  "humanReview": "pending"
+}

@@ -1,0 +1,91 @@
+{
+  "asset": "shell",
+  "host": "mygpu",
+  "sourceSHA256": "c3e6bd4598952646ffc6127c6d9f40b0c495a05aa1a4722faa4b3350e3a6594e",
+  "request": {
+    "asset_name": "pineapple-living-shell-20261015",
+    "asset_kind": "prop",
+    "profile": "xhs_mobile",
+    "seed": "20261016",
+    "mesh_backend": "single",
+    "prompt": "按独立参考生成完整紫色螺旋海螺贝壳，水平侧卧，左侧细螺旋尖塔，右侧饱满螺房及张开的椭圆壳口，奶白外翻薄壳唇，深紫内腔，微妙珍珠光与自然螺纹。是有机贝壳，无电子零件、音响网格、桌子或背景。"
+  },
+  "job": {
+    "schema_version": "1.0",
+    "job_id": "eef84e98a88845efb553958b044f9be9",
+    "asset_name": "pineapple-living-shell-20261015",
+    "asset_kind": "prop",
+    "profile": "xhs_mobile",
+    "state": "queued",
+    "source_file": "/workspace/3d-assets/jobs/eef84e98a88845efb553958b044f9be9/source.png",
+    "source_sha256": "c3e6bd4598952646ffc6127c6d9f40b0c495a05aa1a4722faa4b3350e3a6594e",
+    "prompt": "按独立参考生成完整紫色螺旋海螺贝壳，水平侧卧，左侧细螺旋尖塔，右侧饱满螺房及张开的椭圆壳口，奶白外翻薄壳唇，深紫内腔，微妙珍珠光与自然螺纹。是有机贝壳，无电子零件、音响网格、桌子或背景。",
+    "seed": 20261016,
+    "created_at": "2026-10-15T02:01:46.636726+00:00",
+    "updated_at": "2026-10-15T02:01:46.637114+00:00",
+    "stages": [
+      {
+        "name": "prepare",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "generate_mesh",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "generate_material",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "normalize_mesh",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "export",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "render_preview",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      },
+      {
+        "name": "validate",
+        "state": "pending",
+        "started_at": null,
+        "completed_at": null,
+        "details": {}
+      }
+    ],
+    "outputs": {},
+    "metrics": {},
+    "provenance": {
+      "source_filename": "shell.png",
+      "forge3d_version": "0.1.0",
+      "resource_class": "gpu",
+      "queue_name": "forge3d:jobs:gpu",
+      "skill_plan_sha256": null
+    },
+    "quality_gates": {},
+    "skill_plan": {},
+    "error": null
+  },
+  "humanReview": "pending"
+}

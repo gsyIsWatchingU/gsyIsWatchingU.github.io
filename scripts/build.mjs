@@ -48,6 +48,7 @@ bundle(join(projectRoot, "scripts", "cat-sit-v2-review.js"), join(projectRoot, "
 bundle(join(projectRoot, "scripts", "cat-anatomy-review.js"), join(projectRoot, "docs", "cat-anatomy-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-rest-rig-review.js"), join(projectRoot, "docs", "cat-rest-rebuild-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-eight-pose-review.js"), join(projectRoot, "docs", "cat-eight-poses-review", "viewer.js"));
+bundle(join(projectRoot, "scripts", "living-furniture-review.js"), join(projectRoot, "docs", "living-furniture-review", "viewer.js"));
 
 const escapeHtml = (value) =>
   String(value)
@@ -361,6 +362,7 @@ const render = (content, parents = []) => {
 };
 
 const generatedNotice = "<!-- 此文件由 npm run build 生成，请修改 src 下的源码。 -->";
+writeFileSync(join(projectRoot, "docs", "living-furniture-review", "index.html"), render(readFileSync(join(sourceRoot,"living-furniture-review.html"),"utf8")).replace("<!doctype html>",`<!doctype html>\n${generatedNotice}`),"utf8");
 for (const entry of entries) {
   const entryPath = join(sourceRoot, entry);
   const outputPath = join(projectRoot, entry);

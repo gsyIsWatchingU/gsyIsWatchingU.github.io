@@ -1,0 +1,20 @@
+{
+  "sourceSHA256": "1b95ff3efadca59221130dec955a669fc47d552a9d0cfcc5d3b5b66e53464834",
+  "runtimeSHA256": "bedc3a6531d4371ac366e3dace961c428d30f491e442174a0f27edbfd6271ffc",
+  "triangles": 29100,
+  "width": 1.76,
+  "dimensionsYUp": [
+    1.76,
+    1.12097,
+    1.09043
+  ],
+  "uniformScale": 0.8887456916997951,
+  "operations": [
+    "保留 Hunyuan 网格、UV 与贴图",
+    "烘焙原节点变换",
+    "统一缩放至摆放宽度",
+    "底部中心枢轴，Y-up 导出"
+  ],
+  "state": "review",
+  "humanReview": "pending"
+}

@@ -1,0 +1,192 @@
+{
+  "state": "review",
+  "humanReview": "pending",
+  "references": [
+    {
+      "file": "docs/living-furniture-review/sources/shell.png",
+      "sha256": "c3e6bd4598952646ffc6127c6d9f40b0c495a05aa1a4722faa4b3350e3a6594e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "purpose": "ImageGen 单件参考"
+    },
+    {
+      "file": "docs/living-furniture-review/sources/sofa-clean.png",
+      "sha256": "2d2215c388ad6de48a58ef5ce666882423c9e25f744f5cafe542154a5813a95c",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "purpose": "ImageGen 单件参考"
+    },
+    {
+      "file": "docs/living-furniture-review/sources/sofa.png",
+      "sha256": "99e78e0ae79de99950f22463a2e5cb4e54fd8e7d5ca171711349f998bc43df2e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "purpose": "ImageGen 单件参考"
+    },
+    {
+      "file": "docs/living-furniture-review/sources/user-shell.png",
+      "sha256": "bc8eff0dbf009fc0199069c91f7cc750360404ed3eca23d8ea24589cbd6668a2",
+      "size": [
+        164,
+        142
+      ],
+      "mode": "RGB",
+      "purpose": "用户原图"
+    },
+    {
+      "file": "docs/living-furniture-review/sources/user-sofa.png",
+      "sha256": "76bf8bc06a1af83b17f646eb5c984fbb0b547a1e2b44b0ca655900fa43b34b2c",
+      "size": [
+        255,
+        196
+      ],
+      "mode": "RGB",
+      "purpose": "用户原图"
+    }
+  ],
+  "assets": [
+    {
+      "asset": "sofa",
+      "runtime": "assets/living-furniture-review/sofa.glb",
+      "runtimeSHA256": "bedc3a6531d4371ac366e3dace961c428d30f491e442174a0f27edbfd6271ffc",
+      "bytes": 1705368,
+      "triangles": 29100,
+      "bounds": {
+        "min": [
+          -0.8799999952316284,
+          0,
+          -0.5452142953872681
+        ],
+        "max": [
+          0.8799999952316284,
+          1.1209723949432373,
+          0.5452142953872681
+        ]
+      },
+      "textures": [
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "stddev": [
+            60.558,
+            58.706,
+            70.78
+          ]
+        },
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "stddev": [
+            0.0,
+            17.419,
+            6.988
+          ]
+        }
+      ],
+      "jobId": "2d0be628043b487b951ef7259f5a4812",
+      "seed": 20261015,
+      "pipelineState": "review",
+      "qualityGates": {
+        "file_exists": "passed",
+        "profile_contract": "passed",
+        "material_uv_review": "passed",
+        "render_anomaly_review": "passed",
+        "animation_pose_review": "n/a",
+        "deformation_review": "n/a",
+        "target_device_review": "required",
+        "automatic_pipeline": "passed",
+        "human_art_review": "required"
+      },
+      "automaticMeshTextureChecks": "passed",
+      "humanReview": "pending"
+    },
+    {
+      "asset": "shell",
+      "runtime": "assets/living-furniture-review/shell.glb",
+      "runtimeSHA256": "2fb754b6e4b3a104b586dfca590a17f5212efd6cda9af6f2d1b272d76ec03c60",
+      "bytes": 1848460,
+      "triangles": 29100,
+      "bounds": {
+        "min": [
+          -0.28999999165534973,
+          0,
+          -0.14509333670139313
+        ],
+        "max": [
+          0.28999999165534973,
+          0.26344573497772217,
+          0.14509333670139313
+        ]
+      },
+      "textures": [
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "stddev": [
+            36.225,
+            43.024,
+            32.81
+          ]
+        },
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "stddev": [
+            0.0,
+            45.054,
+            21.914
+          ]
+        }
+      ],
+      "jobId": "eef84e98a88845efb553958b044f9be9",
+      "seed": 20261016,
+      "pipelineState": "failed",
+      "qualityGates": {
+        "file_exists": "passed",
+        "profile_contract": "failed",
+        "material_uv_review": "passed",
+        "render_anomaly_review": "failed",
+        "animation_pose_review": "n/a",
+        "deformation_review": "n/a",
+        "target_device_review": "required"
+      },
+      "automaticMeshTextureChecks": "passed",
+      "humanReview": "pending"
+    }
+  ],
+  "fleet": {
+    "gsy013/GPU0": "专用 L20 UUID 固定，生成沙发",
+    "gsy0901/GPU0": "现有 ASR，不占用",
+    "gsy0901/GPU1": "L20 生成贝壳",
+    "gsy0930/GPU0-3": "SSH 独立信任记录不可用，未使用；未绕过主机校验"
+  },
+  "rejected": [
+    {
+      "jobId": "0b0d02832f264418886227dd59ae653c",
+      "reason": "参考光晕生成背景薄板；真实浏览器侧面检查拒绝，不用于候选运行模型"
+    }
+  ],
+  "limits": [
+    "待用户视觉审看",
+    "贝壳原始流水线保留 render_white_patch_risk 告警",
+    "未测手机实机性能",
+    "音乐仅验证原入口与面板开关，未在本轮验证外部曲目可播放性"
+  ]
+}
