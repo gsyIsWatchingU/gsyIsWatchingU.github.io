@@ -41,20 +41,26 @@
     },
     {
       "file": "scripts/patrick-exterior.js",
-      "sha256": "e76625386f4957af63c4fc0b10f69457638cf2a9b6378ca1933970b08f8283b1",
-      "bytes": 1496
+      "sha256": "f7e86d4e5ce5c3d2a26ed6616774d2ba49d6e5d5c2350669c09573fb9a859401",
+      "bytes": 1794
     },
     {
       "file": "scripts/patrick-build.js",
       "sha256": "e4c5c12ee099839ba9cfc8b4546d22581ba92af8b24469e4e742f7bcfe9ba17e",
       "bytes": 40594
+    },
+    {
+      "file": "scripts/neighborhood-exterior.js",
+      "sha256": "0bc77451447c6dafa1a5f67808d4bb41c42e4da3761b42d3ba33089e02405fe2",
+      "bytes": 9528
     }
   ],
   "sourceNotes": [
     "菠萝屋外观复用仓库现有带贴图GLB；室内仍由现有菠萝屋逻辑提供。",
-    "章鱼哥外观复用main的v7闭合蓝石壳与舷窗细节；家中活动复用f137738的layout-v8和animation-v18，独立新页面，不覆盖旧审查页。",
+    "章鱼哥街景复用main的v7蓝石壳，按实际顶环补屋顶，并将门框实心背板裁成门洞；家中仍复用f137738的layout-v8和animation-v18，旧审查页保留。",
     "派大星外观直接复用正式页岩石曲面、rockTex和buildWeatherVane；初版旧GLB造成帽檐状轮廓，已弃用。",
-    "未新增GPU生成任务，未将历史资产的review状态提升为造型批准。"
+    "未新增GPU生成任务，未将历史资产的review状态提升为造型批准。",
+    "本轮为原网格修复与入口动画，未重生成整栋房屋：菠萝原网格按门形裁切并保留UV；章鱼哥门恢复板缝、黄铜把手、深蓝门框；派大星补实体底面。"
   ],
   "squidwardSourceCommit": "f1377382d15e886fc501de8521a0fc1b5b2e7a83"
 }

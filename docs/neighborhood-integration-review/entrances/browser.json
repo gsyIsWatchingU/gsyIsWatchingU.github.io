@@ -1,0 +1,1711 @@
+{
+  "date": "2026-10-15",
+  "local": [
+    {
+      "check": "patrick-rock-lifts-and-loads-interior",
+      "pass": true
+    },
+    {
+      "check": "squidward-door-opens-and-loads-interior",
+      "pass": true
+    },
+    {
+      "check": "pineapple-door-opens-and-restores-room-controls",
+      "pass": true
+    },
+    {
+      "check": "pineapple-living-room-still-works",
+      "pass": true
+    },
+    {
+      "check": "return-cancels-opening-and-removes-frame",
+      "pass": true
+    },
+    {
+      "check": "escape-cancels-opening",
+      "pass": true
+    },
+    {
+      "check": "mobile-390x844-squidward-opening-and-interior",
+      "pass": true
+    },
+    {
+      "check": "mobile-390x844-patrick-opening-and-interior",
+      "pass": true
+    },
+    {
+      "check": "mobile-390x844-pineapple-opening-and-interior",
+      "pass": true
+    },
+    {
+      "check": "viewport-change-cancels-transition-safely",
+      "pass": true
+    },
+    {
+      "check": "actual-canvas-clicks-on-squidward-door-pineapple-door-and-patrick-rock",
+      "pass": true
+    },
+    {
+      "check": "drag-to-top-view-shows-closed-roof",
+      "pass": true
+    }
+  ],
+  "samples": {
+    "patrick": [
+      {
+        "angle": 0,
+        "progress": 0.092,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.112,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.132,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.146,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.159,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.173,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.194,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.214,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.234,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.248,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.268,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.282,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.303,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.001,
+        "progress": 0.323,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.004,
+        "progress": 0.336,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.023,
+        "progress": 0.357,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.069,
+        "progress": 0.378,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.147,
+        "progress": 0.397,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.225,
+        "progress": 0.411,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.32,
+        "progress": 0.425,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.494,
+        "progress": 0.446,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.679,
+        "progress": 0.465,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.872,
+        "progress": 0.486,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.002,
+        "progress": 0.5,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.116,
+        "progress": 0.514,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.246,
+        "progress": 0.533,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.348,
+        "progress": 0.554,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.406,
+        "progress": 0.574,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.428,
+        "progress": 0.588,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.443,
+        "progress": 0.608,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.628,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.649,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.664,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.684,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.705,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.724,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.737,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.752,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.772,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.792,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.805,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.819,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.84,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.853,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.867,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.881,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.901,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.915,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.928,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.935,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.955,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.976,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.989,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 1,
+        "state": "inside"
+      }
+    ],
+    "squidward": [
+      {
+        "angle": 0,
+        "progress": 0.091,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.112,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.132,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.152,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.166,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.186,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.2,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.214,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.234,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.255,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.268,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.282,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.309,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.001,
+        "progress": 0.323,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.01,
+        "progress": 0.343,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.06,
+        "progress": 0.37,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.145,
+        "progress": 0.391,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.229,
+        "progress": 0.404,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.396,
+        "progress": 0.424,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.533,
+        "progress": 0.438,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.683,
+        "progress": 0.452,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.922,
+        "progress": 0.472,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.158,
+        "progress": 0.493,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.37,
+        "progress": 0.513,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.493,
+        "progress": 0.527,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.632,
+        "progress": 0.547,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.723,
+        "progress": 0.568,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.77,
+        "progress": 0.588,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.789,
+        "progress": 0.615,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.629,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.649,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.67,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.69,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.704,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.717,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.744,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.758,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.778,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.792,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.812,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.833,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.853,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.867,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.881,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.894,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.914,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.935,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.955,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.969,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.982,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 1,
+        "state": "inside"
+      }
+    ],
+    "pineapple": [
+      {
+        "angle": 0,
+        "progress": 0.098,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.112,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.125,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.139,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.152,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.173,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.193,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.214,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.227,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.241,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.262,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.282,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.302,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.002,
+        "progress": 0.329,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.01,
+        "progress": 0.343,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.041,
+        "progress": 0.363,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.11,
+        "progress": 0.384,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.225,
+        "progress": 0.404,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.329,
+        "progress": 0.418,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.454,
+        "progress": 0.431,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.746,
+        "progress": 0.458,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.905,
+        "progress": 0.472,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.062,
+        "progress": 0.486,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.211,
+        "progress": 0.499,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.346,
+        "progress": 0.513,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.464,
+        "progress": 0.526,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.605,
+        "progress": 0.547,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.692,
+        "progress": 0.567,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.739,
+        "progress": 0.588,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.753,
+        "progress": 0.601,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.758,
+        "progress": 0.615,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.629,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.649,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.669,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.683,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.697,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.71,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.724,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.745,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.765,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.778,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.792,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.806,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.819,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.84,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.86,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.873,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.887,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.901,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.914,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.935,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.955,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.976,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.989,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 1,
+        "state": "inside"
+      }
+    ],
+    "mobileSquidward": [
+      {
+        "angle": 0,
+        "progress": 0.098,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.112,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.125,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.132,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.153,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.173,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.186,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.2,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.207,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.227,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.241,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.261,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.282,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.295,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.309,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.001,
+        "progress": 0.322,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.005,
+        "progress": 0.336,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.017,
+        "progress": 0.35,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.042,
+        "progress": 0.363,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.083,
+        "progress": 0.377,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.145,
+        "progress": 0.39,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.229,
+        "progress": 0.404,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.396,
+        "progress": 0.424,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.531,
+        "progress": 0.438,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.681,
+        "progress": 0.452,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.842,
+        "progress": 0.466,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.162,
+        "progress": 0.493,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.305,
+        "progress": 0.506,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.433,
+        "progress": 0.52,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.543,
+        "progress": 0.533,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.631,
+        "progress": 0.547,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.698,
+        "progress": 0.561,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.758,
+        "progress": 0.581,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.784,
+        "progress": 0.602,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.789,
+        "progress": 0.615,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.629,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.642,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.649,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.67,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.69,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.703,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.717,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.731,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.737,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.758,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.78,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.799,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.812,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.819,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.84,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.86,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.874,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.887,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.908,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.914,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.935,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.948,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.969,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.982,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 0.996,
+        "state": "entering"
+      },
+      {
+        "angle": -1.791,
+        "progress": 1,
+        "state": "inside"
+      }
+    ],
+    "mobile-patrick": [
+      {
+        "angle": 0,
+        "progress": 0.1,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.113,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.127,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.14,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.154,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.168,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.189,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.202,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.222,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.236,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.256,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.27,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.29,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.311,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.001,
+        "progress": 0.324,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.005,
+        "progress": 0.338,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.016,
+        "progress": 0.351,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.037,
+        "progress": 0.365,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.097,
+        "progress": 0.386,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.194,
+        "progress": 0.406,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.283,
+        "progress": 0.419,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.387,
+        "progress": 0.433,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.503,
+        "progress": 0.447,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.631,
+        "progress": 0.46,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.76,
+        "progress": 0.474,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -0.887,
+        "progress": 0.487,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.01,
+        "progress": 0.501,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.171,
+        "progress": 0.522,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.257,
+        "progress": 0.535,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.352,
+        "progress": 0.556,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.395,
+        "progress": 0.569,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.421,
+        "progress": 0.583,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.436,
+        "progress": 0.596,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.443,
+        "progress": 0.61,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.624,
+        "state": "lifting-rock"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.644,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.658,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.678,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.705,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.719,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.732,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.753,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.767,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.787,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.8,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.814,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.835,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.855,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.868,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.882,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.903,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.923,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.937,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.957,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 0.977,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 1,
+        "state": "entering"
+      },
+      {
+        "angle": -1.445,
+        "progress": 1,
+        "state": "inside"
+      }
+    ],
+    "mobile-pineapple": [
+      {
+        "angle": 0,
+        "progress": 0.098,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.118,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.139,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.159,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.18,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.193,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.214,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.234,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.248,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.268,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.282,
+        "state": "approaching"
+      },
+      {
+        "angle": 0,
+        "progress": 0.302,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.001,
+        "progress": 0.323,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.017,
+        "progress": 0.35,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.041,
+        "progress": 0.363,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.11,
+        "progress": 0.384,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.226,
+        "progress": 0.404,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.39,
+        "progress": 0.425,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.597,
+        "progress": 0.445,
+        "state": "opening-door"
+      },
+      {
+        "angle": -0.827,
+        "progress": 0.466,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.062,
+        "progress": 0.486,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.211,
+        "progress": 0.499,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.41,
+        "progress": 0.52,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.603,
+        "progress": 0.547,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.693,
+        "progress": 0.568,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.727,
+        "progress": 0.581,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.753,
+        "progress": 0.601,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.622,
+        "state": "opening-door"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.642,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.663,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.676,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.697,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.71,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.731,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.751,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.765,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.785,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.806,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.819,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.846,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.86,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.88,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.901,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.921,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.935,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.955,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.969,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 0.989,
+        "state": "entering"
+      },
+      {
+        "angle": -1.759,
+        "progress": 1,
+        "state": "inside"
+      }
+    ]
+  },
+  "logs": [],
+  "viewportCancellation": {
+    "state": "idle",
+    "mode": "street",
+    "viewport": [
+      1280,
+      720
+    ]
+  }
+}

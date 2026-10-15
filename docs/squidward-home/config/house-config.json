@@ -1,8 +1,8 @@
 {
-  "version": "20261013-behavior-v19",
+  "version": "20261015-wave-20",
   "status": "review",
-  "note": "按层裁开楼梯与原石壳内墙；画像贴图；角色2.3倍步频和位移、点击导航、自主物件活动；修正招手腕姿与烦躁嘴角。",
-  "cacheBust": "v=20261013-behavior-v19",
+  "note": "保留房间与自主活动；左臂封闭重拓扑、肩肘腕重新绑定；招手抬到脸旁轻摆，连续点击不重置。",
+  "cacheBust": "v=20261015-wave-20",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,

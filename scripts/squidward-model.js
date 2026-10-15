@@ -43,7 +43,7 @@ function fit(angle = front) {
   camera.lookAt(controls.target);controls.update();
 }
 new ResizeObserver(() => { renderer.setSize(stage.clientWidth, stage.clientHeight);camera.aspect = stage.clientWidth / stage.clientHeight;camera.updateProjectionMatrix();if(model)fit(front); }).observe(stage);
-new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-active.glb?v=20261013-pose-18', gltf => {
+new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-active.glb?v=20261015-wave-20', gltf => {
   model = gltf.scene;actor=new THREE.Group();actor.add(model);scene.add(actor);scene.updateMatrixWorld(true);
   model.traverse(o => { if(o.isMesh){o.castShadow = true;o.receiveShadow = true;} });
   const box = skinnedBounds(model);
@@ -52,6 +52,7 @@ new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-active.glb?
   height = size.y;width = Math.max(size.x, size.z);
   scene.updateMatrixWorld(true);
   resident=new SquidwardResident({model,actor,clips:gltf.animations,travel:false,onChange:updateActionUI});
+  if(new URLSearchParams(location.search).has('debug'))window.__squidwardModel={resident,model,actor,camera,controls,renderer};
   fit();document.querySelector('#loading').remove();
   stage.dataset.loaded = 'true';
   document.querySelector('#action-select').disabled=false;document.querySelector('#action-select').value='idle';

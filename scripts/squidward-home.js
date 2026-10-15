@@ -5,7 +5,7 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { SSAOPass } from 'three/addons/postprocessing/SSAOPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-import { SquidwardResident, skinnedBounds } from './squidward-resident.js?v=20261013-motion-18';
+import { SquidwardResident, skinnedBounds } from './squidward-resident.js?v=20261015-wave-20';
 import { RoomNavigation } from './squidward-navigation.js?v=20261013-nav-1';
 import { livingProps } from './squidward-room-props.js?v=20261013-props-2';
 
@@ -28,7 +28,7 @@ const residentPause = document.getElementById('resident-pause');
 // ========== Config ==========
 let config = null;
 async function loadConfig() {
-  const res = await fetch('./config/house-config.json');
+  const res = await fetch('./config/house-config.json?v=20261015-wave-20');
   if (!res.ok) throw new Error('config load ' + res.status);
   config = await res.json();
 }

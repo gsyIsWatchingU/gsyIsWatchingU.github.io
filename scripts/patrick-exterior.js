@@ -28,6 +28,9 @@ export function createPatrickExterior(){
   }
 
   const group=new THREE.Group();const geometry=new THREE.SphereGeometry(4.5,64,28,0,Math.PI*2,0,Math.PI/2);
-  displace(geometry,1);group.add(new THREE.Mesh(geometry,texMat(rockTex(512),.9)));
+  const rockMaterial=texMat(rockTex(512),.9);rockMaterial.side=THREE.DoubleSide;
+  displace(geometry,1);group.add(new THREE.Mesh(geometry,rockMaterial));
+  // 翻起时也能看到实体岩石底面，避免单面穹顶像薄壳一样消失。
+  const underside=new THREE.Mesh(new THREE.CircleGeometry(4.5,64),rockMaterial);underside.name='rock_solid_underside';underside.rotation.x=Math.PI/2;group.add(underside);
   const vane=buildWeatherVane();vane.position.set(0,4.5,0);group.add(vane);return group;
 }
