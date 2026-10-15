@@ -1,0 +1,42 @@
+{
+  "file": "docs\\chair-reference-review\\chair.glb",
+  "triangles": 29100,
+  "bbox_min": [
+    -0.6338,
+    0,
+    -0.6408
+  ],
+  "bbox_max": [
+    0.6338,
+    1.62,
+    0.6408
+  ],
+  "size_xyz": [
+    1.2676,
+    1.62,
+    1.2816
+  ],
+  "flags": [],
+  "warnings": [],
+  "materials": [
+    {
+      "index": 0,
+      "name": "Material",
+      "has_baseColorTexture": true,
+      "baseColorFactor": null
+    }
+  ],
+  "primitive_count": 1,
+  "primitives": [
+    {
+      "mesh": 0,
+      "prim": 0,
+      "tris": 29100,
+      "material": 0,
+      "has_baseColorTexture": true
+    }
+  ],
+  "uv_missing_on_textured_meshes": [],
+  "normal_missing_meshes": [],
+  "ok": true
+}

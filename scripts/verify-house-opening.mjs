@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const live=process.argv.includes('--live'),out=`docs/house-opening-review/${live?'live':'local'}`;
 mkdirSync(out,{recursive:true});
 const port=9800+process.pid%100,records=[],errors=[],failures=[],serviceFailures=[],requests=new Map(),pending=new Map();
-const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',[`--remote-debugging-port=${port}`,`--user-data-dir=${process.cwd()}/tmp/opening-chrome-${Date.now()}`,'--headless=new','--no-first-run','--no-default-browser-check','--no-proxy-server','--ignore-gpu-blocklist','--window-size=1440,900','about:blank'],{stdio:'ignore'});
+const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',[`--remote-debugging-port=${port}`,`--user-data-dir=${process.cwd()}/tmp/opening-chrome-${Date.now()}`,'--headless=new','--no-first-run','--no-default-browser-check',...(live?[]:['--no-proxy-server']),'--ignore-gpu-blocklist','--window-size=1440,900','about:blank'],{stdio:'ignore'});
 let ws,sid,id=0,expectedFailure=false,code=0,hold=false;
 const held=new Map(),delay=ms=>new Promise(r=>setTimeout(r,ms));
 const call=(method,params={},session=sid)=>new Promise((resolve,reject)=>{const key=++id;pending.set(key,{resolve,reject});ws.send(JSON.stringify({id:key,method,params,...(session?{sessionId:session}:{})}));});
@@ -33,7 +33,7 @@ try{
   await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});hold=true;
   await call('Page.navigate',{url:base+'/?t='+Date.now()});await wait('Number(document.querySelector(".house")?.dataset.loadedModels)>3');
   const first=await loader();assert.equal(first.state,'loading');assert.equal(first.canvas,'hidden');assert.equal(first.width,390);assert.equal(first.height,844);assert.equal(first.x,0);assert.equal(first.y,0);assert(first.animation.some(a=>a.state==='running'));await delay(250);assert.notEqual((await loader()).transform,first.transform);await shot('loading');records.push({test:'partial-models-hidden-with-active-fullscreen-animation',value:first});
-  await release('structure');await wait('Number(document.querySelector(".house").dataset.loadedModels)===window.__pineappleHouse.config.assets.length+1');
+  await release('structure');await wait('Number(document.querySelector(".house").dataset.loadedModels)===window.__pineappleHouse.config.assets.length+1',live?240000:90000);
   const pendingCompanion=await loader();assert.equal(pendingCompanion.state,'loading');assert(pendingCompanion.percent<100);assert.equal(await ev('window.__pineappleHouse.companion.snapshot().loaded'),false);records.push({test:'loader-waits-for-companion',value:pendingCompanion});
   hold=false;await release('companion');await wait('window.__pineappleHouse?.snapshot().state==="ready" && window.__pineappleHouse.companion.snapshot().loaded');await delay(300);
   assert.equal(await ev('document.querySelector(".house-loading").hidden'),true);assert.equal(await ev('getComputedStyle(document.querySelector(".companion-hud")).display'),'none');records.push({test:'homepage-companion-loaded-without-preview-controls',passed:true});

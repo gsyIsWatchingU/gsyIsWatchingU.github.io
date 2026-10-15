@@ -1,0 +1,987 @@
+{
+  "status": "passed",
+  "records": [
+    {
+      "test": "partial-models-hidden-with-active-fullscreen-animation",
+      "value": {
+        "state": "loading",
+        "canvas": "hidden",
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "viewport": [
+          390,
+          844
+        ],
+        "percent": 74.07407407407408,
+        "animation": [
+          {
+            "state": "running",
+            "time": 1266.7290000186763
+          }
+        ],
+        "transform": "matrix(0.988549, 0.150897, -0.150897, 0.988549, 0, -7.78594)"
+      }
+    },
+    {
+      "test": "loader-waits-for-companion",
+      "value": {
+        "state": "loading",
+        "canvas": "hidden",
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "viewport": [
+          390,
+          844
+        ],
+        "percent": 96.29629629629629,
+        "animation": [
+          {
+            "state": "running",
+            "time": 2916.7290000186767
+          }
+        ],
+        "transform": "matrix(0.988349, -0.152207, 0.152207, 0.988349, 0, 3.83657)"
+      }
+    },
+    {
+      "test": "homepage-companion-loaded-without-preview-controls",
+      "passed": true
+    },
+    {
+      "test": "isolated-1440-living",
+      "value": {
+        "view": "living",
+        "meshes": [
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "living_L0_wood",
+            "room": "living",
+            "shared": false
+          },
+          {
+            "name": "living_L0_blue_metal",
+            "room": "living",
+            "shared": false
+          },
+          {
+            "name": "living_L0_window_glass",
+            "room": "living",
+            "shared": false
+          },
+          {
+            "name": "living_L0_seams",
+            "room": "living",
+            "shared": false
+          },
+          {
+            "name": "living_L0_rug",
+            "room": "living",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 储藏室",
+          "→ 浴室"
+        ]
+      }
+    },
+    {
+      "test": "isolated-1440-storage",
+      "value": {
+        "view": "storage",
+        "meshes": [
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "storage_partition",
+            "room": "storage",
+            "shared": true
+          },
+          {
+            "name": "storage_L0_cut_edge",
+            "room": "storage",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 客厅"
+        ]
+      }
+    },
+    {
+      "test": "isolated-1440-bathroom",
+      "value": {
+        "view": "bathroom",
+        "meshes": [
+          {
+            "name": "shell_1_room_back_1",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_room_back_2",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_room_back_3",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_left_1",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_left_2",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_left_3",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "bathroom_L1_pink",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bath_partition",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "bathroom_L1_cut_edge",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_wood",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_blue_metal",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_window_glass",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_seams",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_rope",
+            "room": "bathroom",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 客厅",
+          "→ 图书馆"
+        ]
+      }
+    },
+    {
+      "test": "isolated-1440-bedroom",
+      "value": {
+        "view": "bedroom",
+        "meshes": [
+          {
+            "name": "shell_2_room_back_1",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_room_back_2",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_room_back_3",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_left_1",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_left_2",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_left_3",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "bedroom_L2_sand",
+            "room": "bedroom",
+            "shared": false
+          },
+          {
+            "name": "bed_library_partition",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "bedroom_L2_cut_edge",
+            "room": "bedroom",
+            "shared": false
+          },
+          {
+            "name": "bedroom_L2_blue_metal",
+            "room": "bedroom",
+            "shared": false
+          },
+          {
+            "name": "bedroom_L2_window_glass",
+            "room": "bedroom",
+            "shared": false
+          },
+          {
+            "name": "bedroom_L2_seams",
+            "room": "bedroom",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 图书馆",
+          "→ 屋顶花园"
+        ]
+      }
+    },
+    {
+      "test": "isolated-1440-library",
+      "value": {
+        "view": "library",
+        "meshes": [
+          {
+            "name": "shell_1_right_1",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_1_right_2",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_1_right_3",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_right_1",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_right_2",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_right_3",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_library_back_fill_1",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_library_back_fill_2",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_library_back_fill_3",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "library_L1_library_green",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_wood",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_3",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_pages",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_4",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_0",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_2",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_5",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_1",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_wood",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_0",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_pages",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_2",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_4",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_3",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_5",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_1",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_blue_metal",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_blue_metal",
+            "room": "library",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 浴室",
+          "→ 卧室"
+        ]
+      }
+    },
+    {
+      "test": "isolated-1440-roof",
+      "value": {
+        "view": "roof",
+        "meshes": [
+          {
+            "name": "roof_L3_library_green",
+            "room": "roof",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 卧室"
+        ]
+      }
+    },
+    {
+      "test": "arrow-navigation-1440",
+      "passed": true
+    },
+    {
+      "test": "isolated-390-living",
+      "value": {
+        "view": "living",
+        "meshes": [
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "living_L0_wood",
+            "room": "living",
+            "shared": false
+          },
+          {
+            "name": "living_L0_blue_metal",
+            "room": "living",
+            "shared": false
+          },
+          {
+            "name": "living_L0_window_glass",
+            "room": "living",
+            "shared": false
+          },
+          {
+            "name": "living_L0_seams",
+            "room": "living",
+            "shared": false
+          },
+          {
+            "name": "living_L0_rug",
+            "room": "living",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 储藏室",
+          "→ 浴室"
+        ]
+      }
+    },
+    {
+      "test": "isolated-390-storage",
+      "value": {
+        "view": "storage",
+        "meshes": [
+          {
+            "name": "shell_0_right_1",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_right_2",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_right_3",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_1",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_2",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "shell_0_left_3",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "living_L0_sand",
+            "room": "living",
+            "shared": true
+          },
+          {
+            "name": "storage_partition",
+            "room": "storage",
+            "shared": true
+          },
+          {
+            "name": "storage_L0_cut_edge",
+            "room": "storage",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 客厅"
+        ]
+      }
+    },
+    {
+      "test": "isolated-390-bathroom",
+      "value": {
+        "view": "bathroom",
+        "meshes": [
+          {
+            "name": "shell_1_room_back_1",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_room_back_2",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_room_back_3",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_left_1",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_left_2",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "shell_1_left_3",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "bathroom_L1_pink",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bath_partition",
+            "room": "bathroom",
+            "shared": true
+          },
+          {
+            "name": "bathroom_L1_cut_edge",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_wood",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_blue_metal",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_window_glass",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_seams",
+            "room": "bathroom",
+            "shared": false
+          },
+          {
+            "name": "bathroom_L1_rope",
+            "room": "bathroom",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 客厅",
+          "→ 图书馆"
+        ]
+      }
+    },
+    {
+      "test": "isolated-390-bedroom",
+      "value": {
+        "view": "bedroom",
+        "meshes": [
+          {
+            "name": "shell_2_room_back_1",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_room_back_2",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_room_back_3",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_left_1",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_left_2",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "shell_2_left_3",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "bedroom_L2_sand",
+            "room": "bedroom",
+            "shared": false
+          },
+          {
+            "name": "bed_library_partition",
+            "room": "bedroom",
+            "shared": true
+          },
+          {
+            "name": "bedroom_L2_cut_edge",
+            "room": "bedroom",
+            "shared": false
+          },
+          {
+            "name": "bedroom_L2_blue_metal",
+            "room": "bedroom",
+            "shared": false
+          },
+          {
+            "name": "bedroom_L2_window_glass",
+            "room": "bedroom",
+            "shared": false
+          },
+          {
+            "name": "bedroom_L2_seams",
+            "room": "bedroom",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 图书馆",
+          "→ 屋顶花园"
+        ]
+      }
+    },
+    {
+      "test": "isolated-390-library",
+      "value": {
+        "view": "library",
+        "meshes": [
+          {
+            "name": "shell_1_right_1",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_1_right_2",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_1_right_3",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_right_1",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_right_2",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_right_3",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_library_back_fill_1",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_library_back_fill_2",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "shell_2_library_back_fill_3",
+            "room": "library",
+            "shared": true
+          },
+          {
+            "name": "library_L1_library_green",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_wood",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_3",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_pages",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_4",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_0",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_2",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_5",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_book_1",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_wood",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_0",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_pages",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_2",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_4",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_3",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_5",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_book_1",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L1_blue_metal",
+            "room": "library",
+            "shared": false
+          },
+          {
+            "name": "library_L2_blue_metal",
+            "room": "library",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 浴室",
+          "→ 卧室"
+        ]
+      }
+    },
+    {
+      "test": "isolated-390-roof",
+      "value": {
+        "view": "roof",
+        "meshes": [
+          {
+            "name": "roof_L3_library_green",
+            "room": "roof",
+            "shared": false
+          }
+        ],
+        "labels": [
+          "→ 卧室"
+        ]
+      }
+    },
+    {
+      "test": "arrow-navigation-390",
+      "passed": true
+    },
+    {
+      "test": "real-companion-click-opens-chat",
+      "passed": true
+    },
+    {
+      "test": "character-failure-and-retry",
+      "passed": true
+    },
+    {
+      "test": "injected-failure",
+      "value": [
+        {
+          "url": "https://gsyiswatchingu.github.io/assets/house-companion/spongebob.glb?v=20261013-diary-toy-v9",
+          "error": "net::ERR_FAILED"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "serviceFailures": [],
+  "limitations": [
+    "手机为浏览器视口模拟，实机未测",
+    "角色网络失败为明确注入的验收场景"
+  ]
+}

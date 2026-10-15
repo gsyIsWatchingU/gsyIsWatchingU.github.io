@@ -41,6 +41,7 @@ bundle(join(projectRoot, "scripts", "pineapple-house.js"), join(projectRoot, "as
 bundle(join(projectRoot, "scripts", "patrick-house.js"), join(projectRoot, "assets", "patrick-house.js"));
 bundle(join(projectRoot, "scripts", "house-profile.js"), join(projectRoot, "assets", "house-profile.js"));
 bundle(join(projectRoot, "scripts", "house-toilet-projects.js"), join(projectRoot, "assets", "house-toilet-projects.js"));
+bundle(join(projectRoot, "scripts", "chair-reference-review.js"), join(projectRoot, "docs", "chair-reference-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-fur-review.js"), join(projectRoot, "docs", "cat-fur-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-crouch-review.js"), join(projectRoot, "docs", "cat-crouch-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-sit-v2-review.js"), join(projectRoot, "docs", "cat-sit-v2-review", "viewer.js"));

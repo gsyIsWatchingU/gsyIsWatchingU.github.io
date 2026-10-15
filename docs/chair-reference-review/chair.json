@@ -1,0 +1,18 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "sourceSha256": "616d209d06b89111083ec10917282d50618d7d5cc5d146bd57d5dc89acb32587",
+  "runtimeSha256": "26aaead641a22a406844f60883005a7c047c8356ccd28f6464ca14392b497a5f",
+  "dimensionsYUp": [
+    1.2676154375076294,
+    1.6200000047683716,
+    1.28157639503479
+  ],
+  "triangles": 29100,
+  "origin": "bottom-center",
+  "operations": [
+    "uniform scale to 1.62m height",
+    "bottom-center origin",
+    "preserve GPU geometry and textures"
+  ]
+}

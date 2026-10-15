@@ -1,0 +1,16 @@
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]Fetching 19 files: 100%|██████████| 19/19 [00:00<00:00, 42661.55it/s]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:19<00:38,  9.71s/it]Loading pipeline components...:  67%|██████▋   | 4/6 [00:20<00:08,  4.26s/it]Loading pipeline components...:  83%|████████▎ | 5/6 [00:20<00:03,  3.14s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:20<00:00,  3.46s/it]
+Models Loaded.
+INFO Draco mesh compression is available, use library at /workspace/.tools/blender-4.5.13-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+02:11:14 | INFO: Starting glTF 2.0 export
+02:11:14 | INFO: Extracting primitive: textured-512
+02:11:14 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+02:11:14 | INFO: Primitives created: 1
+02:11:14 | INFO: Finished glTF 2.0 export in 0.08994579315185547 s
+
+{"asset_kind": "prop", "specular_level": 0.32, "materials": [{"material": "Material", "packed": true, "roughness_p50_before": 0.95686, "roughness_p95_before": 0.99216, "roughness_repaired": false, "roughness_floor": null}]}
+Blender 4.5.13 LTS (hash daeeeca98fb0 built 2026-08-25 01:31:19)
+OBJ import of 'textured-512.obj' took 110.47 ms
+
+Blender quit
+/workspace/projects/pineapple-chair-20261015/textured-512.glb

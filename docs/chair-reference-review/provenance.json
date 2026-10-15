@@ -1,0 +1,59 @@
+{
+  "assetId": "chair-reference-candidate",
+  "status": "review",
+  "humanReview": "pending",
+  "reference": {
+    "original": "sources/user-reference.png",
+    "originalSha256": "37b5f49389d08a9543eb08b5138cdfeae736aa76562e6754f94f68c5ba5d5631",
+    "prepared": "sources/chair-isolated.png",
+    "preparedSha256": "855608f2d83decfa3abd86a9ce34166d142a4ae4bae3b63273c260e3316abb39",
+    "preparation": "ImageGen 根据用户图二整理透明底高清参考，保留原图。"
+  },
+  "shape": {
+    "host": "gsy013",
+    "jobId": "0dc5aff059334fc28db077cec99285d0",
+    "backend": "Hunyuan3D-2.1",
+    "seed": 20261015,
+    "automaticJobState": "failed",
+    "failedStage": "generate_material",
+    "reason": "CUDA out of memory",
+    "reusedPaintSourceSha256": "1e65ae121f0689ee924966ea3a58b2df3c1ea729e2e913deceb5a34da24483e9"
+  },
+  "material": {
+    "host": "mygpu",
+    "gpu": 1,
+    "backend": "Hunyuan3DPaint",
+    "views": 6,
+    "resolution": 512,
+    "preserveMesh": true,
+    "roughnessFloor": 0.34,
+    "specularLevel": 0.32,
+    "prompt": "橙红天鹅绒软包扶手椅，菱形拉扣靠背、织物接缝、紫色和暖白色救生圈底座，无金属。",
+    "continuation": "保留原失败 manifest；将同一网格按 SHA 校验交接到空闲 L20，通过现有材质阶段脚本完成。"
+  },
+  "runtime": {
+    "file": "chair.glb",
+    "status": "review",
+    "humanReview": "pending",
+    "sourceSha256": "616d209d06b89111083ec10917282d50618d7d5cc5d146bd57d5dc89acb32587",
+    "runtimeSha256": "26aaead641a22a406844f60883005a7c047c8356ccd28f6464ca14392b497a5f",
+    "dimensionsYUp": [
+      1.2676154375076294,
+      1.6200000047683716,
+      1.28157639503479
+    ],
+    "triangles": 29100,
+    "origin": "bottom-center",
+    "operations": [
+      "uniform scale to 1.62m height",
+      "bottom-center origin",
+      "preserve GPU geometry and textures"
+    ],
+    "bytes": 4083292
+  },
+  "limitations": [
+    "背面依据正面合理推断",
+    "仅候选审片页，正式首页旧椅子尚未替换",
+    "手机仅浏览器视口模拟，实机未测"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "job_id": "0dc5aff059334fc28db077cec99285d0",
+  "asset_name": "pineapple-tufted-armchair-20261015",
+  "asset_kind": "prop",
+  "profile": "xhs_mobile",
+  "state": "failed",
+  "source_file": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/source.png",
+  "source_sha256": "855608f2d83decfa3abd86a9ce34166d142a4ae4bae3b63273c260e3316abb39",
+  "material_source_file": null,
+  "material_source_sha256": null,
+  "prompt": "一把高靠背橙红色软包单人扶手椅，严格按参考图塑造完整连续的圆润曲面。靠背上宽下收，厚实软包边框与中央内凹的菱形拉扣靠背垫，凹陷纽扣与布料褶皱必须有空间深度。两侧短粗、正面圆形端面的卷圆扶手，与靠背和坐垫自然连接，不要细杆或球头扶手。厚软圆角坐垫，底部为紫色与暖白色分段的低矮压扁救生圈，无木腿，底座完整接地。橙红天鹅绒细纹理，接缝与柔和褶皱，紫白底座有织物磨损。仅椅子，无背景、房间、地板、人物或多余家具，背面按同材质合理延续。尺寸约宽1.05米、深1.03米、高1.62米，正面朝Z正向，Y向上，枢轴底部中心。重点保证圆润软包轮廓、扶手连接与靠背拉扣，不用方盒或纯色低模替代。\r\n",
+  "seed": 20261015,
+  "created_at": "2026-10-15T01:59:03.727193+00:00",
+  "updated_at": "2026-10-15T02:03:04.667090+00:00",
+  "stages": [
+    {
+      "name": "prepare",
+      "state": "completed",
+      "started_at": "2026-10-15T01:59:03.733270+00:00",
+      "completed_at": "2026-10-15T01:59:03.735505+00:00",
+      "details": {
+        "fingerprint": "17b6bb9fa61bb97e",
+        "work_dir": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/work",
+        "profile": "xhs_mobile",
+        "elapsed_seconds": 0.001,
+        "execution_job_id": "0dc5aff059334fc28db077cec99285d0"
+      }
+    },
+    {
+      "name": "generate_mesh",
+      "state": "completed",
+      "started_at": "2026-10-15T01:59:03.736037+00:00",
+      "completed_at": "2026-10-15T02:00:43.739338+00:00",
+      "details": {
+        "fingerprint": "5e8f92f87da9fc89",
+        "backend": "hunyuan3d-2.1",
+        "output": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/work/generated.glb",
+        "elapsed_seconds": 100.002,
+        "execution_job_id": "0dc5aff059334fc28db077cec99285d0"
+      }
+    },
+    {
+      "name": "draft_preview",
+      "state": "completed",
+      "started_at": "2026-10-15T02:00:43.739968+00:00",
+      "completed_at": "2026-10-15T02:02:04.583810+00:00",
+      "details": {
+        "fingerprint": "72f66d55f5560894",
+        "draft_preview": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/draft-preview.png",
+        "draft_gate": "passed",
+        "elapsed_seconds": 80.843,
+        "execution_job_id": "0dc5aff059334fc28db077cec99285d0"
+      }
+    },
+    {
+      "name": "generate_material",
+      "state": "running",
+      "started_at": "2026-10-15T02:02:04.584512+00:00",
+      "completed_at": null,
+      "details": {
+        "fingerprint": "6d2b02564c122787",
+        "elapsed_seconds": 60.081,
+        "execution_job_id": "0dc5aff059334fc28db077cec99285d0"
+      }
+    },
+    {
+      "name": "normalize_mesh",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "export",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "render_preview",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    },
+    {
+      "name": "validate",
+      "state": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "details": {}
+    }
+  ],
+  "outputs": {
+    "shape_mesh": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/work/generated.glb",
+    "generated_mesh": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/work/generated.glb",
+    "draft_preview": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/draft-preview.png",
+    "draft_preview_manifest": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/draft-preview.json",
+    "paint_source": "/workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/work/paint-source.glb"
+  },
+  "metrics": {},
+  "provenance": {
+    "source_filename": "chair-isolated.png",
+    "material_source_filename": null,
+    "mesh_backend": "single",
+    "views": {},
+    "forge3d_version": "0.1.0",
+    "resource_class": "gpu",
+    "queue_name": "forge3d:jobs:gpu"
+  },
+  "quality_gates": {},
+  "error": "阶段命令失败，退出码 1: /workspace/projects/forge3d/scripts/run-hunyuan-paint.sh /workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/work/paint-source.glb /workspace/3d-assets/jobs/0dc5aff059334fc28db077cec99285d0/source.png",
+  "stop_after": null
+}
