@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "runtimeSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
   "scope": "将八次真实浏览器起身回应后的睡姿头部/尾根旋转，与 GLB 终态轨道比较，排除逐帧偏移累加。",
   "records": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "pose": "belly",
-      "headQuaternionError": 5.1390401822892784e-8,
+      "headQuaternionError": 5.1390401933915086e-8,
       "tailQuaternionError": 3.5416787280695416e-8
     },
     {
