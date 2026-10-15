@@ -1,75 +1,84 @@
 {
   "status": "passed",
-  "commit": "4d0311cb71a0268d8da3ec0571b625fdc2ea467b",
+  "commit": "ba6bc4f7fd4ed9bb8a032ea35b74a31e055da9f8",
+  "base": "https://gsyiswatchingu.github.io/",
   "records": [
     {
-      "path": "index.html",
-      "status": 200,
-      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
-      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
-      "match": true
-    },
-    {
-      "path": "pineapple-house.html",
-      "status": 200,
-      "expected": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
-      "actual": "eeb6172e46c54009258dc6f26e4776702d9abed2f3b529cd3b7fa881cc13eed1",
-      "match": true
-    },
-    {
-      "path": "pineapple-companion.html",
-      "status": 200,
-      "expected": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
-      "actual": "7918b577343df1546a2bbc9fe4a931edd25670eb965e72a7504721a6a08fcdd4",
-      "match": true
-    },
-    {
-      "path": "src/data/pineapple-house.json",
-      "status": 200,
-      "expected": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
-      "actual": "bd77c8199ac6d148770f264c3afa9b84064e98c4cf4857ca7eb6a4214925dff0",
-      "match": true
-    },
-    {
-      "path": "assets/pineapple-house.js",
-      "status": 200,
-      "expected": "27d4ef2b40ad799f1e1aa44c749acf10b20b40261a1ab5f8d8fe9ceceb426ec4",
-      "actual": "27d4ef2b40ad799f1e1aa44c749acf10b20b40261a1ab5f8d8fe9ceceb426ec4",
-      "match": true
-    },
-    {
-      "path": "assets/house-review/props/siamese-kitten-compact.glb",
-      "status": 200,
-      "expected": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
-      "actual": "d32d168d6d59511661863545365ee95f8e704d7ccd664b3a5a8028d351dac5b6",
-      "match": true
-    },
-    {
       "path": "assets/house-review/props/siamese-cat-eight-poses.glb",
-      "status": 200,
-      "expected": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
-      "actual": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+      "bytes": 54124516,
+      "sha256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-cat-clean-bound.glb",
+      "bytes": 7073240,
+      "sha256": "073da67c541a14879452311ba85f0cb700011d74c56ae05a27a0529afdacdee8",
       "match": true
     },
     {
       "path": "docs/cat-eight-poses-review/index.html",
-      "status": 200,
-      "expected": "1c0e89a3240e75053d61a29aa535c8636861b938a63e2201d7a3ae6046d3dac0",
-      "actual": "1c0e89a3240e75053d61a29aa535c8636861b938a63e2201d7a3ae6046d3dac0",
+      "bytes": 1870,
+      "sha256": "c2ead4b0546cfd09538b10457f816316404bad6a45617afd8cead5717689c873",
       "match": true
     },
     {
       "path": "docs/cat-eight-poses-review/viewer.js",
-      "status": 200,
-      "expected": "1c9f2e8265b514e46f2166227da6f132d3745c30549a2c0ea23510468b888358",
-      "actual": "1c9f2e8265b514e46f2166227da6f132d3745c30549a2c0ea23510468b888358",
+      "bytes": 676421,
+      "sha256": "88a3a547da973ad71652660b09bc654823f2cfa26a8d506e0749c7a31a9932ad",
       "match": true
     },
     {
       "path": "docs/cat-eight-poses-review/runtime.json",
-      "status": 200,
-      "expected": "5e8e5b76bc53fcb11975cbd721f3ab40d9c9893053cd8bc3dac865346d8aaa81",
-      "actual": "5e8e5b76bc53fcb11975cbd721f3ab40d9c9893053cd8bc3dac865346d8aaa81",
+      "bytes": 2271,
+      "sha256": "9d43a0e6078640d6bc86fd70f721b35cc888c8891d1e5858dae5cb3080544744",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/correctives.json",
+      "bytes": 18850,
+      "sha256": "43d6af7515e10ff4a4c859fba1cb09c5738296e3c38d079c550d47c5646cff9e",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/geometry.json",
+      "bytes": 2954,
+      "sha256": "2f8bdb2484e2c98add89febbc0c43caec5a848e742d3a648ddd050e6f24af97a",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/contacts.json",
+      "bytes": 1543,
+      "sha256": "6540752d23b7074f366b7a88b045b7a66f5994989efa249de4382b93d9287b03",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/neck-colors.json",
+      "bytes": 256,
+      "sha256": "b847af0806f87584a2fd30f94a1daf195a62e5cf24bb2d83ca7c0c8017f8ce30",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/provenance.json",
+      "bytes": 2230,
+      "sha256": "2aa89ad9221e50fe1bbd995041dcee7102b0da68190623a6732b1a11a5769cbc",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/retopology.json",
+      "bytes": 987,
+      "sha256": "1e4e6c4caadd8162ce02ce493525fdecea43eef4200de4283c4c4b464c369ae4",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/joint-fit.json",
+      "bytes": 920,
+      "sha256": "0880f3c0be0d258bfad7b1b6567ab0b67e46186433391f264c505a26e70a5433",
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/README.md",
+      "bytes": 2378,
+      "sha256": "525e233c1777306e515e530829c374e0588fb88f0446126210f24044cc8ea29c",
       "match": true
     }
   ]

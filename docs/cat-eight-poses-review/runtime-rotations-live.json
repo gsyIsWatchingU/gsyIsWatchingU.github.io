@@ -1,47 +1,47 @@
 {
   "status": "passed",
-  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
   "scope": "将八次真实浏览器起身回应后的睡姿头部/尾根旋转，与 GLB 终态轨道比较，排除逐帧偏移累加。",
   "records": [
     {
       "pose": "side",
-      "headQuaternionError": 4.6096456651767426e-8,
-      "tailQuaternionError": 6.5068262999901094e-9
+      "headQuaternionError": 6.5068262999901094e-9,
+      "tailQuaternionError": 3.5416787280695416e-8
     },
     {
       "pose": "prone",
-      "headQuaternionError": 0,
-      "tailQuaternionError": 0
+      "headQuaternionError": 1.5931255425982727e-8,
+      "tailQuaternionError": 3.5416787280695416e-8
     },
     {
       "pose": "belly",
-      "headQuaternionError": 0,
-      "tailQuaternionError": 2.4226785355629943e-8
+      "headQuaternionError": 5.1390401822892784e-8,
+      "tailQuaternionError": 3.5416787280695416e-8
     },
     {
       "pose": "curl",
       "headQuaternionError": 0,
-      "tailQuaternionError": 2.5251081114952e-8
+      "tailQuaternionError": 0
     },
     {
       "pose": "stretch",
-      "headQuaternionError": 0,
-      "tailQuaternionError": 0
+      "headQuaternionError": 1.5931255425982727e-8,
+      "tailQuaternionError": 3.5416787280695416e-8
     },
     {
       "pose": "pillow",
       "headQuaternionError": 0,
-      "tailQuaternionError": 2.67789906915894e-8
+      "tailQuaternionError": 3.5416787280695416e-8
     },
     {
       "pose": "loaf",
-      "headQuaternionError": 3.3613484440309094e-8,
-      "tailQuaternionError": 4.281907006742358e-8
+      "headQuaternionError": 1.5931255425982727e-8,
+      "tailQuaternionError": 3.5416787280695416e-8
     },
     {
       "pose": "wall",
-      "headQuaternionError": 3.3613484440309094e-8,
-      "tailQuaternionError": 4.281907006742358e-8
+      "headQuaternionError": 1.5931255425982727e-8,
+      "tailQuaternionError": 3.5416787280695416e-8
     }
   ]
 }

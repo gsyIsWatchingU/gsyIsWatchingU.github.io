@@ -27,3 +27,5 @@ node scripts/verify-cat-eight-runtime-quaternions.mjs
 重拓扑入口：`scripts/art/retopologize_cat_joints.py`，输入原绑定 GLB 与 `binding-skeleton.json`，由 Blender 后台执行；输出绑定网格再交给动作构建脚本。原始绑定 SHA 及运行环境见来源记录。
 
 关节拟合入口为 `scripts/art/fit_cat_surface_joints.mjs <绑定网格> <输出 JSON>`；先对初始重拓扑网格采样，再以拟合后的骨架重绑。
+
+发布 `ba6bc4f`：13 个公网资源与提交逐字节一致，线上 114 条记录、8 次模型点击及进度控制/旋转对照通过。完整公网帧和录像保留于本机 `tmp/cat-supported-live-final/`。

@@ -1,7 +1,9 @@
 {
   "status": "passed",
   "base": "https://gsyiswatchingu.github.io",
-  "runtimeSHA256": "1bccd66f988352132e73e9172ee1a4259fbb45be25eb1676b471d31cc24f7e11",
+  "runtimeSHA256": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+  "timelineScrubFreezeResume": true,
+  "slowPlayback": true,
   "midActionSwitch": true,
   "portraitButtons": [
     {
@@ -48,22 +50,25 @@
     "state": "standing",
     "phase": "站立",
     "reactions": 1,
-    "tailLift": 0.8815897512630433,
-    "greeting": 6.066599999999996,
-    "headYaw": -0.3069613112456587,
+    "tailLift": 0.8816371058909807,
+    "greeting": 6.066499999999998,
+    "headYaw": -0.3069691321124166,
     "headQuaternion": [
       0,
-      -0.1528787919187755,
+      -0.15288265638363352,
       0,
-      0.9882449468534882
+      0.9882443490236021
     ],
     "tailQuaternion": [
-      0.2400692451615278,
+      0.2400818868301552,
       0,
       0,
-      0.9707557661572632
+      0.9707526397677585
     ],
     "paused": false,
+    "plain": false,
+    "furry": true,
+    "playbackSpeed": 1,
     "eyesClosure": 0,
     "whiskers": 12
   },
