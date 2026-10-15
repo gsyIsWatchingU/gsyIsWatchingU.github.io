@@ -4,12 +4,12 @@ import connections from '../src/data/house-connections.json';
 export function createHouseConnections({root,camera,rooms,getRoom,focusRoom}) {
   const host=document.createElement('nav');
   host.className='house-connections';host.setAttribute('aria-label','通往相邻房间');host.hidden=true;root.append(host);
-  const words={door:'穿门',up:'上楼',down:'下楼'};
+  const label=link=>`→ ${rooms.get(link.to).name}`;
   const buttons=connections.map(link=>{
     const button=document.createElement('button');button.type='button';button.className='room-label passage-label';
-    button.textContent=`${words[link.kind]} → ${rooms.get(link.to).name}`;
+    button.textContent=label(link);
     button.dataset.housePassage=`${link.from}-${link.to}`;
-    button.setAttribute('aria-label',`${words[link.kind]}，从${rooms.get(link.from).name}前往${rooms.get(link.to).name}`);
+    button.setAttribute('aria-label',`前往${rooms.get(link.to).name}`);
     button.addEventListener('click',()=>{
       if(getRoom()===link.from && root.dataset.houseState==='ready' && focusRoom(link.to))
         root.querySelector('[data-house-back]').focus({preventScroll:true});
@@ -39,6 +39,6 @@ export function createHouseConnections({root,camera,rooms,getRoom,focusRoom}) {
       link.meshes?.some(prefix=>node.name.startsWith(prefix)) ||
       link.bounds && node.userData.roomId===link.from && point.toArray().every((value,i)=>value>=link.bounds[0][i] && value<=link.bounds[1][i])
     )),
-    label:link=>`${words[link.kind]} → ${rooms.get(link.to).name}`,
+    label,
   };
 }

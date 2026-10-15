@@ -35,7 +35,9 @@ const privatePreview = new URLSearchParams(location.search).has("privacy");
 if(privatePreview)document.body.classList.add('privacy-preview');
 const specs = [config.structure, ...(structureOnly ? [] : config.assets)];
 const textureSpecs = structureOnly ? [] : awards.map(a=>({id:`award-${a.id}`,name:a.title,url:a.thumbnail,kind:'texture',award:a}));
-const resourceCount=specs.length+textureSpecs.length;
+const companionEnabled=root.hasAttribute('data-house-companion') || root.hasAttribute('data-house-companion-preview');
+const resourceCount=specs.length+textureSpecs.length+Number(companionEnabled);
+const loadingStarted=performance.now();
 const textureLoaded=new Set();
 const loaded = new Map();
 const failures = new Map();
@@ -43,6 +45,7 @@ let renderer;
 
 function showFailure(message) {
   root.dataset.houseState = "error";
+  root.setAttribute('aria-busy','false');
   loading.hidden = true;
   errorPanel.hidden = false;
   errorPanel.querySelector("h2").textContent = failures.size ? "部分资源未能载入" : "无法显示三维房屋";
@@ -119,6 +122,7 @@ if (renderer) {
   let pointerDown = null;
   let rotating = false;
   let ready = false;
+  let revealTimer = null;
   let contextLost = false;
   const passages=createHouseConnections({root,camera,rooms,getRoom:()=>activeRoom,focusRoom});
   let frames = 0;
@@ -128,8 +132,8 @@ if (renderer) {
   let toyChest = null;
   window.addEventListener('house:toy-chest',()=>toyChest?.toggle());
   let lastPetFrame = null;
-  const companion = root.hasAttribute('data-house-companion-preview')
-    ? createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom:()=>activeRoom,getAsset:id=>loaded.get(id),getPet:()=>pet,getDisplay:id=>displays.children.find(n=>n.userData.contentId===id),getToyChest:()=>toyChest,reducedMotion}) : null;
+  const companion = companionEnabled
+    ? createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom:()=>activeRoom,getAsset:id=>loaded.get(id),getPet:()=>pet,getDisplay:id=>displays.children.find(n=>n.userData.contentId===id),getToyChest:()=>toyChest,reducedMotion,onReady:updateLoading,onError:failure=>{failures.set(failure.id,failure);updateLoading();}}) : null;
 
   // 实物证书作为墙面展示件；使用用户照片，不生成或改写证书内容。
   function displayPlane(name,width,height,material,position,normal,metadata) {
@@ -252,9 +256,8 @@ if (renderer) {
         let visible = d.roomId === activeRoom;
         if(!structure) visible=group.userData.roomId === activeRoom;
         else if(activeRoom === "storage" && sharedSurface) visible=true;
-        else if(d.roomId === "stairs") {
-          visible=activeRoom === "roof" ? d.level === 3 || d.roofAccess === true : activeRoom === "library" ? d.level === 1 || d.level === 2 : d.level === rooms.get(activeRoom).level;
-        }
+        // 公共楼梯仅在全屋显示，近景只保留当前房间的结构。
+        else if(d.roomId === "stairs") {node.visible=false;return;}
         // 菠萝顶冠用于整屋轮廓，天台近景聚焦平台与躺椅。
         if(structure && node.name === "roof_L3_leaf") visible=false;
         node.visible=d.roomViewOnly?d.roomViewOnly===activeRoom:visible;
@@ -395,17 +398,25 @@ if (renderer) {
     root.dataset.failedModels=String([...failures.values()].filter(s=>s.kind!=='texture').length);
     root.dataset.failedTextures=String([...failures.values()].filter(s=>s.kind==='texture').length);
     root.dataset.failedResources=String(failures.size);
-    progress.value=(loaded.size+textureLoaded.size)/resourceCount*100;
+    const completed=loaded.size+textureLoaded.size+Number(companion?.snapshot().loaded??false);
+    progress.value=completed/resourceCount*100;
+    const value=loading.querySelector('[data-house-load-value]');
+    if(value)value.textContent=`${Math.floor(progress.value)}%`;
     if(failures.size) {
+      clearTimeout(revealTimer);revealTimer=null;
       ready=false;
       showFailure("履历可以继续阅读。请重试以下资源，全部载入后即可进入房间。");
-    } else if(loaded.size+textureLoaded.size===resourceCount) {
-      const newlyReady=!ready;
-      ready=true;
-      root.dataset.houseState="ready";
-      loading.hidden=true;
-      errorPanel.hidden=true;
-      if(newlyReady)window.dispatchEvent(new CustomEvent("house:ready"));
+    } else if(completed===resourceCount && !ready && revealTimer===null) {
+      revealTimer=setTimeout(()=>{
+        revealTimer=null;
+        if(failures.size || contextLost)return;
+        ready=true;
+        root.dataset.houseState="ready";
+        root.setAttribute('aria-busy','false');
+        loading.hidden=true;
+        errorPanel.hidden=true;
+        window.dispatchEvent(new CustomEvent("house:ready"));
+      },Math.max(0,(reducedMotion?0:700)-(performance.now()-loadingStarted)));
     }
   }
 
@@ -467,10 +478,11 @@ if (renderer) {
   }
 
   document.querySelector("[data-house-retry]").addEventListener("click",async () => {
-    if(contextLost) {location.reload();return;}
+    if(contextLost || [...failures.values()].some(spec=>spec.kind==='companion')) {location.reload();return;}
     errorPanel.hidden=true;
     loading.hidden=false;
     root.dataset.houseState="loading";
+    root.setAttribute('aria-busy','true');
     const failed=[...failures.values()];
     failures.clear();
     await Promise.all(failed.map(spec=>spec.kind==='texture'?loadTexture(spec):loadAsset(spec)));

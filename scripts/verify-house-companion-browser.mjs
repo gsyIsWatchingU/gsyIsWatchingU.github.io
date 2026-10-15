@@ -66,7 +66,7 @@ try {
     }
     assert.equal(seen.size,4);await click('[data-diary-close]');await click('[data-house-back]');await delay(400);
   }
-  await viewport(1440,900);await call('Page.navigate',{url:base+'/pineapple-house.html?t='+Date.now()});await wait('document.querySelector(".house").dataset.houseState==="ready"');assert.equal(await evaluate('window.__pineappleHouse.companion'),null);records.push({test:'homepage-keeps-existing-character-policy',value:true});
+  await viewport(1440,900);await call('Page.navigate',{url:base+'/pineapple-house.html?t='+Date.now()});await wait('document.querySelector(".house").dataset.houseState==="ready"');assert.equal(await evaluate('window.__pineappleHouse.companion.snapshot().loaded'),true);assert.equal(await evaluate('document.querySelector(".companion-hud").hidden'),true);records.push({test:'homepage-companion-without-preview-controls',value:true});
   assert.equal(errors.length,0);assert.equal(failures.length,0);
   writeFileSync(resultFile,JSON.stringify({status:'passed',records,errors,failures,speechRequests,limitations:['Chrome viewport simulation; physical phone not tested']},null,2)+'\n');
   console.log(JSON.stringify({status:'passed',checks:records.length,speechRequests,errors,failures}));

@@ -29,10 +29,11 @@ try {
       const s=await state();records.push({viewport:[width,height],room,state:s});await shot(`${before?'before':live?'live':'local'}-${width}-${room}`);
       if(!before){
         assert(!s.meshes.some(m=>m.room==='structure'||m.room==='ground'||m.name==='roof_L3_leaf'),'whole-house remnants');
-        for(const m of s.meshes){const stairs=m.room==='stairs'&&(room==='bedroom'&&m.level===2||room==='roof'&&(m.level===3||m.roofAccess));const shared=room==='storage'&&m.room==='living';const companion=m.room===room;assert(companion||stairs||shared,`foreign room ${room} ${m.name} ${m.room}`);if((room==='living'||shared)&&m.room==='living'&&m.name!==''){/* separate props can remain unclipped */}}
+        for(const m of s.meshes){const shared=room==='storage'&&m.room==='living';assert(m.room===room||shared,`foreign room ${room} ${m.name} ${m.room}`);}
         if(room==='storage')assert(s.meshes.some(m=>m.clipping.some(p=>p.some(v=>v[0]===-1&&v[3]===-2.55))),'storage shared surfaces clipped');
         if(room==='living')assert(s.meshes.some(m=>m.clipping.some(p=>p.some(v=>v[0]===1&&v[3]===2.55))),'living shared surfaces clipped');
-        if(room==='roof')assert(s.meshes.some(m=>m.room==='stairs'&&m.roofAccess),'roof exit remains');
+        assert(!s.meshes.some(m=>m.room==='stairs'),'房间近景不显示公共楼梯');
+        if(room==='roof')assert(await ev('!document.querySelector("[data-house-passage=roof-bedroom]").hidden'),'屋顶保留返回卧室的箭头');
       }
       await click('[data-house-back]');await wait('window.__pineappleHouse.snapshot().view==="whole" && document.querySelector(".house").dataset.cameraTransition==="idle"');
       const restored=await state();assert.equal(restored.meshes.length,whole.meshes.length);assert(restored.meshes.every(m=>m.clipping.every(p=>p.length===0)));

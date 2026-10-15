@@ -1,0 +1,28 @@
+{
+  "opening": {
+    "state": "loading",
+    "canvasVisible": "visible",
+    "loader": {
+      "x": 385.5,
+      "y": 739,
+      "width": 300,
+      "height": 56
+    },
+    "viewport": [
+      1071,
+      861
+    ],
+    "companion": false
+  },
+  "room": {
+    "view": "bathroom",
+    "stairs": [
+      "stairs_L1_wood",
+      "stairs_L1_blue_metal"
+    ],
+    "labels": [
+      "下楼 → 客厅",
+      "穿门 → 图书馆"
+    ]
+  }
+}

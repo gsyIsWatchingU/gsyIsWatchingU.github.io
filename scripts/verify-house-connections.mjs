@@ -45,19 +45,12 @@ try {
     await key('Escape','Escape',27);await settled();assert.equal(await view(),'whole');
     assert.equal(await evaluate('document.querySelector(".house-connections").hidden'),true);
   }
-  // 真实模型楼梯的射线点击，不使用 focusRoom 代替输入。
+  // 近景隐藏公共楼梯，通过可见的箭头按钮通行。
   await viewport(1440,900);await delay(500);await settled();await click('[data-house-room="living"]');await settled();
   for(const pair of ['living-bathroom','bathroom-library','library-bedroom','bedroom-roof']){await click(`[data-house-passage="${pair}"]`);await settled();}
-  const points=await evaluate(`(()=>{const h=window.__pineappleHouse,c=document.querySelector('canvas'),r=c.getBoundingClientRect(),points=[];h.scene.traverse(n=>{if(!n.isMesh||!(n.name.startsWith('stairs_')||n.name.startsWith('roof_access_')||n.name.startsWith('roof_landing')))return;let parent=n;while(parent){if(!parent.visible)return;parent=parent.parent;}n.geometry.computeBoundingBox();const p=n.geometry.boundingBox.getCenter(n.position.clone()).applyMatrix4(n.matrixWorld).project(h.camera);const x=r.x+(p.x*.5+.5)*r.width,y=r.y+(-p.y*.5+.5)*r.height;if(x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&document.elementFromPoint(x,y)===c)points.push({x,y,name:n.name});});return points;})()`);
-  let hit;
-  for(const p of points){
-    await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:p.x,y:p.y});await delay(50);
-    if(await evaluate('!document.querySelector("[data-house-tooltip]").hidden && document.querySelector("[data-house-tooltip]").textContent.includes("下楼")')){hit=p;break;}
-  }
-  assert(hit,'楼梯至少有一个未被墙面遮挡的可点击点');
-  await call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',buttons:1,clickCount:1,x:hit.x,y:hit.y});
-  await call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',buttons:0,clickCount:1,x:hit.x,y:hit.y});
-  await settled();assert.equal(await view(),'bedroom');records.push({test:'physical-stair-click',hit});
+  assert.equal(await evaluate('document.querySelector("[data-house-passage=roof-bedroom]").textContent'),'→ 卧室');
+  await click('[data-house-passage="roof-bedroom"]');
+  await settled();assert.equal(await view(),'bedroom');records.push({test:'arrow-room-navigation',passed:true});
   for(let i=0;i<20;i++){await key('Tab','Tab',9);if(await evaluate('document.activeElement.dataset.housePassage!==undefined'))break;}
   const destination=await evaluate('document.activeElement.dataset.housePassage?.split("-")[1]');assert(destination);await wait('!document.activeElement.disabled');
   await key('Enter','Enter',13);await settled();assert.equal(await view(),destination);records.push({test:'keyboard-passage',destination});

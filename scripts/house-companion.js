@@ -7,7 +7,7 @@ import { createCompanionSlide } from './house-companion-slide.js';
 import { createCompanionState } from './house-companion-state.js';
 import { companionFace, companionRoute, companionSlide } from './house-companion-motion.js';
 
-export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom,getAsset,getPet,getDisplay,getToyChest,reducedMotion}) {
+export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,getRoom,getAsset,getPet,getDisplay,getToyChest,reducedMotion,onReady=()=>{},onError=()=>{}}) {
   const state=createCompanionState(spec), actor=new THREE.Group();actor.name='spongebob-companion';houseGroup.add(actor);
   actor.userData.companionId='spongebob';
   const avatar=new THREE.Group();actor.add(avatar);
@@ -19,6 +19,7 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
   let arrivalRequested=false,slideArrival=false,entryDuration=2;
   let session=null,epoch=0,request=null,opener=null;
   const hud=document.createElement('section');hud.className='companion-hud';hud.setAttribute('aria-label','海绵宝宝的作息');
+  hud.hidden=!root.hasAttribute('data-house-companion-preview');
   hud.innerHTML='<span class="companion-day">海绵宝宝入住预览 · 待审</span><strong data-companion-activity>正在载入海绵宝宝…</strong><div class="companion-review-controls"><select aria-label="预览角色动作" data-companion-action disabled>'+Object.entries(spec.actions).filter(([id])=>id!=='wake'&&id!=='tidy').map(([id,value])=>'<option value="'+id+'">'+value.label+'</option>').join('')+'</select></div>';
   root.append(hud);
   const expression=document.createElement('select');expression.setAttribute('aria-label','预览角色表情');
@@ -117,7 +118,8 @@ export function createHouseCompanion({root,canvas,camera,houseGroup,focusRoom,ge
     sleepMotion=createCompanionSleep({actor,avatar,model,bones,houseGroup,getBed:()=>getAsset?.('bed'),root,height:spec.height});
     slideMotion=createCompanionSlide({actor,avatar,model,bones,houseGroup});
     controller.clips=gltf.animations;loaded=true;hud.querySelector('select').disabled=false;root.dataset.companionState='ready';activity=null;
-  },undefined,()=>{root.dataset.companionState='error';activityLabel.textContent='角色未能载入，请刷新重试';});
+    onReady();
+  },undefined,()=>{root.dataset.companionState='error';activityLabel.textContent='角色未能载入，请刷新重试';onError({id:'companion',name:'海绵宝宝',url:spec.model,kind:'companion'});});
 
   function bone(alias) {
     const candidates={head:['head','Head','mixamorigHead','comp_head'],hips:['Hips','pelvis','hips','comp_root'],leftArm:['LeftArm','upperarm_l','left_upper_arm','comp_arm_l'],rightArm:['RightArm','upperarm_r','right_upper_arm','comp_arm_r'],leftLeg:['LeftUpLeg','thigh_l','left_upper_leg','comp_leg_l'],rightLeg:['RightUpLeg','thigh_r','right_upper_leg','comp_leg_r'],jaw:['jaw','Jaw','comp_jaw']};
