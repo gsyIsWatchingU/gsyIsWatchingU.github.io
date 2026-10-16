@@ -1,0 +1,336 @@
+{
+  "scope": "Actual compressed standard GLB, Three AnimationMixer 60fps plus export keys, original rest edges strictly longer than .002; original Three skinning with proven zero-target pruning",
+  "runtimeSHA256": "61fc99bcf77c6bba94bcfdc503586117880029aa6ce211ac22cc136d95ad7863",
+  "edges": [
+    {
+      "name": "siamese_cat",
+      "count": 27606
+    },
+    {
+      "name": "siamese_cat_head",
+      "count": 19752
+    }
+  ],
+  "reports": [
+    {
+      "pose": "side",
+      "samples": 301,
+      "maximumStretch": {
+        "ratio": 2.568439615396067,
+        "progress": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          5404,
+          5406
+        ],
+        "restLength": 0.003993064829987241,
+        "length": 0.010255945896183992,
+        "gpuRatioAtSameSample": 2.568442399189326,
+        "points": [
+          [
+            0.11972647149174923,
+            0.06734777912977742,
+            0.5404387649055775
+          ],
+          [
+            0.11757961507570533,
+            0.07486460952495912,
+            0.547077491783859
+          ]
+        ]
+      },
+      "maximumGpuStretch": {
+        "ratio": 2.568442399189326,
+        "progress": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          5404,
+          5406
+        ],
+        "restLength": 0.003993064829987241,
+        "length": 0.010255957012050948
+      },
+      "maximumEdgeRatioExcess": 0.15050883436000828
+    },
+    {
+      "pose": "prone",
+      "samples": 295,
+      "maximumStretch": {
+        "ratio": 2.1079299469491493,
+        "progress": 1,
+        "part": "siamese_cat",
+        "vertices": [
+          1051,
+          1055
+        ],
+        "restLength": 0.006768461169787458,
+        "length": 0.014267441994557454,
+        "gpuRatioAtSameSample": 2.1079463730250905,
+        "points": [
+          [
+            -0.1307674460505565,
+            0.03519751249151376,
+            0.2422791050315352
+          ],
+          [
+            -0.12248813116347762,
+            0.03425879622575345,
+            0.23069758277230468
+          ]
+        ]
+      },
+      "maximumGpuStretch": {
+        "ratio": 2.107946621601607,
+        "progress": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          1051,
+          1055
+        ],
+        "restLength": 0.006768461169787458,
+        "length": 0.014267554856295134
+      },
+      "maximumEdgeRatioExcess": 0.17807214453104803
+    },
+    {
+      "pose": "belly",
+      "samples": 311,
+      "maximumStretch": {
+        "ratio": 3.3380966068468334,
+        "progress": 0.95,
+        "part": "siamese_cat_head",
+        "vertices": [
+          5404,
+          5406
+        ],
+        "restLength": 0.003993064829987241,
+        "length": 0.013329236159899838,
+        "gpuRatioAtSameSample": 3.338091863110999,
+        "points": [
+          [
+            0.09848177534150604,
+            0.0952094838236264,
+            0.5746868223598396
+          ],
+          [
+            0.1074859005389881,
+            0.10442569873275745,
+            0.5712727853384878
+          ]
+        ]
+      },
+      "maximumGpuStretch": {
+        "ratio": 3.338091863110999,
+        "progress": 0.95,
+        "part": "siamese_cat_head",
+        "vertices": [
+          5404,
+          5406
+        ],
+        "restLength": 0.003993064829987241,
+        "length": 0.013329217217855115
+      },
+      "maximumEdgeRatioExcess": 0.15995921908562694
+    },
+    {
+      "pose": "curl",
+      "samples": 325,
+      "maximumStretch": {
+        "ratio": 3.316121629897659,
+        "progress": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          2315,
+          10444
+        ],
+        "restLength": 0.0025332326145066364,
+        "length": 0.008400507466527655,
+        "gpuRatioAtSameSample": 3.3160452107468186,
+        "points": [
+          [
+            0.22403755107473305,
+            0.11879083899912865,
+            -0.13591077850703948
+          ],
+          [
+            0.22210779801805547,
+            0.12580480366141,
+            -0.14011183534451488
+          ]
+        ]
+      },
+      "maximumGpuStretch": {
+        "ratio": 3.3160452107468186,
+        "progress": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          2315,
+          10444
+        ],
+        "restLength": 0.0025332326145066364,
+        "length": 0.008400313879042373
+      },
+      "maximumEdgeRatioExcess": 0.11719683368526645
+    },
+    {
+      "pose": "stretch",
+      "samples": 296,
+      "maximumStretch": {
+        "ratio": 2.404140458892981,
+        "progress": 0.55,
+        "part": "siamese_cat",
+        "vertices": [
+          3687,
+          3688
+        ],
+        "restLength": 0.006507245984112976,
+        "length": 0.015644333346374877,
+        "gpuRatioAtSameSample": 2.4040971359744083,
+        "points": [
+          [
+            -0.1775424390547657,
+            0.011067220718079328,
+            -0.23040974836123324
+          ],
+          [
+            -0.16516035382114394,
+            0.008927984995132032,
+            -0.22109026330885564
+          ]
+        ]
+      },
+      "maximumGpuStretch": {
+        "ratio": 2.4040971359744083,
+        "progress": 0.55,
+        "part": "siamese_cat",
+        "vertices": [
+          3687,
+          3688
+        ],
+        "restLength": 0.006507245984112976,
+        "length": 0.015644051433486975
+      },
+      "maximumEdgeRatioExcess": 0.16709706489242526
+    },
+    {
+      "pose": "pillow",
+      "samples": 294,
+      "maximumStretch": {
+        "ratio": 2.4911935044961413,
+        "progress": 0.8333333333333334,
+        "part": "siamese_cat",
+        "vertices": [
+          1051,
+          1055
+        ],
+        "restLength": 0.006768461169787458,
+        "length": 0.01686154650160887,
+        "gpuRatioAtSameSample": 2.49116964078363,
+        "points": [
+          [
+            -0.12484169821899932,
+            0.05469610803497102,
+            0.2798355483414668
+          ],
+          [
+            -0.11779060400830488,
+            0.052238221215991226,
+            0.2647175916924049
+          ]
+        ]
+      },
+      "maximumGpuStretch": {
+        "ratio": 2.4911881551312294,
+        "progress": 0.85,
+        "part": "siamese_cat",
+        "vertices": [
+          1051,
+          1055
+        ],
+        "restLength": 0.006768461169787458,
+        "length": 0.01686151029464018
+      },
+      "maximumEdgeRatioExcess": 0.1727162782947056
+    },
+    {
+      "pose": "loaf",
+      "samples": 299,
+      "maximumStretch": {
+        "ratio": 2.9859259391894137,
+        "progress": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          9421,
+          10084
+        ],
+        "restLength": 0.002436319932695265,
+        "length": 0.007274670883198998,
+        "gpuRatioAtSameSample": 2.985920694682184,
+        "points": [
+          [
+            0.00012545143402281373,
+            0.030419202206701773,
+            0.3448680878205258
+          ],
+          [
+            -0.005014129316378263,
+            0.025307546934570546,
+            0.3442544702296249
+          ]
+        ]
+      },
+      "maximumGpuStretch": {
+        "ratio": 2.985920694682184,
+        "progress": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          9421,
+          10084
+        ],
+        "restLength": 0.002436319932695265,
+        "length": 0.0072746581059014975
+      },
+      "maximumEdgeRatioExcess": 0.18399252756105167
+    },
+    {
+      "pose": "wall",
+      "samples": 299,
+      "maximumStretch": {
+        "ratio": 2.412901110105413,
+        "progress": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          9648,
+          10650
+        ],
+        "restLength": 0.0025879801477967476,
+        "length": 0.0062445401715495435,
+        "gpuRatioAtSameSample": 2.4128934013443804,
+        "points": [
+          [
+            -0.11947293764459166,
+            0.02671703287291527,
+            0.3432427590726678
+          ],
+          [
+            -0.12284901677832355,
+            0.02648370840378564,
+            0.34849079978601805
+          ]
+        ]
+      },
+      "maximumGpuStretch": {
+        "ratio": 2.4128934013443804,
+        "progress": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          9648,
+          10650
+        ],
+        "restLength": 0.0025879801477967476,
+        "length": 0.006244520221429027
+      },
+      "maximumEdgeRatioExcess": 0.1735744648992431
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+{
+  "scope": "Raw neck band only, same new pose modules. Folding compares the posed triangle orientation with its constant averaged skin transform; neck-radius counts are a diagnostic proxy, not an anatomical acceptance threshold.",
+  "records": [
+    {
+      "variant": "neck-patch",
+      "pose": "side",
+      "frames": 41,
+      "maximumStretch": 2.925290821967017,
+      "maximumFoldedFaces": 436,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.050719802831036796,
+      "worst": {
+        "pose": "side",
+        "t": 0.9,
+        "part": "siamese_cat_head",
+        "vertices": [
+          22,
+          26
+        ],
+        "restLength": 0.0054826229636817094,
+        "posedLength": 0.01603826663596371
+      }
+    },
+    {
+      "variant": "neck-patch",
+      "pose": "prone",
+      "frames": 41,
+      "maximumStretch": 4.395588398069499,
+      "maximumFoldedFaces": 1255,
+      "maximumCollapsedPoints": 52,
+      "minimumNeckRadius": 0.010913288637569884,
+      "worst": {
+        "pose": "prone",
+        "t": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          181,
+          180
+        ],
+        "restLength": 0.00992651509399605,
+        "posedLength": 0.0436328745804308
+      }
+    },
+    {
+      "variant": "neck-patch",
+      "pose": "belly",
+      "frames": 41,
+      "maximumStretch": 4.780341817372662,
+      "maximumFoldedFaces": 790,
+      "maximumCollapsedPoints": 57,
+      "minimumNeckRadius": 0.008635367958387813,
+      "worst": {
+        "pose": "belly",
+        "t": 0.9,
+        "part": "siamese_cat_head",
+        "vertices": [
+          36,
+          41
+        ],
+        "restLength": 0.0074310093530727235,
+        "posedLength": 0.035522764755780915
+      }
+    },
+    {
+      "variant": "neck-patch",
+      "pose": "curl",
+      "frames": 41,
+      "maximumStretch": 4.0488264382107895,
+      "maximumFoldedFaces": 602,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.04523887042350837,
+      "worst": {
+        "pose": "curl",
+        "t": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          2412,
+          2420
+        ],
+        "restLength": 0.010030492909576366,
+        "posedLength": 0.040611724880578653
+      }
+    },
+    {
+      "variant": "neck-patch",
+      "pose": "stretch",
+      "frames": 41,
+      "maximumStretch": 5.266610550412696,
+      "maximumFoldedFaces": 1201,
+      "maximumCollapsedPoints": 47,
+      "minimumNeckRadius": 0.01600657764739728,
+      "worst": {
+        "pose": "stretch",
+        "t": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          35,
+          39
+        ],
+        "restLength": 0.009745804138974948,
+        "posedLength": 0.051327354900581185
+      }
+    },
+    {
+      "variant": "neck-patch",
+      "pose": "pillow",
+      "frames": 41,
+      "maximumStretch": 4.001631845150307,
+      "maximumFoldedFaces": 1236,
+      "maximumCollapsedPoints": 40,
+      "minimumNeckRadius": 0.014917126045416616,
+      "worst": {
+        "pose": "pillow",
+        "t": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          181,
+          180
+        ],
+        "restLength": 0.00992651509399605,
+        "posedLength": 0.03972225891149979
+      }
+    },
+    {
+      "variant": "neck-patch",
+      "pose": "loaf",
+      "frames": 41,
+      "maximumStretch": 4.358765220584102,
+      "maximumFoldedFaces": 1236,
+      "maximumCollapsedPoints": 48,
+      "minimumNeckRadius": 0.01249555713936047,
+      "worst": {
+        "pose": "loaf",
+        "t": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          181,
+          180
+        ],
+        "restLength": 0.00992651509399605,
+        "posedLength": 0.04326734875331312
+      }
+    },
+    {
+      "variant": "neck-patch",
+      "pose": "wall",
+      "frames": 41,
+      "maximumStretch": 4.0137842552386624,
+      "maximumFoldedFaces": 1097,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.026203458210789773,
+      "worst": {
+        "pose": "wall",
+        "t": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          181,
+          180
+        ],
+        "restLength": 0.00992651509399605,
+        "posedLength": 0.03984288999367028
+      }
+    },
+    {
+      "variant": "neck-weighted",
+      "pose": "side",
+      "frames": 41,
+      "maximumStretch": 3.1482011602987394,
+      "maximumFoldedFaces": 229,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.09035495519368841,
+      "worst": {
+        "pose": "side",
+        "t": 0.725,
+        "part": "siamese_cat",
+        "vertices": [
+          6761,
+          6764
+        ],
+        "restLength": 0.009893202399891797,
+        "posedLength": 0.03114579127440963
+      }
+    },
+    {
+      "variant": "neck-weighted",
+      "pose": "prone",
+      "frames": 41,
+      "maximumStretch": 3.531975458955826,
+      "maximumFoldedFaces": 740,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.09021156092366266,
+      "worst": {
+        "pose": "prone",
+        "t": 0.95,
+        "part": "siamese_cat_head",
+        "vertices": [
+          22,
+          26
+        ],
+        "restLength": 0.0054826229636817094,
+        "posedLength": 0.019364489758431455
+      }
+    },
+    {
+      "variant": "neck-weighted",
+      "pose": "belly",
+      "frames": 41,
+      "maximumStretch": 4.004078456079299,
+      "maximumFoldedFaces": 577,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.0903549551936884,
+      "worst": {
+        "pose": "belly",
+        "t": 0.9,
+        "part": "siamese_cat",
+        "vertices": [
+          6074,
+          5525
+        ],
+        "restLength": 0.010965508435048062,
+        "posedLength": 0.04390675608473177
+      }
+    },
+    {
+      "variant": "neck-weighted",
+      "pose": "curl",
+      "frames": 41,
+      "maximumStretch": 4.378462499033468,
+      "maximumFoldedFaces": 333,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.08369684379784627,
+      "worst": {
+        "pose": "curl",
+        "t": 0.95,
+        "part": "siamese_cat",
+        "vertices": [
+          2325,
+          1036
+        ],
+        "restLength": 0.010356411751703933,
+        "posedLength": 0.04534516047938517
+      }
+    },
+    {
+      "variant": "neck-weighted",
+      "pose": "stretch",
+      "frames": 41,
+      "maximumStretch": 3.8759667872595567,
+      "maximumFoldedFaces": 712,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.08304899753771708,
+      "worst": {
+        "pose": "stretch",
+        "t": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          181,
+          180
+        ],
+        "restLength": 0.00992651509399605,
+        "posedLength": 0.03847484281755937
+      }
+    },
+    {
+      "variant": "neck-weighted",
+      "pose": "pillow",
+      "frames": 41,
+      "maximumStretch": 2.963348252369264,
+      "maximumFoldedFaces": 715,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.09024963669901885,
+      "worst": {
+        "pose": "pillow",
+        "t": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          22,
+          26
+        ],
+        "restLength": 0.0054826229636817094,
+        "posedLength": 0.01624692117782579
+      }
+    },
+    {
+      "variant": "neck-weighted",
+      "pose": "loaf",
+      "frames": 41,
+      "maximumStretch": 3.6923339411983673,
+      "maximumFoldedFaces": 740,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.09015624647679256,
+      "worst": {
+        "pose": "loaf",
+        "t": 0.95,
+        "part": "siamese_cat_head",
+        "vertices": [
+          22,
+          26
+        ],
+        "restLength": 0.0054826229636817094,
+        "posedLength": 0.02024367485559556
+      }
+    },
+    {
+      "variant": "neck-weighted",
+      "pose": "wall",
+      "frames": 41,
+      "maximumStretch": 3.7312200862265694,
+      "maximumFoldedFaces": 689,
+      "maximumCollapsedPoints": 0,
+      "minimumNeckRadius": 0.09015459358083931,
+      "worst": {
+        "pose": "wall",
+        "t": 1,
+        "part": "siamese_cat_head",
+        "vertices": [
+          181,
+          180
+        ],
+        "restLength": 0.00992651509399605,
+        "posedLength": 0.037038012504949286
+      }
+    }
+  ]
+}

@@ -13,7 +13,7 @@ from scipy.spatial import cKDTree
 
 
 class VolumeSkin:
-    def __init__(self, source, skeleton, pillow):
+    def __init__(self, source, skeleton, pillow, prepare_factor=True):
         raw = Path(source).read_bytes()
         length = struct.unpack_from('<I', raw, 12)[0]
         gltf = json.loads(raw[20:20 + length])
@@ -105,7 +105,8 @@ class VolumeSkin:
                                      shape=(len(self.rest), len(self.rest))).tocsc()
         self.free = np.where(~self.fixed)[0]
         self.pins = np.where(self.fixed)[0]
-        self.factor = splu(laplacian[self.free][:, self.free])
+        self.laplacian = laplacian
+        self.factor = splu(laplacian[self.free][:, self.free]) if prepare_factor else None
         self.coupling = laplacian[self.free][:, self.pins]
         self.pillow = json.loads(Path(pillow).read_text())
         self.previous_pose = None

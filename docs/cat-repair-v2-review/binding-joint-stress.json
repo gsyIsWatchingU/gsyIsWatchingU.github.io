@@ -1,0 +1,1243 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "source": "tmp/cat-eight-neutral-bind.glb",
+  "candidate": "tmp/cat-repair-v2/anatomy-neutral.glb",
+  "checks": {
+    "unchanged": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "attribute": "POSITION",
+        "equal": true
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "attribute": "NORMAL",
+        "equal": true
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "attribute": "TEXCOORD_0",
+        "equal": true
+      },
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "attribute": "indices",
+        "equal": true
+      },
+      {
+        "mesh": 1,
+        "primitive": 0,
+        "attribute": "POSITION",
+        "equal": true
+      },
+      {
+        "mesh": 1,
+        "primitive": 0,
+        "attribute": "NORMAL",
+        "equal": true
+      },
+      {
+        "mesh": 1,
+        "primitive": 0,
+        "attribute": "TEXCOORD_0",
+        "equal": true
+      },
+      {
+        "mesh": 1,
+        "primitive": 0,
+        "attribute": "indices",
+        "equal": true
+      }
+    ],
+    "imageChecks": [
+      {
+        "image": 0,
+        "equal": true
+      },
+      {
+        "image": 1,
+        "equal": true
+      },
+      {
+        "image": 2,
+        "equal": true
+      }
+    ]
+  },
+  "topology": {
+    "vertices": 10718,
+    "weldedVertices": 9088,
+    "triangles": 17942,
+    "edges": 27036,
+    "boundaryEdges": 246,
+    "nonmanifoldEdges": 0,
+    "components": 1,
+    "minimumTriangleArea": 2.0322483111256842e-13,
+    "zeroTriangles": 15
+  },
+  "jointTests": [
+    {
+      "joint": "DEF_front_l_lower",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 504,
+          "maximumStretch": 2.373485520313459,
+          "minimumCompression": 0.049733452023034905,
+          "maximumStep": 0.01607105467304704,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.010111673844531729,
+            "vertices": [
+              {
+                "index": 1877,
+                "rest": [
+                  -0.049297235906124115,
+                  0.10306573659181595,
+                  0.31921839714050293
+                ],
+                "posed": [
+                  -0.049297234308459,
+                  0.2740860623870656,
+                  0.3206783892998563
+                ],
+                "weights": {
+                  "DEF_front_l_lower": 0.9909954071044922,
+                  "DEF_chest": 0.008893480524420738,
+                  "DEF_spine_04": 0.0001110870944103226
+                }
+              },
+              {
+                "index": 1881,
+                "rest": [
+                  -0.050558995455503464,
+                  0.11308921128511429,
+                  0.31878960132598877
+                ],
+                "posed": [
+                  -0.05055899547916222,
+                  0.2517825420879416,
+                  0.3119058930236148
+                ],
+                "weights": {
+                  "DEF_front_l_lower": 0.8623377084732056,
+                  "DEF_chest": 0.13626858592033386,
+                  "DEF_spine_04": 0.0013937121257185936
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 510,
+          "maximumStretch": 2.373485520313459,
+          "minimumCompression": 0.05229213186720831,
+          "maximumStep": 0.01607105467304704,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.010111673844531729,
+            "vertices": [
+              {
+                "index": 1877,
+                "rest": [
+                  -0.049297235906124115,
+                  0.10306573659181595,
+                  0.31921839714050293
+                ],
+                "posed": [
+                  -0.049297234308459,
+                  0.2740860623870656,
+                  0.3206783892998563
+                ],
+                "weights": {
+                  "DEF_front_l_lower": 0.9909954071044922,
+                  "DEF_chest": 0.008893480524420738,
+                  "DEF_spine_04": 0.0001110870944103226
+                }
+              },
+              {
+                "index": 1881,
+                "rest": [
+                  -0.050558995455503464,
+                  0.11308921128511429,
+                  0.31878960132598877
+                ],
+                "posed": [
+                  -0.05055899547916222,
+                  0.2517825420879416,
+                  0.3119058930236148
+                ],
+                "weights": {
+                  "DEF_front_l_lower": 0.8623377084732056,
+                  "DEF_chest": 0.13626858592033386,
+                  "DEF_spine_04": 0.0013937121257185936
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_front_l_paw",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 289,
+          "maximumStretch": 3.487440660516566,
+          "minimumCompression": 0.35630459472323256,
+          "maximumStep": 0.0048452294361003845,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.011352248372616917,
+            "vertices": [
+              {
+                "index": 1533,
+                "rest": [
+                  -0.07815489917993546,
+                  0.07368691265583038,
+                  0.25980910658836365
+                ],
+                "posed": [
+                  -0.07815490107185165,
+                  0.061279949961797406,
+                  0.2674932394528821
+                ],
+                "weights": {
+                  "DEF_front_l_lower": 0.8695835471153259,
+                  "DEF_front_l_paw": 0.13041648268699646
+                }
+              },
+              {
+                "index": 1534,
+                "rest": [
+                  -0.07745025306940079,
+                  0.06268686801195145,
+                  0.2625249922275543
+                ],
+                "posed": [
+                  -0.07745025244913761,
+                  0.029100938255996935,
+                  0.29054548318697926
+                ],
+                "weights": {
+                  "DEF_front_l_lower": 0.5802956819534302,
+                  "DEF_front_l_paw": 0.4197043180465698
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 312,
+          "maximumStretch": 3.19848314533726,
+          "minimumCompression": 0.3741075501758379,
+          "maximumStep": 0.0048452294361003845,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.011352248372616917,
+            "vertices": [
+              {
+                "index": 1533,
+                "rest": [
+                  -0.07815489917993546,
+                  0.07368691265583038,
+                  0.25980910658836365
+                ],
+                "posed": [
+                  -0.07815489631321376,
+                  0.046203155370603474,
+                  0.2768308802413118
+                ],
+                "weights": {
+                  "DEF_front_l_lower": 0.7111030220985413,
+                  "DEF_front_l_paw": 0.28889694809913635
+                }
+              },
+              {
+                "index": 1534,
+                "rest": [
+                  -0.07745025306940079,
+                  0.06268686801195145,
+                  0.2625249922275543
+                ],
+                "posed": [
+                  -0.07745025236184319,
+                  0.018057036358467206,
+                  0.29975932876875105
+                ],
+                "weights": {
+                  "DEF_front_l_paw": 0.5577136874198914,
+                  "DEF_front_l_lower": 0.44228631258010864
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_front_r_lower",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 469,
+          "maximumStretch": 2.704477890353064,
+          "minimumCompression": 0.10492678962419084,
+          "maximumStep": 0.015217654951277105,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.01219030251805194,
+            "vertices": [
+              {
+                "index": 5436,
+                "rest": [
+                  0.06948062777519226,
+                  0.14473778009414673,
+                  0.32579419016838074
+                ],
+                "posed": [
+                  0.0694806286575228,
+                  0.22132904522661048,
+                  0.3039627637467777
+                ],
+                "weights": {
+                  "DEF_front_r_lower": 0.6342247128486633,
+                  "DEF_chest": 0.3394351601600647,
+                  "DEF_front_r_upper": 0.026340128853917122
+                }
+              },
+              {
+                "index": 5444,
+                "rest": [
+                  0.08159895241260529,
+                  0.1435454785823822,
+                  0.32636699080467224
+                ],
+                "posed": [
+                  0.0815989549617478,
+                  0.2511061429461032,
+                  0.29665617375238185
+                ],
+                "weights": {
+                  "DEF_front_r_lower": 0.8767753839492798,
+                  "DEF_chest": 0.0986020639538765,
+                  "DEF_front_r_upper": 0.024622570723295212
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 472,
+          "maximumStretch": 2.6945289227370646,
+          "minimumCompression": 0.09203094734024253,
+          "maximumStep": 0.015217654951277105,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.01219030251805194,
+            "vertices": [
+              {
+                "index": 5436,
+                "rest": [
+                  0.06948062777519226,
+                  0.14473778009414673,
+                  0.32579419016838074
+                ],
+                "posed": [
+                  0.06948062671418488,
+                  0.21978041904651358,
+                  0.3044041709923268
+                ],
+                "weights": {
+                  "DEF_front_r_lower": 0.6214011311531067,
+                  "DEF_chest": 0.3394351601600647,
+                  "DEF_front_r_upper": 0.039163682609796524
+                }
+              },
+              {
+                "index": 5444,
+                "rest": [
+                  0.08159895241260529,
+                  0.1435454785823822,
+                  0.32636699080467224
+                ],
+                "posed": [
+                  0.08159895465555898,
+                  0.24942858829625256,
+                  0.29711955305529353
+                ],
+                "weights": {
+                  "DEF_front_r_lower": 0.8631008863449097,
+                  "DEF_chest": 0.0986020639538765,
+                  "DEF_front_r_upper": 0.03829706460237503
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_front_r_paw",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 281,
+          "maximumStretch": 3.3726298081922503,
+          "minimumCompression": 0.05154646537670726,
+          "maximumStep": 0.005028344869408539,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.010913805973697711,
+            "vertices": [
+              {
+                "index": 5486,
+                "rest": [
+                  0.06288062781095505,
+                  0.05626222491264343,
+                  0.25160688161849976
+                ],
+                "posed": [
+                  0.06288062732347571,
+                  0.015956598226294853,
+                  0.291556313297786
+                ],
+                "weights": {
+                  "DEF_front_r_paw": 0.6112977266311646,
+                  "DEF_front_r_lower": 0.38870227336883545
+                }
+              },
+              {
+                "index": 5493,
+                "rest": [
+                  0.06299319863319397,
+                  0.06684987992048264,
+                  0.24896112084388733
+                ],
+                "posed": [
+                  0.06299320085596234,
+                  0.042725364295677665,
+                  0.2662923846483488
+                ],
+                "weights": {
+                  "DEF_front_r_lower": 0.7003539800643921,
+                  "DEF_front_r_paw": 0.2996460497379303
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 305,
+          "maximumStretch": 3.03765802626563,
+          "minimumCompression": 0.10817845079463795,
+          "maximumStep": 0.005028344869408539,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.010957840247859892,
+            "vertices": [
+              {
+                "index": 5493,
+                "rest": [
+                  0.06299319863319397,
+                  0.06684987992048264,
+                  0.24896112084388733
+                ],
+                "posed": [
+                  0.06299319668926018,
+                  0.030313482086973827,
+                  0.275209164585298
+                ],
+                "weights": {
+                  "DEF_front_r_lower": 0.5461883544921875,
+                  "DEF_front_r_paw": 0.4538116157054901
+                }
+              },
+              {
+                "index": 5494,
+                "rest": [
+                  0.0630776509642601,
+                  0.07751068472862244,
+                  0.2464284598827362
+                ],
+                "posed": [
+                  0.0630776522316287,
+                  0.05799281185859594,
+                  0.2567208770562392
+                ],
+                "weights": {
+                  "DEF_front_r_lower": 0.7945066094398499,
+                  "DEF_front_r_paw": 0.20533029735088348,
+                  "DEF_spine_04": 0.0001631038321647793
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_back_l_lower",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 669,
+          "maximumStretch": 4.8326112051947785,
+          "minimumCompression": 0.41317083547796685,
+          "maximumStep": 0.015485163103749656,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.010567137911772481,
+            "vertices": [
+              {
+                "index": 3543,
+                "rest": [
+                  -0.06963390111923218,
+                  0.13977789878845215,
+                  -0.1197727769613266
+                ],
+                "posed": [
+                  -0.0696339000839587,
+                  0.13876247751639448,
+                  -0.023289228363011158
+                ],
+                "weights": {
+                  "DEF_back_l_lower": 0.6952865123748779,
+                  "DEF_pelvis": 0.18064738810062408,
+                  "DEF_spine_01": 0.12406610697507858
+                }
+              },
+              {
+                "index": 3607,
+                "rest": [
+                  -0.06105302646756172,
+                  0.14593972265720367,
+                  -0.1200275719165802
+                ],
+                "posed": [
+                  -0.06105302631612971,
+                  0.14290319161280915,
+                  -0.07345942080545316
+                ],
+                "weights": {
+                  "DEF_pelvis": 0.3867119550704956,
+                  "DEF_back_l_lower": 0.3502807915210724,
+                  "DEF_spine_01": 0.2600870430469513,
+                  "DEF_back_l_upper": 0.0029202208388596773
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 554,
+          "maximumStretch": 4.796326731257787,
+          "minimumCompression": 0.3761821704143866,
+          "maximumStep": 0.0154851631037497,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.010567137911772481,
+            "vertices": [
+              {
+                "index": 3543,
+                "rest": [
+                  -0.06963390111923218,
+                  0.13977789878845215,
+                  -0.1197727769613266
+                ],
+                "posed": [
+                  -0.06963389882774591,
+                  0.1387624747665653,
+                  -0.02328922884858785
+                ],
+                "weights": {
+                  "DEF_back_l_lower": 0.668263852596283,
+                  "DEF_pelvis": 0.18064738810062408,
+                  "DEF_spine_01": 0.12406610697507858,
+                  "DEF_back_l_hock": 0.02702264115214348
+                }
+              },
+              {
+                "index": 3607,
+                "rest": [
+                  -0.06105302646756172,
+                  0.14593972265720367,
+                  -0.1200275719165802
+                ],
+                "posed": [
+                  -0.06105302655459391,
+                  0.1428778772133767,
+                  -0.07307119140665919
+                ],
+                "weights": {
+                  "DEF_pelvis": 0.3867119550704956,
+                  "DEF_back_l_lower": 0.3516952693462372,
+                  "DEF_spine_01": 0.2600870430469513,
+                  "DEF_back_l_hock": 0.0015057468554005027
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_back_l_hock",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 0,
+          "maximumStretch": 3.536373327425527,
+          "minimumCompression": 0.10431689939186542,
+          "maximumStep": 0.009178312049578214,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.011244844043025315,
+            "vertices": [
+              {
+                "index": 3341,
+                "rest": [
+                  -0.10284746438264847,
+                  0.054176341742277145,
+                  -0.19273127615451813
+                ],
+                "posed": [
+                  -0.10284746679880596,
+                  0.07609124214149132,
+                  -0.11704034313957691
+                ],
+                "weights": {
+                  "DEF_back_l_paw": 0.6715496182441711,
+                  "DEF_back_l_lower": 0.32845041155815125
+                }
+              },
+              {
+                "index": 3342,
+                "rest": [
+                  -0.10078848898410797,
+                  0.06397463381290436,
+                  -0.19784992933273315
+                ],
+                "posed": [
+                  -0.10078849065441695,
+                  0.07027246612315383,
+                  -0.15632436734953492
+                ],
+                "weights": {
+                  "DEF_back_l_lower": 0.618234395980835,
+                  "DEF_back_l_paw": 0.3817656338214874
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 346,
+          "maximumStretch": 1.7232050501148821,
+          "minimumCompression": 0.11009882438227168,
+          "maximumStep": 0.010333730638999195,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.013367198718509068,
+            "vertices": [
+              {
+                "index": 3441,
+                "rest": [
+                  -0.08467280119657516,
+                  0.12697896361351013,
+                  -0.22824032604694366
+                ],
+                "posed": [
+                  -0.08467280030723613,
+                  0.10718348673526124,
+                  -0.21110412826247038
+                ],
+                "weights": {
+                  "DEF_pelvis": 0.3725315034389496,
+                  "DEF_back_l_hock": 0.33971384167671204,
+                  "DEF_back_l_lower": 0.2877546548843384
+                }
+              },
+              {
+                "index": 3442,
+                "rest": [
+                  -0.0814560130238533,
+                  0.1398482769727707,
+                  -0.22988806664943695
+                ],
+                "posed": [
+                  -0.0814560108443261,
+                  0.1267023881509439,
+                  -0.22290452900320362
+                ],
+                "weights": {
+                  "DEF_pelvis": 0.44857650995254517,
+                  "DEF_back_l_lower": 0.3748086392879486,
+                  "DEF_back_l_hock": 0.17661483585834503
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_back_l_paw",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 271,
+          "maximumStretch": 3.3184607101584502,
+          "minimumCompression": 0.17420597492435258,
+          "maximumStep": 0.004338198145817302,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.011285063088884764,
+            "vertices": [
+              {
+                "index": 3345,
+                "rest": [
+                  -0.09104163199663162,
+                  0.06228877604007721,
+                  -0.19602252542972565
+                ],
+                "posed": [
+                  -0.0910416307807525,
+                  0.027187718643887582,
+                  -0.1661740114154331
+                ],
+                "weights": {
+                  "DEF_back_l_lower": 0.5684714317321777,
+                  "DEF_back_l_paw": 0.43152856826782227
+                }
+              },
+              {
+                "index": 3405,
+                "rest": [
+                  -0.08891600370407104,
+                  0.0720142126083374,
+                  -0.20133762061595917
+                ],
+                "posed": [
+                  -0.08891600406458616,
+                  0.05568711189958426,
+                  -0.1903751844780607
+                ],
+                "weights": {
+                  "DEF_back_l_lower": 0.8325912356376648,
+                  "DEF_back_l_paw": 0.16730213165283203,
+                  "DEF_pelvis": 0.00010665745503501967
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 297,
+          "maximumStretch": 3.04377875072094,
+          "minimumCompression": 0.19055280519729018,
+          "maximumStep": 0.004338198145817302,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.011453798251146168,
+            "vertices": [
+              {
+                "index": 3342,
+                "rest": [
+                  -0.10078848898410797,
+                  0.06397463381290436,
+                  -0.19784992933273315
+                ],
+                "posed": [
+                  -0.10078848570333604,
+                  0.019266906874780682,
+                  -0.16128734504974976
+                ],
+                "weights": {
+                  "DEF_back_l_paw": 0.52562415599823,
+                  "DEF_back_l_hock": 0.47437581419944763
+                }
+              },
+              {
+                "index": 3404,
+                "rest": [
+                  -0.09863164275884628,
+                  0.07393049448728561,
+                  -0.20308618247509003
+                ],
+                "posed": [
+                  -0.09863164346404607,
+                  0.04518389995875389,
+                  -0.18450531779723733
+                ],
+                "weights": {
+                  "DEF_back_l_hock": 0.7164642810821533,
+                  "DEF_back_l_paw": 0.283252090215683,
+                  "DEF_pelvis": 0.0002836407511495054
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_back_r_lower",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 522,
+          "maximumStretch": 3.408110294056681,
+          "minimumCompression": 0.162330801399078,
+          "maximumStep": 0.01515274366941692,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.013186855466268953,
+            "vertices": [
+              {
+                "index": 8454,
+                "rest": [
+                  0.09731704741716385,
+                  0.17335407435894012,
+                  -0.2492484748363495
+                ],
+                "posed": [
+                  0.09731705031058104,
+                  0.109858989326295,
+                  -0.13344064375734696
+                ],
+                "weights": {
+                  "DEF_back_r_lower": 0.7175492644309998,
+                  "DEF_back_r_upper": 0.15087062120437622,
+                  "DEF_pelvis": 0.1315801441669464
+                }
+              },
+              {
+                "index": 8457,
+                "rest": [
+                  0.09479288011789322,
+                  0.18509455025196075,
+                  -0.24380026757717133
+                ],
+                "posed": [
+                  0.0947928805801731,
+                  0.1356772677773816,
+                  -0.17014012068309456
+                ],
+                "weights": {
+                  "DEF_back_r_lower": 0.5129508972167969,
+                  "DEF_pelvis": 0.25015130639076233,
+                  "DEF_back_r_upper": 0.2368977963924408
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 412,
+          "maximumStretch": 3.359803300643621,
+          "minimumCompression": 0.17675122943129143,
+          "maximumStep": 0.015152743669416909,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.013186855466268953,
+            "vertices": [
+              {
+                "index": 8454,
+                "rest": [
+                  0.09731704741716385,
+                  0.17335407435894012,
+                  -0.2492484748363495
+                ],
+                "posed": [
+                  0.09731704515571622,
+                  0.10095334621613102,
+                  -0.1171977613474449
+                ],
+                "weights": {
+                  "DEF_back_r_lower": 0.8181906342506409,
+                  "DEF_pelvis": 0.1315801441669464,
+                  "DEF_back_r_upper": 0.05022920295596123
+                }
+              },
+              {
+                "index": 8457,
+                "rest": [
+                  0.09479288011789322,
+                  0.18509455025196075,
+                  -0.24380026757717133
+                ],
+                "posed": [
+                  0.09479287868309925,
+                  0.12504624645043577,
+                  -0.15429378646488479
+                ],
+                "weights": {
+                  "DEF_back_r_lower": 0.6233007907867432,
+                  "DEF_pelvis": 0.25015130639076233,
+                  "DEF_back_r_upper": 0.1265478879213333
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_back_r_hock",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 0,
+          "maximumStretch": 3.5262325372409644,
+          "minimumCompression": 0.10062166406020434,
+          "maximumStep": 0.009432888178310124,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.011475313861878405,
+            "vertices": [
+              {
+                "index": 8431,
+                "rest": [
+                  0.10125027596950531,
+                  0.04861367121338844,
+                  -0.24988384544849396
+                ],
+                "posed": [
+                  0.10125027855470042,
+                  0.09227003373075103,
+                  -0.16664065566663466
+                ],
+                "weights": {
+                  "DEF_back_r_paw": 0.817970335483551,
+                  "DEF_back_r_lower": 0.18202966451644897
+                }
+              },
+              {
+                "index": 8436,
+                "rest": [
+                  0.09999113529920578,
+                  0.05991924926638603,
+                  -0.25139424204826355
+                ],
+                "posed": [
+                  0.0999911365897805,
+                  0.07956975880667652,
+                  -0.20503991951435763
+                ],
+                "weights": {
+                  "DEF_back_r_paw": 0.5024225115776062,
+                  "DEF_back_r_lower": 0.4975774884223938
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 246,
+          "maximumStretch": 2.1437598909813116,
+          "minimumCompression": 0.042337557277461114,
+          "maximumStep": 0.008958009732132463,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.01304345701386311,
+            "vertices": [
+              {
+                "index": 8005,
+                "rest": [
+                  0.08946949988603592,
+                  0.14459428191184998,
+                  -0.25178995728492737
+                ],
+                "posed": [
+                  0.08946950070264614,
+                  0.12500093815890517,
+                  -0.24485672836441447
+                ],
+                "weights": {
+                  "DEF_back_r_lower": 0.691933274269104,
+                  "DEF_back_r_hock": 0.27450788021087646,
+                  "DEF_pelvis": 0.03355884924530983
+                }
+              },
+              {
+                "index": 8448,
+                "rest": [
+                  0.09149420261383057,
+                  0.1317111998796463,
+                  -0.25203192234039307
+                ],
+                "posed": [
+                  0.09149420531155057,
+                  0.10068162620567173,
+                  -0.23120581932692036
+                ],
+                "weights": {
+                  "DEF_back_r_hock": 0.5436803102493286,
+                  "DEF_back_r_lower": 0.43890181183815,
+                  "DEF_pelvis": 0.017417889088392258
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "joint": "DEF_back_r_paw",
+      "records": [
+        {
+          "binding": "old-neutral",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 227,
+          "maximumStretch": 3.034624505302641,
+          "minimumCompression": 0.40648087632512603,
+          "maximumStep": 0.00460377563465377,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.011314884894854058,
+            "vertices": [
+              {
+                "index": 8434,
+                "rest": [
+                  0.08923549205064774,
+                  0.05852113664150238,
+                  -0.25087806582450867
+                ],
+                "posed": [
+                  0.08923549351309423,
+                  0.025671017502484586,
+                  -0.2215649430575093
+                ],
+                "weights": {
+                  "DEF_back_r_paw": 0.5443141460418701,
+                  "DEF_back_r_lower": 0.4556858539581299
+                }
+              },
+              {
+                "index": 8435,
+                "rest": [
+                  0.08807438611984253,
+                  0.0697721540927887,
+                  -0.2511831223964691
+                ],
+                "posed": [
+                  0.08807438363412848,
+                  0.053504570465791185,
+                  -0.24163819318815213
+                ],
+                "weights": {
+                  "DEF_back_r_lower": 0.778233528137207,
+                  "DEF_back_r_paw": 0.22176644206047058
+                }
+              }
+            ]
+          }
+        },
+        {
+          "binding": "anatomy-v2",
+          "frames": 25,
+          "rotationAxis": [
+            1,
+            0,
+            0
+          ],
+          "maximumRadians": 1.7,
+          "affectedUniqueVertices": 244,
+          "maximumStretch": 2.700480246679778,
+          "minimumCompression": 0.2525356695687772,
+          "maximumStep": 0.00460377563465377,
+          "worstEdge": {
+            "frame": 24,
+            "restLength": 0.011596020287684384,
+            "vertices": [
+              {
+                "index": 8436,
+                "rest": [
+                  0.09999113529920578,
+                  0.05991924926638603,
+                  -0.25139424204826355
+                ],
+                "posed": [
+                  0.09999113877020241,
+                  0.020843074469689242,
+                  -0.21819560469253785
+                ],
+                "weights": {
+                  "DEF_back_r_paw": 0.6258043646812439,
+                  "DEF_back_r_hock": 0.3741956353187561
+                }
+              },
+              {
+                "index": 8472,
+                "rest": [
+                  0.09870442003011703,
+                  0.07142311334609985,
+                  -0.25208210945129395
+                ],
+                "posed": [
+                  0.0987044265481852,
+                  0.04540304160291459,
+                  -0.23758040727407154
+                ],
+                "weights": {
+                  "DEF_back_r_hock": 0.6581242084503174,
+                  "DEF_back_r_paw": 0.341875821352005
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "字节保持、拓扑与原始线性蒙皮单关节压力测试；不包含 GPU 补形、接地或视觉合格结论。关节极值不通过不应被分位数掩盖。",
+  "visualReview": "pending"
+}

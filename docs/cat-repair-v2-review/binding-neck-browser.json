@@ -1,0 +1,86 @@
+{
+  "sourceSHA256": "4cfc520e91637d5f130eeb886d79f1ecc5c061d3e3c4edb885cf2615341ef846",
+  "events": [],
+  "records": [
+    {
+      "id": "prone",
+      "t": 1,
+      "view": "diagonal"
+    },
+    {
+      "id": "prone",
+      "t": 1,
+      "view": "opposite"
+    },
+    {
+      "id": "prone",
+      "t": 1,
+      "view": "necklow"
+    },
+    {
+      "id": "prone",
+      "t": 1,
+      "view": "neckside"
+    },
+    {
+      "id": "pillow",
+      "t": 1,
+      "view": "diagonal"
+    },
+    {
+      "id": "pillow",
+      "t": 1,
+      "view": "opposite"
+    },
+    {
+      "id": "pillow",
+      "t": 1,
+      "view": "necklow"
+    },
+    {
+      "id": "pillow",
+      "t": 1,
+      "view": "neckside"
+    },
+    {
+      "id": "belly",
+      "t": 1,
+      "view": "diagonal"
+    },
+    {
+      "id": "belly",
+      "t": 1,
+      "view": "opposite"
+    },
+    {
+      "id": "belly",
+      "t": 1,
+      "view": "necklow"
+    },
+    {
+      "id": "belly",
+      "t": 1,
+      "view": "neckside"
+    },
+    {
+      "id": "curl",
+      "t": 1,
+      "view": "diagonal"
+    },
+    {
+      "id": "curl",
+      "t": 1,
+      "view": "opposite"
+    },
+    {
+      "id": "curl",
+      "t": 1,
+      "view": "necklow"
+    },
+    {
+      "id": "curl",
+      "t": 1,
+      "view": "neckside"
+    }
+  ]
+}

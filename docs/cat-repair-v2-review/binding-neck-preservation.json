@@ -1,0 +1,29 @@
+{
+  "parts": [
+    {
+      "name": "siamese_cat",
+      "changed": {
+        "position": [
+          10049
+        ],
+        "normal": [
+          10049
+        ],
+        "uv": [
+          10049
+        ]
+      },
+      "indicesEqual": false
+    },
+    {
+      "name": "siamese_cat_head",
+      "changed": {
+        "position": [],
+        "normal": [],
+        "uv": []
+      },
+      "indicesEqual": true
+    }
+  ],
+  "imagesEqual": true
+}

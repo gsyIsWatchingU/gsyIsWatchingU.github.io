@@ -50,6 +50,7 @@ bundle(join(projectRoot, "scripts", "cat-sit-v2-review.js"), join(projectRoot, "
 bundle(join(projectRoot, "scripts", "cat-anatomy-review.js"), join(projectRoot, "docs", "cat-anatomy-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-rest-rig-review.js"), join(projectRoot, "docs", "cat-rest-rebuild-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "cat-eight-pose-review.js"), join(projectRoot, "docs", "cat-eight-poses-review", "viewer.js"));
+bundle(join(projectRoot, "scripts", "cat-repair-v2-review.js"), join(projectRoot, "docs", "cat-repair-v2-review", "viewer.js"));
 bundle(join(projectRoot, "scripts", "living-furniture-review.js"), join(projectRoot, "docs", "living-furniture-review", "viewer.js"));
 
 const escapeHtml = (value) =>

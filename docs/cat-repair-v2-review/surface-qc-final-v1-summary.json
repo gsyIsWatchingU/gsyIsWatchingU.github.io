@@ -1,0 +1,154 @@
+{
+  "status": "review",
+  "humanReview": "pending",
+  "sourceSHA256": "4cfc520e91637d5f130eeb886d79f1ecc5c061d3e3c4edb885cf2615341ef846",
+  "goalsSHA256": "335d9e6342ab5cc46d6468307e8a91e03eb6adc8e29ea3cb144537543c0b1528",
+  "postprocessSHA256": "79d82badf65e00bd8605188de47c68df94bb66d749b796d3ffbfa0dd2b71b6fd",
+  "frames": 63,
+  "qcSeconds": 59.47753290000037,
+  "protectedBytes": {
+    "sourceSHA256": "4cfc520e91637d5f130eeb886d79f1ecc5c061d3e3c4edb885cf2615341ef846",
+    "goalsSHA256": "335d9e6342ab5cc46d6468307e8a91e03eb6adc8e29ea3cb144537543c0b1528",
+    "helperSHA256": "79d82badf65e00bd8605188de47c68df94bb66d749b796d3ffbfa0dd2b71b6fd",
+    "manifestSHA256": "715417ab99613b2eb45140643c049b61bc8c0ef0c7110ce0c76a7b81eef07a98",
+    "protectedVertexCount": 6463,
+    "outsideMaskVertexCount": 14575,
+    "neckVertexCount": 4282,
+    "comparison": "Final versus the exact parent raw GPU bytes, including normals",
+    "distalWristPawHockVertices": 1862,
+    "meaningfulIndexedEdges": 47358,
+    "allProtectedAndOutsidePositionBytesEqual": true,
+    "allProtectedAndOutsideNormalBytesEqual": true,
+    "allStandBytesEqual": true,
+    "rejectedFrameCount": 4,
+    "allRejectedBytesEqual": true,
+    "allDistalBytesEqual": true,
+    "maximumEdgeBoundExcess": -1.394440159562426e-10
+  },
+  "sourceBaselineIntersectionPairs": 44,
+  "maximumSeamGap": 0.0,
+  "newDegenerateFaces": 0,
+  "allPositionsAndNormalsFinite": true,
+  "curlHeadTailCrossingPairsEveryFrame": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "poses": [
+    {
+      "pose": "side",
+      "frames": 21,
+      "terminalEdgeMaximum": 2.568442399189326,
+      "peakEdgeMaximum": 2.568442399189326,
+      "peakEdgeProgress": 1,
+      "terminalEdgesOver2": 25,
+      "terminalFractionOver2": 0.0005278939144389543,
+      "terminalMacroCandidates": 117,
+      "terminalMaximumChord": 0.008505274154606257,
+      "terminalMaximumPlaneDepthProxy": 0.008228144022217932,
+      "peakMaximumChord": [
+        0.010518327376220384,
+        0.35
+      ],
+      "peakMaximumPlaneDepthProxy": [
+        0.011083700496421094,
+        0.55
+      ],
+      "terminalMacroRegions": {
+        "back_l|back_l": 2,
+        "back_l|torso": 30,
+        "back_r|back_r": 15,
+        "head_neck|head_neck": 25,
+        "head_neck|torso": 41,
+        "torso|torso": 5
+      },
+      "zeroNormalSetsEqualRawEveryFrame": true,
+      "maximumRawToFinalDisplacement": 0.007556232446920997
+    },
+    {
+      "pose": "belly",
+      "frames": 21,
+      "terminalEdgeMaximum": 3.1392179338803134,
+      "peakEdgeMaximum": 3.3380918631109995,
+      "peakEdgeProgress": 0.95,
+      "terminalEdgesOver2": 110,
+      "terminalFractionOver2": 0.002322733223531399,
+      "terminalMacroCandidates": 149,
+      "terminalMaximumChord": 0.009605431815273017,
+      "terminalMaximumPlaneDepthProxy": 0.008858227200904328,
+      "peakMaximumChord": [
+        0.016921585720189383,
+        0.55
+      ],
+      "peakMaximumPlaneDepthProxy": [
+        0.013148138788088081,
+        0.6
+      ],
+      "terminalMacroRegions": {
+        "back_r|back_r": 27,
+        "front_r|front_r": 18,
+        "head_neck|head_neck": 38,
+        "head_neck|torso": 63,
+        "torso|torso": 4
+      },
+      "zeroNormalSetsEqualRawEveryFrame": true,
+      "maximumRawToFinalDisplacement": 0.005119309555414404
+    },
+    {
+      "pose": "curl",
+      "frames": 21,
+      "terminalEdgeMaximum": 3.264483762653176,
+      "peakEdgeMaximum": 3.3160452107468186,
+      "peakEdgeProgress": 0.95,
+      "terminalEdgesOver2": 164,
+      "terminalFractionOver2": 0.0034629840787195405,
+      "terminalMacroCandidates": 870,
+      "terminalMaximumChord": 0.01073169256113377,
+      "terminalMaximumPlaneDepthProxy": 0.012113507447903795,
+      "peakMaximumChord": [
+        0.013432225783490206,
+        0.85
+      ],
+      "peakMaximumPlaneDepthProxy": [
+        0.013016618469572305,
+        0.85
+      ],
+      "terminalMacroRegions": {
+        "back_l|back_l": 50,
+        "back_l|torso": 23,
+        "back_r|back_r": 93,
+        "back_r|head_neck": 73,
+        "back_r|torso": 19,
+        "front_l|front_l": 34,
+        "front_l|head_neck": 23,
+        "front_l|torso": 64,
+        "front_r|front_r": 49,
+        "front_r|head_neck": 67,
+        "front_r|torso": 93,
+        "head_neck|head_neck": 52,
+        "head_neck|torso": 143,
+        "torso|torso": 88
+      },
+      "zeroNormalSetsEqualRawEveryFrame": true,
+      "maximumRawToFinalDisplacement": 0.01661100145131916
+    }
+  ]
+}

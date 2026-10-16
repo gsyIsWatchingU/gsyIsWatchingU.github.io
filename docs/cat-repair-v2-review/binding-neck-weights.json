@@ -1,0 +1,77 @@
+{
+  "method": "Continuous chest-to-neck redistribution in the actual cervical collar; original head and ear mass is retained exactly, with pure skull/ears protected",
+  "source": "tmp/cat-repair-v2/neck-patch/anatomy-neutral.glb",
+  "sourceSHA256": "7b47c0acb107bb4726ca8ea7934d4fbccbd30dcd726420c1904661958c902780",
+  "output": "tmp/cat-repair-v2/neck-weighted/anatomy-neutral.glb",
+  "outputSHA256": "4cfc520e91637d5f130eeb886d79f1ecc5c061d3e3c4edb885cf2615341ef846",
+  "parts": [
+    {
+      "name": "siamese_cat",
+      "vertices": 10718,
+      "changed": 2574,
+      "maximumChestToNeckTransfer": 1,
+      "protectedVertices": 73,
+      "maximumProtectedError": 2.8780406835515748e-8,
+      "examples": []
+    },
+    {
+      "name": "siamese_cat_head",
+      "vertices": 8139,
+      "changed": 252,
+      "maximumChestToNeckTransfer": 1,
+      "protectedVertices": 7360,
+      "maximumProtectedError": 2.9494277131725255e-8,
+      "examples": [
+        {
+          "vertex": 22,
+          "position": [
+            -0.03154023364186287,
+            0.3182797133922577,
+            0.4323643147945404
+          ],
+          "before": {
+            "DEF_chest": 0.5039654970169067,
+            "DEF_head": 0.4356483519077301,
+            "DEF_neck": 0.06038615480065346
+          },
+          "after": {
+            "DEF_neck": 0.5643516497151865,
+            "DEF_head": 0.4356483502848135
+          }
+        },
+        {
+          "vertex": 26,
+          "position": [
+            -0.032049138098955154,
+            0.32352501153945923,
+            0.4338766038417816
+          ],
+          "before": {
+            "DEF_head": 0.6308191418647766,
+            "DEF_chest": 0.3066954016685486,
+            "DEF_neck": 0.06248542666435242
+          },
+          "after": {
+            "DEF_head": 0.6308191606646526,
+            "DEF_neck": 0.3691808393353474
+          }
+        }
+      ]
+    }
+  ],
+  "bonesMoved": false,
+  "positionsChanged": false,
+  "headGeometryChanged": false,
+  "uvChanged": false,
+  "imagesChanged": false,
+  "newVertices": 0,
+  "transition": {
+    "diagonalCoordinate": "y + 1.4z",
+    "start": 0.72,
+    "end": 0.88,
+    "heightStart": 0.18,
+    "heightEnd": 0.25
+  },
+  "status": "review",
+  "humanReview": "pending"
+}

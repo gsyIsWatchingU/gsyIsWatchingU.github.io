@@ -1,0 +1,1425 @@
+{
+  "host": "gsy-s-9cff6dc4f-65m6j",
+  "device": "NVIDIA L20",
+  "deviceIndex": 0,
+  "gpuUUID": "GPU-1a462216-9e7c-59c9-5e0f-a1d2b2ef1766",
+  "solverSHA256": "8123b7f76c798545d8c4d5796cbedf054c99b75d1d888127e59b1c3b03709e03",
+  "status": "review",
+  "humanReview": "pending",
+  "method": "Parent CUDA ARAP output plus local CuPy CUDA cervical/wrist fairing; face/ears and outside masks fixed",
+  "sourceSHA256": "4cfc520e91637d5f130eeb886d79f1ecc5c061d3e3c4edb885cf2615341ef846",
+  "goalsSHA256": "335d9e6342ab5cc46d6468307e8a91e03eb6adc8e29ea3cb144537543c0b1528",
+  "postprocessSHA256": "79d82badf65e00bd8605188de47c68df94bb66d749b796d3ffbfa0dd2b71b6fd",
+  "poses": [
+    "belly",
+    "curl",
+    "side"
+  ],
+  "outputs": [
+    {
+      "pose": "side",
+      "file": "side-skin.f32",
+      "bytes": 9503928,
+      "sha256": "574f3023b7d59bb906c50190518c035e3c85705a47cd77c3c9abc015994e1e75"
+    },
+    {
+      "pose": "belly",
+      "file": "belly-skin.f32",
+      "bytes": 9503928,
+      "sha256": "06619f13b935b3f2639d1586309951686c258c9895ed7ada566651f2aded9ed2"
+    },
+    {
+      "pose": "curl",
+      "file": "curl-skin.f32",
+      "bytes": 9503928,
+      "sha256": "846da9d099804448a0701e7333e06c66e380f16b523b93c11f7a8b3b68759733"
+    }
+  ],
+  "records": [
+    {
+      "pose": "side",
+      "progress": 0,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.000376073828496,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0003761238401012,
+        "finalMaximumMeaningfulEdgeRatio": 1.000376073828496,
+        "maximumEdgeBoundExcess": -0.001900877611742107,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0001647741300985217,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.05,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.0100725799170316,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0100725799170316,
+        "finalMaximumMeaningfulEdgeRatio": 1.0100725799170316,
+        "maximumEdgeBoundExcess": -0.001901550688533522,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0005893023917451501,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.1,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.0641277405495457,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0641277405495457,
+        "finalMaximumMeaningfulEdgeRatio": 1.0641277405495457,
+        "maximumEdgeBoundExcess": -0.0019054286318601526,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0024845623411238194,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.15,
+      "maximumDisplacement": 3.571532621850367e-05,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.1417708809578713,
+        "candidateMaximumMeaningfulEdgeRatio": 1.1417708809578713,
+        "finalMaximumMeaningfulEdgeRatio": 1.1417708809578713,
+        "maximumEdgeBoundExcess": -0.0018962456227503872,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.18339974293485284,
+      "minimumY": 0.0045087216421961784,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.2,
+      "maximumDisplacement": 0.0003188170197687845,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.2735867454994214,
+        "candidateMaximumMeaningfulEdgeRatio": 1.2735867454994214,
+        "finalMaximumMeaningfulEdgeRatio": 1.2735867454994214,
+        "maximumEdgeBoundExcess": -0.0018813510730735059,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.1513973237015307,
+      "minimumY": 0.004999999422580004,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.25,
+      "maximumDisplacement": 0.000734053836756906,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.4188753706637056,
+        "candidateMaximumMeaningfulEdgeRatio": 1.4188753706637056,
+        "finalMaximumMeaningfulEdgeRatio": 1.4188753706637056,
+        "maximumEdgeBoundExcess": -0.0018384973268195143,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.11682301620021462,
+      "minimumY": 0.004999998025596142,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.3,
+      "maximumDisplacement": 0.00094745128485992,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.5517305789770766,
+        "candidateMaximumMeaningfulEdgeRatio": 1.5517305789770766,
+        "finalMaximumMeaningfulEdgeRatio": 1.5517305789770766,
+        "maximumEdgeBoundExcess": -0.0016632955870234545,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.0828490019775927,
+      "minimumY": 0.004999998956918716,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.35,
+      "maximumDisplacement": 0.0020057122039505095,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.6336788837635001,
+        "candidateMaximumMeaningfulEdgeRatio": 1.6336788837635001,
+        "finalMaximumMeaningfulEdgeRatio": 1.6336788837635001,
+        "maximumEdgeBoundExcess": -0.0015033604561488232,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.0633649886585772,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.4,
+      "maximumDisplacement": 0.0047558556599965615,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.7257163445945138,
+        "candidateMaximumMeaningfulEdgeRatio": 1.7257163445945138,
+        "finalMaximumMeaningfulEdgeRatio": 1.7257163445945138,
+        "maximumEdgeBoundExcess": -0.0015245553588329667,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06039658049121499,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.45,
+      "maximumDisplacement": 0.007556232446920997,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.8899062276833096,
+        "rawMaximumMeaningfulEdgeRatio": 1.8543746698163681,
+        "candidateMaximumMeaningfulEdgeRatio": 2.0009418092477578,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500089869839183,
+        "maximumEdgeBoundExcess": -9.585484996021965e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.05793008441105485,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.5,
+      "maximumDisplacement": 0.004091011353782577,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.3146540738678147,
+        "rawMaximumMeaningfulEdgeRatio": 1.909207598405653,
+        "candidateMaximumMeaningfulEdgeRatio": 2.4814037049981805,
+        "finalMaximumMeaningfulEdgeRatio": 1.950009363232219,
+        "maximumEdgeBoundExcess": -5.800198637356813e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.05740161472931504,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.55,
+      "maximumDisplacement": 0.0017617711530274038,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.09257741104240458,
+        "rawMaximumMeaningfulEdgeRatio": 1.9037246835763002,
+        "candidateMaximumMeaningfulEdgeRatio": 2.998867658667978,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500072680166296,
+        "maximumEdgeBoundExcess": -2.6879339656837864e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.056363622192293406,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.6,
+      "maximumDisplacement": 0.0014124838222950846,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.055295741685832345,
+        "rawMaximumMeaningfulEdgeRatio": 1.8718379817853894,
+        "candidateMaximumMeaningfulEdgeRatio": 3.473825912590747,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500086003992074,
+        "maximumEdgeBoundExcess": -1.3474761917375844e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.061099661979824305,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.65,
+      "maximumDisplacement": 0.0012101608051948145,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.03773218502262008,
+        "rawMaximumMeaningfulEdgeRatio": 1.876011070808291,
+        "candidateMaximumMeaningfulEdgeRatio": 3.9081760981798492,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500092164290843,
+        "maximumEdgeBoundExcess": -7.2771273104677014e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.04314245516434312,
+      "minimumY": 0.004999995231628418,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.7,
+      "maximumDisplacement": 0.00124621655870916,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.0332756472029113,
+        "rawMaximumMeaningfulEdgeRatio": 1.9419789957624973,
+        "candidateMaximumMeaningfulEdgeRatio": 4.23366076825271,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500078281221525,
+        "maximumEdgeBoundExcess": -2.1244338007514463e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.02451217034831643,
+      "minimumY": 0.004999980330467224,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.75,
+      "maximumDisplacement": 0.0014445374600970716,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.03541555069893634,
+        "rawMaximumMeaningfulEdgeRatio": 1.8676842718095301,
+        "candidateMaximumMeaningfulEdgeRatio": 4.393370845733982,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500070990478542,
+        "maximumEdgeBoundExcess": -2.8579268132600255e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.0095092230476439,
+      "minimumY": 0.004118609707802534,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.8,
+      "maximumDisplacement": 0.001701889531052749,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.04005110964823735,
+        "rawMaximumMeaningfulEdgeRatio": 2.121815382563457,
+        "candidateMaximumMeaningfulEdgeRatio": 4.463575800542233,
+        "finalMaximumMeaningfulEdgeRatio": 2.081475262854278,
+        "maximumEdgeBoundExcess": -1.6444584062524914e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.0014067161828279495,
+      "minimumY": -0.007790297269821167,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.85,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 1,
+      "maximumSupportLift": 1.3418584829874049e-05,
+      "edgeGuard": {
+        "alpha": 0.0,
+        "rawMaximumMeaningfulEdgeRatio": 2.0543926995894264,
+        "candidateMaximumMeaningfulEdgeRatio": 4.527510724870345,
+        "finalMaximumMeaningfulEdgeRatio": 2.0543926995894264,
+        "maximumEdgeBoundExcess": -1e-07,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": "Constraint conflict: the global edge guard leaves a modified neck point below support; whole corrective frame restored to raw, including normals",
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": -0.004836909472942352,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.9,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 5,
+      "maximumSupportLift": 0.0034318906867329157,
+      "edgeGuard": {
+        "alpha": 0.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.867169113731831,
+        "candidateMaximumMeaningfulEdgeRatio": 4.539808174418481,
+        "finalMaximumMeaningfulEdgeRatio": 1.867169113731831,
+        "maximumEdgeBoundExcess": -1e-07,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": "Constraint conflict: the global edge guard leaves a modified neck point below support; whole corrective frame restored to raw, including normals",
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": -0.00044649839401245117,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 0.95,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 5,
+      "maximumSupportLift": 0.0034442077999996615,
+      "edgeGuard": {
+        "alpha": 0.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.8671682032604138,
+        "candidateMaximumMeaningfulEdgeRatio": 4.539769257406706,
+        "finalMaximumMeaningfulEdgeRatio": 1.8671682032604138,
+        "maximumEdgeBoundExcess": -1e-07,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": "Constraint conflict: the global edge guard leaves a modified neck point below support; whole corrective frame restored to raw, including normals",
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": -0.0004605501890182495,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "side",
+      "progress": 1,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 5,
+      "maximumSupportLift": 0.0034492862247111813,
+      "edgeGuard": {
+        "alpha": 0.0,
+        "rawMaximumMeaningfulEdgeRatio": 2.568442399189326,
+        "candidateMaximumMeaningfulEdgeRatio": 4.530407662423053,
+        "finalMaximumMeaningfulEdgeRatio": 2.568442399189326,
+        "maximumEdgeBoundExcess": -1e-07,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": "Constraint conflict: the global edge guard leaves a modified neck point below support; whole corrective frame restored to raw, including normals",
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": -0.00046637654304504395,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.000376073828496,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0003761238401012,
+        "finalMaximumMeaningfulEdgeRatio": 1.000376073828496,
+        "maximumEdgeBoundExcess": -0.0019008553797734687,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0001647741300985217,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.05,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.0100611702231908,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0100611702231908,
+        "finalMaximumMeaningfulEdgeRatio": 1.0100611702231908,
+        "maximumEdgeBoundExcess": -0.0019015352152707888,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0005893023335374892,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.1,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.0637135663522976,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0637135663522976,
+        "finalMaximumMeaningfulEdgeRatio": 1.0637135663522976,
+        "maximumEdgeBoundExcess": -0.0019054262046001129,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0024845628067851067,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.15,
+      "maximumDisplacement": 3.539422681160921e-05,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.1399274423335481,
+        "candidateMaximumMeaningfulEdgeRatio": 1.1399274423335481,
+        "finalMaximumMeaningfulEdgeRatio": 1.1399274423335481,
+        "maximumEdgeBoundExcess": -0.0018941398322349944,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.18336751172319055,
+      "minimumY": 0.0045087216421961784,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.2,
+      "maximumDisplacement": 0.0003103462899332194,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.2678937318341352,
+        "candidateMaximumMeaningfulEdgeRatio": 1.2678937318341352,
+        "finalMaximumMeaningfulEdgeRatio": 1.2678937318341352,
+        "maximumEdgeBoundExcess": -0.0018764247489990666,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.15131393680348992,
+      "minimumY": 0.004999998491257429,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.25,
+      "maximumDisplacement": 0.0006891808111893206,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.4074493330058735,
+        "candidateMaximumMeaningfulEdgeRatio": 1.4074493330058735,
+        "finalMaximumMeaningfulEdgeRatio": 1.4074493330058735,
+        "maximumEdgeBoundExcess": -0.0018370402608889514,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.1166600794531405,
+      "minimumY": 0.004999998491257429,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.3,
+      "maximumDisplacement": 0.0009751429352613682,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.5621332414156954,
+        "candidateMaximumMeaningfulEdgeRatio": 1.5621332414156954,
+        "finalMaximumMeaningfulEdgeRatio": 1.5621332414156954,
+        "maximumEdgeBoundExcess": -0.0015812089176071545,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.08227217802777886,
+      "minimumY": 0.008426153101027012,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.35,
+      "maximumDisplacement": 0.0019109086970199652,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.8266780538657086,
+        "candidateMaximumMeaningfulEdgeRatio": 1.8266780538657086,
+        "finalMaximumMeaningfulEdgeRatio": 1.8266780538657086,
+        "maximumEdgeBoundExcess": -0.001257352777090312,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06113155046477914,
+      "minimumY": 0.00862241629511118,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.4,
+      "maximumDisplacement": 0.005119309555414404,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.68654447070454,
+        "candidateMaximumMeaningfulEdgeRatio": 1.7687851816338915,
+        "finalMaximumMeaningfulEdgeRatio": 1.768785673963025,
+        "maximumEdgeBoundExcess": -0.00173338663210511,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.057626570109277964,
+      "minimumY": 0.017806807532906532,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.45,
+      "maximumDisplacement": 0.004392753185086676,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.36408617008622357,
+        "rawMaximumMeaningfulEdgeRatio": 2.1293928360282264,
+        "candidateMaximumMeaningfulEdgeRatio": 2.3341284673969946,
+        "finalMaximumMeaningfulEdgeRatio": 1.9878861424073109,
+        "maximumEdgeBoundExcess": -1.8681230055939135e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.049520029220730066,
+      "minimumY": 0.031190745532512665,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.5,
+      "maximumDisplacement": 0.001651789032568979,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.09649147409061465,
+        "rawMaximumMeaningfulEdgeRatio": 1.9989726478948795,
+        "candidateMaximumMeaningfulEdgeRatio": 2.913257540226122,
+        "finalMaximumMeaningfulEdgeRatio": 1.9988786241732075,
+        "maximumEdgeBoundExcess": -1.8437511160179776e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.04906204575672746,
+      "minimumY": 0.0324908122420311,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.55,
+      "maximumDisplacement": 0.0015728579006131212,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.06262430394740565,
+        "rawMaximumMeaningfulEdgeRatio": 2.426823589303394,
+        "candidateMaximumMeaningfulEdgeRatio": 3.4700668715652303,
+        "finalMaximumMeaningfulEdgeRatio": 2.355577159714857,
+        "maximumEdgeBoundExcess": -1.66539766977003e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.051206203643232584,
+      "minimumY": 0.03275511413812637,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.6,
+      "maximumDisplacement": 0.001063974334945997,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.030996365290042478,
+        "rawMaximumMeaningfulEdgeRatio": 2.940955342753026,
+        "candidateMaximumMeaningfulEdgeRatio": 4.086403990919346,
+        "finalMaximumMeaningfulEdgeRatio": 2.8815040198452553,
+        "maximumEdgeBoundExcess": -1.0658315462847012e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.029051678720861673,
+      "minimumY": 0.022231701761484146,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.65,
+      "maximumDisplacement": 0.0006740862393625592,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.015640019059249305,
+        "rawMaximumMeaningfulEdgeRatio": 3.1430965705115796,
+        "candidateMaximumMeaningfulEdgeRatio": 4.738087714292026,
+        "finalMaximumMeaningfulEdgeRatio": 3.1135689958734543,
+        "maximumEdgeBoundExcess": -2.9260202927261503e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.009479740168899298,
+      "minimumY": 0.012101373635232449,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.7,
+      "maximumDisplacement": 1.8189185285171422e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 3.4658124518733078e-06,
+        "rawMaximumMeaningfulEdgeRatio": 2.3262401167078006,
+        "candidateMaximumMeaningfulEdgeRatio": 5.284075574072056,
+        "finalMaximumMeaningfulEdgeRatio": 2.326235873530374,
+        "maximumEdgeBoundExcess": -8.986092852464322e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.0070858062244951725,
+      "minimumY": 0.010085806250572205,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.75,
+      "maximumDisplacement": 1.5200827839302395e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 2.3494557079359787e-06,
+        "rawMaximumMeaningfulEdgeRatio": 2.555171963511983,
+        "candidateMaximumMeaningfulEdgeRatio": 5.907236290109135,
+        "finalMaximumMeaningfulEdgeRatio": 2.5551710154428666,
+        "maximumEdgeBoundExcess": -8.109601844219494e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.013696339447051287,
+      "minimumY": 0.00807561632245779,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.8,
+      "maximumDisplacement": 1.5291851574013973e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 2.255923977618319e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.1017184053594336,
+        "candidateMaximumMeaningfulEdgeRatio": 6.573030939752433,
+        "finalMaximumMeaningfulEdgeRatio": 3.10170524707763,
+        "maximumEdgeBoundExcess": -7.290790280528592e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.016693732235580683,
+      "minimumY": -0.0015341971302405,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.85,
+      "maximumDisplacement": 1.5400369918789258e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 2.196720332985627e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.150167469105633,
+        "candidateMaximumMeaningfulEdgeRatio": 6.711744689310505,
+        "finalMaximumMeaningfulEdgeRatio": 3.1501671138840637,
+        "maximumEdgeBoundExcess": -7.470342223286908e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.015161527786403894,
+      "minimumY": -0.005984605755656958,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.9,
+      "maximumDisplacement": 1.5472292644750466e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 2.19408200131057e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.1390663220175385,
+        "candidateMaximumMeaningfulEdgeRatio": 6.714668152385062,
+        "finalMaximumMeaningfulEdgeRatio": 3.139066117382508,
+        "maximumEdgeBoundExcess": -7.244630065988966e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.014191234949976206,
+      "minimumY": -0.0011545679299160838,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 0.95,
+      "maximumDisplacement": 1.5472292644750466e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 2.1941880792198696e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.3380918631109995,
+        "candidateMaximumMeaningfulEdgeRatio": 6.714725118978113,
+        "finalMaximumMeaningfulEdgeRatio": 3.3380918631109995,
+        "maximumEdgeBoundExcess": -7.241696336340864e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.01418524282053113,
+      "minimumY": 0.00308621721342206,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "belly",
+      "progress": 1,
+      "maximumDisplacement": 1.5472292644750466e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 2.194177895339292e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.1392181385752203,
+        "candidateMaximumMeaningfulEdgeRatio": 6.714740966315413,
+        "finalMaximumMeaningfulEdgeRatio": 3.1392179338803134,
+        "maximumEdgeBoundExcess": -7.241717496497824e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.014184380415827036,
+      "minimumY": 0.0047296322882175446,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.0003760442569865,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0003760283473062,
+        "finalMaximumMeaningfulEdgeRatio": 1.0003760442569865,
+        "maximumEdgeBoundExcess": -0.0019008272013373967,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0001647741300985217,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.05,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.0102193629426968,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0102193629426968,
+        "finalMaximumMeaningfulEdgeRatio": 1.0102193629426968,
+        "maximumEdgeBoundExcess": -0.0019016166460151837,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0006079791928641498,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.1,
+      "maximumDisplacement": 0.0,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.0651085035118641,
+        "candidateMaximumMeaningfulEdgeRatio": 1.0651085035118641,
+        "finalMaximumMeaningfulEdgeRatio": 1.0651085035118641,
+        "maximumEdgeBoundExcess": -0.0019049781930910764,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": null,
+      "minimumY": 0.0025687343440949917,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.15,
+      "maximumDisplacement": 3.436983435880291e-05,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.140877387890099,
+        "candidateMaximumMeaningfulEdgeRatio": 1.140877387890099,
+        "finalMaximumMeaningfulEdgeRatio": 1.140877387890099,
+        "maximumEdgeBoundExcess": -0.0018895126994635178,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.1845212043263018,
+      "minimumY": 0.004547444637864828,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.2,
+      "maximumDisplacement": 0.00030611334676174855,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.269815427312272,
+        "candidateMaximumMeaningfulEdgeRatio": 1.269815427312272,
+        "finalMaximumMeaningfulEdgeRatio": 1.269815427312272,
+        "maximumEdgeBoundExcess": -0.0018699874256587752,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.15336272725835443,
+      "minimumY": 0.004999998956918716,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.25,
+      "maximumDisplacement": 0.0007161363954956109,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.410407643673741,
+        "candidateMaximumMeaningfulEdgeRatio": 1.410407643673741,
+        "finalMaximumMeaningfulEdgeRatio": 1.410407643673741,
+        "maximumEdgeBoundExcess": -0.0018362409371578412,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.11966704437509179,
+      "minimumY": 0.004999998956918716,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.3,
+      "maximumDisplacement": 0.0015374423604457646,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.5359659566235013,
+        "candidateMaximumMeaningfulEdgeRatio": 1.5359659566235013,
+        "finalMaximumMeaningfulEdgeRatio": 1.5359659566235013,
+        "maximumEdgeBoundExcess": -0.001676087818871718,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.0869376570917666,
+      "minimumY": 0.004999998956918716,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.35,
+      "maximumDisplacement": 0.008042364917665938,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 1.0,
+        "rawMaximumMeaningfulEdgeRatio": 1.6067837663498161,
+        "candidateMaximumMeaningfulEdgeRatio": 1.6067837663498161,
+        "finalMaximumMeaningfulEdgeRatio": 1.6067837663498161,
+        "maximumEdgeBoundExcess": -0.0016244586286080112,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06786284456029534,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.4,
+      "maximumDisplacement": 0.01661100145131916,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.9164988262554978,
+        "rawMaximumMeaningfulEdgeRatio": 1.6599170368465146,
+        "candidateMaximumMeaningfulEdgeRatio": 2.033767542557366,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500090417846823,
+        "maximumEdgeBoundExcess": -1.0896537467469658e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06599429855123162,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.45,
+      "maximumDisplacement": 0.012792008599937472,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.46779813886802246,
+        "rawMaximumMeaningfulEdgeRatio": 1.7298165038232791,
+        "candidateMaximumMeaningfulEdgeRatio": 2.7250182369836633,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500092281301402,
+        "maximumEdgeBoundExcess": -7.1594075841396876e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06344425538554788,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.5,
+      "maximumDisplacement": 0.0075044549140236795,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.22401692679456994,
+        "rawMaximumMeaningfulEdgeRatio": 1.8556105776745497,
+        "candidateMaximumMeaningfulEdgeRatio": 3.30107193128533,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500090753831265,
+        "maximumEdgeBoundExcess": -8.696135287561413e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.05906698340550065,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.55,
+      "maximumDisplacement": 0.0019639626188048464,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.05177975916148699,
+        "rawMaximumMeaningfulEdgeRatio": 1.8678108641962496,
+        "candidateMaximumMeaningfulEdgeRatio": 3.777626159758815,
+        "finalMaximumMeaningfulEdgeRatio": 1.9500079046672514,
+        "maximumEdgeBoundExcess": -2.047424783532814e-08,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.05766404652968049,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.6,
+      "maximumDisplacement": 0.001691313055420182,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 0.0409492333849577,
+        "rawMaximumMeaningfulEdgeRatio": 2.1774953291306147,
+        "candidateMaximumMeaningfulEdgeRatio": 3.998141632184562,
+        "finalMaximumMeaningfulEdgeRatio": 2.1381116744114936,
+        "maximumEdgeBoundExcess": -1.3944401536236661e-10,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.05669429758563638,
+      "minimumY": 0.010713817551732063,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.65,
+      "maximumDisplacement": 2.086162567138672e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 4.6490599314951785e-06,
+        "rawMaximumMeaningfulEdgeRatio": 2.2711648993201314,
+        "candidateMaximumMeaningfulEdgeRatio": 4.199026219764652,
+        "finalMaximumMeaningfulEdgeRatio": 2.271156775395731,
+        "maximumEdgeBoundExcess": -7.0158834991618235e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.05863987887278199,
+      "minimumY": 0.008068572729825974,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.7,
+      "maximumDisplacement": 2.2699829543504302e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 4.70338397169359e-06,
+        "rawMaximumMeaningfulEdgeRatio": 2.2967531664125107,
+        "candidateMaximumMeaningfulEdgeRatio": 4.436988191229792,
+        "finalMaximumMeaningfulEdgeRatio": 2.2967531664125107,
+        "maximumEdgeBoundExcess": -5.699451435109415e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.0602672235108912,
+      "minimumY": 0.009094602428376675,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.75,
+      "maximumDisplacement": 2.5572564516953254e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 5.0578698186050745e-06,
+        "rawMaximumMeaningfulEdgeRatio": 2.4347547809624803,
+        "candidateMaximumMeaningfulEdgeRatio": 5.026381197852416,
+        "finalMaximumMeaningfulEdgeRatio": 2.4347471254849697,
+        "maximumEdgeBoundExcess": -4.1175313297836524e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06271684030070901,
+      "minimumY": 0.007512148469686508,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.8,
+      "maximumDisplacement": 3.033367808439356e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 5.295555907649287e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.0065076116970175,
+        "candidateMaximumMeaningfulEdgeRatio": 5.592658294203124,
+        "finalMaximumMeaningfulEdgeRatio": 3.006497974219775,
+        "maximumEdgeBoundExcess": -5.021481060824007e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06454016873613,
+      "minimumY": 0.006119397468864918,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.85,
+      "maximumDisplacement": 3.449868232843347e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 5.550493569643092e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.070611362024746,
+        "candidateMaximumMeaningfulEdgeRatio": 6.008704850437655,
+        "finalMaximumMeaningfulEdgeRatio": 3.0706030467865317,
+        "maximumEdgeBoundExcess": -7.616046068109616e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06663896003738046,
+      "minimumY": 0.005931466817855835,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.9,
+      "maximumDisplacement": 3.7726726833498965e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 5.551455269161454e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.31208194264312,
+        "candidateMaximumMeaningfulEdgeRatio": 6.245215262901782,
+        "finalMaximumMeaningfulEdgeRatio": 3.312071453350111,
+        "maximumEdgeBoundExcess": -3.3976099780841373e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06640042224898934,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 0.95,
+      "maximumDisplacement": 3.769728732309794e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 5.530819578793074e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.316056870799793,
+        "candidateMaximumMeaningfulEdgeRatio": 6.3056557118019,
+        "finalMaximumMeaningfulEdgeRatio": 3.3160452107468186,
+        "maximumEdgeBoundExcess": -2.4171574637688042e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.0675272704102099,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    },
+    {
+      "pose": "curl",
+      "progress": 1,
+      "maximumDisplacement": 3.769728732309794e-07,
+      "protectedFaceEarMaximumDisplacement": 0.0,
+      "outsideMaskMaximumDisplacement": 0.0,
+      "supportProjectedVertices": 0,
+      "maximumSupportLift": 0.0,
+      "edgeGuard": {
+        "alpha": 5.5188202621583965e-06,
+        "rawMaximumMeaningfulEdgeRatio": 3.2644954034492644,
+        "candidateMaximumMeaningfulEdgeRatio": 6.305887802082085,
+        "finalMaximumMeaningfulEdgeRatio": 3.264483762653176,
+        "maximumEdgeBoundExcess": -2.0587162460894426e-09,
+        "meaningfulEdges": 43823
+      },
+      "rejectedReason": null,
+      "minimumModifiedNeckSupportGap": 0.06710520246997476,
+      "minimumY": 0.003000000026077032,
+      "sourceRoundTripError": 0.0
+    }
+  ],
+  "postprocess": {
+    "neckEnabled": true,
+    "neckMode": "dq-continuous",
+    "neckDQBlend": 0.8,
+    "neckRestCycles": 0,
+    "neckRestFit": false,
+    "maximumRestTargetDisplacement": 0.0,
+    "continuousNeckHeadDiagonalRange": [
+      0.84,
+      1.01
+    ],
+    "cycles": 0,
+    "wristEnabled": false,
+    "wristMode": "taubin",
+    "wristDQBlend": 1.0,
+    "wristCycles": 12,
+    "positive": 0.45,
+    "negative": -0.47,
+    "processedNeckUniqueVertices": 3383,
+    "processedWristUniqueVertices": 0,
+    "protectedFaceEarUniqueVertices": 4758,
+    "newVertices": 0,
+    "supportProjection": "Only modified nonprotected neck points, exact parent CUDA floor .003 plus bilinear moving pillow; t0 unchanged",
+    "edgeGuard": "One global alpha on raw-to-candidate displacement including support projection; every original edge >.002 limited to max(raw length,1.95*rest length)+1e-7",
+    "host": "gsy-s-9cff6dc4f-65m6j",
+    "device": "NVIDIA L20",
+    "deviceIndex": 0,
+    "gpuUUID": "GPU-1a462216-9e7c-59c9-5e0f-a1d2b2ef1766",
+    "memoryLimitBytes": 4294967296
+  },
+  "parentGpuArtifacts": [
+    {
+      "manifest": "/workspace/projects/pineapple-cat-repair-20261016/raw-round6-final/reused-roll-manifest.json",
+      "manifestSHA256": "f1db33b390c09d74eda6d0ada2e20c054c06c72b883d5b5300cb4b0898a7ca94",
+      "artifact": {
+        "pose": "side",
+        "file": "side-skin.f32",
+        "bytes": 9503928,
+        "sha256": "ef237789fc2384ba6471fdc92b5026a80d9cc58ad8a92e20a5e360433c89404f"
+      }
+    },
+    {
+      "manifest": "/workspace/projects/pineapple-cat-repair-20261016/raw-round6-final/reused-roll-manifest.json",
+      "manifestSHA256": "f1db33b390c09d74eda6d0ada2e20c054c06c72b883d5b5300cb4b0898a7ca94",
+      "artifact": {
+        "pose": "belly",
+        "file": "belly-skin.f32",
+        "bytes": 9503928,
+        "sha256": "9ac96c78c789d8b6e478d58cfd50f813603eb6d9a732dd653cc10f7154b3a322"
+      }
+    },
+    {
+      "manifest": "/workspace/projects/pineapple-cat-repair-20261016/raw-round6-final/curl-manifest.json",
+      "manifestSHA256": "011f7d5b285832798c20c04bf465cee0348f357c17992de0c54a954390930c63",
+      "artifact": {
+        "pose": "curl",
+        "file": "curl-skin.f32",
+        "bytes": 9503928,
+        "sha256": "339456e8793089cf2b7cfd0f9590de7c8dab70e19000c99c1389e204ee02615c"
+      }
+    }
+  ]
+}

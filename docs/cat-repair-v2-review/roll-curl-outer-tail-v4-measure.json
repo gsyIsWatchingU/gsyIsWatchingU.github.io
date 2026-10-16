@@ -1,0 +1,189 @@
+{
+  "status": "raw-control-rig-review",
+  "source": "tmp/cat-repair-v2/neck-weighted/anatomy-neutral.glb",
+  "poses": [
+    {
+      "id": "side",
+      "zeroQuaternionRadians": 0,
+      "zeroPositionDelta": 0,
+      "maxLocalQuaternionStepRadians": 0.11623989374910353,
+      "worstStep": {
+        "name": "DEF_front_r_upper",
+        "t": 0.5869565217391305
+      },
+      "worstRawFloor": -0.015247068378733917,
+      "worstPoint": {
+        "t": 0.5652173913043478,
+        "mesh": "siamese_cat",
+        "i": 6038,
+        "p": [
+          0.024941505622247187,
+          -0.015247068378733917,
+          0.24353114068250112
+        ],
+        "weights": [
+          {
+            "name": "DEF_front_r_lower",
+            "w": 0.7769801616668701
+          },
+          {
+            "name": "DEF_front_r_upper",
+            "w": 0.22301986813545227
+          },
+          {
+            "name": "CTRL_ground",
+            "w": 0
+          },
+          {
+            "name": "CTRL_ground",
+            "w": 0
+          }
+        ]
+      },
+      "rows": [
+        {
+          "t": 0,
+          "minY": 0.00016477412321069806
+        },
+        {
+          "t": 0.25,
+          "minY": 0.004999998611633102
+        },
+        {
+          "t": 0.5,
+          "minY": -0.002405597999763335
+        },
+        {
+          "t": 0.75,
+          "minY": 0.004999997295826342
+        },
+        {
+          "t": 1,
+          "minY": -0.005123422390556033
+        }
+      ]
+    },
+    {
+      "id": "belly",
+      "zeroQuaternionRadians": 0,
+      "zeroPositionDelta": 0,
+      "maxLocalQuaternionStepRadians": 0.1229380943473646,
+      "worstStep": {
+        "name": "DEF_back_r_lower",
+        "t": 0.7608695652173914
+      },
+      "worstRawFloor": -0.005984260136060668,
+      "worstPoint": {
+        "t": 0.8478260869565217,
+        "mesh": "siamese_cat_head",
+        "i": 6797,
+        "p": [
+          0.09438577955248123,
+          -0.005984260136060668,
+          0.5981871720540199
+        ],
+        "weights": [
+          {
+            "name": "DEF_ear_r",
+            "w": 1
+          },
+          {
+            "name": "CTRL_ground",
+            "w": 0
+          },
+          {
+            "name": "CTRL_ground",
+            "w": 0
+          },
+          {
+            "name": "CTRL_ground",
+            "w": 0
+          }
+        ]
+      },
+      "rows": [
+        {
+          "t": 0,
+          "minY": 0.00016477412321069806
+        },
+        {
+          "t": 0.25,
+          "minY": 0.004999998611633102
+        },
+        {
+          "t": 0.5,
+          "minY": 0.025418816929674803
+        },
+        {
+          "t": 0.75,
+          "minY": 0.007999999999999986
+        },
+        {
+          "t": 1,
+          "minY": 0.00402622346806999
+        }
+      ]
+    },
+    {
+      "id": "curl",
+      "zeroQuaternionRadians": 0,
+      "zeroPositionDelta": 0,
+      "maxLocalQuaternionStepRadians": 0.10092573271263094,
+      "worstStep": {
+        "name": "DEF_front_l_paw",
+        "t": 0.6630434782608695
+      },
+      "worstRawFloor": -0.0038188439206250694,
+      "worstPoint": {
+        "t": 0.4891304347826087,
+        "mesh": "siamese_cat",
+        "i": 6038,
+        "p": [
+          0.08514635651441291,
+          -0.0038188439206250694,
+          0.2395015383892288
+        ],
+        "weights": [
+          {
+            "name": "DEF_front_r_lower",
+            "w": 0.7769801616668701
+          },
+          {
+            "name": "DEF_front_r_upper",
+            "w": 0.22301986813545227
+          },
+          {
+            "name": "CTRL_ground",
+            "w": 0
+          },
+          {
+            "name": "CTRL_ground",
+            "w": 0
+          }
+        ]
+      },
+      "rows": [
+        {
+          "t": 0,
+          "minY": 0.00016477412321069806
+        },
+        {
+          "t": 0.25,
+          "minY": 0.004999998848769774
+        },
+        {
+          "t": 0.5,
+          "minY": -0.002554482591426976
+        },
+        {
+          "t": 0.75,
+          "minY": 0.006653699826498182
+        },
+        {
+          "t": 1,
+          "minY": -0.0016473147559472525
+        }
+      ]
+    }
+  ]
+}

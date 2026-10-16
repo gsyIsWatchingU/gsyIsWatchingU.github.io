@@ -1,0 +1,29 @@
+{
+  "region": "original pelvis weight > .4; rest z < -.08, y > .17, |x| < .14",
+  "vertices": 1065,
+  "sourceSHA256": "4cfc520e91637d5f130eeb886d79f1ecc5c061d3e3c4edb885cf2615341ef846",
+  "records": [
+    {
+      "version": "round5-final-raw",
+      "skinSHA256": "7ebaa638b019fcaf96c0beff0010238e5b7c9ff05d62d5345e25a7d9b93b92a0",
+      "rumpYPercentiles": {
+        "minimum": 0.06562090665102005,
+        "p05": 0.10326801240444183,
+        "median": 0.18861031532287598,
+        "p95": 0.3274902284145355,
+        "maximum": 0.3510778844356537
+      }
+    },
+    {
+      "version": "round6-final-raw",
+      "skinSHA256": "339456e8793089cf2b7cfd0f9590de7c8dab70e19000c99c1389e204ee02615c",
+      "rumpYPercentiles": {
+        "minimum": 0.026103604584932327,
+        "p05": 0.053863897919654846,
+        "median": 0.1445571780204773,
+        "p95": 0.2848307728767395,
+        "maximum": 0.30657973885536194
+      }
+    }
+  ]
+}
