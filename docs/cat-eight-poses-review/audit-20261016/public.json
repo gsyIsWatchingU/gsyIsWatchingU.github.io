@@ -1,0 +1,21 @@
+{
+  "checkedOn": "2026-10-16",
+  "base": "https://gsyiswatchingu.github.io/",
+  "model": {
+    "path": "assets/house-review/props/siamese-cat-eight-poses.glb",
+    "bytes": 77054028,
+    "localAndPublicSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
+    "byteExact": true
+  },
+  "viewer": {
+    "path": "docs/cat-eight-poses-review/viewer.js",
+    "bytes": 713772,
+    "localAndPublicSHA256": "e1d7156347ab2e2a000ffce50b1ae0689663a6338e8b43275936aa9409814ecd",
+    "byteExact": true
+  },
+  "manifest": {
+    "path": "docs/cat-eight-poses-review/runtime.json",
+    "parsedContentsEqual": true,
+    "bytesEqual": false
+  }
+}

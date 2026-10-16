@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "humanReview": "pending",
+  "scope": "实际导出的 16 段骨骼动作：8 种进入片段的 1112 帧全网格接地、连续性、拉伸分布；静止终态检查 UV 接缝张开；起身片段为逐帧逆序；脸部贴图像素保留。观感仍需审看。",
+  "runtimeSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
+  "bones": 35,
+  "clips": 16,
+  "parts": [
+    {
+      "name": "siamese_cat",
+      "vertices": 10718,
+      "seamGroups": 1516,
+      "maxWeightError": 4.186586011201143e-8
+    },
+    {
+      "name": "siamese_cat_head",
+      "vertices": 8139,
+      "seamGroups": 1688,
+      "maxWeightError": 3.725290298461914e-8
+    }
+  ],
+  "maxInitialShapeError": 8.049386078974586e-9,
+  "maximumUVSeamOpening": 0,
+  "headBodySeamPairs": 239,
+  "maximumHeadBodyOpening": 0,
+  "minimumFloor": 0.00299997394044083,
+  "maxFrameDisplacement": 0.04634995154121538,
+  "p99EdgeStretch": 1.6401763184469422,
+  "maxEdgeStretch": 5.605652955277292,
+  "records": [
+    {
+      "pose": "side",
+      "frames": 139,
+      "minimumFloor": 0.0029999856033635875,
+      "maxFrameDisplacement": 0.04634995154121538,
+      "p99EdgeStretch": 1.497447243578165,
+      "maxEdgeStretch": 3.219293709577555
+    },
+    {
+      "pose": "prone",
+      "frames": 139,
+      "minimumFloor": 0.002999980135437905,
+      "maxFrameDisplacement": 0.022107748059045272,
+      "p99EdgeStretch": 1.3965903528059125,
+      "maxEdgeStretch": 2.7136767804627744
+    },
+    {
+      "pose": "belly",
+      "frames": 139,
+      "minimumFloor": 0.002999980829653498,
+      "maxFrameDisplacement": 0.04442865053556542,
+      "p99EdgeStretch": 1.614380478482167,
+      "maxEdgeStretch": 5.605652955277292
+    },
+    {
+      "pose": "curl",
+      "frames": 139,
+      "minimumFloor": 0.002999980135437905,
+      "maxFrameDisplacement": 0.022384298309928052,
+      "p99EdgeStretch": 1.490898537350253,
+      "maxEdgeStretch": 3.4876936676882613
+    },
+    {
+      "pose": "stretch",
+      "frames": 139,
+      "minimumFloor": 0.00299997394044083,
+      "maxFrameDisplacement": 0.022107749062369175,
+      "p99EdgeStretch": 1.6401763184469422,
+      "maxEdgeStretch": 2.7360165104589655
+    },
+    {
+      "pose": "pillow",
+      "frames": 139,
+      "minimumFloor": 0.0029999800859236633,
+      "maxFrameDisplacement": 0.020904454758374675,
+      "p99EdgeStretch": 1.4842094288836072,
+      "maxEdgeStretch": 3.3701793668584057
+    },
+    {
+      "pose": "loaf",
+      "frames": 139,
+      "minimumFloor": 0.0029999800859236633,
+      "maxFrameDisplacement": 0.016475210644481503,
+      "p99EdgeStretch": 1.4195455692900367,
+      "maxEdgeStretch": 3.507639465356999
+    },
+    {
+      "pose": "wall",
+      "frames": 139,
+      "minimumFloor": 0.0029999800859236633,
+      "maxFrameDisplacement": 0.016475210644481503,
+      "p99EdgeStretch": 1.4195455247518425,
+      "maxEdgeStretch": 3.5076394653569984
+    }
+  ],
+  "failures": []
+}

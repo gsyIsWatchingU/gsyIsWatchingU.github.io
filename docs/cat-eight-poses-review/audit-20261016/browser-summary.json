@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-16",
+  "visualStatus": "rejected",
+  "modelChanged": false,
+  "runtimeSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
+  "viewport": [
+    1200,
+    900
+  ],
+  "screenshots": 88,
+  "motion": [
+    {
+      "pose": "side",
+      "enterFrames": 94,
+      "riseFrames": 94,
+      "enterRange": [
+        0.0021739130434782613,
+        1
+      ],
+      "riseRange": [
+        0.9978260869565218,
+        0
+      ]
+    },
+    {
+      "pose": "prone",
+      "enterFrames": 94,
+      "riseFrames": 94,
+      "enterRange": [
+        0.0021739130434782613,
+        1
+      ],
+      "riseRange": [
+        0.9978260869565218,
+        0
+      ]
+    },
+    {
+      "pose": "belly",
+      "enterFrames": 94,
+      "riseFrames": 94,
+      "enterRange": [
+        0.0021739130434782613,
+        1
+      ],
+      "riseRange": [
+        0.9978260869565218,
+        0
+      ]
+    },
+    {
+      "pose": "curl",
+      "enterFrames": 94,
+      "riseFrames": 94,
+      "enterRange": [
+        0.0021739130434782613,
+        1
+      ],
+      "riseRange": [
+        0.9978260869565218,
+        0
+      ]
+    },
+    {
+      "pose": "stretch",
+      "enterFrames": 94,
+      "riseFrames": 94,
+      "enterRange": [
+        0.0021739130434782613,
+        1
+      ],
+      "riseRange": [
+        0.9978260869565218,
+        0
+      ]
+    },
+    {
+      "pose": "pillow",
+      "enterFrames": 94,
+      "riseFrames": 94,
+      "enterRange": [
+        0.0021739130434782613,
+        1
+      ],
+      "riseRange": [
+        0.9978260869565218,
+        0
+      ]
+    },
+    {
+      "pose": "loaf",
+      "enterFrames": 94,
+      "riseFrames": 94,
+      "enterRange": [
+        0.0021739130434782613,
+        1
+      ],
+      "riseRange": [
+        0.9978260869565218,
+        0
+      ]
+    },
+    {
+      "pose": "wall",
+      "enterFrames": 94,
+      "riseFrames": 94,
+      "enterRange": [
+        0.0021739130434782613,
+        1
+      ],
+      "riseRange": [
+        0.9978260869565218,
+        0
+      ]
+    }
+  ],
+  "events": [
+    {
+      "stage": "boot",
+      "type": "warning",
+      "text": "THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead."
+    }
+  ],
+  "rawEvidence": "tmp/cat-posture-audit-20261016/"
+}

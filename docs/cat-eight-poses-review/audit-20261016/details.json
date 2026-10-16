@@ -1,0 +1,13 @@
+{
+  "runtimeSHA256": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
+  "scope": "temporary diagnostic export; hides wall only for occluded-side inspection; model unchanged",
+  "screenshots": 6,
+  "events": [
+    {
+      "stage": "boot",
+      "type": "warning",
+      "text": "THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead."
+    }
+  ],
+  "cpuComparisonAvailable": "function"
+}
