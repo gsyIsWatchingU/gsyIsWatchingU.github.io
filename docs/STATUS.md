@@ -6,7 +6,7 @@
 - 加载标题由「欢迎来到比奇堡」改为「欢迎来到 gsyIsWatchingU 的小小世界~」。
 - `npm run build` / `npm run check` / `git diff --check` 通过；本地无头 Chrome 冒烟验证新标题生效、旧标题与 `.neighborhood-hint` 视觉提示已移除，页面模型与街景正常渲染（canvas 就绪、无资源失败）。
 - 审查目录 `docs/cat-eight-poses-review/` 与 `docs/living-furniture-review/` 的 4 个文件仅有行尾差异（内容规范化后一致），未纳入提交。
-- 发布：`34a7ede` 已推送 `fix/neighborhood-review-v6`。
+- 发布：`34a7ede` 已推送 `fix/neighborhood-review-v6`，经合并提交 `49893b4` 合入 main 并部署 GitHub Pages；线上验证新标题生效、旧标题与视觉提示均已移除（约 3 分钟后生效）。
 
 ## 猫咪绑定与八姿 GPU 重做（2026-10-16）
 
