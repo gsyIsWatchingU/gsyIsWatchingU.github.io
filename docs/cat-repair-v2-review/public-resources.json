@@ -1,0 +1,42 @@
+{
+  "commit": "3919f4b4c2cf97cc57aa021db7a66666fbbb0e32",
+  "checkedAt": "2026-10-16T05:04:50.154Z",
+  "base": "https://gsyiswatchingu.github.io/",
+  "records": [
+    {
+      "file": "docs/cat-repair-v2-review/index.html",
+      "status": 200,
+      "bytes": 2939,
+      "sha256": "9e965f70de27afee1eaf915446fb37bf411c8337fe45e7cc887bf2d6994beeca",
+      "matches": true
+    },
+    {
+      "file": "docs/cat-repair-v2-review/viewer.js",
+      "status": 200,
+      "bytes": 712709,
+      "sha256": "bce825e4ce3a5933cdd9169b8959c7ea052912727009f47b78e4d98250d1fc19",
+      "matches": true
+    },
+    {
+      "file": "docs/cat-repair-v2-review/runtime.json",
+      "status": 200,
+      "bytes": 40371,
+      "sha256": "e6b490eccb4b6d3bfcaf0dc5acd660a251a24a78920e9fe19a189574efd3742e",
+      "matches": true
+    },
+    {
+      "file": "assets/house-review/props/siamese-cat-repair-v2-neutral.glb",
+      "status": 200,
+      "bytes": 9604592,
+      "sha256": "4cfc520e91637d5f130eeb886d79f1ecc5c061d3e3c4edb885cf2615341ef846",
+      "matches": true
+    },
+    {
+      "file": "assets/house-review/props/siamese-cat-repair-v2.glb",
+      "status": 200,
+      "bytes": 93763000,
+      "sha256": "61fc99bcf77c6bba94bcfdc503586117880029aa6ce211ac22cc136d95ad7863",
+      "matches": true
+    }
+  ]
+}

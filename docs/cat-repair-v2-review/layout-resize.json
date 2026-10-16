@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "scope": "Local real Chrome layout resize with new CSS/setSize(false); independent of model loading",
+  "records": [
+    {
+      "requested": [
+        1200,
+        900,
+        false
+      ],
+      "actual": {
+        "width": 1200,
+        "client": 1200,
+        "scroll": 1200,
+        "canvas": 1200,
+        "nav": 1180
+      }
+    },
+    {
+      "requested": [
+        390,
+        844,
+        true
+      ],
+      "actual": {
+        "width": 390,
+        "client": 390,
+        "scroll": 390,
+        "canvas": 390,
+        "nav": 380
+      }
+    },
+    {
+      "requested": [
+        844,
+        390,
+        true
+      ],
+      "actual": {
+        "width": 844,
+        "client": 844,
+        "scroll": 844,
+        "canvas": 844,
+        "nav": 824
+      }
+    },
+    {
+      "requested": [
+        390,
+        844,
+        true
+      ],
+      "actual": {
+        "width": 390,
+        "client": 390,
+        "scroll": 390,
+        "canvas": 390,
+        "nav": 380
+      }
+    }
+  ]
+}

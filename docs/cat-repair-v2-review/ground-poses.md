@@ -28,4 +28,4 @@
 
 ![round5 原始 GPU 曲面多视角](ground-gpu-round5.jpg)
 
-**当前已有真实 GPU 曲面，颈腕处理和最终标准 GLB 仍待复核，尚不能判定外观修复完成。**
+最终标准 GLB 已通过真实压缩重导入和本地 Chrome 交互复核，见 `ground-glb-review.md`。**颈圈与腕根细褶仍待审，尚不能判定全部外观修复完成。**

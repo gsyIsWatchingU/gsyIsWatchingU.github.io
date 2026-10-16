@@ -2,6 +2,8 @@
 
 `scripts/art/cat_repair_v2_surface_qc.py` 仅依赖 NumPy，读取实际 GLB 拓扑、goals 元数据和 GPU 世界坐标 `*-skin.f32`。不抽样三角，不以 p99 替代局部极值。
 
+当前交付为 `final-v1`，实际 GLB SHA256 `61fc99bc…`。最终结果见 [翻身三姿](surface-qc-final-v1-roll.md)、[地面五姿完整数据](surface-qc-final-ground.json)、[实际 GLB 复核](ground-glb-review.md)。下方 round3/round4 为历史排查，不是最终结果。
+
 ```powershell
 python scripts/art/cat_repair_v2_surface_qc.py --source tmp/cat-repair-v2/input-round3/anatomy-neutral.glb --goals tmp/cat-repair-v2/input-round3/goals.json --skin tmp/cat-repair-v2/solved/round3 --out docs/cat-repair-v2-review/surface-qc-round3.json
 ```

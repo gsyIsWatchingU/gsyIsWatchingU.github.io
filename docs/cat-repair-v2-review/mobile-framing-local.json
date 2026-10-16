@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "scope": "Local real Chrome 390x844, paused pillow endpoint with full animated GLB; camera adjustment only; physical phone untested",
+  "actual": {
+    "width": 390,
+    "scroll": 390,
+    "nav": 380,
+    "pose": {
+      "pose": "pillow",
+      "time": 4.6,
+      "target": 4.6,
+      "progress": 1,
+      "velocity": 0,
+      "pending": null,
+      "state": "resting",
+      "phase": "放松",
+      "reactions": 0,
+      "tailLift": 0,
+      "greeting": 0,
+      "headYaw": 0,
+      "headQuaternion": [
+        -0.04977688938379288,
+        -0.08976622670888901,
+        0.004492055159062147,
+        0.9947080612182617
+      ],
+      "tailQuaternion": [
+        0,
+        0.022498100996017456,
+        0,
+        0.9997468590736389
+      ],
+      "paused": true,
+      "plain": false,
+      "furry": true,
+      "wallShown": true,
+      "playbackSpeed": 1,
+      "eyesClosure": 1,
+      "whiskers": 12,
+      "camera": [
+        -1.5499999999999998,
+        0.6999999999999997,
+        1.55
+      ],
+      "cameraTarget": [
+        0,
+        0.25,
+        0.01
+      ],
+      "morphStream": {
+        "slots": 8,
+        "meshes": 16,
+        "geometries": 6,
+        "maximumActive": 1,
+        "gpuMorphBytes": 13500416
+      }
+    }
+  }
+}

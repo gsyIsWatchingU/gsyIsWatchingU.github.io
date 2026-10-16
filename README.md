@@ -20,7 +20,7 @@
 
 红扶手椅的新参考候选见[三维对照](docs/chair-reference-review/)，保持待审，正式首页保留现有椅子。
 
-客厅默认宠物为已确认的短绒毛暹罗幼猫，可自动行走；点击后正面看向镜头。正式页坐卧暂时停用；被否定的旧候选已撤回，重做见 [八种睡姿独立预览](docs/cat-eight-poses-review/)。造型、来源与动作验证见 [猫咪记录](docs/cat-fur-review/README.md)，整屋脱敏截图见 [九图展示](docs/house-gallery-review/index.html)。
+客厅默认宠物为已确认的短绒毛暹罗幼猫，可自动行走；点击后正面看向镜头。正式页坐卧暂时停用；新绑定与两台 L20 重算的候选见 [八姿 GPU 重做预览](docs/cat-repair-v2-review/)，颈腕局部折褶仍待修整及视觉确认。原候选保留作版本对照。造型、来源与动作验证见 [猫咪记录](docs/cat-fur-review/README.md)，整屋脱敏截图见 [九图展示](docs/house-gallery-review/index.html)。
 
 按用户参考重做的[绿管沙发与紫色音乐贝壳](docs/living-furniture-review/)提供单件转台和客厅摆放预览，待视觉确认后替换正式页家具。
 
