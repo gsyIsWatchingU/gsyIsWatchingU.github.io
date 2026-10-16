@@ -1,0 +1,11 @@
+{
+  "status": "reproduced",
+  "base": "http://127.0.0.1:8770",
+  "waiting": {
+    "panel": false,
+    "retry": false,
+    "disabled": false,
+    "progress": "0%"
+  },
+  "blankWhileFullDownloadPending": true
+}
