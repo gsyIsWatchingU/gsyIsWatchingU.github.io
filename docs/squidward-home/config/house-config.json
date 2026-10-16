@@ -1,8 +1,8 @@
 {
-  "version": "20261016-hand-22",
+  "version": "20261016-hand-22b",
   "status": "review",
   "note": "手端按新参考改为连续扁宽下垂的触手；移除看夹板动作；保留喜怒哀与散步、招手。",
-  "cacheBust": "v=20261016-hand-22",
+  "cacheBust": "v=20261016-hand-22b",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,
@@ -41,8 +41,8 @@
           0.6
         ],
         "rotationY": 0,
-        "approval": "用户于2026-10-13要求将当前模型接入章鱼哥家，尺寸尽量小。",
-        "scope": "参考用户图片制作骨骼活动与面部形变，当前预览待审",
+        "approval": "用户于2026-10-16确认当前 hand-v22b 角色并要求上线。",
+        "scope": "当前角色造型、触手与动作已确认，正式首页与家中页使用。",
         "walkRoute": [
           [
             0.7,
@@ -61,7 +61,9 @@
             0.74
           ]
         ],
-        "speedMultiplier": 2.3
+        "speedMultiplier": 2.3,
+        "status": "approved",
+        "revision": "hand-v22b"
       },
       "models": {
         "desktop": {

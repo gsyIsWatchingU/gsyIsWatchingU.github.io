@@ -2,11 +2,11 @@ import * as T from 'three';
 
 // 触手用连续椭圆截面放样；末端展开后下垂，不回卷成钩或分叉成手指。
 export function armSurface(){
- const wrist=new T.Vector3(-.223,.838,.055),handY=new T.Vector3(-.07,-.145,.005).normalize(),handX=new T.Vector3(-handY.y,handY.x,0).normalize();
+ const wrist=new T.Vector3(-.268,.838,.055),handY=new T.Vector3(-.02,-.145,.005).normalize(),handX=new T.Vector3(-handY.y,handY.x,0).normalize();
  const world=(x,y,z=0)=>wrist.clone().addScaledVector(handX,x).addScaledVector(handY,y).add(new T.Vector3(0,0,z));
  const controls=[
-  [-.171,1.170,.025,.027,.026],[-.185,1.095,.032,.029,.027],[-.205,1.005,.040,.030,.027],[-.216,.915,.049,.025,.023],[-.223,.838,.055,.022,.020],
-  ...[[0,.028,0,.028,.019],[.012,.056,0,.037,.017],[.040,.079,0,.041,.015],[.075,.083,0,.035,.013],[.110,.070,0,.025,.010],[.143,.052,0,.012,.006],[.159,.048,0,0,0]].map(([x,y,z,w,d])=>[...world(x,y,z).toArray(),w,d])
+  [-.171,1.170,.025,.027,.026],[-.185,1.095,.032,.029,.027],[-.205,1.005,.040,.030,.027],[-.246,.915,.049,.025,.023],[-.268,.838,.055,.022,.020],
+  ...[[0,.028,0,.028,.019],[-.012,.056,0,.037,.017],[-.040,.079,0,.041,.015],[-.075,.083,0,.035,.013],[-.110,.070,0,.025,.010],[-.143,.052,0,.012,.006],[-.159,.048,0,0,0]].map(([x,y,z,w,d])=>[...world(x,y,z).toArray(),w,d])
  ];
  const curve=new T.CatmullRomCurve3(controls.map(p=>new T.Vector3(...p.slice(0,3))),false,'centripetal'),profile=new T.CatmullRomCurve3(controls.map(p=>new T.Vector3(p[3],p[4],0)),false,'catmullrom',.35),rings=112,sides=32,positions=[],indices=[],weights=[];
  const smooth=t=>{t=T.MathUtils.clamp(t,0,1);return t*t*t*(10+t*(-15+6*t));};
