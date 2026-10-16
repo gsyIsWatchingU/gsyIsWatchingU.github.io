@@ -3,12 +3,12 @@
   "status": "review",
   "humanReview": "pending",
   "model": "assets/models/squidward-bunny/squidward-bunny-active.glb",
-  "sha256": "46f30c42a62791cbf08779a80d3be3bf872c2d0b9f58b97f2c41b49bbdeb914e",
-  "triangles": 55920,
+  "sha256": "bb51cd55c727c81cba6d0f4277139596e4e085abd9309a87c22887a88de452ad",
+  "triangles": 55789,
   "bones": 24,
   "animations": 3,
   "morphs": 4,
-  "revision": "hand-v22",
+  "revision": "hand-v22b",
   "sourceCommit": "f1377382d15e886fc501de8521a0fc1b5b2e7a83",
   "sourceJobId": "413330331cd042a58d2cdb1080863637",
   "sourceBackend": "Hunyuan3D-2.1",
@@ -25,7 +25,7 @@
     "newGPUJob": false,
     "humanReview": "pending"
   },
-  "bytes": 5861484,
+  "bytes": 5860692,
   "referenceRepair": {
     "date": "2026-10-15",
     "previousSHA256": "be9d9631cd8e441974eb6b1c999c39e87ea889a02b46e040e9d6fe25693d257d",
@@ -47,7 +47,7 @@
   "handRepair": {
     "date": "2026-10-16",
     "previousSHA256": "73a0553376451c6c0646fc496682eb5847df2323b5ec4d83b0107c2bde169145",
-    "method": "替换被否定的小钩末端，按新参考拉出扁宽下垂轮廓；移除看夹板按钮、自动行为和 read 动作片段。",
+    "method": "替换小钩为扁宽下垂触手；垂手向外留出裙摆间距，抬手时分摊前臂与腕部旋转，清理 131 个原扫描左手残留三角形；移除看夹板按钮、自动行为和 read 动作片段。",
     "script": "scripts/art/optimize-squidward-reference.mjs",
     "newGPUJob": false,
     "humanReview": "pending"
