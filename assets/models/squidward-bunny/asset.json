@@ -1,7 +1,7 @@
 {
   "id": "squidward-bunny-active",
-  "status": "review",
-  "humanReview": "pending",
+  "status": "approved",
+  "humanReview": "approved",
   "model": "assets/models/squidward-bunny/squidward-bunny-active.glb",
   "sha256": "bb51cd55c727c81cba6d0f4277139596e4e085abd9309a87c22887a88de452ad",
   "triangles": 55789,
@@ -16,14 +16,14 @@
   "staticSourceSHA256": "bc8d355cd4e0783697d5871b11e3a4ef9d1e82fce01db4f80ff6102da3a1da8f",
   "integrationDate": "2026-10-15",
   "integrationRequest": "用户要求把章鱼哥与派大星房屋放到菠萝屋旁；保留当前角色与家中活动。",
-  "scope": "沿用2026-10-13活动候选，展示授权不等同独立造型批准",
+  "scope": "用户已确认当前 hand-v22b 角色版本，用于正式首页与章鱼哥家中页。",
   "motionRepair": {
     "date": "2026-10-16",
     "sourceSHA256": "54a34d939c1a8ef48ea0beb2e01d1073ffa11216fcf41ceaeed2098df33fcd78",
     "method": "左臂使用连续椭圆截面放样，末端扁宽并自然下垂；沿触手路径平滑分配肩肘腕权重，保留招手动作。",
     "script": "scripts/art/repair-squidward-wave.mjs",
     "newGPUJob": false,
-    "humanReview": "pending"
+    "humanReview": "approved"
   },
   "bytes": 5860692,
   "referenceRepair": {
@@ -42,7 +42,7 @@
       "wave"
     ],
     "newGPUJob": false,
-    "humanReview": "pending"
+    "humanReview": "approved"
   },
   "handRepair": {
     "date": "2026-10-16",
@@ -50,6 +50,13 @@
     "method": "替换小钩为扁宽下垂触手；垂手向外留出裙摆间距，抬手时分摊前臂与腕部旋转，清理 131 个原扫描左手残留三角形；移除看夹板按钮、自动行为和 read 动作片段。",
     "script": "scripts/art/optimize-squidward-reference.mjs",
     "newGPUJob": false,
-    "humanReview": "pending"
+    "humanReview": "approved"
+  },
+  "approval": {
+    "date": "2026-10-16",
+    "request": "可以，上线",
+    "revision": "hand-v22b",
+    "sha256": "bb51cd55c727c81cba6d0f4277139596e4e085abd9309a87c22887a88de452ad",
+    "scope": "当前角色造型、触手与动作，正式首页及家中页使用"
   }
 }
