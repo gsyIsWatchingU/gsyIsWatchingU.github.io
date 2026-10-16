@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "commit": "2593dccf82c907754598d8a8ac01053122a8618c",
+  "verifiedAt": "2026-10-16T03:24:39.158Z",
+  "records": [
+    {
+      "path": "squidward-model.html",
+      "sha256": "2e4fc7e8ab7e539253d10e3d55250af70ce81f27d331a78814186559fe6bcbae",
+      "status": 200,
+      "bytes": 2917,
+      "actualSHA256": "2e4fc7e8ab7e539253d10e3d55250af70ce81f27d331a78814186559fe6bcbae",
+      "match": true
+    },
+    {
+      "path": "assets/squidward-model.js",
+      "sha256": "297ffa49439a6b73c1452afa6f2d9cc45ac72e8f715fc89abc282206a0bc6bec",
+      "status": 200,
+      "bytes": 662697,
+      "actualSHA256": "297ffa49439a6b73c1452afa6f2d9cc45ac72e8f715fc89abc282206a0bc6bec",
+      "match": true
+    },
+    {
+      "path": "assets/models/squidward-bunny/squidward-bunny-active.glb",
+      "sha256": "bb51cd55c727c81cba6d0f4277139596e4e085abd9309a87c22887a88de452ad",
+      "status": 200,
+      "bytes": 5860692,
+      "actualSHA256": "bb51cd55c727c81cba6d0f4277139596e4e085abd9309a87c22887a88de452ad",
+      "match": true
+    },
+    {
+      "path": "assets/models/squidward-bunny/asset.json",
+      "sha256": "3a2d854a8bc71719355c7b5649dc6dd1de19ffd655f7273d2351b32c35f25694",
+      "status": 200,
+      "bytes": 2365,
+      "actualSHA256": "3a2d854a8bc71719355c7b5649dc6dd1de19ffd655f7273d2351b32c35f25694",
+      "match": true
+    },
+    {
+      "path": "docs/squidward-home/index.html",
+      "sha256": "ab89502fd9e3ba98831481410aca54fd2519e206286af7a31bb0dba147d69a93",
+      "status": 200,
+      "bytes": 1856,
+      "actualSHA256": "ab89502fd9e3ba98831481410aca54fd2519e206286af7a31bb0dba147d69a93",
+      "match": true
+    },
+    {
+      "path": "docs/squidward-home/app.js",
+      "sha256": "3081b91ee0d6a8066ac92808c4a64bee6492f64ba4e0ea42c0ce014a1efb682d",
+      "status": 200,
+      "bytes": 715929,
+      "actualSHA256": "3081b91ee0d6a8066ac92808c4a64bee6492f64ba4e0ea42c0ce014a1efb682d",
+      "match": true
+    },
+    {
+      "path": "docs/squidward-home/config/house-config.json",
+      "sha256": "b0a61310e9ef1dbb02f806ed4cc190af7a633aa9508a79e3070c016024640256",
+      "status": 200,
+      "bytes": 5829,
+      "actualSHA256": "b0a61310e9ef1dbb02f806ed4cc190af7a633aa9508a79e3070c016024640256",
+      "match": true
+    }
+  ],
+  "workflows": [
+    {
+      "id": 38845190231,
+      "name": "pages build and deployment",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/gsyIsWatchingU/gsyIsWatchingU.github.io/actions/runs/38845190231"
+    }
+  ],
+  "deploymentCheckedAt": "2026-10-16T03:27:29.338Z"
+}

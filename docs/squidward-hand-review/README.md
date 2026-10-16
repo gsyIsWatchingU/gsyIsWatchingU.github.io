@@ -23,10 +23,11 @@ node scripts/verify-squidward-reference-browser.mjs
 - `animation-check.json`：97 帧连续变形、封闭网格、权重归一化、起止闭合和四脚单连通通过；新增手端宽度、扁平程度及下垂量检查，防止回退成小钩。
 - 左臂拉伸与面积极值单独记录；至少 99% 三角形面积比例超过 0.12，不宣称全部局部变形无损。
 - `browser-local.json`：真实 Chrome 原生切换喜怒哀、120 帧招手/120 帧步态、三视角、多阶段、角色点击/连续点击、桌面/390×844 手机视口通过，零脚本与资源异常；验证两个入口及自主活动均无看夹板动作。
-- 手机实机性能与用户视觉审看尚未完成。
+- `browser-live.json`：公网同组交互通过；`public-resources.json`：功能版本 `2593dcc` 的 7 个关键资源逐字节一致，Pages 发布成功。
+- 表情采样等待自然眨眼结束；手机实机性能与用户视觉审看尚未完成。
 
-![同一动作进度的末端对照](comparison-local.jpg)
+![同一动作进度的末端对照](comparison-live.jpg)
 
-![三视角](views-local.jpg)
+![三视角](views-live.jpg)
 
-![垂手与裙摆间距](rest-local.jpg)
+![垂手与裙摆间距](rest-live.jpg)
