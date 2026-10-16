@@ -52,7 +52,6 @@ export function createHouseNeighborhood({root,scene,loader,camera,canvas,control
   const models=new Map(),boxes=new Map(),entrances=new Map();let visible=true,visiting=false,frame=null,transition=null,fadeTimer=null;
   const nav=document.createElement('nav');nav.className='neighborhood-labels';nav.setAttribute('aria-label','比奇堡三位邻居');root.append(nav);
   const back=document.createElement('button');back.className='neighborhood-return';back.textContent='← 返回比奇堡';back.hidden=true;root.append(back);
-  const note=document.createElement('p');note.className='neighborhood-hint';note.textContent='点击房子去做客 · 拖动环顾 · 滚轮或双指缩放';root.append(note);
   const visit=document.createElement('section');visit.className='neighborhood-visit';visit.hidden=true;visit.setAttribute('aria-label','邻居家中');root.append(visit);
   const fade=document.createElement('div');fade.className='neighborhood-fade';fade.hidden=true;root.append(fade);
   function state(value,id='',progress=0){root.dataset.entranceState=value;root.dataset.entranceHouse=id;root.dataset.entranceProgress=progress.toFixed(3);}
@@ -66,7 +65,7 @@ export function createHouseNeighborhood({root,scene,loader,camera,canvas,control
   }
   function choose(id){
     if(root.dataset.houseState!=='ready'||!models.has(id)||transition||visiting||!visible)return;
-    tooltipHide();nav.hidden=true;note.hidden=true;back.hidden=false;fade.hidden=false;fade.style.opacity='0';
+    tooltipHide();nav.hidden=true;back.hidden=false;fade.hidden=false;fade.style.opacity='0';
     const model=models.get(id),entrance=entrances.get(id),anchor=model.localToWorld(entrance.anchor.clone()),rock=id==='patrick';
     onTransition();controls.enabled=false;controls.enableDamping=false;
     const distance=Math.max(rock?15:5,(rock?4.2:1.2)/(Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*camera.aspect)),target=anchor.clone().add(new THREE.Vector3(0,rock?2.4:0,0)),position=anchor.clone().add(new THREE.Vector3(rock?2:.25,rock?distance*.5:distance*.13,distance));
@@ -76,7 +75,7 @@ export function createHouseNeighborhood({root,scene,loader,camera,canvas,control
     const button=document.createElement('button');button.className='neighborhood-label';button.textContent=spec.name;button.dataset.neighbor=spec.id;button.disabled=true;button.addEventListener('click',()=>choose(spec.id));nav.append(button);return [spec.id,button];
   }));
   function tooltipHide(){const tooltip=root.querySelector('[data-house-tooltip]');if(tooltip)tooltip.hidden=true;}
-  function show(){clearTimeout(fadeTimer);transition=null;controls.enabled=true;controls.enableDamping=true;fade.hidden=true;for(const e of entrances.values())e.reset();state('idle');tooltipHide();closeVisit();visible=true;group.visible=true;nav.hidden=false;note.hidden=false;back.hidden=true;root.dataset.neighborhood='street';onStreet();}
+  function show(){clearTimeout(fadeTimer);transition=null;controls.enabled=true;controls.enableDamping=true;fade.hidden=true;for(const e of entrances.values())e.reset();state('idle');tooltipHide();closeVisit();visible=true;group.visible=true;nav.hidden=false;back.hidden=true;root.dataset.neighborhood='street';onStreet();}
   back.addEventListener('click',show);
   window.addEventListener('keydown',event=>{if(event.key==='Escape'&&(visiting||transition)){event.preventDefault();show();}});
   function sandTexture(){
