@@ -84,24 +84,6 @@
   gap: clamp(9px, 1vw, 15px);
 }
 
-.brand__symbol {
-  width: 68px;
-  height: 44px;
-  position: relative;
-  display: block;
-  overflow: hidden;
-}
-
-.brand__symbol img {
-  position: absolute;
-  width: 82px;
-  max-width: none;
-  left: 50%;
-  top: 53%;
-  transform: translate(-50%, -50%);
-  filter: brightness(0);
-}
-
 .brand__wordmark {
   display: inline-block;
   margin-top: 2px;
@@ -193,27 +175,9 @@
     height: 44px;
   }
 
-  .brand__symbol {
-    width: 62px;
-    height: 38px;
-  }
-
-  .brand__symbol img {
-    width: 75px;
-    top: 53%;
-  }
-
-  .brand {
-    gap: 6px;
-  }
-
   .brand__wordmark {
     margin-top: 1px;
     font-size: 15px;
-  }
-
-  .brand__wordmark {
-    display: none;
   }
 
   .header-email {
