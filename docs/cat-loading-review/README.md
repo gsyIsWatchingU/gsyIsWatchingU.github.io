@@ -13,4 +13,6 @@ node scripts/verify-cat-preview-loading.mjs
 node scripts/verify-cat-preview-loading.mjs --live
 ```
 
+发布 `9b341ab`，7 个关键资源与提交逐字节一致；本地与公网均通过延迟下载、模拟断网、重试恢复、动作点击、390×844 手机等待布局及版本往返检查，预期断网外零异常。
+
 本轮修复加载体验；模型仍为独立候选，手机实机性能待测。

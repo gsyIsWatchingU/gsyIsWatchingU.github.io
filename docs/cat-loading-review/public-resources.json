@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "commit": "9b341ab5b3444591771928320819bf5b4286a13f",
+  "records": [
+    {
+      "path": "docs/cat-eight-poses-review/index.html",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/viewer.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "docs/cat-eight-poses-review/runtime.json",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "docs/cat-loading-review/README.md",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "scripts/cat-preview-loading.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-cat-clean-bound.glb",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/house-review/props/siamese-cat-eight-poses.glb",
+      "status": 200,
+      "match": true
+    }
+  ]
+}

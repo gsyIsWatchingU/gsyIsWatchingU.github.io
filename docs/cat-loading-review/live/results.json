@@ -1,0 +1,248 @@
+{
+  "status": "passed",
+  "base": "https://gsyiswatchingu.github.io",
+  "waiting": {
+    "loaded": "false",
+    "preview": "true",
+    "stage": "animation",
+    "panel": true,
+    "detail": "猫咪外观已就绪，正在载入完整动作…",
+    "retry": false,
+    "disabled": true,
+    "progress": "0%"
+  },
+  "failed": {
+    "loaded": "false",
+    "preview": "true",
+    "stage": "error",
+    "panel": true,
+    "detail": "猫咪已显示，动作加载失败，请重试。",
+    "retry": true,
+    "disabled": true,
+    "progress": "0%"
+  },
+  "ready": {
+    "loaded": "true",
+    "preview": "true",
+    "stage": "ready",
+    "panel": false,
+    "detail": "正在整理猫咪动作…",
+    "retry": false,
+    "disabled": false,
+    "progress": "65%",
+    "snapshot": {
+      "pose": "side",
+      "time": 2.9899999999999998,
+      "target": 4.6,
+      "progress": 0.65,
+      "velocity": 0,
+      "pending": null,
+      "state": "lowering",
+      "phase": "调整身体",
+      "reactions": 0,
+      "tailLift": 0,
+      "greeting": 0,
+      "headYaw": 0,
+      "headQuaternion": [
+        0.006402936728814919,
+        0,
+        0,
+        0.9999795009905187
+      ],
+      "tailQuaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "paused": true,
+      "plain": false,
+      "furry": true,
+      "playbackSpeed": 1,
+      "eyesClosure": 0,
+      "whiskers": 12,
+      "camera": [
+        -1.5499999999999998,
+        0.6999999999999997,
+        1.55
+      ],
+      "cameraTarget": [
+        0,
+        0.25,
+        0.01
+      ],
+      "morphStream": {
+        "slots": 8,
+        "meshes": 16,
+        "geometries": 6,
+        "maximumActive": 3,
+        "gpuMorphBytes": 47480832
+      }
+    }
+  },
+  "mobile": {
+    "preview": "true",
+    "inView": true
+  },
+  "comparison": {
+    "expected": {
+      "sha": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
+      "snapshot": {
+        "pose": "side",
+        "time": 2.9899999999999998,
+        "target": 4.6,
+        "progress": 0.65,
+        "velocity": 0,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          0.006402936728814919,
+          0,
+          0,
+          0.9999795009905187
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": true,
+        "plain": false,
+        "furry": true,
+        "playbackSpeed": 1,
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 19103744
+        }
+      }
+    },
+    "old": {
+      "sha": "49c099f1e86ade5221f7c9b50f91321c95c08ccf58d8a524688605f57463a8a1",
+      "snapshot": {
+        "pose": "side",
+        "time": 2.9899999999999998,
+        "target": 4.6,
+        "progress": 0.65,
+        "velocity": 0,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          0.006402936728814919,
+          0,
+          0,
+          0.9999795009905187
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": true,
+        "plain": false,
+        "furry": true,
+        "playbackSpeed": 1,
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 2,
+          "gpuMorphBytes": 47480832
+        }
+      }
+    },
+    "latest": {
+      "sha": "a56a2a44f374ee111afc3a080747d3e972f5ab0f91edf297fb8bf6134e8c8fca",
+      "snapshot": {
+        "pose": "side",
+        "time": 2.9899999999999998,
+        "target": 4.6,
+        "progress": 0.65,
+        "velocity": 0,
+        "pending": null,
+        "state": "lowering",
+        "phase": "调整身体",
+        "reactions": 0,
+        "tailLift": 0,
+        "greeting": 0,
+        "headYaw": 0,
+        "headQuaternion": [
+          0.006402936728814919,
+          0,
+          0,
+          0.9999795009905187
+        ],
+        "tailQuaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "paused": true,
+        "plain": false,
+        "furry": true,
+        "playbackSpeed": 1,
+        "eyesClosure": 0,
+        "whiskers": 12,
+        "camera": [
+          -1.5499999999999998,
+          0.6999999999999997,
+          1.55
+        ],
+        "cameraTarget": [
+          0,
+          0.25,
+          0.01
+        ],
+        "morphStream": {
+          "slots": 8,
+          "meshes": 16,
+          "geometries": 6,
+          "maximumActive": 3,
+          "gpuMorphBytes": 47480832
+        }
+      }
+    }
+  },
+  "elapsedMs": 66892,
+  "expectedNetworkFailure": true,
+  "errors": []
+}
