@@ -1,8 +1,8 @@
 {
-  "version": "20261015-reference-21",
+  "version": "20261016-hand-22",
   "status": "review",
-  "note": "按参考重做无手指触手，清理脚部脱落细条；表情仅保留喜怒哀，眼睑、瞳孔与嘴形同步变化，独立于动作。",
-  "cacheBust": "v=20261015-reference-21",
+  "note": "手端按新参考改为连续扁宽下垂的触手；移除看夹板动作；保留喜怒哀与散步、招手。",
+  "cacheBust": "v=20261016-hand-22",
   "spaceConfigRef": "config/space-config.json",
   "camera": {
     "fov": 38,

@@ -11,8 +11,8 @@ export function skinnedBounds(root) {
   return box;
 }
 
-const labels = {idle:'休息',walk:'散步',wave:'招手',read:'看夹板'};
-const schedule = [['idle',3.2],['walk',7.5],['read',5.6],['idle',2.2],['wave',4]];
+const labels = {idle:'休息',walk:'散步',wave:'招手'};
+const schedule = [['idle',3.2],['walk',7.5],['idle',2.2],['wave',4]];
 export const squidwardEmotions={happy:'喜',annoyed:'怒',sad:'哀'};
 const mood = {
   annoyed:{angry:1},happy:{happy:1},sad:{sad:1}

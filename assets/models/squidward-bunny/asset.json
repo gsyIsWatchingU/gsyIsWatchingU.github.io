@@ -3,12 +3,12 @@
   "status": "review",
   "humanReview": "pending",
   "model": "assets/models/squidward-bunny/squidward-bunny-active.glb",
-  "sha256": "73a0553376451c6c0646fc496682eb5847df2323b5ec4d83b0107c2bde169145",
-  "triangles": 58724,
+  "sha256": "46f30c42a62791cbf08779a80d3be3bf872c2d0b9f58b97f2c41b49bbdeb914e",
+  "triangles": 55920,
   "bones": 24,
-  "animations": 4,
+  "animations": 3,
   "morphs": 4,
-  "revision": "reference-v21",
+  "revision": "hand-v22",
   "sourceCommit": "f1377382d15e886fc501de8521a0fc1b5b2e7a83",
   "sourceJobId": "413330331cd042a58d2cdb1080863637",
   "sourceBackend": "Hunyuan3D-2.1",
@@ -18,14 +18,14 @@
   "integrationRequest": "用户要求把章鱼哥与派大星房屋放到菠萝屋旁；保留当前角色与家中活动。",
   "scope": "沿用2026-10-13活动候选，展示授权不等同独立造型批准",
   "motionRepair": {
-    "date": "2026-10-15",
+    "date": "2026-10-16",
     "sourceSHA256": "54a34d939c1a8ef48ea0beb2e01d1073ffa11216fcf41ceaeed2098df33fcd78",
-    "method": "左臂重拓扑为单根卷曲触手，无手指；重新绑定肩肘腕，保留招手动作。",
+    "method": "左臂使用连续椭圆截面放样，末端扁宽并自然下垂；沿触手路径平滑分配肩肘腕权重，保留招手动作。",
     "script": "scripts/art/repair-squidward-wave.mjs",
     "newGPUJob": false,
     "humanReview": "pending"
   },
-  "bytes": 5958732,
+  "bytes": 5861484,
   "referenceRepair": {
     "date": "2026-10-15",
     "previousSHA256": "be9d9631cd8e441974eb6b1c999c39e87ea889a02b46e040e9d6fe25693d257d",
@@ -39,9 +39,16 @@
     "actions": [
       "idle",
       "walk",
-      "wave",
-      "read"
+      "wave"
     ],
+    "newGPUJob": false,
+    "humanReview": "pending"
+  },
+  "handRepair": {
+    "date": "2026-10-16",
+    "previousSHA256": "73a0553376451c6c0646fc496682eb5847df2323b5ec4d83b0107c2bde169145",
+    "method": "替换被否定的小钩末端，按新参考拉出扁宽下垂轮廓；移除看夹板按钮、自动行为和 read 动作片段。",
+    "script": "scripts/art/optimize-squidward-reference.mjs",
     "newGPUJob": false,
     "humanReview": "pending"
   }

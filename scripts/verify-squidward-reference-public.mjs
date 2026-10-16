@@ -22,5 +22,5 @@ for(let attempt=1;attempt<=60;attempt++){
 assert(records.every(r=>r.match),'公网资源尚未全部更新到目标提交');
 const response=await fetch('https://api.github.com/repos/gsyIsWatchingU/gsyIsWatchingU.github.io/actions/runs?per_page=10');
 const workflows=response.ok?(await response.json()).workflow_runs.filter(r=>r.head_sha===commit).map(r=>({id:r.id,name:r.name,status:r.status,conclusion:r.conclusion,url:r.html_url})):[];
-writeFileSync('docs/squidward-reference-review/public-resources.json',JSON.stringify({status:'passed',commit,verifiedAt:new Date().toISOString(),records,workflows},null,2)+'\n');
+writeFileSync('docs/squidward-hand-review/public-resources.json',JSON.stringify({status:'passed',commit,verifiedAt:new Date().toISOString(),records,workflows},null,2)+'\n');
 console.log('7 个公网资源与目标提交逐字节一致',commit,workflows);

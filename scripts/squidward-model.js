@@ -43,7 +43,7 @@ function fit(angle = front) {
   camera.lookAt(controls.target);controls.update();
 }
 new ResizeObserver(() => { renderer.setSize(stage.clientWidth, stage.clientHeight);camera.aspect = stage.clientWidth / stage.clientHeight;camera.updateProjectionMatrix();if(model)fit(front); }).observe(stage);
-new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-active.glb?v=20261015-reference-21', gltf => {
+new GLTFLoader().load('assets/models/squidward-bunny/squidward-bunny-active.glb?v=20261016-hand-22', gltf => {
   model = gltf.scene;actor=new THREE.Group();actor.add(model);scene.add(actor);scene.updateMatrixWorld(true);
   model.traverse(o => { if(o.isMesh){o.castShadow = true;o.receiveShadow = true;} });
   const box = skinnedBounds(model);
