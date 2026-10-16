@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "url": "https://gsyiswatchingu.github.io/",
+  "verifiedAt": "2026-10-16T03:39:30.599Z",
+  "records": [
+    {
+      "test": "homepage-to-living-room-native-wave",
+      "state": {
+        "url": "https://gsyiswatchingu.github.io/docs/squidward-home/index.html?autotest=cutaway",
+        "actions": [
+          "idle",
+          "walk",
+          "wave"
+        ],
+        "leftVertices": 3586,
+        "buttons": [
+          "walk",
+          "wave"
+        ],
+        "emotions": [
+          "喜",
+          "怒",
+          "哀"
+        ]
+      }
+    },
+    {
+      "test": "mobile-wave-and-return"
+    }
+  ],
+  "errors": []
+}

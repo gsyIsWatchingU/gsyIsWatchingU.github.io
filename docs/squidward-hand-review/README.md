@@ -31,3 +31,5 @@ node scripts/verify-squidward-reference-browser.mjs
 ![三视角](views-live.jpg)
 
 ![垂手与裙摆间距](rest-live.jpg)
+
+正式上线复核：`release-resources.json` 记录确认状态、模型哈希和 6 个公网资源一致；`release-browser.json` 记录从首页进入客厅、桌面/手机招手及返回，零脚本与资源异常。

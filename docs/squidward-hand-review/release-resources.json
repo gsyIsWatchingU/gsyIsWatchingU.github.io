@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "commit": "3a57db607970ccce3a46713c85bddbaab5cc39de",
+  "verifiedAt": "2026-10-16T03:43:01.375Z",
+  "approval": {
+    "date": "2026-10-16",
+    "request": "可以，上线",
+    "revision": "hand-v22b",
+    "sha256": "bb51cd55c727c81cba6d0f4277139596e4e085abd9309a87c22887a88de452ad",
+    "scope": "当前角色造型、触手与动作，正式首页及家中页使用"
+  },
+  "records": [
+    {
+      "path": "index.html",
+      "sha256": "d90db1b66ad501c37543e3612d44f107531a3d7df2b0e40c8aec4386ef47f0d2",
+      "status": 200,
+      "actualSHA256": "d90db1b66ad501c37543e3612d44f107531a3d7df2b0e40c8aec4386ef47f0d2",
+      "match": true
+    },
+    {
+      "path": "assets/models/squidward-bunny/squidward-bunny-active.glb",
+      "sha256": "bb51cd55c727c81cba6d0f4277139596e4e085abd9309a87c22887a88de452ad",
+      "status": 200,
+      "actualSHA256": "bb51cd55c727c81cba6d0f4277139596e4e085abd9309a87c22887a88de452ad",
+      "match": true
+    },
+    {
+      "path": "assets/models/squidward-bunny/asset.json",
+      "sha256": "05fd685c409ab9b1addae65c764f7481660f8e85a8363cbd9f90e6772155c5e8",
+      "status": 200,
+      "actualSHA256": "05fd685c409ab9b1addae65c764f7481660f8e85a8363cbd9f90e6772155c5e8",
+      "match": true
+    },
+    {
+      "path": "docs/squidward-home/config/house-config.json",
+      "sha256": "050c2198889a7ca0e90d1bb16e96bb5ff7bd581a85c814696cf5023e40caa519",
+      "status": 200,
+      "actualSHA256": "050c2198889a7ca0e90d1bb16e96bb5ff7bd581a85c814696cf5023e40caa519",
+      "match": true
+    },
+    {
+      "path": "docs/squidward-hand-review/README.md",
+      "sha256": "af7a624aafcab3f2b70809b5c698484bd8889797fae8a15b6c3e11d7cde19620",
+      "status": 200,
+      "actualSHA256": "af7a624aafcab3f2b70809b5c698484bd8889797fae8a15b6c3e11d7cde19620",
+      "match": true
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "c27d0bfebe404c13d4c1b1a76dc62d17733ae3c57071c456f4f94d18351cbd8b",
+      "status": 200,
+      "actualSHA256": "c27d0bfebe404c13d4c1b1a76dc62d17733ae3c57071c456f4f94d18351cbd8b",
+      "match": true
+    }
+  ],
+  "workflow": {
+    "id": 38846648097,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/gsyIsWatchingU/gsyIsWatchingU.github.io/actions/runs/38846648097"
+  }
+}
